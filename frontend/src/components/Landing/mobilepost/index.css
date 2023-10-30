@@ -1,0 +1,92 @@
+.section-post-mobile {
+    position: relative;
+    top: 80px;
+    height: 75vh;
+    width: 100%;
+    animation:animatethis 0.4s linear;
+
+}
+
+.cut {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+}
+
+.post-mobile-button {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+
+.post-mobile-button button {
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    background-color: transparent;
+    color: #25CED1;
+    border: 2px solid #25CED1;
+
+}
+
+.more-options {
+    width: 80%;
+    left: 10%;
+    right: 10%;
+    height: 80px;
+    position: absolute;
+    bottom: 45px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgb(219, 219, 219);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+}
+
+.options-mobile-user-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.posticons {
+    height: 25px;
+    width: 25px;
+}
+
+.video-mobile-posting {
+    height: 25px;
+    width: 35px;
+}
+
+
+.photo-popup-mobile {
+    position: absolute;
+    height: 75vh;
+    width: 100vw;
+    backdrop-filter: blur(10px);
+    
+    top: 0px;
+    display:flex;flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    animation:animatethis 0.4s linear;
+    opacity:1;
+    
+}
+.photo-popup-mobile button{
+    border:1px solid rgb(6, 151, 115);background:none;
+    color:rgb(6, 151, 115);
+    border-radius: 10px;width:100px;height:25px;
+}
+@keyframes animatethis{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}

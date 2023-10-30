@@ -1,0 +1,86 @@
+.main-7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 30px;
+}
+.main-7 h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.head-7>h2 {
+  font-size: 1.7rem;
+}
+
+.head-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 50px;
+}
+
+.details-wp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  align-items: center;
+}
+.details-wp div {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+}
+.wp {
+  width: 310px;
+  padding: 12px;
+  box-shadow: 0px 0px 20px rgb(189, 188, 188);
+  background-color: white;
+  border-radius: 10px;
+}
+.Upi {
+  width: 310px;
+  padding: 12px;
+  box-shadow: 0px 0px 20px rgb(189, 188, 188);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.finish {
+  display: flex;
+  justify-content: center;
+}
+.finishbt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  background: #13d755;
+  width: 83px;
+  height: 56px;
+  color: white;
+}
+
+.finishbt:hover {
+  background: #0eb646;
+  cursor: pointer;
+}
+
+/* ===================ACTIVE STATUS===================== */
+
+.wp:focus,
+.Upi:focus {
+  border: 1px solid #007bff;
+  /* Blue border */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  /* Blue box shadow */
+  outline: none;
+  /* Remove default outline */
+}

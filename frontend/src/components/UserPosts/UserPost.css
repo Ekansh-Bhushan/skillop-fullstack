@@ -1,0 +1,36 @@
+.people-post2 {
+  margin-left: 20vw;
+  width: 50%;
+}
+
+.people-post2 h1 {
+  padding: 40px;
+}
+
+/* 
+.main-content-landing2 {
+  position: relative;
+  top: 50px;
+  display: flex;
+  left: 250px;
+  z-index: 2;j
+  height: 100%;
+  width: calc(100% - 300px);
+} */
+
+@media screen and (max-width: 500px) {
+  .people-post2 {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 50px;
+  }
+
+  .people-post2 h1 {
+    width: 100%;
+    text-align: center;
+  }
+}

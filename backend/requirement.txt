@@ -1,0 +1,21 @@
+PORT=4000
+MongoURL="mongodb+srv://x:x@cluster0.us5zkc1.mongodb.net"
+
+DB = "skillop-db"
+
+JWT_KEY = "i have 777 permissions"
+
+PASSWORD_RESET_LINK_EXPIRY = 10 
+
+EMAIL = "noreply.skillop@gmail.com"
+EMAIL_PASSWORD = "oopnqosnwplevlxy"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 465
+EMAIL_SERVICE = "gmail"
+
+
+MAX_IMAGES_PER_POST = 8
+
+BASE_URL = "http://localhost:4000"
+
+DEFAULT_TIME_EVENT_NOTIFICATION = 5

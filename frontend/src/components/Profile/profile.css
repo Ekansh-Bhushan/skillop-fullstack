@@ -1,0 +1,476 @@
+.profileevents-profilepage {
+  margin-top: -2.5%;
+}
+
+.main-profile-page {
+  margin-left: -200px;
+}
+
+#spinner-prof {
+  position: fixed;
+  top: 20px;
+  left: 48vw;
+  height: 100px;
+  width: 100px;
+}
+
+.profile-heading {
+  color: #000;
+  font-style: normal;
+  line-height: 31px;
+  letter-spacing: 0.64px;
+  text-transform: capitalize;
+  margin-left: 21%;
+  margin-top: 4%;
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 31px;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+.profile-data {
+  margin-left: 22%;
+  margin-top: 4%;
+}
+
+.profile-data hr {
+  width: 612px;
+  height: 1.5px;
+  background: #909090;
+}
+
+/* ============================================ JOURNEY ============================================= */
+
+.journey-content {
+  /* height: 48px;
+      width: 486px; */
+  /* Allow content to wrap naturally */
+  width: 612px;
+  /* Set the desired width */
+  /* Set margin for space below the "Journey" heading */
+  margin-top: 16px;
+  overflow: hidden;
+  max-height: 48px;
+  /* Adjust the max height as needed for 3 lines of text */
+  transition: max-height 0.3s ease;
+  /* Add a smooth transition */
+  font-size: 1.1rem;
+}
+
+.journey-content.expanded {
+  max-height: none;
+  /* Allow content to expand fully when expanded */
+}
+
+.lorem-ipsum-dolor.expanded {
+  max-height: none;
+  /* Allow content to expand fully when expanded */
+}
+
+.journey-content .lorem-ipsum-dolor {
+  color: transparent;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  /* left: 0; */
+  letter-spacing: 0.48px;
+  line-height: 16px;
+
+  margin-bottom: 1px;
+}
+
+.text-wrapper {
+  color: #181818;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  line-height: 24px;
+  display: block;
+  max-width: 96%;
+}
+
+@media (max-width: 400px) {
+  .profile-data {
+    margin-top: 75vh;
+    margin-left: 50vw;
+  }
+  .loader {
+    display: none;
+  }
+  .profile-heading {
+    margin-top: 50px;
+    font-size: x-large;
+    margin-left: 35px;
+  }
+  .text-wrapper {
+    color: #181818;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    line-height: 24px;
+    display: block;
+    max-width: 55%;
+  }
+  .spinner {
+    display: none;
+  }
+}
+
+.edit-button-text {
+  color: #3f75ff;
+  /* Set the text color to blue */
+  cursor: pointer;
+  /* Show a pointer cursor on hover (to indicate interactivity) */
+  margin-left: 10px;
+  /* Add some space to the left of the text */
+  font-size: 14px;
+  /* Set the font size to your desired size */
+  font-weight: normal;
+  /* Remove bold font weight */
+}
+
+.long-textarea {
+  width: 52%;
+  height: 110px;
+  border-radius: 5px;
+  resize: none;
+  padding: 10px;
+  vertical-align: top;
+  font-size: 1.2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+@media screen and (max-width: 500px) {
+  .long-textarea {
+    width: 90%;
+    margin-top: 10px;
+  }
+}
+
+.read-more-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: #3f75ff;
+  cursor: pointer;
+  margin-left: 23%;
+  font-size: 1.2rem;
+}
+
+.journey {
+  /* margin-bottom: 20px; */
+  padding: 25px;
+}
+
+/* ============================================ SKILLS ============================================= */
+
+.skills {
+  /* Add margin-top to create space between "Experience" heading and line above it */
+  margin-top: 16px;
+  padding: 40px 30px 40px 25px;
+  /* Adjust the value as needed */
+}
+
+.skills h3 {
+  /* Optionally, you can add margin-bottom to create space between the heading and content */
+  margin-bottom: 16px;
+  /* Adjust the value as needed */
+}
+
+.skills-content {
+  /* Add margin-top to create space between content and line above it */
+  margin-bottom: 2px;
+  border: 1px solid #b1b1b1;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 7px;
+  font-size: 1.2rem;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  gap: 7px;
+  width: auto;
+  padding: 12px 12px 12px 12px;
+  align-items: center;
+  justify-content: center;
+  /* Adjust the value as needed */
+}
+
+.skills-cont {
+  display: flex;
+  gap: 12px;
+  width: 60%;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 400px) {
+  .skills-cont {
+    display: flex;
+    gap: 12px;
+    width: 90%;
+    flex-wrap: wrap;
+    padding: 5px;
+    /* margin-bottom: 20px; */
+  }
+
+  .read-more-button {
+    color: #3f75ff;
+    margin-left: 25vw;
+  }
+}
+
+#skills-cont {
+  padding: 17px 30px 17px 25px;
+}
+
+/* ============================================ EDUCATION ============================================= */
+
+.education {
+  /* Add margin-top to create space between "Experience" heading and line above it */
+  margin-top: 16px;
+  padding: 40px 30px 40px 25px;
+  /* Adjust the value as needed */
+}
+
+.education-content {
+  /* Add margin-top to create space between content and line above it */
+  margin-bottom: 3rem;
+  padding-left: 20px;
+  margin-top: 1.5rem;
+  /* Adjust the value as needed */
+}
+.education-content #edu-field {
+  /* Add margin-top to create space between content and line above it */
+  margin-bottom: 2rem;
+  padding-left: 0px;
+  /* Adjust the value as needed */
+}
+
+.education-qualification {
+  font-size: 1.3rem;
+  margin: 10px;
+  font-weight: bolder;
+}
+
+.degree {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin: 10px;
+}
+
+.institute-address {
+  margin: 10px;
+}
+/* ============================================ EXPERIENCE ============================================= */
+
+.experience {
+  /* Add margin-top to create space between "Experience" heading and line above it */
+  /* margin-top: 16px; */
+  padding: 40px 30px 40px 25px;
+  /* Adjust the value as needed */
+}
+
+.line {
+  max-width: 90%;
+}
+
+.experience h3 {
+  /* Optionally, you can add margin-bottom to create space between the heading and content */
+  margin-bottom: 16px;
+  /* Adjust the value as needed */
+}
+
+.experience-content {
+  /* Add margin-top to create space between content and line above it */
+  margin-bottom: 2rem;
+  padding-left: 30px;
+  margin-top: 1.5rem;
+  width: 1%;
+  display: flex;
+  align-items: center;
+  /* Adjust the value as needed */
+}
+
+.job-title {
+  font-size: 1.3rem;
+  margin: 10px;
+  font-weight: bolder;
+}
+
+.jd {
+  font-size: 1rem;
+  margin: 10px;
+  overflow: hidden;
+  width: 60%;
+}
+
+.experience-content .company {
+  font-size: 1.1rem;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.co-location {
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+.add-icon {
+  cursor: pointer;
+  margin-left: 1%;
+  /* Adjust the margin as needed to separate the icon from the heading */
+  color: white !important;
+  /* Set the icon color to white */
+  background-color: #2d8aff;
+  /* Set the background color to blue */
+  padding: 0px;
+  /* Optional: Add padding to the icon container for spacing */
+  border-radius: 50%;
+  /* Optional: Add border-radius for a circular background */
+}
+
+.add-icon:hover {
+  opacity: 0.7;
+}
+
+.add-icon-container {
+  display: flex;
+  align-items: center;
+  /* gap: 44%; */
+  /* Align items vertically */
+}
+
+#edit-text {
+  /* margin-right: -40%; */
+  margin-left: 50%;
+  /* Adjust the margin as needed to reduce the gap */
+}
+
+.profile-page-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.date {
+  font-size: 1.1rem;
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid rgb(93, 93, 93);
+  padding-bottom: 15px;
+  width: 33rem;
+  margin-left: -8px;
+}
+
+.gap {
+  margin-left: 3rem;
+}
+
+.date-m {
+  color: rgb(66, 66, 66);
+}
+
+.more {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 22%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #3f75ff;
+}
+
+.journey > h1 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: 0.02em;
+}
+
+.experience > h1 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: 0.02em;
+}
+
+.skills > h1 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: 0.02em;
+}
+
+.education > h1 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: 0.02em;
+}
+
+@media only screen and (min-width: 1400px) {
+  .main-profile-page {
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .journey {
+    margin-left: 20px;
+  }
+  .line {
+    margin: auto;
+    /* max-width: 50%; */
+  }
+
+  .experience-content {
+    padding-left: 10px;
+    margin-top: 1.5rem;
+    width: 1%;
+    display: flex;
+    align-items: center;
+    /* Adjust the value as needed */
+  }
+
+  .date {
+    width: 100%;
+  }
+
+  .education-content {
+    margin-bottom: 3rem;
+    padding-left: 0px;
+    margin-top: 1.5rem;
+    margin-right: 40px;
+  }
+  .profile-page-content {
+    margin-left: 0px;
+  }
+
+  .company {
+    font-size: 1rem;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgb(93, 93, 93);
+    padding-bottom: 15px;
+    margin-inline: 8px;
+    width: 140%;
+    color: #909090;
+  }
+
+  .education-qualification {
+    font-size: 1rem;
+    margin: 10px;
+    font-weight: bolder;
+  }
+
+  .degree {
+    font-size: 0.8rem;
+    font-weight: bolder;
+    margin: 10px;
+  }
+}

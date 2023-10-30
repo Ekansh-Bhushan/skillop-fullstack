@@ -1,0 +1,48 @@
+.mobile-head {
+	display: flex;
+	height: 80px;
+	width: 100vw;
+	backdrop-filter: blur(10px);
+	align-items: center;
+	position: fixed;
+	z-index: 10;
+	display: none;
+}
+.back-n-logo {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: 10px;
+}
+.logo-mobile {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 20px;
+	margin-left: 15px;
+}
+
+.notification-n-chat {
+	display: flex;
+	font-size: 30px;
+	position: absolute;
+	right: 10px;
+	gap: 20px;
+}
+
+.more-vertical-options > div:hover {
+	border-radius: 30px;
+	border: 1.5px solid rgb(55, 194, 218);
+	width: 80px;
+	/* display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 25px; */
+	padding: 10px 20px;
+}
+
+@media only screen and (max-width: 500px) {
+	.mobile-head {
+		display: flex;
+	}
+}

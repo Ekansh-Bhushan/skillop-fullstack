@@ -1,0 +1,266 @@
+.partition-plus-panel {
+  height: 100vh;
+  width: 400px;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  left: 70px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 20px rgb(255, 255, 255);
+  top: 20px;
+  left: 8vw;
+  margin-left: 18vw;
+}
+
+.partition-s {
+  height: 98%;
+  width: 2px;
+  background-color: rgb(171, 171, 171);
+  margin-left: 10px;
+}
+
+.search-panel {
+  height: 100vh;
+  width: 400px;
+  padding-top: 55px;
+}
+.search-input {
+  font-size: "15px";
+  padding-left: "30px";
+}
+
+.search-head {
+  font-size: 2.4rem;
+  /* padding-left: 40px; */
+  font-weight: 500;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 400px) {
+  .search-panel {
+    padding-top: 150px;
+    padding-left: 20px;
+  }
+  .search-head {
+    padding-left: 10px;
+    padding-bottom: 20px;
+  }
+}
+
+.input-div-search {
+  width: 110%;
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+  border: 0.1px solid gray;
+  box-shadow: 0px 0px 20px rgb(226, 226, 226);
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+}
+
+@media (max-width: 400px) {
+  .input-div-search {
+    width: 90%;
+  }
+}
+
+.input-div-search input {
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.filter-options-search {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  gap: 15px;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.filterss {
+  cursor: pointer;
+  transition: 0.1s;
+  color: gray;
+  font-size: 1.1rem;
+}
+
+#people-search {
+  font-weight: 800;
+  color: black;
+}
+
+.filterInput > input {
+  background: white;
+}
+
+.next-partition {
+  width: 110%;
+  height: 1px;
+  background-color: rgb(182, 182, 182);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.filtered-search-results {
+  position: relative;
+  top: 7vh;
+  left: 24vw;
+  height: 600px;
+  width: 30%;
+  background: rgb(255, 255, 255);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  align-items: center;
+  gap: 10px;
+}
+
+.colored-filter-btn {
+  padding: 10px;
+  border-radius: 14px;
+  background: blue;
+  color: white;
+  font-size: 1.05rem;
+  border: none;
+}
+
+@media (max-width: 400px) {
+  .filtered-search-results {
+    width: 100%;
+    top: 45vh;
+    left: 0;
+    height: 45vh;
+  }
+  .no-results-search {
+    text-align: center;
+    padding: 20px;
+  }
+}
+.filtered-search-results::-webkit-scrollbar {
+  display: none;
+  /* Hide the scrollbar for WebKit (Chrome, Safari, etc.) */
+}
+.sresult-1 {
+  width: 90%;
+  height: auto;
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+  align-items: center;
+}
+
+@media (max-width: 400px) {
+  .sresult-1 {
+    gap: 20px;
+  }
+}
+
+.sresult-1:hover {
+  background: #f4d76f;
+  border-radius: 20px;
+}
+
+.searched-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.searched-user {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.filterBY {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+
+.filter-btn {
+  padding: 10px;
+  border-radius: 14px;
+  background: blue;
+  color: white;
+  font-size: 1.05rem;
+  border: none;
+}
+
+.filterInput > input {
+  width: 100%;
+  margin: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 11px;
+  border: 0.1px solid gray;
+}
+
+.filter-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1400px) {
+  .partition-plus-panel {
+    margin-left: 30px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .filterBY {
+    margin-right: 15px;
+    margin-top: 20px;
+  }
+  .filter-btn {
+    padding: 6px 8px;
+  }
+
+  .partition-plus-panel {
+    margin-left: 0px;
+    left: 0px;
+  }
+  .search-panel {
+    width: 100vw;
+  }
+  .filterInput {
+    position: absolute;
+    top: 29vh;
+    left: 20vw;
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+  }
+  .filterInput > input {
+    width: 50%;
+    margin: 5px;
+    padding: 6px;
+    font-size: 1rem;
+    border-radius: 11px;
+    border: 0.1px solid gray;
+  }
+  .colored-filter-btn {
+    opacity: 50%;
+    padding: 6px 8px;
+    border-radius: 14px;
+
+    color: white;
+    font-size: 1.05rem;
+    border: none;
+  }
+}

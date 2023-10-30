@@ -1,0 +1,190 @@
+.main-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+.main-5 h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 1.7rem;
+}
+
+.head-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 50px;
+}
+.details-college {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  gap: 2.2vw;
+}
+.college-name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.state,
+.college,
+.city {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.state-choices,
+.college-choices,
+.city-choices {
+  width: 250px;
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+  padding: 5px;
+  box-shadow: 0px 0px 20px rgb(199, 199, 199);
+}
+.next-5 {
+  display: flex;
+  justify-content: center;
+}
+
+.year-details {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.gradyear,
+.degree,
+.fieldOfStudy {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gradyear input,
+.degree input,
+.fieldOfStudy input {
+  background: white;
+  box-shadow: 0px 0px 20px rgb(199, 199, 199);
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.nextbtn-5 {
+  width: 83px;
+  height: 56px;
+  color: white;
+  border: none;
+
+  background-color: rgb(108, 171, 249);
+  border-radius: 16px;
+}
+
+.nextbtn-5:hover {
+  background-color: #1fa9ab;
+  cursor: pointer;
+}
+
+.main-5-btnCont {
+  display: flex;
+  place-content: center;
+  margin-top: 40px;
+  gap: 50px;
+  margin-bottom: 10px;
+}
+
+.main-5-btnCont .next2 {
+  width: 83px;
+  height: 56px;
+  color: white;
+  border: none;
+  background-color: rgb(108, 171, 249);
+  border-radius: 16px;
+}
+
+.main-5-btnCont .back {
+  border: none;
+  border-radius: 16px;
+  background: #13d755;
+  width: 83px;
+  height: 56px;
+  color: white;
+}
+
+.main-5-btnCont .next2:hover {
+  background-color: #1fa9ab;
+  cursor: pointer;
+}
+
+.main-5-btnCont .back:hover {
+  background: #0eb646;
+  cursor: pointer;
+}
+
+/* ====================ACTIVE STATUS ON INPUT FIELDS========================== */
+.college-name:focus,
+.year:focus {
+  border: 1px solid #007bff;
+  /* Blue border */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  /* Blue box shadow */
+  outline: none;
+  /* Remove default outline */
+}
+
+@media screen and (max-width: 500px) {
+  .main-5 {
+    gap: 0px;
+  }
+  .head-5 {
+    margin-inline: 4px;
+    margin-bottom: 20px;
+  }
+  .year-details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .state-choices,
+  .college-choices,
+  .city-choices {
+    width: 250px;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    padding: 5px;
+    box-shadow: 0px 0px 20px rgb(199, 199, 199);
+  }
+
+  .degree-choices,
+  .study-choices,
+  .start-choices,
+  .end-choices {
+    width: 230px;
+    border: none;
+    border-radius: 10px;
+    height: 20px;
+    padding: 5px;
+    box-shadow: 0px 0px 20px rgb(199, 199, 199);
+  }
+
+  .main-5-btnCont {
+    display: flex;
+    place-content: center;
+    margin-top: 40px;
+    gap: 50px;
+    margin-bottom: 10px;
+  }
+  .options {
+    max-width: 50px;
+  }
+}

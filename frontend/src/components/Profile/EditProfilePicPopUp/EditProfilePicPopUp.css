@@ -1,0 +1,67 @@
+.bg-blur {
+    width: 100vh;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    backdrop-filter: blur(10px);
+}
+
+.edit-container {
+    position: fixed;
+    /* top: 10px; */
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    border: 2px solid black;
+    background: white;
+    min-width: 400px;
+    padding: 0px 30px 0px 30px;
+}
+
+.headerPic {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.cross1:hover {
+    cursor: pointer;
+}
+
+.pp {
+    border-radius: 100%;
+    border: 4px solid black;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+    margin: 30px;
+}
+
+.change-pic, .delete-pic {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.change-pic:hover, .delete-pic:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.upload-button {
+    background: greenyellow;
+    padding: 5px;
+}
+.upload-button:hover {
+    background: rgb(156, 251, 12);
+}

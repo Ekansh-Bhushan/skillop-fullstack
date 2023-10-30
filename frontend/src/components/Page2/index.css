@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  background: rgb(224, 223, 223);
+  display: flex;
+  gap: 50px;
+  font-family: "Ubuntu";
+  flex-direction: column;
+}
+
+.header {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.header span {
+  font-weight: bold;
+  font-family: "Ubuntu";
+  font-size: 20px;
+}
+
+.main-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 70px;
+}
+
+.main-2 h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+}
+.head-2 div {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}
+.head-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.profiles {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (max-width: 490px) {
+  .profiles {
+    flex-direction: column;
+  }
+}
+.pt {
+  color: rgb(127, 127, 127);
+}
+.Mentor,
+.Mentee {
+  height: 193px;
+  width: 181px;
+  background-color: white;
+  position: relative;
+  transition: 0.5s;
+}
+.Mentor {
+  background-image: url("../../components/images/mentor.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.Mentor:hover,
+.Mentee:hover {
+  transform: scale(120%);
+}
+.Mentee {
+  background-image: url("../../components/images/mentee.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.btnCont {
+  display: flex;
+  place-content: center;
+  margin-top: 40px;
+  gap: 50px;
+  margin-bottom: 10px;
+}
+.btnCont .next2 {
+  width: 83px;
+  height: 56px;
+  color: white;
+  border: none;
+  background-color: rgb(108, 171, 249);
+  border-radius: 16px;
+}
+
+.btnCont .back {
+   border: none; 
+    border-radius: 16px;
+    background: #13d755;
+    width: 83px; 
+    height: 56px; 
+    color: white; 
+}
+
+.btnCont .next2:hover {
+  background-color: #1fa9ab;
+  cursor: pointer;
+}
+
+.btnCont .back:hover {
+  background: #0eb646;
+  cursor: pointer;
+}
+

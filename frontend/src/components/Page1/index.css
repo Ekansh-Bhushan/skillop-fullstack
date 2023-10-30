@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  background: rgb(224, 223, 223);
+  display: flex;
+
+  gap: 30px;
+  font-family: "Ubuntu";
+
+  flex-direction: column;
+}
+
+.Content-Head {
+  width: 100%;
+
+  /*background: blue;*/
+  display: flex;
+  place-content: center;
+  font-size: 35px;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+.linkedin-btn {
+  background-color: rgb(108, 171, 249);
+  cursor: pointer;
+}
+
+.linkedin-btn:hover {
+  background-color: rgb(89, 161, 248);
+}
+
+.google-btn:hover {
+  background-color: rgb(240, 239, 239);
+}
+
+.linkedin {
+  color: white;
+}
+
+.google-btn {
+  background-color: white;
+  cursor: pointer;
+}
+
+.linkedin-btn,
+.google-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  width: 250px;
+  height: 62px;
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  gap: 40px;
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .main-form {
+    margin-top: 20px;
+  }
+}
+
+.partition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.p1,
+.p2 {
+  width: 180px;
+  height: 2px;
+  background-color: rgb(192, 189, 189);
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: rgb(235, 235, 235);
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.name input {
+  height: 30px;
+  width: 220px;
+}
+
+.firstname,
+.lastname,
+.email,
+.pass {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.firstname label,
+.lastname label,
+.email label,
+.pass label {
+  position: relative;
+  left: 10px;
+}
+
+.id {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 1px;
+  align-items: center;
+}
+
+@media only screen and (min-width: 501px) {
+  .email input,
+  .pass input {
+    width: 486px;
+    height: 32px;
+  }
+}
+
+.getstart {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 2px;
+}
+
+.getstart button {
+  width: 140px;
+  height: 50px;
+  border-radius: 16px;
+  border: none;
+  color: white;
+  background: #25ced1;
+}
+
+.getstart button:hover {
+  background: #1fa9ab;
+  cursor: pointer;
+}
+
+.changepage {
+  display: flex;
+  justify-content: center;
+}
+
+.functionhandler {
+  color: rgb(57, 131, 247);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 501px) {
+  .name input,
+  .id input {
+    width: 300px;
+    height: 32px;
+    padding: 8px;
+    font-size: larger;
+  }
+}
+.hidethis {
+  display: none;
+}
+
+.partition-on-mob {
+  width: 80%;
+  height: 2px;
+  background-color: gray;
+}
+.partition-on-pc {
+  height: 400px;
+  background-color: gray;
+  width: 2px;
+}
+@media only screen and (max-width: 1210px) {
+  .display-on-pc {
+    display: none;
+  }
+  .display-only-on-mobile {
+    display: none;
+  }
+  .partition-on-mob {
+    display: block;
+  }
+  .partition-on-pc {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1210px) {
+  .display-on-pc {
+    display: block;
+  }
+  .display-only-on-mobile {
+    display: none;
+  }
+
+  .partition-on-mob {
+    display: none;
+  }
+  .partition-on-pc {
+    display: block;
+  }
+}
+
+/* ====================ACTIVE STATUS ON INPUT FIELDS========================== */
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid #007bff;
+  /* Blue border */
+  transition: border-color 0.3s ease;
+  /* Add smooth transition effect */
+}
+
+/*show password*/
+
+.password-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.password-toggle-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  right: 10px;
+  top: 50%; /* Vertically center the button */
+  transform: translateY(-50%); /* Adjust to properly center vertically */
+  transition: opacity 0.2s ease;
+}

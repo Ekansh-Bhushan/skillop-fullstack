@@ -1,0 +1,184 @@
+.prof-and-events1 {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: fixed;
+  top: 50px;
+  right: 0px;
+}
+
+.common-prof1 {
+  width: 95%;
+  position: relative;
+  box-shadow: 0px 0px 20px rgb(201, 200, 200);
+  border-radius: 16px;
+  height: 87vh;
+  background-image: url("../../images/Robo.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.name-cont {
+  padding: 0px 25px;
+  position: relative;
+  top: -37px;
+}
+
+.about-title {
+  margin-bottom: 10px;
+}
+
+.about {
+  margin: 0px 9px;
+  padding: 0px 15px 0px 35px;
+}
+
+.common-prof-info1 {
+  height: 80%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.prof-image-common1 {
+  height: 135px;
+  width: 135px;
+  background-size: cover;
+  border-radius: 100%;
+  background-color: #ffffff;
+  position: relative;
+  top: -60px;
+}
+
+/* .mentorRing {
+	border-radius: 100%;
+} */
+
+.user-name1 {
+  padding: 0px 5px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.follow span {
+  border-radius: 17px;
+  padding: 10px;
+  background: black;
+  color: white;
+}
+
+.view-my-prof1 {
+  padding: 8px 36px 8px 36px;
+  border: 2px solid #108cff;
+  border-radius: 25px;
+  color: #108cff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+.view-my-prof1:hover {
+  background-color: #108cff;
+  color: white;
+}
+
+#follow {
+  top: 540px;
+  left: 906px;
+  padding: 12px 26px 12px 26px;
+  border-radius: 16px;
+  gap: 8px;
+  background: #25ced1;
+  box-shadow: 0px 8px 20px 0px #25ced126;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#follow:hover {
+  background: #11dbde;
+}
+
+#bookSlot {
+  top: 540px;
+  left: 1067px;
+  padding: 12px 26px 12px 26px;
+  border-radius: 16px;
+  gap: 8px;
+  background: #000000;
+  box-shadow: 0px 8px 20px 0px #25ced126;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#bookSlot:hover {
+  background: #1f1f1f;
+}
+
+#chatpub,
+#postpub {
+  border-radius: 10px;
+  padding: 4px;
+  transition: transform ease 0.3s;
+}
+
+#chatpub:hover,
+#postpub:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1400px) {
+  .prof-and-events1 {
+    right: 70px;
+  }
+}
+@media only screen and (max-width: 1190px) {
+  .common-prof1 {
+    width: 100%;
+  }
+  .prof-and-events1 {
+    width: 70%;
+    max-width: 1000px;
+    min-width: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .prof-image-common1 {
+    height: 120px;
+    width: 120px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .common-prof1 {
+    width: 330px;
+    height: 70vh;
+  }
+
+  .prof-and-events1 {
+    margin-top: 60px;
+    /* margin: 8px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about {
+    margin: 0px 0px;
+    padding: 0px 15px 5px 35px;
+  }
+  .name-cont {
+    bottom: 0px;
+  }
+}

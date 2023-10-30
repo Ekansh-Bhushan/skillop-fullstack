@@ -1,0 +1,49 @@
+.bg-follow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+}
+
+.follow-container {
+  border-radius: 13px;
+  padding: 1vw 3vw;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 1000;
+  width: 30vw;
+  box-shadow: 2px 2px 6px 1px;
+  max-height: 88vh;
+  overflow: auto;
+}
+
+.follow-container div {
+  border: 2px solid black;
+  border-radius: 35px;
+  padding: 10px;
+  margin: 10px;
+  background: white;
+  font-size: 1.1rem;
+}
+.follow-container div:hover {
+  cursor: pointer;
+  background: rgb(245, 244, 244);
+}
+
+#close-follow {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .follow-container {
+    width: 70vw;
+    height: 40vh;
+    padding: 10px;
+  }
+}

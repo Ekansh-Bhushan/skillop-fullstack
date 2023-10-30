@@ -1,0 +1,172 @@
+.notify-btns {
+  border: none;
+  display: flex;
+  gap: 10px;
+  /* This sets the gap between buttons */
+  margin-top: 2%;
+  position: relative;
+  /* Add positioning for the line */
+}
+
+.notify-btns button {
+  padding: 10px 20px;
+  border-radius: 35%;
+  margin-right: 20px;
+  /* Add margin between buttons */
+  /* width: 94px; */
+  height: 32px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  /* background-color: #25ced1;
+  color: white; */
+  transition: background-color 0.3s, color 0.3s;
+  /* Add smooth transition */
+}
+
+.notify-btns button.selected {
+  background-color: #25ced1;
+  color: white;
+}
+
+/* .notify {
+  margin-left: 40%;
+  margin-top: 2%;
+} */
+
+/* Add styles for the horizontal line */
+.notify-btns::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -24px;
+  /* Adjust this value to control the distance of the line from buttons */
+  height: 1px;
+  background-color: black;
+  width: 425px;
+}
+
+/* =================================== NOTIFICATION ====================================== */
+
+.notify {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* z-index: 100%; */
+  margin-left: 0%;
+  margin-right: 10%;
+}
+
+.spinner-css {
+  margin-top: 10vh;
+  margin-left: 0vw;
+  height: 72px;
+  width: 72px;
+}
+
+@media screen and (max-width: 400px) {
+  .spinner-css {
+    margin-top: 10vh;
+    margin-left: 30vw;
+    height: 72px;
+    width: 72px;
+  }
+
+  .notify {
+    margin-top: 30px;
+  }
+
+  .heading {
+    margin-bottom: 30px;
+    display: none;
+  }
+
+  .notify-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 150px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    gap: 2px;
+  }
+
+  .notify-btns button {
+    padding: 18px 20px;
+    border-radius: 30px;
+  }
+}
+
+.heading {
+  margin-top: 1%;
+}
+
+.profile-events {
+  margin-top: -36.5rem;
+}
+
+.side-nav-notifications {
+  margin-right: 100%;
+  margin-top: -40%;
+}
+
+.box-color {
+  border-radius: 12px;
+  box-shadow: 2px 2px 30px rgb(219, 219, 219);
+  background: rgba(242, 223, 154, 1);
+  margin-left: 0px;
+  height: 9vh;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid gray;
+  margin: 1.5px;
+}
+
+.box {
+  margin-left: 0px;
+  height: 9vh;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid gray;
+  margin: 1.5px;
+}
+
+@media screen and (max-width: 400px) {
+  .box {
+    margin-left: 120px;
+  }
+  .box-color {
+    margin-left: 120px;
+  }
+
+  .notify-btns::after {
+    /* width: 306px; */
+    /* margin-left: 30px; */
+    display: none;
+  }
+}
+
+.box:hover {
+  background-color: #f4d76f;
+  border-radius: 12px;
+}
+
+.no-notify {
+  margin-top: 70px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .profile-notify {
+    width: 60%;
+    margin-left: 7vw;
+  }
+
+  .no-notify {
+    margin-top: 70px;
+    margin-left: 130px;
+    text-align: center;
+  }
+}

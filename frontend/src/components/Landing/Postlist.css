@@ -1,0 +1,38 @@
+.user-new-post2 {
+  width: 140%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background: white;
+  z-index: 500;
+  gap: 60px;
+  margin-left: 30vw;
+  position: fixed;
+  top: 0px;
+  padding: 20px;
+  box-shadow: 2px 2px 7px 1px rgb(192, 192, 192);
+  transition: all ease-in-out 0.3s;
+}
+
+.user-new-post2 #post-user {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.user-post-head2 {
+  position: relative;
+  top: 50px;
+  transition: all ease-in-out 0.3s;
+}
+
+@media (max-width: 400px) {
+  .user-post-head2 {
+    margin-bottom: 100px;
+  }
+
+  .user-new-post2 {
+    display: none;
+  }
+}

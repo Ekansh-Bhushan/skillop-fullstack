@@ -1,0 +1,55 @@
+.edit-input {
+  background: #83ff81;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: black;
+}
+
+.edit-input:hover {
+  background-color: white;
+  color: black;
+  border: 4px solid #83ff81;
+  box-shadow: 0px 8px 20px 0px #25ced126;
+}
+
+.edit-pass {
+  background: #81d1ff;
+  color: black;
+  padding: 16px 20px;
+  cursor: pointer;
+  border: 4px solid white;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 17px;
+}
+
+.edit-pass:hover {
+  background-color: white;
+  border: 4px solid #81d1ff;
+  box-shadow: 0px 8px 20px 0px #25ced126;
+}
+
+.social-details {
+  text-wrap: wrap;
+  background: transparent;
+  /* padding: 20px; */
+  background: linear-gradient(
+    179.81deg,
+    #effcff 0.17%,
+    rgba(247, 239, 255, 0.5) 57.42%,
+    rgba(240, 255, 180, 0) 114.68%
+  );
+}
+
+@media only screen and (min-width: 1400px) {
+  .dash-main {
+    position: relative;
+    left: 21vw;
+    width: 100%;
+  }
+
+  .social-details {
+    width: 150%;
+  }
+}

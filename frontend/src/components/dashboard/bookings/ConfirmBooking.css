@@ -1,0 +1,157 @@
+.confirm-container {
+	position: relative;
+	top: 50px;
+	left: 10vw;
+	display: flex;
+	width: calc(100% - 300px);
+}
+
+.cnf-prof-pic {
+	border-radius: 100%;
+	height: 10vw;
+	width: 10vw;
+	margin-bottom: 3vh;
+}
+
+.left-content {
+	border-right: 2px solid black;
+	padding: 1vw;
+	padding-right: 3vw;
+}
+
+.left-content > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.cnf-user {
+	margin-bottom: 20vh;
+}
+
+.cnf-line {
+	background: #25ced1;
+	width: 2px;
+	height: 70px;
+	position: relative;
+	left: 1.8vw;
+	top: 2vh;
+}
+.cnf-line2 {
+	background: #d4d4d4;
+	width: 2px;
+	height: 70px;
+	position: relative;
+	left: 1.8vw;
+	top: -2.1vh;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#cnf-circle {
+	width: 1.8vw;
+	height: 1.8vw;
+	margin: 1vw;
+	border: none;
+	border-radius: 100%;
+	background-color: #25ced1;
+}
+
+#cnf-round {
+	width: 1.8vw;
+	height: 1.8vw;
+	margin: 1vw;
+	border-radius: 100%;
+	box-sizing: border-box;
+	background: #d9d9d9;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.left-content span {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.right-content {
+	margin: auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 2.5vw;
+}
+
+.right-content h2 {
+	margin: auto;
+	position: absolute;
+	top: 3vh;
+}
+
+.cnf-video {
+	display: flex;
+	gap: 30px;
+}
+
+.call-details,
+.call-date {
+	display: flex;
+	border: 2px solid rgb(244, 244, 1);
+	border-radius: 20px;
+	padding: 1vw;
+	flex-direction: column;
+	gap: 9vh;
+}
+
+.call-details > div,
+.call-date > div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 7vw;
+}
+
+.call-date {
+	border: 2px solid orange;
+}
+
+.coupon-text {
+	width: 100%;
+	border-bottom: 1px solid black;
+	font-size: 1.05rem;
+    border-radius: 0;
+}
+
+.pay-details {
+	display: flex;
+	flex-direction: column;
+	gap: 2vw;
+	width: 100%;
+}
+
+.session,
+.final-amt {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px; /* Adjust the gap value as needed */
+	width: 100%;
+}
+
+.proceed-btn {
+	border: none;
+	background: #25ced1;
+	cursor: pointer;
+	font-size: 1.05rem;
+	border-radius: 20px;
+	padding: 0.5vw 1.3vw;
+	margin: auto;
+	color: white;
+}
+
+@media only screen and (min-width:1400px) {
+	.confirm-container {
+		margin-left: 10vw;
+	}
+}

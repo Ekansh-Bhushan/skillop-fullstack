@@ -1,0 +1,249 @@
+.main-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 30px;
+}
+.main-3 h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+}
+.head-3 div {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}
+.head-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.options234 {
+      display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px;
+        gap: 20px;
+        margin-top: 10px;
+  
+}
+.row-1,
+.row-2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  /* limit number of element in a flex */
+  border: 2px solid #e0e0e0;
+  width: 50vw;
+  padding: 20px;
+  border-radius: 20px;
+    
+}
+
+@media screen and (max-width: 768px) {
+  .row-1,
+  .row-2 {
+    width: 80vw;
+  }
+}
+.skillbox,
+.row-2 div {
+  border-radius: 50px;
+  background-color: white;
+  /* box-shadow: 0px 0px 30px rgb(190, 190, 190); */
+  border: 2px solid #e0e0e0;
+  display: flex;
+  padding: 0px 20px 0px 12px;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+
+  height: 32px;
+}
+
+.other {
+  transition: 0.3s;
+}
+
+.explain {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: auto;
+
+  margin-right: auto;
+  gap: 10px;
+}
+.textarea-skills {
+  width: 40vmax;
+  outline: none;
+  border: none;
+  margin-right: auto;
+  font-family:'Ubuntu';
+  box-shadow:0px 0px 10px rgb(192, 192, 192);
+  height: 120px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  resize: none;
+}
+
+.btnCont {
+  display: flex;
+  place-content: center;
+  margin-top: 40px;
+  gap: 50px;
+  margin-bottom: 10px;
+}
+.btnCont .next2 {
+  width: 83px;
+  height: 56px;
+  color: white;
+  border: none;
+  background-color: rgb(108, 171, 249);
+  border-radius: 16px;
+}
+
+.btnCont .back {
+   border: none; 
+    border-radius: 16px;
+    background: #13d755;
+    width: 83px; 
+    height: 56px; 
+    color: white; 
+}
+
+.btnCont .next2:hover {
+  background-color: #1fa9ab;
+  cursor: pointer;
+}
+
+.btnCont .back:hover {
+  background: #0eb646;
+  cursor: pointer;
+}
+.colorchange {
+  background-color: greenyellow;
+}
+
+/* Style for selected skill blocks */
+.selectedSDF {
+  border: 2.5px solid #007bff;
+  /* Blue border */
+  /* outline: none; */
+  /* Remove default outline */
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  /* box-shadow: 2px 2px 7px #007bff; */
+}
+
+/* Style for hovered skill blocks */
+.options234 .row-1 > div:hover,
+.options234 .row-2 > div:hover {
+  background-color: #f4f4f4;
+  /* Light gray background */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* =========================== KARTIK ================================= */
+
+/* .selected-skill {
+  display: inline-flex;
+  align-items: center;
+  background-color: #108CFF;
+  border-radius: 20px;
+  padding: 15px 20px;
+  color: white;
+  margin: 5px;
+  position: relative;
+} */
+
+/* .remove-skill {
+  cursor: pointer;
+  position: absolute;
+  Position absolutely within the selected skill container
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+} */
+
+/* =========================== KARTIK ================================= */
+
+/* Styles for the container of ellipses */
+.elliptical-skills {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;  /* Allow wrapping to next line */
+  justify-content: center;   /* Center the blocks horizontally */
+  align-items: center; /* Center the blocks vertically */
+  gap: 10px;  /* Add some gap between the blocks */
+  padding: 5px;   /* Add some padding to the container */
+}
+
+/* .elliptical-skills.new-line {
+  flex-wrap: wrap;
+} */
+
+/* Styles for individual ellipses */
+.ellipse {
+  background-color: cyan;
+  border-radius: 20px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: calc(33.33% - 10px);   /* Distribute width for 3 skills in a line */
+  margin-bottom: 5px;   /* Add spacing between lines */
+  position: relative;
+}
+
+/* Styles for the skill name within the ellipse */
+.skill-name {
+  margin-right: 10px;
+  /* Add margin to the right of the skill name */
+}
+
+
+
+/* Styles for the remove skill icon */
+.remove-skill {
+  cursor: pointer;
+
+}
+
+.remove-skill:hover {
+  color: red;
+  /* Change the color of the cross on hover */
+  font-weight: bold;
+}
+
+/* .ellipse .remove-skill {
+  cursor: pointer;
+  margin-left: 10px;
+  Add some margin on the left side of the cross
+} */
+.next {
+  display: flex;
+  place-content: center;
+  margin-top: 10px;
+}
+.next button {
+  width: 83px;
+  height: 56px;
+  color: white;
+  border: none;
+  background-color: rgb(108, 171, 249);
+  border-radius: 16px;
+}
+
+.next button :hover {
+  background-color: #1fa9ab;
+  cursor: pointer;
+}

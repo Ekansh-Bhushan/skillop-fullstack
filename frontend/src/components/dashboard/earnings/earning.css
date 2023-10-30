@@ -1,0 +1,39 @@
+.earning-dash {
+	display: flex;
+	flex-direction: column;
+	width: 66%;
+	margin-left: 3vw;
+}
+
+.line-earning {
+	position: relative;
+	top: 19vh;
+}
+
+.info-dash-table {
+	padding-bottom: 20px;
+}
+
+#mentee_name {
+	cursor: pointer;
+}
+
+@media only screen and (min-width: 1400px) {
+	.earning-dash {
+		width: 50%;
+		margin-left: 0;
+	}
+}
+@media only screen and (max-width: 500px) {
+	.earning-dash {
+		width: 63%;
+	}
+
+	.line-earning {
+		display: none;
+	}
+
+	.info-dash-table {
+		margin-bottom: 30px;
+	}
+}

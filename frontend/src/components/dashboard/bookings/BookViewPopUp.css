@@ -1,0 +1,62 @@
+.book-view-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	backdrop-filter: brightness(50%);
+	z-index: 100;
+}
+
+.book-view-container {
+	position: fixed;
+	background: white;
+	top: 50vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+	padding: 1vw 2vw;
+	border-radius: 15px;
+}
+
+.book-view-container > div {
+	display: flex;
+	align-items: center;
+	gap: 2vw;
+	margin: 1.5vw;
+	font-size: 1.2rem;
+}
+
+.book-view-header {
+	padding-bottom: 1.5vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.book-view-header > img {
+	cursor: pointer;
+}
+
+/* #proof-link {
+    margin: 2vw;
+} */
+
+#book-accept-btn, #book-view-prof {
+	background: green;
+	padding: 0.5rem 1rem;
+	border-radius: 12px;
+	font-size: 1.1rem;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	margin-top: 10px;
+	border: none;
+}
+
+#book-view-prof {
+	background: rgb(43, 184, 240);
+}
+
+#book-accept-btn:hover, #book-view-prof:hover {
+	opacity: 0.9;
+}

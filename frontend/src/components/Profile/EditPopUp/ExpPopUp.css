@@ -1,0 +1,78 @@
+.blur-bg-prof {
+  position: fixed;
+  top: 0vh;
+  left: 0vw;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  backdrop-filter: brightness(60%);
+  z-index: 1000;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.exp-pop-up-container {
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid black;
+  padding: 25px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 7px 3px gray;
+  width: 40%;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 1000;
+}
+
+.exp-pop-up-container input {
+  margin: 10px;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1.2rem;
+  width: 70%;
+  background: #f5f4f4;
+}
+
+.exp-pop-up-container textarea {
+  margin: 10px;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1.1rem;
+  width: 70%;
+  background: #f0f0f0;
+}
+
+.exp-pop-up-container button {
+  width: 20%;
+  padding: 10px;
+  border-radius: 13px;
+  cursor: pointer;
+  background: #25ced1;
+
+  border: none;
+  margin-top: 20px;
+  font-size: 1.05rem;
+}
+
+.exp-pop-up-container button:hover {
+  background: #1fa9ab;
+}
+
+@media screen and (max-width: 500px) {
+  .exp-pop-up-container {
+    min-width: 80%;
+  }
+}
