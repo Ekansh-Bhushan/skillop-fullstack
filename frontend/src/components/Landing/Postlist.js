@@ -18,7 +18,7 @@ import {
 import PostComp from "../PostComp";
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://skillop-back.onrender.com" });
+const API = axios.create({ baseURL: "http://localhost:4000" });
 
 function Postlist({ userData, displaycreatepost, user, setProgress }) {
     const [refresh, setRefresh] = useState(false);

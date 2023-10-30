@@ -7,7 +7,7 @@ import axios from "axios";
 import Spinner from "../../images/spinner.gif";
 import { updateProfile } from "../../../api/userRequest";
 
-const API = axios.create({ baseURL: "https://skillop-back.onrender.com" });
+const API = axios.create({ baseURL: "http://localhost:4000" });
 
 const EditProfilePicPopUp = ({ profPicUrl, onClose }) => {
     const [selectedImage, setSelectedImage] = useState(null);

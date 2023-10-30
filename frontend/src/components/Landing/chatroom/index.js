@@ -31,7 +31,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
     }, [sendMessage]);
 
     useEffect(() => {
-        socket.current = io("https://skillop-back.onrender.com");
+        socket.current = io("http://localhost:4000");
 
         userData && socket.current.emit("new-user-add", userData._id);
 

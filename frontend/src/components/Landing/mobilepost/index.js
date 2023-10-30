@@ -8,7 +8,7 @@ import attach from "../../images/attatchment.png";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
-const API = axios.create({ baseURL: "https://skillop-back.onrender.com" });
+const API = axios.create({ baseURL: "http://localhost:4000" });
 
 const Mobilepost = () => {
     const [image, setImage] = useState(null);

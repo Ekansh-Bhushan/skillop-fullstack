@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://skillop-back.onrender.com" });
+const API = axios.create({ baseURL: "http://localhost:4000" });
 
 const editExp = (expId, data) => {
     const token = localStorage.getItem("skilloptoken");

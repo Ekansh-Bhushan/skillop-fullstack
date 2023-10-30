@@ -10,7 +10,7 @@ import Spinner from "../images/spinner.gif";
 import { getUser } from "../../api/userRequest";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
-const API = axios.create({ baseURL: "https://skillop-back.onrender.com" });
+const API = axios.create({ baseURL: "http://localhost:4000" });
 
 function Uploadpic({ userData, setProgress }) {
     const [uploading, setUploading] = useState(false);
