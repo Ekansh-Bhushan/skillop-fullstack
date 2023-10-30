@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import "./IntroVideo.css";
 import spinner from "../../images/spinner.gif";
 
-const API = axios.create({ baseURL: "https://skillop-back.onrender.com" });
+const API = axios.create({ baseURL: "https://app.skillop.in" });
 
 export const IntroVideoUploadApi = (data) => {
     // get token  from local storage
