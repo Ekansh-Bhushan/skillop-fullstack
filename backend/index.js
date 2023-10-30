@@ -43,8 +43,6 @@ app.use(
     })
 );
 
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -64,12 +62,21 @@ app.use("/api/event", eventRoutes);
 app.use("/api/v2", searchRoutes);
 
 // share images in uploads/pubic to frontend
-app.use("/api/public/posts", express.static("src/uploads/public/posts"));
-app.use("/api/public/users", express.static("src/uploads/public/users"));
-app.use("/api/public/payment", express.static("src/uploads/public/payment"));
+app.use(
+    "/api/public/posts",
+    express.static("backend/src/uploads/public/posts")
+);
+app.use(
+    "/api/public/users",
+    express.static("backend/src/uploads/public/users")
+);
+app.use(
+    "/api/public/payment",
+    express.static("backend/src/uploads/public/payment")
+);
 app.use(
     "/api/public/introVideo",
-    express.static("src/uploads/public/introVideo")
+    express.static("backend/src/uploads/public/introVideo")
 );
 
 app.use("/api/feedback", feedBackRoute);
@@ -85,7 +92,6 @@ app.get("*", (req, res) =>
 app.use((err, req, res, next) => {
     res.status(500).send({ message: err.message });
 });
-
 
 const server = app.listen(PORT, () => {
     console.log("🔥 Server is running at PORT, ", PORT);
