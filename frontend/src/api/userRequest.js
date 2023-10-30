@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:4000" });
+const API = axios.create({ baseURL: "https://app.skillop.in" });
 
 export const getUser = () => {
     // get token  from local storage

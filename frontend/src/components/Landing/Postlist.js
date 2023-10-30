@@ -18,7 +18,7 @@ import {
 import PostComp from "../PostComp";
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:4000" });
+const API = axios.create({ baseURL: "https://app.skillop.in" });
 
 function Postlist({ userData, displaycreatepost, user, setProgress }) {
     const [refresh, setRefresh] = useState(false);
