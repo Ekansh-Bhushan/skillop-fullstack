@@ -361,12 +361,12 @@ body {
   width: calc(100% - 300px);
 }
 
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
   main-content-landing {
     top: 0px;
-    height: 80vh;
+    height: 60vh;
   }
-}
+} */
 
 /*----------------------Newly added Profile common and events upcoming -----------*/
 .prof-and-events {
@@ -1462,6 +1462,7 @@ non-act {
     left: 50%;
     /* transform: translateX(-50%); */
     top: 0%;
+    max-height: 100%;
   }
   .post-1 {
     margin: 10px;
@@ -1566,7 +1567,7 @@ non-act {
     margin-bottom: 5px;
   }
   .posting-on-landing .post-1:last-child {
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
   }
   .common-prof {
     display: none;

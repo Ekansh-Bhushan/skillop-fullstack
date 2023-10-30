@@ -225,9 +225,10 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 </div>
 
                 {post.imageUrls.length ? (
-                  post.imageUrls[0].toLowerCase().includes(".jpg") ||
-                    post.imageUrls[0].toLowerCase().includes(".jpeg") ||
-                    post.imageUrls[0].toLowerCase().includes(".png") ? (
+                  // post.imageUrls[0].toLowerCase().includes(".jpg") ||
+                  //   post.imageUrls[0].toLowerCase().includes(".jpeg") ||
+                  //   post.imageUrls[0].toLowerCase().includes(".png") 
+                  false ? (
                     <div
                       className="posted-img-container"
                       style={{
@@ -242,7 +243,6 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                         </span>
                       )}
                       <img
-                        onClick={previewImage}
                         src={post.imageUrls[currentMediaIndex]}
                         className="img-posted"
                         alt="prevw"
@@ -255,14 +255,32 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                         )}
                     </div>
                   ) : (
-                    <div>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "5px",
+                    }}>
+                      {post.imageUrls.length > 1 && currentMediaIndex > 0 && (
+                        <span style={{ cursor: "pointer" }} onClick={handlePreviousMedia}>
+                          <img height={32} width={32} src={back} alt="back" />
+                        </span>
+                      )}
                       <iframe
+                        onClick={previewImage}
                         src={post.imageUrls[currentMediaIndex]}
                         width="100%"
                         height={400}
                         title="Media Preview"
+                        scrolling="no"
                         frameBorder="0"
+                        style={{ borderRadius: "15px", overflow: "hidden", border: "none", objectFit: "contain" }}
                       ></iframe>
+                      {post.imageUrls.length > 1 &&
+                        currentMediaIndex < post.imageUrls.length - 1 && (
+                          <span style={{ cursor: "pointer" }} onClick={handleNextMedia}>
+                            <img height={28} width={28} src={next} alt="next" />
+                          </span>
+                        )}
                     </div>
                   )
                 ) : (

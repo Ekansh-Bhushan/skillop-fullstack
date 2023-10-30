@@ -1,130 +1,201 @@
 .booking-slot-section {
+  width: 70%;
+  height: 100vh;
+  /* background-color: rgba(224, 224, 224, 0.584); */
+  display: flex;
+  justify-content: center;
+}
+
+.book-content {
+  width: 90%;
+  height: 100%;
+  /* background-color: rgb(118, 104, 104); */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.header-slotbook {
+  font-size: 2.1rem;
+  font-weight: 600;
+  padding-left: 2rem;
+}
+
+.filter-options-booking {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.f-slot {
+  width: 120px;
+  height: 30px;
+  color: white;
+  background: #25ced1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.f-slot-2 {
+  background-color: gray;
+}
+
+.f-slot-3 {
+  background: white;
+  color: black;
+  border: 1px solid gray;
+}
+
+.slot-complete-list {
+  width: 100%;
+  height: 100%; /* background-color: lightblue; */
+  margin-top: 20px;
+}
+
+.slot-daywise {
+  width: 100%;
+  height: auto;
+  margin-top: 0px;
+  display: flex;
+}
+
+.slot-datewise {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: auto;
+}
+
+.day-name {
+  font-size: 18px;
+  color: gray;
+}
+
+.list-1 {
+  height: 70px;
+  width: 90%;
+  background: linear-gradient(
+    90deg,
+    #ebefff 16.64%,
+    rgba(251, 241, 247, 0.5) 63.09%,
+    rgba(255, 152, 120, 0) 109.53%
+  );
+}
+
+.button-2-book {
+  display: flex;
+  width: 20%;
+  height: auto;
+  background: white;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.headers-slot {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+  font-size: 24px;
+  width: 80%;
+  margin-left: 2vw;
+}
+
+.slot-1-book {
+  width: 100%;
+  height: auto;
+  /* background-color: cyan; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.slot-complete-list button {
+  background-color: #ffb800;
+  border-radius: 20px;
+  border: none;
+  height: 50px;
+  width: 100px;
+
+  font-weight: bold;
+  cursor: pointer;
+}
+.list-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 500px) {
+  .booking-slot-section {
     width: 70%;
     height: 100vh;
     /* background-color: rgba(224, 224, 224, 0.584); */
     display: flex;
     justify-content: center;
-}
+    margin-top: 10vh;
+  }
+  .header-slotbook {
+    text-align: center;
+    padding-left: 0px;
+  }
 
-.book-content {
-    width: 90%;
-    height: 100%;
-    /* background-color: rgb(118, 104, 104); */
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.header-slotbook {
-    font-size: 2.1rem;
-    font-weight: 600;
-    padding-left: 2rem;
-}
-
-.filter-options-booking {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.f-slot {
-    width: 120px;
-    height: 30px;
-    color: white;
-    background: #25CED1;
+  .slot-complete-list {
+    width: 250px;
+    height: 100%; /* background-color: lightblue; */
+    margin-top: 5px;
+  }
+  .headers-slot {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px
-}
-
-.f-slot-2 {
-    background-color: gray;
-}
-
-.f-slot-3 {
-    background: white;
-    color: black;
-    border: 1px solid gray
-}
-
-.slot-complete-list {
-    width: 100%;
-    height:100%;  /* background-color: lightblue; */
-    margin-top: 20px;
-   
-}
-
-.slot-daywise {
-    width: 100%;
-    height: auto;
-    margin-top: 0px;
-    display: flex
-}
-
-.slot-datewise {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height:auto;
-   
-}
-
-.day-name {
-   
-    
-    font-size: 18px;
-    color: gray
-}
-
-.list-1 {
-    height: 70px;
-    width: 90%;
-    background: linear-gradient(90deg, #EBEFFF 16.64%, rgba(251, 241, 247, 0.50) 63.09%, rgba(255, 152, 120, 0.00) 109.53%)
-}
-
-.button-2-book {
-    display: flex;
-    width: 20%;
-    height: auto;
-    background: white;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-   
-
-}
-
-.headers-slot {
-    display: flex;
-    justify-content: space-around;
-    font-weight: 600;
-    font-size: 24px;
-    width: 80%;
-    margin-left:2vw
-}
-
-.slot-1-book {
-    width: 100%;
+    gap: 40px;
+    margin-left: -3vw;
+    margin-bottom: 20px;
+  }
+  .slot-1-book {
+    width: 390px;
     height: auto;
     /* background-color: cyan; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    margin-top:5px;
-    position: relative;
-}
+    gap: 10px;
+    right: 70px;
+    margin-bottom: 20px;
+  }
 
-.slot-complete-list button {
-    background-color: #FFB800;
+  .day-name {
+    font-size: 12px;
+    color: gray;
+    max-width: 50px;
+  }
+
+  .slot-scheduled-time {
+    font-size: 12px;
+  }
+
+  .list-1 {
+    border-radius: 20px;
+    padding: 5px;
+  }
+  .slot-complete-list button {
+    background-color: #ffb800;
     border-radius: 20px;
     border: none;
-    height: 50px;
-    width: 100px;
-    
+    height: 30px;
+    width: 80px;
     font-weight: bold;
     cursor: pointer;
+  }
+  .amount-slot {
+    font-size: 12px;
+  }
 }
-.list-1{display:flex;align-items: center;justify-content: space-around;}

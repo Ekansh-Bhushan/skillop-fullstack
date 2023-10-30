@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { findUser } from "../api/userRequest";
 
 import { addMessage, getMessages } from "../api/messageRequest";
@@ -25,6 +25,7 @@ const Chatbox = ({
   const [showEmoji, setShowEmoji] = useState(false);
 
   // document.querySelector(".chatbox-messages").scrollTop = document.querySelector(".chatbox-messages").scrollHeight;
+  const messagesRef = useRef();
   const onEmojiClick = (event) => {
     console.log(event);
     setNewMessage((oldMsg) => {
@@ -108,10 +109,15 @@ const Chatbox = ({
   }, [chat]);
 
   useEffect(() => {
-    // console.log("scrolling");
-    document.querySelector(".chatbox-messages").scrollTop =
-      document.querySelector(".chatbox-messages").scrollHeight;
-  }, []);
+    // ... (existing code)
+
+    const chats = document.querySelector(".chatbox-messages");
+    chats.scrollTop = chats.scrollHeight;
+
+    if (messagesRef.current) {
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   return (
     <div className="chatting">
@@ -139,6 +145,7 @@ const Chatbox = ({
           className="chatbox-messages"
           onClick={() => setShowEmoji(false)}
           id="chat-scroll"
+          ref={messagesRef}
         >
           {" "}
           {messages ? (

@@ -263,47 +263,67 @@ const PostComp = ({
         )}
       </div>
 
-      {imageUrls.length ? (
-        imageUrls[0].toLowerCase().includes(".jpg") ||
-          imageUrls[0].toLowerCase().includes(".jpeg") ||
-          imageUrls[0].toLowerCase().includes(".png") ? (
-          <div
-            className="posted-img-container"
-            style={{
+      {(imageUrls.length) ? (
+        // imageUrls[0].toLowerCase().includes(".jpg") ||
+        //   imageUrls[0].toLowerCase().includes(".jpeg") ||
+        //   imageUrls[0].toLowerCase().includes(".png") 
+        false ?
+          (
+            <div
+              className="posted-img-container"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "5px",
+              }}
+            >
+              {imageUrls.length > 1 && currentMediaIndex > 0 && (
+                <span onClick={handlePreviousMedia}>
+                  <img className="back-post-arr" height={32} width={32} src={back} alt="back" />
+                </span>
+              )}
+              <img
+                onClick={previewImage}
+                src={imageUrls[currentMediaIndex]}
+                className="img-posted"
+                alt="prevw"
+              />
+              {imageUrls.length > 1 &&
+                currentMediaIndex < imageUrls.length - 1 && (
+                  <span onClick={handleNextMedia}>
+                    <img className="next-post-arr" height={28} width={28} src={next} alt="next" />
+                  </span>
+                )}
+            </div>
+          ) : (
+            <div style={{
               display: "flex",
               alignItems: "center",
               gap: "5px",
-            }}
-          >
-            {imageUrls.length > 1 && currentMediaIndex > 0 && (
-              <span onClick={handlePreviousMedia}>
-                <img className="back-post-arr" height={32} width={32} src={back} alt="back" />
-              </span>
-            )}
-            <img
-              onClick={previewImage}
-              src={imageUrls[currentMediaIndex]}
-              className="img-posted"
-              alt="prevw"
-            />
-            {imageUrls.length > 1 &&
-              currentMediaIndex < imageUrls.length - 1 && (
-                <span onClick={handleNextMedia}>
-                  <img className="next-post-arr" height={28} width={28} src={next} alt="next" />
+            }} >
+              {imageUrls.length > 1 && currentMediaIndex > 0 && (
+                <span onClick={handlePreviousMedia}>
+                  <img style={{ cursor: "pointer" }} className="back-post-arr" height={32} width={32} src={back} alt="back" />
                 </span>
               )}
-          </div>
-        ) : (
-          <div onClick={openPost}>
-            <iframe
-              src={imageUrls[currentMediaIndex]}
-              width="100%"
-              height={400}
-              title="Media Preview"
-              frameBorder="0"
-            ></iframe>
-          </div>
-        )
+              <iframe
+                onClick={previewImage}
+                src={imageUrls[currentMediaIndex]}
+                width="100%"
+                height={400}
+                title="Media Preview"
+                scrolling="no"
+                frameBorder="0"
+                style={{ borderRadius: "15px", overflow: "hidden", border: "none", objectFit: "contain" }}
+              ></iframe>
+              {imageUrls.length > 1 &&
+                currentMediaIndex < imageUrls.length - 1 && (
+                  <span style={{ cursor: "pointer" }} onClick={handleNextMedia}>
+                    <img className="next-post-arr" height={28} width={28} src={next} alt="next" />
+                  </span>
+                )}
+            </div>
+          )
       ) : (
         ""
       )}
@@ -351,7 +371,7 @@ const PostComp = ({
                   </b>{" "}
                   and{" "}
                   <span id="others" onClick={openPopup}>
-                    {likersList.length-1} others liked this post.
+                    {likersList.length - 1} others liked this post.
                   </span>{" "}
                 </span>
                 <span className="small-screen-likes-length">

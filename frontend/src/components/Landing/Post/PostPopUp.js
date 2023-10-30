@@ -14,7 +14,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 const PostPopUp = ({ onClose, setProgress, setRefresh }) => {
-    const API = axios.create({ baseURL: "https://app.skillop.in" });
+    const API = axios.create({ baseURL: "https://skillop-back.onrender.com" });
     const [inputValue, setInputValue] = useState("");
     let [selectedFile, setSelectedFile] = useState([]);
 
@@ -51,7 +51,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh }) => {
             }
             // console.log("hi",selectedFile, selectedMedia);
             // selectedFile = selectedMedia;
-            if (selectedFile.length > 0) {
+            if (selectedFile.length>0) {
                 for (let i = 0; i < selectedFile.length; i++) {
                     formData.append("postImages", selectedFile[i]);
                 }
@@ -84,6 +84,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh }) => {
         document.querySelector(".photo-popup").style.display = "flex";
     };
 
+ 
     const handleImageChange = (e) => {
         const files = e.target.files;
         if (files.length > 0) {
@@ -105,7 +106,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh }) => {
                 reader.readAsDataURL(file);
             }
         }
-    };
+    }
 
     function getFileType(mimeType) {
         console.log(selectedMedia[currentMediaIndex].type);

@@ -46,18 +46,18 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const onClickingBook = (day, mentorid, s, e, userid, charge) => {
     navigate(
       "/confirm-booking" +
-      "/" +
-      mentorid +
-      "?day=" +
-      day +
-      "&s=" +
-      s +
-      "&e=" +
-      e +
-      "&userid=" +
-      userid +
-      "&charge=" +
-      charge
+        "/" +
+        mentorid +
+        "?day=" +
+        day +
+        "&s=" +
+        s +
+        "&e=" +
+        e +
+        "&userid=" +
+        userid +
+        "&charge=" +
+        charge
     );
   };
 
@@ -101,7 +101,12 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
-      <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+      <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
       {/* <Searchbar/> */}
       <Mobilecommonhead />
       {/* <Common setProgress={setProgress} /> */}
@@ -126,11 +131,16 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
                       return (
                         <>
                           <div className="list-1">
-                            <div className="day-name">{new Date(day).toString().slice(0,15)}</div>
-                            <div className="slot-scheduled-time">
-                              {convertToNormalTime(slot.s)} - {convertToNormalTime(slot.e)}
+                            <div className="day-name">
+                              {new Date(day).toString().slice(0, 15)}
                             </div>
-                            <div className="amount-slot">₹{slot.charge}</div>
+                            <div className="slot-scheduled-time">
+                              {convertToNormalTime(slot.s)} -{" "}
+                              {convertToNormalTime(slot.e)}
+                            </div>
+                            <div className="amount-slot">
+                              ₹{slot.charge.toFixed(2)}
+                            </div>
                             <button
                               onClick={() =>
                                 onClickingBook(
