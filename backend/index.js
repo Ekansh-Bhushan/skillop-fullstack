@@ -99,7 +99,7 @@ const server = app.listen(PORT, () => {
 
 const io = require("socket.io")(server, {
     cors: {
-        origin: "https://skillop-frontend-murex.vercel.app",
+        origin: "https://app.skillop.in",
     },
 });
 
