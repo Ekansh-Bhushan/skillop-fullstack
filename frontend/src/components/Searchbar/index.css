@@ -117,14 +117,19 @@
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  scrollbar-width: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
   /* Firefox */
   -ms-overflow-style: none;
   padding-top: 20px;
   padding-bottom: 10px;
   align-items: center;
   gap: 10px;
+}
+
+.filtered-search-results::-webkit-scrollbar {
+  display: none;
+  /* Hide the scrollbar for WebKit (Chrome, Safari, etc.) */
 }
 
 .colored-filter-btn {
