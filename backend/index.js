@@ -3,38 +3,27 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const postRoute = require("./src/routes/post");
-
 const userRoute = require("./src/routes/user");
 const notificationRoute = require("./src/routes/notification");
 const mentorRoute = require("./src/routes/mentor");
 const menteeRoute = require("./src/routes/mentee");
-
 const chats = require("./src/routes/chatRoutes");
 const message = require("./src/routes/messageRoutes");
-
 const help = require("./src/routes/helperRoutes");
-
 const feedBackRoute = require("./src/routes/feedBackRoute");
-
 const searchRoutes = require("./src/routes/searchRoutes");
-
 const eventRoutes = require("./src/routes/eventRoutes");
-
-// Only for development
+const adminRoutes = require("./src/routes/adminRoutes");
 require("dotenv").config();
-
-console.log(process.env.JWT_KEY);
+// console.log(process.env.JWT_KEY);
 const app = express();
 const PORT = process.env.PORT | 4000;
-
 connectDB();
-
 // const corsOptions = {
 //     origin: "https://front-nine-jet.vercel.app",
 //     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 //     credentials: true,
 // };
-
 app.use(
     "*",
     cors({
@@ -52,6 +41,7 @@ app.use("/api", userRoute);
 app.use("/api", notificationRoute);
 app.use("/api", mentorRoute);
 app.use("/api", menteeRoute);
+app.use("/api/admin");
 
 app.use("/api/chat", chats);
 app.use("/api/message", message);
@@ -99,7 +89,7 @@ const server = app.listen(PORT, () => {
 
 const io = require("socket.io")(server, {
     cors: {
-        origin: "https://app.skillop.in",
+        origin: ["https://app.skillop.in", "https://skillop.in"],
     },
 });
 

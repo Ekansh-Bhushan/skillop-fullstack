@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { MENTOR_STATUS } = require("../enums/mentorStatus");
 
-
 const UserSchema = new mongoose.Schema({
     // Auto Created each time a user is created
     __created: {
@@ -20,7 +19,7 @@ const UserSchema = new mongoose.Schema({
             validator: function (v) {
                 return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
             },
-            message: (name) =>  `${name.value} is not a valid name!`,
+            message: (name) => `${name.value} is not a valid name!`,
         },
     },
     lastname: {
@@ -30,7 +29,7 @@ const UserSchema = new mongoose.Schema({
             validator: function (v) {
                 return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
             },
-            message: (name) =>  `${name.value} is not a valid name!`,
+            message: (name) => `${name.value} is not a valid name!`,
         },
     },
     email: {
@@ -107,12 +106,13 @@ const UserSchema = new mongoose.Schema({
     //     },
     // ],
 
-    profilePicUrl: { type: String},
+    profilePicUrl: { type: String },
     profilePicBackgroundUrl: { type: String },
     bgPicUrl: { type: String },
-    introVideo: { type: String},
+    introVideo: { type: String },
 
     isMentor: { type: Boolean, default: false, required: true },
+    isAdmin: { type: Boolean, default: false, required: true },
 
     mentor: {
         type: mongoose.Schema.Types.ObjectId,

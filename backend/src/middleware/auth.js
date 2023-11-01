@@ -55,3 +55,23 @@ exports.isMentor = async (req, res, next) => {
         })
     }
 }
+
+
+exports.isAdmin = async (req, res, next) => {
+    try {
+        const user = req.user;
+        if (!user.isAdmin) {
+            return res.status(403).send({
+                result: false,
+                err: "Forbidden: You are not an admin",
+                message: "Only admins can have this access",
+            })
+        }
+        next();
+    } catch (err) {
+        res.status(500).send({
+            result: false,
+            err: err.message,
+        })
+    }
+}
