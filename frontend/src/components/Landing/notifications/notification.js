@@ -30,7 +30,6 @@ const Notification = ({ setProgress, userData,setUserData, Mentor, isFetched }) 
       setFetchingNotify(true);
       const NotiData = await getNotifications();
       setNotifyList(NotiData.data.result);
-      setUserData({...userData, notifications: NotiData.data.result})
       setFetchingNotify(false);
     } catch (err) {
       toast.error(err.response.data.message);
