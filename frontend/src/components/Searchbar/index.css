@@ -141,7 +141,7 @@
   border: none;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .filtered-search-results {
     width: 100%;
     top: 45vh;
@@ -244,9 +244,9 @@
     width: 100vw;
   }
   .filterInput {
-    position: absolute;
-    top: 29vh;
-    left: 20vw;
+    position: relative;
+    top: -15.5vh;
+    left: 15vw;
     display: flex;
     flex-direction: row;
     margin-right: 20px;
@@ -269,5 +269,27 @@
     color: white;
     font-size: 1.05rem;
     border: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .filtered-search-results {
+    width: 100%;
+    top: 58vh;
+    left: 0;
+    height: auto;
+    /* max-height: 45vh; */
+    overflow-y: auto; /* Changed from 'scroll' to 'auto' */
+    scrollbar-width: thin; /* Optional: Customize scrollbar width */
+  }
+  .filterInput {
+    position: relative;
+    top: -20vh;
+    left: 15vw;
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    overflow-x: auto;
+    scrollbar-width: thin;
   }
 }

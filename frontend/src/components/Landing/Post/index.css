@@ -1523,9 +1523,9 @@ non-act {
 }
 
 .more-vertical-options div:active {
-	border-radius: 30px;
-	border: 1.5px solid rgb(55, 194, 218);
-	padding: 10px 20px;
+  border-radius: 30px;
+  border: 1.5px solid rgb(55, 194, 218);
+  padding: 10px 20px;
 }
 
 .post-on-mob-btn {
@@ -1592,5 +1592,14 @@ non-act {
     right: 35px;
     border-radius: 100%;
     box-shadow: 2px 2px 10px 1px black;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  /* .post-1 {
+    margin-top: 80px;
+  } */
+  .people-post {
+    padding-top: 50px;
   }
 }

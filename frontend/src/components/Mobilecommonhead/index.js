@@ -78,8 +78,9 @@ const Mobilecommonhead = () => {
               onClick={() => {
                 navigate("/homepage");
               }}
-              className={`${window.location.pathname === "/homepage" ? "color" : "notColor"
-                }`}
+              className={`${
+                window.location.pathname === "/homepage" ? "color" : "notColor"
+              }`}
             />
           </div>
           <div className="mobile-panel-options">
@@ -87,8 +88,9 @@ const Mobilecommonhead = () => {
               onClick={() => {
                 navigate("/searchbar");
               }}
-              className={`${window.location.pathname === "/searchbar" ? "color" : "notColor"
-                }`}
+              className={`${
+                window.location.pathname === "/searchbar" ? "color" : "notColor"
+              }`}
             />
           </div>
           <div
@@ -115,8 +117,9 @@ const Mobilecommonhead = () => {
               onClick={() => {
                 navigate("/Profile");
               }}
-              className={`${window.location.pathname === "/Profile" ? "color" : "notColor"
-                }`}
+              className={`${
+                window.location.pathname === "/Profile" ? "color" : "notColor"
+              }`}
             />
           </div>
           <div className="mobile-panel-options">
@@ -152,6 +155,7 @@ const Mobilecommonhead = () => {
           </div>
           <div>Become a Mentor</div>
           <div onClick={() => navigate("/myaccount")}>Account</div>
+          <div onClick={() => navigate("/requestedMeets")}>Meet</div>
           <div
             style={{
               fontWeight: "bold",

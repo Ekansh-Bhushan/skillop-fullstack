@@ -6,7 +6,11 @@ import Profileandevents from "../../Landing/Profileandevents";
 import toast from "react-hot-toast";
 import BookViewPopUp from "./BookViewPopUp";
 import Mobilecommonhead from "../../Mobilecommonhead";
-import { getAcceptedBookings, getCompletedMeet, getPendingMeet } from "../../../api/menteeRequest";
+import {
+  getAcceptedBookings,
+  getCompletedMeet,
+  getPendingMeet,
+} from "../../../api/menteeRequest";
 import convertToNormalTime from "../../../utils/timeConversion";
 
 const MEET_STATUS = {
@@ -16,7 +20,13 @@ const MEET_STATUS = {
   CANCELLED: "cancelled",
 };
 
-function RequestedMeets({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function RequestedMeets({
+  userData,
+  setProgress,
+  Mentor,
+  isFetched,
+  notifyList,
+}) {
   const navigate = useNavigate();
 
   const displaynavmob = () => {
@@ -169,11 +179,14 @@ function RequestedMeets({ userData, setProgress, Mentor, isFetched, notifyList }
     //   else if (displaying === "completed") setBook(completed);
   }, []);
 
-
-
   return (
     <>
-      <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+      <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
       <Mobilecommonhead />
       <div className="dash-main">
         {/* <Commondash userData={userData} /> */}
@@ -183,7 +196,7 @@ function RequestedMeets({ userData, setProgress, Mentor, isFetched, notifyList }
 
           {/* <Topbar setProgress={setProgress}/> */}
           <div className="session-dash-info">
-            <h2 style={{fontSize:"1.8rem", marginBottom:"0.4vw"}}>Meets</h2>
+            <h2 className="meets-head">Meets</h2>
             <div className="heading-session-status">
               <div
                 className="accepted up"
@@ -211,7 +224,11 @@ function RequestedMeets({ userData, setProgress, Mentor, isFetched, notifyList }
             <div className="partition-session"></div>
 
             {ShowBookPopUp && (
-              <BookViewPopUp type="Mentor" bookingData={bookingData} onClose={onClose} />
+              <BookViewPopUp
+                type="Mentor"
+                bookingData={bookingData}
+                onClose={onClose}
+              />
             )}
 
             {Object.entries(book).length === 0 ? (
@@ -252,7 +269,8 @@ function RequestedMeets({ userData, setProgress, Mentor, isFetched, notifyList }
                           {/* <img src={logo} /> */}
 
                           <span>
-                            Timing:&nbsp;{convertToNormalTime(item[1].s)} - {convertToNormalTime(item[1].e)}{" "}
+                            Timing:&nbsp;{convertToNormalTime(item[1].s)} -{" "}
+                            {convertToNormalTime(item[1].e)}{" "}
                           </span>
                         </div>
                         <span>Number of Bookings :1</span>

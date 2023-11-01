@@ -799,7 +799,6 @@ body {
   padding: 0.4vw 1vw;
   border-radius: 10px;
   font-size: 1.07rem;
-  
 }
 
 .update-meet-rate-btn {
@@ -860,6 +859,10 @@ body {
 
   .session-list-dash {
     margin-inline: 5px;
+  }
+
+  .meets-head {
+    margin-left: 20px;
   }
 }
 
@@ -984,8 +987,7 @@ body {
 }
 
 @media only screen and (max-width: 500px) {
-
-   .popup-of-slots {
+  .popup-of-slots {
     width: 340px;
   }
 }
