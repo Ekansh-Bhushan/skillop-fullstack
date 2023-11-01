@@ -41,7 +41,7 @@ app.use("/api", userRoute);
 app.use("/api", notificationRoute);
 app.use("/api", mentorRoute);
 app.use("/api", menteeRoute);
-app.use("/api/admin");
+app.use("/api/admin", adminRoutes);
 
 app.use("/api/chat", chats);
 app.use("/api/message", message);
