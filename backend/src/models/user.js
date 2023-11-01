@@ -26,12 +26,12 @@ const UserSchema = new mongoose.Schema({
         default: false,
         required: [true, "Email is required"],
         unique: [true, "Email already exist"],
-        // validate: {
-        //     validator: function (v) {
-        //         return /\S+@\S+\.\S+/.test(v); // Basic email format validation
-        //     },
-        //     message: (email) => `${email.value} is not a valid email address!`,
-        // },
+        validate: {
+            validator: function (v) {
+                return /\S+@\S+\.\S+/.test(v); // Basic email format validation
+            },
+            message: (email) => `${email.value} is not a valid email address!`,
+        },
     },
     password: {
         type: String,
