@@ -16,10 +16,22 @@ const UserSchema = new mongoose.Schema({
     firstname: {
         type: String,
         required: [true, "first name is required"],
+        validate: {
+            validator: function (v) {
+                return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
+            },
+            message: (name) =>  `${name.value} is not a valid name!`,
+        },
     },
     lastname: {
         type: String,
         required: [true, "last name is required"],
+        validate: {
+            validator: function (v) {
+                return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
+            },
+            message: (name) =>  `${name.value} is not a valid name!`,
+        },
     },
     email: {
         type: String,
