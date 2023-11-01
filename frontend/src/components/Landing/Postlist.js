@@ -122,7 +122,7 @@ function Postlist({ userData, displaycreatepost, user, setProgress }) {
 
     useEffect(() => {
         gettingAllPost();
-    }, [refresh, setRefresh, creatingPost]);
+    }, [refresh]);
 
     // STICK POST HEAD TO TOP WHILE SCROLLING DOWN EVENT TRIGGER
     useEffect(() => {
