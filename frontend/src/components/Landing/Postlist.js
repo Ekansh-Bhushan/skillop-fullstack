@@ -106,19 +106,20 @@ function Postlist({ userData, displaycreatepost, user, setProgress }) {
         }
     };
 
-    const getPostsFromUser = async () => {
-        try {
-            const { data } = await getPostFromSpecificUser(userId);
-            setPostData(data.result);
-            // console.log(data.result);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    
     useEffect(() => {
+        const getPostsFromUser = async () => {
+            try {
+                const { data } = await getPostFromSpecificUser(userId);
+                setPostData(data.result);
+                // console.log(data.result);
+            } catch (error) {
+                console.log(error);
+            }
+        };
         if (userId) getPostsFromUser();
         else gettingAllPost();
-    }, []);
+    }, [userId]);
 
     useEffect(() => {
         gettingAllPost();
