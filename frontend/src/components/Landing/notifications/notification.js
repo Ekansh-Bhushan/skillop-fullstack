@@ -15,7 +15,7 @@ import Mobilecommonhead from "../../Mobilecommonhead";
 import toast from "react-hot-toast";
 
 // function Notify({ userData }) {
-const Notification = ({ setProgress, userData, Mentor, isFetched }) => {
+const Notification = ({ setProgress, userData,setUserData, Mentor, isFetched }) => {
   const [selectedButton, setSelectedButton] = useState("All"); // Initial selected button
   const [notifyList, setNotifyList] = useState([]);
   const [fetchingNotify, setFetchingNotify] = useState(false);

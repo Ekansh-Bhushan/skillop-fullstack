@@ -48,7 +48,7 @@ function App() {
     <>
       {/* <RouteLanding/> */}
       <Toaster />
-      <AuthPage Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} userData={userData} setProgress={setProgress}/>
+      <AuthPage Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} userData={userData} setUserData={setUserData } setProgress={setProgress}/>
       <LoadingBar
         color="#f11946"
         height={4}
