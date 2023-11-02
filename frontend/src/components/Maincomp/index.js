@@ -289,8 +289,7 @@ function AuthPage({
                 />
                 <Route
                     path="/mentorBano"
-                    element={<MentorBano
-                         setProgress={setProgress} />}
+                    element={<MentorBano />}
                 />
                 <Route
                     path="/bookslot/:userId"
