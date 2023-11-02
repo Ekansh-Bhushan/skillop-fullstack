@@ -5,7 +5,7 @@ import "./feedbackForm.css";
 import SideNav from "../SideNav/SideNav";
 import RightProfileComp from "../Profile/Right Profile/RightProfileComp";
 
-function feedbackForm(Mentor, isFetched, notifyList) {
+function PlatformfeedbackForm(Mentor, isFetched, notifyList) {
   // const[state,dispatch] = useReducer(reducer, initialState)
   return (
     <>
@@ -65,4 +65,4 @@ function feedbackForm(Mentor, isFetched, notifyList) {
   );
 }
 
-export default feedbackForm;
+export default PlatformfeedbackForm;
