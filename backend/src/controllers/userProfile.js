@@ -109,7 +109,23 @@ exports.updateProfile = async (req, res) => {
                         message: "institution, degree and endDate are required",
                     });
                 }
+                if (!education[i].startDate) {
+                    education[i].startDate = new Date()
+                        .toISOString()
+                        .slice(0, 10);
+                    education[i].endDate = new Date()
+                        .toISOString()
+                        .slice(0, 10);
+                    if (education[i].startDate >= education[i].endDate) {
+                        return res.status(400).send({
+                            result: false,
+                            err: "Start date should be less than end date",
+                            message: "Start date should be less than end date",
+                        });
+                    }
+                }
             }
+
             // check if this education is already present or not in the user's education array if present then update it else push it
             for (let i = 0; i < education.length; i++) {
                 const index = user.education.findIndex(
@@ -328,6 +344,14 @@ exports.editEducation = async (req, res) => {
                     "institution, degree, startDate and endDate are required",
             });
         }
+        // Check if startDate is less than endDate
+        if (startDate >= endDate) {
+            return res.status(400).send({
+                result: false,
+                err: "Start date should be less than end date",
+                message: "Start date should be less than end date",
+            });
+        }
 
         user.education[index] = req.body;
         await user.save();
@@ -397,6 +421,15 @@ exports.editExperence = async (req, res) => {
                 result: false,
                 err: "company, title, startDate and endDate are required",
                 message: "company, title, startDate and endDate are required",
+            });
+        }
+
+        // Check if startDate is less than endDate
+        if (startDate >= endDate) {
+            return res.status(400).send({
+                result: false,
+                err: "Start date should be less than end date",
+                message: "Start date should be less than end date",
             });
         }
 

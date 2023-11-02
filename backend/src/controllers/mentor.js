@@ -565,6 +565,18 @@ exports.updateAvailability = async (req, res) => {
             });
         }
 
+        // create a function that check if all the availibility provided are less that x size
+        function checkLimit(arr, x) { 
+            // e and s are of the form 2000 and x is in minites
+            x = x * 100 / 60;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].e - arr[i].s > x) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         // check is availability is valid
         const availability = req.body.actualAvailability;
         let flag = true;
@@ -582,7 +594,7 @@ exports.updateAvailability = async (req, res) => {
                 continue;
             }
             availability[days[i]] = isValidAvailability(availability[days[i]]);
-            if (!availability[days[i]]) {
+            if (!availability[days[i]] || !checkLimit(availability[days[i]], 60)) {
                 flag = false;
                 break;
             }

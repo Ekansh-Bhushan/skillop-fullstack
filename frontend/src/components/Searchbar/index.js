@@ -108,7 +108,12 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
-      <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+      <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
       <Mobilecommonhead />
       <div className="partition-plus-panel">
         <div>
@@ -256,37 +261,37 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
         <div className="filtered-search-results">
           {setUsers.length > 0
             ? setUsers.map((val, i) => (
-              <>
-                <div
-                  className="sresult-1"
-                  key={i}
-                  onClick={() => navigate(`/public-profile/${val._id}`)}
-                  style={{ borderBottom: "1px solid gray" }}
-                >
-                  <img
-                    src={
-                      searchPeople
-                        ? val.profilePicUrl
+                <>
+                  <div
+                    className="sresult-1"
+                    key={i}
+                    onClick={() => navigate(`/public-profile/${val._id}`)}
+                    style={{ borderBottom: "1px solid gray" }}
+                  >
+                    <img
+                      src={
+                        searchPeople
                           ? val.profilePicUrl
-                          : user
-                        : val.imageUrls[0]
+                            ? val.profilePicUrl
+                            : user
+                          : val.imageUrls[0]
                           ? val.imageUrls[0]
                           : "/post-img.png"
-                    }
-                    className="searched-user"
-                    alt="profile"
-                  />
-                  <div className="searched-user-details">
-                    <div style={{ fontWeight: "bold", fontSize: "18px" }}>
-                      {val.title.slice(0, 200) + "..."}
+                      }
+                      className="searched-user"
+                      alt="profile"
+                    />
+                    <div className="searched-user-details">
+                      <div style={{ fontWeight: "bold", fontSize: "18px" }}>
+                        {val.title.slice(0, 200) + "..."}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </>
-            ))
+                </>
+              ))
             : filterFields.keyword.length !== 0 && (
-              <h2>No search results for "{filterFields.keyword}"</h2>
-            )}
+                <h2>No search results for "{filterFields.keyword}"</h2>
+              )}
         </div>
       )}
 
@@ -295,43 +300,43 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
         <div className="filtered-search-results">
           {setUsers.length > 0
             ? setUsers.map((val, i) => (
-              <>
-                <div
-                  className="sresult-1"
-                  key={i}
-                  onClick={() => navigate(`/public-profile/${val._id}`)}
-                >
-                  <img
-                    src={val.profilePicUrl ? val.profilePicUrl : user}
-                    className="searched-user"
-                    alt="profile"
-                  />
-                  <div className="searched-user-details">
-                    <div style={{ fontWeight: "bold", fontSize: "18px" }}>
-                      {val.firstname + " " + val.lastname}
-                    </div>
+                <>
+                  <div
+                    className="sresult-1"
+                    key={i}
+                    onClick={() => navigate(`/public-profile/${val._id}`)}
+                  >
+                    <img
+                      src={val.profilePicUrl ? val.profilePicUrl : user}
+                      className="searched-user"
+                      alt="profile"
+                    />
+                    <div className="searched-user-details">
+                      <div style={{ fontWeight: "bold", fontSize: "18px" }}>
+                        {val.firstname + " " + val.lastname}
+                      </div>
 
-                    {<div>{val.skills.join(" || ")}</div>}
-                    {val.skills.join(" ").length >= 12 ? (
-                      <span
-                        style={{ color: "rgb(1,124,206)", width: "40px" }}
-                      >
-                        More...
-                      </span>
-                    ) : (
-                      ""
-                    )}
+                      {<div>{val.skills.join(" || ")}</div>}
+                      {val.skills.join(" ").length >= 12 ? (
+                        <span
+                          style={{ color: "rgb(1,124,206)", width: "40px" }}
+                        >
+                          More...
+                        </span>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
-                </div>
-                <div className="searched-results-partition"></div>
-              </>
-            ))
+                  <div className="searched-results-partition"></div>
+                </>
+              ))
             : filterFields.keyword.length !== 0 && (
-              <h2>
-                No search results for "{filterFields.keyword}" for applied
-                filters
-              </h2>
-            )}
+                <h2>
+                  No search results for "{filterFields.keyword}" for applied
+                  filters
+                </h2>
+              )}
         </div>
       )}
       {/* <RightProfileComp /> */}

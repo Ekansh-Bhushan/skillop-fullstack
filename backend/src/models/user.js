@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { MENTOR_STATUS } = require("../enums/mentorStatus");
 
-
 const UserSchema = new mongoose.Schema({
     // Auto Created each time a user is created
     __created: {
@@ -16,22 +15,34 @@ const UserSchema = new mongoose.Schema({
     firstname: {
         type: String,
         required: [true, "first name is required"],
+        validate: {
+            validator: function (v) {
+                return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
+            },
+            message: (name) => `${name.value} is not a valid name!`,
+        },
     },
     lastname: {
         type: String,
         required: [true, "last name is required"],
+        validate: {
+            validator: function (v) {
+                return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
+            },
+            message: (name) => `${name.value} is not a valid name!`,
+        },
     },
     email: {
         type: String,
         default: false,
         required: [true, "Email is required"],
         unique: [true, "Email already exist"],
-        // validate: {
-        //     validator: function (v) {
-        //         return /\S+@\S+\.\S+/.test(v); // Basic email format validation
-        //     },
-        //     message: (email) => `${email.value} is not a valid email address!`,
-        // },
+        validate: {
+            validator: function (v) {
+                return /\S+@\S+\.\S+/.test(v); // Basic email format validation
+            },
+            message: (email) => `${email.value} is not a valid email address!`,
+        },
     },
     password: {
         type: String,
@@ -95,12 +106,13 @@ const UserSchema = new mongoose.Schema({
     //     },
     // ],
 
-    profilePicUrl: { type: String},
+    profilePicUrl: { type: String },
     profilePicBackgroundUrl: { type: String },
     bgPicUrl: { type: String },
-    introVideo: { type: String},
+    introVideo: { type: String },
 
     isMentor: { type: Boolean, default: false, required: true },
+    isAdmin: { type: Boolean, default: false, required: true },
 
     mentor: {
         type: mongoose.Schema.Types.ObjectId,
