@@ -291,7 +291,15 @@ function AuthPage({
                 />
                 <Route
                     path="/mentorBano"
-                    element={<MentorBano />}
+                    element={
+                        <MentorBano
+                            userData={userData}
+                            setProgress={setProgress}
+                            Mentor={Mentor}
+                            isFetched={isFetched}
+                            notifyList={notifyList}
+                        />
+                    }
                 />
                 <Route
                     path="/bookslot/:userId"
@@ -331,8 +339,14 @@ function AuthPage({
                 />
                 <Route path="/mobile" element={<Mobilecommonhead />} />
                 <Route path="/newpost" element={<Mobilepost />} />
-                <Route path="/mentorfeedback" element={<MentorfeedbackForm />} />
-                <Route path="/platformfeedback" element={<PlatformfeedbackForm />} />
+                <Route
+                    path="/mentorfeedback"
+                    element={<MentorfeedbackForm />}
+                />
+                <Route
+                    path="/platformfeedback"
+                    element={<PlatformfeedbackForm />}
+                />
                 <Route
                     path="/editskills"
                     element={
