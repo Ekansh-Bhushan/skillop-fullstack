@@ -38,7 +38,7 @@ import ConfirmBooking from "../dashboard/bookings/ConfirmBooking";
 import Payment from "../dashboard/bookings/Payment";
 import EditPic from "../Profile/EditPic/EditPic";
 import RequestedMeets from "../dashboard/requestedMeets";
-
+import MentorBano from "../MentorBano/mentorBano";
 // import { set } from "mongoose";
 
 function AuthPage({
@@ -286,6 +286,11 @@ function AuthPage({
                             notifyList={notifyList}
                         />
                     }
+                />
+                <Route
+                    path="/mentorBano"
+                    element={<MentorBano
+                         setProgress={setProgress} />}
                 />
                 <Route
                     path="/bookslot/:userId"

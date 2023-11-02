@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import Commondash from "../common";
 // import Topbar from "../topbar";
-// import SideNav from "../../SideNav/SideNav";
+import SideNav from "../SideNav/SideNav";
 // import Profileandevents from "../../Landing/Profileandevents";
 // import "./earning.css";
 import toast from "react-hot-toast";
@@ -15,6 +15,8 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
   // const navigate = useNavigate();
   const [isTaskDone, setIsTaskDone] = useState(false);
   const [isActive, setIsActive] = useState(false)
+
+  
   function increaseCircularProgress(currentProgress, steps) {
     if (steps <= 0) {
       throw new Error("Number of steps must be greater than 0");
@@ -40,6 +42,12 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
+    <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
       <div className="heading">Become a Mentor</div>
 
     <div style={{ display: 'flex', justifyContent: 'space-between', margin: 150, height: 130}}>
