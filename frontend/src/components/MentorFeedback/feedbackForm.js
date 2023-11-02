@@ -24,7 +24,7 @@ import './feedbackForm.css'
 // }
 
 
-function feedbackForm() {
+function MentorfeedbackForm() {
 
     
     // const[state,dispatch] = useReducer(reducer, initialState)
@@ -92,4 +92,4 @@ function feedbackForm() {
   )
 }
 
-export default feedbackForm
+export default MentorfeedbackForm

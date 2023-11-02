@@ -229,13 +229,13 @@ const Chatbox = ({
       )}
       <div className="message-send-bar">
         {chat && (
-          <input
+          <textarea
             placeholder="Type Here...."
             value={newMessage}
             onChange={handleChange}
             className="message-tobe-sent"
             onKeyDown={(e) => {
-              if (e.keyCode === 13) handleSend();
+              if (e.keyCode === 13 && !e.shiftKey) handleSend();
             }}
           />
         )}

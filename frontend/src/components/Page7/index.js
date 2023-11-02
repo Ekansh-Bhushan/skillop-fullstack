@@ -33,6 +33,10 @@ function Auth7Component({ setProgress }) {
             if (data.result) {
                 navigate("/homepage");
                 toast.success("User registered!")
+                setTimeout(() => {
+                    navigate('/profile')
+                    toast("✅📝 Complete your profile first!")
+                }, 4000);
             }
         }
         catch (err) {
