@@ -206,8 +206,17 @@ const PostComp = ({
             />
             <div onClick={openPublicProfile}>
               <span style={{ fontWeight: "bold" }} className="posted-by-name">
-                <span>{author.firstname} {author.lastname}</span>
-                {author.isMentor && <img id="verified-badge" src="/verified.png" width={10} height={10} />}
+                <span>
+                  {author.firstname} {author.lastname}
+                </span>
+                {author.isMentor && (
+                  <img
+                    id="verified-badge"
+                    src="/verified.png"
+                    width={10}
+                    height={10}
+                  />
+                )}
               </span>
               <span style={{ fontSize: "12px" }} className="posted-by-brief">
                 {author.isMentor ? "Mentor" : "Mentee"}
@@ -263,67 +272,98 @@ const PostComp = ({
         )}
       </div>
 
-      {(imageUrls.length) ? (
+      {imageUrls.length ? (
         // imageUrls[0].toLowerCase().includes(".jpg") ||
         //   imageUrls[0].toLowerCase().includes(".jpeg") ||
-        //   imageUrls[0].toLowerCase().includes(".png") 
-        false ?
-          (
-            <div
-              className="posted-img-container"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "5px",
-              }}
-            >
-              {imageUrls.length > 1 && currentMediaIndex > 0 && (
-                <span onClick={handlePreviousMedia}>
-                  <img className="back-post-arr" height={32} width={32} src={back} alt="back" />
-                </span>
-              )}
-              <img
-                onClick={previewImage}
-                src={imageUrls[currentMediaIndex]}
-                className="img-posted"
-                alt="prevw"
-              />
-              {imageUrls.length > 1 &&
-                currentMediaIndex < imageUrls.length - 1 && (
-                  <span onClick={handleNextMedia}>
-                    <img className="next-post-arr" height={28} width={28} src={next} alt="next" />
-                  </span>
-                )}
-            </div>
-          ) : (
-            <div style={{
+        //   imageUrls[0].toLowerCase().includes(".png")
+        false ? (
+          <div
+            className="posted-img-container"
+            style={{
               display: "flex",
               alignItems: "center",
               gap: "5px",
-            }} >
-              {imageUrls.length > 1 && currentMediaIndex > 0 && (
-                <span onClick={handlePreviousMedia}>
-                  <img style={{ cursor: "pointer" }} className="back-post-arr" height={32} width={32} src={back} alt="back" />
+            }}
+          >
+            {imageUrls.length > 1 && currentMediaIndex > 0 && (
+              <span onClick={handlePreviousMedia}>
+                <img
+                  className="back-post-arr"
+                  height={32}
+                  width={32}
+                  src={back}
+                  alt="back"
+                />
+              </span>
+            )}
+            <img
+              onClick={previewImage}
+              src={imageUrls[currentMediaIndex]}
+              className="img-posted"
+              alt="prevw"
+            />
+            {imageUrls.length > 1 &&
+              currentMediaIndex < imageUrls.length - 1 && (
+                <span onClick={handleNextMedia}>
+                  <img
+                    className="next-post-arr"
+                    height={28}
+                    width={28}
+                    src={next}
+                    alt="next"
+                  />
                 </span>
               )}
-              <iframe
-                onClick={previewImage}
-                src={imageUrls[currentMediaIndex]}
-                width="100%"
-                height={400}
-                title="Media Preview"
-                scrolling="no"
-                frameBorder="0"
-                style={{ borderRadius: "15px", overflow: "hidden", border: "none", objectFit: "contain" }}
-              ></iframe>
-              {imageUrls.length > 1 &&
-                currentMediaIndex < imageUrls.length - 1 && (
-                  <span style={{ cursor: "pointer" }} onClick={handleNextMedia}>
-                    <img className="next-post-arr" height={28} width={28} src={next} alt="next" />
-                  </span>
-                )}
-            </div>
-          )
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+            }}
+          >
+            {imageUrls.length > 1 && currentMediaIndex > 0 && (
+              <span onClick={handlePreviousMedia}>
+                <img
+                  style={{ cursor: "pointer" }}
+                  className="back-post-arr"
+                  height={32}
+                  width={32}
+                  src={back}
+                  alt="back"
+                />
+              </span>
+            )}
+            <iframe
+              onClick={previewImage}
+              src={imageUrls[currentMediaIndex]}
+              width="100%"
+              height={400}
+              title="Media Preview"
+              scrolling="no"
+              frameBorder="0"
+              style={{
+                borderRadius: "15px",
+                overflow: "hidden",
+                border: "none",
+                objectFit: "contain",
+              }}
+            ></iframe>
+            {imageUrls.length > 1 &&
+              currentMediaIndex < imageUrls.length - 1 && (
+                <span style={{ cursor: "pointer" }} onClick={handleNextMedia}>
+                  <img
+                    className="next-post-arr"
+                    height={28}
+                    width={28}
+                    src={next}
+                    alt="next"
+                  />
+                </span>
+              )}
+          </div>
+        )
       ) : (
         ""
       )}
@@ -355,9 +395,7 @@ const PostComp = ({
             ></i>
             {likersList.length <= 1 && (
               <>
-                <span onClick={openPopup}>
-                  {likersList.length} Like
-                </span>
+                <span onClick={openPopup}>{likersList.length} Like</span>
               </>
             )}
             {likersList.length > 1 && (
@@ -375,7 +413,7 @@ const PostComp = ({
                   </span>{" "}
                 </span>
                 <span className="small-screen-likes-length">
-                  {likersList.length} likes
+                  {likersList.length} Like
                 </span>
               </>
             )}
