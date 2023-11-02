@@ -232,7 +232,7 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
             Settings
           </span>
           <div className='xtra-opt' style={{ position: 'absolute', top: '-130px', right: '-100px', height: '100px', width: '180px', backgroundColor: 'gray', borderRadius: '15px', backgroundColor: 'white', boxShadow: '0px 0px 20px rgb(215,215,215)', padding: '10px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '15px', fontSize: '20px', display: 'none' }} onMouseLeave={hidextra} >
-            {!Mentor && <div style={{ color: '#108CFF', padding: "5px" }} >Become Mentor</div>}
+            {!Mentor && <div style={{ color: '#108CFF', padding: "5px" }} onClick={navigate('/mentorBano')} >Become Mentor</div>}
             {!Mentor && <div style={{ width: '80%', height: '1px', backgroundColor: 'gray' }}></div>}
             <div style={{ color: '#FF4141', padding: "5px" }} onClick={logout}>Logout</div>
           </div>
