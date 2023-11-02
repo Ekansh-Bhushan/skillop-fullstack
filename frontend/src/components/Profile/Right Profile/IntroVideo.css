@@ -79,11 +79,41 @@
     padding: 5vw;
     width: 200px;
     background: white;
+    border: 2px solid black;
+    width: 80vw;
+  }
+
+  /* .intro-video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 5.7vw;
+    background: white;
+    height: 50vh;
+    left: 35vw;
+    top: 35vh;
+    border: 2px solid black;
+  } */
+
+  .iv-player {
+    width: 75vw;
+    height: 20vh;
+    border-radius: 15px;
+    margin-top: 10px;
+  }
+
+  .iv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0vw 0vw 2vw 0vw;
+    width: 100%;
   }
 
   .up-btn-video {
     background: green;
-    padding: 1.9vw;
+    padding: 2.9vw;
     border-radius: 13px;
     font-size: 1.05rem;
     border: none;
@@ -94,19 +124,6 @@
     width: 90%;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
-
-  .intro-video-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    padding: 5.7vw;
-    background: white;
-    /* height: 50vh; */
-    left: 35vw;
-    top: 35vh;
-    border: 2px solid black;
   }
 
   .intro-video-bg {
