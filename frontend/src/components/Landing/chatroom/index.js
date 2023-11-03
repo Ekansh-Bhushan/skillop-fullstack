@@ -12,192 +12,223 @@ import Chats from "./Chats";
 import "./chat.css";
 
 function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
-    // console.log(userData);
-    const [messages, setMessages] = useState([]);
-    const [inputMessage, setInputMessage] = useState("");
-    const [chats, setChats] = useState([]);
-    const [currentChat, setCurrentChat] = useState(null);
-    const [onlineUsers, setOnlineUsers] = useState([]);
-    const [sendMessage, setSendMessage] = useState(null);
-    const [recieveMessage, setRecieveMessage] = useState(null);
-    const socket = useRef();
-    const navigate = useNavigate();
+  // console.log(userData);
+  const [messages, setMessages] = useState([]);
+  const [inputMessage, setInputMessage] = useState("");
+  const [chats, setChats] = useState([]);
+  const [currentChat, setCurrentChat] = useState(null);
+  const [onlineUsers, setOnlineUsers] = useState([]);
+  const [sendMessage, setSendMessage] = useState(null);
+  const [recieveMessage, setRecieveMessage] = useState(null);
+  const socket = useRef();
+  const navigate = useNavigate();
 
-    // send message to socket server
-    useEffect(() => {
-        if (sendMessage !== null) {
-            socket.current.emit("send-message", sendMessage);
+  // send message to socket server
+  useEffect(() => {
+    if (sendMessage !== null) {
+      socket.current.emit("send-message", sendMessage);
+    }
+  }, [sendMessage]);
+
+  useEffect(() => {
+    socket.current = io("https://app.skillop.in");
+
+    userData && socket.current.emit("new-user-add", userData._id);
+
+    socket.current.on("get-users", (users) => {
+      setOnlineUsers(users);
+    });
+  }, []);
+
+  // receive message from socket server
+
+  useEffect(() => {
+    socket.current.on("receive-message", (data) => {
+      setRecieveMessage(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (userData !== null) {
+      const getChats = async () => {
+        try {
+          const { data } = await userChats(userData._id);
+          setChats(data);
+          // console.log(data);
+        } catch (error) {
+          console.log(error);
         }
-    }, [sendMessage]);
+      };
+      getChats();
+    }
+  }, [userData]);
 
-    useEffect(() => {
-        socket.current = io("https://app.skillop.in");
+  const handleInputChange = (event) => {
+    setInputMessage(event.target.value);
+  };
+  const handleSendMessage = () => {
+    var newMessage;
+    if (inputMessage.trim() !== "") {
+      newMessage = {
+        id: messages.length + 1,
+        sender: "user",
+        message: inputMessage,
+      };
+      setMessages([...messages, newMessage]);
+      setInputMessage("");
+    }
+    axios
+      .put("path/to/updateChat", newMessage)
+      .then((response) => {
+        console.log("Message added:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error adding message:", error);
+      });
+  };
+  /*-------------------------------------------------------*/
 
-        userData && socket.current.emit("new-user-add", userData._id);
+  const targetRef = useRef(null);
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (targetRef.current && !targetRef.current.contains(event.target)) {
+        // This condition checks if the clicked element is not within the target div
+        // Place your function code here
 
-        socket.current.on("get-users", (users) => {
-            setOnlineUsers(users);
-        });
-    }, []);
+        document.querySelector(".filtered-results").classList.add("hidethis");
+        document.querySelector(".search-bar-landing").value = "";
+        document.querySelector(".search-bar-landing").style.width = "200px";
+        document.querySelector(".search-bar-landing").style.borderRadius =
+          "20px";
+        document.querySelector(".search-bar-landing").style.background =
+          "rgb(225,225,225)";
+        document.querySelector(".search-bar-landing").style.width = "200px";
+      }
+    }
 
-    // receive message from socket server
 
-    useEffect(() => {
-        socket.current.on("receive-message", (data) => {
-            setRecieveMessage(data);
-        });
-    }, []);
+    document.addEventListener("click", handleClickOutside);
 
-    const redirect_chat_id = new URLSearchParams(window.location.search).get('chat-id');
-
-    useEffect(() => {
-        if (userData !== null) {
-            const getChats = async () => {
-                try {
-                    const { data } = await userChats(userData._id);
-                    setChats(data);
-                    if (redirect_chat_id.length > 0) {
-                        setCurrentChat(data.filter((item) => item._id === redirect_chat_id)[0]);
-                    }
-                } catch (error) {
-                    console.log(error);
-                }
-            };
-            getChats();
-        }
-    }, [userData]);
-
-    const handleInputChange = (event) => {
-        setInputMessage(event.target.value);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
     };
-    const handleSendMessage = () => {
-        var newMessage;
-        if (inputMessage.trim() !== "") {
-            newMessage = {
-                id: messages.length + 1,
-                sender: "user",
-                message: inputMessage,
-            };
-            setMessages([...messages, newMessage]);
-            setInputMessage("");
+  }, []);
+
+  useEffect(() => {
+    socket.current.on("receive-message", (data) => {
+      setRecieveMessage(data);
+    });
+  }, []);
+
+  const redirect_chat_id = new URLSearchParams(window.location.search).get('chat-id');
+
+  useEffect(() => {
+    if (userData !== null) {
+      const getChats = async () => {
+        try {
+          const { data } = await userChats(userData._id);
+          setChats(data);
+          if (redirect_chat_id.length > 0) {
+            setCurrentChat(data.filter((item) => item._id === redirect_chat_id)[0]);
+          }
+        } catch (error) {
+          console.log(error);
         }
-        axios
-            .put("path/to/updateChat", newMessage)
-            .then((response) => {
-                console.log("Message added:");
-            })
-            .catch((error) => {
-                console.error("Error adding message:", error);
-            });
-    };
-    /*-------------------------------------------------------*/
+      };
+      getChats();
+    }
+  }, [userData]);
 
-    const targetRef = useRef(null);
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (
-                targetRef.current &&
-                !targetRef.current.contains(event.target)
-            ) {
-                // This condition checks if the clicked element is not within the target div
-                // Place your function code here
-
-                document
-                    .querySelector(".filtered-results")
-                    .classList.add("hidethis");
-                document.querySelector(".search-bar-landing").value = "";
-                document.querySelector(".search-bar-landing").style.width =
-                    "200px";
-                document.querySelector(
-                    ".search-bar-landing"
-                ).style.borderRadius = "20px";
-                document.querySelector(".search-bar-landing").style.background =
-                    "rgb(225,225,225)";
-                document.querySelector(".search-bar-landing").style.width =
-                    "200px";
-            }
-        }
-
-        document.addEventListener("click", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("click", handleClickOutside);
-        };
-    }, []);
-
-    return (
-        <div
-            style={{
-                minHeight: "150vh",
-            }}
-        >
-            <SideNav
-                setProgress={setProgress}
-                Mentor={Mentor}
-                isFetched={isFetched}
-                notifyList={notifyList}
-            />
-            <Mobilecommonhead />
-            {/* <Common setProgress={setProgress}/> */}
-            <div className="main-content-landing-chat">
-                <div className="chat-room">
-                    <Chatbox
-                        chats={chats}
-                        chat={currentChat}
-                        currentUser={userData._id}
-                        setSendMessage={setSendMessage}
-                        recieveMessage={recieveMessage}
-                    />{" "}
-                    <div className="chat-friends-list">
-                        <div
-                            style={{
-                                position: "fixed",
-                                top: "1rem",
-                                background: "white",
-                                width: "26%",
-                            }}
-                        >
-                            <h2 className="chat-head">Chats</h2>
-                            <input
+  return (
+    <div>
+      <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
+      <Mobilecommonhead />
+      {/* <Common setProgress={setProgress}/> */}
+      <div className="main-content-landing-chat">
+        <div className="chat-room">
+          <Chatbox
+            chats={chats}
+            chat={currentChat}
+            currentUser={userData._id}
+            setSendMessage={setSendMessage}
+            recieveMessage={recieveMessage}
+          />{" "}
+          <div className="chat-friends-list">
+            <div
+              style={{
+                position: "fixed",
+                top: "1rem",
+                background: "white",
+                width: "26%",
+              }}
+            >
+              {/* <h2 className="chat-head">Chats</h2> */}
+              {/* <input
                                 className="search-input"
                                 type="text"
                                 placeholder="Search chats..."
-                            />
+                            /> */}
 
-                            <img
+              {/* <img
                                 className="search-img"
                                 src="/search.png"
                                 alt="search"
                                 height={21}
                                 width={21}
-                            />
-                            {/* <hr /> */}
-                        </div>
-                        {/* <div style={{ marginBottom: "40px" }}></div> */}
-                        {chats.length > 0 &&
-                            chats.map((chat) => (
-                                <div
-                                    onClick={() => {
-                                        setCurrentChat(chat);
-                                        document.querySelector(
-                                            ".chatbox-messages"
-                                        ).scrollTop =
-                                            document.querySelector(
-                                                ".chatbox-messages"
-                                            ).scrollHeight;
-                                    }}
-                                >
-                                    <Conversation
-                                        data={chat}
-                                        chatID={chat._id}
-                                        currentUser={userData._id}
-                                    />
-                                </div>
-                            ))}
-                    </div>
-                </div>
+                            /> */}
+              {/* <hr /> */}
+              {/* </div> */}
+              {/* <div style={{ marginBottom: "40px" }}></div> */}
+              {chats.length > 0 &&
+                chats.map((chat) => (
+                  <div
+                    onClick={() => {
+                      setCurrentChat(chat);
+                      document.querySelector(
+                        ".chatbox-messages"
+                      ).scrollTop =
+                        document.querySelector(
+                          ".chatbox-messages"
+                        ).scrollHeight;
+                    }}
+                  >
+                    <Conversation
+                      data={chat}
+                      chatID={chat._id}
+                      currentUser={userData._id}
+                    />
+                  </div>
+                ))}
+              {/* </div>
+                </div> */}
             </div>
+            {/* <div style={{ marginBottom: "40px" }}></div> */}
+            {chats.length > 0 &&
+              chats.map((chat) => (
+                <div
+                  onClick={() => {
+                    setCurrentChat(chat);
+                    console.log("here");
+                    document.querySelector(".chatbox-messages").scrollTop =
+                      document.querySelector(".chatbox-messages").scrollHeight;
+                  }}
+                >
+                  <Conversation
+                    data={chat}
+                    chatID={chat._id}
+                    currentUser={userData._id}
+                  />
+                </div>
+              ))}
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 export default Chat;

@@ -814,7 +814,10 @@ non-act {
   gap: 6px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
+  /* .main-content-landing {
+    background-color: antiquewhite;
+  } */
   .reactions-div {
     margin-top: 0px;
     margin-bottom: 15px;
@@ -1073,11 +1076,11 @@ non-act {
 
 @media screen and (max-width: 400px) {
   .chat-user-details {
-    margin-top: 8vh;
+    margin-top: 0vh;
   }
 
   .chatbox-messages {
-    min-height: 50vh;
+    min-height: 75vh;
   }
 
   .message-send-bar {
@@ -1127,7 +1130,7 @@ non-act {
   /* Firefox */
   -ms-overflow-style: none;
   padding: 10px;
-  margin-top: 120px;
+  margin-top: 5%;
 
   /* Internet Explorer and Edge */
 }
@@ -1236,6 +1239,7 @@ non-act {
   .chat-friends-list {
     width: 95%;
     overflow-y: visible;
+    min-height: 50vh;
   }
 }
 
@@ -1247,9 +1251,9 @@ non-act {
   .chatting {
     width: 100%;
   }
-  .chat-room {
+  /* .chat-room {
     gap: 50px;
-  }
+  } */
 }
 @media only screen and (max-width: 900px) {
   .main-content-landing-chat {
@@ -1262,6 +1266,7 @@ non-act {
   }
   .chat-friends-list {
     width: 90%;
+    margin-bottom: 100px;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -1274,8 +1279,7 @@ non-act {
   .chat-room {
     left: 0px;
     width: 90%;
-    gap: 100px;
-    height: 85vh;
+    gap: 50px;
   }
 }
 

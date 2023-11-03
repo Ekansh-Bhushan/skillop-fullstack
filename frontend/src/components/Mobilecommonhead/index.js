@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../images/logo.png";
 import { IoIosArrowBack } from "react-icons/io";
 import { PiBellRingingLight } from "react-icons/pi";
 import { HiOutlineChatBubbleLeftEllipsis } from "react-icons/hi2";
 import "./index.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { SiGooglechat } from "react-icons/si";
@@ -17,8 +17,10 @@ import post from "../images/post.png";
 import { RxCross2 } from "react-icons/rx";
 import { logoutUser } from "../../api/logoutRequest";
 import { toast } from "react-hot-toast";
+import PostPopUp from "../Landing/Post/PostPopUp";
 
 const Mobilecommonhead = () => {
+  const [showPostPopUp, setShowPostPopUp] = useState(false);
   const navigate = useNavigate();
   const logout = async () => {
     try {
@@ -35,8 +37,24 @@ const Mobilecommonhead = () => {
     // setProgress(100);
   };
 
+  const onClose = () => {
+    setShowPostPopUp(!showPostPopUp);
+  };
+
+  const handlePostPopUp = () => {
+    setShowPostPopUp(!showPostPopUp);
+  };
+  const [refresh, setRefresh] = useState(false);
+
   return (
     <>
+      {showPostPopUp && (
+        <PostPopUp
+          onClose={onClose}
+          // setProgress={setProgress}
+          setRefresh={setRefresh}
+        />
+      )}
       <div className="mobile-head">
         <div className="back-n-logo">
           {/* <div className="back-btn">
@@ -101,13 +119,7 @@ const Mobilecommonhead = () => {
               color: "rgb(27, 155, 155)",
             }}
           >
-            {
-              <IoIosAddCircle
-                onClick={() => {
-                  navigate("/newpost");
-                }}
-              />
-            }
+            {<IoIosAddCircle onClick={handlePostPopUp} />}
           </div>
           {/* <div className="mobile-panel-options">
             <SiGooglechat />

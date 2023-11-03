@@ -38,7 +38,9 @@ import ConfirmBooking from "../dashboard/bookings/ConfirmBooking";
 import Payment from "../dashboard/bookings/Payment";
 import EditPic from "../Profile/EditPic/EditPic";
 import RequestedMeets from "../dashboard/requestedMeets";
-
+import MentorBano from "../MentorBano/mentorBano";
+import MentorfeedbackForm from "../MentorFeedback/feedbackForm";
+import PlatformfeedbackForm from "../PlatfromFeedback/feedbackForm";
 // import { set } from "mongoose";
 
 function AuthPage({
@@ -288,6 +290,18 @@ function AuthPage({
                     }
                 />
                 <Route
+                    path="/mentorBano"
+                    element={
+                        <MentorBano
+                            userData={userData}
+                            setProgress={setProgress}
+                            Mentor={Mentor}
+                            isFetched={isFetched}
+                            notifyList={notifyList}
+                        />
+                    }
+                />
+                <Route
                     path="/bookslot/:userId"
                     element={
                         <Bookslot
@@ -325,6 +339,14 @@ function AuthPage({
                 />
                 <Route path="/mobile" element={<Mobilecommonhead />} />
                 <Route path="/newpost" element={<Mobilepost />} />
+                <Route
+                    path="/mentorfeedback"
+                    element={<MentorfeedbackForm />}
+                />
+                <Route
+                    path="/platformfeedback"
+                    element={<PlatformfeedbackForm />}
+                />
                 <Route
                     path="/editskills"
                     element={
