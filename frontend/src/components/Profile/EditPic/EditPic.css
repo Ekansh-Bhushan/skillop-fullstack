@@ -122,14 +122,14 @@
   gap: 50px;
   margin-bottom: 10px;
 }
-.btnCont .next2 {
+/* .btnCont .next2 {
   width: 83px;
   height: 56px;
   color: white;
   border: none;
   background-color: rgb(108, 171, 249);
   border-radius: 16px;
-}
+} */
 
 .btnCont .back {
   border: none;

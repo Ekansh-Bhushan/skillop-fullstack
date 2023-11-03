@@ -23,13 +23,12 @@
 }
 
 .options234 {
-      display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 30px;
-        gap: 20px;
-        margin-top: 10px;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  gap: 20px;
+  margin-top: 10px;
 }
 .row-1,
 .row-2 {
@@ -43,7 +42,6 @@
   width: 50vw;
   padding: 20px;
   border-radius: 20px;
-    
 }
 
 @media screen and (max-width: 768px) {
@@ -84,8 +82,8 @@
   outline: none;
   border: none;
   margin-right: auto;
-  font-family:'Ubuntu';
-  box-shadow:0px 0px 10px rgb(192, 192, 192);
+  font-family: "Ubuntu";
+  box-shadow: 0px 0px 10px rgb(192, 192, 192);
   height: 120px;
   padding: 10px;
   border-radius: 10px;
@@ -100,7 +98,7 @@
   gap: 50px;
   margin-bottom: 10px;
 }
-.btnCont .next2 {
+.btnCont .next1 {
   width: 83px;
   height: 56px;
   color: white;
@@ -110,15 +108,15 @@
 }
 
 .btnCont .back {
-   border: none; 
-    border-radius: 16px;
-    background: #13d755;
-    width: 83px; 
-    height: 56px; 
-    color: white; 
+  border: none;
+  border-radius: 16px;
+  background: #13d755;
+  width: 83px;
+  height: 56px;
+  color: white;
 }
 
-.btnCont .next2:hover {
+.btnCont .next1:hover {
   background-color: #1fa9ab;
   cursor: pointer;
 }
@@ -180,11 +178,11 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;  /* Allow wrapping to next line */
-  justify-content: center;   /* Center the blocks horizontally */
+  flex-wrap: wrap; /* Allow wrapping to next line */
+  justify-content: center; /* Center the blocks horizontally */
   align-items: center; /* Center the blocks vertically */
-  gap: 10px;  /* Add some gap between the blocks */
-  padding: 5px;   /* Add some padding to the container */
+  gap: 10px; /* Add some gap between the blocks */
+  padding: 5px; /* Add some padding to the container */
 }
 
 /* .elliptical-skills.new-line {
@@ -199,8 +197,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: calc(33.33% - 10px);   /* Distribute width for 3 skills in a line */
-  margin-bottom: 5px;   /* Add spacing between lines */
+  max-width: calc(33.33% - 10px); /* Distribute width for 3 skills in a line */
+  margin-bottom: 5px; /* Add spacing between lines */
   position: relative;
 }
 
@@ -210,12 +208,9 @@
   /* Add margin to the right of the skill name */
 }
 
-
-
 /* Styles for the remove skill icon */
 .remove-skill {
   cursor: pointer;
-
 }
 
 .remove-skill:hover {
@@ -246,4 +241,10 @@
 .next button :hover {
   background-color: #1fa9ab;
   cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .btnCont .next1 {
+    margin-top: -100px;
+  }
 }
