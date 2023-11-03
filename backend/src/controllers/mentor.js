@@ -499,7 +499,7 @@ exports.getAvailability = async (req, res) => {
             for (let i = 0; i < avail.length; i++) {
                 // calculate charge based on time
                 avail[i].charge =
-                    ((avail[i].e - avail[i].s) * chargePerHour) / 60;
+                    ((avail[i].e - avail[i].s) * chargePerHour) / 100;
             }
             // console.log(avail, 1000);
             return res.status(200).send({
@@ -517,7 +517,7 @@ exports.getAvailability = async (req, res) => {
                 // calculate charge based on time
                 // console.log(avail[i], 2600)
                 avail[i].charge =
-                    ((avail[i].e - avail[i].s) * chargePerHour) / 60;
+                    ((avail[i].e - avail[i].s) * chargePerHour) / 100;
                 // console.log(avail[i], 2700);
             }
             // console.log(avail, 2000);
@@ -530,7 +530,7 @@ exports.getAvailability = async (req, res) => {
 
         const avail = currentAvailability[date];
         for (let i = 0; i < avail.length; i++) {
-            avail[i].charge = ((avail[i].e - avail[i].s) * chargePerHour) / 60;
+            avail[i].charge = ((avail[i].e - avail[i].s) * chargePerHour) / 100;
         }
         // console.log(avail, 3000);
 
@@ -566,9 +566,9 @@ exports.updateAvailability = async (req, res) => {
         }
 
         // create a function that check if all the availibility provided are less that x size
-        function checkLimit(arr, x) { 
+        function checkLimit(arr, x) {
             // e and s are of the form 2000 and x is in minites
-            x = x * 100 / 60;
+            x = (x * 100) / 60;
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i].e - arr[i].s > x) {
                     return false;
@@ -594,7 +594,10 @@ exports.updateAvailability = async (req, res) => {
                 continue;
             }
             availability[days[i]] = isValidAvailability(availability[days[i]]);
-            if (!availability[days[i]] || !checkLimit(availability[days[i]], 60)) {
+            if (
+                !availability[days[i]] ||
+                !checkLimit(availability[days[i]], 60)
+            ) {
                 flag = false;
                 break;
             }
@@ -1009,19 +1012,18 @@ exports.requestToBeMentor = async (req, res) => {
     }
 };
 
-
 exports.setDataForMentor = async (req, res) => {
     try {
         const { meetChargePerHour } = req.query;
         const user = await User.findById(req.user._id);
-        if (!user.isMentor) { 
+        if (!user.isMentor) {
             res.status(400).send({
                 result: false,
                 message: "You are not a mentor",
-            })
-        } 
+            });
+        }
         const mentor = await Mentor.findById(user.mentor);
-        if (meetChargePerHour) { 
+        if (meetChargePerHour) {
             mentor.chargePerHour = meetChargePerHour;
         }
 
@@ -1029,12 +1031,12 @@ exports.setDataForMentor = async (req, res) => {
         res.status(200).send({
             result: mentor,
             message: "Data updated successfully",
-        })
+        });
     } catch (error) {
         res.status(500).send({
             result: false,
             message: "Internal Server Error",
             error: error.message,
-        })
+        });
     }
-}
+};

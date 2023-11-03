@@ -219,7 +219,7 @@ const PostComp = ({
                 )}
               </span>
               <span style={{ fontSize: "12px" }} className="posted-by-brief">
-                {author.isMentor ? "Mentor" : "Mentee"}
+                {author.jobTitle !== 'student' ? author.jobTitle : ((author.education.length && author.education[0].institution) ? 'Student at ' + author.education[0].institution.slice(0, 50) : "Student")}
               </span>
               <div style={{ fontSize: "12px" }} className="post-time">
                 {formatTimeDifference()}
@@ -440,7 +440,7 @@ const PostComp = ({
                 marginBottom: "3px",
               }}
             ></i>
-            {/* {commentList.length + " "} */}
+            {commentList.length + " "}
             Comments
           </div>
 
