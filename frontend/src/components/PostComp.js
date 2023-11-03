@@ -336,6 +336,7 @@ const PostComp = ({
               </span>
             )}
             <iframe
+              id="iframe-post"
               onClick={previewImage}
               src={imageUrls[currentMediaIndex]}
               width="100%"
@@ -343,12 +344,6 @@ const PostComp = ({
               title="Media Preview"
               scrolling="no"
               frameBorder="0"
-              style={{
-                borderRadius: "15px",
-                overflow: "hidden",
-                border: "none",
-                objectFit: "contain",
-              }}
             ></iframe>
             {imageUrls.length > 1 &&
               currentMediaIndex < imageUrls.length - 1 && (

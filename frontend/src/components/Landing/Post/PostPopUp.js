@@ -68,9 +68,9 @@ const PostPopUp = ({ onClose, setProgress, setRefresh }) => {
         };
         return API.post(`/api/post/create`, data, config);
       };
-      //   setProgress(30);
+        setProgress(30);
       await createPost(formData);
-      //   setProgress(100);
+        setProgress(100);
       setRefresh(false);
       onClose();
       toast.success("Post created successfully!");
