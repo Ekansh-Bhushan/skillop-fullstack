@@ -1,6 +1,6 @@
 .side-nav-container li {
 	cursor: pointer;
-	margin: 20px;
+	margin: 20px auto;
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -51,10 +51,10 @@
 	height: 100vh;
 	position: fixed;
 	z-index: 100;
-	width: 280px;
 	transition: 0.5s;
 	box-shadow: 0px 0px 50px rgb(228, 227, 227);
 	z-index: 3;
+	width: 18vw;
 }
 
 #notify-lock {
@@ -96,7 +96,7 @@
 }
 @media only screen and (max-width: 1400px) {
 	.side-nav-container {
-		width: 80px;
+		width: 7vw;
 	}
 	.side-nav-container li span {
 		transform: translateX(-500%);
