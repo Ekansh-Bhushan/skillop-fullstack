@@ -4,7 +4,7 @@ import linkedin from "../../images/linkedin.png";
 import userPic from "../../images/user.png";
 import { useNavigate } from "react-router-dom";
 import "./RightProfileComp.css";
-import { createChat } from "../../../api/chatRequest";
+import { createChat, userChats } from "../../../api/chatRequest";
 import { followUnfollowUser } from "../../../api/follow-unfollow";
 import chat3 from "../../images/chat3.png";
 import post2 from "../../images/post2.png";
@@ -25,6 +25,7 @@ export default function RightProfileComp({ userDatamain }) {
   const [showFollowers, setShowFollowers] = useState(false);
   const [showFollowings, setShowFollowings] = useState(false);
   const [showIntroVideo, setShowIntroVideo] = useState(false);
+  const [chat_id, setChatId] = useState("");
 
   const onClose = () => {
     setShowIntroVideo(false);
@@ -38,8 +39,7 @@ export default function RightProfileComp({ userDatamain }) {
         receiverId: userId,
       };
       const { data } = await createChat(req);
-
-      // console.log(data);
+      setChatId(data._id);
     } catch (error) {
       console.log(error);
       toast.error("chat already exists");
@@ -77,9 +77,22 @@ export default function RightProfileComp({ userDatamain }) {
     }
   };
 
+  const getChats = async () => {
+    try {
+      const usrdt = await getUser();
+      const { data } = await userChats(usrdt.data.result._id);
+      const id = data.filter((item) => item.members[0] === userId)[0]._id;
+      setChatId(id);
+      }
+       catch (error) {
+      console.log(error);
+    }
+  };
+  
   useEffect(() => {
     fetchFollowings();
     fetchUserDetails();
+    getChats();
   }, [userId]);
 
   useEffect(() => {
@@ -198,7 +211,7 @@ export default function RightProfileComp({ userDatamain }) {
                   >
                     <span
                       id="chatpub"
-                      onClick={() => navigate("/chat")}
+                      onClick={() => navigate(`/chat?chat-id=${chat_id}`)}
                       style={{
                         background: "white",
                         color: "black",

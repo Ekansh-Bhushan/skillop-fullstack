@@ -27,7 +27,6 @@ const Chatbox = ({
   // document.querySelector(".chatbox-messages").scrollTop = document.querySelector(".chatbox-messages").scrollHeight;
   const messagesRef = useRef();
   const onEmojiClick = (event) => {
-    console.log(event);
     setNewMessage((oldMsg) => {
       return oldMsg + event.emoji;
     });

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import user from "../../images/user.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { userChats } from "../../../api/chatRequest";
 import Conversation from "../../Conversation";
@@ -48,13 +48,17 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
         });
     }, []);
 
+    const redirect_chat_id = new URLSearchParams(window.location.search).get('chat-id');
+
     useEffect(() => {
         if (userData !== null) {
             const getChats = async () => {
                 try {
                     const { data } = await userChats(userData._id);
                     setChats(data);
-                    // console.log(data);
+                    if (redirect_chat_id.length > 0) {
+                        setCurrentChat(data.filter((item) => item._id === redirect_chat_id)[0]);
+                    }
                 } catch (error) {
                     console.log(error);
                 }
@@ -80,7 +84,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
         axios
             .put("path/to/updateChat", newMessage)
             .then((response) => {
-                console.log("Message added:", response.data);
+                console.log("Message added:");
             })
             .catch((error) => {
                 console.error("Error adding message:", error);
@@ -175,7 +179,6 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                                 <div
                                     onClick={() => {
                                         setCurrentChat(chat);
-                                        console.log("here");
                                         document.querySelector(
                                             ".chatbox-messages"
                                         ).scrollTop =
