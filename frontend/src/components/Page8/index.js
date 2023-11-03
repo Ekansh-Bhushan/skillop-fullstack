@@ -10,7 +10,7 @@ import Spinner from "../images/spinner.gif";
 import { getUser } from "../../api/userRequest";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
-const API = axios.create({ baseURL: "https://app.skillop.in" });
+const API = axios.create({ baseURL: "https://skillop-back.onrender.com" });
 
 function Uploadpic({ userData, setProgress }) {
   const [uploading, setUploading] = useState(false);
@@ -63,9 +63,10 @@ function Uploadpic({ userData, setProgress }) {
     navigate("/laststep");
   };
   const handleUpload = async () => {
-    setUploading(true);
     if (selectedImage) {
-      document.querySelector(".upload-button").style.backgroundColor = "green";
+      setUploading(true);
+      document.querySelector(".upload-button").style.backgroundColor =
+        "green";
       document.querySelector(".upload-button").style.color = "white";
       // Here you can implement the code to upload the image to your server or cloud storage
       // For example, you can use the Fetch API or a library like axios.
@@ -102,7 +103,8 @@ function Uploadpic({ userData, setProgress }) {
       };
       try {
         await uploadprofilepic(formData1);
-        await uploadBGpic(formData2);
+        if (selectedBGImage)
+          await uploadBGpic(formData2);
         setUploading(false);
       } catch (err) {
         toast.error("Error uploading cover picture");
@@ -111,6 +113,9 @@ function Uploadpic({ userData, setProgress }) {
         "Upload Successfully";
       window.location.reload();
       // console.log(data);
+    }
+    else {
+      toast.error("Choose a profile picture")
     }
   };
   const redirecttolast = () => {
@@ -220,13 +225,21 @@ function Uploadpic({ userData, setProgress }) {
                 }}
               />
             </span>
-            <button className="upload-button" onClick={handleUpload}>
+            <button
+              className="upload-button"
+              onClick={handleUpload}
+            >
               Upload Image
             </button>
           </div>
           <div style={{ textAlign: "center", margin: "30px" }}>
             {uploading && (
-              <img height={75} width={75} src={Spinner} alt="Loading..." />
+              <img
+                height={75}
+                width={75}
+                src={Spinner}
+                alt="Loading..."
+              />
             )}
           </div>
         </div>
@@ -235,14 +248,20 @@ function Uploadpic({ userData, setProgress }) {
       <div className="upload-img">
         <div
           style={{
-            backgroundImage: dpBGURL ? `url(${dpBGURL})` : `url(${coverBg})`,
+            backgroundImage: dpBGURL
+              ? `url(${dpBGURL})`
+              : `url(${coverBg})`,
             backgroundPosition: "center",
           }}
           className="cover"
         />
 
-        <div className="main-photo-auth">
-          <img src={dpURL ?? user} style={{ display: "block" }} alt="user" />
+        <div className="main-photo">
+          <img
+            src={dpURL ?? user}
+            style={{ display: "block" }}
+            alt="user"
+          />
           <button className="uploadbtn" onClick={showupload}>
             Upload
           </button>

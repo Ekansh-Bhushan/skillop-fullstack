@@ -10,7 +10,7 @@ import { getUser } from "../../../api/userRequest";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 
-const API = axios.create({ baseURL: "https://app.skillop.in" });
+const API = axios.create({ baseURL: "https://skillop-back.onrender.com" });
 
 function EditPic({ userData, setProgress }) {
     const [uploading, setUploading] = useState(false);
@@ -60,12 +60,12 @@ function EditPic({ userData, setProgress }) {
         navigate("/laststep");
     };
     const handleUpload = async () => {
-        setUploading(true);
-        if (selectedImage) {
-            document.querySelector(".upload-button").style.backgroundColor =
-                "green";
+        if (selectedImage || selectedBGImage) {
+            setUploading(true);
+            document.querySelector(".upload-button").style.backgroundColor = "green";
             document.querySelector(".upload-button").style.color = "white";
-            console.log("Uploading image:", selectedImage.name);
+            if (selectedImage)
+                console.log("Uploading image:", selectedImage.name);
             const formData1 = new FormData();
             const formData2 = new FormData();
             formData1.append("profilePic", selectedImage);
@@ -93,8 +93,10 @@ function EditPic({ userData, setProgress }) {
                 return API.post(`/api/user/add/boackgroundPic`, data, config);
             };
             try {
-                await uploadprofilepic(formData1);
-                await uploadBGpic(formData2);
+                if (selectedImage)
+                    await uploadprofilepic(formData1);
+                if (selectedBGImage)
+                    await uploadBGpic(formData2);
                 setUploading(false);
             } catch (err) {
                 toast.error("Error uploading cover picture");
@@ -103,6 +105,9 @@ function EditPic({ userData, setProgress }) {
                 "Upload Successfully";
             window.location.reload();
             // console.log(data);
+        }
+        else {
+            toast.error("Choose profile or cover picture to upload")
         }
     };
     const redirecttolast = () => {
@@ -196,21 +201,13 @@ function EditPic({ userData, setProgress }) {
                                 }}
                             />
                         </span>
-                        <button
-                            className="upload-button"
-                            onClick={handleUpload}
-                        >
+                        <button className="upload-button" onClick={handleUpload}>
                             Upload Image
                         </button>
                     </div>
                     <div style={{ textAlign: "center", margin: "30px" }}>
                         {uploading && (
-                            <img
-                                height={75}
-                                width={75}
-                                src={Spinner}
-                                alt="Loading..."
-                            />
+                            <img height={75} width={75} src={Spinner} alt="Loading..." />
                         )}
                     </div>
                 </div>
@@ -219,20 +216,14 @@ function EditPic({ userData, setProgress }) {
             <div className="upload-img">
                 <div
                     style={{
-                        backgroundImage: dpBGURL
-                            ? `url(${dpBGURL})`
-                            : `url(${coverBg})`,
+                        backgroundImage: dpBGURL ? `url(${dpBGURL})` : `url(${coverBg})`,
                         backgroundPosition: "center",
                     }}
                     className="cover"
                 />
 
                 <div className="main-photo">
-                    <img
-                        src={dpURL ?? user}
-                        style={{ display: "block" }}
-                        alt="user"
-                    />
+                    <img src={dpURL ?? user} style={{ display: "block" }} alt="user" />
                     <button className="uploadbtn" onClick={showupload}>
                         Edit
                     </button>
