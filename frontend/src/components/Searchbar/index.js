@@ -265,7 +265,7 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   <div
                     className="sresult-1"
                     key={i}
-                    onClick={() => navigate(`/public-profile/${val._id}`)}
+                    onClick={() => navigate(`/postsection/${val._id}`)}
                     style={{ borderBottom: "1px solid gray" }}
                   >
                     <img
@@ -285,6 +285,7 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                       <div style={{ fontWeight: "bold", fontSize: "18px" }}>
                         {val.title.slice(0, 200) + "..."}
                       </div>
+                    <p>Posted by {val.author.firstname + val.author.lastname}</p>
                     </div>
                   </div>
                 </>
