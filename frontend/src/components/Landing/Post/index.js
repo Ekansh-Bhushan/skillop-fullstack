@@ -23,10 +23,10 @@ function Post({ userData, setProgress, Mentor, isFetched, notifyList }) {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
   // Function to handle input changes
@@ -36,8 +36,13 @@ function Post({ userData, setProgress, Mentor, isFetched, notifyList }) {
   // },[])
 
   return (
-    <>
-      <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+    <div className="homepage">
+      <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
       {/* <Searchbar/> */}
       <Mobilecommonhead />
 
@@ -54,7 +59,7 @@ function Post({ userData, setProgress, Mentor, isFetched, notifyList }) {
         <Profileandevents isHome={isHome} userData={userData} />
       </div>
       {/* <img id="scrollUp" onClick={scrollToTop} style={{ zIndex: "1000", position: "fixed", bottom: "20px", right: "20px", cursor: "pointer", borderRadius:"100%", boxShadow:"3px 3px 20px green"}} src={scrollUp} height={50} width={50} alt="scrollToTop" /> */}
-    </>
+    </div>
   );
 }
 export default Post;
