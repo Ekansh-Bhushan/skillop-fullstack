@@ -3,15 +3,15 @@ import Postlist from "../Postlist";
 import SideNav from "../../SideNav/SideNav";
 import Profileandevents from "../Profileandevents";
 import Mobilecommonhead from "../../Mobilecommonhead";
-import scrollUp from '../../images/scrollUp.png';
+import scrollUp from "../../images/scrollUp.png";
 
 function Post({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
-  }
+  };
 
   const [isHome, setIsHome] = useState(false);
 
@@ -60,7 +60,7 @@ function Post({ userData, setProgress, Mentor, isFetched, notifyList }) {
         <Profileandevents isHome={isHome} userData={userData} />
       </div>
       {/* <img id="scrollUp" onClick={scrollToTop} style={{ zIndex: "1000", position: "fixed", bottom: "20px", right: "20px", cursor: "pointer", borderRadius: "100%", boxShadow: "3px 3px 20px green" }} src={scrollUp} height={50} width={50} alt="scrollToTop" /> */}
-    </>
+    </div>
   );
 }
 export default Post;
