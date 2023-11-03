@@ -30,7 +30,6 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
       currentProgress += increment;
       currentProgress %= 1; // Ensure progress stays within the range [0, 1)
     }
-
     return currentProgress;
   }
 
@@ -75,8 +74,6 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
         </ul>
       </div>
       </div>
-      
-      
 
       <div className="last-content">You are One step away from becoming a Mentor...</div>
       <div className="but">

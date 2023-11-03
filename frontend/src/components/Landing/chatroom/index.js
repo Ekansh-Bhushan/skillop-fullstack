@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import user from "../../images/user.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { userChats } from "../../../api/chatRequest";
 import Conversation from "../../Conversation";
@@ -106,12 +106,38 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
       }
     }
 
+
     document.addEventListener("click", handleClickOutside);
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    socket.current.on("receive-message", (data) => {
+      setRecieveMessage(data);
+    });
+  }, []);
+
+  const redirect_chat_id = new URLSearchParams(window.location.search).get('chat-id');
+
+  useEffect(() => {
+    if (userData !== null) {
+      const getChats = async () => {
+        try {
+          const { data } = await userChats(userData._id);
+          setChats(data);
+          if (redirect_chat_id.length > 0) {
+            setCurrentChat(data.filter((item) => item._id === redirect_chat_id)[0]);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getChats();
+    }
+  }, [userData]);
 
   return (
     <div>
@@ -149,13 +175,37 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                             /> */}
 
               {/* <img
-                className="search-img"
-                src="/search.png"
-                alt="search"
-                height={21}
-                width={21}
-              /> */}
+                                className="search-img"
+                                src="/search.png"
+                                alt="search"
+                                height={21}
+                                width={21}
+                            /> */}
               {/* <hr /> */}
+              {/* </div> */}
+              {/* <div style={{ marginBottom: "40px" }}></div> */}
+              {chats.length > 0 &&
+                chats.map((chat) => (
+                  <div
+                    onClick={() => {
+                      setCurrentChat(chat);
+                      document.querySelector(
+                        ".chatbox-messages"
+                      ).scrollTop =
+                        document.querySelector(
+                          ".chatbox-messages"
+                        ).scrollHeight;
+                    }}
+                  >
+                    <Conversation
+                      data={chat}
+                      chatID={chat._id}
+                      currentUser={userData._id}
+                    />
+                  </div>
+                ))}
+              {/* </div>
+                </div> */}
             </div>
             {/* <div style={{ marginBottom: "40px" }}></div> */}
             {chats.length > 0 &&
