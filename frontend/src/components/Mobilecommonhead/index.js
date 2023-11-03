@@ -155,6 +155,7 @@ const Mobilecommonhead = () => {
               right: "40px",
               fontSize: "34px",
             }}
+            className="cross"
           />
           <div onClick={() => navigate("/mySlots")}>Slots</div>
           <div onClick={() => navigate("/mybookings")}>Bookings</div>

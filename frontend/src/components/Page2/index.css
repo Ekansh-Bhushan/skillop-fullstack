@@ -59,11 +59,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-@media only screen and (max-width: 490px) {
-  .profiles {
-    flex-direction: column;
-  }
-}
 .pt {
   color: rgb(127, 127, 127);
 }
@@ -96,7 +91,7 @@ body {
   gap: 50px;
   margin-bottom: 10px;
 }
-.btnCont .next2 {
+.next2 {
   width: 83px;
   height: 56px;
   color: white;
@@ -106,12 +101,12 @@ body {
 }
 
 .btnCont .back {
-   border: none; 
-    border-radius: 16px;
-    background: #13d755;
-    width: 83px; 
-    height: 56px; 
-    color: white; 
+  border: none;
+  border-radius: 16px;
+  background: #13d755;
+  width: 83px;
+  height: 56px;
+  color: white;
 }
 
 .btnCont .next2:hover {
@@ -124,3 +119,8 @@ body {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 490px) {
+  .profiles {
+    flex-direction: column;
+  }
+}
