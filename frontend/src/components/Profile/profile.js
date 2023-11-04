@@ -95,13 +95,13 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
         setUserDetails(userData.data.result);
         // Set journeyContent when userDetails is available
         setJourneyContent(
-          userData.data.result.about || "Describe about yourself...?"
+          userData.data.result.about || ""
         );
         setpastExpContent(
-          userData.data.result.pastExp || "Your past journey..."
+          userData.data.result.pastExp || ""
         );
         setfuturePlansContent(
-          userData.data.result.futurePlans || "What are your future plans...?"
+          userData.data.result.futurePlans || ""
         );
         setIsLoading(false);
       } catch (err) {
@@ -225,7 +225,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                 className={`journey-content ${isJourneyExpanded ? "expanded" : ""
                   }`}
               >
-                <span className="text-wrapper">{journeyContent}</span>
+                  <span className="text-wrapper">{journeyContent || "Describe About Yourself...?"}</span>
               </div>
             )}
             <button
@@ -270,7 +270,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   }`}
               >
                 <p className={`lorem-ipsum-dolor`}>
-                  <span className="text-wrapper">{pastExpContent}</span>
+                    <span className="text-wrapper">{pastExpContent || "Your Past Journey..."}</span>
                 </p>
               </div>
             )}
@@ -315,7 +315,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   }`}
               >
                 <p className={`lorem-ipsum-dolor`}>
-                  <span className="text-wrapper">{futurePlansContent}</span>
+                    <span className="text-wrapper">{futurePlansContent || "What Plans do you have for Future...?"}</span>
                 </p>
               </div>
             )}
