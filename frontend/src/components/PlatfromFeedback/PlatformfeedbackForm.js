@@ -16,14 +16,14 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
         notifyList={notifyList}
       />
     <div className="form">
-      <div>
+      <div className="form-top-area">
         <h1>Feedback Form</h1>
         <h2>How Was Your Experience With Our Platform</h2>
       </div>
-      <div>
+      <div className="form-star-area">
         <StarRating />
       </div>
-      <div>What Went Wrong</div>
+      <div className="form-what-went-wrong-area">What Went Wrong</div>
 
       <div className="myoptions">
         <MyComponent />
@@ -62,6 +62,26 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
             }}
         >
           Add
+        </button>
+        <button
+          onClick={(e) => {
+              e.preventDefault();
+              if (e.target.previousSibling.value === "") return;
+            }}
+            style={{
+                backgroundColor: "#108CFF",
+                color: "white",
+                fontSize: "16px",
+                fontWeight: "500",
+                border: "none",
+                outline: "none",
+                padding: "10px",
+                borderRadius: "5px",
+                cursor: "pointer",
+                marginLeft: "10px",
+            }}
+        >
+          Submit
         </button>
       </form>
     </div>
