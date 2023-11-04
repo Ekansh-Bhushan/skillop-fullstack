@@ -28,8 +28,9 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
       <div className="myoptions">
         <MyComponent />
       </div>
-      <form>
+      <form className="form-area">
         <input
+          className="input-in-form-area"
           style={{
               border: "2px solid #108CFF",
               outline: "none",
@@ -44,6 +45,7 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
             />
 
         <button
+          className="btn-add"
           onClick={(e) => {
               e.preventDefault();
               if (e.target.previousSibling.value === "") return;
@@ -64,6 +66,7 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
           Add
         </button>
         <button
+        className="btn-submit"
           onClick={(e) => {
               e.preventDefault();
               if (e.target.previousSibling.value === "") return;

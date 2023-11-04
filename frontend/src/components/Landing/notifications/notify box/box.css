@@ -28,6 +28,10 @@
     padding-bottom: 10px;
     width: 320px;
   }
+
+  .notify-box-content {
+    padding-inline: 10px;
+  }
 }
 
 /* .notify-box-content:hover {

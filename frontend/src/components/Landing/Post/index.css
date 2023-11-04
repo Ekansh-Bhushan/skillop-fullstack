@@ -1488,11 +1488,12 @@ non-act {
     max-height: 100%;
   }
   .post-1 {
-    margin: 10px;
+    margin: 0px;
     margin-bottom: 100px;
     margin-top: 10px;
     width: 100%;
     padding-bottom: 30px;
+    padding-inline: auto;
     border-radius: 0px;
     /* box-shadow: none; */
     /* background-color: rgba(128, 128, 128, 0.237); */
@@ -1629,7 +1630,8 @@ non-act {
     margin-top: 80px;
   } */
   .people-post {
-    padding-top: 50px;
+    padding-top: 80px;
     padding-bottom: 80px;
+    width: 100%;
   }
 }

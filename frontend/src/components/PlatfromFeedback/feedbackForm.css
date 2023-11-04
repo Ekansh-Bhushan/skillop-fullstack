@@ -1,7 +1,73 @@
-.form{
-    text-align: center;
-}
+/* Apply styles to the main container */
+.form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the title and subtitle */
+  .form-top-area h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .form-top-area h2 {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the star rating area */
+  .form-star-area {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the "What Went Wrong" section */
+  .form-what-went-wrong-area {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the input field in the form area */
+  .input-in-form-area {
+    width: 100%;
+    height: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    background-color: #f5f5f5;
+    border: 2px solid #108CFF;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the "Add" and "Submit" buttons */
+  .btn-add, .btn-submit {
+    background-color: #108CFF;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  /* Add spacing between buttons */
+  .btn-add + .btn-submit {
+    margin-right: 0;
+  }
+  
+  /* Style MyComponent (adjust styles as needed) */
 
-.myoptions{
-    text-align: center;
-}
+  
+  /* Add more specific styles for the "StarRating" component if needed */
+  
+  /* Add any additional styles or customizations as required */
+  
