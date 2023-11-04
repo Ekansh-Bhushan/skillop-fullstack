@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   position: absolute;
-  left: 10px;
+  /* left: 10px; */
 }
 .logo-mobile {
   display: flex;
@@ -28,8 +28,8 @@
   display: flex;
   font-size: 30px;
   position: absolute;
-  right: 10px;
-  gap: 20px;
+  right: 20px;
+  gap: 10px;
 }
 
 .more-vertical-options > div:hover {
