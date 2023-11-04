@@ -127,6 +127,13 @@
 }
 
 .box {
+  border-radius: 12px;
+  box-shadow: 2px 2px 30px rgb(219, 219, 219);
+  margin-left: 0px;
+  height: 9vh;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid gray;
+  margin: 1.5px;
   margin-left: 0px;
   height: 9vh;
   padding-bottom: 10px;
@@ -134,7 +141,7 @@
   margin: 1.5px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .box {
     margin-left: 120px;
   }

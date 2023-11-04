@@ -1,41 +1,47 @@
-.form{
-    text-align: center;
+.form {
+  text-align: center;
 }
 
-.myoptions{
-    align-items: center;
-    justify-content: center;
+.myoptions {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  right: 350px;
+}
+h1 {
+  opacity: 0.5;
+  font-size: 20px;
+}
+.star {
+  padding: 15px;
+}
+.what {
+  font-weight: 750;
+  position: relative;
+  right: 150px;
+}
+.sub {
+  position: relative;
+}
+.box {
+  gap: 5px;
+  border-radius: 8px;
+  align-items: center;
+}
+.all-box {
+  justify-content: center;
+  padding: 5px;
+  /* display:flex; */
+  margin: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .box {
     display: flex;
-    position: relative;
-    right: 350px;
-
-}
-h1{
-    opacity: 0.5;
-    font-size: 20px;
-}
-.star{
-    padding: 15px;
-}
-.what{
-    font-weight: 750;
-    position: relative;
-    right: 150px;
-}
-.sub{
-    position: relative;
-    
-}
-.box{
-    gap:5px;
-    border-radius: 8px;
+    justify-content: center;
     align-items: center;
-    
-}
-.all-box{
-justify-content: center;
-    padding: 5px;
-    /* display:flex; */
-    margin:10px;
-
+    margin-left: 130px;
+    width: 150%;
+  }
 }
