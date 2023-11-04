@@ -1144,14 +1144,17 @@ non-act {
   height: auto;
   width: 50%;
   background-color: transparent;
-  overflow-y: scroll;
   scrollbar-width: none;
   /* Firefox */
+  overflow-y: auto;
   -ms-overflow-style: none;
   padding: 10px;
   margin-top: 5%;
-
   /* Internet Explorer and Edge */
+}
+
+.chat-friends-list > div {
+  overflow-y: auto;
 }
 
 .chat-friends-list::-webkit-scrollbar {

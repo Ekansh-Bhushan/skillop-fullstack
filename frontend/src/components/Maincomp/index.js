@@ -1,15 +1,11 @@
 import React from "react";
 import Page1 from "../Page1/index";
-import Auth2Component from "../Page2";
 import Auth3Component from "../Page3";
 import Auth4Component from "../Page4";
 import Auth5Component from "../Page5";
-import Auth6Component from "../Page6";
 import Auth7Component from "../Page7";
 import Uploadpic from "../Page8";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
-import CommonLanding from "../Landing/Post";
 import Chat from "../Landing/chatroom";
 import Dashboard from "../dashboard/Slots";
 import Account from "../dashboard/account";
@@ -19,13 +15,8 @@ import Post from "../Landing/Post";
 import CheckProfile from "../CheckProfile";
 import Notification from "../Landing/notifications/notification";
 import PublicProfile from "../PublicProfile/PublicProfile";
-
-// import PostAll from "../Landing/PostAll";
-
 import { DisplayPosts } from "../Landing/DisplayPosts";
 import Otherpost from "../Landing/Otherpost";
-import Anotherprofile from "../Landing/anotherprofile";
-import SideNav from "../SideNav/SideNav";
 import Profile from "../Profile/profile";
 import Searchbar from "../Searchbar";
 import Addskills from "../Page9";
@@ -39,17 +30,19 @@ import Payment from "../dashboard/bookings/Payment";
 import EditPic from "../Profile/EditPic/EditPic";
 import RequestedMeets from "../dashboard/requestedMeets";
 import MentorBano from "../MentorBano/mentorBano";
-import MentorfeedbackForm from "../MentorFeedback/feedbackForm";
-import PlatformfeedbackForm from "../PlatfromFeedback/feedbackForm";
-// import { set } from "mongoose";
+import PlatformfeedbackForm from "../PlatfromFeedback/PlatformfeedbackForm"
+import MentorfeedbackForm from "../MentorFeedback/feedbackForm"
 
 function AuthPage({
     userData,
     setUserData,
     setProgress,
     Mentor,
+    setMentor,
     isFetched,
     notifyList,
+    setIsFetched,
+    setNotifyList
 }) {
     // console.log(userData);
     return (
@@ -96,10 +89,14 @@ function AuthPage({
                     element={
                         <Post
                             userData={userData}
+                            setUserData={setUserData}
                             setProgress={setProgress}
                             Mentor={Mentor}
                             isFetched={isFetched}
                             notifyList={notifyList}
+                            setMentor={setMentor}
+                            setIsFetched={setIsFetched}
+                            setNotifyList={setNotifyList}
                         />
                     }
                 />
@@ -345,7 +342,12 @@ function AuthPage({
                 />
                 <Route
                     path="/platformfeedback"
-                    element={<PlatformfeedbackForm />}
+                    element={<PlatformfeedbackForm
+                        userData={userData}
+                        setProgress={setProgress}
+                        Mentor={Mentor}
+                        isFetched={isFetched}
+                        notifyList={notifyList} />}
                 />
                 <Route
                     path="/editskills"

@@ -50,7 +50,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
       <div className="heading">Become a Mentor</div>
 
     <div style={{ display: 'flex', justifyContent: 'space-between', margin: 150, height: 130}}>
-      <div style={{ width: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingRight: '10px' }}>
+      <div style={{ marginLeft: '300px',width: '20%', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingRight: '10px' }}>
         <Circle
           percent={25}
           strokeColor="cyan"

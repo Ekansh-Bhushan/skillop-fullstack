@@ -4,9 +4,6 @@ import { getUser } from "./api/userRequest";
 import { Toaster } from 'react-hot-toast';
 import AuthPage from "./components/Maincomp";
 import LoadingBar from "react-top-loading-bar";
-import SideNav from '../src/components/SideNav/SideNav'
-import Searchbar from "./components/Searchbar";
-import Mobilecommonhead from "./components/Mobilecommonhead";
 import { Emoji } from "emoji-picker-react";
 import { getNotifications } from "./api/getNotifications";
 
@@ -16,6 +13,8 @@ function App() {
   const [Mentor, setMentor] = useState(false);
   const [isFetched, setIsFetched] = useState(false);
   const [notifyList, setNotifyList] = useState([]);
+
+  // const navigate = useNavigate();
 
   // GET USER DATA
   useEffect(() => {
@@ -27,6 +26,12 @@ function App() {
         setIsFetched(true);
       }
       catch (err) {
+        if (!err.response.data.result) {
+          localStorage.removeItem('skilloptoken')
+          console.log("here is ", err.response.data.result);
+          // navigate('/');
+          // toast.error("Session expired, Login again!");
+        }
         console.log("Unable to fetch user", err);
       }
     }
@@ -48,7 +53,7 @@ function App() {
     <>
       {/* <RouteLanding/> */}
       <Toaster />
-      <AuthPage Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} userData={userData} setUserData={setUserData } setProgress={setProgress}/>
+      <AuthPage setNotifyList={setNotifyList} Mentor={Mentor} setMentor={setMentor} setIsFetched={setIsFetched} isFetched={isFetched} notifyList={notifyList} userData={userData} setUserData={setUserData} setProgress={setProgress}/>
       <LoadingBar
         color="#f11946"
         height={4}

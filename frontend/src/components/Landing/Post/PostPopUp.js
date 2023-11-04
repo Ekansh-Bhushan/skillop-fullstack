@@ -13,7 +13,7 @@ import back from "../../images/back.png";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-const PostPopUp = ({ onClose, setProgress, setRefresh }) => {
+const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
   const API = axios.create({ baseURL: "https://app.skillop.in" });
   const [inputValue, setInputValue] = useState("");
   let [selectedFile, setSelectedFile] = useState([]);
@@ -71,7 +71,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh }) => {
         setProgress(30);
       await createPost(formData);
         setProgress(100);
-      setRefresh(false);
+      setRefresh(!refresh);
       onClose();
       toast.success("Post created successfully!");
     } catch (error) {
@@ -125,7 +125,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh }) => {
   };
 
   const handlePostThroughEnterKey = (e) => {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && !e.shiftKey) {
       creatingPost();
     }
   };

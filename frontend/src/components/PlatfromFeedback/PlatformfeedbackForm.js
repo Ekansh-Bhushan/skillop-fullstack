@@ -5,11 +5,16 @@ import "./feedbackForm.css";
 import SideNav from "../SideNav/SideNav";
 import RightProfileComp from "../Profile/Right Profile/RightProfileComp";
 
-function PlatformfeedbackForm(Mentor, isFetched, notifyList) {
+function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyList} ) {
   // const[state,dispatch] = useReducer(reducer, initialState)
   return (
     <>
-    <SideNav/>
+    <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
     <div className="form">
       <div>
         <h1>Feedback Form</h1>
