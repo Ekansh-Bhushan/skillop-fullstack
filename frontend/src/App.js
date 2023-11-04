@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { getUser } from "./api/userRequest";
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import AuthPage from "./components/Maincomp";
 import LoadingBar from "react-top-loading-bar";
-import SideNav from '../src/components/SideNav/SideNav'
-import Searchbar from "./components/Searchbar";
-import Mobilecommonhead from "./components/Mobilecommonhead";
 import { Emoji } from "emoji-picker-react";
 import { getNotifications } from "./api/getNotifications";
-import { useNavigate } from "react-router-dom";
 
 function App() {
   const [userData, setUserData] = useState(null);
@@ -57,7 +53,7 @@ function App() {
     <>
       {/* <RouteLanding/> */}
       <Toaster />
-      <AuthPage Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} userData={userData} setUserData={setUserData } setProgress={setProgress}/>
+      <AuthPage setNotifyList={setNotifyList} Mentor={Mentor} setMentor={setMentor} setIsFetched={setIsFetched} isFetched={isFetched} notifyList={notifyList} userData={userData} setUserData={setUserData} setProgress={setProgress}/>
       <LoadingBar
         color="#f11946"
         height={4}

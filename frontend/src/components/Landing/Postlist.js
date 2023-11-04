@@ -1,9 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import meet from "../images/meet.jpeg";
-import Header1 from "../Header/index";
-import index from "./Post/index.css";
+import React, { useEffect, useState } from "react";
 import userImage from "../images/user.png";
-import { IoMdSend } from "react-icons/io";
 import photoIcon from "../images/image.png";
 import videoIcon from "../images/video.jpeg";
 import attatchment from "../images/attatchment.png";
@@ -11,7 +7,6 @@ import postIcon from "../images/post.png";
 import "./Postlist.css";
 import PostPopUp from "./Post/PostPopUp";
 import {
-    createPost,
     getAllPost,
     getPostFromSpecificUser,
 } from "../../api/postRequest";
@@ -22,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 const API = axios.create({ baseURL: "https://app.skillop.in" });
 
-function Postlist({ userData, displaycreatepost, user, setProgress }) {
+function Postlist({ userData, displaycreatepost, user, setProgress, setUserData }) {
     const [refresh, setRefresh] = useState(false);
     const userId = window.location.pathname.split("/")[2];
 
@@ -42,16 +37,9 @@ function Postlist({ userData, displaycreatepost, user, setProgress }) {
         setShowPostPopUp(!showPostPopUp);
     };
 
-    const handleFileChange = (event) => {
-        setSelectedFile(event.target.files);
-        // console.log(selectedFile, "hello");
-    };
+
     const hidepop = () => {
         document.querySelector(".photo-popup").style.display = "none";
-    };
-
-    const handleUpload = () => {
-        document.querySelector(".photo-popup").style.display = "flex";
     };
 
     const [inputValue, setInputValue] = useState("");
@@ -59,15 +47,6 @@ function Postlist({ userData, displaycreatepost, user, setProgress }) {
     const handleInputChange = (event) => {
         const newValue = event.target.value;
         setInputValue(newValue);
-    };
-
-    const likethispost = (event) => {
-        if (event.target.style.color !== "rgb(16, 39, 111)") {
-            event.target.style.color = "rgb(16, 39, 111)";
-        } else {
-            event.target.style.color = "gray";
-            document.querySelector(".like-count").value -= 1;
-        }
     };
 
     const creatingPost = async () => {
@@ -122,19 +101,19 @@ function Postlist({ userData, displaycreatepost, user, setProgress }) {
     };
 
     
-    useEffect(() => {
-        const getPostsFromUser = async () => {
-            try {
-                const { data } = await getPostFromSpecificUser(userId);
-                setPostData(data.result);
-                // console.log(data.result);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        if (userId) getPostsFromUser();
-        else gettingAllPost();
-    }, [userId]);
+    // useEffect(() => {
+    //     const getPostsFromUser = async () => {
+    //         try {
+    //             const { data } = await getPostFromSpecificUser(userId);
+    //             setPostData(data.result);
+    //             // console.log(data.result);
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     };
+    //     if (userId) getPostsFromUser();
+    //     // else gettingAllPost();
+    // }, [userId]);
 
     useEffect(() => {
         gettingAllPost();
