@@ -34,7 +34,13 @@ export default function RightProfileComp({ about }) {
       const userData = await getUser();
       setUserDetails(userData.data.result);
     } catch (err) {
-      console.log("Unable to fetch user details", err);
+      if (!err.response.data.result) {
+        localStorage.removeItem('skilloptoken')
+        navigate('/');
+        console.log("here is ", err.response.data.result);
+        toast.error("Session expired, Login again!");
+      }
+      console.log("Unable to fetch user details", err);      
     }
   };
 

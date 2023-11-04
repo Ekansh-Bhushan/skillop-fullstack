@@ -18,12 +18,15 @@ import {
 import PostComp from "../PostComp";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const API = axios.create({ baseURL: "https://app.skillop.in" });
 
 function Postlist({ userData, displaycreatepost, user, setProgress }) {
     const [refresh, setRefresh] = useState(false);
     const userId = window.location.pathname.split("/")[2];
+
+    const navigate = useNavigate();
 
     const [selectedFile, setSelectedFile] = useState(null);
 
@@ -105,8 +108,15 @@ function Postlist({ userData, displaycreatepost, user, setProgress }) {
         try {
             const { data } = await getAllPost();
             setPostData(data.result);
+            console.log("here is ", data.result);
             // console.log(data.result);
         } catch (error) {
+            if (!error.response.data.result) {
+                localStorage.removeItem('skilloptoken')
+                console.log("here is ", error.response.data.result);
+                navigate('/');
+                toast.error("Session expired, Login again!");
+            }
             console.log(error);
         }
     };
