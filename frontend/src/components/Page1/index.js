@@ -322,7 +322,7 @@ function Page1({ setProgress }) {
                             <button onClick={onSubmiting}>Get Started</button>
                         </div>
 
-                        <div className="changepage">
+                        <div style={{marginBottom:"10px"}} className="changepage">
                             <span className="already-reg">
                                 Already Registered ?{" "}
                             </span>

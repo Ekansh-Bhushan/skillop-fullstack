@@ -72,7 +72,7 @@ function Auth4Component({ setProgress }) {
           <h3>Job Description</h3>
           <textarea
             className="textarea2"
-            placeholder="Tell us more about yourself"
+            placeholder="Tell us more about your job?"
           ></textarea>
         </div>
         <div className="main-4-btnCont">

@@ -70,7 +70,7 @@ body {
 .main-form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 21.7px;
 }
 
 @media screen and (max-width: 500px) {
