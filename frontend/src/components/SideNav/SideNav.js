@@ -422,7 +422,7 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
                             flexDirection: "column",
                             alignItems: "center",
                             justifyContent: "center",
-                            gap: "15px",
+                            gap: "5px",
                             fontSize: "20px",
                             display: "none",
                         }}
@@ -434,6 +434,14 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
                                 onClick={() => navigate("/mentorBano")}
                             >
                                 Become Mentor
+                            </div>
+                        )}
+                        {!Mentor && (
+                            <div
+                                style={{ color: "#108CFF", padding: "5px" }}
+                                onClick={() => navigate("/mentorBano")}
+                            >
+                                FeedBack
                             </div>
                         )}
                         {!Mentor && (
