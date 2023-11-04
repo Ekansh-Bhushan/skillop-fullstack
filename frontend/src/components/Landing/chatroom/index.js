@@ -167,23 +167,21 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 width: "26%",
               }}
             >
-              {/* <h2 className="chat-head">Chats</h2> */}
+              <h2 className="chat-head">Chats</h2>
               {/* <input
-                                className="search-input"
-                                type="text"
-                                placeholder="Search chats..."
-                            /> */}
+                className="search-input"
+                type="text"
+                placeholder="Search chats..."
+              />
 
-              {/* <img
-                                className="search-img"
-                                src="/search.png"
-                                alt="search"
-                                height={21}
-                                width={21}
-                            /> */}
-              {/* <hr /> */}
-              {/* </div> */}
-              {/* <div style={{ marginBottom: "40px" }}></div> */}
+              <img
+                className="search-img"
+                src="/search.png"
+                alt="search"
+                height={21}
+                width={21}
+              /> */}
+              <hr style={{height:"2px", background:"black", borderRadius:"20px" }}/>
               {chats.length > 0 &&
                 chats.map((chat) => (
                   <div
@@ -204,27 +202,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     />
                   </div>
                 ))}
-              {/* </div>
-                </div> */}
             </div>
-            {/* <div style={{ marginBottom: "40px" }}></div> */}
-            {chats.length > 0 &&
-              chats.map((chat) => (
-                <div
-                  onClick={() => {
-                    setCurrentChat(chat);
-                    console.log("here");
-                    document.querySelector(".chatbox-messages").scrollTop =
-                      document.querySelector(".chatbox-messages").scrollHeight;
-                  }}
-                >
-                  <Conversation
-                    data={chat}
-                    chatID={chat._id}
-                    currentUser={userData._id}
-                  />
-                </div>
-              ))}
           </div>
         </div>
       </div>

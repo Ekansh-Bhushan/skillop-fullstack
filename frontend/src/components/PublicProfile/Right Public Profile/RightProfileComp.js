@@ -31,7 +31,6 @@ export default function RightProfileComp({ userDatamain }) {
     setShowIntroVideo(false);
   };
 
-
   const creatingChat = async () => {
     try {
       const req = {
