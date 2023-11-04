@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./SideNav.css";
 import logo from "../images/logo.png";
 import home1 from "../images/home1.png";
@@ -11,7 +11,6 @@ import notification1 from "../images/notification1.png";
 import notification2 from "../images/notification2.png";
 import slots1 from "../images/slots1.png";
 import slots2 from "../images/slots2.png";
-import meet from "../images/meet.jpeg";
 import bookings1 from "../images/booking1.png";
 import bookings2 from "../images/booking2.png";
 import earnings1 from "../images/earning1.png";
@@ -21,12 +20,7 @@ import account2 from "../images/user2.png";
 import myprofile1 from "../images/account1.png";
 import myprofile2 from "../images/account2.png";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getNotifications } from "../../api/getNotifications";
 import { BsGearFill } from "react-icons/bs";
-import { logoutUser } from "../../api/logoutRequest";
-import { updateIsMentor } from "../../api/userRequest";
-import { getUser } from "../../api/userRequest";
 import { toast } from "react-hot-toast";
 
 const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
@@ -58,7 +52,6 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
         }
         toast.success("Logged out");
         navigate("/");
-        window.location.reload();
         setProgress(100);
     };
 
@@ -139,10 +132,8 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
             // setTimeout(() => setProgress(100), 300);
         }
     };
-
     // useEffect(() => {
     //   fetchNotifications();
-    //   fetchUser();
     // }, [])
 
     const displayxtra = () => {
