@@ -33,6 +33,7 @@ import MentorBano from "../MentorBano/mentorBano";
 import PlatformfeedbackForm from "../PlatfromFeedback/PlatformfeedbackForm"
 import MentorfeedbackForm from "../MentorFeedback/feedbackForm"
 import ChangePasswordPage from "../passwordChange/changepassword"
+import ResetPasswordPage from "../resetpassword/resetpassword";
 
 function AuthPage({
     userData,
@@ -338,6 +339,7 @@ function AuthPage({
                 <Route path="/mobile" element={<Mobilecommonhead />} />
                 <Route path="/newpost" element={<Mobilepost />} />
                 <Route path="/changePassword" element={<ChangePasswordPage/>} />
+                <Route path="/resetPassword" element={<ResetPasswordPage/>} />
                 <Route
                     path="/mentorfeedback"
                     element={<MentorfeedbackForm />}
