@@ -439,7 +439,7 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
                         {!Mentor && (
                             <div
                                 style={{ color: "#108CFF", padding: "5px" }}
-                                onClick={() => navigate("/mentorBano")}
+                                onClick={() => navigate("/platformfeedback")}
                             >
                                 FeedBack
                             </div>

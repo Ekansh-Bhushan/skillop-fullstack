@@ -39,8 +39,8 @@ import Payment from "../dashboard/bookings/Payment";
 import EditPic from "../Profile/EditPic/EditPic";
 import RequestedMeets from "../dashboard/requestedMeets";
 import MentorBano from "../MentorBano/mentorBano";
-import MentorfeedbackForm from "../MentorFeedback/feedbackForm";
-import PlatformfeedbackForm from "../PlatfromFeedback/feedbackForm";
+import PlatformfeedbackForm from "../PlatfromFeedback/PlatformfeedbackForm"
+import MentorfeedbackForm from "../MentorFeedback/feedbackForm"
 // import { set } from "mongoose";
 
 function AuthPage({
@@ -345,7 +345,12 @@ function AuthPage({
                 />
                 <Route
                     path="/platformfeedback"
-                    element={<PlatformfeedbackForm />}
+                    element={<PlatformfeedbackForm
+                        userData={userData}
+                                setProgress={setProgress}
+                                Mentor={Mentor}
+                                isFetched={isFetched}
+                                notifyList={notifyList} />}
                 />
                 <Route
                     path="/editskills"
