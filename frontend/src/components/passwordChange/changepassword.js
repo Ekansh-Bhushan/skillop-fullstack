@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './changepassword.css'
+
 function ChangePasswordPage() {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handlePasswordChange = (e) => {
     e.preventDefault();
@@ -22,6 +26,11 @@ function ChangePasswordPage() {
     setConfirmPassword('');
   };
 
+  const handleForgotPassword = () => {
+    // Implement the logic to navigate to the password recovery page.
+    navigate('/forgotPassword');
+  };
+
   return (
     <div>
       <h1 className='heading'>Change Password</h1>
@@ -37,7 +46,7 @@ function ChangePasswordPage() {
           />
         </div>
         <div className='input-area-second'>
-          <label className= 'newpassword-label-area'htmlFor="newPassword">New Password:</label>
+          <label className='newpassword-label-area' htmlFor="newPassword">New Password:</label>
           <input
             type="password"
             id="newPassword"
@@ -56,8 +65,9 @@ function ChangePasswordPage() {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-        <button className='change-password-button-area' type="submit">Change Password</button>
+        <button className='change-password-button-area' type="submit" onClick={() => navigate('/homepage')}>Change Password</button>
       </form>
+     
     </div>
   );
 }
