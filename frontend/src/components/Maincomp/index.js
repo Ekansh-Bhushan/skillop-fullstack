@@ -41,6 +41,7 @@ import RequestedMeets from "../dashboard/requestedMeets";
 import MentorBano from "../MentorBano/mentorBano";
 import PlatformfeedbackForm from "../PlatfromFeedback/PlatformfeedbackForm"
 import MentorfeedbackForm from "../MentorFeedback/feedbackForm"
+import ChangePasswordPage from "../passwordChange/changepassword"
 // import { set } from "mongoose";
 
 function AuthPage({
@@ -339,6 +340,7 @@ function AuthPage({
                 />
                 <Route path="/mobile" element={<Mobilecommonhead />} />
                 <Route path="/newpost" element={<Mobilepost />} />
+                <Route path="/changePassword" element={<ChangePasswordPage/>} />
                 <Route
                     path="/mentorfeedback"
                     element={<MentorfeedbackForm />}
