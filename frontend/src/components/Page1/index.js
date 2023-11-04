@@ -111,7 +111,19 @@ function Page1({ setProgress }) {
     }
   };
 
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+
+    /*if (newPassword !== confirmPassword) {
+      alert("New password and confirm password don't match.");
+      return;*/
+      return;
+    }
+  
+
   var x = 0;
+
+
   // console.log(isLogin);
   const openloginpage = () => {
     setProgress(35);
@@ -120,6 +132,7 @@ function Page1({ setProgress }) {
       document.querySelector(".name").classList.add("hidethis");
       document.querySelector(".Content-Head").innerHTML = "Welcome Back!";
       document.querySelector(".getstart button").innerHTML = "Login";
+      <div className='forgot-password-link' onClick={handleForgotPassword}>Forgot Password?</div>
 
       document.querySelector(".already-reg").innerHTML =
         "Don't have an Account ?";
