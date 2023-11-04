@@ -144,6 +144,13 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const onChange = (e) => {
     setComment(e.target.value);
   };
+  const isImage = (url) => {
+    return (
+      url.toLowerCase().includes(".jpg") ||
+      url.toLowerCase().includes(".jpeg") ||
+      url.toLowerCase().includes(".png")
+    );
+  };
 
   // define useState to get the post with this postId from backend
   useEffect(() => {
@@ -228,7 +235,7 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   // post.imageUrls[0].toLowerCase().includes(".jpg") ||
                   //   post.imageUrls[0].toLowerCase().includes(".jpeg") ||
                   //   post.imageUrls[0].toLowerCase().includes(".png") 
-                  false ? (
+                  isImage(post.imageUrls[currentMediaIndex]) ? (
                     <div
                       className="posted-img-container"
                       style={{
@@ -245,6 +252,7 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                       <img
                         src={post.imageUrls[currentMediaIndex]}
                         className="img-posted"
+                        onClick={previewImage}
                         alt="prevw"
                       />
                       {post.imageUrls.length > 1 &&
@@ -292,14 +300,6 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     onClose={onClose}
                     name={post.author.firstname + " " + post.author.lastname}
                     src={post.imageUrls[currentMediaIndex]}
-                  />
-                )}
-
-                {showPostImgPrew && post.post.imageUrls.length && (
-                  <PostImgPrevw
-                    onClose={onClose}
-                    name={post.author.firstname + " " + post.author.lastname}
-                    src={post.post.imageUrls[0]}
                   />
                 )}
 

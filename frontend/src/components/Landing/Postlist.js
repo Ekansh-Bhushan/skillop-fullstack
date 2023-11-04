@@ -17,6 +17,7 @@ import {
 } from "../../api/postRequest";
 import PostComp from "../PostComp";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const API = axios.create({ baseURL: "https://app.skillop.in" });
 
@@ -68,6 +69,10 @@ function Postlist({ userData, displaycreatepost, user, setProgress }) {
 
     const creatingPost = async () => {
         try {
+            if (inputValue.length === 0) {
+                toast.error("Enter something to post");
+                return;
+            }
             const formData = new FormData();
             if (selectedFile)
                 for (let i = 0; i < selectedFile.length; i++) {
@@ -149,6 +154,7 @@ function Postlist({ userData, displaycreatepost, user, setProgress }) {
                     onClose={onClose}
                     setProgress={setProgress}
                     setRefresh={setRefresh}
+                    resfresh={refresh}
                 />
             )}
             <div className="posting-on-landing">
