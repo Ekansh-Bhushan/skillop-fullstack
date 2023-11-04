@@ -71,7 +71,7 @@ export default function RightProfileComp({ about }) {
               <img
                 onClick={() => setShowIntroVideo(true)}
                 onMouseEnter={() => {
-                  userDetails.introVideo && toast.success("Click profile picture to view intro video!")
+                  !userDetails.introVideo && toast.success("Click on profile picture to add my story!")
                 }}
                 src={
                   userDetails.profilePicUrl

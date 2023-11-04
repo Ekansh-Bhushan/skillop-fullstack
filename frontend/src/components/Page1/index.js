@@ -308,20 +308,25 @@ function Page1({ setProgress }) {
               <button onClick={onSubmiting}>Get Started</button>
             </div>
 
-            <div className="changepage">
-              <span className="already-reg">Already Registered ? </span>
-              &nbsp;
-              <span onClick={openloginpage} className="functionhandler">
-                Login
-              </span>
+                        <div style={{marginBottom:"10px"}} className="changepage">
+                            <span className="already-reg">
+                                Already Registered ?{" "}
+                            </span>
+                            &nbsp;
+                            <span
+                                onClick={openloginpage}
+                                className="functionhandler"
+                            >
+                                Login
+                            </span>
+                        </div>
+                    </div>
+                    <div className="partition-on-mob"></div>
+                    <img src={coolimg} className="display-only-on-mobile" />
+                </div>
             </div>
-          </div>
-          <div className="partition-on-mob"></div>
-          <img src={coolimg} className="display-only-on-mobile" />
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 }
 
 export default Page1;
