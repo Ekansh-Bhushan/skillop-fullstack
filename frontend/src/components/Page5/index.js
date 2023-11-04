@@ -43,14 +43,13 @@ function Auth5Component({ setProgress }) {
         [name]: value,
       },
     ]);
-    console.log("data", data);
   };
 
   const addEdu = async () => {
     try {
       let formdata = new FormData();
       formdata.append("education", JSON.stringify(data));
-      console.log("data", formdata);
+      console.log("data", JSON.stringify(data));
       await updateProfile(formdata);
       console.log("succcess");
     } catch (err) {
@@ -101,20 +100,22 @@ function Auth5Component({ setProgress }) {
   };
 
   const citydone = (event) => {
+    console.log("city done");
     getallcities(event.target.value);
     setStateselected(event.target.value);
     setSelectedState(event.target.value);
   };
 
   const collegedone = (event) => {
-    console.log(stateselected);
+    console.log("college done");
     getallcolleges(stateselected, event.target.value);
-    console.log(event.target.value);
     setSelectedCity(event.target.value);
   };
 
   const clgdone = (event) => {
+    console.log("clg ", event.target.value);
     setSelectedClg(event.target.value);
+    console.log("clg 2 ", selectedClg);
   };
 
   const redirectToPage6 = async () => {
@@ -217,6 +218,10 @@ function Auth5Component({ setProgress }) {
                 value={selectedClg}
                 id="college"
                 className="college-choices"
+                onClick={(Event) => {
+                  clgdone(Event);
+                  onChange(Event);
+                }}
                 onChange={(Event) => {
                   clgdone(Event);
                   onChange(Event);
