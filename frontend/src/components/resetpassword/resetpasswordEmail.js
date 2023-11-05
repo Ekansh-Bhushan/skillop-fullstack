@@ -37,7 +37,7 @@ function ResetPasswordEmail() {
           />
         </div>
 
-        <button className='change-password-button-area' type="submit">Submit</button>
+        <button className='change-password-button-area' type="submit" >Submit</button>
       </form>
     </div>
   );

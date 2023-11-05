@@ -4,9 +4,16 @@ import MyComponent from "./option";
 import "./feedbackForm.css";
 import SideNav from "../SideNav/SideNav";
 import RightProfileComp from "../Profile/Right Profile/RightProfileComp";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyList} ) {
   // const[state,dispatch] = useReducer(reducer, initialState)
+  const navigate = useNavigate()
+  const sendFeedBack = async () => {
+    toast.success("FeedBack Submitted !");
+  };
+
   return (
     <>
     <SideNav
@@ -67,10 +74,13 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
         </button> */}
         <button
         className="btn-submit"
-          onClick={(e) => {
-              e.preventDefault();
-              if (e.target.previousSibling.value === "") return;
-            }}
+          // onClick={(e) => {
+          //     e.preventDefault();
+          //     if (e.target.previousSibling.value === "") return;
+          //   }}
+          // onClick={() => navigate('/homepage')}
+          onClick={sendFeedBack}
+
             style={{
                 backgroundColor: "#108CFF",
                 color: "white",
@@ -83,7 +93,9 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
                 cursor: "pointer",
                 marginLeft: "10px",
             }}
+            
         >
+          
           Submit
         </button>
       </form>
