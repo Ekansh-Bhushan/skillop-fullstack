@@ -50,19 +50,19 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     useEffect(() => {
         if( addedAboutPastAndFuture) {
             increaseCircularProgress(Pprogress, steps);
-            setPProgress((prev) => prev + 0.25);
+            setPProgress((prev) => prev + 25);
         }
         if( addedAtleast4Posts) {
             increaseCircularProgress(Pprogress, steps);
-            setPProgress((prev) => prev + 0.25);
+            setPProgress((prev) => prev + 25);
         }
         if( addedEducationOrExperence) {
             increaseCircularProgress(Pprogress, steps);
-            setPProgress((prev) => prev + 0.25);
+            setPProgress((prev) => prev + 25);
         }
         if( uploadProfilePicAndVideo) {
             increaseCircularProgress(Pprogress, steps);
-            setPProgress((prev) => prev + 0.25);
+            setPProgress((prev) => prev + 25);
         }
     }, [addedAboutPastAndFuture, addedAtleast4Posts, addedEducationOrExperence, uploadProfilePicAndVideo])
     console.log(Pprogress);
