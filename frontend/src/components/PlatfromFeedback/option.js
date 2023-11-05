@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import "./option.css";
 const preSetFeedback = {
   list: [
-    { title: "lorem ipsum", flag: false },
+    { title: "", flag: false },
     { title: "lorem ipsum", flag: false },
     { title: "lorem ipsum", flag: false },
     { title: "lorem ipsum", flag: false },

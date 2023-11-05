@@ -168,13 +168,18 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
   };
 
   const handleDelEdu = async (id) => {
-    try {
-      await delEdu(id);
-      toast.success("Deleted successfully!");
-      // window.location.reload();
-    } catch (err) {
-      console.log("Error deleting edu", err);
-      toast.error(err.response.data.err);
+    // Display a confirmation dialog
+    const userConfirmed = window.confirm("Are you sure you want to delete this item?");
+    
+    if (userConfirmed) {
+      try {
+        await delEdu(id);
+        toast.success("Deleted successfully!");
+        // window.location.reload();
+      } catch (err) {
+        console.log("Error deleting edu", err);
+        toast.error(err.response.data.err);
+      }
     }
   };
 
