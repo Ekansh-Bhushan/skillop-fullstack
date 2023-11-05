@@ -2,13 +2,13 @@ import React, { useReducer } from "react";
 import "./option.css";
 const preSetFeedback = {
   list: [
-    { title: "", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
+    { title: "easy navigation", flag: false },
+    { title: "user experience", flag: false },
+    { title: "mobile friendliness", flag: false },
+    { title: "immersive visual experience", flag: false },
+    { title: "user friendly ", flag: false },
+    { title: "Speed", flag: false },
+
   ],
 };
 
