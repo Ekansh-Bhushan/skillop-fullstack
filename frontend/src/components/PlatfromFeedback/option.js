@@ -3,7 +3,7 @@ import "./option.css";
 
 const preSetFeedback = {
   list: [
-    { title: "easy navigation", flag: false },
+    { title: "Easy exploration", flag: false },
     { title: "user experience", flag: false },
     { title: "mobile friendliness", flag: false },
     { title: "immersive visual experience", flag: false },
