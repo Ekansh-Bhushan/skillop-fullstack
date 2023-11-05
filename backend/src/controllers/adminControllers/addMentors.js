@@ -107,6 +107,8 @@ exports.getELegibleApplicantsForMentor = async (req, res) => {
         res.status(500).send({
             result: false,
             message: "Internal Server Error",
-        })
+        });
     }
-}
+};
+
+
