@@ -246,15 +246,18 @@
     width: 100vw;
   }
   .filterInput {
-    position: relative;
+    /* position: relative;
     top: -15.5vh;
     left: 15vw;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-right: 20px;
     overflow-x: auto;
     scrollbar-width: thin;
-    width: 80vw;
+    width: 80vw; */
+    margin-left: 30px;
+    margin-top: 50px;
+    width: 130%;
   }
   .filterInput > input {
     width: 50%;
@@ -286,13 +289,13 @@
     scrollbar-width: thin; /* Optional: Customize scrollbar width */
   }
   .filterInput {
-    position: relative;
+    /* position: relative;
     top: -20vh;
     left: 15vw;
     display: flex;
     flex-direction: row;
     margin-right: 20px;
     overflow-x: auto;
-    scrollbar-width: thin;
+    scrollbar-width: thin; */
   }
 }

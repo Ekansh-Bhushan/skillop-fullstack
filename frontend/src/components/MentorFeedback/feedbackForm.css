@@ -41,7 +41,10 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 130px;
-    width: 150%;
+    margin: auto;
+    margin-left: 5px;
+    width: 151%;
+    margin-bottom: 5px;
+    /* margin-top: 5px; */
   }
 }

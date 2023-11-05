@@ -14,8 +14,6 @@ import {
   getSearchResultByPost,
 } from "../../api/searchFilter";
 
-
-
 function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const [collegeFilter, setCollegeFilter] = useState(false);
   const [degreeFilter, setDegreeFilter] = useState(false);
@@ -287,7 +285,9 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                       <div style={{ fontWeight: "bold", fontSize: "18px" }}>
                         {val.title.slice(0, 200) + "..."}
                       </div>
-                    <p>Posted by {val.author.firstname + val.author.lastname}</p>
+                      <p>
+                        Posted by {val.author.firstname + val.author.lastname}
+                      </p>
                     </div>
                   </div>
                 </>
