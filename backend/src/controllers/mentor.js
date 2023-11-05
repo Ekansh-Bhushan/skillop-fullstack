@@ -174,6 +174,9 @@ exports.requestAppointment = async (req, res) => {
 
         const mentorUser = await User.findById(mentor.user);
 
+        //get meetLink
+        const { meetLink } = req.body;
+
         // Meet created [START]
         const meet = new Meet({
             mentor: mentorUser._id,
@@ -188,6 +191,7 @@ exports.requestAppointment = async (req, res) => {
                 user._id +
                 "/" +
                 req.file.filename,
+            meetLink,
         });
 
         // Meet created [END]

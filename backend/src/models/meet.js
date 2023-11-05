@@ -52,6 +52,10 @@ const MeetSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "feedbacks",
     },
+    meetLink: {
+        type: String,
+        default: null,
+    },
 });
 
 module.exports = mongoose.model("meet", MeetSchema);

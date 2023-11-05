@@ -19,8 +19,10 @@ exports.updateProfile = async (req, res) => {
             experence,
             futurePlans,
             pastExp,
+            googleRefreshToken,
         } = req.body;
         // need to verify if this email is valid or not
+        if (googleRefreshToken) user.googleRefreshToken = googleRefreshToken;
         if (email) user.email = email;
         if (firstname) user.firstname = firstname;
         if (lastname) user.lastname = lastname;
