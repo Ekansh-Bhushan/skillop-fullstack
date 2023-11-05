@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 // import { getEarnings } from "../../../api/mentorRequest";
 // import Mobilecommonhead from "../../Mobilecommonhead";
 import "./mentorBano.css";
+import { getProfileCompletionStatus } from "../../api/userRequest";
 function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
   // const navigate = useNavigate();
   const [isTaskDone, setIsTaskDone] = useState(false);
@@ -38,6 +39,18 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const steps = 4;
   const newProgress = increaseCircularProgress(currentProgress, steps);
   console.log("New progress:", newProgress);
+
+  useEffect(() => {
+    try {
+      const getProfileCompletionData = async () => {
+        const { data } = await getProfileCompletionStatus();
+        console.log(data);
+      }
+      getProfileCompletionData();
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
   return (
     <>
