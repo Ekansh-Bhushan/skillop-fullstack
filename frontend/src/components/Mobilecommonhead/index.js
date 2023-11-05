@@ -26,14 +26,13 @@ const Mobilecommonhead = () => {
     try {
       // setProgress(30);
       localStorage.removeItem("skilloptoken");
-      const { data } = await logoutUser();
+      // const { data } = await logoutUser();
       // console.log(data);
-      navigate("/");
     } catch (error) {
       console.log(error);
     }
-    toast.success("Logged out");
     navigate("/");
+    toast.success("Logged out");
     // setProgress(100);
   };
 

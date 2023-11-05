@@ -7,6 +7,9 @@ import { getMentorData } from "../../../api/mentorRequest";
 import toast from "react-hot-toast";
 import convertToNormalTime from "../../../utils/timeConversion";
 import calculateTimeGap from "../../../utils/timeGap";
+import { GoogleLogin, GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+import MyCustomGoogleButton from "./MyCustomGoogleButton";
 
 const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
     const mentorid = window.location.pathname.split("/")[2];
@@ -18,8 +21,6 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
     const userid = new URLSearchParams(search).get("userid");
     const charge = new URLSearchParams(search).get("charge");
 
-    console.log(day, s, e, userid, charge, mentorid);
-
     const navigate = useNavigate();
 
     const fetchUser = async () => {
@@ -28,7 +29,6 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
             user = await getMentorData(mentorid);
             if (user.data.result) {
                 setData(user.data.result);
-                console.log(user.data.result);
             } else {
                 toast.error(user.data.message);
             }
@@ -45,6 +45,13 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
         navigate(
             `/payment/${mentorid}?day=${day}&s=${s}&e=${e}&userid=${userid}&charge=${charge}`
         );
+    };
+
+    const handleGoogleLoginSuccess = async (credentialResponse) => {
+        const idToken = credentialResponse.credential;
+        console.log(credentialResponse);
+        const decodedToken = await jwt_decode(idToken);
+        console.log(decodedToken);
     };
 
     return (
@@ -81,6 +88,19 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
                 <div className="right-content">
                     <h2>Confirm Booking</h2>
+                    <>
+                        <GoogleOAuthProvider clientId="154719299730-irqnpdj9jo8n2pa475b0gbpmoi78orha.apps.googleusercontent.com"
+                        >
+                            {/* <GoogleLogin
+                                onSuccess={handleGoogleLoginSuccess}
+                                onError={() => {
+                                    console.log("Login Failed");
+                            />
+                                }} */}
+                                <MyCustomGoogleButton />
+                         
+                        </GoogleOAuthProvider>
+                    </>
                     <div className="cnf-video">
                         <span className="call-details">
                             <div>
