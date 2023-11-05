@@ -29,7 +29,7 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
         <MyComponent />
       </div>
       <form className="form-area">
-        <input
+        {/* <input
           className="input-in-form-area"
           style={{
               border: "2px solid #108CFF",
@@ -42,9 +42,9 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
               backgroundColor: "transparent",
               padding: "10px",
             }}
-            />
+            /> */}
 
-        <button
+        {/* <button
           className="btn-add"
           onClick={(e) => {
               e.preventDefault();
@@ -64,7 +64,7 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
             }}
         >
           Add
-        </button>
+        </button> */}
         <button
         className="btn-submit"
           onClick={(e) => {

@@ -9,6 +9,7 @@ const preSetFeedback = {
     { title: "immersive visual experience", flag: false },
     { title: "user friendly", flag: false },
     { title: "Speed", flag: false },
+    { title: "The process was taking too long", flag: false },
   ],
 };
 
@@ -31,7 +32,7 @@ function MyComponent() {
       payload: state.list,
     });
   }
-
+  let feedback = ""
   return (
     <div className="all-box">
       {state.list.map((item, index) => (
@@ -49,6 +50,7 @@ function MyComponent() {
             style={{ margin: "0px", color: `${item.flag ? "white" : "black"}` }}
           >
             {item.title}
+            
           </p>
         </div>
       ))}
