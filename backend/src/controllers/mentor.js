@@ -174,6 +174,14 @@ exports.requestAppointment = async (req, res) => {
 
         const mentorUser = await User.findById(mentor.user);
 
+        // check user is booking own appointment
+        if (mentorUser._id.toString() === user._id.toString()) {
+            return res.status(400).send({
+                result: false,
+                message: "You cannot book your own appointment",
+            });
+        }
+
         //get meetLink
         const { meetLink } = req.body;
 
