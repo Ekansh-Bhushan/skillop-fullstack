@@ -16,7 +16,7 @@ import { requestToBeMentor } from "../../api/mentorRequest";
 function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     // const navigate = useNavigate();
     const [isTaskDone, setIsTaskDone] = useState(false);
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
     const [Pprogress, setPProgress] = useState(0);
 
     if (userData.requestToBeMentor) { 

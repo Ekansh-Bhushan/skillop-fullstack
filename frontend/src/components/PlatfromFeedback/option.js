@@ -1,14 +1,14 @@
 import React, { useReducer } from "react";
 import "./option.css";
+
 const preSetFeedback = {
   list: [
     { title: "easy navigation", flag: false },
     { title: "user experience", flag: false },
     { title: "mobile friendliness", flag: false },
     { title: "immersive visual experience", flag: false },
-    { title: "user friendly ", flag: false },
+    { title: "user friendly", flag: false },
     { title: "Speed", flag: false },
-
   ],
 };
 
@@ -31,6 +31,7 @@ function MyComponent() {
       payload: state.list,
     });
   }
+
   return (
     <div className="all-box">
       {state.list.map((item, index) => (
@@ -39,6 +40,8 @@ function MyComponent() {
           key={index}
           style={{
             backgroundColor: `${item.flag ? "cyan" : "white"}`,
+            width: "100px", // Set a smaller width
+            height: "50px", // Set a smaller height
           }}
           onClick={() => selectItem(item, index)}
         >
