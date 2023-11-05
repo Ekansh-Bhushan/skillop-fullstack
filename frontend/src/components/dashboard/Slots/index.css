@@ -246,9 +246,13 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+  .slots-dash h3 {
+    width: 250px;
+  }
   .dash-main {
     margin-top: 45px;
     min-height: 100vh;
+    margin-bottom: 80px;
   }
   .info-dash-table {
     position: relative;
@@ -290,7 +294,7 @@ body {
   }
   .days-dash {
     gap: 20px;
-    height: 100vw;
+    height: 120vw;
     background-color: rgba(255, 255, 255, 0.48);
     width: 100px;
     padding: 20px;
@@ -429,7 +433,7 @@ body {
   height: 30px;
   width: 30px;
   background-color: black;
-  right: -10px;
+  right: 20px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -676,6 +680,7 @@ body {
 @media only screen and (max-width: 750px) {
   .earning-dash {
     margin-left: 0px;
+    margin-bottom: 50px;
   }
 
   .earning-details {
@@ -707,6 +712,7 @@ body {
 
   .info-dash-table table {
     padding: 10px;
+    margin-left: 12px;
   }
 
   .info-dash-table table thead th {
@@ -820,6 +826,12 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+  .meet-rate {
+    width: 90%;
+    padding: 10px 0px;
+    margin: auto;
+  }
+
   .session-dash-info {
     width: 100%;
     height: 0px;
@@ -833,6 +845,9 @@ body {
     padding: 0px;
   }
 
+  .session-dash-info h2 {
+    margin-left: 10px;
+  }
   .heading-session-status {
     display: flex;
     align-items: center;

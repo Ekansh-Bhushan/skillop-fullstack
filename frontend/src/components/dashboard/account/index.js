@@ -147,7 +147,7 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
             </div>
           </div>
           <div className="editor-ids">
-            <button className="edit-pass">Change Password</button>
+            <button className="edit-pass" onClick={() => navigate('/changePassword')}>Change Password</button>
             <button className="edit-input" onClick={enabledisableinput}>
               Edit
             </button>

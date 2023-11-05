@@ -4,8 +4,10 @@ import SideNav from "../../SideNav/SideNav";
 import Profileandevents from "../Profileandevents";
 import Mobilecommonhead from "../../Mobilecommonhead";
 import scrollUp from "../../images/scrollUp.png";
+import { getUser } from "../../../api/userRequest";
+import { getNotifications } from "../../../api/getNotifications";
 
-function Post({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function Post({ userData, setUserData, setProgress, Mentor, isFetched, notifyList, setMentor, setIsFetched, setNotifyList }) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -30,11 +32,28 @@ function Post({ userData, setProgress, Mentor, isFetched, notifyList }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  // Function to handle input changes
 
-  // useEffect(()=>{
-  //   window.location.reload();
-  // },[])
+  const fetchNotifications = async () => {
+    try {
+      const NotiData = await getNotifications();
+      setNotifyList(NotiData.data.result);
+    }
+    catch (err) {
+      console.log("Unable to fetch notifications", err);
+    }
+  }
+
+  useEffect(() => {
+    const refreshFN = async () => {
+      const { data } = await getUser();
+      setUserData(data.result);
+      setMentor(data.result.isMentor);
+      setIsFetched(true);
+      await fetchNotifications();
+    }
+    refreshFN();
+  }, [])
+  // Function to handle input changes
 
   return (
     <div className="homepage">
@@ -55,6 +74,7 @@ function Post({ userData, setProgress, Mentor, isFetched, notifyList }) {
             setProgress={setProgress}
             displaycreatepost={true}
             userData={userData}
+            setUserData={setUserData}
           />
         )}
         <Profileandevents isHome={isHome} userData={userData} />

@@ -76,7 +76,7 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
             <div className="intro-video-container">
                 <div className="iv-header">
                     <h2>My story</h2>
-                    <img src="/close.png" width={24} onClick={onClose} alt="" />
+                    <img style={{cursor:"pointer"}} src="/close.png" width={24} onClick={onClose} alt="" />
                 </div>
                 <div>
                     {introVideoUrl ? (

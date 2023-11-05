@@ -15,7 +15,13 @@ import Mobilecommonhead from "../../Mobilecommonhead";
 import toast from "react-hot-toast";
 
 // function Notify({ userData }) {
-const Notification = ({ setProgress, userData,setUserData, Mentor, isFetched }) => {
+const Notification = ({
+  setProgress,
+  userData,
+  setUserData,
+  Mentor,
+  isFetched,
+}) => {
   const [selectedButton, setSelectedButton] = useState("All"); // Initial selected button
   const [notifyList, setNotifyList] = useState([]);
   const [fetchingNotify, setFetchingNotify] = useState(false);
@@ -66,7 +72,7 @@ const Notification = ({ setProgress, userData,setUserData, Mentor, isFetched }) 
           <div className="heading">
             <h1>Notifications</h1>
           </div>
-          <div className="notify-btns" style={{ marginBottom: "40px" }}>
+          <div className="notify-btns">
             <button
               className={selectedButton === "All" ? "selected" : ""}
               onClick={() => {

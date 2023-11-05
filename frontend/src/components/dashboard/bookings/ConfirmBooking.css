@@ -1,212 +1,229 @@
 .confirm-container {
-  position: relative;
-  top: 50px;
-  left: 25vw;
-  display: flex;
-  width: calc(100% - 300px);
+	position: relative;
+	top: 50px;
+	left: 12vw;
+	display: flex;
+	width: calc(100% - 300px);
 }
 
 .cnf-prof-pic {
-  border-radius: 100%;
-  height: 10vw;
-  width: 10vw;
-  margin-bottom: 3vh;
+	border-radius: 100%;
+	height: 10vw;
+	width: 10vw;
+	margin-bottom: 3vh;
 }
 
 .left-content {
-  border-right: 2px solid black;
-  padding: 1vw;
-  padding-right: 3vw;
+	border-right: 2px solid black;
+	padding: 1vw;
+	padding-right: 3vw;
 }
 
 .left-content > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .cnf-user {
-  margin-bottom: 20vh;
+	margin-bottom: 20vh;
 }
 
 .cnf-line {
-  background: #25ced1;
-  width: 2px;
-  height: 70px;
-  position: relative;
-  left: 1.8vw;
-  top: 2vh;
+	background: #25ced1;
+	width: 2px;
+	height: 70px;
+	position: relative;
+	left: 1.8vw;
+	top: 2vh;
 }
 .cnf-line2 {
-  background: #d4d4d4;
-  width: 2px;
-  height: 70px;
-  position: relative;
-  left: 1.8vw;
-  top: -2.1vh;
-  margin-bottom: 0;
-  padding-bottom: 0;
+	background: #d4d4d4;
+	width: 2px;
+	height: 70px;
+	position: relative;
+	left: 1.8vw;
+	top: -2.1vh;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 #cnf-circle {
-  width: 1.8vw;
-  height: 1.8vw;
-  margin: 1vw;
-  border: none;
-  border-radius: 100%;
-  background-color: #25ced1;
+	width: 1.8vw;
+	height: 1.8vw;
+	margin: 1vw;
+	border: none;
+	border-radius: 100%;
+	background-color: #25ced1;
 }
 
 #cnf-round {
-  width: 1.8vw;
-  height: 1.8vw;
-  margin: 1vw;
-  border-radius: 100%;
-  box-sizing: border-box;
-  background: #d9d9d9;
-  margin-top: 0;
-  padding-top: 0;
+	width: 1.8vw;
+	height: 1.8vw;
+	margin: 1vw;
+	border-radius: 100%;
+	box-sizing: border-box;
+	background: #d9d9d9;
+	margin-top: 0;
+	padding-top: 0;
 }
 
 .left-content span {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+	display: flex;
+	gap: 10px;
+	align-items: center;
 }
 
 .right-content {
-  margin: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 2.5vw;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 2.5vw;
 }
 
 .right-content h2 {
-  margin: auto;
-  position: absolute;
-  top: 3vh;
+	margin: auto;
+	position: absolute;
+	top: 3vh;
 }
 
 .cnf-video {
-  display: flex;
-  gap: 30px;
+	display: flex;
+	gap: 30px;
 }
 
 .call-details,
 .call-date {
-  display: flex;
-  border: 2px solid rgb(244, 244, 1);
-  border-radius: 20px;
-  padding: 1vw;
-  flex-direction: column;
-  gap: 9vh;
+	display: flex;
+	border: 2px solid rgb(244, 244, 1);
+	border-radius: 20px;
+	padding: 1vw;
+	flex-direction: column;
+	gap: 9vh;
 }
 
 .call-details > div,
 .call-date > div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 7vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 7vw;
 }
 
 .call-date {
-  border: 2px solid orange;
+	border: 2px solid orange;
 }
 
 .coupon-text {
-  width: 100%;
-  border-bottom: 1px solid black;
-  font-size: 1.05rem;
-  border-radius: 0;
+	width: 100%;
+	border-bottom: 1px solid black;
+	font-size: 1.05rem;
+	border-radius: 0;
 }
 
 .pay-details {
-  display: flex;
-  flex-direction: column;
-  gap: 2vw;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2vw;
+	width: 100%;
 }
 
 .session,
 .final-amt {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px; /* Adjust the gap value as needed */
-  width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px; /* Adjust the gap value as needed */
+	width: 100%;
 }
 
 .proceed-btn {
-  border: none;
-  background: #25ced1;
-  cursor: pointer;
-  font-size: 1.05rem;
-  border-radius: 20px;
-  padding: 0.5vw 1.3vw;
-  margin: auto;
-  color: white;
+	border: none;
+	background: #25ced1;
+	cursor: pointer;
+	font-size: 1.05rem;
+	border-radius: 20px;
+	padding: 0.5vw 1.3vw;
+	margin: auto;
+	color: white;
+}
+
+#oauth2-btn {
+  margin-top: 2vw;
+  border-radius: 13px;
+  padding: 5px;
+  background-color: white;
+}
+
+#oauth2-btn:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 500px) {
-  .confirm-container {
-    position: relative;
-    top: 50px;
-    left: 0vw;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 100px;
-  }
-  .right-content h2 {
-    margin: auto;
-    top: 47vh;
-  }
-  .cnf-user {
-    margin-bottom: 0px;
-  }
-  .left-content {
-    margin-inline: 20px;
-  }
-  .right-content {
-    margin-inline: 20px;
-  }
-  .call-details {
-    padding: 10px;
-    gap: 10vh;
-  }
-  .call-date {
-    padding: 10px;
-    gap: 4vh;
-  }
-  .cnf-video {
-    margin-bottom: 20px;
-  }
-  .pay-details h3 {
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .proceed-btn {
-    margin: 10px 0;
-    padding: 12px;
-  }
-  .session p {
-    font-size: 16px;
-  }
-  .final-amt p {
-    font-size: 16px;
-  }
-  .coupon-text {
-    margin: 20px 0;
-  }
+	.confirm-container {
+		position: relative;
+		top: 50px;
+		left: 0vw;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		gap: 100px;
+	}
+	.right-content h2 {
+		margin: auto;
+		top: 47vh;
+	}
+	.cnf-user {
+		margin-bottom: 0px;
+	}
+	.left-content {
+		margin-inline: 20px;
+	}
+	.right-content {
+		margin-inline: 20px;
+	}
+	.call-details {
+		padding: 10px;
+		gap: 10vh;
+	}
+	.call-date {
+		padding: 10px;
+		gap: 4vh;
+	}
+	.cnf-video {
+		margin-bottom: 20px;
+	}
+	.pay-details h3 {
+		font-size: 20px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.proceed-btn {
+		margin: 10px 0;
+		padding: 12px;
+	}
+	.session p {
+		font-size: 16px;
+	}
+	.final-amt p {
+		font-size: 16px;
+	}
+	.coupon-text {
+		margin: 20px 0;
+	}
 
-  .cnf-prof-pic {
-    border-radius: 100%;
-    height: 30vw;
-    width: 30vw;
-    margin-bottom: 2vh;
-  }
+	.cnf-prof-pic {
+		border-radius: 100%;
+		height: 30vw;
+		width: 30vw;
+		margin-bottom: 2vh;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	.confirm-container {
+		left: 20vw;
+	}
 }

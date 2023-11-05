@@ -176,6 +176,14 @@ const PostComp = ({
     }
   }
 
+   const isImage = (url) => {
+    return (
+      url.toLowerCase().includes(".jpg") ||
+      url.toLowerCase().includes(".jpeg") ||
+      url.toLowerCase().includes(".png")
+    );
+  };
+
   const mediaIdentifier = (file) => {
     file = file.toLowerCase();
     if (
@@ -276,7 +284,9 @@ const PostComp = ({
         // imageUrls[0].toLowerCase().includes(".jpg") ||
         //   imageUrls[0].toLowerCase().includes(".jpeg") ||
         //   imageUrls[0].toLowerCase().includes(".png")
-        false ? (
+        isImage(imageUrls[currentMediaIndex])
+        // false
+         ? (
           <div
             className="posted-img-container"
             style={{

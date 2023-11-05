@@ -34,7 +34,13 @@ export default function RightProfileComp({ about }) {
       const userData = await getUser();
       setUserDetails(userData.data.result);
     } catch (err) {
-      console.log("Unable to fetch user details", err);
+      if (!err.response.data.result) {
+        localStorage.removeItem('skilloptoken')
+        navigate('/');
+        console.log("here is ", err.response.data.result);
+        toast.error("Session expired, Login again!");
+      }
+      console.log("Unable to fetch user details", err);      
     }
   };
 
@@ -65,7 +71,7 @@ export default function RightProfileComp({ about }) {
               <img
                 onClick={() => setShowIntroVideo(true)}
                 onMouseEnter={() => {
-                  userDetails.introVideo && toast.success("Click profile picture to view intro video!")
+                  !userDetails.introVideo && toast.success("Click on profile picture to add my story!")
                 }}
                 src={
                   userDetails.profilePicUrl

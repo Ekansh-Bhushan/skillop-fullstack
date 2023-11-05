@@ -20,16 +20,6 @@
   padding-left: 20px;
 }
 
-@media screen and (max-width: 400px) {
-  .notify-box {
-    display: flex;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 320px;
-  }
-}
-
 /* .notify-box-content:hover {
     background-color: #f4d76f;
 } */
@@ -68,4 +58,24 @@
 .profile-notify {
   position: relative;
   top: 50px;
+}
+
+@media screen and (max-width: 400px) {
+  .notify-box {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 320px;
+  }
+
+  .notify-box-content {
+    padding-inline: 10px;
+  }
+
+  .profile-notify {
+    position: relative;
+    top: 50px;
+    bottom: 100px;
+  }
 }
