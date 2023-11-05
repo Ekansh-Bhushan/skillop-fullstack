@@ -1,7 +1,7 @@
 import { Circle } from "rc-progress";
 import React, { useEffect, useState } from "react";
 // import logo from "../../images/logo.png";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import Commondash from "../common";
 // import Topbar from "../topbar";
 import SideNav from "../SideNav/SideNav";
@@ -12,11 +12,16 @@ import toast from "react-hot-toast";
 // import Mobilecommonhead from "../../Mobilecommonhead";
 import "./mentorBano.css";
 import { getProfileCompletionStatus } from "../../api/userRequest";
+import { requestToBeMentor } from "../../api/mentorRequest";
 function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     // const navigate = useNavigate();
     const [isTaskDone, setIsTaskDone] = useState(false);
     const [isActive, setIsActive] = useState(false);
     const [Pprogress, setPProgress] = useState(0);
+
+    if (userData.requestToBeMentor) { 
+        setIsActive(false);
+    }
 
     function increaseCircularProgress(currentProgress, steps) {
         if (steps <= 0) {
@@ -35,8 +40,8 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     }
 
     // Example usage
-    const currentProgress =0; // Initial progress (between 0 and 1)
-    const steps = 4;
+    const currentProgress = 0; // Initial progress (between 0 and 1)
+    const steps = 10;
     const newProgress = increaseCircularProgress(currentProgress, steps);
     console.log("New progress:", newProgress);
 
@@ -48,23 +53,28 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     const [uploadProfilePicAndVideo, setUploadProfilePicAndVideo] =
         useState(false);
     useEffect(() => {
-        if( addedAboutPastAndFuture) {
+        if (addedAboutPastAndFuture) {
             increaseCircularProgress(Pprogress, steps);
             setPProgress((prev) => prev + 25);
         }
-        if( addedAtleast4Posts) {
+        if (addedAtleast4Posts) {
             increaseCircularProgress(Pprogress, steps);
             setPProgress((prev) => prev + 25);
         }
-        if( addedEducationOrExperence) {
+        if (addedEducationOrExperence) {
             increaseCircularProgress(Pprogress, steps);
             setPProgress((prev) => prev + 25);
         }
-        if( uploadProfilePicAndVideo) {
+        if (uploadProfilePicAndVideo) {
             increaseCircularProgress(Pprogress, steps);
             setPProgress((prev) => prev + 25);
         }
-    }, [addedAboutPastAndFuture, addedAtleast4Posts, addedEducationOrExperence, uploadProfilePicAndVideo])
+    }, [
+        addedAboutPastAndFuture,
+        addedAtleast4Posts,
+        addedEducationOrExperence,
+        uploadProfilePicAndVideo,
+    ]);
     console.log(Pprogress);
 
     useEffect(() => {
@@ -72,12 +82,11 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
             const getProfileCompletionData = async () => {
                 const { data } = await getProfileCompletionStatus();
                 console.log(data.result);
-              if (data.result) {
-                  
+                if (data.result) {
                     setAddedAboutPastAndFuture(
                         data.result.profileComplitionStatus
                             .addedAboutPastAndFuture
-                  );
+                    );
                     setAddedAtleast4Posts(
                         data.result.profileComplitionStatus.addedAtleast4Posts
                     );
@@ -88,8 +97,8 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     setUploadProfilePicAndVideo(
                         data.result.profileComplitionStatus
                             .uploadProfilePicAndVideo
-                  );
-                  console.log(data.result.profileComplitionStatus, "hello");
+                    );
+                    console.log(data.result.profileComplitionStatus, "hello");
                 } else {
                     toast.error(data.error);
                 }
@@ -100,6 +109,20 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
             toast.error("Something went wrong");
         }
     }, []);
+
+    const requestToBeMentorX = async () => {
+        try {
+            const { data } = await requestToBeMentor();
+            if (data.result) {
+                toast.success(data.result);
+            } else {
+                toast.error(data.error);
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response.data.message);
+        }
+    };
 
     return (
         <>
@@ -198,8 +221,9 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     className={
                         isActive ? "custom-button" : "custom-button-active"
                     }
+                    onClick={requestToBeMentorX}
                 >
-                    Become a mentor
+                    {isActive?"Become a mentor":"Your application is under process"}
                 </button>
             </div>
         </>

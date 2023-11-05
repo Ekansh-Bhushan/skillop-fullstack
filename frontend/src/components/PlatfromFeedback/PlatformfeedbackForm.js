@@ -23,7 +23,7 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
       <div className="form-star-area">
         <StarRating />
       </div>
-      <div className="form-what-went-wrong-area">What Went Wrong</div>
+      <div className="form-what-went-wrong-area">What can we help you with?</div>
 
       <div className="myoptions">
         <MyComponent />

@@ -139,3 +139,16 @@ export const getEarnings = () => {
     };
     return API.get(`/api/mentor/earnings`, config);
 };
+
+export const requestToBeMentor = () => {
+    const token = localStorage.getItem("skilloptoken");
+
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+        },
+    };
+
+    return API.put(`/api/mentor/request`, {}, config);
+};
