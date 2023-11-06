@@ -1,14 +1,15 @@
 import React, { useReducer } from "react";
 import "./option.css";
+
 const preSetFeedback = {
   list: [
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
-    { title: "lorem ipsum", flag: false },
+    { title: "Easy exploration", flag: false },
+    { title: "user experience", flag: false },
+    { title: "mobile friendliness", flag: false },
+    { title: "immersive visual experience", flag: false },
+    { title: "user friendly", flag: false },
+    { title: "Speed", flag: false },
+    { title: "The process was taking too long", flag: false },
   ],
 };
 
@@ -31,6 +32,7 @@ function MyComponent() {
       payload: state.list,
     });
   }
+  let feedback = ""
   return (
     <div className="all-box">
       {state.list.map((item, index) => (
@@ -39,6 +41,8 @@ function MyComponent() {
           key={index}
           style={{
             backgroundColor: `${item.flag ? "cyan" : "white"}`,
+            width: "100px", // Set a smaller width
+            height: "50px", // Set a smaller height
           }}
           onClick={() => selectItem(item, index)}
         >
@@ -46,6 +50,7 @@ function MyComponent() {
             style={{ margin: "0px", color: `${item.flag ? "white" : "black"}` }}
           >
             {item.title}
+            
           </p>
         </div>
       ))}

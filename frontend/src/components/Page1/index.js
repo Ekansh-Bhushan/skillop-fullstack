@@ -132,7 +132,6 @@ function Page1({ setProgress }) {
       document.querySelector(".name").classList.add("hidethis");
       document.querySelector(".Content-Head").innerHTML = "Welcome Back!";
       document.querySelector(".getstart button").innerHTML = "Login";
-      <div className='forgot-password-link' onClick={handleForgotPassword}>Forgot Password?</div>
 
       document.querySelector(".already-reg").innerHTML =
         "Don't have an Account ?";
@@ -156,9 +155,9 @@ function Page1({ setProgress }) {
         "Already Have an Account ?";
       document.querySelector(".functionhandler").textContent = "Login";
 
-      x = 0;
-    }
-  };
+      x = 0;
+    }
+  };
   const handleGoogleLoginSuccess = (credentialResponse) => {
     const idToken = credentialResponse.credential;
     const decodedToken = jwt_decode(idToken);

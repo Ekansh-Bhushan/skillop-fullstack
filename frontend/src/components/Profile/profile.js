@@ -158,23 +158,38 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
   const handleDelExp = async (id) => {
     try {
-      await delExp(id);
-      toast.success("Deleted successfully!");
-      // window.location.reload();
+      // Display a confirmation dialog to confirm the deletion
+      const confirmed = window.confirm("Are you sure you want to delete this item?");
+      
+      if (confirmed) {
+        // If the user confirms, proceed with the deletion
+        await delExp(id);
+        toast.success("Deleted successfully!");
+        // window.location.reload();
+      } else {
+        // If the user cancels, do nothing or provide feedback if needed
+        console.log("Deletion canceled by the user");
+      }
     } catch (err) {
       console.log("Error deleting exp", err);
       toast.error(err.response.data.err);
     }
   };
+  
 
   const handleDelEdu = async (id) => {
-    try {
-      await delEdu(id);
-      toast.success("Deleted successfully!");
-      // window.location.reload();
-    } catch (err) {
-      console.log("Error deleting edu", err);
-      toast.error(err.response.data.err);
+    // Display a confirmation dialog
+    const userConfirmed = window.confirm("Are you sure you want to delete this item?");
+    
+    if (userConfirmed) {
+      try {
+        await delEdu(id);
+        toast.success("Deleted successfully!");
+        // window.location.reload();
+      } catch (err) {
+        console.log("Error deleting edu", err);
+        toast.error(err.response.data.err);
+      }
     }
   };
 

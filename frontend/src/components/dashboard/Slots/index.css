@@ -826,10 +826,14 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+  .meet-rate-input {
+    max-width: 50vw;
+  }
   .meet-rate {
     width: 90%;
     padding: 10px 0px;
     margin: auto;
+    margin-top: 10px;
   }
 
   .session-dash-info {

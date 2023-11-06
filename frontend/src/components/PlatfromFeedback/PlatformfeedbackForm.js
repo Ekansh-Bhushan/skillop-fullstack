@@ -4,9 +4,16 @@ import MyComponent from "./option";
 import "./feedbackForm.css";
 import SideNav from "../SideNav/SideNav";
 import RightProfileComp from "../Profile/Right Profile/RightProfileComp";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyList} ) {
   // const[state,dispatch] = useReducer(reducer, initialState)
+  const navigate = useNavigate()
+  const sendFeedBack = async () => {
+    toast.success("FeedBack Submitted !");
+  };
+
   return (
     <>
     <SideNav
@@ -23,13 +30,13 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
       <div className="form-star-area">
         <StarRating />
       </div>
-      <div className="form-what-went-wrong-area">What Went Wrong</div>
+      <div className="form-what-went-wrong-area">What can we help you with?</div>
 
       <div className="myoptions">
         <MyComponent />
       </div>
       <form className="form-area">
-        <input
+        {/* <input
           className="input-in-form-area"
           style={{
               border: "2px solid #108CFF",
@@ -42,9 +49,9 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
               backgroundColor: "transparent",
               padding: "10px",
             }}
-            />
+            /> */}
 
-        <button
+        {/* <button
           className="btn-add"
           onClick={(e) => {
               e.preventDefault();
@@ -64,13 +71,16 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
             }}
         >
           Add
-        </button>
+        </button> */}
         <button
         className="btn-submit"
-          onClick={(e) => {
-              e.preventDefault();
-              if (e.target.previousSibling.value === "") return;
-            }}
+          // onClick={(e) => {
+          //     e.preventDefault();
+          //     if (e.target.previousSibling.value === "") return;
+          //   }}
+          // onClick={() => navigate('/homepage')}
+          onClick={sendFeedBack}
+
             style={{
                 backgroundColor: "#108CFF",
                 color: "white",
@@ -83,7 +93,9 @@ function PlatformfeedbackForm({userData, setProgress, Mentor, isFetched, notifyL
                 cursor: "pointer",
                 marginLeft: "10px",
             }}
+            
         >
+          
           Submit
         </button>
       </form>

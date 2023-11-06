@@ -166,6 +166,19 @@ input {
   background: #1fa9ab;
   cursor: pointer;
 }
+.getreset button {
+  width: 140px;
+  height: 50px;
+  border-radius: 16px;
+  border: none;
+  color: white;
+  background: #25ced1;
+}
+
+.getreset button:hover {
+  background: #1fa9ab;
+  cursor: pointer;
+}
 
 .changepage {
   display: flex;

@@ -21,11 +21,11 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
     const e = new URLSearchParams(search).get('e');
     const userid = new URLSearchParams(search).get('userid');
     const charge = new URLSearchParams(search).get('charge');
-    console.log(day, s, e, userid, charge, mentorid)
+    // console.log(day, s, e, userid, charge, mentorid)
 
     const [loading, setLoading] = useState(false);
 
-    const [paymentConformationPic, setPaymentConformationPic] = useState(null);
+  const [paymentConformationPic, setPaymentConformationPic] = useState(null);
 
     const navigate = useNavigate();
 
@@ -67,7 +67,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
             .post("https://app.skillop.in/api/event/create-meet", data, config)
             .then((res) => {
                 console.log("success");
-                console.log(res.data);
+                // console.log(res.data);
                 meetLink = res.data.hangoutLink;
             })
             .catch((err) => {
@@ -92,10 +92,10 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
             formData.append('e', e);
             formData.append('meetLink', meetLink);
             console.log('meetLink', meetLink);
-            console.log("formdata", formData)
+            // console.log("formdata", formData)
             const response = await sendMeetRequest(mentorid, day, s, e, userid, formData);
             if (response.data.result) {
-                console.log(response.data.result);
+                // console.log(response.data.result);
                 navigate('/requestedMeets');
                 toast.success("Meet scheduled!")
                 toast.success("Check your Google calendar!")
@@ -109,10 +109,15 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
         }
         setLoading(false);
     }
-
-    return (
-        <div style={{ display: 'flex', gap: "100px" }}>
-            <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+  
+  return (
+    <div style={{ display: "flex", gap: "100px" }}>
+      <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
 
             <div className='confirm-container'>
                 <div className="left-content">
@@ -179,5 +184,4 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
         </div>
     )
 }
-
 export default Payment;

@@ -152,3 +152,15 @@ export const getFollowings = (userid) => {
         ...config,
     });
 };
+
+export const getProfileCompletionStatus = () => {
+    // get token  from local storage
+    const token = localStorage.getItem("skilloptoken");
+
+    const config = {
+        headers: { Authorization: token },
+        withCredentials: true,
+    };
+
+    return API.get(`/api/user/profile/completion/status`, config);
+}

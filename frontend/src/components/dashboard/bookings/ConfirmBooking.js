@@ -7,87 +7,92 @@ import { getMentorData } from "../../../api/mentorRequest";
 import toast from "react-hot-toast";
 import convertToNormalTime from "../../../utils/timeConversion";
 import calculateTimeGap from "../../../utils/timeGap";
-import { GoogleLogin, GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
+import {
+  GoogleLogin,
+  GoogleOAuthProvider,
+  useGoogleLogin,
+} from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import MyCustomGoogleButton from "./MyCustomGoogleButton";
 import axios from "axios";
 
 const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
-    const mentorid = window.location.pathname.split("/")[2];
-    const [data, setData] = useState({});
-    const search = useLocation().search;
-    const day = new URLSearchParams(search).get("day");
-    const s = new URLSearchParams(search).get("s");
-    const e = new URLSearchParams(search).get("e");
-    const userid = new URLSearchParams(search).get("userid");
-    const charge = new URLSearchParams(search).get("charge");
+  const mentorid = window.location.pathname.split("/")[2];
+  const [data, setData] = useState({});
+  const search = useLocation().search;
+  const day = new URLSearchParams(search).get("day");
+  const s = new URLSearchParams(search).get("s");
+  const e = new URLSearchParams(search).get("e");
+  const userid = new URLSearchParams(search).get("userid");
+  const charge = new URLSearchParams(search).get("charge");
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const fetchUser = async () => {
-        let user;
-        try {
-            user = await getMentorData(mentorid);
-            if (user.data.result) {
-                setData(user.data.result);
-            } else {
-                toast.error(user.data.message);
-            }
-        } catch (error) {
-            console.log(error);
-            toast.error(error.response.data.message);
-        }
-    };
-    useEffect(() => {
-        fetchUser();
-    }, []);
+  const fetchUser = async () => {
+    let user;
+    try {
+      user = await getMentorData(mentorid);
+      if (user.data.result) {
+        setData(user.data.result);
+      } else {
+        toast.error(user.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message);
+    }
+  };
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
-    const onClickProceed = () => {
-        navigate(
-            `/payment/${mentorid}?day=${day}&s=${s}&e=${e}&userid=${userid}&charge=${charge}`
-        );
-    };
+  const onClickProceed = () => {
+    navigate(
+      `/payment/${mentorid}?day=${day}&s=${s}&e=${e}&userid=${userid}&charge=${charge}`
+    );
+  };
 
     const handleGoogleLoginSuccess = async (credentialResponse) => {
         const idToken = credentialResponse.credential;
-        console.log(credentialResponse);
+        // console.log(credentialResponse);
         const decodedToken = await jwt_decode(idToken);
-        console.log(decodedToken);
+        // console.log(decodedToken);
     };
 
     const [isSignedIn, setIsSignedIn] = useState(false);
 
-    return (
-        <div style={{}}>
-            <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+  return (
+    <div style={{}}>
+      <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
 
-            <div className="confirm-container">
-                <div className="left-content">
-                    {data && (
-                        <div className="cnf-user">
-                            {/* <img className="cnf-prof-pic" src={data.profilePicUrl ? data.profilePicUrl : userIcon} alt="profile pic" /> */}
-                            <img
-                                className="cnf-prof-pic"
-                                src={userIcon}
-                                alt="profile pic"
-                            />
-                            <h3>
-                                {data.firstname} {data.lastname}
-                            </h3>
-                            <p>{data.jobTitle}</p>
-                        </div>
-                    )}
-                    <div className="cnf-line"></div>
-                    <span>
-                        <div id="cnf-circle"></div>
-                        <h3>Confirmation</h3>
-                    </span>
-                    <div className="cnf-line2"></div>
-                    <span>
-                        <div id="cnf-round"></div>
-                        <h3>Payment</h3>
-                    </span>
-                </div>
+      <div className="confirm-container">
+        <div className="left-content">
+          {data && (
+            <div className="cnf-user">
+              {/* <img className="cnf-prof-pic" src={data.profilePicUrl ? data.profilePicUrl : userIcon} alt="profile pic" /> */}
+              <img className="cnf-prof-pic" src={userIcon} alt="profile pic" />
+              <h3>
+                {data.firstname} {data.lastname}
+              </h3>
+              <p>{data.jobTitle}</p>
+            </div>
+          )}
+          <div className="cnf-line"></div>
+          <span>
+            <div id="cnf-circle"></div>
+            <h3>Confirmation</h3>
+          </span>
+          <div className="cnf-line2"></div>
+          <span>
+            <div id="cnf-round"></div>
+            <h3>Payment</h3>
+          </span>
+        </div>
 
                 <div className="right-content">
                    {isSignedIn? <h2>Confirm Booking</h2> : <h2>Authorize SKILLOP MEETS</h2>}

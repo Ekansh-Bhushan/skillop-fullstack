@@ -34,6 +34,7 @@ import PlatformfeedbackForm from "../PlatfromFeedback/PlatformfeedbackForm"
 import MentorfeedbackForm from "../MentorFeedback/feedbackForm"
 import ChangePasswordPage from "../passwordChange/changepassword"
 import ResetPasswordPage from "../resetpassword/resetpassword";
+// import ResetPasswordEmail from "../resetpassword/resetpasswordEmail";
 
 function AuthPage({
     userData,
@@ -288,6 +289,7 @@ function AuthPage({
                         />
                     }
                 />
+                {/* <Route path= "/emailRequest" element= {<ResetPasswordEmail/>}/> */}
                 <Route
                     path="/mentorBano"
                     element={
