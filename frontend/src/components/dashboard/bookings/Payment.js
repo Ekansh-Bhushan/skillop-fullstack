@@ -67,7 +67,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
             .post("https://app.skillop.in/api/event/create-meet", data, config)
             .then((res) => {
                 console.log("success");
-                // console.log(res.data);
+                console.log(res.data);
                 meetLink = res.data.hangoutLink;
             })
             .catch((err) => {
