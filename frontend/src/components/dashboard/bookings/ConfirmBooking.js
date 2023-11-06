@@ -10,6 +10,7 @@ import calculateTimeGap from "../../../utils/timeGap";
 import { GoogleLogin, GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import MyCustomGoogleButton from "./MyCustomGoogleButton";
+import axios from "axios";
 
 const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
     const mentorid = window.location.pathname.split("/")[2];
@@ -54,6 +55,8 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
         console.log(decodedToken);
     };
 
+    const [isSignedIn, setIsSignedIn] = useState(false);
+
     return (
         <div style={{}}>
             <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
@@ -87,21 +90,9 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                 </div>
 
                 <div className="right-content">
-                    <h2>Confirm Booking</h2>
-                    <>
-                        <GoogleOAuthProvider clientId="154719299730-irqnpdj9jo8n2pa475b0gbpmoi78orha.apps.googleusercontent.com"
-                        >
-                            {/* <GoogleLogin
-                                onSuccess={handleGoogleLoginSuccess}
-                                onError={() => {
-                                    console.log("Login Failed");
-                            />
-                                }} */}
-                                <MyCustomGoogleButton />
-                         
-                        </GoogleOAuthProvider>
-                    </>
-                    <div className="cnf-video">
+                   {isSignedIn? <h2>Confirm Booking</h2> : <h2>Authorize SKILLOP MEETS</h2>}
+
+                    {isSignedIn?(<><div className="cnf-video">
                         <span className="call-details">
                             <div>
                                 <div
@@ -145,50 +136,55 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                             </div>
                         </span>
                     </div>
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "2px",
-                            width: "100%",
-                        }}
-                    >
-                        <input
-                            type="text"
-                            className="coupon-text"
-                            placeholder="Have a Coupon Code?"
-                        />
-                        <img
-                            src="/go.png"
-                            alt=""
+                        <div
                             style={{
-                                cursor: "pointer",
-                                width: "40px",
-                                paddingLeft: "10px",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "2px",
+                                width: "100%",
                             }}
-                            onClick={() => {
-                                // check if input is empty
-                                toast.error("Invalid Coupon Code");
-                            }}
-                        />
-                    </div>
-                    <div className="pay-details">
-                        <h3>Payment details</h3>
-                        <div className="session">
-                            <p>Price for 1 session</p>
-                            <p>Rs. {charge}</p>
-                        </div>
-                        <div className="final-amt">
-                            <p>Final amount</p>
-                            <p>Rs. {charge}</p>
-                        </div>
-                        <button
-                            className="proceed-btn"
-                            onClick={() => onClickProceed()}
                         >
-                            Proceed
-                        </button>
-                    </div>
+                            <input
+                                type="text"
+                                className="coupon-text"
+                                placeholder="Have a Coupon Code?"
+                            />
+                            <img
+                                src="/go.png"
+                                alt=""
+                                style={{
+                                    cursor: "pointer",
+                                    width: "40px",
+                                    paddingLeft: "10px",
+                                }}
+                                onClick={() => {
+                                    // check if input is empty
+                                    toast.error("Invalid Coupon Code");
+                                }}
+                            />
+                        </div>
+                        <div className="pay-details">
+                            <h3>Payment details</h3>
+                            <div className="session">
+                                <p>Price for 1 session</p>
+                                <p>Rs. {charge}</p>
+                            </div>
+                            <div className="final-amt">
+                                <p>Final amount</p>
+                                <p>Rs. {charge}</p>
+                            </div>
+                            <button
+                                className="proceed-btn"
+                                onClick={() => onClickProceed()}
+                            >
+                                Proceed
+                            </button>
+                        </div></>):( <>
+                        <GoogleOAuthProvider clientId="154719299730-irqnpdj9jo8n2pa475b0gbpmoi78orha.apps.googleusercontent.com"
+                        >
+                            <MyCustomGoogleButton setIsSignedIn={setIsSignedIn} />
+                        </GoogleOAuthProvider>
+                    </>)}
                 </div>
             </div>
         </div>

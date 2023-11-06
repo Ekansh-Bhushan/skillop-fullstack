@@ -68,9 +68,9 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
         };
         return API.post(`/api/post/create`, data, config);
       };
-        setProgress(30);
+      setProgress(30);
       await createPost(formData);
-        setProgress(100);
+      setProgress(100);
       setRefresh(!refresh);
       onClose();
       toast.success("Post created successfully!");
@@ -211,7 +211,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
           {selectedMedia.length > 0 && (
             <div>
               {getFileType(selectedMedia[currentMediaIndex].type) ===
-              "image" ? (
+                "image" ? (
                 <img
                   src={selectedMedia[currentMediaIndex].dataUrl}
                   alt="selected-img"

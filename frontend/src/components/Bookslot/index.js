@@ -124,7 +124,7 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 <div>Time</div>
                 <div>Amount</div>
               </div>
-              {Object.keys(slots).map((day) => {
+              {Object.keys(slots).length > 0 ? Object.keys(slots).map((day) => {
                 return (
                   <div className="slot-1-book">
                     {slots[day].map((slot) => {
@@ -139,7 +139,7 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
                               {convertToNormalTime(slot.e)}
                             </div>
                             <div className="amount-slot">
-                              ₹{slot.charge.toFixed(2)}
+                              ₹{Math.round(slot.charge)}
                             </div>
                             <button
                               onClick={() =>
@@ -161,7 +161,7 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     })}
                   </div>
                 );
-              })}
+              }):<h3 style={{textAlign:"center", margin:"5vw"}}>No slot added by user</h3>}
             </div>
           </div>
         </div>

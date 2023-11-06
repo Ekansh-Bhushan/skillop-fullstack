@@ -67,6 +67,10 @@ const BookViewPopUp = ({ bookingData, onClose, type }) => {
                     {bookingData && <span>{bookingData[1].status}</span>}
                 </div>
                 <div>
+                    <span>Meet link : </span>
+                    {bookingData && bookingData[1].meetLink && <a href={bookingData[1].meetLink}>{bookingData[1].meetLink}</a>}
+                </div>
+                <div>
                     <span>Payment proof : </span>
                     {bookingData && (
                         <a

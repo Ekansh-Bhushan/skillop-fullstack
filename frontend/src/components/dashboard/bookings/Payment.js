@@ -8,6 +8,9 @@ import QRCode from 'react-qr-code';
 import { getMentorData, sendMeetRequest } from '../../../api/mentorRequest';
 import toast from 'react-hot-toast';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import convertToNormalTime from '../../../utils/timeConversion';
+import spinner from '../../images/spinner.gif';
 
 const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
     const mentorid = window.location.pathname.split('/')[2];
@@ -20,9 +23,13 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
     const charge = new URLSearchParams(search).get('charge');
     console.log(day, s, e, userid, charge, mentorid)
 
+    const [loading, setLoading] = useState(false);
+
     const [paymentConformationPic, setPaymentConformationPic] = useState(null);
 
     const navigate = useNavigate();
+
+    let meetLink;
 
     const fetchUser = async () => {
         try {
@@ -39,6 +46,36 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
         fetchUser();
     }, []);
 
+    const createMeetEvent = () => {
+        const skilloptoken = localStorage.getItem("skilloptoken");
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: skilloptoken,
+            },
+            withCredentials: true,
+        };
+        const data = {
+            summary: "SKILLOP MEET",
+            description: "This meeting is purely for mentorship.",
+            location: "Google Meet",
+            startDateTime: day.toString() + " " + convertToNormalTime(s).toString(),
+            endDateTime: day.toString() + " " + convertToNormalTime(e).toString()
+        }
+        console.log("meet data : ", data);
+        return axios
+            .post("https://app.skillop.in/api/event/create-meet", data, config)
+            .then((res) => {
+                console.log("success");
+                console.log(res.data);
+                meetLink = res.data.hangoutLink;
+            })
+            .catch((err) => {
+                console.log("error");
+                console.log(err);
+            });
+    }
+
     const onClickDone = async () => {
         // send meet request to backend
         if (!paymentConformationPic) {
@@ -46,18 +83,23 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
             return;
         }
         try {
+            setLoading(true);
+            const res = await createMeetEvent();
             const formData = new FormData();
             formData.append("payment-proof", paymentConformationPic);
             formData.append("date", day);
             formData.append('s', s);
             formData.append('e', e);
+            formData.append('meetLink', meetLink);
+            console.log('meetLink', meetLink);
             console.log("formdata", formData)
-
             const response = await sendMeetRequest(mentorid, day, s, e, userid, formData);
             if (response.data.result) {
                 console.log(response.data.result);
-                toast.success(response.data.message);
-                navigate(`/requestedMeets`);
+                navigate('/requestedMeets');
+                toast.success("Meet scheduled!")
+                toast.success("Check your Google calendar!")
+                // toast.success(response.data.message);
             } else {
                 toast.error(response.data.message);
             }
@@ -65,7 +107,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
             toast.error(error.response.data.message);
             console.log(error)
         }
-
+        setLoading(false);
     }
 
     return (
@@ -91,10 +133,9 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
                         <h3>Payment</h3>
                     </span>
 
-
                 </div>
                 <div className='right-content'>
-                    <h2>Payment</h2>
+                    <h2 style={{ marginBottom: "10px" }}>Payment</h2>
                     <div className='pay-details'>
                         <h3>Payment details</h3>
                         <div className="session">
@@ -132,6 +173,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
                         </div>
                     </div>
                     <button className='proceed-btn' onClick={() => onClickDone()}>Done</button>
+                    {loading && <div style={{ textAlign: "center" }}> <img src={spinner} alt="loading" width={45} /></div>}
                 </div>
             </div>
         </div>

@@ -100,7 +100,7 @@ function Postlist({ userData, displaycreatepost, user, setProgress, setUserData 
         }
     };
 
-    
+
     // useEffect(() => {
     //     const getPostsFromUser = async () => {
     //         try {

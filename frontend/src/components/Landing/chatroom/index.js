@@ -181,7 +181,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 height={21}
                 width={21}
               /> */}
-              <hr style={{height:"2px", background:"black", borderRadius:"20px" }}/>
+              <hr style={{ height: "2px", background: "black", borderRadius: "20px" }} />
               {chats.length > 0 &&
                 chats.map((chat) => (
                   <div
