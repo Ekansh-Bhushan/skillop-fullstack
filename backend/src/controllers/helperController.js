@@ -1,7 +1,22 @@
-const { getStates, getCities, getInstitute } = require("../algo/education/getCollegeData");
+const {
+    getStates,
+    getCities,
+    getInstitute,
+    getInstituteBasedOnName,
+} = require("../algo/education/getCollegeData");
 
 exports.getInfo = async (req, res) => {
     try {
+        const [college] = [req.query.college];
+        console.log(college)
+        if (college) {
+            const x = await getInstituteBasedOnName(college);
+            return res.status(200).send({
+                result: x,
+                count: x.length,
+                message: "Institutes fetched successfully",
+            });
+        }
         const [state, city] = [req.query.state, req.query.city];
         if (!state && !city) {
             const x = getStates();

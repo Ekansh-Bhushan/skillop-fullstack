@@ -29,7 +29,19 @@ def organize_data(file_name):
     return data
 
 
+def organize_college_name_to_city_state(file_name):
+    df = pd.read_csv(file_name)
+    output = {}
+    for data in df.values:
+        output[data[0].lower()] = {"city": data[1],
+                                   "state": data[2], "college": data[0]}
+    return output
+
+
 if __name__ == "__main__":
-    with open("college_list.json", "w") as f:
-        x = organize_data("college_list.csv")
+    # with open("college_list.json", "w") as f:
+    #     x = organize_data("college_list.csv")
+    #     json.dump(x, f)
+    with open("college_list_as_college_key.json", "w") as f:
+        x = organize_college_name_to_city_state("college_list.csv")
         json.dump(x, f)
