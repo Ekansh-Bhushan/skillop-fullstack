@@ -5,7 +5,7 @@ const NotificationType = require("../../enums/notificationType");
 const {
     eligibleToBecomeMentor,
 } = require("../../validators/mentorEligibility");
-const MENTOR_STATUS = require("../../enums/mentorStatus");
+const { MENTOR_STATUS } = require("../../enums/mentorStatus");
 
 exports.makeMentor = async (req, res) => {
     try {
@@ -36,7 +36,7 @@ exports.makeMentor = async (req, res) => {
             return res.status(403).send({
                 result: false,
                 err: "Forbidden: User profile is not complete",
-                message: `User profile is ${userProfileCompletion.percentageProfileComplete}% complete`,
+                message: `User profile is ${userProfileCompletion.percentageProfileComplete}% complete. User needs to complete the profile to be a mentor`,
             });
         }
 
@@ -74,6 +74,8 @@ exports.getApplicantsForMentor = async (req, res) => {
     try {
         const applicants = await User.find({
             becomingMentorStatus: MENTOR_STATUS.PENDING,
+            isMentor: false,
+            mentor: null,
         }).select("firstname lastname email profilePicture");
 
         res.status(200).send({
@@ -96,7 +98,12 @@ exports.getELegibleApplicantsForMentor = async (req, res) => {
 
         const eligibleApplicants = applicants.filter((applicant) => {
             const userProfileCompletion = eligibleToBecomeMentor(applicant);
-            return userProfileCompletion.percentageProfileComplete >= 100;
+            return (
+                userProfileCompletion.percentageProfileComplete >= 100 &&
+                !applicant.isMentor &&
+                !applicant.mentor &&
+                applicant.becomingMentorStatus == MENTOR_STATUS.NOT_APPLIED
+            );
         });
 
         res.status(200).send({
@@ -107,8 +114,7 @@ exports.getELegibleApplicantsForMentor = async (req, res) => {
         res.status(500).send({
             result: false,
             message: "Internal Server Error",
+            error: error.message,
         });
     }
 };
-
-

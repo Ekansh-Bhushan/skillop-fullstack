@@ -3,8 +3,9 @@ const eligibleToBecomeMentor = (user) => {
         uploadProfilePicAndVideo: user.profilePicUrl && user.introVideo,
         addedAboutPastAndFuture: user.about && user.pastExp && user.futurePlans,
         addedEducationOrExperence:
-            user.education.length || user.experence.length,
-        addedAtleast4Posts: user.posts.length >= 4,
+            (user.experence || user.education) &&
+            (user.education.length || user.experence.length),
+        addedAtleast4Posts: user.posts && user.posts.length >= 4,
     };
 
     let percentageProfileComplete = 0;
