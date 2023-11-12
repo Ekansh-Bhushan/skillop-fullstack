@@ -217,6 +217,10 @@ const UserSchema = new mongoose.Schema({
     resetPasswordExpires: Date,
 
     meetScheduled: String,
+    googleRefreshToken: {
+        type: String,
+        default: null,
+    },
 });
 
 // Reset password token generation
