@@ -89,7 +89,7 @@
   max-width: 96%;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .profile-data {
     margin-top: 75vh;
     margin-left: 50vw;
@@ -111,7 +111,11 @@
     max-width: 55%;
   }
   .spinner {
-    display: none;
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 

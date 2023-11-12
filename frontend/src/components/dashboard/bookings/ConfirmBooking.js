@@ -79,7 +79,9 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
               <p>{data.jobTitle}</p>
             </div>
           )}
+
           <div className="cnf-line"></div>
+
           <span>
             <div id="cnf-circle"></div>
             <h3>Confirmation</h3>

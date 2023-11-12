@@ -77,10 +77,11 @@
     flex-direction: column;
     border-radius: 15px;
     padding: 5vw;
-    width: 200px;
     background: white;
     border: 2px solid black;
     width: 80vw;
+    left: 50%;
+    top: 30%;
   }
 
   /* .intro-video-container {

@@ -69,6 +69,27 @@
   padding-top: 0;
 }
 
+/* @media screen and (max-width: 500px) {
+  .cnf-line {
+    background: #25ced1;
+    width: 140px;
+    height: 5px;
+    position: relative;
+    left: 10%;
+    top: 2vh;
+  }
+  .cnf-line2 {
+    background: #d4d4d4;
+    width: 140px;
+    height: 5px;
+    position: relative;
+    left: 50%;
+    top: -1.3vh;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+} */
+
 .left-content span {
   display: flex;
   gap: 10px;
@@ -168,8 +189,13 @@
 }
 
 @media screen and (max-width: 500px) {
+  .qr-container {
+    margin-top: 30px;
+  }
   .qr-code {
     margin-top: 20px;
+    flex-direction: column;
+    gap: 30px;
   }
   #oauth2-btn {
     margin-bottom: 2vw;
