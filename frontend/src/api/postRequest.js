@@ -14,7 +14,7 @@ export const createPost = (data) => {
     };
     return API.post(`/api/post/create`, data, config);
 };
-export const getAllPost = () => {
+export const getAllPost = (limit = 10, skip = 0) => {
     const token = localStorage.getItem("skilloptoken");
 
     const config = {
@@ -24,7 +24,7 @@ export const getAllPost = () => {
         },
         withCredentials: true,
     };
-    return API.get(`/api/post/from/all?limit=10&skip=0`, config);
+    return API.get(`/api/post/from/all?limit=${limit}&skip=${skip}`, config);
 };
 export const getSpecificPost = (postId) => {
     const token = localStorage.getItem("skilloptoken");

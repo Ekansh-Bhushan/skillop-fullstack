@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import userImage from "../images/user.png";
 import photoIcon from "../images/image.png";
 import videoIcon from "../images/video.jpeg";
@@ -6,10 +6,7 @@ import attatchment from "../images/attatchment.png";
 import postIcon from "../images/post.png";
 import "./Postlist.css";
 import PostPopUp from "./Post/PostPopUp";
-import {
-    getAllPost,
-    getPostFromSpecificUser,
-} from "../../api/postRequest";
+import { getAllPost, getPostFromSpecificUser } from "../../api/postRequest";
 import PostComp from "../PostComp";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -17,7 +14,13 @@ import { useNavigate } from "react-router-dom";
 
 const API = axios.create({ baseURL: "https://app.skillop.in" });
 
-function Postlist({ userData, displaycreatepost, user, setProgress, setUserData }) {
+const Postlist = ({
+    userData,
+    displaycreatepost,
+    user,
+    setProgress,
+    setUserData,
+}) => {
     const [refresh, setRefresh] = useState(false);
     const userId = window.location.pathname.split("/")[2];
 
@@ -37,13 +40,17 @@ function Postlist({ userData, displaycreatepost, user, setProgress, setUserData 
         setShowPostPopUp(!showPostPopUp);
     };
 
-
     const hidepop = () => {
         document.querySelector(".photo-popup").style.display = "none";
     };
 
     const [inputValue, setInputValue] = useState("");
-    const [postData, setPostData] = useState("");
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [skip, setSkip] = useState(0);
+    const limit = 10;
+    const containerRef = useRef(null);
+
     const handleInputChange = (event) => {
         const newValue = event.target.value;
         setInputValue(newValue);
@@ -83,41 +90,26 @@ function Postlist({ userData, displaycreatepost, user, setProgress, setUserData 
         }
     };
 
-    const gettingAllPost = async () => {
-        try {
-            const { data } = await getAllPost();
-            setPostData(data.result);
-            console.log("here is ", data.result);
-            // console.log(data.result);
-        } catch (error) {
-            if (!error.response.data.result) {
-                localStorage.removeItem('skilloptoken')
-                console.log("here is ", error.response.data.result);
-                navigate('/');
-                toast.error("Session expired, Login again!");
-            }
-            console.log(error);
-        }
-    };
-
+    // const gettingAllPost = async () => {
+    //     try {
+    //         const { data } = await getAllPost();
+    //         setPostData(data.result);
+    //         console.log("here is ", data.result);
+    //         // console.log(data.result);
+    //     } catch (error) {
+    //         if (!error.response.data.result) {
+    //             localStorage.removeItem("skilloptoken");
+    //             console.log("here is ", error.response.data.result);
+    //             navigate("/");
+    //             toast.error("Session expired, Login again!");
+    //         }
+    //         console.log(error);
+    //     }
+    // };
 
     // useEffect(() => {
-    //     const getPostsFromUser = async () => {
-    //         try {
-    //             const { data } = await getPostFromSpecificUser(userId);
-    //             setPostData(data.result);
-    //             // console.log(data.result);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     };
-    //     if (userId) getPostsFromUser();
-    //     // else gettingAllPost();
-    // }, [userId]);
-
-    useEffect(() => {
-        gettingAllPost();
-    }, [refresh]);
+    //     gettingAllPost();
+    // }, [refresh]);
 
     // STICK POST HEAD TO TOP WHILE SCROLLING DOWN EVENT TRIGGER
     useEffect(() => {
@@ -135,6 +127,37 @@ function Postlist({ userData, displaycreatepost, user, setProgress, setUserData 
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    useEffect(() => {
+        const loadPosts = async () => {
+            setLoading(true);
+            try {
+                const { data } = await getAllPost(limit, skip);
+                setPosts((prevPosts) => [...prevPosts, ...data.result]);
+                setSkip((prevSkip) => prevSkip + limit);
+            } catch (error) {
+                console.error("Error fetching posts:", error);
+            }
+            setLoading(false);
+        };
+
+        if (containerRef.current) {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !loading) {
+                    loadPosts();
+                }
+            });
+
+            observer.observe(containerRef.current);
+        }
+
+        return () => {
+            if (containerRef.current) {
+                const observer = new IntersectionObserver(() => {});
+                observer.unobserve(containerRef.current);
+            }
+        };
+    }, [loading]);              // you can add the skip here
 
     return (
         <>
@@ -283,20 +306,23 @@ function Postlist({ userData, displaycreatepost, user, setProgress, setUserData 
                     </div>
                 )}
                 <div className="people-post">
-                    {postData &&
-                        postData.map((val, i) => (
+                    {posts &&
+                        posts.map((val, i) => (
                             <PostComp
                                 {...val}
                                 userData={userData}
                                 user={user}
-                                key={i}
+                                key={val._id}
                                 setProgress={setProgress}
                             />
                         ))}
+                    <div ref={containerRef} style={{ height: "20px" }}>
+                        {loading && <p>Loading...</p>}
+                    </div>
                 </div>
             </div>
         </>
     );
-}
+};
 
 export default Postlist;
