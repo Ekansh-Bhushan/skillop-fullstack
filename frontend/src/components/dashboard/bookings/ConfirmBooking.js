@@ -15,6 +15,7 @@ import {
 import jwt_decode from "jwt-decode";
 import MyCustomGoogleButton from "./MyCustomGoogleButton";
 import axios from "axios";
+import Mobilecommonhead from "../../Mobilecommonhead";
 
 const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const mentorid = window.location.pathname.split("/")[2];
@@ -52,14 +53,14 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
     );
   };
 
-    const handleGoogleLoginSuccess = async (credentialResponse) => {
-        const idToken = credentialResponse.credential;
-        // console.log(credentialResponse);
-        const decodedToken = await jwt_decode(idToken);
-        // console.log(decodedToken);
-    };
+  const handleGoogleLoginSuccess = async (credentialResponse) => {
+    const idToken = credentialResponse.credential;
+    // console.log(credentialResponse);
+    const decodedToken = await jwt_decode(idToken);
+    // console.log(decodedToken);
+  };
 
-    const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   return (
     <div style={{}}>
@@ -69,6 +70,7 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
         isFetched={isFetched}
         notifyList={notifyList}
       />
+      <Mobilecommonhead />
 
       <div className="confirm-container">
         <div className="left-content">
@@ -96,106 +98,111 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
           </span>
         </div>
 
-                <div className="right-content">
-                   {isSignedIn? <h2>Confirm Booking</h2> : <h2>Authorize SKILLOP MEETS</h2>}
+        <div className="right-content">
+          {isSignedIn ? (
+            <h2>Confirm Booking</h2>
+          ) : (
+            <h2>Authorize SKILLOP MEETS</h2>
+          )}
 
-                    {isSignedIn?(<><div className="cnf-video">
-                        <span className="call-details">
-                            <div>
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "10px",
-                                    }}
-                                >
-                                    <img src="/video.png" width={30} alt="" />
-                                    <span>Mode</span>
-                                </div>
-                                <div>Video</div>
-                            </div>
-                            <div>
-                                <div>Duration</div>
-                                <div>{calculateTimeGap(e, s)}</div>
-                            </div>
-                        </span>
-                        <span className="call-date">
-                            <div>
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: "10px",
-                                    }}
-                                >
-                                    <img
-                                        src="/calendar.png"
-                                        width={30}
-                                        alt=""
-                                    />
-                                    <span>Date</span>
-                                </div>
-                                <div>{new Date(day).toString().slice(0, 15)}</div>
-                            </div>
-                            <div>
-                                <div>Time</div>
-                                <div>{convertToNormalTime(s)}</div>
-                            </div>
-                        </span>
+          {isSignedIn ? (
+            <>
+              <div className="cnf-video">
+                <span className="call-details">
+                  <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                      }}
+                    >
+                      <img src="/video.png" width={30} alt="" />
+                      <span>Mode</span>
                     </div>
-                        <div
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "2px",
-                                width: "100%",
-                            }}
-                        >
-                            <input
-                                type="text"
-                                className="coupon-text"
-                                placeholder="Have a Coupon Code?"
-                            />
-                            <img
-                                src="/go.png"
-                                alt=""
-                                style={{
-                                    cursor: "pointer",
-                                    width: "40px",
-                                    paddingLeft: "10px",
-                                }}
-                                onClick={() => {
-                                    // check if input is empty
-                                    toast.error("Invalid Coupon Code");
-                                }}
-                            />
-                        </div>
-                        <div className="pay-details">
-                            <h3>Payment details</h3>
-                            <div className="session">
-                                <p>Price for 1 session</p>
-                                <p>Rs. {charge}</p>
-                            </div>
-                            <div className="final-amt">
-                                <p>Final amount</p>
-                                <p>Rs. {charge}</p>
-                            </div>
-                            <button
-                                className="proceed-btn"
-                                onClick={() => onClickProceed()}
-                            >
-                                Proceed
-                            </button>
-                        </div></>):( <>
-                        <GoogleOAuthProvider clientId="154719299730-irqnpdj9jo8n2pa475b0gbpmoi78orha.apps.googleusercontent.com"
-                        >
-                            <MyCustomGoogleButton setIsSignedIn={setIsSignedIn} />
-                        </GoogleOAuthProvider>
-                    </>)}
+                    <div>Video</div>
+                  </div>
+                  <div>
+                    <div>Duration</div>
+                    <div>{calculateTimeGap(e, s)}</div>
+                  </div>
+                </span>
+                <span className="call-date">
+                  <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                      }}
+                    >
+                      <img src="/calendar.png" width={30} alt="" />
+                      <span>Date</span>
+                    </div>
+                    <div>{new Date(day).toString().slice(0, 15)}</div>
+                  </div>
+                  <div>
+                    <div>Time</div>
+                    <div>{convertToNormalTime(s)}</div>
+                  </div>
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "2px",
+                  width: "100%",
+                }}
+              >
+                <input
+                  type="text"
+                  className="coupon-text"
+                  placeholder="Have a Coupon Code?"
+                />
+                <img
+                  src="/go.png"
+                  alt=""
+                  style={{
+                    cursor: "pointer",
+                    width: "40px",
+                    paddingLeft: "10px",
+                  }}
+                  onClick={() => {
+                    // check if input is empty
+                    toast.error("Invalid Coupon Code");
+                  }}
+                />
+              </div>
+              <div className="pay-details">
+                <h3>Payment details</h3>
+                <div className="session">
+                  <p>Price for 1 session</p>
+                  <p>Rs. {charge}</p>
                 </div>
-            </div>
+                <div className="final-amt">
+                  <p>Final amount</p>
+                  <p>Rs. {charge}</p>
+                </div>
+                <button
+                  className="proceed-btn"
+                  onClick={() => onClickProceed()}
+                >
+                  Proceed
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <GoogleOAuthProvider clientId="154719299730-irqnpdj9jo8n2pa475b0gbpmoi78orha.apps.googleusercontent.com">
+                <MyCustomGoogleButton setIsSignedIn={setIsSignedIn} />
+              </GoogleOAuthProvider>
+            </>
+          )}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default ConfirmBooking;

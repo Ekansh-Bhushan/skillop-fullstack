@@ -194,6 +194,7 @@
   }
   .qr-code {
     margin-top: 20px;
+    margin-bottom: 20px;
     flex-direction: column;
     gap: 30px;
   }
@@ -212,7 +213,7 @@
 
   .confirm-container {
     position: relative;
-    top: 50px;
+    top: 100px;
     left: 0vw;
     display: flex;
     flex-direction: column;
@@ -244,6 +245,9 @@
     margin-bottom: 20px;
     gap: 10px;
   }
+  .pay-details {
+    margin-bottom: 0px;
+  }
   .pay-details h3 {
     font-size: 20px;
     margin-top: 10px;
@@ -251,6 +255,7 @@
   }
   .proceed-btn {
     margin: 10px 0;
+    margin-bottom: 100px;
     padding: 12px;
   }
   .session p {
