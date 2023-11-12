@@ -374,6 +374,7 @@ exports.getPostsFromAll = async (req, res) => {
     try {
         const limit = parseInt(req.query.limit | "10");
         const skip = parseInt(req.query.skip | "0");
+        console.log(limit, skip)
         // query the post and populate the author and comments and sort by date created and show latest first
         const post = await Post.find()
             .populate("author comments")

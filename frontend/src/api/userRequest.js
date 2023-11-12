@@ -163,4 +163,4 @@ export const getProfileCompletionStatus = () => {
     };
 
     return API.get(`/api/user/profile/completion/status`, config);
-}
+};

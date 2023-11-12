@@ -49,6 +49,7 @@ const Postlist = ({
     const [loading, setLoading] = useState(false);
     const [skip, setSkip] = useState(0);
     const limit = 10;
+    const [length, setLength] = useState(limit);
     const containerRef = useRef(null);
 
     const handleInputChange = (event) => {
@@ -133,6 +134,7 @@ const Postlist = ({
             setLoading(true);
             try {
                 const { data } = await getAllPost(limit, skip);
+                setLength((prevLen) => data.length);
                 setPosts((prevPosts) => [...prevPosts, ...data.result]);
                 setSkip((prevSkip) => prevSkip + limit);
             } catch (error) {
@@ -140,24 +142,41 @@ const Postlist = ({
             }
             setLoading(false);
         };
+        const handleObserver = (entries) => {
+            const target = entries[0];
+            if (target.isIntersecting) {
+                if (target.intersectionRatio > 0) {
+                    // Load more posts
+                    if (limit === length) {
+                        setLoading(true);
+                        loadPosts();
+                    }
+                }
+            }
+        };
+
+        const observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.5, // Adjust as needed
+        };
+
+        const observer = new IntersectionObserver(
+            handleObserver,
+            observerOptions
+        );
 
         if (containerRef.current) {
-            const observer = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && !loading) {
-                    loadPosts();
-                }
-            });
-
             observer.observe(containerRef.current);
         }
 
         return () => {
             if (containerRef.current) {
-                const observer = new IntersectionObserver(() => {});
                 observer.unobserve(containerRef.current);
+                observer.disconnect(); // Disconnect the observer on cleanup
             }
         };
-    }, [loading]);              // you can add the skip here
+    }, [length, limit, skip]); // Adjust dependencies as needed
 
     return (
         <>
@@ -316,7 +335,7 @@ const Postlist = ({
                                 setProgress={setProgress}
                             />
                         ))}
-                    <div ref={containerRef} style={{ height: "20px" }}>
+                    <div ref={containerRef} style={{ height: "200px" }}>
                         {loading && <p>Loading...</p>}
                     </div>
                 </div>
