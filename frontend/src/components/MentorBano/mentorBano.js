@@ -19,7 +19,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     const [isActive, setIsActive] = useState(true);
     const [Pprogress, setPProgress] = useState(0);
 
-    if (userData.becomingMentorStatus !== "not applied") {
+    if (userData.becomingMentorStatus !== "pending") {
         setIsActive(false);
     }
 

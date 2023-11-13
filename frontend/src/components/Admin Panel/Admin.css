@@ -1,3 +1,42 @@
-.admin-container, .admin-content {
-    text-align: center;
+.admin-container,
+.admin-content {
+	text-align: center;
+	margin: 2vw;
+}
+
+.admin-content table {
+	background: linear-gradient(
+		to right,
+		rgb(255, 175, 83),
+		rgb(255, 76, 82),
+		rgb(119, 255, 98)
+	);
+    font-size: 1.1rem;
+    width: 67%;
+    margin: 2vw auto;
+}
+
+.admin-content td {
+	padding: 0.6vw;
+}
+
+#view-prof-admin {
+	background: skyblue;
+	cursor: pointer;
+	padding: 0.3vw;
+	border-radius: 13px;
+    border: 2px solid white;
+}
+
+#approve-admin {
+    background: greenyellow;
+	cursor: pointer;
+	padding: 0.5vw 0.8vw;
+	border-radius: 13px;
+    border: 2px solid white;
+}
+
+#approve-admin:hover,
+#view-prof-admin:hover {
+    background: white;
 }
