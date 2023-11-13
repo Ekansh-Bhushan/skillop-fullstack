@@ -201,26 +201,29 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                                     borderRadius: "20px",
                                 }}
                             />
-                            {chats.length > 0 &&
-                                chats.map((chat) => (
-                                    <div
-                                        onClick={() => {
-                                            setCurrentChat(chat);
-                                            document.querySelector(
-                                                ".chatbox-messages"
-                                            ).scrollTop =
+                            <div>
+                                {/* Add style here */}
+                                {chats.length > 0 &&
+                                    chats.map((chat) => (
+                                        <div
+                                            onClick={() => {
+                                                setCurrentChat(chat);
                                                 document.querySelector(
                                                     ".chatbox-messages"
-                                                ).scrollHeight;
-                                        }}
-                                    >
-                                        <Conversation
-                                            data={chat}
-                                            chatID={chat._id}
-                                            currentUser={userData._id}
-                                        />
-                                    </div>
-                                ))}
+                                                ).scrollTop =
+                                                    document.querySelector(
+                                                        ".chatbox-messages"
+                                                    ).scrollHeight;
+                                            }}
+                                        >
+                                            <Conversation
+                                                data={chat}
+                                                chatID={chat._id}
+                                                currentUser={userData._id}
+                                            />
+                                        </div>
+                                    ))}
+                            </div>
                         </div>
                     </div>
                 </div>
