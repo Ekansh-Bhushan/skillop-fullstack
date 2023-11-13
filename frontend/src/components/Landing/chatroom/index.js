@@ -201,7 +201,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                                     borderRadius: "20px",
                                 }}
                             />
-                            <div>
+                            <div style={{overflowY:"scroll", height:"80vh"}}>
                                 {/* Add style here */}
                                 {chats.length > 0 &&
                                     chats.map((chat) => (
