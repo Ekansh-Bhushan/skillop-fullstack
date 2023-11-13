@@ -92,9 +92,9 @@ exports.getApplicantsForMentor = async (req, res) => {
 
 exports.getELegibleApplicantsForMentor = async (req, res) => {
     try {
-        const applicants = await User.find({
-            becomingMentorStatus: MENTOR_STATUS.PENDING,
-        }).select("firstname lastname email profilePicture");
+        const applicants = await User.find().select(
+            "firstname lastname email profilePicture"
+        );
 
         const eligibleApplicants = applicants.filter((applicant) => {
             const userProfileCompletion = eligibleToBecomeMentor(applicant);
