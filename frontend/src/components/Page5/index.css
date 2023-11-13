@@ -21,36 +21,36 @@
 #search-college {
 	margin: auto;
 	width: 35%;
-	border-radius: 10px 10px 0 0 ;
+	border-radius: 10px 10px 0 0;
 	padding: 0.6vw 1vw;
-  background: white;
-  font-size: 1.05rem;
+	background: white;
+	font-size: 1.05rem;
 	box-shadow: 0px 0px 20px rgb(199, 199, 199);
 }
 
 .search-college {
 	text-align: center;
-  /* margin: auto; */
+	/* margin: auto; */
 }
 
 .college-search-results {
-  margin: auto;
-  border: 2px solid black;
-  border-radius: 0 0 14px 14px;
-  width: 36.9%;
-  text-align: center;
-  max-height: 40vh;
-  overflow-y: scroll;
+	margin: auto;
+	border: 2px solid black;
+	border-radius: 0 0 14px 14px;
+	width: 36.9%;
+	text-align: center;
+	max-height: 40vh;
+	overflow-y: scroll;
 }
 
 #college-result {
-  padding: 5px;
-  border-bottom: 1px solid gray;
-  cursor: pointer;
+	padding: 5px;
+	border-bottom: 1px solid gray;
+	cursor: pointer;
 }
 
 #college-result:hover {
-  background: #ebebeb;
+	background: #ebebeb;
 }
 
 .details-college {
@@ -82,9 +82,9 @@
 	border-radius: 10px;
 	height: 35px;
 	padding: 5px;
-  background: white;
+	background: white;
 	box-shadow: 0px 0px 20px rgb(199, 199, 199);
-  font-size: 1.07rem;
+	font-size: 1.07rem;
 }
 .next-5 {
 	display: flex;
@@ -113,7 +113,7 @@
 	padding: 10px;
 	font-size: 1.05rem;
 	border-radius: 10px;
-  height: 28px;
+	height: 28px;
 }
 
 .nextbtn-5 {
@@ -226,4 +226,23 @@
 	.options {
 		max-width: 50px;
 	}
+
+	#search-college {
+		width: 78.5%;
+    font-size: 0.96rem;
+    height: 30px;
+	}
+	.college-search-results {
+		width: 80%;
+		font-size: 0.9rem;
+	}
+	#college-result {
+		padding: 7px;
+		border-bottom: 1px solid gray;
+		cursor: pointer;
+	}
+  #note-search {
+    margin: 30px 36px;
+    font-size: 0.8rem;
+  }
 }

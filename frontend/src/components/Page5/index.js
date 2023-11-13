@@ -51,11 +51,11 @@ function Auth5Component({ setProgress }) {
     try {
       let formdata = new FormData();
       formdata.append("education", JSON.stringify(data));
-      console.log("data", JSON.stringify(data));
+      // console.log("data", JSON.stringify(data));
       await updateProfile(formdata);
-      console.log("succcess");
+      // console.log("succcess");
     } catch (err) {
-      console.log("failed");
+      // console.log("failed");
       console.log("Unable to update profile at the moment! ", err);
     }
   };
@@ -66,7 +66,7 @@ function Auth5Component({ setProgress }) {
       return;
     }
     if(data[0].endDate < data[0].startDate) {
-      toast.err("End year cannot be less than start year!");
+      toast.error("End year cannot be less than start year!");
       return;
     }
     addEdu();
@@ -132,7 +132,7 @@ function Auth5Component({ setProgress }) {
           isactive4={true}
         />
         <div className="head-5">
-          <h2>Select your College / University / School</h2>
+          <h2>Select your College or University</h2>
         </div>
         <div className="search-college">
           <input id="search-college" type="text" onChange={handleOnChange} value={searchQuery} placeholder="Search your college, university or insititution" />
@@ -144,7 +144,7 @@ function Auth5Component({ setProgress }) {
               </div>);
             }) : searchQuery.length > 0 && `No results found for "${searchQuery}"`}
           </div>
-          <p style={{marginTop:"15px"}}>Note :  If your college is not found in search, enter it below manually</p>
+          <p id="note-search" style={{marginTop:"15px"}}>Note :  If your college is not found in search, enter it below manually</p>
         </div>
         <form
           id="collegedetl"
