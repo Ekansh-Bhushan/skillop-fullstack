@@ -16,10 +16,10 @@ import { requestToBeMentor } from "../../api/mentorRequest";
 function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     // const navigate = useNavigate();
     const [isTaskDone, setIsTaskDone] = useState(false);
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(true);
     const [Pprogress, setPProgress] = useState(0);
 
-    if (userData.requestToBeMentor) { 
+    if (userData.becomingMentorStatus !== "not applied") {
         setIsActive(false);
     }
 
@@ -114,7 +114,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
         try {
             const { data } = await requestToBeMentor();
             if (data.result) {
-                toast.success(data.result);
+                toast.success(data.message);
             } else {
                 toast.error(data.error);
             }
@@ -223,7 +223,9 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     }
                     onClick={requestToBeMentorX}
                 >
-                    {isActive?"Become a mentor":"Your application is under process"}
+                    {isActive
+                        ? "Become a mentor"
+                        : "Your application is under process"}
                 </button>
             </div>
         </>
