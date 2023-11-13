@@ -19,7 +19,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     const [isActive, setIsActive] = useState(true);
     const [Pprogress, setPProgress] = useState(0);
 
-    if (userData.becomingMentorStatus !== "not applied") {
+    if (userData.becomingMentorStatus !== "pending") {
         setIsActive(false);
     }
 
@@ -181,33 +181,35 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
                         position: "relative",
                         paddingLeft: "30px",
                     }}
+                    className="criterias"
                 >
+                    <h3>Please complete the following things in your profile to become Mentor😎</h3>
                     <ul>
                         <li
                             className={
                                 uploadProfilePicAndVideo ? "done" : "not-done"
                             }
                         >
-                            Upload Profile Pic and Video
+                            Upload Profile Pic and My story video
                         </li>
                         <li
                             className={
                                 addedAboutPastAndFuture ? "done" : "not-done"
                             }
                         >
-                            Add About, Past And Future
+                            Add About, Past experience And Future plans
                         </li>
                         <li
                             className={
                                 addedEducationOrExperence ? "done" : "not-done"
                             }
                         >
-                            Add Education, Qualifications and Jobs
+                            Add Education, Experience and Skills
                         </li>
                         <li
                             className={addedAtleast4Posts ? "done" : "not-done"}
                         >
-                            Add At least 4 Posts
+                            Create atleast 4 posts
                         </li>
                     </ul>
                 </div>

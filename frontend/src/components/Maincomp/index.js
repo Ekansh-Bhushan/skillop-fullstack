@@ -34,6 +34,7 @@ import PlatformfeedbackForm from "../PlatfromFeedback/PlatformfeedbackForm"
 import MentorfeedbackForm from "../MentorFeedback/feedbackForm"
 import ChangePasswordPage from "../passwordChange/changepassword"
 import ResetPasswordPage from "../resetpassword/resetpassword";
+import Admin from "../Admin Panel/Admin";
 // import ResetPasswordEmail from "../resetpassword/resetpasswordEmail";
 
 function AuthPage({
@@ -373,6 +374,12 @@ function AuthPage({
                             userData={userData}
                             setProgress={setProgress}
                         />
+                    }
+                />
+                <Route
+                    path="/admin"
+                    element={
+                       <Admin />
                     }
                 />
 

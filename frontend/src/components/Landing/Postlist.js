@@ -6,11 +6,12 @@ import attatchment from "../images/attatchment.png";
 import postIcon from "../images/post.png";
 import "./Postlist.css";
 import PostPopUp from "./Post/PostPopUp";
-import { getAllPost, getPostFromSpecificUser } from "../../api/postRequest";
+import { getAllPost } from "../../api/postRequest";
 import PostComp from "../PostComp";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import spinner from '../images/spinner.gif';
 
 const API = axios.create({ baseURL: "https://app.skillop.in" });
 
@@ -109,8 +110,8 @@ const Postlist = ({
     // };
 
     // useEffect(() => {
-    //     gettingAllPost();
-    // }, [refresh]);
+    //     getAllPost();
+    // }, [refresh, setRefresh]);
 
     // STICK POST HEAD TO TOP WHILE SCROLLING DOWN EVENT TRIGGER
     useEffect(() => {
@@ -176,7 +177,7 @@ const Postlist = ({
                 observer.disconnect(); // Disconnect the observer on cleanup
             }
         };
-    }, [length, limit, skip]); // Adjust dependencies as needed
+    }, [length, limit, skip, refresh, setRefresh]); // Adjust dependencies as needed
 
     return (
         <>
@@ -336,7 +337,7 @@ const Postlist = ({
                             />
                         ))}
                     <div ref={containerRef} style={{ height: "200px" }}>
-                        {loading && <p>Loading...</p>}
+                        {loading && <img src={spinner} alt="Loading..." width={60}/>}
                     </div>
                 </div>
             </div>

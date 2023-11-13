@@ -86,6 +86,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
     try {
       setLoading(true);
       const res = await createMeetEvent();
+      console.log("createmeetevent", res);
       const formData = new FormData();
       formData.append("payment-proof", paymentConformationPic);
       formData.append("date", day);
@@ -93,7 +94,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
       formData.append("e", e);
       formData.append("meetLink", meetLink);
       console.log("meetLink", meetLink);
-      // console.log("formdata", formData)
+      console.log("formdata", formData)
       const response = await sendMeetRequest(
         mentorid,
         day,
@@ -103,7 +104,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
         formData
       );
       if (response.data.result) {
-        // console.log(response.data.result);
+        console.log("sendmeetreq: ",response.data.result);
         navigate("/requestedMeets");
         toast.success("Meet scheduled!");
         toast.success("Check your Google calendar!");
