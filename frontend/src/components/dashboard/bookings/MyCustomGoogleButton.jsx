@@ -36,7 +36,7 @@ const MyCustomGoogleButton = ({ setIsSignedIn }) => {
 			setGtoken(codeResponse.code);
 			handleToken(codeResponse.code);
 			setIsSignedIn(true);
-			// console.log("by google : ", codeResponse);
+			console.log("by google : ", codeResponse);
 		},
 		onError: (err) => {
 			console.log(err);
