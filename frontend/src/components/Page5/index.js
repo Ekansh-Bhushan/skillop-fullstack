@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
-import index from "./index.css";
+import React from "react";
 import Header1 from "../Header";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { updateIsMentor } from "../../api/userRequest";
 import Pageloader from "../Pagesbar";
-import { getcity, getcollege, getstate } from "../../api/college";
 import { updateProfile } from "../../api/userRequest";
 import { toast } from "react-hot-toast";
+import axios from "axios";
+import './index.css';
 
 function Auth5Component({ setProgress }) {
   const handleBack = () => {
@@ -34,9 +33,11 @@ function Auth5Component({ setProgress }) {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedClg, setSelectedClg] = useState("");
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     let { name, value } = e.target;
+    
     setData((prevData) => [
       {
         ...prevData[0],
@@ -44,6 +45,7 @@ function Auth5Component({ setProgress }) {
       },
     ]);
   };
+  
 
   const addEdu = async () => {
     try {
@@ -58,78 +60,63 @@ function Auth5Component({ setProgress }) {
     }
   };
 
-  const [state, setState] = useState([]);
-  const [stateselected, setStateselected] = useState("");
-  const [city, setCity] = useState([]);
-  const [college, setCollege] = useState([]);
-
-  const navigate = useNavigate();
-
-  const getallstates = async () => {
-    try {
-      const { data } = await getstate();
-      // console.log(data)
-      setState(data.result);
-    } catch (err) {
-      console.log("error");
-    }
-  };
-
-  useEffect(() => {
-    getallstates();
-  }, []);
-
-  const getallcities = async (state) => {
-    try {
-      const { data } = await getcity(state);
-      // console.log(data)
-      setCity(data.result);
-    } catch (err) {
-      console.log("error");
-    }
-  };
-
-  const getallcolleges = async (state, city) => {
-    try {
-      const { data } = await getcollege(state, city);
-      // console.log(data)
-      setCollege(data.result);
-    } catch (err) {
-      console.log("error");
-    }
-  };
-
-  const citydone = (event) => {
-    console.log("city done");
-    getallcities(event.target.value);
-    setStateselected(event.target.value);
-    setSelectedState(event.target.value);
-  };
-
-  const collegedone = (event) => {
-    console.log("college done");
-    getallcolleges(stateselected, event.target.value);
-    setSelectedCity(event.target.value);
-  };
-
-  const clgdone = (event) => {
-    console.log("clg ", event.target.value);
-    setSelectedClg(event.target.value);
-    console.log("clg 2 ", selectedClg);
-  };
-
   const redirectToPage6 = async () => {
-    addEdu();
-    if (!stateselected || !city) {
-      toast.error("Select state, city, college and graduation year!");
+    if (data[0].institution === "" || data[0].city === "" || data[0].state === "" || data[0].endDate === "" || data[0].startDate === "" || data[0].degree === "" ) {
+      toast.error("Select your college, degree and graduation year!");
       return;
     }
+    if(data[0].endDate < data[0].startDate) {
+      toast.err("End year cannot be less than start year!");
+      return;
+    }
+    addEdu();
     setProgress(35);
     setTimeout(() => {
       setProgress(100);
     }, 300);
     navigate("/pic");
   };
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [collegeSearchResults, setCollegeSearchResults] = useState([]);
+
+  const searchCollege = async (qrr) => {
+    try {
+      const { data } = await axios.get(`https://app.skillop.in/api/college/info?college=${qrr}`, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      setCollegeSearchResults(data.result);
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+
+  const handleOnChange = (e) => {
+    setSearchQuery(e.target.value); 
+    document.querySelector('.college-search-results').style.display = 'block';
+    searchCollege(e.target.value);
+    if(e.target.value.length === 0) {
+      document.querySelector('.college-search-results').style.display = 'none';
+    }
+  }
+
+  const handleCollegeSelection = (clg_details) => {
+    setSelectedClg(clg_details.college);
+    setSelectedCity(clg_details.city);
+    setSelectedState(clg_details.state);
+    setData((prevData) => [
+      {
+        ...prevData[0],
+        "institution": clg_details.college,
+        "city": clg_details.city,
+        "state": clg_details.state
+      },
+    ]);
+    document.querySelector('.college-search-results').style.display = 'none';
+  }
 
   return (
     <>
@@ -147,99 +134,81 @@ function Auth5Component({ setProgress }) {
         <div className="head-5">
           <h2>Select your College / University / School</h2>
         </div>
+        <div className="search-college">
+          <input id="search-college" type="text" onChange={handleOnChange} value={searchQuery} placeholder="Search your college, university or insititution" />
+          <div className="college-search-results">
+            {(collegeSearchResults.length > 0) ? collegeSearchResults.map((college, idx) => {
+              return (<div key={idx} id="college-result" onClick={()=> handleCollegeSelection(college)}>
+                <h3>{college.college}</h3>
+                <p>{college.city}{", "}{college.state}</p>
+              </div>);
+            }) : searchQuery.length > 0 && `No results found for "${searchQuery}"`}
+          </div>
+          <p style={{marginTop:"15px"}}>Note :  If your college is not found in search, enter it below manually</p>
+        </div>
         <form
           id="collegedetl"
           className="details-college"
           onSubmit={redirectToPage6}
         >
           <div className="college-name">
-            <div className="state">
-              <label style={{ fontWeight: "bold" }} for="state">
-                State
-              </label>
-              <select
-                name="state"
-                value={selectedState}
-                className="state-choices"
-                id="state"
-                onChange={(Event) => {
-                  citydone(Event);
-                  onChange(Event);
-                }}
-                required
-                defaultValue="STATE"
-              >
-                {state.map((x) => {
-                  return (
-                    <option
-                      value={x.toString().toUpperCase()}
-                      className="options"
-                    >
-                      {" "}
-                      {x.toString().toUpperCase()}{" "}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-            <div className="city">
-              <label style={{ fontWeight: "bold" }} htmlFor="city">
-                City
-              </label>
-              <select
-                name="city"
-                value={selectedCity}
-                id="city"
-                className="city-choices"
-                onChange={(Event) => {
-                  collegedone(Event);
-                  onChange(Event);
-                }}
-                required
-              >
-                {city.map((y) => {
-                  return (
-                    <option
-                      value={y.toString().toUpperCase()}
-                      className="options"
-                    >
-                      {y.toString().toUpperCase()}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
             <div className="college">
               <label style={{ fontWeight: "bold" }} htmlFor="college">
                 College / School
               </label>
-              <select
+              <input
                 name="institution"
-                value={selectedClg}
+                value={data[0].institution}
                 id="college"
                 className="college-choices"
                 onClick={(Event) => {
-                  clgdone(Event);
                   onChange(Event);
                 }}
                 onChange={(Event) => {
-                  clgdone(Event);
                   onChange(Event);
                 }}
                 required
               >
-                {college.map((z) => {
-                  return (
-                    <option
-                      value={z.toString().toUpperCase()}
-                      className="options"
-                    >
-                      {z.toString().toUpperCase()}
-                    </option>
-                  );
-                })}
-              </select>
+              </input>
             </div>
+            
+            <div className="city">
+              <label style={{ fontWeight: "bold" }} htmlFor="city">
+                City
+              </label>
+              <input
+                name="city"
+                type="text"
+                value={data[0].city}
+                id="city"
+                className="city-choices"
+                onChange={(Event) => {
+                  onChange(Event);
+                }}
+                required
+              >
+              </input>
+            </div>
+
+            <div className="state">
+              <label style={{ fontWeight: "bold" }} for="state">
+                State
+              </label>
+              <input
+                name="state"
+                type="text"
+                value={data[0].state}
+                className="state-choices"
+                id="state"
+                onChange={(Event) => {
+                  onChange(Event);
+                }}
+                required
+                
+              >
+              </input>
+            </div>
+            
           </div>
           <div className="year-details">
             <div className="degree">
@@ -277,7 +246,7 @@ function Auth5Component({ setProgress }) {
                 value={data[0].startDate}
                 type="number"
                 class="start-choices"
-                min={1950}
+                min={1900}
                 required
               />
             </div>
@@ -291,7 +260,7 @@ function Auth5Component({ setProgress }) {
                 value={data[0].endDate}
                 type="number"
                 class="end-choices"
-                min={1950}
+                min={1900}
                 required
               />
             </div>

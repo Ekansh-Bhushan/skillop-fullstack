@@ -40,3 +40,9 @@
 #view-prof-admin:hover {
     background: white;
 }
+
+@media only screen and (max-width : 500px) {
+	.admin-content {
+		overflow-x: scroll;
+	}
+}
