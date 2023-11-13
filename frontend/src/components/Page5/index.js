@@ -211,7 +211,7 @@ function Auth5Component({ setProgress }) {
             
           </div>
           <div className="year-details">
-            <div className="degree">
+            <div className="degree1">
               <label style={{ fontWeight: "bolder" }} for="degree">
                 Degree:
               </label>
