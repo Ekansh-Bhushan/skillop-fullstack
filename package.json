@@ -18,8 +18,5 @@
     "bugs": {
         "url": "https://github.com/basir/mern-amazona/issues"
     },
-    "homepage": "https://github.com/basir/mern-amazona#readme",
-    "dependencies": {
-        "googleapis": "^128.0.0"
-    }
+    "homepage": "https://github.com/basir/mern-amazona#readme"
 }
