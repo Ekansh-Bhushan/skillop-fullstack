@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { updateIsMentor } from "../../api/userRequest";
 import Pageloader from "../Pagesbar";
+import toast from "react-hot-toast";
 
 function get_object_from_array(array, object) {
   const obj = {};
@@ -15,12 +16,13 @@ function get_object_from_array(array, object) {
 
 function Auth3Component({ setProgress }) {
   const preSetSkills = [
-    " Graphic Designer",
-    "Full stack Web developer",
-    "Software Developer",
-    "IT Manager",
-    "Software Engineer",
+    "UI/UX Design",
+    "Full stack development",
+    "Data Analysis",
+    "AI/ML",
+    "Leadership",
     "Product Manager",
+    "Prompt Engineering"
   ];
 
   const handleBack = () => {
@@ -32,8 +34,9 @@ function Auth3Component({ setProgress }) {
   };
 
   const textareaRef = useRef(null); // Create a ref for the textarea
-  const [skills, setSkills] = useState(get_object_from_array(preSetSkills));
+  const [skills, setSkills] = useState([]);
   const addSkills = (skill) => {
+
     setSkills({ ...skills, [skill]: true });
   };
   const removeSkills = (skill) => {
@@ -88,6 +91,8 @@ function Auth3Component({ setProgress }) {
     }
   };
 
+  const [addClick, setAddClick] = useState(false);
+
   return (
     <>
       <Header1 />
@@ -103,11 +108,13 @@ function Auth3Component({ setProgress }) {
         />
         <div className="head-3">
           <h2>Tell Us Your Skills</h2>
-          <div>Select Your Skills</div>
+          <h3>Add Your Skills</h3>
         </div>
         <form>
           <div className="options234">
             <div className="row-1">
+              {!addClick && <div id="example-skill-container"><span id="example-title-skill">Examples :</span>{
+                preSetSkills.map((item, idx) => <span id="skill-eg" key={idx}>{item}</span>)} </div>}
               {Object.keys(skills).map((skill, index) => (
                 <>
                   <div
@@ -162,7 +169,11 @@ function Auth3Component({ setProgress }) {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  if (e.target.previousSibling.value === "") return;
+                  setAddClick(true);
+                  if (e.target.previousSibling.value === "") {
+                    toast.error("Enter skill to add!");
+                    return;
+                  }
                   addSkills(e.target.previousSibling.value);
                   e.target.previousSibling.value = "";
                 }}
@@ -215,8 +226,8 @@ function Auth3Component({ setProgress }) {
         {/* </div> */}
         <div className="btnCont">
           {/* <button onClick={handleBack} className="back">
-                        Back
-                    </button> */}
+            Back
+          </button> */}
           <button
             className="next1"
             type="button"

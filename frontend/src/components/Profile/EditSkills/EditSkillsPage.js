@@ -89,15 +89,15 @@ function EditSkillsPage({ setProgress }) {
         <>
             <Header1 />
             <div className="main-3">
-        
+
                 <div className="head-3">
                     <h2>Tell Us Your Skills</h2>
-                    <div>Select Your Skills</div>
+                    <h3>Edit Your Skills</h3>
                 </div>
                 <form>
                     <div className="options234">
                         <div className="row-1">
-                            {Object.keys(skills).length>0 ? Object.keys(skills).map((skill, index) => (
+                            {Object.keys(skills).length > 0 ? Object.keys(skills).map((skill, index) => (
                                 <div key={index + 1}>
                                     <div
                                         className={
@@ -127,7 +127,7 @@ function EditSkillsPage({ setProgress }) {
                                         </span>
                                     </div>
                                 </div>
-                            )) : <img width={100} src={spinner} alt="spinner"/>}
+                            )) : <img width={100} src={spinner} alt="spinner" />}
                         </div>
 
                         <div
@@ -152,8 +152,10 @@ function EditSkillsPage({ setProgress }) {
                             <button
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    if (e.target.previousSibling.value === "")
+                                    if (e.target.previousSibling.value === "") {
+                                        toast.error("Enter skill to add!");
                                         return;
+                                    }
                                     addSkills(e.target.previousSibling.value);
                                     e.target.previousSibling.value = "";
                                     toast.success("New skill added");
