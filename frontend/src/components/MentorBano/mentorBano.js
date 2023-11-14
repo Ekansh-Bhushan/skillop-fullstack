@@ -1,27 +1,17 @@
 import { Circle } from "rc-progress";
 import React, { useEffect, useState } from "react";
-// import logo from "../../images/logo.png";
-// import { useNavigate } from "react-router-dom";
-// import Commondash from "../common";
-// import Topbar from "../topbar";
 import SideNav from "../SideNav/SideNav";
-// import Profileandevents from "../../Landing/Profileandevents";
-// import "./earning.css";
 import toast from "react-hot-toast";
-// import { getEarnings } from "../../../api/mentorRequest";
-// import Mobilecommonhead from "../../Mobilecommonhead";
 import "./mentorBano.css";
-import { getProfileCompletionStatus } from "../../api/userRequest";
+import { getProfileCompletionStatus, getUser } from "../../api/userRequest";
 import { requestToBeMentor } from "../../api/mentorRequest";
+
 function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
-    // const navigate = useNavigate();
+
     const [isTaskDone, setIsTaskDone] = useState(false);
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
     const [Pprogress, setPProgress] = useState(0);
 
-    if (userData.becomingMentorStatus !== "pending") {
-        setIsActive(false);
-    }
 
     function increaseCircularProgress(currentProgress, steps) {
         if (steps <= 0) {
@@ -52,6 +42,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
         useState(false);
     const [uploadProfilePicAndVideo, setUploadProfilePicAndVideo] =
         useState(false);
+
     useEffect(() => {
         if (addedAboutPastAndFuture) {
             increaseCircularProgress(Pprogress, steps);
@@ -69,18 +60,38 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
             increaseCircularProgress(Pprogress, steps);
             setPProgress((prev) => prev + 25);
         }
-    }, [
-        addedAboutPastAndFuture,
-        addedAtleast4Posts,
-        addedEducationOrExperence,
-        uploadProfilePicAndVideo,
-    ]);
+    }, []);
     console.log(Pprogress);
+
+    const [mentorStatus, setMentorStatus] = useState("");
+    const [isPending, setIsPending] = useState(false);
+    const [isAccepted, setIsAccepted] = useState(false);
+    const [isNotApplied, setIsNotApplied] = useState(false);
+    const [isRejected, setIsRejected] = useState(false);
+    const [PercentageProfileComplete, setPercentageProfileComplete] = useState(0);
 
     useEffect(() => {
         try {
             const getProfileCompletionData = async () => {
                 const { data } = await getProfileCompletionStatus();
+                if (data.status === "pending") {
+                    setIsPending(true);
+                }
+                else if (data.status === "accepted") {
+                    setIsAccepted(true);
+                }
+                else if (data.status === "not applied") {
+                    setIsNotApplied(true);
+                }
+                else if (data.status === "rejected") {
+                    setIsRejected(true);
+                }
+                setPercentageProfileComplete(data.result.percentageProfileComplete);
+                if (data.result.percentageProfileComplete===100) {
+                    setIsActive(true);
+                }
+
+                setMentorStatus(data.status);
                 console.log(data.result);
                 if (data.result) {
                     setAddedAboutPastAndFuture(
@@ -111,10 +122,17 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     }, []);
 
     const requestToBeMentorX = async () => {
+        if (!isActive) {
+            toast.error("First complete all steps!")
+            return;
+        }
         try {
             const { data } = await requestToBeMentor();
             if (data.result) {
                 toast.success(data.message);
+                // window.location.reload();
+                setIsPending(true);
+                setIsNotApplied(false);
             } else {
                 toast.error(data.error);
             }
@@ -132,16 +150,17 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 isFetched={isFetched}
                 notifyList={notifyList}
             />
-            <div className="heading">Become a Mentor</div>
-
+            <h2 className="heading">Become a Mentor</h2>
             <div
                 style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    margin: 150,
-                    height: 130,
+                    margin: "8vw -10vw",
+                    height: "30vh",
                 }}
             >
+                <div id="percentage-profile"><h2>{PercentageProfileComplete}%</h2>
+                    <p>Complete</p></div>
                 <div
                     style={{
                         marginLeft: "300px",
@@ -215,20 +234,22 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 </div>
             </div>
 
-            <div className="last-content">
+            {isNotApplied && <div className="last-content">
                 You are One step away from becoming a Mentor...
-            </div>
+            </div>}
             <div className="but">
-                <button
+                {isNotApplied && <button
                     className={
                         isActive ? "custom-button" : "custom-button-active"
                     }
+                    disabled={!isActive}
                     onClick={requestToBeMentorX}
                 >
-                    {isActive
-                        ? "Become a mentor"
-                        : "Your application is under process"}
-                </button>
+                    Become a Mentor!
+                </button>}
+                {isAccepted && <h3>Your application is accepted✅. You are a Verified Mentor 😎 now!</h3>}
+                {isPending && <h3>Your application is under process🔃!</h3>}
+                {isRejected && <h3>Your application is rejected❌.</h3>}
             </div>
         </>
     );

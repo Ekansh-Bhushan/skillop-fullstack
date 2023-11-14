@@ -5,14 +5,14 @@ import Header1 from "../../components/Header/index";
 import coolimg from "./../images/efdwffw.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { loginUser, registerUser } from "../../api/userRequest";
+import { getUser, loginUser, registerUser } from "../../api/userRequest";
 import { linkedInAuth } from "../../api/userRequest";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-hot-toast";
 
-function Page1({ setProgress }) {
+function Page1({ setProgress, setUserData }) {
   const navigate = useNavigate();
   if (
     localStorage.getItem("skilloptoken") &&
@@ -84,6 +84,7 @@ function Page1({ setProgress }) {
         //   console.log("emal",data);
         // }
         setProgress(100);
+        setUserData((await getUser()).data.result);
       } catch (error) {
         setProgress(100);
         toast.error(error.response.data.err);
@@ -99,10 +100,10 @@ function Page1({ setProgress }) {
         // console.log(data);
         // store token in local storage
         localStorage.setItem("skilloptoken", data.token);
-
         data.result ? navigate("/homepage") : toast(data.message);
         setProgress(100);
         toast.success("Logged in!");
+        setUserData((await getUser()).data.result);
       } catch (error) {
         console.log(error);
         toast.error(error.response.data.err);
@@ -117,9 +118,9 @@ function Page1({ setProgress }) {
     /*if (newPassword !== confirmPassword) {
       alert("New password and confirm password don't match.");
       return;*/
-      return;
-    }
-  
+    return;
+  }
+
 
   var x = 0;
 
@@ -155,9 +156,9 @@ function Page1({ setProgress }) {
         "Already Have an Account ?";
       document.querySelector(".functionhandler").textContent = "Login";
 
-      x = 0;
-    }
-  };
+      x = 0;
+    }
+  };
   const handleGoogleLoginSuccess = (credentialResponse) => {
     const idToken = credentialResponse.credential;
     const decodedToken = jwt_decode(idToken);
@@ -320,25 +321,25 @@ function Page1({ setProgress }) {
               <button onClick={onSubmiting}>Get Started</button>
             </div>
 
-                        <div style={{marginBottom:"10px"}} className="changepage">
-                            <span className="already-reg">
-                                Already Registered ?{" "}
-                            </span>
-                            &nbsp;
-                            <span
-                                onClick={openloginpage}
-                                className="functionhandler"
-                            >
-                                Login
-                            </span>
-                        </div>
-                    </div>
-                    <div className="partition-on-mob"></div>
-                    <img src={coolimg} className="display-only-on-mobile" />
-                </div>
+            <div style={{ marginBottom: "10px" }} className="changepage">
+              <span className="already-reg">
+                Already Registered ?{" "}
+              </span>
+              &nbsp;
+              <span
+                onClick={openloginpage}
+                className="functionhandler"
+              >
+                Login
+              </span>
             </div>
-        </>
-    );
+          </div>
+          <div className="partition-on-mob"></div>
+          <img src={coolimg} className="display-only-on-mobile" />
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Page1;

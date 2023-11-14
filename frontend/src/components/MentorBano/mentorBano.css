@@ -29,6 +29,17 @@
     border-radius: 5px; /* Add rounded corners */
     margin-top: 10px; /* Margin above the button */
   }
+
+  #percentage-profile {
+    position: relative;
+    top: 10vh;
+    left: 39vw;
+    font-size: 1.2rem;
+  }
+  
+  #percentage-profile h2 {
+   font-size: 2.7rem;
+ }
   
   /* Hover effect for the button */
   .custom-button:hover {
@@ -58,13 +69,14 @@
     }
   
     .custom-button-active{
-      background-color: grey; /* Background color (change to your preferred color) */
-      color: black; /* Text color */
+      background-color: #0074D9; /* Background color (change to your preferred color) */
+      color: #FFFFFF; /* Text color */
       font-size: 16px; /* Font size */
       padding: 10px 20px; /* Padding around the text (top/bottom and left/right) */
       border: none; /* Remove the button border */
       cursor: pointer; /* Show a pointer cursor on hover */
       border-radius: 5px; /* Add rounded corners */
+      opacity: 0.6;
     }
     
     /* Hover effect */

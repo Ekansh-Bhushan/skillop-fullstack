@@ -54,7 +54,7 @@ function AuthPage({
             {/* <SideNav /> */}
             {/* -----------------------------SIGN UP PAGES----------------------------- */}
             <Routes>
-                <Route path="/" element={<Page1 setProgress={setProgress} />} />
+                <Route path="/" element={<Page1 setUserData={setUserData} setProgress={setProgress} />} />
                 {/* <Route path="/continue" element={<Auth2Component setProgress={setProgress}/>} /> */}
                 <Route
                     path="/skills"
