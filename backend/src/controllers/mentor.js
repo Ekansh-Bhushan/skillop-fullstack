@@ -11,6 +11,7 @@ const { MENTOR_STATUS } = require("../enums/mentorStatus");
 const NotificationType = require("../enums/notificationType");
 const Notification = require("../models/notification");
 const MEET_STATUS = require("../enums/meetStatus");
+const { google } = require("googleapis");
 
 // const { json } = require("express");
 
@@ -413,10 +414,10 @@ exports.acceptMeet = async (req, res) => {
             link: "",
             __created: new Date(
                 new Date(meet.date).getTime() +
-                    ((meet.s / 100) * 60 + (meet.s % 100)) * 60 * 100 -
-                    (process.env.DEFAULT_TIME_MEET_NOTIFICATION | 10) *
-                        60 *
-                        1000
+                ((meet.s / 100) * 60 + (meet.s % 100)) * 60 * 100 -
+                (process.env.DEFAULT_TIME_MEET_NOTIFICATION | 10) *
+                60 *
+                1000
             ),
         });
         notificationMentor.save();
@@ -428,10 +429,10 @@ exports.acceptMeet = async (req, res) => {
             link: "",
             __created: new Date(
                 new Date(meet.date).getTime() +
-                    ((meet.s / 100) * 60 + (meet.s % 100)) * 60 * 100 -
-                    (process.env.DEFAULT_TIME_MEET_NOTIFICATION | 10) *
-                        60 *
-                        1000
+                ((meet.s / 100) * 60 + (meet.s % 100)) * 60 * 100 -
+                (process.env.DEFAULT_TIME_MEET_NOTIFICATION | 10) *
+                60 *
+                1000
             ),
         });
         notificationMentee.save();
@@ -714,10 +715,10 @@ exports.getUpcommingMeet = async (req, res) => {
                     if (
                         meet.date == new Date().toISOString().split("T")[0] &&
                         meet.e <
-                            convertFromNormalTime(
-                                new Date().getHours(),
-                                new Date().getMinutes()
-                            )
+                        convertFromNormalTime(
+                            new Date().getHours(),
+                            new Date().getMinutes()
+                        )
                     )
                         continue;
                     meetRequestsObj[date].push(meet);
@@ -829,10 +830,10 @@ exports.getPendingMeet = async (req, res) => {
                     if (
                         meet.date == new Date().toISOString().split("T")[0] &&
                         meet.e <
-                            convertFromNormalTime(
-                                new Date().getHours(),
-                                new Date().getMinutes()
-                            )
+                        convertFromNormalTime(
+                            new Date().getHours(),
+                            new Date().getMinutes()
+                        )
                     )
                         continue;
                     meetRequestsObj[date].push(meet);
@@ -1052,3 +1053,66 @@ exports.setDataForMentor = async (req, res) => {
         });
     }
 };
+
+const GOOGLE_CLIENT_ID = "154719299730-irqnpdj9jo8n2pa475b0gbpmoi78orha.apps.googleusercontent.com"
+const GOOGLE_CLIENT_SECRET = "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"
+
+// const oauth2Client = new google.auth.OAuth2(
+//     process.env.GOOGLE_CLIENT_ID,
+//     process.env.GOOGLE_CLIENT_SECRET,
+//     ' http://localhost:3000'
+// );
+const oauth2Client = new google.auth.OAuth2(
+    GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET,
+    ' http://localhost:3000'
+);
+const REFRESH_TOKEN = null;
+exports.createToken = async (req, res) => {
+    try {
+        const { code } = req.body;
+        // res.send(code);
+        const response = await oauth2Client.getToken(code);
+        REFRESH_TOKEN = response.tokens.refresh_token;
+        res.send(response);
+    }
+    catch (err) {
+        res.send(err);
+    }
+}
+
+exports.createMeetEvent = async (req, res) => {
+    try {
+        const { summary, description, location, startDateTime, endDateTime } = req.body;
+        oauth2Client.setCredentials({ refresh_token: REFRESH_TOKEN })
+        const calendar = google.calendar('v3');
+        const resp = calendar.events.insert({
+            auth: oauth2Client,
+            calendarId: 'primary',
+            requestBody: {
+                summary,
+                description,
+                location,
+                start: {
+                    dateTime: new Date(startDateTime),
+                    timeZone: 'asia/kolkata'
+                },
+                end: {
+                    dateTime: new Date(endDateTime),
+                    timeZone: 'asia/kolkata'
+                },
+                conferenceData: {
+                    createRequest: {
+                        requestId: "my_skillop_meet"+Math.random().toString(),
+                        conferenceSolutionKey: {type: "hangoutsMeet"}
+                    },
+                }
+            },
+            conferenceDataVersion: 1
+        });
+        res.send(resp);
+    }
+    catch (err) {
+        res.send(err);
+    }
+}
