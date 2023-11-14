@@ -105,14 +105,16 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
         navigate("/requestedMeets");
         toast.success("Meet scheduled!");
         toast.success("Check your Google calendar!");
-        // toast.success(response.data.message);
+
       } else {
         toast.error(response.data.message);
       }
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error);
+
     }
+
     setLoading(false);
   };
 

@@ -1083,6 +1083,7 @@ exports.createToken = async (req, res) => {
 
 exports.createMeetEvent = async (req, res) => {
     try {
+        // FOR CREATING CALENDAR EVENT WITH MEET LINK ATTACHED
         const { summary, description, location, startDateTime, endDateTime } = req.body;
         oauth2Client.setCredentials({ refresh_token: REFRESH_TOKEN })
         const calendar = google.calendar('v3');
