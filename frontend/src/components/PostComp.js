@@ -32,86 +32,8 @@ const PostComp = ({
 
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-<<<<<<< HEAD
-  const openPopup = () => {
-    setIsPopupOpen(true);
-  };
-
-  const closePopup = () => {
-    setIsPopupOpen(false);
-  };
-
-  const openPost = () => {
-    navigate(`/postsection/${_id}`);
-  };
-
-  const likethispost = async (event) => {
-    try {
-      const { data } = await likeOrDislikePost(_id);
-      setLiked(!liked);
-      await fetchLikers();
-      // setUpdateDOM(!updateDOM);
-      // console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const fetchComments = async () => {
-    setFetchingComments(true);
-    try {
-      const data = await getCommentsForPost(_id);
-      const commData = data.data.result;
-      setCommentList(commData);
-      setFetchingComments(false);
-      // console.log(commData);
-      // console.log(commentList);
-    } catch (err) {
-      console.log("Unable to get comments ", err);
-    }
-  };
-
-  const [likersList, setLikersList] = useState([]);
-  const [fetchingLikers, setFetchingLikers] = useState(true);
-  // const [updateDOM, setUpdateDOM] = useState(false);
-
-  const fetchLikers = async () => {
-    try {
-      setFetchingLikers(true);
-      const data = await getLikers(_id);
-      const likersData = data.data.result;
-      setLikersList(likersData);
-      setFetchingLikers(false);
-      // console.log(likersList[0].firstname);
-    } catch (err) {
-      console.log("Unable to fetch likers ", err);
-    }
-  };
-
-  const openPublicProfile = () => {
-    navigate(`/public-profile/${author._id}`);
-  };
-
-  useEffect(() => {
-    fetchComments();
-    fetchLikers();
-    // console.log("AUTHOR : ",author)
-  }, []);
-
-  useEffect(() => {
-    const getPost = async () => {
-      try {
-        const { data } = await getSpecificPost(_id);
-        // console.log(data.result);
-        setPost(data.result);
-        setLiked(data.result.likes.includes(userData._id));
-      } catch (error) {
-        console.log(error);
-      }
-=======
     const openPopup = () => {
         setIsPopupOpen(true);
->>>>>>> 0448103ab53a3003ab755fe760ab2242f3e82d9b
     };
 
     const closePopup = () => {
