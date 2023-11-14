@@ -70,7 +70,7 @@ const Notification = ({
 
         <div className="notify">
           <div className="heading">
-            <h1>Notifications</h1>
+            <h2>Notifications</h2>
           </div>
           <div className="notify-btns">
             <button
@@ -107,41 +107,43 @@ const Notification = ({
               Primary ({notifyList.length})
             </button>
           </div>
-          <div>
+          {/* <div> */}
             {fetchingNotify && (
               <img src={spinner} className="spinner-css" alt="loading" />
             )}
-          </div>
+          {/* </div> */}
           {!fetchingNotify && notifyList.length === 0 && (
             <h3 className="no-notify">No Notifications</h3>
           )}
-          {notifyList.map((item) => {
-            const shouldDisplay =
-              notiType === "all" ||
-              (notiType === "new" && !item.read) ||
-              (notiType === "read" && item.read);
+          <div className="noti-container">
+            {notifyList.map((item) => {
+              const shouldDisplay =
+                notiType === "all" ||
+                (notiType === "new" && !item.read) ||
+                (notiType === "read" && item.read);
 
-            if (shouldDisplay) {
-              return (
-                <div
-                  onClick={() => markReadNotification(item._id)}
-                  className={`${!item.read ? "box-color" : "box"}`}
-                >
-                  <Box
-                    message={item.message}
-                    time={item.__created}
-                    url={item.link}
-                    isread={item.read}
-                    id={item._id}
-                    category={item.type}
-                    type={notiType}
-                    img={item.fromUserProfileImg}
-                  />
-                </div>
-              );
-            }
-            return null;
-          })}
+              if (shouldDisplay) {
+                return (
+                  <div
+                    onClick={() => markReadNotification(item._id)}
+                    className={`${!item.read ? "box-color" : "box"}`}
+                  >
+                    <Box
+                      message={item.message}
+                      time={item.__created}
+                      url={item.link}
+                      isread={item.read}
+                      id={item._id}
+                      category={item.type}
+                      type={notiType}
+                      img={item.fromUserProfileImg}
+                    />
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </div>
         </div>
       </div>
 

@@ -47,7 +47,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
     fetchUser();
   }, []);
 
-  const createMeetEvent = () => {
+  const createMeetEvent = async () => {
     const skilloptoken = localStorage.getItem("skilloptoken");
     const config = {
       headers: {
@@ -64,17 +64,16 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
       endDateTime: day.toString() + " " + convertToNormalTime(e).toString(),
     };
     console.log("meet data : ", data);
-    return axios
-      .post("https://app.skillop.in/api/event/create-meet", data, config)
-      .then((res) => {
-        console.log("success");
-        console.log(res.data);
-        meetLink = res.data.hangoutLink;
-      })
-      .catch((err) => {
-        console.log("error");
-        console.log(err);
-      });
+    try {
+      const res = await axios
+        .post("https://app.skillop.in/api/mentor/meet/create-meet-event", data, config);
+      console.log("success");
+      console.log(res.data);
+      meetLink = res.data.hangoutLink;
+    } catch (err) {
+      console.log("error");
+      console.log(err);
+    }
   };
 
   const onClickDone = async () => {
@@ -85,7 +84,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
     }
     try {
       setLoading(true);
-      const res = await createMeetEvent();
+      await createMeetEvent();
       const formData = new FormData();
       formData.append("payment-proof", paymentConformationPic);
       formData.append("date", day);
@@ -93,7 +92,6 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
       formData.append("e", e);
       formData.append("meetLink", meetLink);
       console.log("meetLink", meetLink);
-      // console.log("formdata", formData)
       const response = await sendMeetRequest(
         mentorid,
         day,
@@ -103,18 +101,20 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
         formData
       );
       if (response.data.result) {
-        // console.log(response.data.result);
+        console.log("sendmeetreq: ", response.data.result);
         navigate("/requestedMeets");
         toast.success("Meet scheduled!");
         toast.success("Check your Google calendar!");
-        // toast.success(response.data.message);
+
       } else {
         toast.error(response.data.message);
       }
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error);
+
     }
+
     setLoading(false);
   };
 

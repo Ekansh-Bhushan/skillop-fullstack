@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const MyCustomGoogleButton = ({ setIsSignedIn }) => {
 	const [Gtoken, setGtoken] = useState("");
 
-	const handleToken = async (token) => {
+	const handleToken = async (code) => {
 		const skilloptoken = localStorage.getItem("skilloptoken");
 		const config = {
 			headers: {
@@ -19,12 +19,12 @@ const MyCustomGoogleButton = ({ setIsSignedIn }) => {
 		};
 		return axios
 			.post(
-				"https://app.skillop.in/api/event/create-token",
-				{ token },
+				"https://app.skillop.in/api/mentor/meet/create-tokens",
+				{ code },
 				config
 			)
 			.then((res) => {
-				console.log(res.data);
+				// console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -36,7 +36,7 @@ const MyCustomGoogleButton = ({ setIsSignedIn }) => {
 			setGtoken(codeResponse.code);
 			handleToken(codeResponse.code);
 			setIsSignedIn(true);
-			// console.log("by google : ", codeResponse);
+			console.log("by google : ", codeResponse.code);
 		},
 		onError: (err) => {
 			console.log(err);

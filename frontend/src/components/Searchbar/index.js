@@ -362,12 +362,18 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                                               style={{
                                                   fontWeight: "bold",
                                                   fontSize: "18px",
+                                                  display: "flex",
+                                                  alignItems: "center",
+                                                  gap: "5px"
                                               }}
                                           >
                                               {val.firstname +
                                                   " " +
                                                   val.lastname}
+                                                 {val.isMentor && <img src="/verified.png" width={20} alt="" />}
                                           </div>
+
+                                          <div>({val.jobTitle})</div>
 
                                           {<div>{val.skills.join(" || ")}</div>}
                                           {val.skills.join(" ").length >= 12 ? (

@@ -422,6 +422,9 @@ body {
   font-weight: 600;
   margin-top: 12px;
   margin-left: 3px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .view-my-prof {

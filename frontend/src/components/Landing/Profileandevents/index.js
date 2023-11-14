@@ -11,20 +11,20 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState(null);
 
-  useEffect(() => {
-          const fetchUserDetails = async () => {
-              try {
-                  const userData1 = await getUser();
-                  setUserDetails(userData1.data.result);
-              } catch (err) {
-                  console.log("Unable to fetch user details", err);
-              } finally {
-                  if (useUserData) {
-                      setUserDetails(userData);
-                      console.log("xxxxx", userData);
-                  }
-              }
-          };
+    useEffect(() => {
+        const fetchUserDetails = async () => {
+            try {
+                const userData1 = await getUser();
+                setUserDetails(userData1.data.result);
+            } catch (err) {
+                console.log("Unable to fetch user details", err);
+            } finally {
+                if (useUserData) {
+                    setUserDetails(userData);
+                    console.log("xxxxx", userData);
+                }
+            }
+        };
         fetchUserDetails();
     }, [setUserDetails, useUserData, userData]);
 
@@ -67,12 +67,13 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
                             )}
 
                             <div>
-                              {userDetails && userDetails.firstname && (
-                                <div className="user-name">
-                                  {userDetails.firstname + " " + userDetails.lastname}
-                                </div>
-                              )}
-                              {userDetails && <p style={{ margin: "10px" }}>{userDetails.jobTitle}</p>}
+                                {userDetails && userDetails.firstname && (
+                                    <div className="user-name">
+                                        {userDetails.firstname + " " + userDetails.lastname}
+                                        {userDetails.isMentor && <img src="/verified.png" width={20} alt="" />}
+                                    </div>
+                                )}
+                                {userDetails && <p style={{ margin: "10px" }}>{userDetails.jobTitle}</p>}
                             </div>
 
 
@@ -81,8 +82,8 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
                                     href={
                                         userDetails.linkedinId
                                             ? userDetails.linkedinId
-                                                  .toString()
-                                                  .includes("linkedin.com")
+                                                .toString()
+                                                .includes("linkedin.com")
                                                 ? userDetails.linkedinId
                                                 : `https://linkedin.com/in/${userDetails.linkedinId}`
                                             : ""

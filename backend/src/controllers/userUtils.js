@@ -15,7 +15,7 @@ exports.followUnfollowUser = async (req, res) => {
             })
         }
         if (userToFollow._id.toString() === loggedInUser._id.toString()) {
-            res.status(400).send({
+            return res.status(400).send({
                 result: false,
                 message: "You cannot follow yourself!"
             })

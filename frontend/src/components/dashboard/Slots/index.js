@@ -13,7 +13,7 @@ import Mobilecommonhead from "../../Mobilecommonhead";
 function Dashboard({ userData, setProgress, shouldbevisible, Mentor, isFetched, notifyList }) {
   const navigate = useNavigate();
   const targetref = useRef(null);
-  const [avail, setAvail] = useState({});
+  const [avail, setAvail] = useState({'monday':[], 'tuesday':[], 'wednesday':[], 'thusday':[], 'friday':[], 'saturday':[], 'sunday':[]});
 
   const lastpage = () => {
     setProgress(30);
@@ -111,6 +111,7 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor, isFetched, 
     
     try {
       setRefresh(!refresh);
+      console.log(JSON.stringify(resBody));
       await AddSlot(JSON.stringify(resBody));
       setRefresh(!refresh);
     }

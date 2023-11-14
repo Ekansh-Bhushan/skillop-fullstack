@@ -14,6 +14,8 @@ const {
     getEarnings,
     requestToBeMentor,
     setDataForMentor,
+    createToken,
+    createMeetEvent
 } = require("../controllers/mentor");
 const { paymentConformationPicUploader } = require("../uploads/handleUploads");
 const router = express.Router();
@@ -36,6 +38,9 @@ router
     .route("/mentor/getAvailability")
     .get(isAuthorised, getActualAvailability);
 router.route("/mentor/meet/accept/:meetId").put(isAuthorised, acceptMeet);
+router.route("/mentor/meet/create-tokens").post(isAuthorised, createToken);
+router.route("/mentor/meet/create-meet-event").post(isAuthorised, createMeetEvent);
+
 router.route("/mentor/earnings").get(isAuthorised, getEarnings);
 
 router.route("/mentor/request").put(isAuthorised, requestToBeMentor);
