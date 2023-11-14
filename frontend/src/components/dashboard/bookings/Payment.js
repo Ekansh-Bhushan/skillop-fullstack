@@ -187,7 +187,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
               {/* <div style={{ height: "auto", width: "100%" }}> */}
               {data.upiId && (
                 <QRCode
-                  size={156}
+                  size={120}
                   // style={{
                   //   height: "auto",
                   //   maxWidth: "13vw",
@@ -204,6 +204,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   flexDirection: "column",
                   gap: "1vw",
                 }}
+                className="qr-content"
               >
                 <p>UPI ID : {data.upiId}</p>
                 <p>

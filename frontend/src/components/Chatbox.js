@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { findUser } from "../api/userRequest";
 
 import { addMessage, getMessages } from "../api/messageRequest";
+import { FaArrowLeft } from "react-icons/fa6";
 import { format } from "timeago.js";
 import { AiOutlineSend } from "react-icons/ai";
 import { BsFillSendFill } from "react-icons/bs";
@@ -12,267 +13,281 @@ import { toast } from "react-hot-toast";
 import EmojiPicker from "emoji-picker-react";
 
 const Chatbox = ({
-	chat,
-	currentUser,
-	setSendMessage,
-	recieveMessage,
-	chats,
+  chat,
+  currentUser,
+  setSendMessage,
+  recieveMessage,
+  chats,
+  toggleChatbox,
 }) => {
-	const [userData, setUserData] = useState(null);
-	const [messages, setMessages] = useState([]);
-	const [newMessage, setNewMessage] = useState("");
-	// const [lastDisplayedDate, setLastDisplayedDate] = useState(null);
-	let lastDisplayedDate = "";
-	let currDisplayedDate = "";
-	const [showEmoji, setShowEmoji] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState("");
+  // const [lastDisplayedDate, setLastDisplayedDate] = useState(null);
+  let lastDisplayedDate = "";
+  let currDisplayedDate = "";
+  const [showEmoji, setShowEmoji] = useState(false);
 
-	// document.querySelector(".chatbox-messages").scrollTop = document.querySelector(".chatbox-messages").scrollHeight;
-	const messagesRef = useRef();
-	const onEmojiClick = (event) => {
-		setNewMessage((oldMsg) => {
-			return oldMsg + event.emoji;
-		});
-	};
+  const handleChatboxClose = () => {
+    // Call the toggleChatbox function from props to close the chatbox
+    toggleChatbox();
+  };
 
-	useEffect(() => {
-		const otherUserId = chat?.members?.find((id) => id !== currentUser);
+  // document.querySelector(".chatbox-messages").scrollTop = document.querySelector(".chatbox-messages").scrollHeight;
+  const messagesRef = useRef();
+  const onEmojiClick = (event) => {
+    setNewMessage((oldMsg) => {
+      return oldMsg + event.emoji;
+    });
+  };
 
-		const getUserData = async () => {
-			try {
-				const { data } = await findUser(otherUserId);
-				setUserData(data.result);
-			} catch (e) {
-				console.log(e);
-			}
-		};
-		if (chat !== null) getUserData();
-	}, [chat, currentUser]);
+  useEffect(() => {
+    const otherUserId = chat?.members?.find((id) => id !== currentUser);
 
-	useEffect(() => {
-		if (recieveMessage !== null && recieveMessage.chatId === chat._id) {
-			setMessages([...messages, recieveMessage]);
-		}
-	}, [recieveMessage]);
+    const getUserData = async () => {
+      try {
+        const { data } = await findUser(otherUserId);
+        setUserData(data.result);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    if (chat !== null) getUserData();
+  }, [chat, currentUser]);
 
-	const handleChange = (event) => {
-		const newMessageValue = event.target.value;
-		setNewMessage(newMessageValue);
-	};
+  useEffect(() => {
+    if (recieveMessage !== null && recieveMessage.chatId === chat._id) {
+      setMessages([...messages, recieveMessage]);
+    }
+  }, [recieveMessage]);
 
-	const handleSend = async (e) => {
-		if (newMessage) {
-			const message = {
-				senderId: currentUser,
-				text: newMessage,
-				chatId: chat._id,
-				// chatId: "64db7e1e8bb983fa766a79a5",
-			};
+  const handleChange = (event) => {
+    const newMessageValue = event.target.value;
+    setNewMessage(newMessageValue);
+  };
 
-			// send message to database
+  const handleSend = async (e) => {
+    if (newMessage) {
+      const message = {
+        senderId: currentUser,
+        text: newMessage,
+        chatId: chat._id,
+        // chatId: "64db7e1e8bb983fa766a79a5",
+      };
 
-			try {
-				const { data } = await addMessage(message);
-				setMessages([...messages, data]);
-				setNewMessage("");
-				document
-					.querySelector(".chatbox-messages")
-					.scrollIntoView({ behavior: "smooth", block: "end" });
-				document.querySelector(".chatbox-messages").scrollTop =
-					document.querySelector(".chatbox-messages").scrollHeight;
-			} catch (e) {
-				console.log(e);
-			}
+      // send message to database
 
-			// send message to socket server
-			const receiverId = chat.members.find((id) => id !== currentUser);
+      try {
+        const { data } = await addMessage(message);
+        setMessages([...messages, data]);
+        setNewMessage("");
+        document
+          .querySelector(".chatbox-messages")
+          .scrollIntoView({ behavior: "smooth", block: "end" });
+        document.querySelector(".chatbox-messages").scrollTop =
+          document.querySelector(".chatbox-messages").scrollHeight;
+      } catch (e) {
+        console.log(e);
+      }
 
-			setSendMessage({ ...message, receiverId });
-		} else {
-			toast.error("Type something to send!");
-		}
-		var chats = document.querySelector(".chatbox-messages");
-		chats.scrollTop = chats.scrollHeight;
-	};
+      // send message to socket server
+      const receiverId = chat.members.find((id) => id !== currentUser);
 
-	//fetching data for messages
-	useEffect(() => {
-		const fetchMessages = async () => {
-			try {
-				const { data } = await getMessages(chat._id);
-				// console.log(data);
-				setMessages(data);
-			} catch (err) {
-				console.log(err);
-			}
-		};
-		fetchMessages();
-		if (chat !== null) fetchMessages();
-	}, [chat]);
+      setSendMessage({ ...message, receiverId });
+    } else {
+      toast.error("Type something to send!");
+    }
+    var chats = document.querySelector(".chatbox-messages");
+    chats.scrollTop = chats.scrollHeight;
+  };
 
-	useEffect(() => {
-		// ... (existing code)
+  //fetching data for messages
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const { data } = await getMessages(chat._id);
+        // console.log(data);
+        setMessages(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchMessages();
+    if (chat !== null) fetchMessages();
+  }, [chat]);
 
-		const chats = document.querySelector(".chatbox-messages");
-		chats.scrollTop = chats.scrollHeight;
+  useEffect(() => {
+    // ... (existing code)
 
-		if (messagesRef.current) {
-			messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
-		}
-	}, [messages]);
+    const chats = document.querySelector(".chatbox-messages");
+    chats.scrollTop = chats.scrollHeight;
 
-	return (
-		<div className="chatting">
-			<div className="chat-user-details">
-				{userData && chat ? (
-					<img src={userData.profilePicUrl} className="chat-user-img"></img>
-				) : (
-					<div></div>
-				)}
-				{userData && (
-					<>
-						<div className="chat-user-name">
-							{" "}
-							{userData.firstname} <span>{userData.lastname}</span>
-						</div>
-						<div className="verticall">
-							<SlOptionsVertical />
-						</div>
-					</>
-				)}
-			</div>
+    if (messagesRef.current) {
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    }
+  }, [messages]);
 
-			{chat ? (
-				<div
-					className="chatbox-messages"
-					onClick={() => setShowEmoji(false)}
-					id="chat-scroll"
-					ref={messagesRef}
-				>
-					{" "}
-					{messages ? (
-						messages.map((message) => {
-							lastDisplayedDate = currDisplayedDate;
-							currDisplayedDate = new Date(message.createdAt).toString().slice(4, 15); 
-							return (
-								<div
-									className={`${message.senderId === currentUser ? "message-right" : "message-left"
-										}`}
-								>
-									{currDisplayedDate !== lastDisplayedDate && (
-										<div
-											style={{
-												display: "flex",
-												justifyContent: "center",
-												width: "100%",
-												fontSize: "0.9rem",
-												margin: "10px",
-												color: "black",
-											}}
-										>
-											<div
-												style={{
-													width: "16%",
-													borderRadius: "8px",
-													textAlign: "center",
-													padding: "3px",
-												}}
-											>
-												{new Date(message.createdAt).toString().slice(4, 15)}
-											</div>
-										</div>
-									)}
+  return (
+    <div className="chatting">
+      <div className="chat-user-details">
+        <div onClick={handleChatboxClose} className="left-arrow">
+          <FaArrowLeft size={24} />
+        </div>
 
-									<p
-										style={{
-											overflow: "hidden",
-											wordWrap: "break-word",
-											fontSize: "1.05rem",
-											lineHeight: "26px",
-										}}
-									>
-										{message.text}
-										<div
-											style={{
-												fontSize: "12px",
-												color: "gray",
-												margin: "0.3rem 0px 0rem 0px",
-											}}
-										>
-											{new Date(message.createdAt).toString().slice(16, 21)}
-										</div>
-									</p>
-								</div>
-							);
-						})
-					) : (
-						<span>Start Typing</span>
-					)}
+        {/* {userData && chat ? (
+          <img src={userData.profilePicUrl} className="chat-user-img"></img>
+        ) : (
+          <div></div>
+        )} */}
+        {userData && (
+          <>
+            <div className="chat-user-name">
+              {" "}
+              {userData.firstname} <span>{userData.lastname}</span>
+            </div>
+            <div className="verticall">
+              <SlOptionsVertical />
+            </div>
+          </>
+        )}
+      </div>
 
-				</div>
-			) : (
-				<div
-					className="chatbox-messages"
-					style={{
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-						fontSize: "30px",
-					}}
-				>
-					<p
-						style={{
-							textAlign: "center",
-						}}
-					>
-						{chats.length === 0
-							? "Follow someone to chat with him!"
-							: "Please Select a User to Chat with!"}
-					</p>
-				</div>
-			)}
-			<div className="message-send-bar">
-				{chat && (
-					<textarea
-						placeholder="Type Here...."
-						value={newMessage}
-						onChange={handleChange}
-						className="message-tobe-sent"
-						onKeyDown={(e) => {
-							if (e.keyCode === 13 && !e.shiftKey) handleSend();
-						}}
-					/>
-				)}
+      {chat ? (
+        <div
+          className="chatbox-messages"
+          onClick={() => setShowEmoji(false)}
+          id="chat-scroll"
+          ref={messagesRef}
+        >
+          {" "}
+          {messages ? (
+            messages.map((message) => {
+              lastDisplayedDate = currDisplayedDate;
+              currDisplayedDate = new Date(message.createdAt)
+                .toString()
+                .slice(4, 15);
+              return (
+                <div
+                  className={`${
+                    message.senderId === currentUser
+                      ? "message-right"
+                      : "message-left"
+                  }`}
+                >
+                  {currDisplayedDate !== lastDisplayedDate && (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        width: "100%",
+                        fontSize: "0.9rem",
+                        margin: "10px",
+                        color: "black",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "16%",
+                          borderRadius: "8px",
+                          textAlign: "center",
+                          padding: "3px",
+                        }}
+                      >
+                        {new Date(message.createdAt).toString().slice(4, 15)}
+                      </div>
+                    </div>
+                  )}
 
-				{chat ? (
-					<>
-						<div className="emoji" onClick={() => setShowEmoji(!showEmoji)}>
-							{showEmoji && (
-								<div className="emoji-picker">
-									<EmojiPicker
-										emojiStyle="google"
-										onEmojiClick={onEmojiClick}
-										width={300}
-										height={400}
-									/>
-								</div>
-							)}
-							<img src="emoji.png" alt="emoji" width={36} />
-						</div>
-						<img
-							className="send-btn"
-							height={36}
-							width={36}
-							onClick={handleSend}
-							src="/post.png"
-							alt=""
-						/>
-					</>
-				) : (
-					<div></div>
-				)}
-			</div>
-		</div>
-	);
+                  <p
+                    style={{
+                      overflow: "hidden",
+                      wordWrap: "break-word",
+                      fontSize: "1.05rem",
+                      lineHeight: "26px",
+                    }}
+                  >
+                    {message.text}
+                    <div
+                      style={{
+                        fontSize: "12px",
+                        color: "gray",
+                        margin: "0.3rem 0px 0rem 0px",
+                      }}
+                    >
+                      {new Date(message.createdAt).toString().slice(16, 21)}
+                    </div>
+                  </p>
+                </div>
+              );
+            })
+          ) : (
+            <span>Start Typing</span>
+          )}
+        </div>
+      ) : (
+        <div
+          className="chatbox-messages"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "30px",
+          }}
+        >
+          <p
+            style={{
+              textAlign: "center",
+            }}
+          >
+            {chats.length === 0
+              ? "Follow someone to chat with him!"
+              : "Please Select a User to Chat with!"}
+          </p>
+        </div>
+      )}
+      <div className="message-send-bar">
+        {chat && (
+          <textarea
+            placeholder="Type Here...."
+            value={newMessage}
+            onChange={handleChange}
+            className="message-tobe-sent"
+            onKeyDown={(e) => {
+              if (e.keyCode === 13 && !e.shiftKey) handleSend();
+            }}
+          />
+        )}
+
+        {chat ? (
+          <>
+            <div className="emoji" onClick={() => setShowEmoji(!showEmoji)}>
+              {showEmoji && (
+                <div className="emoji-picker">
+                  <EmojiPicker
+                    emojiStyle="google"
+                    onEmojiClick={onEmojiClick}
+                    width={300}
+                    height={400}
+                  />
+                </div>
+              )}
+              <img src="emoji.png" alt="emoji" width={36} />
+            </div>
+            <img
+              className="send-btn"
+              height={36}
+              width={36}
+              onClick={handleSend}
+              src="/post.png"
+              alt=""
+            />
+          </>
+        ) : (
+          <div></div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Chatbox;

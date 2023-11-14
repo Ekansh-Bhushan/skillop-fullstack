@@ -117,12 +117,10 @@ function Page1({ setProgress }) {
     /*if (newPassword !== confirmPassword) {
       alert("New password and confirm password don't match.");
       return;*/
-      return;
-    }
-  
+    return;
+  };
 
   var x = 0;
-
 
   // console.log(isLogin);
   const openloginpage = () => {
@@ -155,9 +153,9 @@ function Page1({ setProgress }) {
         "Already Have an Account ?";
       document.querySelector(".functionhandler").textContent = "Login";
 
-      x = 0;
-    }
-  };
+      x = 0;
+    }
+  };
   const handleGoogleLoginSuccess = (credentialResponse) => {
     const idToken = credentialResponse.credential;
     const decodedToken = jwt_decode(idToken);
@@ -285,7 +283,11 @@ function Page1({ setProgress }) {
                 />
               </div>
               <div className="pass">
-                <label htmlFor="pass">Password</label>
+                <div style={{ gap: "20px", display: "flex" }}>
+                  <label htmlFor="pass">Password</label>
+                  <a>/ Forget Password ?</a>
+                </div>
+
                 <div className="password-input-container">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -320,25 +322,20 @@ function Page1({ setProgress }) {
               <button onClick={onSubmiting}>Get Started</button>
             </div>
 
-                        <div style={{marginBottom:"10px"}} className="changepage">
-                            <span className="already-reg">
-                                Already Registered ?{" "}
-                            </span>
-                            &nbsp;
-                            <span
-                                onClick={openloginpage}
-                                className="functionhandler"
-                            >
-                                Login
-                            </span>
-                        </div>
-                    </div>
-                    <div className="partition-on-mob"></div>
-                    <img src={coolimg} className="display-only-on-mobile" />
-                </div>
+            <div style={{ marginBottom: "10px" }} className="changepage">
+              <span className="already-reg">Already Registered ? </span>
+              &nbsp;
+              <span onClick={openloginpage} className="functionhandler">
+                Login
+              </span>
             </div>
-        </>
-    );
+          </div>
+          <div className="partition-on-mob"></div>
+          <img src={coolimg} className="display-only-on-mobile" />
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Page1;

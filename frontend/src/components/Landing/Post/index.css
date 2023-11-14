@@ -1038,6 +1038,28 @@ non-act {
   bottom: 8vh;
   right: 0vw;
 }
+.chat-slider {
+  width: 80%;
+}
+.left-arrow {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .left-arrow {
+    display: block;
+  }
+  .chat-slider {
+    position: fixed;
+    top: 5rem;
+    right: 0;
+    left: 0;
+    width: 100%;
+    transition: right 0.3s ease-in-out;
+    background-color: #fff;
+    z-index: 1000;
+  }
+}
 
 @media only screen and (max-width: 500px) {
   .emoji-picker {
@@ -1099,11 +1121,14 @@ non-act {
   }
 
   .chatbox-messages {
-    min-height: 75vh;
+    height: 60vh;
+    max-width: 100%;
+    border-radius: 10px;
+    margin-inline: 10px;
   }
 
   .message-send-bar {
-    margin-top: 10px;
+    margin-top: 5px;
   }
 }
 
@@ -1141,6 +1166,7 @@ non-act {
 }
 
 .chat-friends-list {
+  z-index: 1;
   height: auto;
   width: 50%;
   background-color: transparent;
@@ -1149,12 +1175,16 @@ non-act {
   overflow-y: auto;
   -ms-overflow-style: none;
   padding: 10px;
-  margin-top: 5%;
-  /* Internet Explorer and Edge */
 }
 
 .chat-friends-list > div {
   overflow-y: auto;
+  position: fixed;
+  top: 2rem;
+  right: 5rem;
+  background: white;
+  width: 26%;
+  z-index: 1;
 }
 
 .chat-friends-list::-webkit-scrollbar {
@@ -1184,7 +1214,17 @@ non-act {
 .chat-head {
   margin: 20px 0px;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
+  .chat-friends-list > div {
+    overflow-y: auto;
+    position: fixed;
+    top: 0rem;
+    background: white;
+    width: 100%;
+    min-height: 100vh;
+    left: 0;
+  }
+
   .search-input {
     width: 320px;
     margin-top: 10vh;
@@ -1214,6 +1254,7 @@ non-act {
   display: flex;
   align-items: center;
   padding: 1.7rem;
+  padding-left: 1rem;
   height: 20px;
   gap: 8px;
   background-color: rgb(255, 255, 255);
