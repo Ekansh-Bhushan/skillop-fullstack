@@ -157,9 +157,8 @@ function Page1({ setProgress, setUserData }) {
       x = 0;
     }
   };
-      x = 0;
-    }
-  };
+  x = 0;
+
   const handleGoogleLoginSuccess = (credentialResponse) => {
     const idToken = credentialResponse.credential;
     const decodedToken = jwt_decode(idToken);
