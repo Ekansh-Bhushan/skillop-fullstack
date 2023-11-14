@@ -50,17 +50,24 @@ const Admin = () => {
         }
     }
 
-    const approveMentor = (user_id) => {
-        try {
+    const API = axios.create({ baseURL: "https://app.skillop.in" });
 
-            axios.post(`https://app.skillop.in/api/admin/make/mentor/${user_id}`, {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: localStorage.getItem("skilloptoken").toString()
-                },
-                withCredentials: true
-            });
+    const approveMentor = async (user_id) => {
+        try {
+            const approveFunc = () => {
+                const token = localStorage.getItem("skilloptoken");
+                const config = {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: token,
+                    },
+                    withCredentials: true,
+                };
+                return API.post(`/api/admin/make/mentor/${user_id}`, {}, config);
+            }
+            const res = await approveFunc();
             toast.success("Mentor Approved!");
+            // console.log(res);
             window.location.reload();
         }
         catch (err) {
