@@ -37,7 +37,7 @@ function Auth5Component({ setProgress }) {
 
   const onChange = (e) => {
     let { name, value } = e.target;
-    
+
     setData((prevData) => [
       {
         ...prevData[0],
@@ -45,7 +45,7 @@ function Auth5Component({ setProgress }) {
       },
     ]);
   };
-  
+
 
   const addEdu = async () => {
     try {
@@ -61,11 +61,11 @@ function Auth5Component({ setProgress }) {
   };
 
   const redirectToPage6 = async () => {
-    if (data[0].institution === "" || data[0].city === "" || data[0].state === "" || data[0].endDate === "" || data[0].startDate === "" || data[0].degree === "" ) {
+    if (data[0].institution === "" || data[0].city === "" || data[0].state === "" || data[0].endDate === "" || data[0].startDate === "" || data[0].degree === "") {
       toast.error("Select your college, degree and graduation year!");
       return;
     }
-    if(data[0].endDate < data[0].startDate) {
+    if (data[0].endDate < data[0].startDate) {
       toast.error("End year cannot be less than start year!");
       return;
     }
@@ -95,10 +95,10 @@ function Auth5Component({ setProgress }) {
   }
 
   const handleOnChange = (e) => {
-    setSearchQuery(e.target.value); 
+    setSearchQuery(e.target.value);
     document.querySelector('.college-search-results').style.display = 'block';
     searchCollege(e.target.value);
-    if(e.target.value.length === 0) {
+    if (e.target.value.length === 0) {
       document.querySelector('.college-search-results').style.display = 'none';
     }
   }
@@ -138,13 +138,13 @@ function Auth5Component({ setProgress }) {
           <input id="search-college" type="text" onChange={handleOnChange} value={searchQuery} placeholder="Search your college, university or insititution" />
           <div className="college-search-results">
             {(collegeSearchResults.length > 0) ? collegeSearchResults.map((college, idx) => {
-              return (<div key={idx} id="college-result" onClick={()=> handleCollegeSelection(college)}>
+              return (<div key={idx} id="college-result" onClick={() => handleCollegeSelection(college)}>
                 <h3>{college.college}</h3>
                 <p>{college.city}{", "}{college.state}</p>
               </div>);
             }) : searchQuery.length > 0 && `No results found for "${searchQuery}"`}
           </div>
-          <p id="note-search" style={{marginTop:"15px"}}>Note :  If your college is not found in search, enter it below manually</p>
+          <p id="note-search" style={{ marginTop: "15px" }}>Note :  If your college is not found in search, enter it below manually</p>
         </div>
         <form
           id="collegedetl"
@@ -171,7 +171,7 @@ function Auth5Component({ setProgress }) {
               >
               </input>
             </div>
-            
+
             <div className="city">
               <label style={{ fontWeight: "bold" }} htmlFor="city">
                 City
@@ -204,11 +204,11 @@ function Auth5Component({ setProgress }) {
                   onChange(Event);
                 }}
                 required
-                
+
               >
               </input>
             </div>
-            
+
           </div>
           <div className="year-details">
             <div className="degree1">

@@ -226,8 +226,8 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
                                     className="cropped-image"
                                 />
                             ) : getFileType(
-                                  selectedMedia[currentMediaIndex].type
-                              ) === "video" ? (
+                                selectedMedia[currentMediaIndex].type
+                            ) === "video" ? (
                                 <video
                                     muted
                                     loop
@@ -239,8 +239,8 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
                                     alt="selected-video"
                                 />
                             ) : getFileType(
-                                  selectedMedia[currentMediaIndex].type
-                              ) === "unknown" ? (
+                                selectedMedia[currentMediaIndex].type
+                            ) === "unknown" ? (
                                 <iframe
                                     src={
                                         selectedMedia[currentMediaIndex].dataUrl
@@ -251,8 +251,8 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
                                     frameBorder="0"
                                 ></iframe>
                             ) : getFileType(
-                                  selectedMedia[currentMediaIndex].type
-                              ) === "audio" ? (
+                                selectedMedia[currentMediaIndex].type
+                            ) === "audio" ? (
                                 <div
                                     style={{
                                         display: "flex",

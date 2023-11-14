@@ -46,8 +46,8 @@ const PostComp = ({
 
   const likethispost = async (event) => {
     try {
-      setLiked(!liked);
       const { data } = await likeOrDislikePost(_id);
+      setLiked(!liked);
       await fetchLikers();
       // setUpdateDOM(!updateDOM);
       // console.log(data);

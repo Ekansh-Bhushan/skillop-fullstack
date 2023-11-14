@@ -126,8 +126,8 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
                                         isEditClick
                                             ? uploadIntroVideo
                                             : () => {
-                                                  setIsEditClick(true);
-                                              }
+                                                setIsEditClick(true);
+                                            }
                                     }
                                 >
                                     {isEditClick ? "Upload" : "Edit"}
@@ -147,8 +147,8 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
                                         isEditClick
                                             ? uploadIntroVideo
                                             : () => {
-                                                  setIsEditClick(true);
-                                              }
+                                                setIsEditClick(true);
+                                            }
                                     }
                                 >
                                     {isEditClick ? "Upload" : "Add"}

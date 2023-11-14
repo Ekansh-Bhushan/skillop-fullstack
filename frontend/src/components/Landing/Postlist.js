@@ -337,7 +337,7 @@ const Postlist = ({
                             />
                         ))}
                     <div ref={containerRef} style={{ height: "200px" }}>
-                        {loading && <img src={spinner} alt="Loading..." width={60}/>}
+                        {loading && <img src={spinner} alt="Loading..." width={60} />}
                     </div>
                 </div>
             </div>
