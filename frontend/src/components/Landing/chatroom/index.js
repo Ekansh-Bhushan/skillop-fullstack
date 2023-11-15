@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { userChats } from "../../../api/chatRequest";
 import Conversation from "../../Conversation";
 import Chatbox from "../../Chatbox";
@@ -11,8 +10,6 @@ import "./chat.css";
 
 function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
   // console.log(userData);
-  const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState("");
   const [chats, setChats] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
@@ -20,7 +17,6 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const [recieveMessage, setRecieveMessage] = useState(null);
   const [showChatbox, setShowChatbox] = useState(false);
   const socket = useRef();
-  const navigate = useNavigate();
 
   // send message to socket server
   useEffect(() => {
@@ -47,53 +43,12 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
     });
   }, []);
 
-  useEffect(() => {
-    if (userData !== null) {
-      const getChats = async () => {
-        try {
-          const { data } = await userChats(userData._id);
-          setChats(data);
-          // console.log(data);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      getChats();
-    }
-  }, [userData]);
-
-  const handleInputChange = (event) => {
-    setInputMessage(event.target.value);
-  };
-  const handleSendMessage = () => {
-    var newMessage;
-    if (inputMessage.trim() !== "") {
-      newMessage = {
-        id: messages.length + 1,
-        sender: "user",
-        message: inputMessage,
-      };
-      setMessages([...messages, newMessage]);
-      setInputMessage("");
-    }
-    axios
-      .put("path/to/updateChat", newMessage)
-      .then((response) => {
-        console.log("Message added:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error adding message:", error);
-      });
-  };
   /*-------------------------------------------------------*/
 
   const targetRef = useRef(null);
   useEffect(() => {
     function handleClickOutside(event) {
       if (targetRef.current && !targetRef.current.contains(event.target)) {
-        // This condition checks if the clicked element is not within the target div
-        // Place your function code here
-
         document.querySelector(".filtered-results").classList.add("hidethis");
         document.querySelector(".search-bar-landing").value = "";
         document.querySelector(".search-bar-landing").style.width = "200px";
@@ -139,7 +94,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
       };
       getChats();
     }
-  }, [userData]);
+  }, [redirect_chat_id, userData]);
 
   const handleChatClick = (chat) => {
     setCurrentChat(chat);
