@@ -97,6 +97,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
   }, [redirect_chat_id, userData]);
 
   const handleChatClick = (chat) => {
+    document.querySelector('.text-chat-prev').style.display = 'none';
     setCurrentChat(chat);
     setShowChatbox(true);
 
@@ -135,6 +136,13 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
               />{" "}
             </div>
           )}
+          <h2
+           className="text-chat-prev"
+          >
+            {chats.length === 0
+              ? "Follow someone to chat with him!"
+              : "Please Select a User to Chat with!"}
+          </h2>
           <div className="chat-friends-list">
             <div>
               <h2 className="chat-head">Chats</h2>

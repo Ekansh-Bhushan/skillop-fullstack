@@ -7,3 +7,12 @@
     position: relative;
     top: 4vw;
 }
+
+.text-chat-prev {
+    position: relative;
+    top: 40vh;
+    left: 10vw;
+    text-align: center;
+    /* background: red; */
+    height: 100px;
+}
