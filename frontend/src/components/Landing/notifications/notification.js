@@ -108,9 +108,9 @@ const Notification = ({
             </button>
           </div>
           {/* <div> */}
-            {fetchingNotify && (
-              <img src={spinner} className="spinner-css" alt="loading" />
-            )}
+          {fetchingNotify && (
+            <img src={spinner} className="spinner-css" alt="loading" />
+          )}
           {/* </div> */}
           {!fetchingNotify && notifyList.length === 0 && (
             <h3 className="no-notify">No Notifications</h3>
@@ -126,7 +126,7 @@ const Notification = ({
                 return (
                   <div
                     onClick={() => markReadNotification(item._id)}
-                    className={`${!item.read ? "box-color" : "box"}`}
+                    className={`${!item.read ? "read-box" : "box"}`}
                   >
                     <Box
                       message={item.message}

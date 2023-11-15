@@ -84,6 +84,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     gap: 2px;
+    border-bottom: 0px;
   }
 
   .notify-btns button {
@@ -126,12 +127,13 @@
 }
 
 @media screen and (max-width: 500px) {
-  .box {
+  /* .box {
     margin-left: 120px;
-  }
+  } */
   .box-color {
-    margin-left: 130px;
-    width: 160%;
+    margin: auto;
+    margin-left: 8.5vh;
+    width: 95%;
     margin-bottom: 5px;
   }
 

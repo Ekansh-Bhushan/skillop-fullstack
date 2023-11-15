@@ -42,8 +42,18 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    margin-left: 5px;
-    width: 151%;
+    margin-left: 12vh;
+    width: 80%;
+    margin-bottom: 5px;
+    /* margin-top: 5px; */
+  }
+  .read-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 12vh;
+    width: 80%;
     margin-bottom: 5px;
     /* margin-top: 5px; */
   }
