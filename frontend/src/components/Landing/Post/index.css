@@ -1216,12 +1216,19 @@ non-act {
 
 .chat-head {
   margin: 20px 0px;
+  position: fixed;
+  top: 0.8vw;
+  background: white;
+  width: 26%;
+  height: 7vh;
+  z-index: 100;
+  border-bottom: 3px solid gray;
 }
 @media screen and (max-width: 500px) {
   .chat-friends-list > div {
     overflow-y: auto;
     position: fixed;
-    top: 0rem;
+    top: 9rem;
     background: white;
     width: 100%;
     min-height: 100vh;
@@ -1241,12 +1248,19 @@ non-act {
     cursor: pointer;
   }
   .chat-head {
-    display: none;
+    /* display: none; */
+    top: 22vw;
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    /* background: red; */
   }
 
   .chat-friends-list {
     margin-top: 0px;
   }
+
   .message-tobe-sent {
     height: 16px;
     padding-top: 10px;
