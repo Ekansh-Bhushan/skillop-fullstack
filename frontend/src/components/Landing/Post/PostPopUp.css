@@ -134,7 +134,7 @@
 @media screen and (max-width: 500px) {
   .popup-container {
     position: absolute;
-    top: 5vh;
+    top: 10vh;
     left: 5vw;
     z-index: 10000;
     border: 2px solid black;
@@ -183,5 +183,9 @@
   .post {
     height: 40px;
     width: 40px;
+    /* position: absolute;
+    top: 73vh;
+    left: 19vh;
+    z-index: 1000; */
   }
 }
