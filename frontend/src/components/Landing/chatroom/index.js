@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import user from "../../images/user.png";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { userChats } from "../../../api/chatRequest";
 import Conversation from "../../Conversation";
@@ -8,7 +7,6 @@ import Chatbox from "../../Chatbox";
 import { io } from "socket.io-client";
 import SideNav from "../../SideNav/SideNav";
 import Mobilecommonhead from "../../Mobilecommonhead";
-import Chats from "./Chats";
 import "./chat.css";
 
 function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
@@ -205,25 +203,28 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   borderRadius: "20px",
                 }}
               />
-              {chats.length > 0 &&
-                chats.map((chat) => (
-                  <div
-                    // onClick={() => {
-                    //   setCurrentChat(chat);
-                    //   document.querySelector(".chatbox-messages").scrollTop =
-                    //     document.querySelector(
-                    //       ".chatbox-messages"
-                    //     ).scrollHeight;
-                    // }}
-                    onClick={() => handleChatClick(chat)}
-                  >
-                    <Conversation
-                      data={chat}
-                      chatID={chat._id}
-                      currentUser={userData._id}
-                    />
-                  </div>
-                ))}
+
+              <div className="chat-list">
+                {chats.length > 0 &&
+                  chats.map((chat) => (
+                    <div
+                      // onClick={() => {
+                      //   setCurrentChat(chat);
+                      //   document.querySelector(".chatbox-messages").scrollTop =
+                      //     document.querySelector(
+                      //       ".chatbox-messages"
+                      //     ).scrollHeight;
+                      // }}
+                      onClick={() => handleChatClick(chat)}
+                    >
+                      <Conversation
+                        data={chat}
+                        chatID={chat._id}
+                        currentUser={userData._id}
+                      />
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
         </div>
