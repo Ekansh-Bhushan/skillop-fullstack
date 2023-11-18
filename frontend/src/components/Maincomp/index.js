@@ -35,6 +35,7 @@ import MentorfeedbackForm from "../MentorFeedback/feedbackForm";
 import ChangePasswordPage from "../passwordChange/changepassword";
 import ResetPasswordPage from "../resetpassword/resetpassword";
 import ResetPasswordEmail from "../resetpassword/resetpasswordEmail";
+import Admin from "../Admin Panel/Admin";
 
 function AuthPage({
   userData,
@@ -336,7 +337,7 @@ function AuthPage({
         <Route path="/mobile" element={<Mobilecommonhead />} />
         <Route path="/newpost" element={<Mobilepost />} />
         <Route path="/changePassword" element={<ChangePasswordPage />} />
-        <Route path="/resetPassword" element={<ResetPasswordPage />} />
+        <Route path="/password/reset/:id" element={<ResetPasswordPage />} />
         <Route path="/resetPasswordEmail" element={<ResetPasswordEmail />} />
         <Route path="/mentorfeedback" element={<MentorfeedbackForm />} />
         <Route
@@ -366,6 +367,12 @@ function AuthPage({
           path="/editpic"
           element={<EditPic userData={userData} setProgress={setProgress} />}
         />
+        <Route
+          path="/admin"
+          element={<Admin />}
+        />
+
+        
 
         {/* Add more routes if needed */}
       </Routes>
