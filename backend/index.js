@@ -25,8 +25,10 @@ connectDB();
 //     credentials: true,
 // };
 app.use(
+    "*",
     cors({
-        origin: ["https://app.skillop.in", "https://skillop.in", "http://localhost:3000", "https://skillop-fullstack.vercel.app"],
+        origin: true,
+        credentials: true,
     })
 );
 
