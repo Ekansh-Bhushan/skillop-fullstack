@@ -3,7 +3,6 @@ const Notification = require("../models/notification");
 const NotificationType = require("../enums/notificationType");
 const { OAuth2Client } = require("google-auth-library");
 
-
 exports.registerUser = async (req, res) => {
     try {
         const { firstname, lastname, email, password } = req.body;
@@ -58,7 +57,7 @@ exports.loginUser = async (req, res) => {
             res.status(400).send({
                 result: false,
                 err: "All fields are required",
-                message : "Please fill all the fields"
+                message: "Please fill all the fields",
             });
         }
 
@@ -157,7 +156,7 @@ exports.changePassword = async (req, res) => {
         // create a notification
         const notification = await Notification.create({
             message: "Password changed successfully",
-            type:NotificationType.PASSWORD_CHANGED,
+            type: NotificationType.PASSWORD_CHANGED,
         });
         res.status(200).send({
             result: true,
@@ -171,7 +170,6 @@ exports.changePassword = async (req, res) => {
         });
     }
 };
-
 
 exports.googleIdVerifyAndLogin = async (req, res) => {
     try {
@@ -197,7 +195,8 @@ exports.googleIdVerifyAndLogin = async (req, res) => {
             // put a random password
             if (!user) {
                 const newUser = await User.create({
-                    name,
+                    firstname: name.split(" ")[0],
+                    lastname: name.split(" ")[1],
                     email,
                     googleID: userid,
                     password: "sdf@swaroop[1234]",
