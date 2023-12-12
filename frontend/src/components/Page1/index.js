@@ -176,15 +176,15 @@ function Page1({ setProgress, setUserData }) {
         console.log(data);
         // Store the token in local storage
         localStorage.setItem("skilloptoken", idToken);
-        if (data && data.result) {
-            if (data.type === "old") {
-                navigate("/homepage");
-            } else {
-                navigate("/skills");
-            }
-        } else {
-            toast.error(data.message);
-        }
+        // if (data && data.result) {
+        //     if (data.type === "old") {
+        //         navigate("/homepage");
+        //     } else {
+        //         navigate("/skills");
+        //     }
+        // } else {
+        //     toast.error(data.message);
+        // }
 
         const decodedToken = jwt_decode(idToken);
 
