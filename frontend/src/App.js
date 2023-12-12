@@ -7,11 +7,6 @@ import LoadingBar from "react-top-loading-bar";
 import { Emoji } from "emoji-picker-react";
 import { getNotifications } from "./api/getNotifications";
 
-import { gapi } from "gapi-script";
-
-const clientId =
-    "107286850999-b807i22qqt7abdvq69lb6a0qsqmd67e1.apps.googleusercontent.com";
-
 function App() {
     const [userData, setUserData] = useState(null);
     const [progress, setProgress] = useState(0);
@@ -52,15 +47,7 @@ function App() {
         fetchNotifications();
     }, []);
 
-    useEffect(() => {
-        function start() {
-            gapi.client.init({
-                clientId: clientId,
-                scope: "",
-            });
-        }
-        gapi.load("client:auth2", start);
-    }, []);
+
 
     return (
         <>
