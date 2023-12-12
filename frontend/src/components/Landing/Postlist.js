@@ -85,6 +85,9 @@ const Postlist = ({
             setProgress(30);
             const data = await createPost(formData);
             window.location.reload();
+
+            // Add this post to the posts state
+            setPosts((prevPosts) => [data.result, ...prevPosts]);
             // console.log(data);
             setProgress(100);
         } catch (error) {
