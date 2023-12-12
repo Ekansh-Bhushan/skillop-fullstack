@@ -175,16 +175,16 @@ function Page1({ setProgress, setUserData }) {
         const { data } = await googleIdVerifyAndLogin({ token: idToken });
         console.log(data);
         // Store the token in local storage
-        localStorage.setItem("skilloptoken", idToken);
-        // if (data && data.result) {
-        //     if (data.type === "old") {
-        //         navigate("/homepage");
-        //     } else {
-        //         navigate("/skills");
-        //     }
-        // } else {
-        //     toast.error(data.message);
-        // }
+        localStorage.setItem("skilloptoken", data.token);
+        if (data && data.result) {
+            if (data.type === "old") {
+                navigate("/homepage");
+            } else {
+                navigate("/skills");
+            }
+        } else {
+            toast.error(data.message);
+        }
 
         const decodedToken = jwt_decode(idToken);
 
