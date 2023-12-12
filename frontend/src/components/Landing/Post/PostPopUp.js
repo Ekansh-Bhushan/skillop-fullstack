@@ -14,7 +14,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
-    const API = axios.create({ baseURL: "http://localhost:4000" });
+    const API = axios.create({ baseURL: "https://app.skillop.in" });
     const [inputValue, setInputValue] = useState("");
     let [selectedFile, setSelectedFile] = useState([]);
 

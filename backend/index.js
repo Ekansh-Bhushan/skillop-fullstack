@@ -89,7 +89,7 @@ const server = app.listen(PORT, () => {
 
 const io = require("socket.io")(server, {
     cors: {
-        origin: ["http://localhost:4000", "https://skillop.in"],
+        origin: ["https://app.skillop.in", "https://skillop.in"],
     },
 });
 

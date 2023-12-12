@@ -14,7 +14,7 @@ const Admin = () => {
     const getApplicants = async () => {
         try {
             const { data } = await axios.get(
-                "http://localhost:4000/api/admin/get/applicants/for/mentor",
+                "https://app.skillop.in/api/admin/get/applicants/for/mentor",
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const Admin = () => {
     const getEligibleUsers = async () => {
         try {
             const { data } = await axios.get(
-                "http://localhost:4000/api/admin/get/elegible/for/mentor",
+                "https://app.skillop.in/api/admin/get/elegible/for/mentor",
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const Admin = () => {
         }
     };
 
-    const API = axios.create({ baseURL: "http://localhost:4000" });
+    const API = axios.create({ baseURL: "https://app.skillop.in" });
 
     const approveMentor = async (user_id) => {
         try {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:4000" });
+const API = axios.create({ baseURL: "https://app.skillop.in" });
 
 export const getNotifications = () => {
     const token = localStorage.getItem("skilloptoken");

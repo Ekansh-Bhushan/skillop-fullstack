@@ -68,7 +68,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
         console.log("meet data : ", data);
         try {
             const res = await axios.post(
-                "http://localhost:4000/api/mentor/meet/create-meet-event",
+                "https://app.skillop.in/api/mentor/meet/create-meet-event",
                 data,
                 config
             );
