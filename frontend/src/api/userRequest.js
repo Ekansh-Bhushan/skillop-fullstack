@@ -167,3 +167,8 @@ export const getProfileCompletionStatus = () => {
 
   return API.get(`/api/user/profile/completion/status`, config);
 };
+
+
+export const googleIdVerifyAndLogin = (data) => {
+  return API.post(`/api/user/signin/google`, data, { withCredentials: true });
+}

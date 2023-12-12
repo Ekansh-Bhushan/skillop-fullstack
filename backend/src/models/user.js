@@ -221,6 +221,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default: null,
     },
+
+    googleID: {
+        type: String,
+        default: null,
+    },
 });
 
 // Reset password token generation
