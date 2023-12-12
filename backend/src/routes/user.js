@@ -4,6 +4,7 @@ const {
     loginUser,
     logout,
     changePassword,
+    googleIdVerifyAndLogin,
 } = require("../controllers/userAuth");
 const { isAuthorised } = require("../middleware/auth");
 const {
