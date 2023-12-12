@@ -5,7 +5,12 @@ import Header1 from "../../components/Header/index";
 import coolimg from "./../images/efdwffw.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { getUser, googleIdVerifyAndLogin, loginUser, registerUser } from "../../api/userRequest";
+import {
+    getUser,
+    googleIdVerifyAndLogin,
+    loginUser,
+    registerUser,
+} from "../../api/userRequest";
 import { linkedInAuth } from "../../api/userRequest";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
@@ -165,6 +170,7 @@ function Page1({ setProgress, setUserData }) {
 
     const handleGoogleLoginSuccess = async (credentialResponse) => {
         const idToken = credentialResponse.credential;
+        console.log(idToken);
 
         const { data } = await googleIdVerifyAndLogin({ token: idToken });
         console.log(data);

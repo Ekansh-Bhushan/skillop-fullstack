@@ -11,9 +11,9 @@ import PostComp from "../PostComp";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import spinner from '../images/spinner.gif';
+import spinner from "../images/spinner.gif";
 
-const API = axios.create({ baseURL: "https://app.skillop.in" });
+const API = axios.create({ baseURL: "http://localhost:4000" });
 
 const Postlist = ({
     userData,
@@ -337,7 +337,9 @@ const Postlist = ({
                             />
                         ))}
                     <div ref={containerRef} style={{ height: "200px" }}>
-                        {loading && <img src={spinner} alt="Loading..." width={60} />}
+                        {loading && (
+                            <img src={spinner} alt="Loading..." width={60} />
+                        )}
                     </div>
                 </div>
             </div>

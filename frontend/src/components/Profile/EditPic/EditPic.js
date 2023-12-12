@@ -10,7 +10,7 @@ import { getUser } from "../../../api/userRequest";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 
-const API = axios.create({ baseURL: "https://app.skillop.in" });
+const API = axios.create({ baseURL: "http://localhost:4000" });
 
 function EditPic({ userData, setProgress }) {
     const [uploading, setUploading] = useState(false);

@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import "./IntroVideo.css";
 import spinner from "../../images/spinner.gif";
 
-const API = axios.create({ baseURL: "https://app.skillop.in" });
+const API = axios.create({ baseURL: "http://localhost:4000" });
 
 export const IntroVideoUploadApi = (data) => {
     // get token  from local storage
@@ -126,8 +126,8 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
                                         isEditClick
                                             ? uploadIntroVideo
                                             : () => {
-                                                setIsEditClick(true);
-                                            }
+                                                  setIsEditClick(true);
+                                              }
                                     }
                                 >
                                     {isEditClick ? "Upload" : "Edit"}
@@ -147,8 +147,8 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
                                         isEditClick
                                             ? uploadIntroVideo
                                             : () => {
-                                                setIsEditClick(true);
-                                            }
+                                                  setIsEditClick(true);
+                                              }
                                     }
                                 >
                                     {isEditClick ? "Upload" : "Add"}
