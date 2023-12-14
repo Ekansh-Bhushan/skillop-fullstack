@@ -4,6 +4,11 @@ import "./MiscNavBar.css";
 
 const MiscNavBar = () => {
 	const [currentPath, setCurrentPath] = useState(window.location.pathname);
+	const [ActiveMenu, setActiveMenu] = useState(false);
+
+	const handleMobileMenu = (e) => {
+		document.querySelector('.misc-right-nav').style.display = ActiveMenu ? "none" : "block";
+		setActiveMenu(!ActiveMenu)};
 
 	useEffect(() => {
 		setCurrentPath(window.location.pathname);
@@ -17,6 +22,7 @@ const MiscNavBar = () => {
 					<h2>SKILLOP</h2>
 				</a>
 			</div>
+
 			<div className='misc-right-nav'>
 				<ul>
 					<li className={currentPath === "/" ? "misc-active-menu" : ""}>
@@ -38,6 +44,13 @@ const MiscNavBar = () => {
 						<Link to='/faqs'>FAQs</Link>
 					</li>
 				</ul>
+			</div>
+			<div onClick={handleMobileMenu} className='misc-mobile-nav'>
+				<img
+					src={ActiveMenu ? "/cross.png" : "/menu.png"}
+					width={60}
+					alt='mobile menu'
+				/>
 			</div>
 		</div>
 	);

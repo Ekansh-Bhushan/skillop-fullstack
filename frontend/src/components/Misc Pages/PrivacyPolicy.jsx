@@ -12,22 +12,24 @@ const PrivacyPolicy = () => {
 					<center>Privacy Policy</center>
 				</h1>
 				<div className='pp-main-content'>
-				<p>Effective from 📅 1 Oct 2023</p>
+					<p>Effective from 📅 1 Oct 2023</p>
 					<div className='pp-head-para'>
 						<h2>1. Introduction 🙋‍♂️</h2>
 						<p>
-							<a href="https://skillop.in">Skillop.in</a> is a dynamic platform dedicated to connecting students
-							with mentors, fostering knowledge sharing, and enhancing learning
-							experiences. This Privacy Policy outlines our approach to handling
-							the personal information of our members and visitors.
+							<a href='https://skillop.in'>Skillop.in</a> is a dynamic platform
+							dedicated to connecting students with mentors, fostering knowledge
+							sharing, and enhancing learning experiences. This Privacy Policy
+							outlines our approach to handling the personal information of our
+							members and visitors.
 						</p>
 					</div>
 					<div className='pp-head-para'>
 						<h2>2. Scope and Application 🧾</h2>
 						<p>
-							This policy applies to all users of <a href="https://skillop.in">Skillop.in</a>, including
-							students, mentors, and visitors, across our website, mobile
-							applications, and related services.
+							This policy applies to all users of{" "}
+							<a href='https://skillop.in'>Skillop.in</a>, including students,
+							mentors, and visitors, across our website, mobile applications,
+							and related services.
 						</p>
 					</div>
 					<div className='pp-head-para'>
@@ -42,7 +44,8 @@ const PrivacyPolicy = () => {
 							and Technical Data: Information on how users interact with our
 							services, browser types, IP addresses, and device information.
 							Transaction and Billing Information: For users engaging in premium
-							services or transactions on <a href="https://skillop.in">Skillop.in</a>.
+							services or transactions on{" "}
+							<a href='https://skillop.in'>Skillop.in</a>.
 						</p>
 					</div>
 					<div className='pp-head-para'>
@@ -143,7 +146,7 @@ const PrivacyPolicy = () => {
 					</div>
 				</div>
 			</div>
-      <MiscFooter />
+			<MiscFooter />
 		</>
 	);
 };

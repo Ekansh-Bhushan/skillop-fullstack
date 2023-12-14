@@ -1,18 +1,24 @@
 .pp-container {
-  margin: 120px auto;
-  width: 66%;
-  font-size: 1.07rem;
-  word-spacing: 2px;
-  letter-spacing: 0.5px;
+	margin: 120px auto;
+	width: 66%;
+	font-size: 1.07rem;
+	word-spacing: 2px;
+	letter-spacing: 0.5px;
 }
 
 .pp-main-content {
-  margin-top: 30px;
+	margin-top: 30px;
 }
 
 .pp-head-para {
-  margin-top: 30px;
+	margin-top: 30px;
 }
 .pp-head-para h2 {
-  margin-bottom: 15px;
+	margin-bottom: 15px;
 }
+
+@media screen and (max-width: 600px) {
+  .pp-container {
+    width: 85%;
+  }
+} 
