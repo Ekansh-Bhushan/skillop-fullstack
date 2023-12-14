@@ -1173,7 +1173,7 @@ non-act {
   height: auto;
   width: 50%;
   background-color: transparent;
-  scrollbar-width: none;
+  scrollbar-width: 0px;
   /* Firefox */
   overflow-y: auto;
   -ms-overflow-style: none;
@@ -1181,7 +1181,8 @@ non-act {
 }
 
 .chat-friends-list > div {
-  overflow-y: auto;
+  overflow-y: scroll; /* Enable vertical scrollbar */
+  scrollbar-width: none; /* Hide the scrollbar for Firefox */
   position: fixed;
   top: 2rem;
   right: 5rem;
@@ -1190,9 +1191,9 @@ non-act {
   z-index: 1;
 }
 
-.chat-friends-list::-webkit-scrollbar {
-  display: none;
-  /* Hide the scrollbar for WebKit (Chrome, Safari, etc.) */
+/* For Webkit-based browsers */
+.chat-friends-list > div::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar for Webkit-based browsers */
 }
 
 .search-input {
@@ -1215,7 +1216,9 @@ non-act {
 }
 
 .chat-head {
-  margin: 20px 0px;
+  /* margin: 20px 0px; */
+  margin-top: 40px;
+  padding-left: 20px;
   position: fixed;
   top: 0.8vw;
   background: white;
@@ -1223,6 +1226,11 @@ non-act {
   height: 7vh;
   z-index: 100;
   border-bottom: 3px solid gray;
+}
+
+.spinner-css {
+  position: absolute;
+  left: 10vw;
 }
 @media screen and (max-width: 500px) {
   .chat-friends-list > div {
@@ -1249,11 +1257,14 @@ non-act {
   }
   .chat-head {
     /* display: none; */
-    top: 22vw;
+    top: 10vw;
     width: 100%;
-    padding-left: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
     padding-bottom: 0;
     margin-bottom: 0;
+    height: 6vh;
+
     /* background: red; */
   }
 

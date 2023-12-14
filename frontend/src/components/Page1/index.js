@@ -11,6 +11,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-hot-toast";
+import line from "./../images/Line.png";
 
 function Page1({ setProgress, setUserData }) {
   const navigate = useNavigate();
@@ -129,7 +130,7 @@ function Page1({ setProgress, setUserData }) {
     if (!isLogin) {
       setIsLogin(true);
       document.querySelector(".name").classList.add("hidethis");
-      document.querySelector(".Content-Head").innerHTML = "Welcome Back!";
+      document.querySelector(".Content-Head").innerHTML = "LOGIN";
       document.querySelector(".getstart button").innerHTML = "Login";
 
       document.querySelector(".already-reg").innerHTML =
@@ -147,7 +148,7 @@ function Page1({ setProgress, setUserData }) {
       setIsLogin(false);
 
       document.querySelector(".name").classList.remove("hidethis");
-      document.querySelector(".Content-Head").innerHTML = "Create Your Page";
+      document.querySelector(".Content-Head").innerHTML = "SIGN UP";
       document.querySelector(".getstart button").innerHTML = "Get Started";
 
       document.querySelector(".already-reg").innerHTML =
@@ -225,37 +226,11 @@ function Page1({ setProgress, setUserData }) {
 
           <div className="partition-on-pc"></div>
           <div className="main-form">
-            <div className="Content-Head">Create Your Account</div>
-
-            <div className="btns">
-              {/* <button
-                                className="linkedin-btn"
-                                onClick={handleLinkedInAuth}
-                            >
-                                <img src={linkedin} alt="LinkedIn Icon" />
-                                <div className="linkedin">Use LinkedIn</div>
-                            </button> */}
-              <button className="google-btn">
-                {/* <img src={google} alt="Google Icon" />
-                <div className="google">Use Google</div> */}
-                <GoogleOAuthProvider clientId="1017658767162-8qa8563dtl6h8d6q5n7or5506f6hhqf9.apps.googleusercontent.com">
-                  <GoogleLogin
-                    onSuccess={handleGoogleLoginSuccess}
-                    onError={() => {
-                      console.log("Login Failed");
-                    }}
-                  />
-                </GoogleOAuthProvider>
-              </button>
-            </div>
-            <div className="partition">
-              <div className="p1"></div>
-              <div className="or">Or</div>
-              <div className="p2"></div>
-            </div>
+            <div className="Content-Head"></div>
+            <img src={line} className="line" />
 
             <div className="name">
-              <div className="firstname">
+              <div className="input-wrapper">
                 <label htmlFor="fname">First Name</label>
                 <input
                   type="text"
@@ -264,7 +239,7 @@ function Page1({ setProgress, setUserData }) {
                   value={firstname}
                 />
               </div>
-              <div className="lastname">
+              <div className="input-wrapper">
                 <label htmlFor="lname">Last Name</label>
                 <input
                   type="text"
@@ -275,7 +250,7 @@ function Page1({ setProgress, setUserData }) {
               </div>
             </div>
             <div className="id">
-              <div className="email">
+              <div className="input-wrapper">
                 <label htmlFor="email">Email</label>
                 <input
                   type="email"
@@ -285,10 +260,9 @@ function Page1({ setProgress, setUserData }) {
                   value={email}
                 />
               </div>
-              <div className="pass">
+              <div className="input-wrapper">
                 <div style={{ gap: "20px", display: "flex" }}>
                   <label htmlFor="pass">Password</label>
-                  <a>/ Forget Password ?</a>
                 </div>
 
                 <div className="password-input-container">
@@ -331,6 +305,33 @@ function Page1({ setProgress, setUserData }) {
               <span onClick={openloginpage} className="functionhandler">
                 Login
               </span>
+            </div>
+            <div className="partition">
+              <div className="p1"></div>
+              <div className="or">Or</div>
+              <div className="p2"></div>
+            </div>
+
+            <div className="btns">
+              {/* <button
+                                className="linkedin-btn"
+                                onClick={handleLinkedInAuth}
+                            >
+                                <img src={linkedin} alt="LinkedIn Icon" />
+                                <div className="linkedin">Use LinkedIn</div>
+                            </button> */}
+              <button className="google-btn">
+                {/* <img src={google} alt="Google Icon" />
+                <div className="google">Use Google</div> */}
+                <GoogleOAuthProvider clientId="1017658767162-8qa8563dtl6h8d6q5n7or5506f6hhqf9.apps.googleusercontent.com">
+                  <GoogleLogin
+                    onSuccess={handleGoogleLoginSuccess}
+                    onError={() => {
+                      console.log("Login Failed");
+                    }}
+                  />
+                </GoogleOAuthProvider>
+              </button>
             </div>
           </div>
           <div className="partition-on-mob"></div>

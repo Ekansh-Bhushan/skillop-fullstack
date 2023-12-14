@@ -1,3 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.border-gradient {
+  /* Set box shadow to create a gradient effect */
+  box-shadow: 0 0 0 2px #f42e2e, 0 0 0 4px #ffb800, 0 0 0 6px #0eab00,
+    0 0 0 8px #25ced1;
+}
+
 .App {
   text-align: center;
 }
@@ -37,10 +47,7 @@
   }
 }
 
-
-
-body{font-family:'Ubuntu';background-color: gray;}
-
-
-
-
+body {
+  font-family: "Ubuntu";
+  background-color: gray;
+}

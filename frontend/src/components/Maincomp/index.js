@@ -1,5 +1,4 @@
 import React from "react";
-import Page1 from "../Page1/index";
 import Auth3Component from "../Page3";
 import Auth4Component from "../Page4";
 import Auth5Component from "../Page5";
@@ -36,6 +35,9 @@ import ChangePasswordPage from "../passwordChange/changepassword";
 import ResetPasswordPage from "../resetpassword/resetpassword";
 import ResetPasswordEmail from "../resetpassword/resetpasswordEmail";
 import Admin from "../Admin Panel/Admin";
+import PublicPost from "../PublicPost";
+import Page from "../../landing/Page";
+import Page1 from "../auth/Page1";
 
 function AuthPage({
   userData,
@@ -54,7 +56,9 @@ function AuthPage({
       {/* <SideNav /> */}
       {/* -----------------------------SIGN UP PAGES----------------------------- */}
       <Routes>
-        <Route path="/" element={<Page1 setProgress={setProgress} />} />
+        <Route path="/" element={<Page />} />
+        <Route path="/login" element={<Page1 />} />
+        <Route path="post/:postId" element={<PublicPost />} />
         {/* <Route path="/continue" element={<Auth2Component setProgress={setProgress}/>} /> */}
         <Route
           path="/skills"
@@ -367,12 +371,7 @@ function AuthPage({
           path="/editpic"
           element={<EditPic userData={userData} setProgress={setProgress} />}
         />
-        <Route
-          path="/admin"
-          element={<Admin />}
-        />
-
-        
+        <Route path="/admin" element={<Admin />} />
 
         {/* Add more routes if needed */}
       </Routes>

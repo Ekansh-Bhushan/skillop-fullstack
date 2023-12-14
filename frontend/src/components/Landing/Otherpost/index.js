@@ -170,7 +170,12 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
   return (
     <>
       {/* <Common setProgress={setProgress} /> */}
-      <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+      <SideNav
+        setProgress={setProgress}
+        Mentor={Mentor}
+        isFetched={isFetched}
+        notifyList={notifyList}
+      />
       <div className="main-content-landing">
         {post && (
           <div className="posting-on-landing">
@@ -234,7 +239,7 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 {post.imageUrls.length ? (
                   // post.imageUrls[0].toLowerCase().includes(".jpg") ||
                   //   post.imageUrls[0].toLowerCase().includes(".jpeg") ||
-                  //   post.imageUrls[0].toLowerCase().includes(".png") 
+                  //   post.imageUrls[0].toLowerCase().includes(".png")
                   isImage(post.imageUrls[currentMediaIndex]) ? (
                     <div
                       className="posted-img-container"
@@ -263,13 +268,18 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                         )}
                     </div>
                   ) : (
-                    <div style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "5px",
-                    }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "5px",
+                      }}
+                    >
                       {post.imageUrls.length > 1 && currentMediaIndex > 0 && (
-                        <span style={{ cursor: "pointer" }} onClick={handlePreviousMedia}>
+                        <span
+                          style={{ cursor: "pointer" }}
+                          onClick={handlePreviousMedia}
+                        >
                           <img height={32} width={32} src={back} alt="back" />
                         </span>
                       )}
@@ -281,11 +291,19 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                         title="Media Preview"
                         scrolling="no"
                         frameBorder="0"
-                        style={{ borderRadius: "15px", overflow: "hidden", border: "none", objectFit: "contain" }}
+                        style={{
+                          borderRadius: "15px",
+                          overflow: "hidden",
+                          border: "none",
+                          objectFit: "contain",
+                        }}
                       ></iframe>
                       {post.imageUrls.length > 1 &&
                         currentMediaIndex < post.imageUrls.length - 1 && (
-                          <span style={{ cursor: "pointer" }} onClick={handleNextMedia}>
+                          <span
+                            style={{ cursor: "pointer" }}
+                            onClick={handleNextMedia}
+                          >
                             <img height={28} width={28} src={next} alt="next" />
                           </span>
                         )}

@@ -3,16 +3,23 @@
 } */
 
 .chat-list {
-    height: 85vh;
-    position: relative;
-    top: 4vw;
+  height: 85vh;
+  position: relative;
+  top: 5vw;
+}
+
+@media screen and (max-width: 500px) {
+  .chat-list {
+    /* top: -10vw; */
+    height: 100vh;
+  }
 }
 
 .text-chat-prev {
-    position: relative;
-    top: 40vh;
-    left: 10vw;
-    text-align: center;
-    /* background: red; */
-    height: 100px;
+  position: relative;
+  top: 40vh;
+  left: 10vw;
+  text-align: center;
+  /* background: red; */
+  height: 100px;
 }

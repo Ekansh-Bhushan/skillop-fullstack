@@ -7,6 +7,7 @@ import { io } from "socket.io-client";
 import SideNav from "../../SideNav/SideNav";
 import Mobilecommonhead from "../../Mobilecommonhead";
 import "./chat.css";
+import spinner from "../../images/spinner.gif";
 
 function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
   // console.log(userData);
@@ -97,7 +98,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
   }, [redirect_chat_id, userData]);
 
   const handleChatClick = (chat) => {
-    document.querySelector('.text-chat-prev').style.display = 'none';
+    document.querySelector(".text-chat-prev").style.display = "none";
     setCurrentChat(chat);
     setShowChatbox(true);
 
@@ -136,9 +137,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
               />{" "}
             </div>
           )}
-          <h2
-           className="text-chat-prev"
-          >
+          <h2 className="text-chat-prev">
             {chats.length === 0
               ? "Follow someone to chat with him!"
               : "Please Select a User to Chat with!"}
@@ -159,16 +158,18 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 height={21}
                 width={21}
               /> */}
-              <hr
+              {/* <hr
                 style={{
                   height: "2px",
                   background: "black",
                   borderRadius: "20px",
                 }}
-              />
+              /> */}
 
               <div className="chat-list">
-                {chats.length > 0 &&
+                {chats.length === 0 ? (
+                  <img src={spinner} className="spinner-css" alt="loading" />
+                ) : (
                   chats.map((chat) => (
                     <div
                       // onClick={() => {
@@ -186,7 +187,27 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                         currentUser={userData._id}
                       />
                     </div>
-                  ))}
+                  ))
+                )}
+                {/* // {chats.length > 0 &&
+                //   chats.map((chat) => (
+                //     <div
+                //       // onClick={() => {
+                //       //   setCurrentChat(chat);
+                //       //   document.querySelector(".chatbox-messages").scrollTop =
+                //       //     document.querySelector(
+                //       //       ".chatbox-messages"
+                //       //     ).scrollHeight;
+                //       // }}
+                //       onClick={() => handleChatClick(chat)}
+                //     >
+                //       <Conversation
+                //         data={chat}
+                //         chatID={chat._id}
+                //         currentUser={userData._id}
+                //       />
+                //     </div>
+                //   ))} */}
               </div>
             </div>
           </div>
