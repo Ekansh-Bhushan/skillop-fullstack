@@ -11,7 +11,7 @@ import PostComp from "../PostComp";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import spinner from '../images/spinner.gif';
+import spinner from "../images/spinner.gif";
 
 const API = axios.create({ baseURL: "https://app.skillop.in" });
 
@@ -85,6 +85,9 @@ const Postlist = ({
             setProgress(30);
             const data = await createPost(formData);
             window.location.reload();
+
+            // Add this post to the posts state
+            setPosts((prevPosts) => [data.result, ...prevPosts]);
             // console.log(data);
             setProgress(100);
         } catch (error) {
@@ -337,7 +340,9 @@ const Postlist = ({
                             />
                         ))}
                     <div ref={containerRef} style={{ height: "200px" }}>
-                        {loading && <img src={spinner} alt="Loading..." width={60} />}
+                        {loading && (
+                            <img src={spinner} alt="Loading..." width={60} />
+                        )}
                     </div>
                 </div>
             </div>

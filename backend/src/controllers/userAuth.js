@@ -1,7 +1,7 @@
 const User = require("../models/user");
 const Notification = require("../models/notification");
 const NotificationType = require("../enums/notificationType");
-
+const { OAuth2Client } = require("google-auth-library");
 
 exports.registerUser = async (req, res) => {
     try {
@@ -57,7 +57,7 @@ exports.loginUser = async (req, res) => {
             res.status(400).send({
                 result: false,
                 err: "All fields are required",
-                message : "Please fill all the fields"
+                message: "Please fill all the fields",
             });
         }
 
@@ -156,7 +156,7 @@ exports.changePassword = async (req, res) => {
         // create a notification
         const notification = await Notification.create({
             message: "Password changed successfully",
-            type:NotificationType.PASSWORD_CHANGED,
+            type: NotificationType.PASSWORD_CHANGED,
         });
         res.status(200).send({
             result: true,
@@ -167,6 +167,75 @@ exports.changePassword = async (req, res) => {
             result: false,
             err: error.message,
             message: "internal server error",
+        });
+    }
+};
+
+exports.googleIdVerifyAndLogin = async (req, res) => {
+    try {
+        console.log(req.body);
+        const { token } = req.body;
+        const client = new OAuth2Client();
+        async function verify() {
+            const ticket = await client.verifyIdToken({
+                idToken: token,
+                audience:
+                    "1017658767162-8qa8563dtl6h8d6q5n7or5506f6hhqf9.apps.googleusercontent.com", // Specify the CLIENT_ID of the app that accesses the backend
+                // Or, if multiple clients access the backend:
+                //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+            });
+            const payload = ticket.getPayload();
+            const userid = payload["sub"];
+            // If request specified a G Suite domain:
+            // const domain = payload['hd'];
+            console.log(userid);
+            const email = payload.email;
+            const name = payload.name;
+            const user = await User.findOne({ email });
+            // put a random password
+            if (!user) {
+                const newUser = await User.create({
+                    firstname: name.split(" ")[0],
+                    lastname: name.split(" ")[1],
+                    email,
+                    googleID: userid,
+                    password: "sdf@swaroop[1234]",
+                });
+                const options = {
+                    expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+                    httpOnly: true,
+                };
+
+                const token = await newUser.generateToken();
+
+                res.status(201).cookie("token", token, options).send({
+                    message: "User logged in successfully",
+                    result: newUser,
+                    token,
+                    type: "new",
+                });
+            } else {
+                const options = {
+                    expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+                    httpOnly: true,
+                };
+
+                const token = await user.generateToken();
+
+                return res.status(201).cookie("token", token, options).send({
+                    message: "User logged in successfully",
+                    result: user,
+                    token,
+                    type: "old",
+                });
+            }
+        }
+
+        const data = await verify();
+    } catch (error) {
+        res.status(500).send({
+            result: false,
+            err: error.message,
         });
     }
 };

@@ -24,11 +24,25 @@ connectDB();
 //     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 //     credentials: true,
 // };
-app.use(
-    cors({
-        origin: ["https://app.skillop.in", "https://skillop.in", "http://localhost:3000", "https://skillop-fullstack.vercel.app"],
-    })
-);
+const allowedOrigins = [
+    "https://app.skillop.in",
+    "https://skillop.in",
+    "http://localhost:4000",
+    "http://localhost:3000",
+];
+
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true,
+};
+
+app.use("*", cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -87,7 +101,8 @@ const server = app.listen(PORT, () => {
 
 const io = require("socket.io")(server, {
     cors: {
-        origin: ["https://app.skillop.in", "https://skillop.in"],
+        origin: allowedOrigins,
+        credentials: true, // if needed
     },
 });
 

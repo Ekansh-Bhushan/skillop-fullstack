@@ -414,10 +414,10 @@ exports.acceptMeet = async (req, res) => {
             link: "",
             __created: new Date(
                 new Date(meet.date).getTime() +
-                ((meet.s / 100) * 60 + (meet.s % 100)) * 60 * 100 -
-                (process.env.DEFAULT_TIME_MEET_NOTIFICATION | 10) *
-                60 *
-                1000
+                    ((meet.s / 100) * 60 + (meet.s % 100)) * 60 * 100 -
+                    (process.env.DEFAULT_TIME_MEET_NOTIFICATION | 10) *
+                        60 *
+                        1000
             ),
         });
         notificationMentor.save();
@@ -429,10 +429,10 @@ exports.acceptMeet = async (req, res) => {
             link: "",
             __created: new Date(
                 new Date(meet.date).getTime() +
-                ((meet.s / 100) * 60 + (meet.s % 100)) * 60 * 100 -
-                (process.env.DEFAULT_TIME_MEET_NOTIFICATION | 10) *
-                60 *
-                1000
+                    ((meet.s / 100) * 60 + (meet.s % 100)) * 60 * 100 -
+                    (process.env.DEFAULT_TIME_MEET_NOTIFICATION | 10) *
+                        60 *
+                        1000
             ),
         });
         notificationMentee.save();
@@ -715,10 +715,10 @@ exports.getUpcommingMeet = async (req, res) => {
                     if (
                         meet.date == new Date().toISOString().split("T")[0] &&
                         meet.e <
-                        convertFromNormalTime(
-                            new Date().getHours(),
-                            new Date().getMinutes()
-                        )
+                            convertFromNormalTime(
+                                new Date().getHours(),
+                                new Date().getMinutes()
+                            )
                     )
                         continue;
                     meetRequestsObj[date].push(meet);
@@ -830,10 +830,10 @@ exports.getPendingMeet = async (req, res) => {
                     if (
                         meet.date == new Date().toISOString().split("T")[0] &&
                         meet.e <
-                        convertFromNormalTime(
-                            new Date().getHours(),
-                            new Date().getMinutes()
-                        )
+                            convertFromNormalTime(
+                                new Date().getHours(),
+                                new Date().getMinutes()
+                            )
                     )
                         continue;
                     meetRequestsObj[date].push(meet);
@@ -1057,7 +1057,7 @@ exports.setDataForMentor = async (req, res) => {
 const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
-    ' https://app.skillop.in'
+    " https://app.skillop.in"
 );
 
 const REFRESH_TOKEN = null;
@@ -1068,45 +1068,44 @@ exports.createToken = async (req, res) => {
         const response = await oauth2Client.getToken(code);
         REFRESH_TOKEN = response.tokens.refresh_token;
         res.send(response);
-    }
-    catch (err) {
+    } catch (err) {
         res.send(err);
     }
-}
+};
 
 exports.createMeetEvent = async (req, res) => {
     try {
         // FOR CREATING CALENDAR EVENT WITH MEET LINK ATTACHED
-        const { summary, description, location, startDateTime, endDateTime } = req.body;
-        oauth2Client.setCredentials({ refresh_token: REFRESH_TOKEN })
-        const calendar = google.calendar('v3');
+        const { summary, description, location, startDateTime, endDateTime } =
+            req.body;
+        oauth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+        const calendar = google.calendar("v3");
         const resp = calendar.events.insert({
             auth: oauth2Client,
-            calendarId: 'primary',
+            calendarId: "primary",
             requestBody: {
                 summary,
                 description,
                 location,
                 start: {
                     dateTime: new Date(startDateTime),
-                    timeZone: 'asia/kolkata'
+                    timeZone: "asia/kolkata",
                 },
                 end: {
                     dateTime: new Date(endDateTime),
-                    timeZone: 'asia/kolkata'
+                    timeZone: "asia/kolkata",
                 },
                 conferenceData: {
                     createRequest: {
-                        requestId: "my_skillop_meet"+Math.random().toString(),
-                        conferenceSolutionKey: {type: "hangoutsMeet"}
+                        requestId: "my_skillop_meet" + Math.random().toString(),
+                        conferenceSolutionKey: { type: "hangoutsMeet" },
                     },
-                }
+                },
             },
-            conferenceDataVersion: 1
+            conferenceDataVersion: 1,
         });
         res.send(resp);
-    }
-    catch (err) {
+    } catch (err) {
         res.send(err);
     }
-}
+};

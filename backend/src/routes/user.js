@@ -4,6 +4,7 @@ const {
     loginUser,
     logout,
     changePassword,
+    googleIdVerifyAndLogin,
 } = require("../controllers/userAuth");
 const { isAuthorised } = require("../middleware/auth");
 const {
@@ -97,4 +98,6 @@ router.route("/user/introVideo/delete").delete(isAuthorised, deleteIntroVideo);
 router
     .route("/user/profile/completion/status")
     .get(isAuthorised, checkProfileComplition);
+
+router.route("/user/signin/google").post(googleIdVerifyAndLogin);
 module.exports = router;
