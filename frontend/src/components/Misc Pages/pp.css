@@ -1,0 +1,16 @@
+.pp-container {
+  margin: 120px auto;
+  width: 60%;
+  font-size: 1.05rem;
+}
+
+.pp-main-content {
+  margin-top: 30px;
+}
+
+.pp-head-para {
+  margin-top: 30px;
+}
+.pp-head-para h2 {
+  margin-bottom: 15px;
+}

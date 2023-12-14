@@ -1,0 +1,33 @@
+.misc-navbar-conatiner {
+	display: flex;
+	justify-content: space-around;
+  align-items: center;
+	padding: 15px 20px;
+	background: rgb(236, 235, 235);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.misc-logo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.misc-right-nav > ul {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.misc-right-nav li a {
+  text-decoration: none;
+  font-size: 1.09rem;
+	cursor: pointer;
+  color: black;
+}
+
+.misc-right-nav li a:hover {
+  font-weight: bold;
+}
