@@ -1,7 +1,9 @@
 .pp-container {
   margin: 120px auto;
-  width: 60%;
-  font-size: 1.05rem;
+  width: 66%;
+  font-size: 1.07rem;
+  word-spacing: 2px;
+  letter-spacing: 0.5px;
 }
 
 .pp-main-content {

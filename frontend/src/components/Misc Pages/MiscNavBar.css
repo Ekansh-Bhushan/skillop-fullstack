@@ -15,6 +15,11 @@
 	align-items: center;
 }
 
+.misc-logo a {
+  text-decoration: none;
+  color: black;
+}
+
 .misc-right-nav > ul {
 	display: flex;
 	justify-content: space-between;
@@ -30,4 +35,12 @@
 
 .misc-right-nav li a:hover {
   font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 3px solid black;
+}
+
+.misc-active-menu a{
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 3px solid black;
 }

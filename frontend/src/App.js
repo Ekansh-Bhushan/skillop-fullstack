@@ -24,6 +24,7 @@ function App() {
                 setUserData(data.result);
                 setMentor(data.result.isMentor);
                 setIsFetched(true);
+
             } catch (err) {
                 if (!err.response.data.result) {
                     localStorage.removeItem("skilloptoken");
@@ -43,8 +44,10 @@ function App() {
                 console.log("Unable to fetch notifications", err);
             }
         };
-        fetchUser();
-        fetchNotifications();
+        if (localStorage.getItem("skilloptoken")) {
+            fetchUser();
+            fetchNotifications();
+        }
     }, []);
 
 

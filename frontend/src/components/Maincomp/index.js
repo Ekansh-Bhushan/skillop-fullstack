@@ -37,6 +37,9 @@ import ResetPasswordPage from "../resetpassword/resetpassword";
 import ResetPasswordEmail from "../resetpassword/resetpasswordEmail";
 import Admin from "../Admin Panel/Admin";
 import PrivacyPolicy from "../Misc Pages/PrivacyPolicy";
+import About from "../Misc Pages/About";
+import Contact from "../Misc Pages/Contact";
+import Faqs from "../Misc Pages/Faqs";
 
 function AuthPage({
   userData,
@@ -374,6 +377,9 @@ function AuthPage({
         />
 
         <Route path="/privacy-policy" element={<PrivacyPolicy />}/>
+        <Route path="/about" element={<About />}/>
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="/faqs" element={<Faqs />}/>
         
 
         {/* Add more routes if needed */}

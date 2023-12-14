@@ -4,9 +4,7 @@ import './MiscFooter.css'
 const MiscFooter = () => {
   return (
 		<div className='misc-footer-container'>
-			<center>
-				<p>&copy; 2023 SKILLOP. All Rights Reserved.</p>
-			</center>
+			<center><p>&copy; 2023 SKILLOP.IN &nbsp; All Rights Reserved.</p></center>
 		</div>
 	);
 }
