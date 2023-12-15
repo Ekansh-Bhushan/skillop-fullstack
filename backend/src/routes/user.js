@@ -24,6 +24,8 @@ const {
     getFollowings,
     editEducation,
     editExperence,
+    getUserByUsername,
+    setUsername,
 } = require("../controllers/userProfile");
 const {
     resetPassword,
@@ -100,4 +102,6 @@ router
     .get(isAuthorised, checkProfileComplition);
 
 router.route("/user/signin/google").post(googleIdVerifyAndLogin);
+
+router.route("/user/username/:username").get(getUserByUsername);
 module.exports = router;

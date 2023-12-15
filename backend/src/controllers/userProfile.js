@@ -1,5 +1,23 @@
 const User = require("../models/user");
 const Mentor = require("../models/mentor");
+const {
+    response_500,
+    response_200,
+    response_404,
+    response_400,
+} = require("../utils/responseCode.utils");
+
+exports.getUserByUsername = async (req, res) => {
+    try {
+        const username = req.params.username;
+        if (!username) return response_400(res, "Please, provide username");
+        const user = await User.findOne({ username: username });
+        if (!user) return response_404(res, "User not found!");
+        response_200(res, "User fatched successfully", user);
+    } catch (error) {
+        response_500(res, "Internal Server Error", err);
+    }
+};
 
 exports.updateProfile = async (req, res) => {
     try {
@@ -20,6 +38,7 @@ exports.updateProfile = async (req, res) => {
             futurePlans,
             pastExp,
             googleRefreshToken,
+            username,
         } = req.body;
         // need to verify if this email is valid or not
         if (googleRefreshToken) user.googleRefreshToken = googleRefreshToken;
@@ -94,6 +113,25 @@ exports.updateProfile = async (req, res) => {
 
         if (futurePlans) user.futurePlans = futurePlans;
         if (pastExp) user.pastExp = pastExp;
+
+        if (username) {
+            // Validate username
+            if (!/^[a-zA-Z0-9_]{3,}$/.test(username)) {
+                return res.status(400).send({
+                    result: false,
+                    err: "Invalid username",
+                    message: "Invalid username",
+                });
+            }
+            // Check if username is already taken or not
+            const userWithThisNewUsername = await User.findOne({
+                username: username,
+            });
+            if (userWithThisNewUsername)
+                return response_400(res, "Username already taken!");
+
+            user.username = username;
+        }
 
         if (education && education.length > 0) {
             if (!user.education) user.education = [];

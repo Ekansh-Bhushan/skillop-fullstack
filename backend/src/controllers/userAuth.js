@@ -2,6 +2,7 @@ const User = require("../models/user");
 const Notification = require("../models/notification");
 const NotificationType = require("../enums/notificationType");
 const { OAuth2Client } = require("google-auth-library");
+const generateUsername = require("../utils/generateUsername.utils");
 
 exports.registerUser = async (req, res) => {
     try {
@@ -23,12 +24,17 @@ exports.registerUser = async (req, res) => {
                 message: "Try logging in instead",
             });
         }
+        console.log("email", email);
+
+        const username = await generateUsername(email, firstname, lastname, 10);
+        console.log("username", username);
 
         user = await User.create({
             firstname,
             lastname,
             email,
             password,
+            username,
         });
 
         const options = {
@@ -179,8 +185,7 @@ exports.googleIdVerifyAndLogin = async (req, res) => {
         async function verify() {
             const ticket = await client.verifyIdToken({
                 idToken: token,
-                audience:
-                    "1017658767162-8qa8563dtl6h8d6q5n7or5506f6hhqf9.apps.googleusercontent.com", // Specify the CLIENT_ID of the app that accesses the backend
+                audience: process.env.GOOGLE_CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
                 // Or, if multiple clients access the backend:
                 //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
             });
