@@ -7,7 +7,8 @@
         "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
         "start": "node backend/index.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon backend/index.js && cd frontend && npm start"
+        "dev": "nodemon backend/index.js && cd frontend && npm start",
+        "backdev": "nodemon backend/index.js"
     },
     "repository": {
         "type": "git",
@@ -18,5 +19,8 @@
     "bugs": {
         "url": "https://github.com/basir/mern-amazona/issues"
     },
-    "homepage": "https://github.com/basir/mern-amazona#readme"
+    "homepage": "https://github.com/basir/mern-amazona#readme",
+    "devDependencies": {
+        "jest": "^29.7.0"
+    }
 }

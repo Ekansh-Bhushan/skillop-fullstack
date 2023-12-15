@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const User = require("./user");
+const getHashTags = require("../utils/getHashTags");
+const getUsername = require("../utils/getUsername");
 
 const PostSchema = mongoose.Schema({
     __created: {
@@ -17,6 +20,15 @@ const PostSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    hashtags: {
+        type: [String],
+    },
+    mentions: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "users",
+        },
+    ],
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "users",
@@ -55,6 +67,15 @@ const PostSchema = mongoose.Schema({
             ref: "users",
         },
     ],
+});
+
+PostSchema.pre("save", async function (next) {
+    this.hashtags = getHashTags(this.title);
+    const mentionedUsers = getUsername(this.title);
+    console.log(mentionedUsers, "mentionedUsers");
+    const users = await User.find({ username: { $in: mentionedUsers } });
+    this.mentions = users.map((user) => user._id);
+    return next();
 });
 
 module.exports = mongoose.model("posts", PostSchema);

@@ -4,6 +4,14 @@ const Comment = require("../models/comment");
 const Notification = require("../models/notification");
 const NotificationType = require("../enums/notificationType");
 const path = require("path");
+const getHashTags = require("../utils/getHashTags");
+const getUsername = require("../utils/getUsername");
+const { response } = require("express");
+const {
+    response_500,
+    response_200,
+    response_400,
+} = require("../utils/responseCode.utils");
 exports.createPost = async (req, res) => {
     try {
         console.log(req.body);
@@ -33,6 +41,12 @@ exports.createPost = async (req, res) => {
 
         // if(req.file.fieldname == "imageUrl") newPostData.imageUrl = req.file.filename;
 
+        // For storing hashtags and mentions
+        // newPostData.hashtags = getHashTags(newPostData.title);
+        // usernames = getUsername(newPostData.title);
+        // const mentionedUsers = await User.find({ username: usernames });
+        // newPostData.mentions = mentionedUsers.map((user) => user._id);
+
         const newPost = new Post(newPostData);
         console.log(newPost);
         newPost.save();
@@ -55,7 +69,7 @@ exports.createPost = async (req, res) => {
         for (let i = 0; i < followers.length; i++) {
             const follower = await User.findById({ _id: followers[i] });
             //send the above notification
-            if(follower._id.toString() === user._id.toString()) continue;
+            if (follower._id.toString() === user._id.toString()) continue;
             follower.notifications.push(notification._id);
             await follower.save();
         }
@@ -374,7 +388,7 @@ exports.getPostsFromAll = async (req, res) => {
     try {
         const limit = parseInt(req.query.limit | "10");
         const skip = parseInt(req.query.skip | "0");
-        console.log(limit, skip)
+        console.log(limit, skip);
         // query the post and populate the author and comments and sort by date created and show latest first
         const post = await Post.find()
             .populate("author comments")
@@ -445,5 +459,16 @@ exports.updatePost = async (req, res) => {
             result: false,
             err: error.message,
         });
+    }
+};
+
+exports.getPostsFromHashtag = async (req, res) => {
+    try {
+        const hashtag = req.params.hashtag;
+        if (!hashtag) return response_400(res, "Hashtag is required");
+        const post = await Post.find({ hashtags: hashtag });
+        response_200(res, "Posts fetched successfully", post);
+    } catch (error) {
+        response_500(res, "Internal server error", error);
     }
 };

@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { MENTOR_STATUS } = require("../enums/mentorStatus");
+const getHashTags = require("../utils/getHashTags");
 
 const UserSchema = new mongoose.Schema({
     // Auto Created each time a user is created
@@ -15,22 +16,22 @@ const UserSchema = new mongoose.Schema({
     firstname: {
         type: String,
         required: [true, "first name is required"],
-        validate: {
-            validator: function (v) {
-                return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
-            },
-            message: (name) => `${name.value} is not a valid name!`,
-        },
+        // validate: {
+        //     validator: function (v) {
+        //         return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
+        //     },
+        //     message: (name) => `${name.value} is not a valid name!`,
+        // },
     },
     lastname: {
         type: String,
         required: [true, "last name is required"],
-        validate: {
-            validator: function (v) {
-                return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
-            },
-            message: (name) => `${name.value} is not a valid name!`,
-        },
+        // validate: {
+        //     validator: function (v) {
+        //         return /^[a-zA-Z ]+$/.test(v); // Basic name format validation
+        //     },
+        //     message: (name) => `${name.value} is not a valid name!`,
+        // },
     },
     email: {
         type: String,
@@ -43,6 +44,12 @@ const UserSchema = new mongoose.Schema({
             },
             message: (email) => `${email.value} is not a valid email address!`,
         },
+    },
+    username: {
+        type: String,
+    },
+    hashtags: {
+        type: [String],
     },
     password: {
         type: String,
@@ -246,6 +253,10 @@ UserSchema.methods.generatePasswordReset = function () {
 
 // Password Hashing
 UserSchema.pre("save", async function (next) {
+    if (this.isModified("about")) {
+        this.hashtags = getHashTags(this.about);
+        return next();
+    }
     if (!this.isModified("password")) return next();
     this.password = await bcrypt.hash(this.password, 10);
     next();
