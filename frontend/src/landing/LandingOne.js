@@ -4,9 +4,9 @@ import line from "../components/images/Line.png";
 
 const LandingOne = () => {
   return (
-    <div className="flex justify-evenly items-center ml-[20vh] max-h-[90vh]">
+    <div className="flex justify-evenly items-center ml-[20vh] max-h-[90vh] md:mx-5 md:mb-[8vh]">
       <div className="flex flex-col ">
-        <h1 class="text-[55px] font-medium ">
+        <h1 class="text-[55px] font-medium md:text-[40px] my-5">
           Shuru se{" "}
           <span class="font-black relative">
             Shuruwat <img src={line} className="h-2 " />
@@ -20,14 +20,14 @@ const LandingOne = () => {
           in the field of technology.
         </p>
         <div className="flex gap-5 mt-5">
-          <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold">
+          <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold md:px-5">
             Get Started
           </button>
-          <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold">
+          <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold md:px-5">
             Learn More
           </button>
         </div>
-        <div className="text-[45px] text-[#5F5F5F] flex gap-5 mt-20">
+        <div className="text-[45px] text-[#5F5F5F] flex gap-5 mt-20 md:text-[30px] md:mt-10">
           <div className="flex flex-col items-center justify-center">
             50+ <span className="font-semi-bold text-[18px]">Mentors</span>
           </div>
@@ -42,7 +42,7 @@ const LandingOne = () => {
           </div>
         </div>
       </div>
-      <div className="flex shrink-0">
+      <div className="flex shrink-0 md:hidden">
         <img src={landingelement} className="block  h-auto" />
       </div>
     </div>
