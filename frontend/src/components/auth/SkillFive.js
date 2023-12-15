@@ -4,7 +4,7 @@ import doodle1 from "../../components/images/doodle-6 1.png";
 import doodle2 from "../../components/images/doodle-7 1.png";
 import Saly from "../../components/images/Saly-26.png";
 
-const SkillFour = () => {
+const SkillFive = () => {
   return (
     <div>
       <Nav />
@@ -15,7 +15,7 @@ const SkillFour = () => {
         <h1 className="text-[40px] mb-5 mt-[8vh] font-bold">
           Complete Your Profile
         </h1>
-        <div className="flex items-center gap-[10vh]">
+        <div className="flex items-start gap-[10vh] ">
           <div className="flex items-start justify-center flex-col text-xl gap-8 mt-3 font-normal">
             <span>Personal Information</span>
             <span>Contact Information</span>
@@ -74,6 +74,43 @@ const SkillFour = () => {
                 />
               </div>
             </div>
+            <label className="mb-2 text-lg font-bold">Job Title</label>
+            <input
+              type="text"
+              placeholder="job title"
+              className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4"
+            />
+            <label className="mb-2 text-lg font-bold">Comapany Name</label>
+            <input
+              type="text"
+              placeholder="company name"
+              className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4"
+            />
+            <label className="mb-2 text-lg font-bold">Job Description</label>
+            <input
+              type="text"
+              placeholder="job description"
+              className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4"
+            />
+
+            <div className="flex justify-between w-[118%]">
+              <div className="flex-1">
+                <label className="mb-2 text-lg font-bold">Start Year</label>
+                <input
+                  type="text"
+                  placeholder="Start Year"
+                  className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="mb-2 text-lg font-bold">End Year</label>
+                <input
+                  type="text"
+                  placeholder="End Year"
+                  className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4"
+                />
+              </div>
+            </div>
 
             <div className="flex justify-end">
               <button className="font-bold py-2 px-4 rounded-3xl border-[2px] border-black">
@@ -87,4 +124,4 @@ const SkillFour = () => {
   );
 };
 
-export default SkillFour;
+export default SkillFive;

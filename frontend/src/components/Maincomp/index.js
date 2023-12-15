@@ -47,6 +47,9 @@ import About from "../Misc Pages/About";
 import Contact from "../Misc Pages/Contact";
 import PrivacyPolicy from "../Misc Pages/PrivacyPolicy";
 import Faqs from "../Misc Pages/Faqs";
+import SkillFive from "../auth/SkillFive";
+import SkillSix from "../auth/SkillSix";
+import SkillSeven from "../auth/SkillSeven";
 
 function AuthPage({
   userData,
@@ -72,6 +75,9 @@ function AuthPage({
         <Route path="/skill2" element={<SkillTwo />} />
         <Route path="/skill3" element={<SkillThree />} />
         <Route path="/skill4" element={<SkillFour />} />
+        <Route path="/skill5" element={<SkillFive />} />
+        <Route path="/skill6" element={<SkillSix />} />
+        <Route path="/skill7" element={<SkillSeven />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
