@@ -38,6 +38,15 @@ import Admin from "../Admin Panel/Admin";
 import PublicPost from "../PublicPost";
 import Page from "../../landing/Page";
 import Page1 from "../auth/Page1";
+import Login from "../auth/Login";
+import SkillOne from "../auth/SkillOne";
+import SkillTwo from "../auth/SkillTwo";
+import SkillThree from "../auth/SkillThree";
+import SkillFour from "../auth/SkillFour";
+import About from "../Misc Pages/About";
+import Contact from "../Misc Pages/Contact";
+import PrivacyPolicy from "../Misc Pages/PrivacyPolicy";
+import Faqs from "../Misc Pages/Faqs";
 
 function AuthPage({
   userData,
@@ -57,7 +66,16 @@ function AuthPage({
       {/* -----------------------------SIGN UP PAGES----------------------------- */}
       <Routes>
         <Route path="/" element={<Page />} />
-        <Route path="/login" element={<Page1 />} />
+        <Route path="/signup" element={<Page1 />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/skill1" element={<SkillOne />} />
+        <Route path="/skill2" element={<SkillTwo />} />
+        <Route path="/skill3" element={<SkillThree />} />
+        <Route path="/skill4" element={<SkillFour />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/faqs" element={<Faqs />} />
         <Route path="post/:postId" element={<PublicPost />} />
         {/* <Route path="/continue" element={<Auth2Component setProgress={setProgress}/>} /> */}
         <Route

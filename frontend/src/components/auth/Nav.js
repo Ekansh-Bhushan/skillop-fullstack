@@ -8,9 +8,9 @@ const Nav = () => {
         <div className="flex items-center justify-center gap-3">
           {" "}
           <img src={coolimg} />
-          <h1 className="font-bold text-lg">SKILLOP</h1>
+          <h1 className="font-bold text-2xl">SKILLOP</h1>
         </div>
-        <div className="flex gap-5 hidden">
+        <div className=" gap-5 hidden">
           <button className="py-2 px-9 rounded-xl text-sm font-bold shadow-md bg-[#FFB800]">
             Sign Up
           </button>
