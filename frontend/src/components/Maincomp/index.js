@@ -50,6 +50,15 @@ import Faqs from "../Misc Pages/Faqs";
 import SkillFive from "../auth/SkillFive";
 import SkillSix from "../auth/SkillSix";
 import SkillSeven from "../auth/SkillSeven";
+import Mlogin from "../mobileauth/Mlogin";
+import Msignup from "../mobileauth/Msignup";
+import MPersonal from "../mobileauth/MPersonal";
+import MContact from "../mobileauth/MContact";
+import MSkills from "../mobileauth/MSkills";
+import MStudentInfo from "../mobileauth/MStudentInfo";
+import MProfInformation from "../mobileauth/MProfInformation";
+import Cover from "../mobileauth/Cover";
+import Social from "../mobileauth/Social";
 
 function AuthPage({
   userData,
@@ -69,6 +78,15 @@ function AuthPage({
       {/* -----------------------------SIGN UP PAGES----------------------------- */}
       <Routes>
         <Route path="/" element={<Page />} />
+        <Route path="/mlogin" element={<Mlogin />} />
+        <Route path="/msignup" element={<Msignup />} />
+        <Route path="/mpersonal" element={<MPersonal />} />
+        <Route path="/mcontact" element={<MContact />} />
+        <Route path="/mskill" element={<MSkills />} />
+        <Route path="/mstudinfo" element={<MStudentInfo />} />
+        <Route path="/mprofinfo" element={<MProfInformation />} />
+        <Route path="/mcover" element={<Cover />} />
+        <Route path="/msocial" element={<Social />} />
         <Route path="/signup" element={<Page1 />} />
         <Route path="/login" element={<Login />} />
         <Route path="/skill1" element={<SkillOne />} />
