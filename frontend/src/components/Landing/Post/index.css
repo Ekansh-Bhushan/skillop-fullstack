@@ -1008,20 +1008,22 @@ non-act {
 
 .chatting {
   width: 100%;
-  height: 100%;
+  height: 95vh;
   border-radius: 30px;
   background-color: white;
+  /* border-inline: 1px solid; */
 }
 
 .chat-user-details {
   height: 60px;
-  width: calc(100% -10px);
+  width: 100%;
   display: flex;
   align-items: center;
   position: relative;
   gap: 5px;
   background-color: rgb(255, 255, 255);
   padding: 10px 20px 10px 20px;
+  border-bottom: 1px solid #00000026;
 }
 
 .verticall {
@@ -1094,12 +1096,12 @@ non-act {
   /* Internet Explorer and Edge */
   position: relative;
   /* background: rgb(245, 245, 245); */
-  background-image: url("/public/chatBG.jpeg");
+  /* background-image: url("/public/chatBG.jpeg"); */
   background-position: center;
   background-size: cover;
   overflow: scroll;
   border-radius: 20px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 .chatbox-messages::-webkit-scrollbar {
@@ -1143,8 +1145,8 @@ non-act {
   box-shadow: 0px 0px 5px gray;
   font-size: 1.1rem;
   font-family: ubuntu;
-  padding: 15px 15px;
-  height: 20px;
+  /* padding: 6px 6px; */
+  height: 50px;
   resize: none;
   overflow-y: hidden;
 }
@@ -1184,11 +1186,13 @@ non-act {
   overflow-y: scroll; /* Enable vertical scrollbar */
   scrollbar-width: none; /* Hide the scrollbar for Firefox */
   position: fixed;
-  top: 2rem;
+  top: 0rem;
   right: 5rem;
   background: white;
   width: 26%;
+  height: 100%;
   z-index: 1;
+  border-inline: 1px solid #00000026;
 }
 
 /* For Webkit-based browsers */
@@ -1284,13 +1288,13 @@ non-act {
   padding: 1.7rem;
   padding-left: 1rem;
   height: 20px;
-  gap: 8px;
-  background-color: rgb(255, 255, 255);
+  gap: 12px;
+  /* background-color: rgb(255, 255, 255); */
   border-radius: 13px;
 }
 
 .user-section:hover {
-  background: rgba(255, 184, 0, 0.2);
+  /* background-color: #8484841a; */
   cursor: pointer;
 }
 
@@ -1299,8 +1303,12 @@ non-act {
 }
 
 .chats-user {
-  padding: 3px 0px;
-  border-bottom: 0.5px solid gray;
+  padding: 13px 5px;
+  border-bottom: 0.5px solid #00000026;
+  /* margin-top: 100px; */
+}
+.chats-user:hover {
+  background-color: #8484841a;
   /* margin-top: 100px; */
 }
 

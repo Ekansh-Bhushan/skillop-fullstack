@@ -144,20 +144,25 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
           </h2>
           <div className="chat-friends-list">
             <div>
-              <h2 className="chat-head">Chats</h2>
-              {/* <input
-                className="search-input"
-                type="text"
-                placeholder="Search chats..."
-              />
+              {/* <h2 className="chat-head">Chats</h2> */}
+              <div className="relative flex items-center justify-center mt-5 flex-col border-b-2 pb-5">
+                <input
+                  className="bg-[#84848426] border-0 rounded-3xl w-[90%] py-3 px-5"
+                  type="text"
+                  placeholder="Search"
+                />
 
-              <img
-                className="search-img"
-                src="/search.png"
-                alt="search"
-                height={21}
-                width={21}
-              /> */}
+                <img
+                  className="absolute top-3 right-10"
+                  src="/search.png"
+                  alt="search"
+                  height={21}
+                  width={21}
+                />
+                <span className="text-start w-[80%] ml-[0%] text-xl mt-5">
+                  Recents
+                </span>
+              </div>
               {/* <hr
                 style={{
                   height: "2px",

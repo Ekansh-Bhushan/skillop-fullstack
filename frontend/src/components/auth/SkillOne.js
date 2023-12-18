@@ -3,11 +3,13 @@ import Nav from "./Nav";
 import doodle1 from "../../components/images/doodle-6 1.png";
 import doodle2 from "../../components/images/doodle-7 1.png";
 import Saly from "../../components/images/Saly-26.png";
+import ProgressBar from "./ProgressBar";
 
 const SkillOne = () => {
   return (
     <div>
       <Nav />
+      <ProgressBar />
 
       <div className="flex items-start flex-col ml-[35vh] z-50">
         <h1 className="text-[40px] mb-5 mt-[8vh] font-bold">

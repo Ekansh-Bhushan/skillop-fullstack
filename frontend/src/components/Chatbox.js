@@ -245,13 +245,13 @@ const Chatbox = ({
           </p>
         </div>
       )}
-      <div className="message-send-bar">
+      <div className="message-send-bar border-t-[1px]">
         {chat && (
-          <textarea
+          <input
             placeholder="Type Here...."
             value={newMessage}
             onChange={handleChange}
-            className="message-tobe-sent"
+            className="bg-[#84848426] border-0 rounded-3xl w-[70%] py-3 px-5"
             onKeyDown={(e) => {
               if (e.keyCode === 13 && !e.shiftKey) handleSend();
             }}

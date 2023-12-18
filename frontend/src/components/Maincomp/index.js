@@ -1,4 +1,5 @@
 import React from "react";
+import Auth1Component from "../Page1";
 import Auth3Component from "../Page3";
 import Auth4Component from "../Page4";
 import Auth5Component from "../Page5";
@@ -100,6 +101,10 @@ function AuthPage({
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/faqs" element={<Faqs />} />
+        <Route
+          path="/loginn"
+          element={<Auth1Component setProgress={setProgress} />}
+        />
         <Route path="post/:postId" element={<PublicPost />} />
         {/* <Route path="/continue" element={<Auth2Component setProgress={setProgress}/>} /> */}
         <Route
