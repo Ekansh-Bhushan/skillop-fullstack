@@ -12,6 +12,11 @@ const UserSchema = new mongoose.Schema({
         default: Date.now,
     },
 
+    __lastVisited: {
+        type: Date,
+        default: Date.now,
+    },
+
     // Required Info
     firstname: {
         type: String,

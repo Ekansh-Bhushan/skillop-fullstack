@@ -12,6 +12,7 @@ const NotificationType = {
     MEET_REJECTED: "meet_rejected",
     MEET_STARTING: "meet_starting",
     MENTOR_REQUEST_ACCEPTED: "mentor_request_accepted",
+    FROM_ADMIN: "from_admin",
 };
 
 module.exports =  NotificationType;

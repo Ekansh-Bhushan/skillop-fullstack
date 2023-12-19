@@ -11,6 +11,6 @@ router.route("/make/mentor/:userId").post(isAuthorised, isAdmin, makeMentor)
 router.route("/be").post(isAuthorised, beAdmin);
 
 router.use("/query", adminQueryRoutes);
-// router.use("/action", require("./adminRoutes/adminActionRoutes"));
+router.use("/action", require("./adminRoutes/adminActionRoutes"));
 
 module.exports = router;
