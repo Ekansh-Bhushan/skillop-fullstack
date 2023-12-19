@@ -11,6 +11,7 @@ import user from "./images/user.png";
 import { SlOptionsVertical } from "react-icons/sl";
 import { toast } from "react-hot-toast";
 import EmojiPicker from "emoji-picker-react";
+import { IoMdAdd } from "react-icons/io";
 
 const Chatbox = ({
   chat,
@@ -141,7 +142,7 @@ const Chatbox = ({
         )} */}
         {userData && (
           <>
-            <div className="chat-user-name">
+            <div className="font-semibold">
               {" "}
               {userData.firstname} <span>{userData.lastname}</span>
             </div>
@@ -271,7 +272,10 @@ const Chatbox = ({
                   />
                 </div>
               )}
-              <img src="emoji.png" alt="emoji" width={36} />
+              <div className="bg-[#108CFF] rounded-full p-[10px] shadow-md">
+                <IoMdAdd className="text-white" />
+              </div>
+              {/* <img src={add} alt="emoji" width={36} /> */}
             </div>
             <img
               className="send-btn"

@@ -3,7 +3,7 @@
   /* margin: 20px auto; */
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 3px;
 }
 
 .active2 {
@@ -35,7 +35,7 @@
 }
 
 .side-nav-container > li > span {
-  font-size: 1rem;
+  font-size: 18px;
 }
 
 .side-nav-container .logo {
@@ -60,7 +60,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  padding-left: 7vw;
+  padding-left: 6vw;
   gap: 20px;
   padding-top: 5vh;
 }

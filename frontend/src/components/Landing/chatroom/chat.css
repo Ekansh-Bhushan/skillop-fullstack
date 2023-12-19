@@ -15,10 +15,11 @@
 }
 
 .text-chat-prev {
-  position: relative;
-  top: 40vh;
-  left: 10vw;
-  text-align: center;
-  /* background: red; */
-  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #5f5f5f;
+  font-weight: 400;
+  font-size: 17px;
 }

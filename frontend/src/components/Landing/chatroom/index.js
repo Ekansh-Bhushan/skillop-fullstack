@@ -140,7 +140,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
           <h2 className="text-chat-prev">
             {chats.length === 0
               ? "Follow someone to chat with him!"
-              : "Please Select a User to Chat with!"}
+              : "The Chat you select will appear here!"}
           </h2>
           <div className="chat-friends-list">
             <div>
