@@ -21,6 +21,8 @@ exports.AdminSendNotification = async (req, res) => {
         console.log(req.body)
 
         const date = new Date(dateTime);
+        console.log(date, typeof date)
+        if (date.toString() === "Invalid Date") return response_400(res, "Invalid Date");
         const fromUserProfileImg = req.user?.profilePicUrl || "";
         const notification = new Notification({
             link,
