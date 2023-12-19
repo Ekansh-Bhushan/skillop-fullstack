@@ -5,7 +5,6 @@
 .chat-list {
   height: 85vh;
   position: relative;
-  top: 5vw;
 }
 
 @media screen and (max-width: 500px) {

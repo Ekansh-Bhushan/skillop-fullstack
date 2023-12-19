@@ -1,6 +1,7 @@
 import React from "react";
 import coolimg from "../../components/images/logo.png";
 import { FaLinkedin, FaGoogle } from "react-icons/fa";
+import MProgressBar from "./MProgressBar";
 
 const MPersonal = () => {
   return (
@@ -15,6 +16,7 @@ const MPersonal = () => {
           Complete your
         </h1>
         <span className="text-4xl font-bold">Profile</span>
+        <MProgressBar />
         <h1 className="text-lg font-semibold mt-5">Personal Information</h1>
         <div className="flex flex-col items-center justify-center">
           <div class="relative my-6">

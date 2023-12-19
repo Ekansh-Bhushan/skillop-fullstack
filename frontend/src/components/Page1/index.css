@@ -278,7 +278,7 @@ textarea:focus {
   position: relative;
 }
 
-input {
+/* input {
   border: 1px solid gray;
   border-radius: 6px;
   position: relative;
@@ -294,4 +294,4 @@ label {
   left: 2em;
   background-color: white;
   padding: 0 5px;
-}
+} */

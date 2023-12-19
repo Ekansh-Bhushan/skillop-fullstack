@@ -43,8 +43,10 @@ const Msignup = () => {
             </label>
             <input class="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]" />
           </div>
-          <button className="border-black border-[1px] w-[100%] py-3 rounded-lg mt-5">
-            Sign-up
+          <button class="bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 w-[100%] rounded p-1 mt-5">
+            <span class="flex justify-center items-center w-full bg-white rounded p-2">
+              Signup
+            </span>
           </button>
           <div className="flex items-center justify-center mt-6 mb-8 w-[90%]">
             <div className="border-t border-[#7E8B9E] w-full"></div>
