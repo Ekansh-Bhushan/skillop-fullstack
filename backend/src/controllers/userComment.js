@@ -145,3 +145,104 @@ exports.deleteComment = async (req, res) => {
         });
     }
 };
+
+exports.likeComment = async (req, res) => {
+    try {
+        const { commentId } = req.params;
+        if (!commentId) {
+            return res.status(400).send({
+                result: false,
+                message: "Comment id is required",
+            });
+        }
+        const comment = await Comment.findById(commentId);
+        if (!comment) {
+            return res.status(404).send({
+                result: false,
+                message: "Comment not found",
+            });
+        }
+        // check if the user has already liked the comment
+        const isLiked = comment.likes.includes(req.user._id);
+        if (isLiked) {
+            // remove like
+            comment.likes = comment.likes.filter(
+                (id) => id.toString() !== req.user._id.toString()
+            );
+            await comment.save();
+            return res.status(200).send({
+                result: true,
+                message: "Like removed",
+            });
+        }
+        // add like
+        comment.likes.push(req.user._id);
+        await comment.save();
+        return res.status(200).send({
+            result: true,
+            message: "Comment liked",
+        });
+    } catch (error) {
+        res.status(500).send({
+            result: false,
+            err: error.message,
+        });
+    }
+};
+
+exports.replyComment = async (req, res) => {
+    try {
+        const { commentId } = req.params;
+        const { comment } = req.body;
+        if (!commentId) {
+            return res.status(400).send({
+                result: false,
+                message: "Comment id is required",
+            });
+        }
+        const parentComment = await Comment.findById(commentId);
+        if (!parentComment) {
+            return res.status(404).send({
+                result: false,
+                message: "Comment not found",
+            });
+        }
+        const newComment = new Comment({
+            user: req.user._id,
+            post: parentComment.post,
+            comment,
+            level: parentComment.level + 1,
+        });
+        await newComment.save();
+
+        // create notification to tell author about new comment
+        const notification = new Notification({
+            message: `${req.user.firstname} ${req.user.lastname} replied to your comment`,
+            type: "comment",
+            link: `/post/${parentComment.post}`,
+            fromUserProfileImg: req.user.profilePicUrl,
+        });
+        await notification.save();
+
+        // add notification to post author
+        const author = await User.findById(parentComment.user);
+        // check if the author is not the same as the user commenting
+        if (author._id.toString() !== req.user._id.toString()) {
+            author.notifications.push(notification._id);
+            await author.save();
+        }
+
+        parentComment.replys.push(newComment._id);
+        await parentComment.save();
+
+        res.status(200).send({
+            result: true,
+            message: "Comment added",
+        });
+    } catch (error) {
+        res.status(500).send({
+            result: false,
+            err: error.message,
+        });
+    }
+}

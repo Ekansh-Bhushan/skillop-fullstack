@@ -14,6 +14,7 @@ const feedBackRoute = require("./src/routes/feedBackRoute");
 const searchRoutes = require("./src/routes/searchRoutes");
 const eventRoutes = require("./src/routes/eventRoutes");
 const adminRoutes = require("./src/routes/adminRoutes");
+const commentRouters = require("./src/routes/commentRoutes");
 require("dotenv").config();
 // console.log(process.env.JWT_KEY);
 const app = express();
@@ -62,6 +63,8 @@ app.use("/api/college", help);
 app.use("/api/event", eventRoutes);
 
 app.use("/api/v2", searchRoutes);
+
+app.use("/api/comment", commentRouters);
 
 // share images in uploads/pubic to frontend
 app.use(

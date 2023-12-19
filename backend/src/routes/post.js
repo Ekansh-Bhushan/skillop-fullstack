@@ -48,4 +48,5 @@ router.route("/post/get/likers/:postId").get(isAuthorised, getWhoLikedPost);
 router.route("/post/search").get(isAuthorised, filterPosts);
 
 router.route("/post/hashtags/:hashtag").get(getPostsFromHashtag);
+
 module.exports = router;
