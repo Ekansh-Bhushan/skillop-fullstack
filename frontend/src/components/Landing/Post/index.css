@@ -1045,6 +1045,7 @@ non-act {
 }
 .chat-slider {
   width: 80%;
+  margin-left: 3vw;
 }
 .left-arrow {
   display: none;

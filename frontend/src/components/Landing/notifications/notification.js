@@ -65,14 +65,16 @@ const Notification = ({
         notifyList={notifyList}
       />
       <Mobilecommonhead />
-      <div className="profile-notify">
-        <Profileandevents userData={userData} />
+      <div className="mt-0">
+        {/* <div>
+          <Profileandevents userData={userData} />
+        </div> */}
 
-        <div className="notify">
-          <div className="heading">
+        <div className="d-flex items-center justify-center w-[50%] ml-[22vw] border-x-2 pt-5">
+          <div className="text-3xl font-semibold pl-5 border-b-2 pb-5">
             <h2>Notifications</h2>
           </div>
-          <div className="notify-btns">
+          {/* <div className="notify-btns hidden">
             <button
               className={selectedButton === "All" ? "selected" : ""}
               onClick={() => {
@@ -106,7 +108,7 @@ const Notification = ({
             >
               Primary ({notifyList.length})
             </button>
-          </div>
+          </div> */}
           {/* <div> */}
           {fetchingNotify && (
             <img src={spinner} className="spinner-css" alt="loading" />
@@ -115,7 +117,7 @@ const Notification = ({
           {!fetchingNotify && notifyList.length === 0 && (
             <h3 className="no-notify">No Notifications</h3>
           )}
-          <div className="noti-container">
+          <div className="">
             {notifyList.map((item) => {
               const shouldDisplay =
                 notiType === "all" ||
@@ -126,7 +128,9 @@ const Notification = ({
                 return (
                   <div
                     onClick={() => markReadNotification(item._id)}
-                    className={`${!item.read ? "read-box" : "box"}`}
+                    className={`border-b-2 ${
+                      !item.read ? "" : "bg-[#84848426]"
+                    }`}
                   >
                     <Box
                       message={item.message}
