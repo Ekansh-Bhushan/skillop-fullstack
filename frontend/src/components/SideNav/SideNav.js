@@ -266,7 +266,7 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
             Meets
           </span>
         </li>
-        {/* <li onClick={handleSlots}>
+        <li onClick={handleSlots}>
           {window.location.pathname === "/mySlots" ? (
             <img src={slots2} alt="Home" />
           ) : (
@@ -280,8 +280,8 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
             Slots
           </span>
           {!Mentor && <img id="notify-lock" src="/lock1.png" alt="lock" />}
-        </li> */}
-        {/* <li onClick={handleBookings}>
+        </li>
+        <li onClick={handleBookings}>
           {window.location.pathname === "/mybookings" ? (
             <img src={bookings2} alt="Home" />
           ) : (
@@ -295,8 +295,8 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
             Booking
           </span>
           {!Mentor && <img id="notify-lock" src="/lock1.png" alt="lock" />}
-        </li> */}
-        {/* <li onClick={handleEarnings}>
+        </li>
+        <li onClick={handleEarnings}>
           {window.location.pathname === "/myearnings" ? (
             <img src={earnings2} alt="Home" />
           ) : (
@@ -310,7 +310,7 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
             Earning
           </span>
           {!Mentor && <img id="notify-lock" src="/lock1.png" alt="lock" />}
-        </li> */}
+        </li>
         <li
           onClick={() => {
             setProgress(40);

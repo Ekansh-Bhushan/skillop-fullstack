@@ -4,6 +4,7 @@ import doodle1 from "../../components/images/doodle-6 1.png";
 import doodle2 from "../../components/images/doodle-7 1.png";
 import Saly from "../../components/images/Saly-26.png";
 import ProgressBar from "./ProgressBar";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 
 const SkillOne = () => {
   return (
@@ -63,9 +64,12 @@ const SkillOne = () => {
 
             <div className="flex justify-end">
               {" "}
-              <button className="font-bold py-2 px-4 rounded-3xl border-[2px] border-black">
-                Next
-              </button>
+              <div className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2">
+                <button className="font-bold ">NEXT</button>
+                <span className="rounded-full border-[2px] border-black py-1 px-1">
+                  <FaArrowRight />
+                </span>
+              </div>
             </div>
           </div>
         </div>

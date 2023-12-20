@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import doodle1 from "../../components/images/doodle-6 1.png";
 import doodle2 from "../../components/images/doodle-7 1.png";
 import Saly from "../../components/images/Saly-26.png";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 
 const SkillTwo = () => {
   return (
@@ -43,15 +44,18 @@ const SkillTwo = () => {
               placeholder="city"
               className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4 "
             />
-
-            <div className="flex justify-end">
-              {" "}
-              <button className="font-bold py-2 px-4 rounded-3xl border-[2px] border-black">
-                Next
+            <div className="flex justify-between w-full items-center">
+              <button className="rounded-full border-[2px] border-black h-9 w-9 flex items-center justify-center">
+                <FaArrowLeft />
               </button>
+              <div className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2">
+                <button className="font-bold ">NEXT</button>
+                <span className="rounded-full border-[2px] border-black py-1 px-1">
+                  <FaArrowRight />
+                </span>
+              </div>
             </div>
           </div>
-          ;
         </div>
       </div>
     </div>
