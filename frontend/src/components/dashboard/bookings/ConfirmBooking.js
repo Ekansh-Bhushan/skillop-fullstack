@@ -1,31 +1,31 @@
-import React, { useEffect, useState } from "react";
-import SideNav from "../../SideNav/SideNav";
-import "./ConfirmBooking.css";
-import userIcon from "../../images/user.png";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { getMentorData } from "../../../api/mentorRequest";
-import toast from "react-hot-toast";
-import convertToNormalTime from "../../../utils/timeConversion";
-import calculateTimeGap from "../../../utils/timeGap";
+import React, { useEffect, useState } from 'react';
+import SideNav from '../../SideNav/SideNav';
+import './ConfirmBooking.css';
+import userIcon from '../../images/user.png';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { getMentorData } from '../../../api/mentorRequest';
+import toast from 'react-hot-toast';
+import convertToNormalTime from '../../../utils/timeConversion';
+import calculateTimeGap from '../../../utils/timeGap';
 import {
   GoogleLogin,
   GoogleOAuthProvider,
   useGoogleLogin,
-} from "@react-oauth/google";
-import jwt_decode from "jwt-decode";
-import MyCustomGoogleButton from "./MyCustomGoogleButton";
-import axios from "axios";
-import Mobilecommonhead from "../../Mobilecommonhead";
+} from '@react-oauth/google';
+import jwt_decode from 'jwt-decode';
+import MyCustomGoogleButton from './MyCustomGoogleButton';
+import axios from 'axios';
+import Mobilecommonhead from '../../Mobilecommonhead';
 
 const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
-  const mentorid = window.location.pathname.split("/")[2];
+  const mentorid = window.location.pathname.split('/')[2];
   const [data, setData] = useState({});
   const search = useLocation().search;
-  const day = new URLSearchParams(search).get("day");
-  const s = new URLSearchParams(search).get("s");
-  const e = new URLSearchParams(search).get("e");
-  const userid = new URLSearchParams(search).get("userid");
-  const charge = new URLSearchParams(search).get("charge");
+  const day = new URLSearchParams(search).get('day');
+  const s = new URLSearchParams(search).get('s');
+  const e = new URLSearchParams(search).get('e');
+  const userid = new URLSearchParams(search).get('userid');
+  const charge = new URLSearchParams(search).get('charge');
 
   const navigate = useNavigate();
 
@@ -64,12 +64,12 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
   return (
     <div style={{}}>
-      <SideNav
+      {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
         isFetched={isFetched}
         notifyList={notifyList}
-      />
+      /> */}
       <Mobilecommonhead />
 
       <div className="confirm-container">
@@ -112,9 +112,9 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   <div>
                     <div
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
                       }}
                     >
                       <img src="/video.png" width={30} alt="" />
@@ -131,9 +131,9 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   <div>
                     <div
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
                       }}
                     >
                       <img src="/calendar.png" width={30} alt="" />
@@ -149,10 +149,10 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
               </div>
               <div
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "2px",
-                  width: "100%",
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '2px',
+                  width: '100%',
                 }}
               >
                 <input
@@ -164,13 +164,13 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   src="/go.png"
                   alt=""
                   style={{
-                    cursor: "pointer",
-                    width: "40px",
-                    paddingLeft: "10px",
+                    cursor: 'pointer',
+                    width: '40px',
+                    paddingLeft: '10px',
                   }}
                   onClick={() => {
                     // check if input is empty
-                    toast.error("Invalid Coupon Code");
+                    toast.error('Invalid Coupon Code');
                   }}
                 />
               </div>

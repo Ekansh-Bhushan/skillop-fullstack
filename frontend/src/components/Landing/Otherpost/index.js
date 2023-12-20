@@ -1,29 +1,29 @@
-import React from "react";
-import "../Post/index.css";
-import userPic from "../../images/user.png";
-import { useState, useEffect } from "react";
+import React from 'react';
+import '../Post/index.css';
+import userPic from '../../images/user.png';
+import { useState, useEffect } from 'react';
 import {
   getSpecificPost,
   likeOrDislikePost,
   addCommentToPost,
   getCommentsForPost,
   deleteComment,
-} from "../../../api/postRequest";
-import { useNavigate } from "react-router-dom";
-import Popup from "../Post/LikeBox/LikePopUp";
-import spinner from "../../images/spinner.gif";
-import SideNav from "../../SideNav/SideNav";
-import Profileandevents from "../Profileandevents";
-import PostImgPrevw from "../Post/PostImagePrev/PostImgPrevw";
-import next from "../../images/next.png";
-import back from "../../images/back.png";
-import toast from "react-hot-toast";
-import Mobilecommonhead from "../../Mobilecommonhead";
+} from '../../../api/postRequest';
+import { useNavigate } from 'react-router-dom';
+import Popup from '../Post/LikeBox/LikePopUp';
+import spinner from '../../images/spinner.gif';
+import SideNav from '../../SideNav/SideNav';
+import Profileandevents from '../Profileandevents';
+import PostImgPrevw from '../Post/PostImagePrev/PostImgPrevw';
+import next from '../../images/next.png';
+import back from '../../images/back.png';
+import toast from 'react-hot-toast';
+import Mobilecommonhead from '../../Mobilecommonhead';
 
 function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
-  const postId = window.location.pathname.split("/")[2];
+  const postId = window.location.pathname.split('/')[2];
   const [post, setPost] = useState(null);
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]);
   const [fetchingComments, setFetchingComments] = useState(false);
   // const [userName, setUserName] = useState(null);
@@ -92,13 +92,13 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
     try {
       setProgress(35);
       await addCommentToPost(postId, comment);
-      setComment("");
+      setComment('');
       await fetchComments();
       setProgress(100);
       // await storeNames();
       // console.log(commentList);
     } catch (err) {
-      console.log("Unable to add comment", err);
+      console.log('Unable to add comment', err);
       toast.error(err.response.data.message);
     }
   };
@@ -112,7 +112,7 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
       );
       setProgress(100);
     } catch (err) {
-      console.log("unable to del comment ", err);
+      console.log('unable to del comment ', err);
       toast.error(err.response.data.message);
     }
   };
@@ -127,7 +127,7 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
       // console.log(commData);
       // console.log(commentList);
     } catch (err) {
-      console.log("Unable to get comments ", err);
+      console.log('Unable to get comments ', err);
     }
   };
 
@@ -146,9 +146,9 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
   };
   const isImage = (url) => {
     return (
-      url.toLowerCase().includes(".jpg") ||
-      url.toLowerCase().includes(".jpeg") ||
-      url.toLowerCase().includes(".png")
+      url.toLowerCase().includes('.jpg') ||
+      url.toLowerCase().includes('.jpeg') ||
+      url.toLowerCase().includes('.png')
     );
   };
 
@@ -170,12 +170,12 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
   return (
     <>
       {/* <Common setProgress={setProgress} /> */}
-      <SideNav
+      {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
         isFetched={isFetched}
         notifyList={notifyList}
-      />
+      /> */}
       <div className="main-content-landing">
         {post && (
           <div className="posting-on-landing">
@@ -194,16 +194,16 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     />
                     <div>
                       <span
-                        style={{ fontWeight: "bold" }}
+                        style={{ fontWeight: 'bold' }}
                         className="posted-by-name"
                       >
                         {post.author.firstname} {post.author.lastname}
                       </span>
                       <span
-                        style={{ fontSize: "12px" }}
+                        style={{ fontSize: '12px' }}
                         className="posted-by-brief"
                       >
-                        {post.author.isMentor ? "Mentor" : "Mentee"}
+                        {post.author.isMentor ? 'Mentor' : 'Mentee'}
                       </span>
                     </div>
                   </div>
@@ -211,28 +211,28 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
                 <div
                   style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "20px",
-                    marginBottom: "10px",
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '20px',
+                    marginBottom: '10px',
                   }}
                 >
                   <p
-                    className={`user-content-post${expanded ? "expanded" : ""}`}
+                    className={`user-content-post${expanded ? 'expanded' : ''}`}
                     style={{
-                      position: "relative",
-                      top: "10px",
-                      marginBottom: "10px",
+                      position: 'relative',
+                      top: '10px',
+                      marginBottom: '10px',
                     }}
                   >
                     {post.title}
                   </p>
                   {post.title.length > 500 ? (
                     <button onClick={toggleExpand} className="read-more">
-                      {expanded ? "Read Less" : "Read More"}
+                      {expanded ? 'Read Less' : 'Read More'}
                     </button>
                   ) : (
-                    ""
+                    ''
                   )}
                 </div>
 
@@ -244,9 +244,9 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     <div
                       className="posted-img-container"
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "5px",
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '5px',
                       }}
                     >
                       {post.imageUrls.length > 1 && currentMediaIndex > 0 && (
@@ -270,14 +270,14 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   ) : (
                     <div
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "5px",
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '5px',
                       }}
                     >
                       {post.imageUrls.length > 1 && currentMediaIndex > 0 && (
                         <span
-                          style={{ cursor: "pointer" }}
+                          style={{ cursor: 'pointer' }}
                           onClick={handlePreviousMedia}
                         >
                           <img height={32} width={32} src={back} alt="back" />
@@ -292,16 +292,16 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                         scrolling="no"
                         frameBorder="0"
                         style={{
-                          borderRadius: "15px",
-                          overflow: "hidden",
-                          border: "none",
-                          objectFit: "contain",
+                          borderRadius: '15px',
+                          overflow: 'hidden',
+                          border: 'none',
+                          objectFit: 'contain',
                         }}
                       ></iframe>
                       {post.imageUrls.length > 1 &&
                         currentMediaIndex < post.imageUrls.length - 1 && (
                           <span
-                            style={{ cursor: "pointer" }}
+                            style={{ cursor: 'pointer' }}
                             onClick={handleNextMedia}
                           >
                             <img height={28} width={28} src={next} alt="next" />
@@ -310,13 +310,13 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     </div>
                   )
                 ) : (
-                  ""
+                  ''
                 )}
 
                 {showPostImgPrew && post.imageUrls.length && (
                   <PostImgPrevw
                     onClose={onClose}
-                    name={post.author.firstname + " " + post.author.lastname}
+                    name={post.author.firstname + ' ' + post.author.lastname}
                     src={post.imageUrls[currentMediaIndex]}
                   />
                 )}
@@ -325,9 +325,9 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   <div className="like-post">
                     <i
                       style={{
-                        fontSize: "25px",
-                        color: liked ? "rgb(16, 39, 111)" : "rgb(0, 0, 0)",
-                        cursor: "pointer",
+                        fontSize: '25px',
+                        color: liked ? 'rgb(16, 39, 111)' : 'rgb(0, 0, 0)',
+                        cursor: 'pointer',
                       }}
                       className="fa fa-thumbs-up"
                       onClick={likethispost}
@@ -347,9 +347,9 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   <div className="comments">
                     <i
                       className="fa fa-lg fa-solid fa-comment"
-                      style={{ marginRight: "4px" }}
+                      style={{ marginRight: '4px' }}
                     ></i>
-                    {commentList.length + " "}
+                    {commentList.length + ' '}
                     Comments
                   </div>
                   <div className="share">
@@ -373,35 +373,35 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   </button>
                 </div>
                 <div className="comments-container">
-                  <h3 style={{ marginBottom: "3px" }}>
+                  <h3 style={{ marginBottom: '3px' }}>
                     Comments ({commentList.length})
                   </h3>
                   {fetchingComments && (
                     <img
                       src={spinner}
-                      style={{ height: "55px", width: "55px" }}
+                      style={{ height: '55px', width: '55px' }}
                       alt="loading"
                     />
                   )}
                   {fetchingComments === false && commentList.length === 0
-                    ? "No comments yet"
-                    : ""}
+                    ? 'No comments yet'
+                    : ''}
                   {commentList &&
                     commentList.map((item) => {
                       return (
                         <div id="comment-to-prof" key={item._id}>
                           <div
                             style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "80px",
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '80px',
                             }}
                           >
                             <span
                               style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "8px",
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
                               }}
                               onClick={() =>
                                 navigate(`/public-profile/${item.user._id}`)
@@ -415,7 +415,7 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                                 style={{}}
                               />
                               <b>
-                                {item.user.firstname + " " + item.user.lastname}
+                                {item.user.firstname + ' ' + item.user.lastname}
                               </b>
                             </span>
                             {userData._id === item.user._id && (
@@ -425,7 +425,7 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                               ></i>
                             )}
                           </div>
-                          <p style={{ marginLeft: "40px", fontSize: "1.1rem" }}>
+                          <p style={{ marginLeft: '40px', fontSize: '1.1rem' }}>
                             {item.comment}
                           </p>
                         </div>

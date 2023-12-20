@@ -1,14 +1,14 @@
-import React from "react";
-import SideNav from "../SideNav/SideNav";
-import "./PublicProfile.css";
-import { findUser, getUser } from "../../api/userRequest";
-import { updateProfile } from "../../api/userRequest";
-import { useEffect } from "react";
+import React from 'react';
+import SideNav from '../SideNav/SideNav';
+import './PublicProfile.css';
+import { findUser, getUser } from '../../api/userRequest';
+import { updateProfile } from '../../api/userRequest';
+import { useEffect } from 'react';
 
-import Spinner from "../images/spinner.gif";
-import { useState } from "react";
-import RightProfileComp from "./Right Public Profile/RightProfileComp";
-import Mobilecommonhead from "../Mobilecommonhead";
+import Spinner from '../images/spinner.gif';
+import { useState } from 'react';
+import RightProfileComp from './Right Public Profile/RightProfileComp';
+import Mobilecommonhead from '../Mobilecommonhead';
 
 const PublicProfile = ({
   userDatamain,
@@ -17,15 +17,15 @@ const PublicProfile = ({
   isFetched,
   notifyList,
 }) => {
-  const userId = window.location.pathname.split("/")[2];
+  const userId = window.location.pathname.split('/')[2];
 
   const [userDetails, setUserDetails] = useState({});
 
   const [showAllExperiences, setShowAllExperiences] = useState(false);
   const [showAllEducation, setShowAllEducation] = useState(false);
 
-  const [pastExpContent, setpastExpContent] = useState("");
-  const [futurePlansContent, setfuturePlansContent] = useState("");
+  const [pastExpContent, setpastExpContent] = useState('');
+  const [futurePlansContent, setfuturePlansContent] = useState('');
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,7 +35,7 @@ const PublicProfile = ({
       setUserDetails(userData.data.result);
       // console.log("details", userDetails);
     } catch (err) {
-      console.log("Unable to fetch user details", err);
+      console.log('Unable to fetch user details', err);
     }
   };
 
@@ -46,24 +46,24 @@ const PublicProfile = ({
         const userData = await findUser(userId);
         setUserDetails(userData.data.result);
         // Set journeyContent when userDetails is available
-        setJourneyContent(userData.data.result.about || "Nothing to display!");
+        setJourneyContent(userData.data.result.about || 'Nothing to display!');
         setpastExpContent(
-          userData.data.result.pastExp || "Nothing to display!"
+          userData.data.result.pastExp || 'Nothing to display!'
         );
         setfuturePlansContent(
-          userData.data.result.futurePlans || "Nothing to display!"
+          userData.data.result.futurePlans || 'Nothing to display!'
         );
         setIsLoading(false);
       } catch (err) {
         // alert("No such user found");
-        console.log("Unable to fetch user details", err);
+        console.log('Unable to fetch user details', err);
       }
     };
 
     fetchUserDetails();
   }, []);
 
-  const [journeyContent, setJourneyContent] = useState("");
+  const [journeyContent, setJourneyContent] = useState('');
   const [isJourneyExpanded, setIsJourneyExpanded] = useState(false);
   const [isPastExpanded, setIsPastExpanded] = useState(false);
   const [isFutureExpanded, setIsFutureExpanded] = useState(false);
@@ -86,12 +86,12 @@ const PublicProfile = ({
 
   return (
     <>
-      <SideNav
+      {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
         isFetched={isFetched}
         notifyList={notifyList}
-      />
+      /> */}
       <Mobilecommonhead />
       <div className="main-profile-page">
         {isLoading && (
@@ -110,7 +110,7 @@ const PublicProfile = ({
 
             <div
               className={`journey-content ${
-                isJourneyExpanded ? "expanded" : ""
+                isJourneyExpanded ? 'expanded' : ''
               }`}
             >
               <p className={`lorem-ipsum-dolor`}>
@@ -120,13 +120,13 @@ const PublicProfile = ({
 
             <button
               className={`read-more-button ${
-                isJourneyExpanded ? "expanded" : ""
+                isJourneyExpanded ? 'expanded' : ''
               }`}
               onClick={handleJourneyExpandClick}
             >
               {userDetails.about &&
                 userDetails.about.length > 239 &&
-                (isJourneyExpanded ? "Read Less" : "Read More")}
+                (isJourneyExpanded ? 'Read Less' : 'Read More')}
             </button>
           </div>
 
@@ -137,7 +137,7 @@ const PublicProfile = ({
             <h1>Past Journey</h1>
 
             <div
-              className={`journey-content ${isPastExpanded ? "expanded" : ""}`}
+              className={`journey-content ${isPastExpanded ? 'expanded' : ''}`}
             >
               <p className={`lorem-ipsum-dolor`}>
                 <span className="text-wrapper">{pastExpContent}</span>
@@ -145,12 +145,12 @@ const PublicProfile = ({
             </div>
 
             <button
-              className={`read-more-button ${isPastExpanded ? "expanded" : ""}`}
+              className={`read-more-button ${isPastExpanded ? 'expanded' : ''}`}
               onClick={handlePastExpandClick}
             >
               {userDetails.pastExp &&
                 userDetails.pastExp.length > 239 &&
-                (isPastExpanded ? "Read Less" : "Read More")}
+                (isPastExpanded ? 'Read Less' : 'Read More')}
             </button>
           </div>
 
@@ -162,7 +162,7 @@ const PublicProfile = ({
 
             <div
               className={`journey-content ${
-                isFutureExpanded ? "expanded" : ""
+                isFutureExpanded ? 'expanded' : ''
               }`}
             >
               <p className={`lorem-ipsum-dolor`}>
@@ -172,13 +172,13 @@ const PublicProfile = ({
 
             <button
               className={`read-more-button ${
-                isFutureExpanded ? "expanded" : ""
+                isFutureExpanded ? 'expanded' : ''
               }`}
               onClick={handleFutureExpandClick}
             >
               {userDetails.futurePlans &&
                 userDetails.futurePlans.length > 239 &&
-                (isFutureExpanded ? "Read Less" : "Read More")}
+                (isFutureExpanded ? 'Read Less' : 'Read More')}
             </button>
           </div>
 
@@ -186,7 +186,7 @@ const PublicProfile = ({
           <div className="journey">
             <h1>Experience</h1>
             {userDetails.experence && userDetails.experence.length === 0 && (
-              <p style={{ margin: "10px", fontSize: "1.1rem" }}>
+              <p style={{ margin: '10px', fontSize: '1.1rem' }}>
                 Nothing to display!
               </p>
             )}
@@ -206,7 +206,7 @@ const PublicProfile = ({
                     <div
                       key={item._id}
                       className="experience-content"
-                      style={{ display: "flex", alignItems: "center" }}
+                      style={{ display: 'flex', alignItems: 'center' }}
                     >
                       <div>
                         <div className="job-title">➤ {item.title}</div>
@@ -225,7 +225,7 @@ const PublicProfile = ({
                               {item &&
                                 (item.endDate !== null
                                   ? item.endDate.toString().slice(0, 4)
-                                  : "Present")}
+                                  : 'Present')}
                             </span>
                           </div>
                         </div>
@@ -249,17 +249,17 @@ const PublicProfile = ({
           <div className="journey">
             <h1>Skills</h1>
             {userDetails.skills && userDetails.skills.length === 0 && (
-              <p style={{ margin: "10px", fontSize: "1.1rem" }}>
+              <p style={{ margin: '10px', fontSize: '1.1rem' }}>
                 Nothing to display!
               </p>
             )}
             <div
               id="skills-cont"
               style={{
-                display: "flex",
-                gap: "12px",
-                width: "60%",
-                flexWrap: "wrap",
+                display: 'flex',
+                gap: '12px',
+                width: '60%',
+                flexWrap: 'wrap',
               }}
             >
               {userDetails.skills &&
@@ -277,7 +277,7 @@ const PublicProfile = ({
           <div className="journey">
             <h1>Education</h1>
             {userDetails.education && userDetails.education.length === 0 && (
-              <p style={{ margin: "10px", fontSize: "1.1rem" }}>
+              <p style={{ margin: '10px', fontSize: '1.1rem' }}>
                 Nothing to display!
               </p>
             )}
@@ -299,19 +299,19 @@ const PublicProfile = ({
                       <div
                         key={item._id}
                         id="edu-field"
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{ display: 'flex', alignItems: 'center' }}
                       >
                         <div>
                           <div className="education-qualification">
                             ➤ {item.institution} <br />
                           </div>
                           <div className="institute-address">
-                            {item.city ? `${item.city},` : ""}{" "}
-                            {item.state ? item.state : ""}
+                            {item.city ? `${item.city},` : ''}{' '}
+                            {item.state ? item.state : ''}
                           </div>
                           <div className="degree">
-                            {item.degree}{" "}
-                            {item.fieldOfStudy ? `- ${item.fieldOfStudy}` : ""}
+                            {item.degree}{' '}
+                            {item.fieldOfStudy ? `- ${item.fieldOfStudy}` : ''}
                           </div>
                           <div className="profile-page-content">
                             <div className="date">

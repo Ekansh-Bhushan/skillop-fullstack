@@ -6,6 +6,7 @@ import AuthPage from "./components/Maincomp";
 import LoadingBar from "react-top-loading-bar";
 import { Emoji } from "emoji-picker-react";
 import { getNotifications } from "./api/getNotifications";
+import TopBar from "./components/CommonTopBar/TopBar";
 
 function App() {
     const [userData, setUserData] = useState(null);
@@ -56,6 +57,7 @@ function App() {
         <>
             {/* <RouteLanding/> */}
             <Toaster />
+            <TopBar />
             <AuthPage
                 setNotifyList={setNotifyList}
                 Mentor={Mentor}
