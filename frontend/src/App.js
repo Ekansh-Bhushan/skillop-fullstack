@@ -6,6 +6,7 @@ import AuthPage from "./components/Maincomp";
 import LoadingBar from "react-top-loading-bar";
 import { Emoji } from "emoji-picker-react";
 import { getNotifications } from "./api/getNotifications";
+import TopBar from "./components/CommonTopBar/TopBar";
 
 function App() {
     const [userData, setUserData] = useState(null);
@@ -50,31 +51,34 @@ function App() {
         }
     }, []);
 
-
+    const [showPostPopUp, setShowPostPopUp] = useState(false);
 
     return (
-        <>
-            {/* <RouteLanding/> */}
-            <Toaster />
-            <AuthPage
-                setNotifyList={setNotifyList}
-                Mentor={Mentor}
-                setMentor={setMentor}
-                setIsFetched={setIsFetched}
-                isFetched={isFetched}
-                notifyList={notifyList}
-                userData={userData}
-                setUserData={setUserData}
-                setProgress={setProgress}
-            />
-            <LoadingBar
-                color="#f11946"
-                height={4}
-                progress={progress}
-                shadow={true}
-            />
-            <Emoji />
-        </>
+      <>
+        {/* <RouteLanding/> */}
+        <Toaster />
+        <TopBar setShowPostPopUp={setShowPostPopUp} />
+        <AuthPage
+          setNotifyList={setNotifyList}
+          Mentor={Mentor}
+          setMentor={setMentor}
+          setIsFetched={setIsFetched}
+          isFetched={isFetched}
+          notifyList={notifyList}
+          userData={userData}
+          setUserData={setUserData}
+          setProgress={setProgress}
+          setShowPostPopUp={setShowPostPopUp}
+          showPostPopUp={showPostPopUp}
+        />
+        <LoadingBar
+          color="#f11946"
+          height={4}
+          progress={progress}
+          shadow={true}
+        />
+        <Emoji />
+      </>
     );
 }
 

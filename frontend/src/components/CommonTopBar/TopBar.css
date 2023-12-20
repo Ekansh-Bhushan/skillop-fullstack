@@ -1,0 +1,43 @@
+.tb-container {
+  background: transparent;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid rgb(193, 193, 193);
+  padding: 13px 2vw;
+  z-index: 100000;
+}
+
+.tb-container div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#create-post {
+  background: #108cff;
+  padding: 8px 2rem 8px 2rem;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+  color: white;
+  border: 2px solid transparent;
+}
+
+#create-post:hover {
+    border: 2px solid #108cff;
+    background: white;
+    color: black;
+}

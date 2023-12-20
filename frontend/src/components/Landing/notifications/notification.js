@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import MyProfile from "../myprof";
-import user from "../../images/user.png";
-import "./notification.css";
-import Box from "./notify box/box";
-import Profileandevents from "../Profileandevents";
-import SideNav from "../../SideNav/SideNav";
-import "./notification.css";
-import spinner from "../../images/spinner.gif";
+import React, { useEffect, useState } from 'react';
+import MyProfile from '../myprof';
+import user from '../../images/user.png';
+import './notification.css';
+import Box from './notify box/box';
+import Profileandevents from '../Profileandevents';
+import SideNav from '../../SideNav/SideNav';
+import './notification.css';
+import spinner from '../../images/spinner.gif';
 import {
   getNotifications,
   readNotifications,
-} from "../../../api/getNotifications";
-import Mobilecommonhead from "../../Mobilecommonhead";
-import toast from "react-hot-toast";
+} from '../../../api/getNotifications';
+import Mobilecommonhead from '../../Mobilecommonhead';
+import toast from 'react-hot-toast';
 
 // function Notify({ userData }) {
 const Notification = ({
@@ -22,10 +22,10 @@ const Notification = ({
   Mentor,
   isFetched,
 }) => {
-  const [selectedButton, setSelectedButton] = useState("All"); // Initial selected button
+  const [selectedButton, setSelectedButton] = useState('All'); // Initial selected button
   const [notifyList, setNotifyList] = useState([]);
   const [fetchingNotify, setFetchingNotify] = useState(false);
-  const [notiType, setNotiType] = useState("all");
+  const [notiType, setNotiType] = useState('all');
 
   const handleButtonClick = (buttonName) => {
     setSelectedButton(buttonName);
@@ -39,7 +39,7 @@ const Notification = ({
       setFetchingNotify(false);
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log("Unable to fetch notifications", err);
+      console.log('Unable to fetch notifications', err);
     }
   };
 
@@ -52,18 +52,18 @@ const Notification = ({
     try {
       await readNotifications(id);
     } catch (err) {
-      console.log("Unable to mark read notification", err);
+      console.log('Unable to mark read notification', err);
     }
   };
 
   return (
     <>
-      <SideNav
+      {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
         isFetched={isFetched}
         notifyList={notifyList}
-      />
+      /> */}
       <Mobilecommonhead />
       <div className="mt-0">
         {/* <div>
@@ -120,16 +120,16 @@ const Notification = ({
           <div className="">
             {notifyList.map((item) => {
               const shouldDisplay =
-                notiType === "all" ||
-                (notiType === "new" && !item.read) ||
-                (notiType === "read" && item.read);
+                notiType === 'all' ||
+                (notiType === 'new' && !item.read) ||
+                (notiType === 'read' && item.read);
 
               if (shouldDisplay) {
                 return (
                   <div
                     onClick={() => markReadNotification(item._id)}
                     className={`border-b-2 ${
-                      !item.read ? "" : "bg-[#84848426]"
+                      !item.read ? '' : 'bg-[#84848426]'
                     }`}
                   >
                     <Box

@@ -1,17 +1,29 @@
-import React, { useEffect, useState } from "react";
-import Postlist from "../Postlist";
-import SideNav from "../../SideNav/SideNav";
-import Profileandevents from "../Profileandevents";
-import Mobilecommonhead from "../../Mobilecommonhead";
-import scrollUp from "../../images/scrollUp.png";
-import { getUser } from "../../../api/userRequest";
-import { getNotifications } from "../../../api/getNotifications";
+import React, { useEffect, useState } from 'react';
+import Postlist from '../Postlist';
+import SideNav from '../../SideNav/SideNav';
+import Profileandevents from '../Profileandevents';
+import Mobilecommonhead from '../../Mobilecommonhead';
+import scrollUp from '../../images/scrollUp.png';
+import { getUser } from '../../../api/userRequest';
+import { getNotifications } from '../../../api/getNotifications';
 
-function Post({ userData, setUserData, setProgress, Mentor, isFetched, notifyList, setMentor, setIsFetched, setNotifyList }) {
+function Post({
+  userData,
+  setUserData,
+  setProgress,
+  Mentor,
+  isFetched,
+  notifyList,
+  setMentor,
+  setIsFetched,
+  setNotifyList,
+  setShowPostPopUp,
+  showPostPopUp,
+}) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -26,10 +38,10 @@ function Post({ userData, setUserData, setProgress, Mentor, isFetched, notifyLis
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -37,11 +49,10 @@ function Post({ userData, setUserData, setProgress, Mentor, isFetched, notifyLis
     try {
       const NotiData = await getNotifications();
       setNotifyList(NotiData.data.result);
+    } catch (err) {
+      console.log('Unable to fetch notifications', err);
     }
-    catch (err) {
-      console.log("Unable to fetch notifications", err);
-    }
-  }
+  };
 
   useEffect(() => {
     const refreshFN = async () => {
@@ -50,24 +61,23 @@ function Post({ userData, setUserData, setProgress, Mentor, isFetched, notifyLis
       setMentor(data.result.isMentor);
       setIsFetched(true);
       await fetchNotifications();
-    }
+    };
     refreshFN();
-  }, [])
+  }, []);
   // Function to handle input changes
 
   return (
     <div className="homepage">
-      <SideNav
+      {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
         isFetched={isFetched}
         notifyList={notifyList}
-      />
+      /> */}
+
       {/* <Searchbar/> */}
       <Mobilecommonhead />
-
       {/* <Common setProgress={setProgress}/> */}
-
       <div className="main-content-landing">
         {isFetched && (
           <Postlist
@@ -75,6 +85,8 @@ function Post({ userData, setUserData, setProgress, Mentor, isFetched, notifyLis
             displaycreatepost={true}
             userData={userData}
             setUserData={setUserData}
+            setShowPostPopUp={setShowPostPopUp}
+            showPostPopUp={showPostPopUp}
           />
         )}
         <Profileandevents isHome={isHome} userData={userData} />

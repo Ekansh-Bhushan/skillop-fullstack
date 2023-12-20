@@ -284,7 +284,7 @@ body {
   .l2,
   .l3 {
     width: 20px;
-    content: "";
+    content: '';
     height: 0.5px;
     position: relative;
     margin-bottom: 4px;
@@ -375,23 +375,20 @@ body {
   flex-direction: column;
   gap: 20px;
   position: fixed;
+  top: 15vh;
   right: 0px;
-}
-
-.ishome {
-  /* top: 80px; */
-  /* height: 89vh; */
 }
 
 .common-prof {
   width: 90%;
   position: relative;
-  box-shadow: 0px 0px 20px rgb(201, 200, 200);
-  border-radius: 16px 16px 0px 0px;
+  /* box-shadow: 0px 0px 20px rgb(201, 200, 200); */
+  border-radius: 16px;
   height: 18vw;
-  background-image: url("../../images/Robo.png");
+  background-image: url('../../images/Robo.png');
   background-size: 100%;
   background-repeat: no-repeat;
+  border: 1px solid rgb(198, 198, 198);
 }
 
 .common-prof-info {
@@ -399,7 +396,6 @@ body {
   width: 100%;
   position: absolute;
   bottom: 0;
-
   background-color: rgb(255, 255, 255);
   border-radius: 114px 0px 0px 0px;
   display: flex;
@@ -445,14 +441,15 @@ body {
 }
 
 .event-upcoming {
-  width: 87%;
+  width: 90%;
   height: 20vw;
-  background-color: #e7e5e5;
+  /* background-color: #e7e5e5; */
   border-radius: 10px;
   display: flex;
   gap: 20px;
   flex-direction: column;
   padding: 8.5px;
+  border: 1px solid rgb(198, 198, 198);
 }
 .event-list {
   display: flex;
@@ -509,7 +506,7 @@ body {
 .profile-landing-bg {
   height: 150px;
 
-  background-image: url("../../images/b.png");
+  background-image: url('../../images/b.png');
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -556,6 +553,7 @@ body {
 .posting-on-landing {
   height: 100vh;
   position: relative;
+  top: 3vw;
   width: 70%;
   display: flex;
   align-items: center;
@@ -564,12 +562,14 @@ body {
 }
 
 .user-new-post {
-  height: 50px;
-  width: calc(80% - 40px);
-  position: relative;
+  height: 130px;
+  /* width: calc(80% - 40px); */
+  width: 86.4%;
+  /* position: relative; */
+  /* top: 9vh; */
   background-color: rgb(255, 255, 255);
-  box-shadow: 2px 2px 13px 1px rgb(192, 192, 192);
-  border-radius: 15px;
+  /* box-shadow: 2px 2px 13px 1px rgb(192, 192, 192); */
+  /* border-radius: 15px; */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -577,8 +577,9 @@ body {
   gap: 0px;
   margin-left: auto;
   margin-right: auto;
-  padding: 40px 20px 40px 20px;
+  padding: 40px 20px;
   transition: all ease-in-out 0.3s;
+  border: 1px solid rgb(208, 207, 207);
 }
 
 .user-new-post #post-user {
@@ -599,6 +600,7 @@ body {
   gap: 8px;
   align-items: center;
   transition: all ease-in-out 0.3s;
+  margin-bottom: 10px;
 }
 
 .read-more {
@@ -627,8 +629,8 @@ non-act {
 
 .user-post-head input {
   width: 30vw;
-  border-radius: 25px;
-  padding: 15px;
+  border-radius: 30px;
+  padding: 12px;
   background-color: rgb(246, 246, 246);
   border: 0.1px solid gray;
   box-shadow: 2px 2px 7px rgb(192, 192, 192);
@@ -677,8 +679,9 @@ non-act {
   align-items: center;
   flex-direction: column;
   width: 80%;
-  gap: 10px;
+  /* gap: 10px; */
 }
+
 @media (min-width: 390px) and (max-width: 843px) {
   .people-post {
     margin-top: 20px;
@@ -688,16 +691,16 @@ non-act {
 
 .post-1 {
   height: auto;
-  width: 94%;
-  box-shadow: 2px 2px 10px 2px rgb(199, 199, 199);
+  width: 108%;
+  /* box-shadow: 2px 2px 10px 2px rgb(199, 199, 199); */
   background-color: rgb(255, 255, 255);
   padding: 20px;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   gap: 20px;
-  border: none;
+  border: 1px solid rgb(200, 200, 200);
 }
 
 #verified-badge {
@@ -812,7 +815,7 @@ non-act {
 }
 
 .like-count {
-  display: "flex";
+  display: 'flex';
   align-items: center;
   justify-content: center;
   flex-direction: row;
@@ -1514,7 +1517,7 @@ non-act {
     width: 80%;
   }
   .user-new-post {
-    width: 75%;
+    width:86.4%;
   }
   .prof-and-events {
     right: 70px;
