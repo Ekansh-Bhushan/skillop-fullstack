@@ -73,36 +73,15 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
       <Mobilecommonhead />
 
       <div className="confirm-container">
-        <div className="left-content">
-          {data && (
-            <div className="cnf-user">
-              {/* <img className="cnf-prof-pic" src={data.profilePicUrl ? data.profilePicUrl : userIcon} alt="profile pic" /> */}
-              <img className="cnf-prof-pic" src={userIcon} alt="profile pic" />
-              <h3>
-                {data.firstname} {data.lastname}
-              </h3>
-              <p>{data.jobTitle}</p>
-            </div>
-          )}
-
-          <div className="cnf-line"></div>
-
-          <span>
-            <div id="cnf-circle"></div>
-            <h3>Confirmation</h3>
-          </span>
-          <div className="cnf-line2"></div>
-          <span>
-            <div id="cnf-round"></div>
-            <h3>Payment</h3>
-          </span>
-        </div>
-
-        <div className="right-content">
+        <div className="h-[100vh] flex items-center justify-center flex-col px-[10vw] border-r-2">
           {isSignedIn ? (
-            <h2>Confirm Booking</h2>
+            <h2 className="text-3xl font-semibold w-full mb-5 mt-[-5vh]">
+              Confirm Your Slot
+            </h2>
           ) : (
-            <h2>Authorize SKILLOP MEETS</h2>
+            <h2 className="mb-[30vh] text-2xl font-semibold">
+              Authorize SKILLOP MEETS
+            </h2>
           )}
 
           {isSignedIn ? (
@@ -175,21 +154,25 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                 />
               </div>
               <div className="pay-details">
-                <h3>Payment details</h3>
+                <h3 className="text-2xl font-semibold mb-6">Payment details</h3>
                 <div className="session">
-                  <p>Price for 1 session</p>
-                  <p>Rs. {charge}</p>
+                  <p className="text-xl font-semibold ">Session Fee</p>
+                  <p className="text-xl font-semibold mb-5">Rs. {charge}</p>
                 </div>
                 <div className="final-amt">
-                  <p>Final amount</p>
-                  <p>Rs. {charge}</p>
+                  <p className="text-xl font-semibold ">Total amount</p>
+                  <p className="text-xl font-semibold ">Rs. {charge}</p>
                 </div>
                 <button
-                  className="proceed-btn"
+                  className="mt-5 py-2 rounded-lg text-white bg-[#108CFF] text-lg"
                   onClick={() => onClickProceed()}
                 >
                   Proceed
                 </button>
+                <span className="mt-[20vh]">
+                  Note: The meetings will be scheduled in your Google <br />
+                  Calendar along with Google Meet Link.
+                </span>
               </div>
             </>
           ) : (
@@ -206,3 +189,30 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
 };
 
 export default ConfirmBooking;
+
+{
+  /* <div className="left-content">
+{data && (
+  <div className="cnf-user">
+    {/* <img className="cnf-prof-pic" src={data.profilePicUrl ? data.profilePicUrl : userIcon} alt="profile pic" /> */
+}
+//     <img className="cnf-prof-pic" src={userIcon} alt="profile pic" />
+//     <h3>
+//       {data.firstname} {data.lastname}
+//     </h3>
+//     <p>{data.jobTitle}</p>
+//   </div>
+// )}
+
+// <div className="cnf-line"></div>
+
+// <span>
+//   <div id="cnf-circle"></div>
+//   <h3>Confirmation</h3>
+// </span>
+// <div className="cnf-line2"></div>
+// <span>
+//   <div id="cnf-round"></div>
+//   <h3>Payment</h3>
+// </span>
+// </div>  */}
