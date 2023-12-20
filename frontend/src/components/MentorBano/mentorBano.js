@@ -141,29 +141,24 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
         isFetched={isFetched}
         notifyList={notifyList}
       />
-      <h2 className="heading">Become a Mentor</h2>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          margin: "8vw -10vw",
-          height: "30vh",
-        }}
-      >
-        <div id="percentage-profile">
-          <h2>{PercentageProfileComplete}%</h2>
-          <p>Complete</p>
-        </div>
+
+      <div className="flex items-center justify-center mx-[25vw] border-r-2 flex-col gap-10 h-[100vh] ">
+        <h2 className="text-3xl font-semibold mt-5">Become a Mentor</h2>
         <div
           style={{
-            marginLeft: "300px",
-            width: "20%",
+            width: "30%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             paddingRight: "10px",
           }}
         >
+          <div className="absolute flex items-center justify-center flex-col">
+            <h2 className="text-4xl font-semibold">
+              {PercentageProfileComplete}%
+            </h2>
+            <p className="text-2xl font-semibold">Complete</p>
+          </div>
           <Circle
             percent={Pprogress}
             strokeColor="cyan"
@@ -187,18 +182,11 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
           </Circle>
         </div>
 
-        <div
-          style={{
-            width: "50%",
-            position: "relative",
-            paddingLeft: "30px",
-          }}
-          className="criterias"
-        >
-          <h3>
+        <div className=" bg-white bg-opacity-50 backdrop-blur-[20px] border-2 py-4 px-[5vw] text-lg rounded-2xl">
+          {/* <h3>
             Please complete the following things in your profile to become
             Mentor😎
-          </h3>
+          </h3> */}
           <ul>
             <li className={uploadProfilePicAndVideo ? "done" : "not-done"}>
               Upload Profile Pic and My story video
@@ -214,30 +202,29 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
             </li>
           </ul>
         </div>
-      </div>
-
-      {isNotApplied && (
-        <div className="last-content">
-          You are One step away from becoming a Mentor...
-        </div>
-      )}
-      <div className="but">
         {isNotApplied && (
-          <button
-            className={isActive ? "custom-button" : "custom-button-active"}
-            disabled={!isActive}
-            onClick={requestToBeMentorX}
-          >
-            Become a Mentor!
-          </button>
+          <div className="font-semibold text-center my-5">
+            You are One step away from becoming a Mentor...
+          </div>
         )}
-        {isAccepted && (
-          <h3>
-            Your application is accepted✅. You are a Verified Mentor 😎 now!
-          </h3>
-        )}
-        {isPending && <h3>Your application is under process🔃!</h3>}
-        {isRejected && <h3>Your application is rejected❌.</h3>}
+        <div className="but">
+          {isNotApplied && (
+            <button
+              className={isActive ? "custom-button" : "custom-button-active"}
+              disabled={!isActive}
+              onClick={requestToBeMentorX}
+            >
+              Become a Mentor!
+            </button>
+          )}
+          {isAccepted && (
+            <h3>
+              Your application is accepted✅. You are a Verified Mentor 😎 now!
+            </h3>
+          )}
+          {isPending && <h3>Your application is under process🔃!</h3>}
+          {isRejected && <h3>Your application is rejected❌.</h3>}
+        </div>
       </div>
     </>
   );

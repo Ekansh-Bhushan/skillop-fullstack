@@ -1,137 +1,140 @@
 /* Styling for the heading */
 .heading {
-    font-size: 24px; /* Font size for the heading */
-    text-align: center; /* Center align the text */
-    margin: 20px 0; /* Margin above and below the heading */
-    color: #333; /* Text color for the heading */
-  }
-  
-  /* Styling for the "last-content" div */
-  .last-content {
-  
-    color: #333; /* Text color */
-    padding: 15px; /* Padding around the content */
-    text-align: center; /* Center align the text */
-    font-size: 16px; /* Font size */
-  
-    border-radius: 5px; /* Add rounded corners */
-    margin: 10px 0; /* Margin above and below the div */
-  }
-  
-  /* Styling for the "Become a mentor" button */
-  .custom-button {
-    background-color: #0074D9; /* Background color for the button */
-    color: #FFFFFF; /* Text color for the button */
-    font-size: 18px; /* Font size for the button */
-    padding: 10px 20px; /* Padding around the text (top/bottom and left/right) */
-    border: none; /* Remove the button border */
-    cursor: pointer; /* Show a pointer cursor on hover */
-    border-radius: 5px; /* Add rounded corners */
-    margin-top: 10px; /* Margin above the button */
-  }
+  font-size: 24px; /* Font size for the heading */
+  text-align: center; /* Center align the text */
+  margin: 20px 0; /* Margin above and below the heading */
+  color: #333; /* Text color for the heading */
+}
 
-  #percentage-profile {
-    position: relative;
-    top: 10vh;
-    left: 39vw;
-    font-size: 1.2rem;
-  }
-  
-  #percentage-profile h2 {
-   font-size: 2.7rem;
- }
-  
-  /* Hover effect for the button */
-  .custom-button:hover {
-    background-color: #0056b3; /* Change background color on hover */
-  }
+/* Styling for the "last-content" div */
+.last-content {
+  color: #333; /* Text color */
+  padding: 15px; /* Padding around the content */
+  text-align: center; /* Center align the text */
+  font-size: 16px; /* Font size */
 
-  .criterias li {
-    font-size: 1.07rem;
-  }
-  
-  
-  
-  /* Style for the containing div */
-  .but {
-      text-align: center; /* Center align the button */
-    }
-    
-    /* Style for the button */
-    .custom-button {
-      background-color: #0074D9; /* Background color (change to your preferred color) */
-      color: #FFFFFF; /* Text color */
-      font-size: 16px; /* Font size */
-      padding: 10px 20px; /* Padding around the text (top/bottom and left/right) */
-      border: none; /* Remove the button border */
-      cursor: pointer; /* Show a pointer cursor on hover */
-      border-radius: 5px; /* Add rounded corners */
-    }
-  
-    .custom-button-active{
-      background-color: #0074D9; /* Background color (change to your preferred color) */
-      color: #FFFFFF; /* Text color */
-      font-size: 16px; /* Font size */
-      padding: 10px 20px; /* Padding around the text (top/bottom and left/right) */
-      border: none; /* Remove the button border */
-      cursor: pointer; /* Show a pointer cursor on hover */
-      border-radius: 5px; /* Add rounded corners */
-      opacity: 0.6;
-    }
-    
-    /* Hover effect */
-    .custom-button:hover {
-      background-color: #0056b3; /* Change background color on hover */
-    }
-    
-  
-  ul {
-      list-style-type: none; /* Remove default list-style-type (disc or circle) */
-      padding: 0;
-    }
-    
-    li {
-      margin: 10px 0;
-      font-size: 12px;
-      padding-left: 30px; /* Add some left padding for the bullet/indicator */
-      position: relative;
-    }
-    
-    .done::before {
-      content: "✔"; /* Checkmark (✔) in a green circle for done tasks */
-      color: green;
-      background-color: lightgreen;
-      border-radius: 50%; /* Create a circle with border-radius */
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      text-align: center;
-      line-height: 20px; /* Center the checkmark vertically */
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-    
-    .done {
-      color: rgb(10, 231, 10); /* Make the content inside the list item green for done tasks */
-    }
-    
-    .not-done::before {
-      content: "⚠"; /* Exclamation mark (⚠) in a red circle for not done tasks */
-      color: rgb(246, 255, 0);
-      background-color: rgb(234, 180, 63);
-      border-radius: 50%; /* Create a circle with border-radius */
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      text-align: center;
-      line-height: 20px; /* Center the exclamation mark vertically */
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-    
-    .not-done {
-      color: rgb(225, 170, 16); /* You can change the color for not done tasks as per your preference */
-    }
-    
+  border-radius: 5px; /* Add rounded corners */
+  margin: 10px 0; /* Margin above and below the div */
+}
+
+/* Styling for the "Become a mentor" button */
+.custom-button {
+  background-color: #0074d9; /* Background color for the button */
+  color: #ffffff; /* Text color for the button */
+  font-size: 18px; /* Font size for the button */
+  padding: 15px 20px; /* Padding around the text (top/bottom and left/right) */
+  border: none; /* Remove the button border */
+  cursor: pointer; /* Show a pointer cursor on hover */
+  border-radius: 5px; /* Add rounded corners */
+  margin-top: 10px; /* Margin above the button */
+}
+
+#percentage-profile {
+  position: relative;
+  top: 10vh;
+  left: 39vw;
+  font-size: 1.2rem;
+}
+
+#percentage-profile h2 {
+  font-size: 2.7rem;
+}
+
+/* Hover effect for the button */
+.custom-button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+.criterias li {
+  font-size: 1.07rem;
+}
+
+/* Style for the containing div */
+.but {
+  text-align: center; /* Center align the button */
+}
+
+/* Style for the button */
+.custom-button {
+  background-color: #0074d9; /* Background color (change to your preferred color) */
+  color: #ffffff; /* Text color */
+  font-size: 16px; /* Font size */
+  padding: 15px 20px; /* Padding around the text (top/bottom and left/right) */
+  border: none; /* Remove the button border */
+  cursor: pointer; /* Show a pointer cursor on hover */
+  border-radius: 5px; /* Add rounded corners */
+}
+
+.custom-button-active {
+  background-color: #0074d9; /* Background color (change to your preferred color) */
+  color: #ffffff; /* Text color */
+  font-size: 16px; /* Font size */
+  padding: 10px 20px; /* Padding around the text (top/bottom and left/right) */
+  border: none; /* Remove the button border */
+  cursor: pointer; /* Show a pointer cursor on hover */
+  border-radius: 5px; /* Add rounded corners */
+  opacity: 0.6;
+}
+
+/* Hover effect */
+.custom-button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+ul {
+  list-style-type: none; /* Remove default list-style-type (disc or circle) */
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  /* font-size: 12px; */
+  padding-left: 30px; /* Add some left padding for the bullet/indicator */
+  position: relative;
+}
+
+.done::before {
+  content: "✔"; /* Checkmark (✔) in a green circle for done tasks */
+  color: green;
+  background-color: lightgreen;
+  border-radius: 50%; /* Create a circle with border-radius */
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px; /* Center the checkmark vertically */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.done {
+  color: rgb(
+    10,
+    231,
+    10
+  ); /* Make the content inside the list item green for done tasks */
+}
+
+.not-done::before {
+  content: "⚠"; /* Exclamation mark (⚠) in a red circle for not done tasks */
+  color: rgb(246, 255, 0);
+  background-color: rgb(234, 180, 63);
+  border-radius: 50%; /* Create a circle with border-radius */
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px; /* Center the exclamation mark vertically */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.not-done {
+  color: rgb(
+    225,
+    170,
+    16
+  ); /* You can change the color for not done tasks as per your preference */
+}
