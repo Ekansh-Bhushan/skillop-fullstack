@@ -1,6 +1,5 @@
 .confirm-container {
   position: relative;
-  top: 50px;
   left: 12vw;
   display: flex;
   width: calc(100% - 300px);
@@ -113,13 +112,24 @@
 .cnf-video {
   display: flex;
   gap: 30px;
+  margin-bottom: 30px;
 }
 
-.call-details,
+.call-details {
+  display: flex;
+  background-color: #fd0c0c59;
+  /* border: 2px solid rgb(244, 244, 1); */
+  border-radius: 15px;
+  padding: 1vw;
+  flex-direction: column;
+  gap: 9vh;
+}
+
 .call-date {
   display: flex;
-  border: 2px solid rgb(244, 244, 1);
-  border-radius: 20px;
+  background-color: #ffb80066;
+  /* border: 2px solid rgb(244, 244, 1); */
+  border-radius: 15px;
   padding: 1vw;
   flex-direction: column;
   gap: 9vh;
@@ -133,10 +143,6 @@
   gap: 7vw;
 }
 
-.call-date {
-  border: 2px solid orange;
-}
-
 .coupon-text {
   width: 100%;
   border-bottom: 1px solid black;
@@ -147,8 +153,8 @@
 .pay-details {
   display: flex;
   flex-direction: column;
-  gap: 2vw;
   width: 100%;
+  margin-top: 5vh;
 }
 
 .session,

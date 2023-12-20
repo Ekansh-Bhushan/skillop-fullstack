@@ -111,57 +111,64 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
       <Mobilecommonhead />
       {/* <Common setProgress={setProgress} /> */}
 
-      <div className="main-content-landing">
-        <div className="booking-slot-section">
-          <div className="book-content">
-            <div className="header-slotbook">Book Slot</div>
-            <div className="filter-options-booking">
+      <div className="flex items-center justify-center h-full w-[80%] ml-[7vw]">
+        <div className="w-[70%] h-screen flex justify-center ">
+          <div className="w-[90%] h-full flex flex-col border-r-2 pt-5">
+            <div className="text-2xl font-semibold pl-10">Book a Slot for</div>
+            <div className="text-3xl font-semibold pl-10"> 1:1 Session</div>
+            {/* <div className="filter-options-booking">
               <div className="f-slot f-slot-1">All Slots</div>
-            </div>
+            </div> */}
             <div className="slot-complete-list">
               <div className="headers-slot">
                 <div>Day</div>
                 <div>Time</div>
                 <div>Amount</div>
               </div>
-              {Object.keys(slots).length > 0 ? Object.keys(slots).map((day) => {
-                return (
-                  <div className="slot-1-book">
-                    {slots[day].map((slot) => {
-                      return (
-                        <>
-                          <div className="list-1">
-                            <div className="day-name">
-                              {new Date(day).toString().slice(0, 15)}
+              {Object.keys(slots).length > 0 ? (
+                Object.keys(slots).map((day) => {
+                  return (
+                    <div className="slot-1-book">
+                      {slots[day].map((slot) => {
+                        return (
+                          <>
+                            <div className="list-1">
+                              <div className="day-name">
+                                {new Date(day).toString().slice(0, 15)}
+                              </div>
+                              <div className="slot-scheduled-time">
+                                {convertToNormalTime(slot.s)} -{" "}
+                                {convertToNormalTime(slot.e)}
+                              </div>
+                              <div className="amount-slot">
+                                ₹{Math.round(slot.charge)}
+                              </div>
+                              <button
+                                onClick={() =>
+                                  onClickingBook(
+                                    day,
+                                    mentorId,
+                                    slot.s,
+                                    slot.e,
+                                    userData._id,
+                                    slot.charge
+                                  )
+                                }
+                              >
+                                Book{" "}
+                              </button>
                             </div>
-                            <div className="slot-scheduled-time">
-                              {convertToNormalTime(slot.s)} -{" "}
-                              {convertToNormalTime(slot.e)}
-                            </div>
-                            <div className="amount-slot">
-                              ₹{Math.round(slot.charge)}
-                            </div>
-                            <button
-                              onClick={() =>
-                                onClickingBook(
-                                  day,
-                                  mentorId,
-                                  slot.s,
-                                  slot.e,
-                                  userData._id,
-                                  slot.charge
-                                )
-                              }
-                            >
-                              Book Now{" "}
-                            </button>
-                          </div>
-                        </>
-                      );
-                    })}
-                  </div>
-                );
-              }):<h3 style={{textAlign:"center", margin:"5vw"}}>No slot added by user</h3>}
+                          </>
+                        );
+                      })}
+                    </div>
+                  );
+                })
+              ) : (
+                <h3 style={{ textAlign: "center", margin: "5vw" }}>
+                  No slot added by user
+                </h3>
+              )}
             </div>
           </div>
         </div>
