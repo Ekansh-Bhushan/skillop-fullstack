@@ -21,6 +21,8 @@ const Postlist = ({
   user,
   setProgress,
   setUserData,
+  showPostPopUp,
+  setShowPostPopUp
 }) => {
   const [refresh, setRefresh] = useState(false);
   const userId = window.location.pathname.split('/')[2];
@@ -28,8 +30,6 @@ const Postlist = ({
   const navigate = useNavigate();
 
   const [selectedFile, setSelectedFile] = useState(null);
-
-  const [showPostPopUp, setShowPostPopUp] = useState(false);
 
   const [isSticky, setIsSticky] = useState(false);
 
@@ -141,6 +141,7 @@ const Postlist = ({
         setLength((prevLen) => data.length);
         setPosts((prevPosts) => [...prevPosts, ...data.result]);
         setSkip((prevSkip) => prevSkip + limit);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
@@ -330,7 +331,7 @@ const Postlist = ({
                 setProgress={setProgress}
               />
             ))}
-          <div ref={containerRef} style={{ height: '200px' }}>
+          <div ref={containerRef} style={{ height: '200px', position:"fixed", top:"35vh" }}>
             {loading && <img src={spinner} alt="Loading..." width={60} />}
           </div>
         </div>

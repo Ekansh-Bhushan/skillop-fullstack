@@ -72,12 +72,40 @@ function AuthPage({
   notifyList,
   setIsFetched,
   setNotifyList,
+  setShowPostPopUp,
+  showPostPopUp
 }) {
   // console.log(userData);
-  const excludedRoutes = ['/','/mlogin','/msignup','/mpersonal','/mcontact','/mskill','/mstudinfo','/mprofinfo','/mcover','/msocial','/signup','/login','/skill1','/skill2','/skill3','/skill4','/skill5','/skill6','/skill7','/about','/contact','/privacy-policy','/faqs','/loginn',
+  const excludedRoutes = [
+    '/',
+    '/mlogin',
+    '/msignup',
+    '/mpersonal',
+    '/mcontact',
+    '/mskill',
+    '/mstudinfo',
+    '/mprofinfo',
+    '/mcover',
+    '/msocial',
+    '/signup',
+    '/login',
+    '/skill1',
+    '/skill2',
+    '/skill3',
+    '/skill4',
+    '/skill5',
+    '/skill6',
+    '/skill7',
+    '/about',
+    '/contact',
+    '/privacy-policy',
+    '/faqs',
+    '/loginn',
     // Add more routes as needed
   ];
-  const [shouldRender, setShouldRender] = useState(!excludedRoutes.includes(window.location.pathname));
+  const [shouldRender, setShouldRender] = useState(
+    !excludedRoutes.includes(window.location.pathname)
+  );
   return (
     <Router>
       {shouldRender && (
@@ -159,6 +187,8 @@ function AuthPage({
               setMentor={setMentor}
               setIsFetched={setIsFetched}
               setNotifyList={setNotifyList}
+              setShowPostPopUp={setShowPostPopUp}
+              showPostPopUp={showPostPopUp}
             />
           }
         />

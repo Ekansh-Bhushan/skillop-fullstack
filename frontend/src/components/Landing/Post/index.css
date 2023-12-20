@@ -375,18 +375,20 @@ body {
   flex-direction: column;
   gap: 20px;
   position: fixed;
+  top: 15vh;
   right: 0px;
 }
 
 .common-prof {
   width: 90%;
   position: relative;
-  box-shadow: 0px 0px 20px rgb(201, 200, 200);
-  border-radius: 16px 16px 0px 0px;
+  /* box-shadow: 0px 0px 20px rgb(201, 200, 200); */
+  border-radius: 16px;
   height: 18vw;
   background-image: url('../../images/Robo.png');
   background-size: 100%;
   background-repeat: no-repeat;
+  border: 1px solid rgb(198, 198, 198);
 }
 
 .common-prof-info {
@@ -394,7 +396,6 @@ body {
   width: 100%;
   position: absolute;
   bottom: 0;
-
   background-color: rgb(255, 255, 255);
   border-radius: 114px 0px 0px 0px;
   display: flex;
@@ -440,14 +441,15 @@ body {
 }
 
 .event-upcoming {
-  width: 87%;
+  width: 90%;
   height: 20vw;
-  background-color: #e7e5e5;
+  /* background-color: #e7e5e5; */
   border-radius: 10px;
   display: flex;
   gap: 20px;
   flex-direction: column;
   padding: 8.5px;
+  border: 1px solid rgb(198, 198, 198);
 }
 .event-list {
   display: flex;

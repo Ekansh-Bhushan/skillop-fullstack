@@ -17,6 +17,8 @@ function Post({
   setMentor,
   setIsFetched,
   setNotifyList,
+  setShowPostPopUp,
+  showPostPopUp,
 }) {
   const scrollToTop = () => {
     window.scrollTo({
@@ -72,7 +74,7 @@ function Post({
         isFetched={isFetched}
         notifyList={notifyList}
       /> */}
-  
+
       {/* <Searchbar/> */}
       <Mobilecommonhead />
       {/* <Common setProgress={setProgress}/> */}
@@ -83,6 +85,8 @@ function Post({
             displaycreatepost={true}
             userData={userData}
             setUserData={setUserData}
+            setShowPostPopUp={setShowPostPopUp}
+            showPostPopUp={showPostPopUp}
           />
         )}
         <Profileandevents isHome={isHome} userData={userData} />

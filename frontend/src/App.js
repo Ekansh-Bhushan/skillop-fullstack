@@ -51,32 +51,34 @@ function App() {
         }
     }, []);
 
-
+    const [showPostPopUp, setShowPostPopUp] = useState(false);
 
     return (
-        <>
-            {/* <RouteLanding/> */}
-            <Toaster />
-            <TopBar />
-            <AuthPage
-                setNotifyList={setNotifyList}
-                Mentor={Mentor}
-                setMentor={setMentor}
-                setIsFetched={setIsFetched}
-                isFetched={isFetched}
-                notifyList={notifyList}
-                userData={userData}
-                setUserData={setUserData}
-                setProgress={setProgress}
-            />
-            <LoadingBar
-                color="#f11946"
-                height={4}
-                progress={progress}
-                shadow={true}
-            />
-            <Emoji />
-        </>
+      <>
+        {/* <RouteLanding/> */}
+        <Toaster />
+        <TopBar setShowPostPopUp={setShowPostPopUp} />
+        <AuthPage
+          setNotifyList={setNotifyList}
+          Mentor={Mentor}
+          setMentor={setMentor}
+          setIsFetched={setIsFetched}
+          isFetched={isFetched}
+          notifyList={notifyList}
+          userData={userData}
+          setUserData={setUserData}
+          setProgress={setProgress}
+          setShowPostPopUp={setShowPostPopUp}
+          showPostPopUp={showPostPopUp}
+        />
+        <LoadingBar
+          color="#f11946"
+          height={4}
+          progress={progress}
+          shadow={true}
+        />
+        <Emoji />
+      </>
     );
 }
 
