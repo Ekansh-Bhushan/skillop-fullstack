@@ -15,9 +15,8 @@ function App() {
     const [isFetched, setIsFetched] = useState(false);
     const [notifyList, setNotifyList] = useState([]);
 
-    // const navigate = useNavigate();
-
     // GET USER DATA
+
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -25,18 +24,15 @@ function App() {
                 setUserData(data.result);
                 setMentor(data.result.isMentor);
                 setIsFetched(true);
-
+                setNotifyList(data.result.notifications);
             } catch (err) {
                 if (!err.response.data.result) {
                     localStorage.removeItem("skilloptoken");
-                    console.log("here is ", err.response.data.result);
-                    // navigate('/');
-                    // toast.error("Session expired, Login again!");
+                    console.log(err.response.data.result);
                 }
                 console.log("Unable to fetch user", err);
             }
         };
-
         const fetchNotifications = async () => {
             try {
                 const NotiData = await getNotifications();
@@ -45,9 +41,10 @@ function App() {
                 console.log("Unable to fetch notifications", err);
             }
         };
+
         if (localStorage.getItem("skilloptoken")) {
             fetchUser();
-            fetchNotifications();
+            // fetchNotifications();
         }
     }, []);
 

@@ -9,7 +9,7 @@ import { followUnfollowUser } from "../../../api/follow-unfollow";
 import chat3 from "../../images/chat3.png";
 import post2 from "../../images/post2.png";
 import { toast } from "react-hot-toast";
-import defaultBGPic from "../../images/Robo.png";
+import defaultBGPic from "../../images/bg.png";
 import Followers from "../../Profile/Right Profile/Followers";
 import Following from "../../Profile/Right Profile/Following";
 import IntroVideo from "../../Profile/Right Profile/IntroVideo";
