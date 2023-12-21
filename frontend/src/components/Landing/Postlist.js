@@ -331,7 +331,7 @@ const Postlist = ({
                 setProgress={setProgress}
               />
             ))}
-          <div ref={containerRef} style={{ height: '200px', position:"fixed", top:"35vh" }}>
+          <div ref={containerRef} style={{ height: '200px'}}>
             {loading && <img src={spinner} alt="Loading..." width={60} />}
           </div>
         </div>
