@@ -6,6 +6,8 @@ import defaultBGPic from '../../images/bg.png';
 import IntroVideo from '../Right Profile/IntroVideo';
 import Following from '../Right Profile/Following';
 import Followers from '../Right Profile/Followers';
+import toast from 'react-hot-toast';
+import post2 from '../../images/post2.png';
 
 const ProfileHeader = () => {
   const navigate = useNavigate();
@@ -48,19 +50,29 @@ const ProfileHeader = () => {
             userDetails &&
             (userDetails.bgPicUrl
               ? `url(${userDetails.bgPicUrl})`
-              : `url("/bg.png")`),
+              : `url(${defaultBGPic})`),
           width: '100%',
           height: '30vh',
         }}
       >
         {/* <img src="/bg.png" alt="bg" /> */}
       </div>
-      <div className="ph-pic">
+      {userDetails && userDetails.introVideo ? (
+        <div className="ph-pic">
+          <img
+            onClick={() => setShowIntroVideo(true)}
+            src={userDetails ? userDetails.profilePicUrl : '/user.png'}
+            alt="user pic"
+          />
+        </div>
+      ) : (
         <img
+          className="ph-pic"
+          onClick={() => setShowIntroVideo(true)}
           src={userDetails ? userDetails.profilePicUrl : '/user.png'}
           alt="user pic"
         />
-      </div>
+      )}
       <div className="ph-details">
         <div className="ph-name">
           {userDetails && userDetails.firstname + ' ' + userDetails.lastname}
@@ -70,7 +82,15 @@ const ProfileHeader = () => {
             </div>
           )}
         </div>
-        <div className="ph-headline">{userDetails && userDetails.jobTitle}</div>
+        <div className="ph-headline">
+          {userDetails && userDetails.jobTitle}
+          <div
+            id="ph-mypost"
+            onClick={() => navigate(`/userposts/${userDetails._id}`)}
+          >
+            My Posts
+          </div>
+        </div>
         <div className="ph-follow">
           <div
             className="ph-follwers"

@@ -20,6 +20,7 @@ import { useNavigate, useNavigation } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Mobilecommonhead from '../Mobilecommonhead';
 import ProfileHeader from './ProfileHeader/ProfileHeader';
+import UpcomingEvents from '../Landing/Profileandevents/UpcomingEvents';
 
 const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const [updateDom, setUpdateDom] = useState(false);
@@ -39,6 +40,24 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [isButtonClicked2, setIsButtonClicked2] = useState(false);
   const [isButtonClicked3, setIsButtonClicked3] = useState(false);
+
+  const color = [
+    'red',
+    'blue',
+    'green',
+    'orange',
+    'purple',
+    'brown',
+    'gray',
+    'black',
+    'navy',
+    'darkgreen',
+    'maroon',
+    'darkpurple',
+    'darkbrown',
+    'darkgray',
+  ];
+
 
   const navigate = useNavigate();
 
@@ -178,6 +197,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
       <Mobilecommonhead />
       {/* <RightProfileComp about={journeyContent} /> */}
       <ProfileHeader />
+      <UpcomingEvents />
       <div className="main-profile-page">
         {isLoading && (
           <img
@@ -477,7 +497,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
               {userDetails.skills &&
                 [...userDetails.skills].reverse().map((item, idx) => {
                   return (
-                    <div key={idx} className="skills-content">
+                    <div key={idx} style={{border:`3px solid ${color[idx]}`, color:`${color[idx]}`}} className="skills-content">
                       <div>{item}</div>
                       {/* <img style={{ cursor: "pointer" }} src={delIcon} height={20} width={20} alt="del" /> */}
                     </div>
