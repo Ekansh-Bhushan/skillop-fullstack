@@ -1,8 +1,7 @@
-import React from 'react';
-import './TopBar.css';
+import React from "react";
+import "./TopBar.css";
 
-const TopBar = ({setShowPostPopUp}) => {
-
+const TopBar = ({ setShowPostPopUp }) => {
   const createPost = () => {
     setShowPostPopUp(true);
   };
@@ -10,7 +9,7 @@ const TopBar = ({setShowPostPopUp}) => {
   return (
     <div className="tb-container">
       <div>
-        <img src="/skillop-logo.png" alt="logo" />
+        <img src="/skillop-logo.png" alt="logo" className="w-10" />
         <h2>SKILLOP</h2>
       </div>
       <button id="create-post" onClick={createPost}>
