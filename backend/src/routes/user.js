@@ -26,6 +26,7 @@ const {
     editExperence,
     getUserByUsername,
     setUsername,
+    doIFollow,
 } = require("../controllers/userProfile");
 const {
     resetPassword,
@@ -104,4 +105,6 @@ router
 router.route("/user/signin/google").post(googleIdVerifyAndLogin);
 
 router.route("/user/username/:username").get(getUserByUsername);
+
+router.route("/user/is/following/:userId").get(isAuthorised, doIFollow);
 module.exports = router;
