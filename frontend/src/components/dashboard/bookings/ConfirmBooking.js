@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import SideNav from '../../SideNav/SideNav';
 import './ConfirmBooking.css';
 import userIcon from '../../images/user.png';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SideNav from "../../SideNav/SideNav";
 import "./ConfirmBooking.css";
 import userIcon from "../../images/user.png";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -49,7 +48,7 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
     return (
         <div style={{}}>
-            <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+            {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
 
             <div className="confirm-container">
                 <div className="left-content">

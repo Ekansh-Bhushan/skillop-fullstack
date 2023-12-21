@@ -1,5 +1,4 @@
 import React from 'react';
-import SideNav from '../SideNav/SideNav';
 import './PublicProfile.css';
 import { findUser, getUser } from '../../api/userRequest';
 import { updateProfile } from '../../api/userRequest';

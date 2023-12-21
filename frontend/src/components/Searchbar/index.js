@@ -3,7 +3,6 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { getAllUsers, getfilteredUser } from "../../api/userRequest";
 import user from "../images/user3.png";
-import SideNav from "../../components/SideNav/SideNav.js";
 import { useNavigate } from "react-router-dom";
 import { createChat } from "../../api/chatRequest";
 import Mobilecommonhead from "../Mobilecommonhead";
@@ -110,12 +109,12 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
     return (
         <>
-            <SideNav
+            {/* <SideNav
                 setProgress={setProgress}
                 Mentor={Mentor}
                 isFetched={isFetched}
                 notifyList={notifyList}
-            />
+            /> */}
             <Mobilecommonhead />
             <div className="partition-plus-panel">
                 <div>

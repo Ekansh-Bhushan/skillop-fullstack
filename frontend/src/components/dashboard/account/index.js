@@ -8,7 +8,6 @@ import Commondash from "../common";
 import Topbar from "../topbar";
 import { updateIsMentor } from "../../../api/userRequest";
 import UPIicon from "../../images/UPI.png";
-import SideNav from "../../SideNav/SideNav";
 import Profileandevents from "../../Landing/Profileandevents";
 import { toast } from "react-hot-toast";
 import Mobilecommonhead from "../../Mobilecommonhead";
