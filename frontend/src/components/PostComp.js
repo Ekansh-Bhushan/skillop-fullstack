@@ -10,6 +10,7 @@ import PostImgPrevw from './Landing/Post/PostImagePrev/PostImgPrevw';
 import userPic from './images/user.png';
 import next from './images/next.png';
 import back from './images/back.png';
+import { followUnfollowUser } from '../api/follow-unfollow';
 
 const PostComp = ({
   userData,
@@ -72,6 +73,7 @@ const PostComp = ({
 
   const [likersList, setLikersList] = useState([]);
   const [fetchingLikers, setFetchingLikers] = useState(true);
+  const [FollowBtn, setFollowBtn] = useState(userData.followings.includes(author._id)?"✔ Following":"Follow");
   // const [updateDOM, setUpdateDOM] = useState(false);
 
   const fetchLikers = async () => {
@@ -206,37 +208,56 @@ const PostComp = ({
     <div className="post-1">
       <div>
         {author ? (
-          <div style={{ cursor: 'pointer' }} className="post-postedby">
-            <img
-              src={author.profilePicUrl ? author.profilePicUrl : userPic}
-              alt="user-pic"
-              onClick={openPublicProfile}
-            />
-            <div onClick={openPublicProfile}>
-              <span style={{ fontWeight: 'bold' }} className="posted-by-name">
-                <span>
-                  {author.firstname} {author.lastname}
+          <div id="post-user-follow-head">
+            <div style={{ cursor: 'pointer' }} className="post-postedby">
+              <img
+                src={author.profilePicUrl ? author.profilePicUrl : userPic}
+                alt="user-pic"
+                onClick={openPublicProfile}
+              />
+              <div onClick={openPublicProfile}>
+                <span style={{ fontWeight: 'bold' }} className="posted-by-name">
+                  <span>
+                    {author.firstname} {author.lastname}
+                  </span>
+                  {author.isMentor && (
+                    <img
+                      id="verified-badge"
+                      src="/verified.png"
+                      width={10}
+                      height={10}
+                    />
+                  )}
                 </span>
-                {author.isMentor && (
-                  <img
-                    id="verified-badge"
-                    src="/verified.png"
-                    width={10}
-                    height={10}
-                  />
-                )}
-              </span>
-              <span style={{ fontSize: '12px' }} className="posted-by-brief">
-                {author.jobTitle !== 'student'
-                  ? author.jobTitle
-                  : author.education.length && author.education[0].institution
-                  ? 'Student at ' + author.education[0].institution.slice(0, 50)
-                  : 'Student'}
-              </span>
-              <div style={{ fontSize: '12px' }} className="post-time">
-                {formatTimeDifference()}
+                <span style={{ fontSize: '12px' }} className="posted-by-brief">
+                  {author.jobTitle !== 'student'
+                    ? author.jobTitle
+                    : author.education.length && author.education[0].institution
+                    ? 'Student at ' +
+                      author.education[0].institution.slice(0, 50)
+                    : 'Student'}
+                </span>
+                <div style={{ fontSize: '12px' }} className="post-time">
+                  {formatTimeDifference()}
+                </div>
               </div>
             </div>
+
+            {userData._id !== author._id && (
+              <div className="post-followbtn">
+                <button
+                  style={{ color: '#108cff', fontSize:"1.1rem" }}
+                  onClick={async () => {
+                    await followUnfollowUser(author._id);
+                    FollowBtn === 'Follow'
+                      ? setFollowBtn('✔ Following')
+                      : setFollowBtn('Follow');
+                  }}
+                >
+                  {FollowBtn}
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <div style={{ cursor: 'pointer' }} className="post-postedby">
@@ -388,7 +409,7 @@ const PostComp = ({
         <>
           <hr id="like-line" />
           <div className="like-cmts-count">
-            <div style={{cursor:"pointer"}} className="like-counts">
+            <div style={{ cursor: 'pointer' }} className="like-counts">
               {likersList.length <= 1 && (
                 <>
                   <span onClick={openPopup}>{likersList.length} Like</span>
@@ -414,7 +435,8 @@ const PostComp = ({
                 </>
               )}
             </div>
-            <div style={{cursor:"pointer"}}
+            <div
+              style={{ cursor: 'pointer' }}
               onClick={() => {
                 navigate(`/postsection/${_id}`);
               }}

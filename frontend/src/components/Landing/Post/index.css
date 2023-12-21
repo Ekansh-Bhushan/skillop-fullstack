@@ -692,6 +692,13 @@ non-act {
   }
 }
 
+#post-user-follow-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .post-1 {
   height: auto;
   width: 108%;
