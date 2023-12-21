@@ -593,18 +593,11 @@ exports.doIFollow = async (req, res) => {
         const userId = req.params.userId;
         const user = await User.findById(req.user._id);
 
-        if (!user.followings.includes(userId)) {
-            return res.status(200).send({
-                result: false,
-                message: "You don't follow this user",
-            });
-        }
-        res.status(200).send({
-            result: true,
-            message: "You follow this user",
-        });
+        if (!user.followings.includes(userId))
+            response_200(res, "You don't follow this user", false);
 
+        response_200(res, "You follow this user", true);
     } catch (error) {
         response_500(res, "Internal Server Error", err);
     }
-}
+};
