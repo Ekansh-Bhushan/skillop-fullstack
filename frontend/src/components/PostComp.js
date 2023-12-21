@@ -384,7 +384,41 @@ const PostComp = ({
         />
       )}
 
-      <hr />
+      {(likersList.length > 0 || commentList.length > 0) && (
+        <>
+          <hr id="like-line" />
+          <div className="like-cmts-count">
+            <div className="like-counts">
+              {likersList.length <= 1 && (
+                <>
+                  <span onClick={openPopup}>{likersList.length} Like</span>
+                </>
+              )}
+              {likersList.length > 1 && (
+                <>
+                  {/* <hr style={{marginBottom: "-12px"}}/> */}
+                  <span className="likes-name">
+                    <b>
+                      {likersList[likersList.length - 1].firstname +
+                        ' ' +
+                        likersList[likersList.length - 1].lastname}
+                    </b>{' '}
+                    and{' '}
+                    <span id="others" onClick={openPopup}>
+                      {likersList.length - 1} others liked this post.
+                    </span>{' '}
+                  </span>
+                  <span className="small-screen-likes-length">
+                    {likersList.length} Like
+                  </span>
+                </>
+              )}
+            </div>
+            <div className="cmts-count">{commentList.length + ' '}Comments</div>
+          </div>
+        </>
+      )}
+      <hr id="like-line" />
       <div className="reactions-div">
         <div
           className="reactions"
@@ -401,30 +435,7 @@ const PostComp = ({
               className="fa fa-thumbs-up"
               onClick={likethispost}
             ></i>
-            {likersList.length <= 1 && (
-              <>
-                <span onClick={openPopup}>{likersList.length} Like</span>
-              </>
-            )}
-            {likersList.length > 1 && (
-              <>
-                {/* <hr style={{marginBottom: "-12px"}}/> */}
-                <span className="likes-name">
-                  <b>
-                    {likersList[likersList.length - 1].firstname +
-                      ' ' +
-                      likersList[likersList.length - 1].lastname}
-                  </b>{' '}
-                  and{' '}
-                  <span id="others" onClick={openPopup}>
-                    {likersList.length - 1} others liked this post.
-                  </span>{' '}
-                </span>
-                <span className="small-screen-likes-length">
-                  {likersList.length} Like
-                </span>
-              </>
-            )}
+            Like
           </div>
           {isPopupOpen && (
             <Popup
@@ -440,15 +451,15 @@ const PostComp = ({
               navigate(`/postsection/${_id}`);
             }}
           >
-            <i
+            {/* <i
               className="fa fa-lg fa-solid fa-comment"
               style={{
                 marginRight: '4px',
                 textAlign: 'center',
                 marginBottom: '3px',
               }}
-            ></i>
-            {commentList.length + ' '}
+            ></i> */}
+            <img style={{ marginRight: '4px' }} src="/comment.png" />
             Comments
           </div>
 

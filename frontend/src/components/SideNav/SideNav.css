@@ -3,6 +3,7 @@
   /* margin: 20px auto; */
   display: flex;
   align-items: center;
+  height: 27px;
 }
 
 .active2 {
@@ -14,6 +15,7 @@
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 /* to make scroll bar invisible but still can scroll */
 .side-nav-container::-webkit-scrollbar {
   width: 0;
@@ -157,7 +159,7 @@
   }
   .side-nav-container li {
     cursor: pointer;
-    margin: 15px 23px;
+    /* margin: 0 23px; */
     display: flex;
     align-items: center;
   }

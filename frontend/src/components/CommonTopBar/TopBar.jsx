@@ -13,9 +13,9 @@ const TopBar = ({setShowPostPopUp}) => {
         <img src="/skillop-logo.png" alt="logo" />
         <h2>SKILLOP</h2>
       </div>
-      <button id="create-post" onClick={createPost}>
+      {window.location.pathname==='/homepage' && <button id="create-post" onClick={createPost}>
         + Create Post
-      </button>
+      </button>}
     </div>
   );
 };

@@ -109,7 +109,6 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
           <div className="header-events">
             <h2
               style={{
-                fontSize: '1.15rem',
                 fontWeight: '500',
                 paddingTop: '10px',
                 paddingLeft: '16px',

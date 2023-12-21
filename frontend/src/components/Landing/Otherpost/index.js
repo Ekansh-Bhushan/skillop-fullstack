@@ -344,11 +344,13 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                       likesCount={post.likes.length}
                     />
                   )}
+                  
                   <div className="comments">
-                    <i
+                    {/* <i
                       className="fa fa-lg fa-solid fa-comment"
                       style={{ marginRight: '4px' }}
-                    ></i>
+                    ></i> */}
+                    <img style={{ marginRight: '4px' }} src="/comment.png" />
                     {commentList.length + ' '}
                     Comments
                   </div>
