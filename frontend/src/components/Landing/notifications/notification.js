@@ -72,7 +72,7 @@ const Notification = ({
 
         <div className="d-flex items-center justify-center w-[50%] ml-[20vw] border-x-2 pt-[15vh]">
           <div className="text-3xl font-semibold pl-5 border-b-2 pb-5">
-            <h2>Notifications</h2>
+            <h2 className="text-2xl">Notifications</h2>
           </div>
           {/* <div className="notify-btns hidden">
             <button

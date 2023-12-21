@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Profileandevents from '../../Landing/Profileandevents';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Profileandevents from "../../Landing/Profileandevents";
 
-import toast from 'react-hot-toast';
-import BookViewPopUp from './BookViewPopUp';
-import Mobilecommonhead from '../../Mobilecommonhead';
+import toast from "react-hot-toast";
+import BookViewPopUp from "./BookViewPopUp";
+import Mobilecommonhead from "../../Mobilecommonhead";
 import {
   getAcceptedBookings,
   getCompletedMeet,
   getPendingMeet,
-} from '../../../api/menteeRequest';
-import convertToNormalTime from '../../../utils/timeConversion';
+} from "../../../api/menteeRequest";
+import convertToNormalTime from "../../../utils/timeConversion";
 
 const MEET_STATUS = {
-  PENDING: 'pending',
-  ACCEPTED: 'accepted',
-  REJECTED: 'rejected',
-  CANCELLED: 'cancelled',
+  PENDING: "pending",
+  ACCEPTED: "accepted",
+  REJECTED: "rejected",
+  CANCELLED: "cancelled",
 };
 
 function RequestedMeets({
@@ -29,18 +29,18 @@ function RequestedMeets({
   const navigate = useNavigate();
 
   const displaynavmob = () => {
-    var x = document.querySelector('.side-nav-mob');
+    var x = document.querySelector(".side-nav-mob");
     if (x.classList[1]) {
-      x.classList.remove('display');
+      x.classList.remove("display");
     } else {
-      x.classList.add('display');
+      x.classList.add("display");
     }
   };
   const [book, setBook] = useState([]);
   const [accepted, setAccepted] = useState([]);
   const [pending, setPending] = useState([]);
   const [completed, setCompleted] = useState([]);
-  const [displaying, setDisplaying] = useState('upcomming');
+  const [displaying, setDisplaying] = useState("upcomming");
   const [ShowBookPopUp, setShowBookPopUp] = useState(false);
   const [bookingData, setBookingData] = useState([]);
   const [initialRequest, setInitialRequest] = useState(false);
@@ -50,19 +50,19 @@ function RequestedMeets({
   };
 
   const showstatus = (e) => {
-    document.querySelector('.accepted').classList.remove('up');
-    document.querySelector('.completed').classList.remove('up');
-    document.querySelector('.pending').classList.remove('up');
-    e.target.classList.add('up');
-    if (e.target.classList.contains('accepted')) {
+    document.querySelector(".accepted").classList.remove("up");
+    document.querySelector(".completed").classList.remove("up");
+    document.querySelector(".pending").classList.remove("up");
+    e.target.classList.add("up");
+    if (e.target.classList.contains("accepted")) {
       // setBook(upcomming);
-      setDisplaying('accepted');
-    } else if (e.target.classList.contains('pending')) {
+      setDisplaying("accepted");
+    } else if (e.target.classList.contains("pending")) {
       // setBook(pending);
-      setDisplaying('pending');
-    } else if (e.target.classList.contains('completed')) {
+      setDisplaying("pending");
+    } else if (e.target.classList.contains("completed")) {
       // setBook(completed);
-      setDisplaying('completed');
+      setDisplaying("completed");
     }
   };
 
@@ -115,12 +115,12 @@ function RequestedMeets({
       }
     };
     getCompMeet();
-    if (displaying === 'accepted') setBook(accepted);
-    else if (displaying === 'pending') setBook(pending);
-    else if (displaying === 'completed') setBook(completed);
+    if (displaying === "accepted") setBook(accepted);
+    else if (displaying === "pending") setBook(pending);
+    else if (displaying === "completed") setBook(completed);
   }, [displaying]);
   useEffect(() => {
-    console.log('useEffect');
+    console.log("useEffect");
     // setDisplaying("upcomming");
     // const getbookings = async () => {
     //     try {
@@ -187,40 +187,40 @@ function RequestedMeets({
         notifyList={notifyList}
       /> */}
       <Mobilecommonhead />
-      <div className="dash-main">
+      <div className="ml-[20vw] ">
         {/* <Commondash userData={userData} /> */}
 
         <div className="dash-right">
-          <Profileandevents />
+          {/* <Profileandevents /> */}
 
           {/* <Topbar setProgress={setProgress}/> */}
           <div className="session-dash-info">
-            <h2 className="meets-head">Meets</h2>
+            <h2 className="meets-head text-2xl">Meets</h2>
             <div className="heading-session-status">
               <div
                 className="accepted up"
                 onClick={showstatus}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
               >
                 Accepted
               </div>
               <div
                 className="pending"
                 onClick={showstatus}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
               >
                 Pending
               </div>
               <div
                 className="completed"
                 onClick={showstatus}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
               >
                 Completed
               </div>
             </div>
 
-            <div className="partition-session"></div>
+            {/* <div className="partition-session"></div> */}
 
             {ShowBookPopUp && (
               <BookViewPopUp
@@ -234,10 +234,10 @@ function RequestedMeets({
               <div
                 className="no-session"
                 style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  height: '100%',
-                  paddingLeft: '20px',
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                  padding: "20px",
                 }}
               >
                 {initialRequest && <h3>No Sessions</h3>}
@@ -245,13 +245,13 @@ function RequestedMeets({
             ) : (
               <div className="session-list-dash">
                 {Object.entries(book).map(([date, items]) => (
-                  <div>
+                  <div className="session-list-dash-li hover:bg-gray-400/30">
                     <ul>
                       <li>Date: {new Date(date).toString().slice(0, 15)}</li>
                     </ul>
                     {Object.entries(items).map((item) => (
                       <div
-                        style={{ cursor: 'pointer' }}
+                        style={{ cursor: "pointer" }}
                         onClick={() => {
                           setBookingData(item);
                           console.log(item);
@@ -259,17 +259,12 @@ function RequestedMeets({
                         }}
                         className="individual-session"
                       >
-                        <div
-                          style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                          }}
-                        >
+                        <div>
                           {/* <img src={logo} /> */}
 
                           <span>
-                            Timing:&nbsp;{convertToNormalTime(item[1].s)} -{' '}
-                            {convertToNormalTime(item[1].e)}{' '}
+                            Timing:&nbsp;{convertToNormalTime(item[1].s)} -{" "}
+                            {convertToNormalTime(item[1].e)}{" "}
                           </span>
                         </div>
                         <span>Number of Bookings :1</span>

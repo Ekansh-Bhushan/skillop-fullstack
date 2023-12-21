@@ -531,9 +531,9 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 80px;
+  top: 20px;
   gap: 50px;
-  margin-right: 50px;
+  margin-right: 10vw;
 }
 
 @media screen and (max-width: 500px) {
@@ -730,37 +730,48 @@ body {
 
 /* /-----------------------/ /-------------------------Bookings---------------------------/  */
 .session-dash-info {
-  width: 80%;
-  height: 600px;
+  width: 100%;
+  height: 100vh;
   position: relative;
   top: 50px;
+  /* padding: 20px; */
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 10px; */
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  border-right: 1px solid #00000026;
+  /* padding: 20px; */
 }
 
 .heading-session-status {
   display: flex;
   gap: 40px;
-  font-size: 18px;
+  font-size: 17px;
+  border-bottom: 1px solid #00000026;
+  width: 100%;
+  padding: 10px;
+  padding-left: 22px;
+  font-weight: 700;
 }
 
 .heading-session-status div {
-  padding: 15px 20px 15px 20px;
+  padding: 5px;
+  padding-inline: 0px;
   transition: 0.2s;
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
+
 .up {
-  background: rgb(3, 198, 198);
-  color: white;
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(to right, #fd0c0c, #ffb800, #0eab00, #108cff) 1;
 }
 .session-list-dash {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border-block: 1px solid #00000026;
 }
 
 .partition-session {
@@ -770,22 +781,24 @@ body {
 }
 
 .individual-session {
-  width: 60%;
-  background-color: rgba(208, 255, 230, 1);
+  width: 100%;
+  /* background-color: rgba(208, 255, 230, 1); */
+
   align-items: center;
   display: flex;
   position: relative;
   flex-wrap: wrap;
   flex-wrap: wrap;
   gap: 50px;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px;
+  padding-inline: 30px;
   cursor: pointer;
 }
 
-.individual-session:hover {
-  background: #a3fdcd;
-}
+/* .session-list-dash-li :hover {
+  background: #84848426;
+} */
 
 .meet-rate {
   padding: 2vw 4vw;
@@ -823,6 +836,10 @@ body {
 /* /----------------------------/  */
 .view-on-mob {
   display: none;
+}
+
+.meets-head {
+  margin-left: 20px;
 }
 
 @media screen and (max-width: 500px) {
@@ -863,7 +880,7 @@ body {
   .individual-session {
     width: 88vw;
     margin: 10px;
-    background-color: rgba(208, 255, 230, 1);
+    /* background-color: rgba(208, 255, 230, 1); */
     align-items: center;
     display: flex;
     position: relative;

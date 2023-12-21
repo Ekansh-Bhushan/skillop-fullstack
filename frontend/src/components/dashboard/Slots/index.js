@@ -10,10 +10,25 @@ import { useNavigate } from "react-router-dom";
 import Profileandevents from "../../Landing/Profileandevents";
 import Mobilecommonhead from "../../Mobilecommonhead";
 
-function Dashboard({ userData, setProgress, shouldbevisible, Mentor, isFetched, notifyList }) {
+function Dashboard({
+  userData,
+  setProgress,
+  shouldbevisible,
+  Mentor,
+  isFetched,
+  notifyList,
+}) {
   const navigate = useNavigate();
   const targetref = useRef(null);
-  const [avail, setAvail] = useState({'monday':[], 'tuesday':[], 'wednesday':[], 'thusday':[], 'friday':[], 'saturday':[], 'sunday':[]});
+  const [avail, setAvail] = useState({
+    monday: [],
+    tuesday: [],
+    wednesday: [],
+    thusday: [],
+    friday: [],
+    saturday: [],
+    sunday: [],
+  });
 
   const lastpage = () => {
     setProgress(30);
@@ -78,8 +93,7 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor, isFetched, 
       // });
       await postSlot(data);
       // if (Object.keys(data.actualAvailability).length > 0)
-        toast.success("Slot added!");
-
+      toast.success("Slot added!");
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error); // toast it  error.response.data.message
@@ -92,51 +106,54 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor, isFetched, 
 
   const saveSlots = async (day) => {
     setRefresh(!refresh);
-    const stAR = document.getElementById(day + "-start").value.toString().split(':');
-    const edAR = document.getElementById(day + "-end").value.toString().split(':');
+    const stAR = document
+      .getElementById(day + "-start")
+      .value.toString()
+      .split(":");
+    const edAR = document
+      .getElementById(day + "-end")
+      .value.toString()
+      .split(":");
     const st = stAR[0] + stAR[1];
     const ed = edAR[0] + edAR[1];
     // console.log(day, stAR, edAR);
     const resBody = {
-      "actualAvailability": {
+      actualAvailability: {
         ...avail,
         [day]: [
           {
-            "s": st,
-            "e": ed
-          }
-        ].concat(avail[day])
-      }
-    }
-    
+            s: st,
+            e: ed,
+          },
+        ].concat(avail[day]),
+      },
+    };
+
     try {
       setRefresh(!refresh);
       console.log(JSON.stringify(resBody));
       await AddSlot(JSON.stringify(resBody));
       setRefresh(!refresh);
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   const clearAllSlots = async () => {
     setRefresh(!refresh);
     const resBody = {
-      "actualAvailability": {
-      }
-    }
-    
+      actualAvailability: {},
+    };
+
     try {
       toast.success("All slots deleted!");
       setRefresh(!refresh);
       await AddSlot(JSON.stringify(resBody));
       setRefresh(!refresh);
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   const addButton = (day) => {
     const s = document.getElementById(day + "-start").value;
@@ -214,19 +231,19 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor, isFetched, 
                         <div key={index}>
                           {JSON.stringify(slot.s).length === 3
                             ? JSON.stringify(slot.s).slice(0, 1) +
-                            ":" +
-                            JSON.stringify(slot.s).slice(1, 3)
+                              ":" +
+                              JSON.stringify(slot.s).slice(1, 3)
                             : JSON.stringify(slot.s).slice(0, 2) +
-                            ":" +
-                            JSON.stringify(slot.s).slice(2, 4)}
+                              ":" +
+                              JSON.stringify(slot.s).slice(2, 4)}
                           {" - "}
                           {JSON.stringify(slot.e).length === 3
                             ? JSON.stringify(slot.e).slice(0, 1) +
-                            ":" +
-                            JSON.stringify(slot.e).slice(1, 3)
+                              ":" +
+                              JSON.stringify(slot.e).slice(1, 3)
                             : JSON.stringify(slot.e).slice(0, 2) +
-                            ":" +
-                            JSON.stringify(slot.e).slice(2, 4)}
+                              ":" +
+                              JSON.stringify(slot.e).slice(2, 4)}
                         </div>
                       );
                     })
@@ -239,13 +256,24 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor, isFetched, 
           </div>
         </div>
       </div>
-      {shouldbevisible && <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />}
+      {shouldbevisible && (
+        <SideNav
+          setProgress={setProgress}
+          Mentor={Mentor}
+          isFetched={isFetched}
+          notifyList={notifyList}
+        />
+      )}
 
-      <div className="dash-main">
+      <div className="flex mt-[35px] ml-[40vh]">
         {/* <Commondash userData={userData} /> */}
 
         <div
-          className={shouldbevisible ? "dash-right dash-right-2" : "dash-right"}
+          className={
+            shouldbevisible
+              ? "flex flex-col border-r-2 w-[65%] "
+              : "flex flex-col border-r-2 w-[80%]"
+          }
         >
           {/* <Topbar setProgress={setProgress}/> */}
           {shouldbevisible && <Profileandevents />}
@@ -302,7 +330,6 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor, isFetched, 
                 <div className="days-partition"></div>
               </div>
               <div className="slots-dash">
-
                 <h3>TIME SLOTS</h3>
 
                 <div className="slot-1">
@@ -957,7 +984,6 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor, isFetched, 
               </span>
             )}
           </div>
-
         </div>
       </div>
     </>
