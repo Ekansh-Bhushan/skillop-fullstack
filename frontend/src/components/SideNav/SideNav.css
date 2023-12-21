@@ -3,6 +3,7 @@
   /* margin: 20px auto; */
   display: flex;
   align-items: center;
+  height: 27px;
 }
 
 .active2 {
@@ -13,7 +14,9 @@
   z-index: 10000;
   overflow-y: scroll;
   overflow-x: hidden;
+  border-right: 1px solid #00000026;
 }
+
 /* to make scroll bar invisible but still can scroll */
 .side-nav-container::-webkit-scrollbar {
   width: 0;
@@ -51,10 +54,8 @@
   position: fixed;
   z-index: 100;
   transition: 0.5s;
-  /* box-shadow: 0px 0px 50px rgb(228, 227, 227); */
   z-index: 3;
   width: 20vw;
-  /* border-right: 1px solid #84848426; */
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -116,6 +117,7 @@
 
   .side-nav-container:hover {
     width: 300px;
+    box-shadow: 3px 3px 10px 3px rgb(233, 233, 233);
   }
   .side-nav-container:hover li span {
     transform: translateX(0%);
@@ -157,7 +159,7 @@
   }
   .side-nav-container li {
     cursor: pointer;
-    margin: 15px 23px;
+    /* margin: 0 23px; */
     display: flex;
     align-items: center;
   }
