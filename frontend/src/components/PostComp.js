@@ -414,7 +414,14 @@ const PostComp = ({
                 </>
               )}
             </div>
-            <div className="cmts-count">{commentList.length + ' '}Comments</div>
+            <div
+              onClick={() => {
+                navigate(`/postsection/${_id}`);
+              }}
+              className="cmts-count"
+            >
+              {commentList.length + ' '}Comments
+            </div>
           </div>
         </>
       )}
@@ -424,7 +431,7 @@ const PostComp = ({
           className="reactions"
           style={{ position: 'absolute', left: '0px', top: '-10px' }}
         >
-          <div className="like-count">
+          <div className="like-count" onClick={openPopup}>
             <i
               style={{
                 marginRight: '4px',
