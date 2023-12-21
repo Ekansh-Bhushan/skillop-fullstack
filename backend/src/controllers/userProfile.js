@@ -587,3 +587,17 @@ exports.searchUsers = async (req, res) => {
         });
     }
 };
+
+exports.doIFollow = async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const user = await User.findById(req.user._id);
+
+        if (!user.followings.includes(userId))
+            response_200(res, "You don't follow this user", false);
+
+        response_200(res, "You follow this user", true);
+    } catch (error) {
+        response_500(res, "Internal Server Error", err);
+    }
+};
