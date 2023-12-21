@@ -388,7 +388,7 @@ const PostComp = ({
         <>
           <hr id="like-line" />
           <div className="like-cmts-count">
-            <div className="like-counts">
+            <div style={{cursor:"pointer"}} className="like-counts">
               {likersList.length <= 1 && (
                 <>
                   <span onClick={openPopup}>{likersList.length} Like</span>
@@ -414,7 +414,7 @@ const PostComp = ({
                 </>
               )}
             </div>
-            <div
+            <div style={{cursor:"pointer"}}
               onClick={() => {
                 navigate(`/postsection/${_id}`);
               }}
