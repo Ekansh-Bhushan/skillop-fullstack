@@ -284,7 +284,7 @@ body {
   .l2,
   .l3 {
     width: 20px;
-    content: '';
+    content: "";
     height: 0.5px;
     position: relative;
     margin-bottom: 4px;
@@ -509,7 +509,7 @@ body {
 .profile-landing-bg {
   height: 150px;
 
-  background-image: url('../../images/b.png');
+  background-image: url("../../images/b.png");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -827,7 +827,7 @@ non-act {
 }
 
 .like-count {
-  display: 'flex';
+  display: "flex";
   align-items: center;
   justify-content: center;
   flex-direction: row;
@@ -1019,6 +1019,7 @@ non-act {
   gap: 10px;
   left: 100px;
   position: relative;
+  margin-top: 10vh;
 }
 
 .chatting {
@@ -1060,7 +1061,7 @@ non-act {
 }
 .chat-slider {
   width: 80%;
-  margin-left: 5vw;
+  margin-left: -1vw;
 }
 .left-arrow {
   display: none;
@@ -1104,7 +1105,7 @@ non-act {
 }
 
 .chatbox-messages {
-  height: 80%;
+  height: 70%;
   max-width: 100%;
   scrollbar-width: none;
   /* Firefox */
@@ -1209,6 +1210,7 @@ non-act {
   height: 100%;
   z-index: 1;
   border-inline: 1px solid #00000026;
+  padding-top: 10vh;
 }
 
 /* For Webkit-based browsers */
