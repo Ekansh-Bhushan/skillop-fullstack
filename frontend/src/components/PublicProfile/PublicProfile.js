@@ -8,6 +8,7 @@ import Spinner from '../images/spinner.gif';
 import { useState } from 'react';
 import RightProfileComp from './Right Public Profile/RightProfileComp';
 import Mobilecommonhead from '../Mobilecommonhead';
+import PublicProfileHeader from './PublicProfileHeader';
 
 const PublicProfile = ({
   userDatamain,
@@ -92,6 +93,7 @@ const PublicProfile = ({
         notifyList={notifyList}
       /> */}
       <Mobilecommonhead />
+      <PublicProfileHeader userDetails={userDetails}/>
       <div className="main-profile-page">
         {isLoading && (
           <img
@@ -101,7 +103,7 @@ const PublicProfile = ({
             className="spinner"
           />
         )}
-        <div className="profile-heading">Profile</div>
+        {/* <div className="profile-heading">Profile</div> */}
         <div className="profile-data">
           <div className="journey">
             {/* ABOUT */}
@@ -344,7 +346,7 @@ const PublicProfile = ({
             </div>
           </div>
         </div>
-        <RightProfileComp userDatamain={userDatamain} />
+        {/* <RightProfileComp userDatamain={userDatamain} /> */}
       </div>
     </>
   );
