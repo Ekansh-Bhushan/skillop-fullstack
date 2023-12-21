@@ -4,7 +4,6 @@ import { userChats } from '../../../api/chatRequest';
 import Conversation from '../../Conversation';
 import Chatbox from '../../Chatbox';
 import { io } from 'socket.io-client';
-import SideNav from '../../SideNav/SideNav';
 import Mobilecommonhead from '../../Mobilecommonhead';
 import './chat.css';
 import spinner from '../../images/spinner.gif';

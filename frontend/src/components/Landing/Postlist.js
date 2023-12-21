@@ -49,7 +49,7 @@ const Postlist = ({
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [skip, setSkip] = useState(0);
-  const limit = 3;
+  const limit = 10;
   const [length, setLength] = useState(limit);
   const containerRef = useRef(null);
 

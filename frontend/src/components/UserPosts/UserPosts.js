@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SideNav from "../SideNav/SideNav";
+
 import { getPostFromSpecificUser } from "../../api/postRequest";
 import PostComp from "../PostComp";
 import "./UserPost.css";
@@ -41,7 +41,7 @@ const UserPosts = ({ setProgress, Mentor, isFetched, notifyList }) => {
   return (
     <>
       <div className=".main-content-landing2">
-        <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+        {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
         <Mobilecommonhead />
         <div className="people-post2">
           <h1>

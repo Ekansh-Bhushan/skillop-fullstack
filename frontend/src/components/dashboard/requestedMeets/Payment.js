@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SideNav from "../../SideNav/SideNav";
 import "./ConfirmBooking.css";
 import userIcon from "../../images/user.png";
 import { getSpecificUser } from "../../../api/userRequest";
@@ -76,12 +75,12 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
   return (
     <div style={{ display: "flex", gap: "100px" }}>
-      <SideNav
+      {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
         isFetched={isFetched}
         notifyList={notifyList}
-      />
+      /> */}
 
       <div className="confirm-container">
         <div className="left-content">

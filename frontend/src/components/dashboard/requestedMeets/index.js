@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SideNav from '../../SideNav/SideNav';
 import Profileandevents from '../../Landing/Profileandevents';
 
 import toast from 'react-hot-toast';

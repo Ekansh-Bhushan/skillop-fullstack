@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SideNav from "../SideNav/SideNav";
 import index from "./index.css";
 import Profileandevents from "../Landing/Profileandevents";
 import { getActualAvail, postSlot } from "../../api/slotsRequest";

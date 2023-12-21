@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./profile.css";
 import Profileandevents from "../Landing/Profileandevents";
-import SideNav from "../SideNav/SideNav";
+
 import { getUser } from "../../api/userRequest";
 import { updateProfile } from "../../api/userRequest";
 import { useEffect } from "react";
@@ -199,7 +199,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
   return (
     <>
-      <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} />
+      {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
       <div className="main-profile-page">
         {isLoading && (
