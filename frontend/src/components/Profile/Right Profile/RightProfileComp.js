@@ -1,25 +1,22 @@
-import React from "react";
-import { getUser } from "../../../api/userRequest";
-import linkedin from "../../images/linkedin.png";
+import React from 'react';
+import { getUser } from '../../../api/userRequest';
+import linkedin from '../../images/linkedin.png';
 // import { userChats } from "../../../api/chatRequest";
-import userPic from "../../images/user.png";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "./RightProfileComp.css";
-import coverImg from "../../images/Robo.png";
-import post2 from "../../images/post2.png";
-import defaultBGPic from "../../images/Robo.png";
-import EditProfilePicPopUp from "../EditProfilePicPopUp/EditProfilePicPopUp";
-import Followers from "./Followers";
-import Following from "./Following";
-import IntroVideo from "./IntroVideo";
-import toast from "react-hot-toast";
+import userPic from '../../images/user.png';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './RightProfileComp.css';
+import post2 from '../../images/post2.png';
+import defaultBGPic from '../../images/bg.png';
+import Followers from './Followers';
+import Following from './Following';
+import IntroVideo from './IntroVideo';
+import toast from 'react-hot-toast';
 
 export default function RightProfileComp({ about }) {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState(null);
-
   const [showEditProfilePic, setShowEditProfilePic] = useState(false);
   const [showIntroVideo, setShowIntroVideo] = useState(false);
   const [showFollowers, setShowFollowers] = useState(false);
@@ -35,22 +32,18 @@ export default function RightProfileComp({ about }) {
       setUserDetails(userData.data.result);
     } catch (err) {
       if (!err.response.data.result) {
-        localStorage.removeItem('skilloptoken')
+        localStorage.removeItem('skilloptoken');
         navigate('/');
-        console.log("here is ", err.response.data.result);
-        toast.error("Session expired, Login again!");
+        console.log('here is ', err.response.data.result);
+        toast.error('Session expired, Login again!');
       }
-      console.log("Unable to fetch user details", err);      
+      console.log('Unable to fetch user details', err);
     }
   };
 
   useEffect(() => {
     fetchUserDetails();
   }, [about]);
-
-  useEffect(() => {
-    fetchUserDetails();
-  }, []);
 
   return (
     <>
@@ -65,22 +58,31 @@ export default function RightProfileComp({ about }) {
                 : `url(${defaultBGPic})`),
           }}
         >
-          <img onClick={() => navigate('/editpic')} id="edit-prof-pic" width={28} src="/edit.png" alt="edit" />
+          <img
+            onClick={() => navigate('/editpic')}
+            id="edit-prof-pic"
+            width={28}
+            src="/edit.png"
+            alt="edit"
+          />
           <div className="common-prof-info1">
             {userDetails && (
               <img
                 onClick={() => setShowIntroVideo(true)}
                 onMouseEnter={() => {
-                  !userDetails.introVideo && toast.success("Click on profile picture to add my story!")
+                  !userDetails.introVideo &&
+                    toast.success('Click on profile picture to add my story!');
                 }}
                 src={
                   userDetails.profilePicUrl
                     ? userDetails.profilePicUrl
                     : userPic
                 }
-                style={userDetails.introVideo && {
-                  border: "5px solid rgba(37, 206, 209, 1)"
-                }}
+                style={
+                  userDetails.introVideo && {
+                    border: '5px solid rgba(37, 206, 209, 1)',
+                  }
+                }
                 className="prof-image-common1"
                 alt="user"
               />
@@ -88,10 +90,10 @@ export default function RightProfileComp({ about }) {
             <div
               className="name-cont"
               style={{
-                display: "flex",
-                justifyContent: "space-around",
-                alignItems: "center",
-                width: "100%",
+                display: 'flex',
+                justifyContent: 'space-around',
+                alignItems: 'center',
+                width: '100%',
               }}
             >
               <div>
@@ -99,10 +101,10 @@ export default function RightProfileComp({ about }) {
                   <div
                     className="user-name1"
                     style={{
-                      fontSize: "x-large",
+                      fontSize: 'x-large',
                     }}
                   >
-                    {userDetails.firstname + " " + userDetails.lastname}
+                    {userDetails.firstname + ' ' + userDetails.lastname}
                     {userDetails.isMentor && (
                       <div className="verified-logo">
                         <img src="/verified.png" width={23} alt="" />
@@ -111,13 +113,13 @@ export default function RightProfileComp({ about }) {
                   </div>
                 )}
                 {userDetails && (
-                  <p style={{ marginLeft: "7px" }}>{userDetails.jobTitle}</p>
+                  <p style={{ marginLeft: '7px' }}>{userDetails.jobTitle}</p>
                 )}
               </div>
               {userDetails && (
                 <a
                   href={
-                    userDetails.linkedinId.toString().includes("linkedin.com")
+                    userDetails.linkedinId.toString().includes('linkedin.com')
                       ? userDetails.linkedinId
                       : `https://linkedin.com/in/${userDetails.linkedinId}`
                   }
@@ -144,10 +146,10 @@ export default function RightProfileComp({ about }) {
             {userDetails && (
               <div
                 style={{
-                  display: "flex",
-                  gap: "20px",
-                  fontSize: "1.1rem",
-                  marginTop: "20px",
+                  display: 'flex',
+                  gap: '20px',
+                  fontSize: '1.1rem',
+                  marginTop: '20px',
                 }}
                 className="follow"
               >
@@ -155,20 +157,20 @@ export default function RightProfileComp({ about }) {
                   className="follow-fetch-btn"
                   onClick={() => setShowFollowers(!showFollowers)}
                   style={{
-                    borderRadius: "20px",
+                    borderRadius: '20px',
                   }}
                 >
-                  Followers :{" "}
+                  Followers :{' '}
                   {userDetails.followers && userDetails.followers.length}
                 </span>
                 <span
                   className="follow-fetch-btn"
                   style={{
-                    borderRadius: "20px",
+                    borderRadius: '20px',
                   }}
                   onClick={() => setShowFollowings(!showFollowings)}
                 >
-                  Followings :{" "}
+                  Followings :{' '}
                   {userDetails.followings && userDetails.followings.length}
                 </span>
               </div>
@@ -177,11 +179,11 @@ export default function RightProfileComp({ about }) {
               id="mypost"
               onClick={() => navigate(`/userposts/${userDetails._id}`)}
               style={{
-                display: "flex",
-                flexDirection: "column",
-                cursor: "pointer",
-                alignItems: "center",
-                marginTop: "33px",
+                display: 'flex',
+                flexDirection: 'column',
+                cursor: 'pointer',
+                alignItems: 'center',
+                marginTop: '33px',
               }}
             >
               <img src={post2} height={32} width={32} alt="mypost" />

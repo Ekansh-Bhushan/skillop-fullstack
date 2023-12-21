@@ -1,0 +1,147 @@
+import React, { useEffect, useState } from 'react';
+import './ProfileHeader.css';
+import { useNavigate } from 'react-router-dom';
+import { getUser } from '../../../api/userRequest';
+import defaultBGPic from '../../images/bg.png';
+import IntroVideo from '../Right Profile/IntroVideo';
+import Following from '../Right Profile/Following';
+import Followers from '../Right Profile/Followers';
+
+const ProfileHeader = () => {
+  const navigate = useNavigate();
+  const [userDetails, setUserDetails] = useState(null);
+  const [showEditProfilePic, setShowEditProfilePic] = useState(false);
+  const [showIntroVideo, setShowIntroVideo] = useState(false);
+  const [showFollowers, setShowFollowers] = useState(false);
+  const [showFollowings, setShowFollowings] = useState(false);
+
+  const onClose = () => {
+    setShowIntroVideo(false);
+  };
+
+  const fetchUserDetails = async () => {
+    try {
+      const userData = await getUser();
+      setUserDetails(userData.data.result);
+    } catch (err) {
+      if (!err.response.data.result) {
+        localStorage.removeItem('skilloptoken');
+        navigate('/');
+        console.log('here is ', err.response.data.result);
+        // toast.error('Session expired, Login again!');
+      }
+      console.log('Unable to fetch user details', err);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserDetails();
+  }, []);
+
+  return (
+    <div className="ph-container">
+      <div
+        className="ph-bg"
+        style={{
+          // backgroundImage: "url('/bg.png')",
+          backgroundImage:
+            userDetails &&
+            (userDetails.bgPicUrl
+              ? `url(${userDetails.bgPicUrl})`
+              : `url("/bg.png")`),
+          width: '100%',
+          height: '30vh',
+        }}
+      >
+        {/* <img src="/bg.png" alt="bg" /> */}
+      </div>
+      <div className="ph-pic">
+        <img
+          src={userDetails ? userDetails.profilePicUrl : '/user.png'}
+          alt="user pic"
+        />
+      </div>
+      <div className="ph-details">
+        <div className="ph-name">
+          {userDetails && userDetails.firstname + ' ' + userDetails.lastname}
+          {userDetails && userDetails.isMentor && (
+            <div className="verified-logo">
+              <img src="/verified.png" width={23} alt="" />
+            </div>
+          )}
+        </div>
+        <div className="ph-headline">{userDetails && userDetails.jobTitle}</div>
+        <div className="ph-follow">
+          <div
+            className="ph-follwers"
+            onClick={() => setShowFollowers(!showFollowers)}
+          >
+            <b>
+              {' '}
+              {userDetails &&
+                userDetails.followers &&
+                userDetails.followers.length}
+            </b>{' '}
+            Followers
+          </div>
+          <div
+            className="ph-followings"
+            onClick={() => setShowFollowings(!showFollowings)}
+          >
+            <b>
+              {' '}
+              {userDetails &&
+                userDetails.followings &&
+                userDetails.followings.length}
+            </b>{' '}
+            Followings
+          </div>
+        </div>
+        <div className="ph-linkedin">
+          <img src="/linkedin.png" alt="" />
+          <a
+            href={
+              userDetails &&
+              (userDetails.linkedinId.toString().includes('linkedin.com')
+                ? userDetails.linkedinId
+                : `https://linkedin.com/in/${userDetails.linkedinId}`)
+            }
+            target="_blank"
+            rel="noreferrer"
+          >
+            {userDetails &&
+              (userDetails.linkedinId.toString().includes('linkedin.com')
+                ? userDetails.linkedinId
+                : `https://linkedin.com/in/${userDetails.linkedinId}`)}
+          </a>
+          {showFollowers && userDetails && (
+            <Followers
+              userid={userDetails._id}
+              onClose={() => {
+                setShowFollowers(!showFollowers);
+              }}
+            />
+          )}
+          {showFollowings && userDetails && (
+            <Following
+              userid={userDetails._id}
+              onClose={() => {
+                setShowFollowings(!showFollowings);
+              }}
+            />
+          )}
+
+          {showIntroVideo && (
+            <IntroVideo
+              onClose={onClose}
+              introVideoUrl={userDetails.introVideo}
+              publicView={false}
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProfileHeader;
