@@ -8,12 +8,16 @@ import mdi from "../../components/images/mdi_user.png";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const API = axios.create({ baseURL: "https://app.skillop.in" });
 
 const SkillSix = () => {
+    const navigate = useNavigate();
     const [profilePhoto, setProfilePhoto] = useState("");
     const [coverPhoto, setCoverPhoto] = useState("");
+    const [profilePhotoURL, setProfilePhotoURL] = useState("");            // These two state are getting value aver the image is set in backend
+    const [coverPhotoURL, setCoverPhotoURL] = useState("");                // Display them to user
 
     const handleUpload = async () => {
         const formData1 = new FormData();
@@ -42,9 +46,40 @@ const SkillSix = () => {
             };
             return API.post(`/api/user/add/boackgroundPic`, data, config);
         };
+        let done1 = true;
+        let done2 = true;
         try {
-            if (profilePhoto) await uploadprofilepic(formData1);
-            if (coverPhoto) await uploadBGpic(formData2);
+            if (profilePhoto) {
+                done1 = false;
+                const profilePhotoResponse = await uploadprofilepic(formData1);
+                if (profilePhotoResponse.data.result) {
+                    toast.success("Profile picture uploaded successfully");
+                    done1 = true;
+                    setProfilePhotoURL(
+                        profilePhotoResponse.data.result.profilePicUrl
+                    );
+                } else
+                    toast.error(
+                        "Unable to upload profile picture now! Try again later"
+                    );
+            }
+            if (coverPhoto) {
+                done2 = false;
+                const coverPhotoResponse = await uploadBGpic(formData2);
+                if (coverPhotoResponse.data.result) {
+                    toast.success("Cover picture uploaded successfully");
+                  done2 = true;
+                    setCoverPhotoURL(
+                        coverPhotoResponse.data.result.bgPicUrl
+                    );
+                } else
+                    toast.error(
+                        "Unable to upload cover picture now! Try again later"
+                    );
+            }
+            if (done1 && done2) {
+                navigate("/skill7");
+            }
         } catch (err) {
             toast.error("Unable to upload picture now! Try again later");
         }

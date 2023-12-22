@@ -25,6 +25,7 @@ const Page1 = () => {
             });
             console.log(data);
             if (data.result) {
+                localStorage.setItem("skilloptoken", data.token)
                 toast.success(data.message);
                 navigate("/skill3");
             } else {
