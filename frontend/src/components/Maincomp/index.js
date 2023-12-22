@@ -99,6 +99,7 @@ function AuthPage({
     '/about',
     '/contact',
     '/privacy-policy',
+    '/terms-of-service',
     '/faqs',
     '/loginn',
     // Add more routes as needed

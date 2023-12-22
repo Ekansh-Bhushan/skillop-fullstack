@@ -42,11 +42,15 @@
   );
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (max-width: 1400px) {
   .dash-main {
-    position: relative;
-    left: 21vw;
+    /* position: relative; */
+    margin-left: 12vw;
     width: 100%;
+  }
+
+  .editor-ids {
+    justify-content: normal;
   }
 
   .social-details {

@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 
 import { getEarnings } from "../../../api/mentorRequest";
 import Mobilecommonhead from "../../Mobilecommonhead";
+import UpcomingEvents from "../../Landing/Profileandevents/UpcomingEvents";
 
 function Earning({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ function Earning({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
+    <UpcomingEvents />
       {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
       <div className="dash-main">

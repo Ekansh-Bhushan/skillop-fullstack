@@ -1,8 +1,8 @@
 .earning-dash {
   display: flex;
   flex-direction: column;
-  width: 66%;
-  margin-left: 3vw;
+  width: 49%;
+  margin-left: 2vw;
   /* padding-left: 20px; */
   border-right: 1px solid #00000026;
 }
@@ -20,12 +20,13 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (max-width: 1400px) {
   .earning-dash {
-    width: 50%;
-    margin-left: 0;
+    margin-left: 9vw;
+    width: 60%;
   }
 }
+
 @media only screen and (max-width: 500px) {
   .earning-dash {
     width: 100%;
