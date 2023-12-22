@@ -50,51 +50,58 @@ function Earning({ userData, setProgress, Mentor, isFetched, notifyList }) {
         {/* <Commondash userData={userData} /> */}
 
         <div className="earning-dash">
-          <Profileandevents />
+          {/* <Profileandevents /> */}
           {/* <Topbar setProgress={setProgress}/> */}
+          <h1 className="text-2xl mt-14 font-semibold mb-2">
+            Your Analytics 🤑
+          </h1>
           <div className="earning-details">
-            <div className="total-mentee">
-              <h1>{earnings.numberOfMentee}</h1>
-              <h3>TOTAL MENTEES</h3>
+            <div className="total-mentee relative">
+              <h3 className="absolute top-[10%] text-center w-[80%] md:w-[100%]">
+                TOTAL MENTEES
+              </h3>
+              <h1 className="absolute top-[40%] text-center w-[80%] text-3xl font-semibold md:text-xl ">
+                {earnings.numberOfMentee}
+              </h1>
             </div>
-            <div className="earnings-dash">
-              <h1>₹ {Math.round(earnings.totalEarning)}/-</h1>
-              <h3>Total Earnings</h3>
+            <div className="earnings-dash relative">
+              <h3 className="absolute  top-[10%] text-center w-[80%]">
+                Total Earnings
+              </h3>
+              <h1 className="absolute top-[40%] text-center w-[80%] text-3xl font-semibold md:text-md md:w-[100%]">
+                ₹ {Math.round(earnings.totalEarning)}/-
+              </h1>
             </div>
           </div>
 
-          <div className="partition-d line-earning"></div>
-
-          <div className="info-dash-table">
-            <table>
-              <thead>
-                <tr>
-                  <th className="table-head">S.no.</th>
-                  <th className="table-head">Mentee Name</th>
-                  <th className="table-head">Earning</th>
-                  <th className="table-head">Status</th>
-                </tr>
-              </thead>
-              {earnings.earningRecord &&
-                Object.keys(earnings.earningRecord).map((item, index) => (
-                  <tbody>
-                    <tr>
-                      <td style={{ width: "0.1vw" }}>{index + 1}.</td>
-                      <td
-                        style={{ textAlign: "left" }}
-                        id="mentee_name"
-                        onClick={() =>
-                          navigate("/public-profile/"+earnings.earningRecord[item].link.split('/')[2])
-                        }
-                      >
-                        {earnings.earningRecord[item].name}
-                      </td>
-                      <td>₹{Math.round(earnings.earningRecord[item].totalEarning)}</td>
-                      <td>Completed</td>
-                    </tr>
-                  </tbody>
-                ))}
-            </table>
+          {/* <div className="partition-d line-earning"></div> */}
+          <h1 className="text-xl font-semibold mt-5 md:text-lg">Mentees</h1>
+          <div className="flex items-center justify-center flex-col">
+            {earnings.earningRecord &&
+              Object.keys(earnings.earningRecord).map((item, index) => (
+                <div
+                  className="flex items-center justify-between border-b border-gray-300 py-2 w-full"
+                  key={index}
+                >
+                  <div style={{ width: "10%" }}>{index + 1}.</div>
+                  <div
+                    className="cursor-pointer"
+                    onClick={() =>
+                      navigate(
+                        "/public-profile/" +
+                          earnings.earningRecord[item].link.split("/")[2]
+                      )
+                    }
+                    style={{ textAlign: "left", width: "30%" }}
+                  >
+                    {earnings.earningRecord[item].name}
+                  </div>
+                  <div style={{ width: "30%" }}>
+                    ₹{Math.round(earnings.earningRecord[item].totalEarning)}
+                  </div>
+                  <div style={{ width: "30%" }}>Completed</div>
+                </div>
+              ))}
           </div>
         </div>
       </div>

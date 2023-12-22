@@ -27,7 +27,6 @@ const MEET_STATUS = {
 };
 
 function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
-
   const navigate = useNavigate();
 
   const displaynavmob = () => {
@@ -74,13 +73,12 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
       const res = await updateMeetCharge(charge);
       setCharge(res.data.result.chargePerHour);
       toast.success("Charge per hour updated");
-    }
-    catch(err) {
+    } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
     }
     window.location.reload();
-  }
+  };
 
   useEffect(() => {
     // setDisplaying("upcomming");
@@ -205,15 +203,15 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
     <>
       {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
-      <div className="dash-main">
+      <div className="ml-[20vw] md:ml-0">
         {/* <Commondash userData={userData} /> */}
 
         <div className="dash-right">
-          <Profileandevents />
+          {/* <Profileandevents /> */}
 
           {/* <Topbar setProgress={setProgress}/> */}
-          <div className="session-dash-info">
-            <h2 style={{ fontSize: "1.8rem", marginBottom: "0.4vw" }}>Booking</h2>
+          <div className="session-dash-info ml-5">
+            <h2 className="meets-head text-2xl">Booking</h2>
             <div className="heading-session-status">
               <div
                 className="upcoming up"
@@ -238,10 +236,14 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
               </div>
             </div>
 
-            <div className="partition-session"></div>
+            {/* <div className="partition-session"></div> */}
 
             {ShowBookPopUp && (
-              <BookViewPopUp type="Mentee" bookingData={bookingData} onClose={onClose} />
+              <BookViewPopUp
+                type="Mentee"
+                bookingData={bookingData}
+                onClose={onClose}
+              />
             )}
 
             {Object.entries(book).length === 0 ? (
@@ -277,12 +279,14 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
                           style={{
                             display: "flex",
                             alignItems: "center",
+                            justifyContent: "justify-between",
                           }}
                         >
                           {/* <img src={logo} /> */}
 
                           <span>
-                            Timing:&nbsp;{convertToNormalTime(item[1].s)} - {convertToNormalTime(item[1].e)}{" "}
+                            Timing:&nbsp;{convertToNormalTime(item[1].s)} -{" "}
+                            {convertToNormalTime(item[1].e)}{" "}
                           </span>
                         </div>
                         <span>Number of Bookings :1</span>
@@ -293,10 +297,23 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
               </div>
             )}
             <div className="meet-rate">
-              <div>Current charge per hour : ₹{userData.mentor.chargePerHour}</div>
-              <div style={{display:"flex", gap:"2vw"}}>
-                <input type="number" value={charge} onChange={(e) => setCharge(e.target.value)} className="meet-rate-input" placeholder="Enter new rate" />
-                <button className="update-meet-rate-btn" onClick={handleUpdateCharge}>Update</button>
+              <div>
+                Current charge per hour : ₹{userData.mentor.chargePerHour}
+              </div>
+              <div style={{ display: "flex", gap: "2vw" }}>
+                <input
+                  type="number"
+                  value={charge}
+                  onChange={(e) => setCharge(e.target.value)}
+                  className="meet-rate-input"
+                  placeholder="Enter new rate"
+                />
+                <button
+                  className="update-meet-rate-btn"
+                  onClick={handleUpdateCharge}
+                >
+                  Update
+                </button>
               </div>
             </div>
           </div>

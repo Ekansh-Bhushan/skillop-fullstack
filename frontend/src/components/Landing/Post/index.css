@@ -375,7 +375,7 @@ body {
   flex-direction: column;
   gap: 20px;
   position: fixed;
-  top: 15vh;
+  top: 12vh;
   right: 0px;
 }
 
@@ -385,7 +385,7 @@ body {
   /* box-shadow: 0px 0px 20px rgb(201, 200, 200); */
   border-radius: 16px;
   height: 18vw;
-  background-image: url('../../../../public/bg.png');
+  background-image: url("../../../../public/bg.png");
   background-size: 100%;
   background-repeat: no-repeat;
   border: 1px solid rgb(198, 198, 198);
@@ -1150,7 +1150,7 @@ non-act {
   }
 
   .chatbox-messages {
-    height: 60vh;
+    height: 70%;
     max-width: 100%;
     border-radius: 10px;
     margin-inline: 10px;
@@ -1158,6 +1158,7 @@ non-act {
 
   .message-send-bar {
     margin-top: 5px;
+    padding-inline: 15px;
   }
 }
 
@@ -1265,11 +1266,12 @@ non-act {
   .chat-friends-list > div {
     overflow-y: auto;
     position: fixed;
-    top: 9rem;
+    /* top: 9rem; */
     background: white;
     width: 100%;
     min-height: 100vh;
     left: 0;
+    margin-bottom: 30vh;
   }
 
   .search-input {
@@ -1436,7 +1438,7 @@ non-act {
 .message-right p {
   max-width: 60%;
   border-radius: 20px 20px 0px 20px;
-  background-color: #aeff00;
+  background-color: #5f5f5f1a;
   padding: 8px 8px 8px 8px;
   box-shadow: 2px 2px 7px 2px rgb(201, 201, 201);
   font-size: 1.1rem;
@@ -1556,7 +1558,7 @@ non-act {
     left: calc(50% + 30px);
   }
   .posting-on-landing {
-    width: 90%;
+    width: 100%;
     position: relative;
     top: 700px;
   }
@@ -1592,7 +1594,7 @@ non-act {
   .post-1 {
     margin: 0px;
     margin-bottom: 100px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     width: 100%;
     padding-bottom: 30px;
     padding-inline: auto;
@@ -1609,10 +1611,12 @@ non-act {
 .mobile-panel {
   display: flex;
   position: fixed;
-  width: calc(100% - 20px);
+  /* width: calc(100% - 20px); */
+  width: 100%;
   background-color: rgb(255, 255, 255);
-  height: 40px;
-  padding: 10px;
+  height: 60px;
+  /* padding: 10px; */
+  padding-top: 15px;
   justify-content: center;
   box-shadow: 0px 0px 5px rgb(128, 128, 128);
   bottom: 0;

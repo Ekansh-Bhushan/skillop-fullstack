@@ -3,12 +3,12 @@
 }
 
 .main-profile-page {
-  margin-left: -200px;
+  margin-left: 0px;
 }
 
 #spinner-prof {
   position: fixed;
-  top: 20px;
+  top: 60px;
   left: 48vw;
   height: 100px;
   width: 100px;
@@ -30,8 +30,11 @@
 }
 
 .profile-data {
-  margin-left: 22%;
-  margin-top: 4%;
+  margin-left: 23.2%;
+  margin-top: -5.2%;
+  border: 2px solid gray;
+  width: 48%;
+  border-radius: 0 0 15px 15px;
 }
 
 .profile-data hr {
@@ -184,7 +187,7 @@
 .skills-content {
   /* Add margin-top to create space between content and line above it */
   margin-bottom: 2px;
-  border: 1px solid #b1b1b1;
+  border: 2px solid #108cff;
   border-radius: 10px;
   margin-top: 10px;
   padding: 7px;
@@ -411,6 +414,15 @@
   font-weight: 600;
   line-height: 31px;
   letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 500px) {
+  .profile-data {
+    margin-left: 0%;
+    margin-top: -15%;
+    border: 1px solid gray;
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 1400px) {

@@ -16,11 +16,13 @@
   transform: translate(-50%, -50%);
   padding: 1vw 2vw;
   border-radius: 15px;
+  height: 70vh;
 }
 
 .book-view-container > div {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 2vw;
   margin: 1.5vw;
   font-size: 1.2rem;

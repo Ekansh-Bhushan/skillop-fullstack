@@ -3,6 +3,8 @@
   flex-direction: column;
   width: 66%;
   margin-left: 3vw;
+  /* padding-left: 20px; */
+  border-right: 1px solid #00000026;
 }
 
 .line-earning {
@@ -26,7 +28,7 @@
 }
 @media only screen and (max-width: 500px) {
   .earning-dash {
-    width: 63%;
+    width: 100%;
   }
 
   .line-earning {

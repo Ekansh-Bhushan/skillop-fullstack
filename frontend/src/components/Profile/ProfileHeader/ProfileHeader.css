@@ -3,11 +3,11 @@
   width: 48%;
   margin: 11vh 23vw;
   border-radius: 15px 15px 0px 0px;
-  min-height: 65vh;
+  min-height: 66vh;
   font-size: 1.1rem;
 }
 
-.ph-bg{
+.ph-bg {
   border-radius: 15px 15px 0px 0px;
   height: 30vh;
   width: 100%;
@@ -37,6 +37,7 @@
   width: 8.5vw;
   height: 8.5vw;
   border-radius: 100%;
+  cursor: pointer;
 }
 
 .ph-details {
@@ -58,6 +59,25 @@
 
 .ph-headline {
   color: gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#ph-mypost {
+  background: #108cff;
+  padding: 7px 1.5rem 7px 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: white;
+  border: 2px solid transparent;
+}
+
+#ph-mypost:hover {
+  color: black;
+  background: white;
+  border: 2px solid #108cff;
 }
 
 .ph-follow {
@@ -67,12 +87,54 @@
   width: 40%;
 }
 
-.ph-followings, .ph-follwers {
-    cursor: pointer;
+.ph-followings,
+.ph-follwers {
+  cursor: pointer;
 }
 
 .ph-linkedin {
   display: flex;
-  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   color: #108cff;
+}
+
+.ph-linkedin img {
+  height: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .ph-container {
+    margin-inline: auto;
+    margin-top: 12vh;
+    min-height: 69vh;
+    width: 86%;
+    position: relative;
+  }
+  .ph-pic {
+    left: 5vw;
+    top: 27vh;
+    width: 30vw;
+  }
+  .ph-pic img {
+    width: 80vw;
+    height: 30vw;
+    border-radius: 100%;
+    cursor: pointer;
+    width: 100%;
+  }
+  .ph-follow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .ph-linkedin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #108cff;
+  }
 }
