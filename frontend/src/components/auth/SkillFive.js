@@ -212,7 +212,12 @@ const SkillFive = () => {
                                 <FaArrowLeft />
                             </button>
                             <div className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2">
-                                <button className="font-bold " onClick={nextClicked}>NEXT</button>
+                                <button
+                                    className="font-bold "
+                                    onClick={nextClicked}
+                                >
+                                    NEXT
+                                </button>
                                 <span className="rounded-full border-[2px] border-black py-1 px-1">
                                     <FaArrowRight />
                                 </span>

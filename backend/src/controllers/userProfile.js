@@ -42,7 +42,13 @@ exports.updateProfile = async (req, res) => {
         } = req.body;
         // need to verify if this email is valid or not
         if (googleRefreshToken) user.googleRefreshToken = googleRefreshToken;
-        if (email) user.email = email;
+        if (email) {
+            // check email exist or not
+            const user2 = await User.findOne({ email: email });
+            if (user2 && user2._id != user._id)
+                return response_400(res, "Email already exist");
+            user.email = email;
+        }
         if (firstname) user.firstname = firstname;
         if (lastname) user.lastname = lastname;
         if (skills) user.skills = skills;
