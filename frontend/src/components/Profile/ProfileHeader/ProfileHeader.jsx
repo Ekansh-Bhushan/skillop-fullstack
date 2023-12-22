@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import './ProfileHeader.css';
-import { useNavigate } from 'react-router-dom';
-import { getUser } from '../../../api/userRequest';
-import defaultBGPic from '../../images/bg.png';
-import IntroVideo from '../Right Profile/IntroVideo';
-import Following from '../Right Profile/Following';
-import Followers from '../Right Profile/Followers';
-import toast from 'react-hot-toast';
-import post2 from '../../images/post2.png';
+import React, { useEffect, useState } from "react";
+import "./ProfileHeader.css";
+import { useNavigate } from "react-router-dom";
+import { getUser } from "../../../api/userRequest";
+import defaultBGPic from "../../images/bg.png";
+import IntroVideo from "../Right Profile/IntroVideo";
+import Following from "../Right Profile/Following";
+import Followers from "../Right Profile/Followers";
+import toast from "react-hot-toast";
+import post2 from "../../images/post2.png";
 
 const ProfileHeader = () => {
   const navigate = useNavigate();
@@ -27,12 +27,12 @@ const ProfileHeader = () => {
       setUserDetails(userData.data.result);
     } catch (err) {
       if (!err.response.data.result) {
-        localStorage.removeItem('skilloptoken');
-        navigate('/');
-        console.log('here is ', err.response.data.result);
+        localStorage.removeItem("skilloptoken");
+        navigate("/");
+        console.log("here is ", err.response.data.result);
         // toast.error('Session expired, Login again!');
       }
-      console.log('Unable to fetch user details', err);
+      console.log("Unable to fetch user details", err);
     }
   };
 
@@ -51,8 +51,8 @@ const ProfileHeader = () => {
             (userDetails.bgPicUrl
               ? `url(${userDetails.bgPicUrl})`
               : `url(${defaultBGPic})`),
-          width: '100%',
-          height: '30vh',
+          width: "100%",
+          height: "30vh",
         }}
       >
         {/* <img src="/bg.png" alt="bg" /> */}
@@ -61,21 +61,20 @@ const ProfileHeader = () => {
         <div className="ph-pic">
           <img
             onClick={() => setShowIntroVideo(true)}
-            src={userDetails ? userDetails.profilePicUrl : '/user.png'}
+            src={userDetails ? userDetails.profilePicUrl : "/user.png"}
             alt="user pic"
           />
         </div>
       ) : (
         <img
-          className="ph-pic"
           onClick={() => setShowIntroVideo(true)}
-          src={userDetails ? userDetails.profilePicUrl : '/user.png'}
+          src={userDetails ? userDetails.profilePicUrl : "/user.png"}
           alt="user pic"
         />
       )}
       <div className="ph-details">
         <div className="ph-name">
-          {userDetails && userDetails.firstname + ' ' + userDetails.lastname}
+          {userDetails && userDetails.firstname + " " + userDetails.lastname}
           {userDetails && userDetails.isMentor && (
             <div className="verified-logo">
               <img src="/verified.png" width={23} alt="" />
@@ -97,11 +96,11 @@ const ProfileHeader = () => {
             onClick={() => setShowFollowers(!showFollowers)}
           >
             <b>
-              {' '}
+              {" "}
               {userDetails &&
                 userDetails.followers &&
                 userDetails.followers.length}
-            </b>{' '}
+            </b>{" "}
             Followers
           </div>
           <div
@@ -109,11 +108,11 @@ const ProfileHeader = () => {
             onClick={() => setShowFollowings(!showFollowings)}
           >
             <b>
-              {' '}
+              {" "}
               {userDetails &&
                 userDetails.followings &&
                 userDetails.followings.length}
-            </b>{' '}
+            </b>{" "}
             Followings
           </div>
         </div>
@@ -122,7 +121,7 @@ const ProfileHeader = () => {
           <a
             href={
               userDetails &&
-              (userDetails.linkedinId.toString().includes('linkedin.com')
+              (userDetails.linkedinId.toString().includes("linkedin.com")
                 ? userDetails.linkedinId
                 : `https://linkedin.com/in/${userDetails.linkedinId}`)
             }
@@ -130,7 +129,7 @@ const ProfileHeader = () => {
             rel="noreferrer"
           >
             {userDetails &&
-              (userDetails.linkedinId.toString().includes('linkedin.com')
+              (userDetails.linkedinId.toString().includes("linkedin.com")
                 ? userDetails.linkedinId
                 : `https://linkedin.com/in/${userDetails.linkedinId}`)}
           </a>

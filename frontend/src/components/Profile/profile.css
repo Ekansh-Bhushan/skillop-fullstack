@@ -3,7 +3,7 @@
 }
 
 .main-profile-page {
-  margin-left: -200px;
+  margin-left: 0px;
 }
 
 #spinner-prof {
@@ -73,7 +73,7 @@
 
 .journey-content .lorem-ipsum-dolor {
   color: transparent;
-  font-family: 'Roboto-Regular', Helvetica;
+  font-family: "Roboto-Regular", Helvetica;
   font-size: 12px;
   font-weight: 400;
   /* left: 0; */
@@ -143,7 +143,7 @@
   padding: 10px;
   vertical-align: top;
   font-size: 1.2rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 @media screen and (max-width: 500px) {
@@ -187,7 +187,7 @@
 .skills-content {
   /* Add margin-top to create space between content and line above it */
   margin-bottom: 2px;
-  border: 2px solid #108CFF;
+  border: 2px solid #108cff;
   border-radius: 10px;
   margin-top: 10px;
   padding: 7px;
@@ -416,12 +416,12 @@
   letter-spacing: 0.02em;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 500px) {
   .profile-data {
-    margin-left: 23.2%;
-    margin-top: -5%;
+    margin-left: 0%;
+    margin-top: -15%;
     border: 1px solid gray;
-    width: 48.8%;
+    width: 100%;
   }
 }
 

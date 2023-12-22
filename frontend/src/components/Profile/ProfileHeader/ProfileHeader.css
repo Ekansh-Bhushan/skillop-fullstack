@@ -94,17 +94,47 @@
 
 .ph-linkedin {
   display: flex;
-  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   color: #108cff;
 }
 
-@media screen and (max-width: 1400px) {
+.ph-linkedin img {
+  height: 30px;
+}
+
+@media screen and (max-width: 500px) {
   .ph-container {
-    margin: 12vh 11.7vw;
+    margin-inline: auto;
+    margin-top: 12vh;
     min-height: 69vh;
-    width: 56%;
+    width: 86%;
+    position: relative;
   }
   .ph-pic {
-    left: 14vw;
+    left: 5vw;
+    top: 27vh;
+    width: 30vw;
+  }
+  .ph-pic img {
+    width: 80vw;
+    height: 30vw;
+    border-radius: 100%;
+    cursor: pointer;
+    width: 100%;
+  }
+  .ph-follow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .ph-linkedin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #108cff;
   }
 }

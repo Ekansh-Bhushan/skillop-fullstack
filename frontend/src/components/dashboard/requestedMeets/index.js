@@ -187,7 +187,7 @@ function RequestedMeets({
         notifyList={notifyList}
       /> */}
       <Mobilecommonhead />
-      <div className="ml-[20vw] ">
+      <div className="ml-[20vw] md:ml-0">
         {/* <Commondash userData={userData} /> */}
 
         <div className="dash-right">
@@ -238,6 +238,7 @@ function RequestedMeets({
                   flexDirection: "column",
                   height: "100%",
                   padding: "20px",
+                  borderTop: "1px solid #00000033",
                 }}
               >
                 {initialRequest && <h3>No Sessions</h3>}
