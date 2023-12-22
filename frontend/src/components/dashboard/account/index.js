@@ -93,12 +93,12 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
       /> */}
       <Mobilecommonhead />
 
-      <div className="dash-main">
+      <div className="dash-main md:px-5">
         {/* <Commondash userData={ userData} /> */}
 
         <div className="dash-right dash-right-2">
           {/* <Topbar setProgress={setProgress}/> */}
-          <div className="pt-[10vh] h-[100vh] border-r-2">
+          <div className="pt-[10vh] h-[100vh] border-r-2 md:border-0">
             <h1 className="font-semibold text-2xl mb-5">
               Edit Account Information
             </h1>
@@ -114,7 +114,7 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   type="text"
                   id="linkedin"
                   placeholder={linkedindata}
-                  className="editable-input rounded-xl border p-2 w-[40vw] py-4"
+                  className="editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]"
                   value={linkedindata}
                   onChange={(e) => setlinkedindata(e.target.value)}
                 />
@@ -131,7 +131,7 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   id="email"
                   placeholder={email}
                   value={email}
-                  className="editable-input rounded-xl border p-2 w-[40vw] py-4"
+                  className="editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
@@ -147,7 +147,7 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   id="phone"
                   placeholder={whats}
                   value={whats}
-                  className="editable-input rounded-xl border p-2 w-[40vw] py-4"
+                  className="editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]"
                   onChange={(e) => setWhats(e.target.value)}
                 />
               </div>
@@ -160,7 +160,7 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   id="upi"
                   placeholder={upi}
                   value={upi}
-                  className="editable-input rounded-xl border p-2 w-[40vw] py-4"
+                  className="editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]"
                   onChange={(e) => setUpi(e.target.value)}
                 />
               </div>

@@ -277,7 +277,7 @@ body {
 
   .schedules-dash {
     position: relative;
-    top: 80px;
+    /* top: 80px; */
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -402,8 +402,13 @@ body {
   display: flex;
   flex-direction: column;
   padding: 40px;
-  overflow: scroll;
+  overflow-y: scroll; /* Enable vertical scrollbar */
   align-items: center;
+}
+
+/* Hide the scrollbar */
+.all-slots::-webkit-scrollbar {
+  display: none;
 }
 
 .hideelem {
@@ -429,7 +434,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -10px;
+  top: 10px;
   height: 30px;
   width: 30px;
   background-color: black;
@@ -685,16 +690,21 @@ body {
 
   .earning-details {
     gap: 40px;
+    height: 130px;
   }
 
   .total-mentee {
-    width: 200px;
+    width: 250px;
     height: 100px;
+    display: flex;
+    flex-direction: row;
   }
 
   .earnings-dash {
-    width: 200px;
+    width: 250px;
     height: 100px;
+    display: flex;
+    flex-direction: row;
   }
 
   .earning-dash h1 {
@@ -850,6 +860,9 @@ body {
     max-width: 50vw;
   }
   .meet-rate {
+    position: absolute;
+    right: 6vw;
+    top: 155vw;
     width: 90%;
     padding: 10px 0px;
     margin: auto;
@@ -876,8 +889,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 35px;
     font-size: 18px;
+    padding: 0px;
+    border-bottom: 0px;
   }
 
   .individual-session {

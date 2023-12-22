@@ -57,25 +57,25 @@ function Earning({ userData, setProgress, Mentor, isFetched, notifyList }) {
           </h1>
           <div className="earning-details">
             <div className="total-mentee relative">
-              <h3 className="absolute top-2 text-center w-[80%]">
+              <h3 className="absolute top-[10%] text-center w-[80%] md:w-[100%]">
                 TOTAL MENTEES
               </h3>
-              <h1 className="absolute top-[9vh] text-center w-[80%] text-3xl font-semibold">
+              <h1 className="absolute top-[40%] text-center w-[80%] text-3xl font-semibold md:text-xl ">
                 {earnings.numberOfMentee}
               </h1>
             </div>
             <div className="earnings-dash relative">
-              <h3 className="absolute top-2 text-center w-[80%]">
+              <h3 className="absolute  top-[10%] text-center w-[80%]">
                 Total Earnings
               </h3>
-              <h1 className="absolute top-[9vh] text-center w-[80%] text-3xl font-semibold">
+              <h1 className="absolute top-[40%] text-center w-[80%] text-3xl font-semibold md:text-md md:w-[100%]">
                 ₹ {Math.round(earnings.totalEarning)}/-
               </h1>
             </div>
           </div>
 
           {/* <div className="partition-d line-earning"></div> */}
-          <h1 className="text-xl font-semibold mt-5">Mentees</h1>
+          <h1 className="text-xl font-semibold mt-5 md:text-lg">Mentees</h1>
           <div className="flex items-center justify-center flex-col">
             {earnings.earningRecord &&
               Object.keys(earnings.earningRecord).map((item, index) => (

@@ -110,7 +110,7 @@ const Mobilecommonhead = () => {
               }`}
             />
           </div>
-          <div
+          {/* <div
             className="mobile-panel-options"
             style={{
               fontSize: "64px",
@@ -119,7 +119,7 @@ const Mobilecommonhead = () => {
             }}
           >
             {<IoIosAddCircle onClick={handlePostPopUp} />}
-          </div>
+          </div> */}
           {/* <div className="mobile-panel-options">
             <SiGooglechat />
           </div> */}

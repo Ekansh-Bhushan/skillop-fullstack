@@ -265,19 +265,19 @@ function Dashboard({
         />
       )}
 
-      <div className="flex mt-[35px] ml-[40vh]">
+      <div className="flex mt-[35px] ml-[40vh] md:ml-[10vh]">
         {/* <Commondash userData={userData} /> */}
 
         <div
           className={
             shouldbevisible
-              ? "flex flex-col border-r-2 w-[65%] "
+              ? "flex flex-col border-r-2 w-[65%] md:border-r-0"
               : "flex flex-col border-r-2 w-[80%]"
           }
         >
           {/* <Topbar setProgress={setProgress}/> */}
           {shouldbevisible && <Profileandevents />}
-          <div className="ml-12 mt-10 text-2xl font-semibold">
+          <div className="ml-12 mt-10 text-2xl font-semibold md:mt-14">
             Edit your Availability
           </div>
           <div className="schedules-dash">

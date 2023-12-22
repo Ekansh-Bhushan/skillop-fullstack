@@ -203,7 +203,7 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
     <>
       {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
-      <div className="ml-[20vw] ">
+      <div className="ml-[20vw] md:ml-0">
         {/* <Commondash userData={userData} /> */}
 
         <div className="dash-right">
