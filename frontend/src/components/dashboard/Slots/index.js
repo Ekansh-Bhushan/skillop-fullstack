@@ -277,8 +277,8 @@ function Dashboard({
         >
           {/* <Topbar setProgress={setProgress}/> */}
           {shouldbevisible && <Profileandevents />}
-          <div className="header-dash">
-            LET YOUR PEER KNOW YOUR AVAILABILITY
+          <div className="ml-12 mt-10 text-2xl font-semibold">
+            Edit your Availability
           </div>
           <div className="schedules-dash">
             {shouldbevisible && (

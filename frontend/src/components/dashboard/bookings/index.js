@@ -203,17 +203,15 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
     <>
       {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
-      <div className="dash-main">
+      <div className="ml-[20vw] ">
         {/* <Commondash userData={userData} /> */}
 
         <div className="dash-right">
-          <Profileandevents />
+          {/* <Profileandevents /> */}
 
           {/* <Topbar setProgress={setProgress}/> */}
-          <div className="session-dash-info">
-            <h2 style={{ fontSize: "1.8rem", marginBottom: "0.4vw" }}>
-              Booking
-            </h2>
+          <div className="session-dash-info ml-5">
+            <h2 className="meets-head text-2xl">Booking</h2>
             <div className="heading-session-status">
               <div
                 className="upcoming up"
@@ -238,7 +236,7 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
               </div>
             </div>
 
-            <div className="partition-session"></div>
+            {/* <div className="partition-session"></div> */}
 
             {ShowBookPopUp && (
               <BookViewPopUp

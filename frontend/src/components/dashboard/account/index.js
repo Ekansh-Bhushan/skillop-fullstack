@@ -104,20 +104,26 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
             </h1>
             <div className="flex items-start justify-center flex-col gap-4">
               <div className=" gap-[5px] flex flex-col items-start">
-                <label htmlFor="linkedin" className="">
+                <label
+                  htmlFor="linkedin"
+                  className="font-semibold text-[#000000BA]"
+                >
                   LinkedIn Account
                 </label>
                 <input
                   type="text"
                   id="linkedin"
                   placeholder={linkedindata}
-                  className="editable-input rounded border p-2 w-[40vw]"
+                  className="editable-input rounded-xl border p-2 w-[40vw] py-4"
                   value={linkedindata}
                   onChange={(e) => setlinkedindata(e.target.value)}
                 />
               </div>
               <div className=" gap-[5px] flex flex-col items-start">
-                <label htmlFor="email" className="">
+                <label
+                  htmlFor="email"
+                  className="font-semibold text-[#000000BA]"
+                >
                   Email
                 </label>
                 <input
@@ -125,12 +131,15 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   id="email"
                   placeholder={email}
                   value={email}
-                  className="editable-input rounded border p-2 w-[40vw]"
+                  className="editable-input rounded-xl border p-2 w-[40vw] py-4"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className=" gap-[5px] flex flex-col items-start">
-                <label htmlFor="phone" className="">
+                <label
+                  htmlFor="phone"
+                  className="font-semibold text-[#000000BA]"
+                >
                   Phone
                 </label>
                 <input
@@ -138,12 +147,12 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   id="phone"
                   placeholder={whats}
                   value={whats}
-                  className="editable-input rounded border p-2 w-[40vw]"
+                  className="editable-input rounded-xl border p-2 w-[40vw] py-4"
                   onChange={(e) => setWhats(e.target.value)}
                 />
               </div>
               <div className=" gap-[5px] flex flex-col items-start">
-                <label htmlFor="upi" className="">
+                <label htmlFor="upi" className="font-semibold text-[#000000BA]">
                   UPI ID
                 </label>
                 <input
@@ -151,7 +160,7 @@ function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   id="upi"
                   placeholder={upi}
                   value={upi}
-                  className="editable-input rounded border p-2 w-[40vw]"
+                  className="editable-input rounded-xl border p-2 w-[40vw] py-4"
                   onChange={(e) => setUpi(e.target.value)}
                 />
               </div>

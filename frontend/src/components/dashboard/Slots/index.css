@@ -277,7 +277,7 @@ body {
 
   .schedules-dash {
     position: relative;
-    top: 60px;
+    top: 80px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -612,8 +612,7 @@ body {
   height: 150px;
   width: 100px;
   position: relative;
-  top: 50px;
-  margin: auto;
+  top: 10px;
   width: 80%;
   gap: 100px;
   display: flex;
@@ -623,7 +622,7 @@ body {
 .total-mentee {
   width: 250px;
   height: 150px;
-  background-color: rgba(255, 112, 54, 1);
+  background-color: #ffb8004d;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -631,12 +630,13 @@ body {
   gap: 10px;
   padding: 20px;
   border-radius: 6px;
+  color: black;
 }
 
 .earnings-dash {
   width: 250px;
   height: 150px;
-  background-color: lightgreen;
+  background-color: #0eab004d;
   padding: 20px;
   color: rgb(12, 55, 100);
   display: flex;
@@ -650,9 +650,9 @@ body {
 
 .info-dash-table {
   position: relative;
-  top: 150px;
+  top: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
 
 .info-dash-table table {
@@ -801,10 +801,13 @@ body {
 } */
 
 .meet-rate {
+  position: absolute;
+  right: -33vw;
+  top: 15vw;
   padding: 2vw 4vw;
   border: 2px solid black;
   border-radius: 15px;
-  width: 40%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
