@@ -50,13 +50,40 @@ function App() {
 
   const [showPostPopUp, setShowPostPopUp] = useState(false);
 
+   const excludedRoutes = [
+     '/',
+     '/mlogin',
+     '/msignup',
+     '/mpersonal',
+     '/mcontact',
+     '/mskill',
+     '/mstudinfo',
+     '/mprofinfo',
+     '/mcover',
+     '/msocial',
+     '/signup',
+     '/login',
+     '/skill1',
+     '/skill2',
+     '/skill3',
+     '/skill4',
+     '/skill5',
+     '/skill6',
+     '/skill7',
+     '/loginn',
+     // Add more routes as needed
+   ];
+   const [shouldRender, setShouldRender] = useState(
+     !excludedRoutes.includes(window.location.pathname)
+   );
+
   return (
     <>
       {/* <RouteLanding/> */}
       <Toaster />
       <div className="md:hidden">
         {" "}
-        <TopBar setShowPostPopUp={setShowPostPopUp} />
+        {shouldRender && <TopBar setShowPostPopUp={setShowPostPopUp} />}
       </div>
       <AuthPage
         setNotifyList={setNotifyList}

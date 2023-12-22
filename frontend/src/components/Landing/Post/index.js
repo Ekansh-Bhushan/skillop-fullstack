@@ -1,10 +1,10 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
-// import Postlist from '../Postlist';
+import React, { useEffect, useState } from 'react';
 import Profileandevents from '../Profileandevents';
 import Mobilecommonhead from '../../Mobilecommonhead';
 // import scrollUp from '../../images/scrollUp.png';
 import { getUser } from '../../../api/userRequest';
 import { getNotifications } from '../../../api/getNotifications';
+import Postlist from '../Postlist';
 
 function Post({
   userData,
@@ -63,8 +63,6 @@ function Post({
     };
     refreshFN();
   }, []);
-  // Function to handle input changes
-  const HomePostComp = lazy(() => import('../Postlist')); // using react lazy load for better performance
 
   return (
     <div className="homepage">
@@ -79,22 +77,9 @@ function Post({
       <Mobilecommonhead />
       {/* <Common setProgress={setProgress}/> */}
       <div className="main-content-landing">
-        <Suspense
-          fallback={
-            <img
-              width={30}
-              style={{
-                position: 'fixed',
-                top: '50vh',
-                left: '50vw',
-                transform: 'translate(-50%, -50%)',
-              }}
-              src="/spinner.gif"
-            />
-          }
-        >
+  
           {isFetched && (
-            <HomePostComp
+            <Postlist
               setProgress={setProgress}
               displaycreatepost={true}
               userData={userData}
@@ -102,16 +87,8 @@ function Post({
               setShowPostPopUp={setShowPostPopUp}
               showPostPopUp={showPostPopUp}
             />
-            // <Postlist
-            //   setProgress={setProgress}
-            //   displaycreatepost={true}
-            //   userData={userData}
-            //   setUserData={setUserData}
-            //   setShowPostPopUp={setShowPostPopUp}
-            //   showPostPopUp={showPostPopUp}
-            // />
           )}
-        </Suspense>
+    
         <Profileandevents isHome={isHome} userData={userData} />
       </div>
       {/* <img id="scrollUp" onClick={scrollToTop} style={{ zIndex: "1000", position: "fixed", bottom: "20px", right: "20px", cursor: "pointer", borderRadius: "100%", boxShadow: "3px 3px 20px green" }} src={scrollUp} height={50} width={50} alt="scrollToTop" /> */}

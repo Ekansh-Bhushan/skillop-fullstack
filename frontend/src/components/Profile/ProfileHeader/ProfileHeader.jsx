@@ -63,6 +63,7 @@ const ProfileHeader = () => {
             onClick={() => setShowIntroVideo(true)}
             src={userDetails ? userDetails.profilePicUrl : "/user.png"}
             alt="user pic"
+            width={100}
           />
         </div>
       ) : (
