@@ -37,11 +37,17 @@ const MiscNavBar = () => {
 						}>
 						<Link to='/privacy-policy'>Privacy Policy</Link>
 					</li>
+					<li
+						className={
+							currentPath === "/terms-of-service" ? "misc-active-menu" : ""
+						}>
+						<Link to='/terms-of-service'>Terms of service</Link>
+					</li>
 					<li className={currentPath === "/contact" ? "misc-active-menu" : ""}>
 						<Link to='/contact'>Contact</Link>
 					</li>
-					<li className={currentPath === "/faqs" ? "misc-active-menu" : ""}>
-						<Link to='/faqs'>FAQs</Link>
+					<li className={currentPath === "/careers" ? "misc-active-menu" : ""}>
+						<Link to='/careers'>Careers</Link>
 					</li>
 				</ul>
 			</div>

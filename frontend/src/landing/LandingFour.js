@@ -5,12 +5,12 @@ import line from "../components/images/Line.png";
 
 const LandingFour = () => {
   return (
-    <div className="flex justify-evenly items-start mt-[15vh] md:flex-col md:items-center md:mt-[8vh]">
+    <div className="flex justify-evenly items-start mt-[15vh] md:flex-col md:items-center md:mt-[8vh] mb-5">
       <div className="flex justify-center flex-col items-center ">
         <div>
-          {" "}
+          {' '}
           <h1 className="text-5xl font-semibold mb-3 md:text-4xl ">
-            Frequently Asked{" "}
+            Frequently Asked{' '}
           </h1>
           <div className="text-5xl font-semibold md:text-4xl md:text-center md:mb-3">
             Questions
@@ -23,28 +23,28 @@ const LandingFour = () => {
         <img src={Saly} className="h-[55vh] md:hidden" />
       </div>
       <div className="flex flex-col justify-start items-start gap-5 md:mx-4 md:mb-10">
-        <div className="flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]">
+        <div className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]">
           <p>Is becoming Mentor paid or free?</p>
           <img src={plus} />
         </div>
-        <div className="flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]">
-          <p>Is becoming Mentor paid or free?</p>
+        <div className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]">
+          <p>Which platforms are integrated with SKILLOP?</p>
           <img src={plus} />
         </div>
-        <div className="flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]">
-          <p>Is becoming Mentor paid or free?</p>
+        <div className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]">
+          <p>How Will I Receive My Earnings?</p>
           <img src={plus} />
         </div>
-        <div className="flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]">
-          <p>Is becoming Mentor paid or free?</p>
+        <div className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]">
+          <p>How Can I Convert From Mentee To A Mentor?</p>
           <img src={plus} />
         </div>
-        <div className="flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh]">
-          <p>Is becoming Mentor paid or free?</p>
+        <div className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh]">
+          <p>How To Host Events And Hackathons?</p>
           <img src={plus} />
         </div>
-        <div className="flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh]">
-          <p>Is becoming Mentor paid or free?</p>
+        <div className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh]">
+          <p>How Can I Build My Own Community?</p>
           <img src={plus} />
         </div>
       </div>

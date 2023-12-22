@@ -3,6 +3,7 @@ import logo from "../components/images/logo.png";
 import email from "../components/images/email.png";
 import call from "../components/images/call.png";
 import location from "../components/images/location.png";
+import { Link } from "react-router-dom";
 
 const LandingFooter = () => {
   return (
@@ -15,34 +16,29 @@ const LandingFooter = () => {
         <div className="flex items-center justify-start gap-3">
           {" "}
           <img src={email} />
-          <h1>enquiry.skillop@gmail.com</h1>
+          <h3>skill.skillop@gmail.com</h3>
+          <h3>enquiry.skillop@gmail.com</h3>
         </div>
         <div className="flex items-center justify-start gap-3">
           {" "}
           <img src={call} />
-          <h1>+91 95992 72272</h1>
+          <h3>+91 95992 72272</h3>
         </div>
         <div className="flex items-center justify-start gap-3">
           {" "}
           <img src={location} />
-          <h1 className="w-[60%]">
+          <h3 className="w-[60%]">
             Delhi Technological University, Bawana Road, Shahbad Daulatpur
             Village, Rohini, Delhi 110042
-          </h1>
+          </h3>
         </div>
       </div>
       <div className="flex items-center justify-center md:flex-col md:items-start md:justify-start md:w-[70%] md:gap-5">
         <div className="flex flex-col gap-5">
-          <span>ABOUT US</span>
-          <span>CONTACT US</span>
-          <span>TERMS OF SERVICE</span>
-          <span>PRIVACY</span>
-        </div>
-        <div className="flex flex-col gap-5">
-          <span>ABOUT US</span>
-          <span>CONTACT US</span>
-          <span>TERMS OF SERVICE</span>
-          <span>PRIVACY</span>
+          <Link to={'/about'}><span>ABOUT</span></Link>
+          <Link to={'/contact'}><span>CONTACT</span></Link>
+          <Link to={'/terms-of-service'}><span>TERMS OF SERVICE</span></Link>
+          <Link to={'/privacy-policy'}><span>PRIVACY POLICY</span></Link>
         </div>
       </div>
     </div>

@@ -61,6 +61,7 @@ import MProfInformation from '../mobileauth/MProfInformation';
 import Cover from '../mobileauth/Cover';
 import Social from '../mobileauth/Social';
 import SideNav from '../SideNav/SideNav';
+import TermsOfService from '../Misc Pages/TermsOfService';
 
 function AuthPage({
   userData,
@@ -102,6 +103,7 @@ function AuthPage({
     '/terms-of-service',
     '/faqs',
     '/loginn',
+    '/careers',
     // Add more routes as needed
   ];
   const [shouldRender, setShouldRender] = useState(
@@ -141,7 +143,8 @@ function AuthPage({
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/faqs" element={<Faqs />} />
+        <Route path="/careers" element={<Faqs />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route
           path="/loginn"
           element={<Auth1Component setProgress={setProgress} />}
