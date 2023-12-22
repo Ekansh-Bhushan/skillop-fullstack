@@ -163,7 +163,7 @@
 
   .no-notify {
     margin-top: 70px;
-    margin-left: 130px;
+    /* margin-left: 130px; */
     text-align: center;
   }
 }

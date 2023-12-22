@@ -13,7 +13,8 @@
 .back-n-logo {
   display: flex;
   align-items: center;
-  position: absolute;
+  justify-content: space-between;
+  width: 100%;
   /* left: 10px; */
 }
 .logo-mobile {
@@ -27,8 +28,10 @@
 .notification-n-chat {
   display: flex;
   font-size: 30px;
-  position: absolute;
-  right: 20px;
+  /* position: absolute; */
+  /* right: 20px;
+  margin */
+  margin-right: 10px;
   gap: 10px;
 }
 

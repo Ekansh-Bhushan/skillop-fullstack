@@ -1,10 +1,10 @@
-import { Circle } from 'rc-progress';
-import React, { useEffect, useState } from 'react';
-import SideNav from '../SideNav/SideNav';
-import toast from 'react-hot-toast';
-import './mentorBano.css';
-import { getProfileCompletionStatus, getUser } from '../../api/userRequest';
-import { requestToBeMentor } from '../../api/mentorRequest';
+import { Circle } from "rc-progress";
+import React, { useEffect, useState } from "react";
+import SideNav from "../SideNav/SideNav";
+import toast from "react-hot-toast";
+import "./mentorBano.css";
+import { getProfileCompletionStatus, getUser } from "../../api/userRequest";
+import { requestToBeMentor } from "../../api/mentorRequest";
 
 function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const [isTaskDone, setIsTaskDone] = useState(false);
@@ -13,7 +13,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   function increaseCircularProgress(currentProgress, steps) {
     if (steps <= 0) {
-      throw new Error('Number of steps must be greater than 0');
+      throw new Error("Number of steps must be greater than 0");
     }
 
     // Calculate the increment for each step
@@ -31,7 +31,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const currentProgress = 0; // Initial progress (between 0 and 1)
   const steps = 10;
   const newProgress = increaseCircularProgress(currentProgress, steps);
-  console.log('New progress:', newProgress);
+  console.log("New progress:", newProgress);
 
   const [addedAboutPastAndFuture, setAddedAboutPastAndFuture] = useState(false);
   const [addedAtleast4Posts, setAddedAtleast4Posts] = useState(false);
@@ -60,7 +60,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
   }, []);
   console.log(Pprogress);
 
-  const [mentorStatus, setMentorStatus] = useState('');
+  const [mentorStatus, setMentorStatus] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [isAccepted, setIsAccepted] = useState(false);
   const [isNotApplied, setIsNotApplied] = useState(false);
@@ -71,13 +71,13 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     try {
       const getProfileCompletionData = async () => {
         const { data } = await getProfileCompletionStatus();
-        if (data.status === 'pending') {
+        if (data.status === "pending") {
           setIsPending(true);
-        } else if (data.status === 'accepted') {
+        } else if (data.status === "accepted") {
           setIsAccepted(true);
-        } else if (data.status === 'not applied') {
+        } else if (data.status === "not applied") {
           setIsNotApplied(true);
-        } else if (data.status === 'rejected') {
+        } else if (data.status === "rejected") {
           setIsRejected(true);
         }
         setPercentageProfileComplete(data.result.percentageProfileComplete);
@@ -100,7 +100,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
           setUploadProfilePicAndVideo(
             data.result.profileComplitionStatus.uploadProfilePicAndVideo
           );
-          console.log(data.result.profileComplitionStatus, 'hello');
+          console.log(data.result.profileComplitionStatus, "hello");
         } else {
           toast.error(data.error);
         }
@@ -108,13 +108,13 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
       getProfileCompletionData();
     } catch (error) {
       console.log(error);
-      toast.error('Something went wrong');
+      toast.error("Something went wrong");
     }
   }, []);
 
   const requestToBeMentorX = async () => {
     if (!isActive) {
-      toast.error('First complete all steps!');
+      toast.error("First complete all steps!");
       return;
     }
     try {
@@ -142,15 +142,15 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
         notifyList={notifyList}
       /> */}
 
-      <div className="flex items-center justify-center mx-[25vw] border-r-2 flex-col gap-10 h-[100vh] ">
-        <h2 className="text-3xl font-semibold mt-5">Become a Mentor</h2>
+      <div className="flex items-center justify-center mx-[25vw] border-r-2 flex-col h-[100vh] pt-[6vh]">
+        <h2 className="text-3xl font-semibold my-5">Become a Mentor</h2>
         <div
           style={{
-            width: '30%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            paddingRight: '10px',
+            width: "30%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            paddingRight: "10px",
           }}
         >
           <div className="absolute flex items-center justify-center flex-col">
@@ -161,43 +161,43 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
           </div>
           <Circle
             percent={Pprogress}
-            strokeColor="cyan"
+            strokeColor="#0AE70A"
             strokeWidth={9}
             trailWidth={8}
             strokeLinecap="square"
-            className={isTaskDone ? 'done' : 'not-done'}
+            className={isTaskDone ? "done" : "not-done"}
           >
             <div
               style={{
-                backgroundColor: 'red',
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                textAlign: 'center',
+                backgroundColor: "red",
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                textAlign: "center",
               }}
             >
-              {isTaskDone ? '1 Of 4 steps is completed' : ''}
+              {isTaskDone ? "1 Of 4 steps is completed" : ""}
             </div>
           </Circle>
         </div>
 
-        <div className=" bg-white bg-opacity-50 backdrop-blur-[20px] border-2 py-4 px-[5vw] text-lg rounded-2xl">
+        <div className=" bg-white bg-opacity-50 backdrop-blur-[20px] border-2 py-4 px-[5vw] text-lg rounded-2xl mt-2">
           {/* <h3>
             Please complete the following things in your profile to become
             Mentor😎
           </h3> */}
           <ul>
-            <li className={uploadProfilePicAndVideo ? 'done' : 'not-done'}>
+            <li className={uploadProfilePicAndVideo ? "done" : "not-done"}>
               Upload Profile Pic and My story video
             </li>
-            <li className={addedAboutPastAndFuture ? 'done' : 'not-done'}>
+            <li className={addedAboutPastAndFuture ? "done" : "not-done"}>
               Add About, Past experience And Future plans
             </li>
-            <li className={addedEducationOrExperence ? 'done' : 'not-done'}>
+            <li className={addedEducationOrExperence ? "done" : "not-done"}>
               Add Education, Experience and Skills
             </li>
-            <li className={addedAtleast4Posts ? 'done' : 'not-done'}>
+            <li className={addedAtleast4Posts ? "done" : "not-done"}>
               Create atleast 4 posts
             </li>
           </ul>
@@ -210,7 +210,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
         <div className="but">
           {isNotApplied && (
             <button
-              className={isActive ? 'custom-button' : 'custom-button-active'}
+              className={isActive ? "custom-button" : "custom-button-active"}
               disabled={!isActive}
               onClick={requestToBeMentorX}
             >

@@ -247,16 +247,10 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
             )}
 
             {Object.entries(book).length === 0 ? (
-              <div
-                className="no-session"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                  paddingLeft: "20px",
-                }}
-              >
-                {initialRequest && <h3>No Sessions</h3>}
+              <div className="no-session flex flex-col h-[100%] pl-[20px] border-b-2 md:pl-0">
+                {initialRequest && (
+                  <h3 className="md:text-center md:mt-5">No Sessions</h3>
+                )}
               </div>
             ) : (
               <div className="session-list-dash">

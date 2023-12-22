@@ -65,22 +65,22 @@ const Mobilecommonhead = () => {
               navigate("/homepage");
             }}
           >
-            <img src={logo} />
-            <div className="skillop-text">SKILLOP</div>
+            <img src={logo} width="25" />
+            <div className="font-semibold">SKILLOP</div>
           </div>
-        </div>
-        <div className="notification-n-chat">
-          <PiBellRingingLight
-            onClick={() => {
-              navigate("/notifications");
-            }}
-          />
+          <div className="notification-n-chat">
+            <PiBellRingingLight
+              onClick={() => {
+                navigate("/notifications");
+              }}
+            />
 
-          <HiOutlineChatBubbleLeftEllipsis
-            onClick={() => {
-              navigate("/chat");
-            }}
-          />
+            <HiOutlineChatBubbleLeftEllipsis
+              onClick={() => {
+                navigate("/chat");
+              }}
+            />
+          </div>
         </div>
       </div>
 
@@ -165,7 +165,7 @@ const Mobilecommonhead = () => {
           >
             Earnings
           </div>
-          <div>Become a Mentor</div>
+          <div onClick={() => navigate("/mentorbano")}>Become a Mentor</div>
           <div onClick={() => navigate("/myaccount")}>Account</div>
           <div onClick={() => navigate("/requestedMeets")}>Meet</div>
           <div
@@ -178,7 +178,7 @@ const Mobilecommonhead = () => {
               alignItems: "center",
               justifyContent: "center",
               height: "25px",
-              padding: "10px 20px",
+              padding: "22px 70px",
             }}
             onClick={logout}
           >

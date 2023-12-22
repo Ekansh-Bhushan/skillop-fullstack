@@ -9,7 +9,7 @@ import LandingFooter from "./LandingFooter";
 const Page = () => {
   return (
     <div>
-      <LandingNav />
+      {/* <LandingNav /> */}
       <LandingOne />
       <LandingTwo />
       <LandingThree />
