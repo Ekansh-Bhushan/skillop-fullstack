@@ -144,7 +144,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
           <div className="chat-friends-list">
             <div className="">
               {/* <h2 className="chat-head">Chats</h2> */}
-              <div className="relative flex items-center justify-center mt-5 flex-col border-b-2 pb-5">
+              <div className="relative flex items-center justify-center mt-5 flex-col border-b-2 pb-2">
                 <input
                   className="bg-[#84848426] border-0 rounded-3xl w-[90%] py-3 px-5"
                   type="text"
@@ -158,7 +158,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                   height={21}
                   width={21}
                 />
-                <span className="text-start w-[80%] ml-[0%] text-xl mt-5">
+                <span className="text-start w-[80%] ml-[0%] text-lg mt-5">
                   Recents
                 </span>
               </div>
