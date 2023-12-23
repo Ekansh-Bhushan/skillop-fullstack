@@ -10,8 +10,10 @@ import TopBar from "../components/CommonTopBar/TopBar";
 const Page = () => {
   return (
     <div>
-      <TopBar />
-      <div className="md:block hidden">
+      <div className="md:hidden">
+        <TopBar />
+      </div>
+      <div className="hidden md:block">
         <LandingNav />
       </div>
       <LandingOne />
