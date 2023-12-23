@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { useNavigate } from 'react-router-dom';
-import { getSpecificPost, likeOrDislikePost } from '../api/postRequest';
+import { useNavigate } from "react-router-dom";
+import { getSpecificPost, likeOrDislikePost } from "../api/postRequest";
 
-import { getLikers } from '../api/postRequest';
-import { getCommentsForPost } from '../api/postRequest';
-import Popup from './Landing/Post/LikeBox/LikePopUp';
-import PostImgPrevw from './Landing/Post/PostImagePrev/PostImgPrevw';
-import userPic from './images/user.png';
-import next from './images/next.png';
-import back from './images/back.png';
-import { followUnfollowUser } from '../api/follow-unfollow';
+import { getLikers } from "../api/postRequest";
+import { getCommentsForPost } from "../api/postRequest";
+import Popup from "./Landing/Post/LikeBox/LikePopUp";
+import PostImgPrevw from "./Landing/Post/PostImagePrev/PostImgPrevw";
+import userPic from "./images/user.png";
+import next from "./images/next.png";
+import back from "./images/back.png";
+import { followUnfollowUser } from "../api/follow-unfollow";
 
 const PostComp = ({
   userData,
@@ -67,13 +67,15 @@ const PostComp = ({
       // console.log(commData);
       // console.log(commentList);
     } catch (err) {
-      console.log('Unable to get comments ', err);
+      console.log("Unable to get comments ", err);
     }
   };
 
   const [likersList, setLikersList] = useState([]);
   const [fetchingLikers, setFetchingLikers] = useState(true);
-  const [FollowBtn, setFollowBtn] = useState(userData.followings.includes(author._id)?"✔ Following":"Follow");
+  const [FollowBtn, setFollowBtn] = useState(
+    userData.followings.includes(author._id) ? "✔ Following" : "Follow"
+  );
   // const [updateDOM, setUpdateDOM] = useState(false);
 
   const fetchLikers = async () => {
@@ -85,7 +87,7 @@ const PostComp = ({
       setFetchingLikers(false);
       // console.log(likersList[0].firstname);
     } catch (err) {
-      console.log('Unable to fetch likers ', err);
+      console.log("Unable to fetch likers ", err);
     }
   };
 
@@ -180,19 +182,19 @@ const PostComp = ({
 
   const isImage = (url) => {
     return (
-      url.toLowerCase().includes('.jpg') ||
-      url.toLowerCase().includes('.jpeg') ||
-      url.toLowerCase().includes('.png')
+      url.toLowerCase().includes(".jpg") ||
+      url.toLowerCase().includes(".jpeg") ||
+      url.toLowerCase().includes(".png")
     );
   };
 
   const mediaIdentifier = (file) => {
     file = file.toLowerCase();
     if (
-      file.includes('.jpg') ||
-      file.includes('.jpeg') ||
-      file.includes('.png') ||
-      file.includes('.PNG')
+      file.includes(".jpg") ||
+      file.includes(".jpeg") ||
+      file.includes(".png") ||
+      file.includes(".PNG")
     ) {
       return true;
     }
@@ -209,14 +211,14 @@ const PostComp = ({
       <div>
         {author ? (
           <div id="post-user-follow-head">
-            <div style={{ cursor: 'pointer' }} className="post-postedby">
+            <div style={{ cursor: "pointer" }} className="post-postedby">
               <img
                 src={author.profilePicUrl ? author.profilePicUrl : userPic}
                 alt="user-pic"
                 onClick={openPublicProfile}
               />
               <div onClick={openPublicProfile}>
-                <span style={{ fontWeight: 'bold' }} className="posted-by-name">
+                <span style={{ fontWeight: "bold" }} className="posted-by-name">
                   <span>
                     {author.firstname} {author.lastname}
                   </span>
@@ -229,15 +231,15 @@ const PostComp = ({
                     />
                   )}
                 </span>
-                <span style={{ fontSize: '12px' }} className="posted-by-brief">
-                  {author.jobTitle !== 'student'
+                <span style={{ fontSize: "12px" }} className="posted-by-brief">
+                  {author.jobTitle !== "student"
                     ? author.jobTitle
                     : author.education.length && author.education[0].institution
-                    ? 'Student at ' +
+                    ? "Student at " +
                       author.education[0].institution.slice(0, 50)
-                    : 'Student'}
+                    : "Student"}
                 </span>
-                <div style={{ fontSize: '12px' }} className="post-time">
+                <div style={{ fontSize: "12px" }} className="post-time">
                   {formatTimeDifference()}
                 </div>
               </div>
@@ -246,12 +248,12 @@ const PostComp = ({
             {userData._id !== author._id && (
               <div className="post-followbtn">
                 <button
-                  style={{ color: '#108cff', fontSize:"1.1rem" }}
+                  style={{ color: "#108cff", fontSize: "1.1rem" }}
                   onClick={async () => {
                     await followUnfollowUser(author._id);
-                    FollowBtn === 'Follow'
-                      ? setFollowBtn('✔ Following')
-                      : setFollowBtn('Follow');
+                    FollowBtn === "Follow"
+                      ? setFollowBtn("✔ Following")
+                      : setFollowBtn("Follow");
                   }}
                 >
                   {FollowBtn}
@@ -260,35 +262,35 @@ const PostComp = ({
             )}
           </div>
         ) : (
-          <div style={{ cursor: 'pointer' }} className="post-postedby">
+          <div style={{ cursor: "pointer" }} className="post-postedby">
             <img src={userPic} alt="user-pic" />
             <div>
-              <span style={{ fontWeight: 'bold' }} className="posted-by-name">
+              <span style={{ fontWeight: "bold" }} className="posted-by-name">
                 Uknown Person
               </span>
-              <span style={{ fontSize: '12px' }} className="posted-by-brief">
+              <span style={{ fontSize: "12px" }} className="posted-by-brief">
                 Unknown status
               </span>
             </div>
           </div>
         )}
 
-        <div style={{ height: '10px' }}></div>
+        <div style={{ height: "10px" }}></div>
       </div>
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-          marginBottom: '10px',
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px",
+          marginBottom: "10px",
         }}
       >
         <p
-          className={`user-content-post${expanded ? 'expanded' : ''}`}
+          className={`user-content-post${expanded ? "expanded" : ""}`}
           style={{
-            position: 'relative',
-            top: '10px',
-            marginBottom: '10px',
+            position: "relative",
+            top: "10px",
+            marginBottom: "10px",
           }}
           onClick={() => {
             navigate(`/postsection/${_id}`);
@@ -298,10 +300,10 @@ const PostComp = ({
         </p>
         {title.length > 500 ? (
           <button onClick={toggleExpand} className="read-more">
-            {expanded ? 'Read Less' : 'Read More'}
+            {expanded ? "Read Less" : "Read More"}
           </button>
         ) : (
-          ''
+          ""
         )}
       </div>
 
@@ -314,9 +316,9 @@ const PostComp = ({
           <div
             className="posted-img-container"
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '5px',
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
             }}
           >
             {imageUrls.length > 1 && currentMediaIndex > 0 && (
@@ -352,15 +354,15 @@ const PostComp = ({
         ) : (
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '5px',
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
             }}
           >
             {imageUrls.length > 1 && currentMediaIndex > 0 && (
               <span onClick={handlePreviousMedia}>
                 <img
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   className="back-post-arr"
                   height={32}
                   width={32}
@@ -381,7 +383,7 @@ const PostComp = ({
             ></iframe>
             {imageUrls.length > 1 &&
               currentMediaIndex < imageUrls.length - 1 && (
-                <span style={{ cursor: 'pointer' }} onClick={handleNextMedia}>
+                <span style={{ cursor: "pointer" }} onClick={handleNextMedia}>
                   <img
                     className="next-post-arr"
                     height={28}
@@ -394,22 +396,24 @@ const PostComp = ({
           </div>
         )
       ) : (
-        ''
+        ""
       )}
 
       {showPostImgPrew && imageUrls.length && (
-        <PostImgPrevw
-          onClose={onClose}
-          name={author.firstname + ' ' + author.lastname}
-          src={imageUrls[currentMediaIndex]}
-        />
+        <div className="absolute">
+          <PostImgPrevw
+            onClose={onClose}
+            name={author.firstname + " " + author.lastname}
+            src={imageUrls[currentMediaIndex]}
+          />
+        </div>
       )}
 
       {(likersList.length > 0 || commentList.length > 0) && (
         <>
           <hr id="like-line" />
           <div className="like-cmts-count">
-            <div style={{ cursor: 'pointer' }} className="like-counts">
+            <div style={{ cursor: "pointer" }} className="like-counts">
               {likersList.length <= 1 && (
                 <>
                   <span onClick={openPopup}>{likersList.length} Like</span>
@@ -421,13 +425,13 @@ const PostComp = ({
                   <span className="likes-name">
                     <b>
                       {likersList[likersList.length - 1].firstname +
-                        ' ' +
+                        " " +
                         likersList[likersList.length - 1].lastname}
-                    </b>{' '}
-                    and{' '}
+                    </b>{" "}
+                    and{" "}
                     <span id="others" onClick={openPopup}>
                       {likersList.length - 1} others liked this post.
-                    </span>{' '}
+                    </span>{" "}
                   </span>
                   <span className="small-screen-likes-length">
                     {likersList.length} Like
@@ -436,13 +440,13 @@ const PostComp = ({
               )}
             </div>
             <div
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               onClick={() => {
                 navigate(`/postsection/${_id}`);
               }}
               className="cmts-count"
             >
-              {commentList.length + ' '}Comments
+              {commentList.length + " "}Comments
             </div>
           </div>
         </>
@@ -451,15 +455,15 @@ const PostComp = ({
       <div className="reactions-div">
         <div
           className="reactions"
-          style={{ position: 'absolute', left: '0px', top: '-10px' }}
+          style={{ position: "absolute", left: "0px", top: "-10px" }}
         >
           <div className="like-count" onClick={openPopup}>
             <i
               style={{
-                marginRight: '4px',
-                fontSize: '22px',
-                color: liked ? 'rgb(16, 39, 111)' : '#666565',
-                cursor: 'pointer',
+                marginRight: "4px",
+                fontSize: "22px",
+                color: liked ? "rgb(16, 39, 111)" : "#666565",
+                cursor: "pointer",
               }}
               className="fa fa-thumbs-up"
               onClick={likethispost}
@@ -488,7 +492,7 @@ const PostComp = ({
                 marginBottom: '3px',
               }}
             ></i> */}
-            <img style={{ marginRight: '4px' }} src="/comment.png" />
+            <img style={{ marginRight: "4px" }} src="/comment.png" />
             Comments
           </div>
 
