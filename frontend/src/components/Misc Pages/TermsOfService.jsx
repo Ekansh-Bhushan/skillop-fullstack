@@ -6,7 +6,7 @@ const TermsOfService = () => {
   return (
     <>
       <MiscNavBar />
-      <div className="mx-52 my-32">
+      <div className="md:mx-8 mx-52 my-32">
         <h1 className="text-center mb-7">TERMS OF SERVICE</h1>
         <div className="flex flex-col gap-7 justify-evenly text-lg">
           <section>
