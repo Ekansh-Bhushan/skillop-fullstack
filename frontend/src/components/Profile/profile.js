@@ -196,7 +196,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
       <Mobilecommonhead />
       {/* <RightProfileComp about={journeyContent} /> */}
       <ProfileHeader />
-      {/* <UpcomingEvents /> */}
+      <UpcomingEvents />
       <div className="main-profile-page">
         {isLoading && (
           <img

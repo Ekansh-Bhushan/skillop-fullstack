@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import { getUser } from "./api/userRequest";
-import { Toaster } from "react-hot-toast";
-import AuthPage from "./components/Maincomp";
-import LoadingBar from "react-top-loading-bar";
-import { Emoji } from "emoji-picker-react";
-import { getNotifications } from "./api/getNotifications";
-import TopBar from "./components/CommonTopBar/TopBar";
+import { useEffect, useState } from 'react';
+import './App.css';
+import { getUser } from './api/userRequest';
+import { Toaster } from 'react-hot-toast';
+import AuthPage from './components/Maincomp';
+import LoadingBar from 'react-top-loading-bar';
+import { Emoji } from 'emoji-picker-react';
+import { getNotifications } from './api/getNotifications';
+import TopBar from './components/CommonTopBar/TopBar';
 
 function App() {
   const [userData, setUserData] = useState(null);
@@ -27,10 +27,10 @@ function App() {
         setNotifyList(data.result.notifications);
       } catch (err) {
         if (!err.response.data.result) {
-          localStorage.removeItem("skilloptoken");
+          localStorage.removeItem('skilloptoken');
           console.log(err.response.data.result);
         }
-        console.log("Unable to fetch user", err);
+        console.log('Unable to fetch user', err);
       }
     };
     const fetchNotifications = async () => {
@@ -38,11 +38,11 @@ function App() {
         const NotiData = await getNotifications();
         setNotifyList(NotiData.data.result);
       } catch (err) {
-        console.log("Unable to fetch notifications", err);
+        console.log('Unable to fetch notifications', err);
       }
     };
 
-    if (localStorage.getItem("skilloptoken")) {
+    if (localStorage.getItem('skilloptoken')) {
       fetchUser();
       // fetchNotifications();
     }
@@ -50,13 +50,46 @@ function App() {
 
   const [showPostPopUp, setShowPostPopUp] = useState(false);
 
+  const excludedRoutes = [
+    '/',
+    '/mlogin',
+    '/msignup',
+    '/mpersonal',
+    '/mcontact',
+    '/mskill',
+    '/mstudinfo',
+    '/mprofinfo',
+    '/mcover',
+    '/msocial',
+    '/signup',
+    '/login',
+    '/skill1',
+    '/skill2',
+    '/skill3',
+    '/skill4',
+    '/skill5',
+    '/skill6',
+    '/skill7',
+    '/loginn',
+    '/about',
+    '/contact',
+    '/privacy-policy',
+    '/terms-of-service',
+    '/faqs',
+    '/careers'
+    // Add more routes as needed
+  ];
+  const [shouldRender, setShouldRender] = useState(
+    !excludedRoutes.includes(window.location.pathname)
+  );
+
   return (
     <>
       {/* <RouteLanding/> */}
       <Toaster />
       <div className="md:hidden">
-        {" "}
-        <TopBar setShowPostPopUp={setShowPostPopUp} />
+        {' '}
+        {shouldRender && <TopBar setShowPostPopUp={setShowPostPopUp} />}
       </div>
       <AuthPage
         setNotifyList={setNotifyList}

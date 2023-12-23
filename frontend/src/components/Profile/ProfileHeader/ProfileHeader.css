@@ -95,13 +95,22 @@
 .ph-linkedin {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
   color: #108cff;
 }
 
 .ph-linkedin img {
   height: 30px;
+}
+
+@media screen and (max-width: 1500px) {
+  .ph-container {
+    margin: 11vh 11vw;
+    min-height: 68vh;
+  }
+  .ph-pic {
+    left: 13vw;
+  }
 }
 
 @media screen and (max-width: 500px) {

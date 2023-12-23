@@ -7,10 +7,10 @@ const Faqs = () => {
 			<MiscNavBar />
 			<div className='pp-container'>
 				<h1>
-					<center>Frequently Asked Question (FAQs)</center>
+					<center>Careers</center>
 				</h1>
         <br /><br /><br /><br />
-				<center>Yet to be added!</center>
+				<center>Currently there are no openings! Stay tuned for new opportunities😊</center>
 			</div>
 		</>
 	);

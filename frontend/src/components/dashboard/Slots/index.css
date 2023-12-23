@@ -1,10 +1,16 @@
 body {
-  font-family: "Ubuntu";
+  font-family: 'Ubuntu';
 }
 
 .dash-main {
   display: flex;
   margin-top: 18px;
+  margin-left: 23vw;
+  width: 90%;
+}
+
+.editor-ids {
+  justify-content: center;
 }
 
 .userdash {
@@ -27,7 +33,7 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
-  background-image: url("..//..//images//rect.png");
+  background-image: url('..//..//images//rect.png');
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px 0px 10px 10px;
@@ -961,7 +967,7 @@ body {
   .line2-dash,
   .line3-dash {
     width: 20px;
-    content: "";
+    content: '';
     height: 0.5px;
 
     position: relative;

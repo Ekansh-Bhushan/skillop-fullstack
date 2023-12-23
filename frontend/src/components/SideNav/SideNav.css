@@ -109,6 +109,7 @@
 @media only screen and (max-width: 1400px) {
   .side-nav-container {
     width: 7vw;
+    padding-left: 0.8vw;
   }
   .side-nav-container li span {
     transform: translateX(-600%);
