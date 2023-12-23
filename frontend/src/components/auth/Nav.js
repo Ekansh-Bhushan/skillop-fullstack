@@ -12,10 +12,10 @@ const Nav = () => {
         </div>
         <div className=" gap-5 hidden">
           <button className="py-2 px-9 rounded-xl text-sm font-bold shadow-md bg-[#FFB800]">
-            Sign Up
+            <a href="/login">Login</a>
           </button>
           <button className="border-2 border-black py-2 px-9 rounded-xl text-md font-bold">
-            Log In
+            <a href="/signup">Sign up</a>
           </button>
         </div>
       </div>

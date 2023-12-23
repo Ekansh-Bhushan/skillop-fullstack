@@ -6,7 +6,7 @@ import location from "../components/images/location.png";
 
 const LandingFooter = () => {
   return (
-    <div className="bg-[#212121] text-white flex items-center justify-around py-10 md:flex-col md:gap-5">
+    <div className="bg-[#212121] text-white flex items-center justify-around py-10 md:flex-col md:gap-5 mb-[-10vh]">
       <div className="md:ml-[10vw] flex flex-col md:gap-5">
         <div className="flex items-center justify-start gap-5">
           <img src={logo} />
@@ -31,7 +31,7 @@ const LandingFooter = () => {
           </h1>
         </div>
       </div>
-      <div className="flex items-center justify-center md:flex-col md:items-start md:justify-start md:w-[70%] md:gap-5">
+      <div className="flex items-center justify-center gap-5 md:flex-col md:items-start md:justify-start md:w-[70%] md:gap-5">
         <div className="flex flex-col gap-5">
           <span>ABOUT US</span>
           <span>CONTACT US</span>

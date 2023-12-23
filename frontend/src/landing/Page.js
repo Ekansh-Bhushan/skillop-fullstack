@@ -9,7 +9,9 @@ import LandingFooter from "./LandingFooter";
 const Page = () => {
   return (
     <div>
-      {/* <LandingNav /> */}
+      <div className="md:block hidden">
+        <LandingNav />
+      </div>
       <LandingOne />
       <LandingTwo />
       <LandingThree />

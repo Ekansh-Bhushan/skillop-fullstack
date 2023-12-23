@@ -4,7 +4,7 @@ import line from "../components/images/Line.png";
 
 const LandingOne = () => {
   return (
-    <div className="flex justify-evenly items-center ml-[20vh] max-h-[90vh] md:mx-5 md:mb-[8vh]">
+    <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0">
       <div className="flex flex-col ">
         <h1 class="text-[55px] font-medium md:text-[40px] my-5">
           Shuru se{" "}

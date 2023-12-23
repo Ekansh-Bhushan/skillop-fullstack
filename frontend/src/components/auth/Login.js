@@ -41,8 +41,14 @@ const Login = () => {
         <div class="flex justify-center items-center ">
           <div class="flex flex-col items-start justify-start">
             <div className="flex items-center justify-center gap-[8vh] text-[30px] font-semibold">
-              <div>SIGNUP</div>
-              <div>LOG IN</div>
+              <div>
+                {" "}
+                <a href="/signup">SIGNUP</a>
+              </div>
+              <div>
+                {" "}
+                <a href="/login">LOGIN</a>
+              </div>
             </div>
             <p className="text-[#7E8B9E] font-semibold text-lg mt-[4vh]">
               Welcome back, We are happy to see you back!
@@ -57,6 +63,7 @@ const Login = () => {
               <input
                 className="border-2 rounded-lg bg-[#FAFAFC] py-4"
                 onChange={(e) => setPassword(e.target.value)}
+                type="password"
               />
             </div>
             <div className="w-[100%]">

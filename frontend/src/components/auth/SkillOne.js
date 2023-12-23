@@ -12,8 +12,8 @@ const SkillOne = () => {
       <Nav />
       <ProgressBar />
 
-      <div className="flex items-start flex-col ml-[35vh] z-50">
-        <h1 className="text-[40px] mb-5 mt-[8vh] font-bold">
+      <div className="flex items-start flex-col ml-[35vh] z-50 ">
+        <h1 className="text-[40px] mb-5 mt-[10vh] font-bold">
           Complete Your Profile
         </h1>
         <div className="flex items-center gap-[10vh]">
