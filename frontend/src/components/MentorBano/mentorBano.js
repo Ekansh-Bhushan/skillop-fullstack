@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import "./mentorBano.css";
 import { getProfileCompletionStatus, getUser } from "../../api/userRequest";
 import { requestToBeMentor } from "../../api/mentorRequest";
+import Mobilecommonhead from "../Mobilecommonhead";
 
 function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const [isTaskDone, setIsTaskDone] = useState(false);
@@ -141,18 +142,10 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
         isFetched={isFetched}
         notifyList={notifyList}
       /> */}
-
-      <div className="flex items-center justify-center mx-[25vw] border-r-2 flex-col h-[100vh] pt-[6vh]">
+      <Mobilecommonhead />
+      <div className="flex items-center justify-center mx-[25vw] border-r-2 flex-col h-[100vh] pt-[6vh] md:mx-5 md:border-0 md:pt-0">
         <h2 className="text-3xl font-semibold my-5">Become a Mentor</h2>
-        <div
-          style={{
-            width: "30%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            paddingRight: "10px",
-          }}
-        >
+        <div className="w-[30%] flex items-center justify-center pr-10 md:w-[55%] md:pr-0">
           <div className="absolute flex items-center justify-center flex-col">
             <h2 className="text-4xl font-semibold">
               {PercentageProfileComplete}%
