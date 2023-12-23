@@ -29,7 +29,7 @@ const TopActiveUsers = () => {
                   alt="profile"
                 />
                 <div>
-                  <p>{item.username}</p>
+                  <b>{item.username}</b>
                   <div>
                     <span className="text-gray-600">
                       {item.__totalPosts} Posts
