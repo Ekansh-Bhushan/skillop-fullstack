@@ -19,6 +19,29 @@ exports.getUserByUsername = async (req, res) => {
     }
 };
 
+exports.queryUserByUsername = async (req, res) => {
+    try {
+        const queryUsername = req.query.queryUsername;
+        const users = await User.find({
+            username: { $regex: queryUsername, $options: "i" },
+        });
+        response_200(
+            res,
+            "Users fatched successfully",
+            users.map((user) => {
+                return {
+                    _id: user._id,
+                    username: user.username,
+                    profilePicUrl: user.profilePicUrl,
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                };
+            })
+        );
+    } catch (error) {
+        response_500(res, "Internal Server Error", err);
+    }
+};
 exports.updateProfile = async (req, res) => {
     try {
         console.log(req.body);
