@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SendNotification from './SendNotification';
 import TopActiveUsers from './TopActiveUsers';
+import MostFollowedUsers from './MostFollowedUsers';
+import CreateEvent from './CreateEvent';
 
 const Admin = () => {
   const [applicantsList, setApplicantsList] = useState([]);
@@ -177,6 +179,8 @@ const Admin = () => {
       </div>
       <SendNotification />
       <TopActiveUsers />
+      <MostFollowedUsers />
+      <CreateEvent />
     </div>
   );
 };
