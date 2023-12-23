@@ -45,7 +45,7 @@
 @media only screen and (max-width: 1400px) {
   .dash-main {
     /* position: relative; */
-    margin-left: 12vw;
+    margin-inline: 5vw;
     width: 100%;
   }
 

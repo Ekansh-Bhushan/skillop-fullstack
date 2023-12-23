@@ -1146,18 +1146,18 @@ non-act {
 
 @media screen and (max-width: 400px) {
   .chat-user-details {
-    margin-top: 0vh;
+    margin-block: 10px;
   }
 
   .chatbox-messages {
-    height: 70%;
+    height: 67%;
     max-width: 100%;
     border-radius: 10px;
     margin-inline: 10px;
   }
 
   .message-send-bar {
-    margin-top: 5px;
+    margin-block: 5px;
     padding-inline: 15px;
   }
 }
