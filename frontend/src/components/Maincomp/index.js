@@ -74,7 +74,7 @@ function AuthPage({
   setIsFetched,
   setNotifyList,
   setShowPostPopUp,
-  showPostPopUp
+  showPostPopUp,
 }) {
   // console.log(userData);
   const excludedRoutes = [
@@ -104,6 +104,7 @@ function AuthPage({
     '/faqs',
     '/loginn',
     '/careers',
+    '/admin',
     // Add more routes as needed
   ];
   const [shouldRender, setShouldRender] = useState(

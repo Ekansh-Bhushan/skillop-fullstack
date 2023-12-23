@@ -76,7 +76,8 @@ function App() {
     '/privacy-policy',
     '/terms-of-service',
     '/faqs',
-    '/careers'
+    '/careers',
+    '/admin'
     // Add more routes as needed
   ];
   const [shouldRender, setShouldRender] = useState(
