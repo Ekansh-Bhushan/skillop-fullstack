@@ -33,7 +33,7 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const events = await fetchUpcomingEvents();
+      const events = await fetchUpcomingEvents("upcoming");
       setEventData(events.data.result);
     };
     fetchEvents();

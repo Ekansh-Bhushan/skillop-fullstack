@@ -9,6 +9,9 @@ import SendNotification from './SendNotification';
 import TopActiveUsers from './TopActiveUsers';
 import MostFollowedUsers from './MostFollowedUsers';
 import CreateEvent from './CreateEvent';
+import UpcomingEvents from '../Landing/Profileandevents/UpcomingEvents';
+import EventList from './EventList';
+import MentorList from './MentorList';
 
 const Admin = () => {
   const [applicantsList, setApplicantsList] = useState([]);
@@ -181,6 +184,8 @@ const Admin = () => {
       <TopActiveUsers />
       <MostFollowedUsers />
       <CreateEvent />
+      <EventList />
+      <MentorList />
     </div>
   );
 };

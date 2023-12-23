@@ -1,21 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import './UpcomingEvents.css';
-import { fetchUpcomingEvents } from '../../../api/adminPanel';
+import { delEvents, fetchUpcomingEvents } from '../../api/adminPanel';
+import toast from 'react-hot-toast';
 
-const UpcomingEvents = () => {
+const EventList = () => {
   const [eventData, setEventData] = useState([]);
 
+  const fetchEvents = async () => {
+    const events = await fetchUpcomingEvents();
+    setEventData(events.data.result);
+    console.log(events);
+  };
+
+  const handleEventDel = async (eventID) => {
+    try {
+      await delEvents(eventID);
+      await fetchEvents();
+      toast.success('Event Deleted');
+    } catch (err) {
+      console.log(err);
+      toast.error(err.response.data.message);
+    }
+  };
+
   useEffect(() => {
-    const fetchEvents = async () => {
-      const events = await fetchUpcomingEvents('upcoming');
-      setEventData(events.data.result);
-    };
     fetchEvents();
   }, []);
 
   return (
     <div>
-      <div className="event-upcoming2">
+      <div className="w-[30%] border border-black">
         <div className="header-events">
           <h2
             style={{
@@ -24,7 +37,7 @@ const UpcomingEvents = () => {
               paddingLeft: '16px',
             }}
           >
-            Upcoming Events
+            Currently Listed Events (ALL)
           </h2>
         </div>
         <div className="event-list2 overflow-y-auto max-h-[500px]">
@@ -38,22 +51,21 @@ const UpcomingEvents = () => {
                   {' - '}
                   {new Date(item.endTime).toString().slice(0, 15)}
                 </p>
+                <p>
+                  <img
+                    src="/delete.png"
+                    alt="del event"
+                    className="cursor-pointer w-9 m-auto"
+                    onClick={() => handleEventDel(item._id)}
+                  />
+                </p>
               </div>
             );
           })}
         </div>
-        {/* <div className="join-premium">
-            <a
-              href="https://forms.gle/5eHDU3aAdWstuFs39"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Join SKILLOP Premium
-            </a>
-          </div> */}
       </div>
     </div>
   );
 };
 
-export default UpcomingEvents;
+export default EventList;
