@@ -8,6 +8,7 @@ const {
 } = require("../../controllers/adminControllers/querySiteMatrics/getMeetingMatrics");
 const {
     getMentorMatrics,
+    getHighestEarner,
 } = require("../../controllers/adminControllers/querySiteMatrics/getMentorMatrics");
 const {
     getPostMatrics,
@@ -28,5 +29,6 @@ router.route("/dead/users").get(getDeadUser);
 router.route("/users/new").get(getNewSignUp);
 router.route("/users/most/active").get(getMostActiveUser);
 router.route("/most/followed").get(getMostFollowedUser);
+router.route("/highest/earning").get(getHighestEarner);
 
 module.exports = router;

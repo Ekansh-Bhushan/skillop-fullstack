@@ -12,8 +12,12 @@ import next from "../../images/next.png";
 import back from "../../images/back.png";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { queryUserFromUsername } from "../../../api/userRequest";
 
 const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
+    // ------------- @ sign query
+    const [signQuery, setSignQuery] = useState([]);
+    // --------------------------
     const API = axios.create({ baseURL: "https://app.skillop.in" });
     const [inputValue, setInputValue] = useState("");
     let [selectedFile, setSelectedFile] = useState([]);
@@ -33,8 +37,20 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
         );
     };
 
-    const handleInputChange = (event) => {
+    const handleInputChange = async (event) => {
         const newValue = event.target.value;
+        const lastword = newValue.split(" ").pop();
+        if (lastword.startsWith("@")) {
+            try {
+                const { data } = await queryUserFromUsername(lastword.slice(1));
+                if (data.result) {
+                    setSignQuery(data.result);
+                }
+                console.log(data.result);
+            } catch (err) {
+                console.log(err);
+            }
+        }
         setInputValue(newValue);
     };
 
@@ -332,6 +348,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
                     />
                 </div>
             </div>
+            <div id="usernameList"></div>
         </div>
     );
 };
