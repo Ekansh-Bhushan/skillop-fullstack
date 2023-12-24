@@ -20,16 +20,10 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1400px) {
-  .earning-dash {
-    margin-left: 9vw;
-    width: 60%;
-  }
-}
-
 @media only screen and (max-width: 500px) {
   .earning-dash {
     width: 100%;
+    margin-left: 0vw;
   }
 
   .line-earning {

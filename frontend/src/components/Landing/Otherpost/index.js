@@ -2,6 +2,10 @@ import React from "react";
 import "../Post/index.css";
 import userPic from "../../images/user.png";
 import { useState, useEffect } from "react";
+import React from "react";
+import "../Post/index.css";
+import userPic from "../../images/user.png";
+import { useState, useEffect } from "react";
 import {
     getSpecificPost,
     likeOrDislikePost,
@@ -187,44 +191,38 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
         isFetched={isFetched}
         notifyList={notifyList}
       /> */}
-            <div className="main-content-landing">
-                {post && (
-                    <div className="posting-on-landing">
-                        <Mobilecommonhead />
-                        <div className="people-post">
-                            <div className="post-1">
-                                {post.author && (
-                                    <div
-                                        className="post-postedby"
-                                        onClick={goToProfile}
-                                    >
-                                        <img
-                                            src={
-                                                post.author.profilePicUrl
-                                                    ? post.author.profilePicUrl
-                                                    : userPic
-                                            }
-                                            alt={post.title}
-                                        />
-                                        <div>
-                                            <span
-                                                style={{ fontWeight: "bold" }}
-                                                className="posted-by-name"
-                                            >
-                                                {post.author.firstname}{" "}
-                                                {post.author.lastname}
-                                            </span>
-                                            <span
-                                                style={{ fontSize: "12px" }}
-                                                className="posted-by-brief"
-                                            >
-                                                {post.author.isMentor
-                                                    ? "Mentor"
-                                                    : "Mentee"}
-                                            </span>
-                                        </div>
-                                    </div>
-                                )}
+      <Mobilecommonhead />
+      <div className="main-content-landing">
+        {post && (
+          <div className="posting-on-landing">
+            <div className="people-post">
+              <div className="post-1 ">
+                {post.author && (
+                  <div className="post-postedby" onClick={goToProfile}>
+                    <img
+                      src={
+                        post.author.profilePicUrl
+                          ? post.author.profilePicUrl
+                          : userPic
+                      }
+                      alt={post.title}
+                    />
+                    <div>
+                      <span
+                        style={{ fontWeight: "bold" }}
+                        className="posted-by-name"
+                      >
+                        {post.author.firstname} {post.author.lastname}
+                      </span>
+                      <span
+                        style={{ fontSize: "12px" }}
+                        className="posted-by-brief"
+                      >
+                        {post.author.isMentor ? "Mentor" : "Mentee"}
+                      </span>
+                    </div>
+                  </div>
+                )}
 
                                 <div
                                     style={{

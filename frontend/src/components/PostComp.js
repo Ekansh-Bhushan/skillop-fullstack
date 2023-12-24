@@ -443,13 +443,15 @@ const PostComp = ({
                 ""
             )}
 
-            {showPostImgPrew && imageUrls.length && (
-                <PostImgPrevw
-                    onClose={onClose}
-                    name={author.firstname + " " + author.lastname}
-                    src={imageUrls[currentMediaIndex]}
-                />
-            )}
+      {showPostImgPrew && imageUrls.length && (
+        <div className="absolute">
+          <PostImgPrevw
+            onClose={onClose}
+            name={author.firstname + " " + author.lastname}
+            src={imageUrls[currentMediaIndex]}
+          />
+        </div>
+      )}
 
             {(likersList.length > 0 || commentList.length > 0) && (
                 <>

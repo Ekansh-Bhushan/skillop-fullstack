@@ -23,8 +23,8 @@ const MiscNavBar = () => {
 				</a>
 			</div>
 
-			<div className='sm:hidden misc-right-nav'>
-				<ul className="sm:pr-4">
+			<div className='md:hidden misc-right-nav'>
+				<ul className="md:pr-4">
 					<li className={currentPath === "/" ? "misc-active-menu" : ""}>
 						<Link to='/'>Home</Link>
 					</li>

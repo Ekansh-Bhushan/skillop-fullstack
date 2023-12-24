@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { findUser } from "../api/userRequest";
-import user from './images/user.png'
+import user from "./images/user.png";
 import { getMessages } from "../api/messageRequest";
 
 const Conversation = ({ data, currentUser, chat, chatID }) => {
-
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
 
@@ -43,10 +42,21 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
         <div className="chats-user">
           {" "}
           <div className="user-section">
-            <img id="chat-user-pic" src={userData.profilePicUrl ? userData.profilePicUrl : user} height={70} width={70} />
+            <img
+              id="chat-user-pic"
+              src={userData.profilePicUrl ? userData.profilePicUrl : user}
+              height={70}
+              width={70}
+            />
             <div className="friend-name">
-              <span style={{fontSize:"1.05rem", fontWeight:"bold"}}>{userData.firstname} {userData.lastname}</span>
-              {(messages.length > 0) && (<p style={{ color:"#4d4d4d" }}>{messages[messages.length - 1].text.slice(0, 25)}</p>)}
+              <span style={{ fontSize: "15px", fontWeight: "bold" }}>
+                {userData.firstname} {userData.lastname}
+              </span>
+              {messages.length > 0 && (
+                <p style={{ color: "#4d4d4d" }}>
+                  {messages[messages.length - 1].text.slice(0, 25)}
+                </p>
+              )}
             </div>
           </div>
         </div>

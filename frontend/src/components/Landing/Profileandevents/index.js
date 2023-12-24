@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import defaultBGPic from '../../images/Robo.png';
+import { fetchUpcomingEvents } from '../../../api/adminPanel';
 export default function Profileandevents({ userData, isHome, useUserData }) {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState(null);
@@ -27,6 +28,16 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
     };
     fetchUserDetails();
   }, [setUserDetails, useUserData, userData]);
+
+  const [eventData, setEventData] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const events = await fetchUpcomingEvents("upcoming");
+      setEventData(events.data.result);
+    };
+    fetchEvents();
+  }, []);
 
   return (
     <>
@@ -117,10 +128,20 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
               Upcoming Events
             </h2>
           </div>
-          <div className="event-list">
-            <div className="event-1"></div>
-            <div className="event-1"></div>
-            <div className="event-1"></div>
+          <div className="event-list2 overflow-y-auto">
+            {eventData.map((item) => {
+              return (
+                <div key={item._id} className="event-1">
+                  <b>{item.title}</b>
+                  <p>{item.description}</p>
+                  <p>
+                    {new Date(item.startTime).toString().slice(0, 15)}
+                    {' - '}
+                    {new Date(item.endTime).toString().slice(0, 15)}
+                  </p>
+                </div>
+              );
+            })}
           </div>
           {/* <div className="join-premium">
             <a
