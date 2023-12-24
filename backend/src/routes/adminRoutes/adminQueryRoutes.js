@@ -8,6 +8,7 @@ const {
 } = require("../../controllers/adminControllers/querySiteMatrics/getMeetingMatrics");
 const {
     getMentorMatrics,
+    getHighestEarner,
 } = require("../../controllers/adminControllers/querySiteMatrics/getMentorMatrics");
 const {
     getPostMatrics,
@@ -18,6 +19,9 @@ const {
     getMostFollowedUser,
     getMostActiveUser,
 } = require("../../controllers/adminControllers/querySiteMatrics/getUserMatrics");
+const {
+    getSiteMatrics,
+} = require("../../controllers/adminControllers/querySiteMatrics/getSitrMatrics");
 const router = express.Router();
 
 router.route("/feedback").get(isAuthorised, isAdmin, getFeedbacks);
@@ -28,5 +32,8 @@ router.route("/dead/users").get(getDeadUser);
 router.route("/users/new").get(getNewSignUp);
 router.route("/users/most/active").get(getMostActiveUser);
 router.route("/most/followed").get(getMostFollowedUser);
+router.route("/highest/earning").get(getHighestEarner);
+
+router.route("/site/matrix").get(getSiteMatrics);
 
 module.exports = router;

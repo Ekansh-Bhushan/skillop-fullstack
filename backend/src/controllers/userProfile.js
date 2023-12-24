@@ -21,10 +21,16 @@ exports.getUserByUsername = async (req, res) => {
 
 exports.queryUserByUsername = async (req, res) => {
     try {
+        const limit = req.query.limit || 5;
+        const skip = req.query.skip || 0;
         const queryUsername = req.query.queryUsername;
+        console.log(queryUsername);
         const users = await User.find({
             username: { $regex: queryUsername, $options: "i" },
-        });
+        })
+            .limit(limit)
+            .skip(skip);
+        // console.log(users);
         response_200(
             res,
             "Users fatched successfully",

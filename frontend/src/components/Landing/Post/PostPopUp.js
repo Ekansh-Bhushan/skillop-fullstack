@@ -12,8 +12,14 @@ import next from "../../images/next.png";
 import back from "../../images/back.png";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { queryUserFromUsername } from "../../../api/userRequest";
+import _ from "lodash";
 
 const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
+    // ------------- @ sign query
+    const [signQuery, setSignQuery] = useState([]);
+    const [showSuggestions, setShowSuggestions] = useState(false);
+    // --------------------------
     const API = axios.create({ baseURL: "https://app.skillop.in" });
     const [inputValue, setInputValue] = useState("");
     let [selectedFile, setSelectedFile] = useState([]);
@@ -33,9 +39,39 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
         );
     };
 
-    const handleInputChange = (event) => {
+    // Debounce the input change to avoid frequent API calls while typing
+    const debouncedInputChange = _.debounce(async (newValue) => {
+        // if (value.includes("@")) {
+        //     // Make API call for suggestions here
+        //     // Replace the setTimeout with your actual API call
+        //     setTimeout(() => {
+        //         const suggestions = ["user1", "user2", "user3"]; // Replace with fetched suggestions
+        //         setSignQuery(suggestions);
+        //         setShowSuggestions(true);
+        //     }, 300); // Simulated delay, adjust as needed
+
+        const lastword = newValue.split(" ").pop();
+        if (lastword.startsWith("@")) {
+            try {
+                const { data } = await queryUserFromUsername(lastword.slice(1));
+                console.log(data.result[0]);
+                if (data.result) {
+                    setSignQuery(data.result);
+                    setShowSuggestions(true);
+                }
+                // console.log(data.result);
+            } catch (err) {
+                console.log(err);
+            }
+        } else {
+            setShowSuggestions(false);
+        }
+    }, 10); // Adjust debounce delay as needed
+
+    const handleInputChange = async (event) => {
         const newValue = event.target.value;
         setInputValue(newValue);
+        debouncedInputChange(newValue);
     };
 
     const closePopUp = () => {
@@ -205,6 +241,34 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
                         className="post"
                     />
                 </div>
+
+                {showSuggestions && (
+                    <div id="usernameList">
+                        {signQuery.map((user) => (
+                            <div
+                                className="user"
+                                key={user._id}
+                                onClick={() => {
+                                    setInputValue(
+                                        inputValue.replace(
+                                            /@\S+$/,
+                                            `@${user.username} `
+                                        )
+                                    );
+                                    setShowSuggestions(false);
+                                }}
+                            >
+                                <img
+                                    src={user.profilePic}
+                                    alt="profile-pic"
+                                    height={30}
+                                    width={30}
+                                />
+                                <p>{user.username}</p>
+                            </div>
+                        ))}
+                    </div>
+                )}
                 {/* <p>Select multiple photos/videos at once you wann'a post.</p> */}
 
                 <div

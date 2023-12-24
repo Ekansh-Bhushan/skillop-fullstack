@@ -2,6 +2,38 @@ import axios from "axios";
 
 const API = axios.create({ baseURL: "https://app.skillop.in" });
 
+// export const queryUser
+export const queryUserFromUsername = (username) => {
+    // get token  from local storage
+    const token = localStorage.getItem("skilloptoken");
+
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+        },
+        withCredentials: true,
+    };
+
+    return API.get(
+        `/api/user/query/from/username?queryUsername=${username}`,
+        config
+    );
+};
+export const getUserFromUsername = (username) => {
+    // get token  from local storage
+    const token = localStorage.getItem("skilloptoken");
+
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+        },
+        withCredentials: true,
+    };
+    return API.get(`/api/user/username/${username}`, config);
+};
+
 export const getUser = () => {
     // get token  from local storage
     const token = localStorage.getItem("skilloptoken");

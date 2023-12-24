@@ -4,11 +4,13 @@ import { getPostFromSpecificUser } from "../../api/postRequest";
 import PostComp from "../PostComp";
 import "./UserPost.css";
 import Profileandevents from "../Landing/Profileandevents";
-import { getUser } from "../../api/userRequest";
+import { getUser, getUserFromUsername } from "../../api/userRequest";
 import toast from "react-hot-toast";
 import Mobilecommonhead from "../Mobilecommonhead";
+import { useNavigate } from "react-router-dom";
 
 const UserPosts = ({ setProgress, Mentor, isFetched, notifyList }) => {
+  const navigate = useNavigate()
   const userId = window.location.pathname.split("/")[2];
 
   const [PostData, setPostData] = useState([]);
@@ -37,6 +39,8 @@ const UserPosts = ({ setProgress, Mentor, isFetched, notifyList }) => {
     fetchPosts();
     fetchUser();
   }, []);
+
+
 
   return (
     <>

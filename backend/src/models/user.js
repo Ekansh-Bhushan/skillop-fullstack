@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { MENTOR_STATUS } = require("../enums/mentorStatus");
 const getHashTags = require("../utils/getHashTags");
+const Hashtags = require("./hashtags");
 
 const UserSchema = new mongoose.Schema({
     // Auto Created each time a user is created
@@ -260,6 +261,22 @@ UserSchema.methods.generatePasswordReset = function () {
 UserSchema.pre("save", async function (next) {
     if (this.isModified("about")) {
         this.hashtags = getHashTags(this.about);
+        console.log(this.hashtags); 
+        for (let i = 0; i < this.hashtags.length; i++) {
+            const hashtag = await Hashtags.findOne({
+                hashtag: this.hashtags[i],
+            });
+            if (hashtag) {
+                hashtag.users.push(this._id);
+                await hashtag.save();
+            } else {
+                const newHashtag = new Hashtags({
+                    hashtag: this.hashtags[i],
+                    users: [this._id],
+                });
+                await newHashtag.save();
+            }
+        }
         return next();
     }
     if (!this.isModified("password")) return next();

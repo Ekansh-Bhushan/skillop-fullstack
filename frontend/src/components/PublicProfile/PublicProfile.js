@@ -1,6 +1,6 @@
 import React from "react";
 import "./PublicProfile.css";
-import { findUser, getUser } from "../../api/userRequest";
+import { findUser, getUser, getUserFromUsername } from "../../api/userRequest";
 import { updateProfile } from "../../api/userRequest";
 import { useEffect } from "react";
 
@@ -9,6 +9,9 @@ import { useState } from "react";
 import RightProfileComp from "./Right Public Profile/RightProfileComp";
 import Mobilecommonhead from "../Mobilecommonhead";
 import PublicProfileHeader from "./PublicProfileHeader";
+import TaggingManager from "../../utils/tagManager";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const PublicProfile = ({
   userDatamain,
@@ -17,6 +20,7 @@ const PublicProfile = ({
   isFetched,
   notifyList,
 }) => {
+  const navigate = useNavigate();
   const userId = window.location.pathname.split("/")[2];
 
   const [userDetails, setUserDetails] = useState({});
@@ -84,6 +88,13 @@ const PublicProfile = ({
     // setJourneyContent(userDetails.about);
   }, []);
 
+  const taggingManager = new TaggingManager(
+    setProgress,
+    navigate,
+    getUserFromUsername,
+    toast
+  );
+
   return (
     <>
       {/* <SideNav
@@ -115,7 +126,9 @@ const PublicProfile = ({
               }`}
             >
               <p className={`lorem-ipsum-dolor`}>
-                <span className="text-wrapper">{journeyContent}</span>
+                <span className="text-wrapper">
+                  {taggingManager.convert(journeyContent)}
+                </span>
               </p>
             </div>
 
@@ -187,7 +200,12 @@ const PublicProfile = ({
           <div className="journey">
             <h1>Experience</h1>
             {userDetails.experence && userDetails.experence.length === 0 && (
-              <p style={{ margin: "10px", fontSize: "1.1rem" }}>
+              <p
+                style={{
+                  margin: "10px",
+                  fontSize: "1.1rem",
+                }}
+              >
                 Nothing to display!
               </p>
             )}
@@ -207,7 +225,10 @@ const PublicProfile = ({
                     <div
                       key={item._id}
                       className="experience-content"
-                      style={{ display: "flex", alignItems: "center" }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
                     >
                       <div>
                         <div className="job-title">➤ {item.title}</div>
@@ -250,13 +271,23 @@ const PublicProfile = ({
           <div className="journey">
             <h1>Skills</h1>
             {userDetails.skills && userDetails.skills.length === 0 && (
-              <p style={{ margin: "10px", fontSize: "1.1rem" }}>
+              <p
+                style={{
+                  margin: "10px",
+                  fontSize: "1.1rem",
+                }}
+              >
                 Nothing to display!
               </p>
             )}
             <div
               id="skills-cont"
-              className="flex gap-[12px] w-[60%] flex-wrap md:w-[100%]"
+              style={{
+                display: "flex",
+                gap: "12px",
+                width: "60%",
+                flexWrap: "wrap",
+              }}
             >
               {userDetails.skills &&
                 [...userDetails.skills].reverse().map((item, idx) => {
@@ -273,7 +304,12 @@ const PublicProfile = ({
           <div className="journey">
             <h1>Education</h1>
             {userDetails.education && userDetails.education.length === 0 && (
-              <p style={{ margin: "10px", fontSize: "1.1rem" }}>
+              <p
+                style={{
+                  margin: "10px",
+                  fontSize: "1.1rem",
+                }}
+              >
                 Nothing to display!
               </p>
             )}
@@ -295,7 +331,10 @@ const PublicProfile = ({
                       <div
                         key={item._id}
                         id="edu-field"
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                        }}
                       >
                         <div>
                           <div className="education-qualification">
