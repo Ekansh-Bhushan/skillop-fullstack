@@ -112,7 +112,7 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
       <div className="flex items-center justify-center h-full w-[80%] ml-[7vw]">
         <div className="w-[70%] h-screen flex justify-center ">
-          <div className="w-[90%] h-full flex flex-col border-r-2 pt-[15vh]">
+          <div className="w-[90%] h-full flex flex-col border-r-2 pt-[15vh] md:border-0 md:w-[100%] md:pt-[10vh]">
             <div className="text-2xl font-semibold pl-10">Book a Slot for</div>
             <div className="text-3xl font-semibold pl-10"> 1:1 Session</div>
             {/* <div className="filter-options-booking">

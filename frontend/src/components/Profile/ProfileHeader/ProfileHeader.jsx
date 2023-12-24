@@ -119,21 +119,24 @@ const ProfileHeader = () => {
         </div>
         <div className="ph-linkedin">
           <img src="/linkedin.png" alt="" />
-          <a
-            href={
-              userDetails &&
-              (userDetails.linkedinId.toString().includes("linkedin.com")
-                ? userDetails.linkedinId
-                : `https://linkedin.com/in/${userDetails.linkedinId}`)
-            }
-            target="_blank"
-            rel="noreferrer"
-          >
-            {userDetails &&
-              (userDetails.linkedinId.toString().includes("linkedin.com")
-                ? userDetails.linkedinId
-                : `https://linkedin.com/in/${userDetails.linkedinId}`)}
-          </a>
+          <p>
+            {" "}
+            <a
+              href={
+                userDetails &&
+                (userDetails.linkedinId.toString().includes("linkedin.com")
+                  ? userDetails.linkedinId
+                  : `https://linkedin.com/in/${userDetails.linkedinId}`)
+              }
+              target="_blank"
+              rel="noreferrer"
+            >
+              {userDetails &&
+                (userDetails.linkedinId.toString().includes("linkedin.com")
+                  ? userDetails.linkedinId
+                  : `https://linkedin.com/in/${userDetails.linkedinId}`)}
+            </a>
+          </p>
           {showFollowers && userDetails && (
             <Followers
               userid={userDetails._id}

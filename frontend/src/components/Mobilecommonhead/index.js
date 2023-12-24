@@ -110,16 +110,18 @@ const Mobilecommonhead = () => {
               }`}
             />
           </div>
-          {/* <div
-            className="mobile-panel-options"
-            style={{
-              fontSize: "64px",
-              transform: "translateY(-90%)",
-              color: "rgb(27, 155, 155)",
-            }}
-          >
-            {<IoIosAddCircle onClick={handlePostPopUp} />}
-          </div> */}
+          {window.location.pathname === "/homepage" && (
+            <div
+              className="absolute right-[-2vh] bottom-2"
+              style={{
+                fontSize: "64px",
+                transform: "translateY(-90%)",
+                color: "#108CFF",
+              }}
+            >
+              {<IoIosAddCircle onClick={handlePostPopUp} className="w-[7vh]" />}
+            </div>
+          )}
           {/* <div className="mobile-panel-options">
             <SiGooglechat />
           </div> */}

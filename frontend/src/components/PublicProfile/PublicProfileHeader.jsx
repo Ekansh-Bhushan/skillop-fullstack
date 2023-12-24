@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import defaultBGPic from '../images/bg.png';
-import IntroVideo from '../Profile/Right Profile/IntroVideo';
-import Following from '../Profile/Right Profile/Following';
-import Followers from '../Profile/Right Profile/Followers';
-import toast from 'react-hot-toast';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import defaultBGPic from "../images/bg.png";
+import IntroVideo from "../Profile/Right Profile/IntroVideo";
+import Following from "../Profile/Right Profile/Following";
+import Followers from "../Profile/Right Profile/Followers";
+import toast from "react-hot-toast";
 // import post2 from '../../images/post2.png';
-import userPic from '../images/user.png';
-import UpcomingEvents from '../Landing/Profileandevents/UpcomingEvents';
+import userPic from "../images/user.png";
+import UpcomingEvents from "../Landing/Profileandevents/UpcomingEvents";
 
 const PublicProfileHeader = ({ userDetails }) => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const PublicProfileHeader = ({ userDetails }) => {
 
   return (
     <>
-    <UpcomingEvents />
+      <UpcomingEvents />
       <div className="ph-container">
         <div
           className="ph-bg"
@@ -34,8 +34,8 @@ const PublicProfileHeader = ({ userDetails }) => {
               (userDetails.bgPicUrl
                 ? `url(${userDetails.bgPicUrl})`
                 : `url(${defaultBGPic})`),
-            width: '100%',
-            height: '30vh',
+            width: "100%",
+            height: "30vh",
           }}
         >
           {/* <img src="/bg.png" alt="bg" /> */}
@@ -52,13 +52,13 @@ const PublicProfileHeader = ({ userDetails }) => {
           <img
             className="ph-pic"
             onClick={() => setShowIntroVideo(true)}
-            src={userDetails ? userDetails.profilePicUrl : '/user.png'}
+            src={userDetails ? userDetails.profilePicUrl : "/user.png"}
             alt="user pic"
           />
         )}
         <div className="ph-details">
           <div className="ph-name">
-            {userDetails && userDetails.firstname + ' ' + userDetails.lastname}
+            {userDetails && userDetails.firstname + " " + userDetails.lastname}
             {userDetails && userDetails.isMentor && (
               <div className="verified-logo">
                 <img src="/verified.png" width={23} alt="" />
@@ -84,11 +84,11 @@ const PublicProfileHeader = ({ userDetails }) => {
               onClick={() => setShowFollowers(!showFollowers)}
             >
               <b>
-                {' '}
+                {" "}
                 {userDetails &&
                   userDetails.followers &&
                   userDetails.followers.length}
-              </b>{' '}
+              </b>{" "}
               Followers
             </div>
             <div
@@ -96,33 +96,36 @@ const PublicProfileHeader = ({ userDetails }) => {
               onClick={() => setShowFollowings(!showFollowings)}
             >
               <b>
-                {' '}
+                {" "}
                 {userDetails &&
                   userDetails.followings &&
                   userDetails.followings.length}
-              </b>{' '}
+              </b>{" "}
               Followings
             </div>
           </div>
           <div className="ph-linkedin">
             <img src="/linkedin.png" alt="" />
-            <a
-              href={
-                userDetails &&
-                (userDetails.linkedinId &&
-                userDetails.linkedinId.toString().includes('linkedin.com')
-                  ? userDetails.linkedinId
-                  : `https://linkedin.com/in/${userDetails.linkedinId}`)
-              }
-              target="_blank"
-              rel="noreferrer"
-            >
-              {userDetails &&
-                (userDetails.linkedinId &&
-                userDetails.linkedinId.toString().includes('linkedin.com')
-                  ? userDetails.linkedinId
-                  : `https://linkedin.com/in/${userDetails.linkedinId}`)}
-            </a>
+            <p>
+              {" "}
+              <a
+                href={
+                  userDetails &&
+                  (userDetails.linkedinId &&
+                  userDetails.linkedinId.toString().includes("linkedin.com")
+                    ? userDetails.linkedinId
+                    : `https://linkedin.com/in/${userDetails.linkedinId}`)
+                }
+                target="_blank"
+                rel="noreferrer"
+              >
+                {userDetails &&
+                  (userDetails.linkedinId &&
+                  userDetails.linkedinId.toString().includes("linkedin.com")
+                    ? userDetails.linkedinId
+                    : `https://linkedin.com/in/${userDetails.linkedinId}`)}
+              </a>
+            </p>
             {showFollowers && userDetails && (
               <Followers
                 userid={userDetails._id}

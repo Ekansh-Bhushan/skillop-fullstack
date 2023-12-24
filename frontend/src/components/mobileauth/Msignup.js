@@ -167,7 +167,21 @@ const Msignup = () => {
               Signup
             </span>
           </button>
-          {/* Additional JSX */}
+          <div className="flex items-center justify-center mt-10 mb-8 w-[90%]">
+            <div className="border-t border-[#7E8B9E] w-full"></div>
+            <span className="text-[#7E8B9E] px-2">or</span>
+            <div className="border-t border-[#7E8B9E] w-full"></div>
+          </div>
+          <div className="flex mt-4 text-[#7E8B9E] flex-col items-center justify-center gap-3">
+            <button className="bg-transparent hover:bg-blue-100  font-bold py-4 px-8 rounded flex items-center justify-center border-[1px] w-[100%] ">
+              <FaLinkedin className="mr-2" />
+              <span className="text-xs"> Sign in with LinkedIn</span>
+            </button>
+            <button className="bg-transparent hover:bg-red-100 font-bold py-4 px-8  rounded flex items-center border-[1px] w-[100%]">
+              <FaGoogle className="mr-2" />
+              <span className="text-xs">Sign in with Google</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

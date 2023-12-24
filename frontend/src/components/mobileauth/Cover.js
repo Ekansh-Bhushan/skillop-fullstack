@@ -58,6 +58,7 @@ import mdi from "../../components/images/mdi_user.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import MProgressBar from "./MProgressBar";
 
 const API = axios.create({ baseURL: "https://app.skillop.in" });
 
@@ -144,7 +145,8 @@ const Cover = () => {
           Complete your
         </h1>
         <span className="text-4xl font-bold">Profile</span>
-        <h1 className="text-lg font-semibold mt-5">Cover And Profile Photo</h1>
+        <MProgressBar progress={75} />
+        <h1 className="text-lg font-semibold mt-7">Cover And Profile Photo</h1>
         <div className="flex flex-col items-start justify-center">
           <div>
             <span className="text-lg font-normal mb-2">Cover Photo</span>

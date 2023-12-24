@@ -81,6 +81,7 @@ import coolimg from "../../components/images/logo.png";
 import { updateProfile } from "../../api/userRequest";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import MProgressBar from "./MProgressBar";
 
 const MStudentInfo = () => {
   const navigate = useNavigate();
@@ -135,7 +136,8 @@ const MStudentInfo = () => {
           Complete your
         </h1>
         <span className="text-4xl font-bold">Profile</span>
-        <h1 className="text-lg font-semibold mt-5">Student Information</h1>
+        <MProgressBar progress={40} />
+        <h1 className="text-lg font-semibold mt-7">Student Information</h1>
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-start justify-start flex-col w-full">
             <span className="text-md font-semibold w-full">You are:</span>
@@ -153,7 +155,7 @@ const MStudentInfo = () => {
               College/ Institution
             </label>
             <input
-              className="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
+              className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
               name="institution"
               type="text"
               placeholder="College/ Institution"
@@ -165,7 +167,7 @@ const MStudentInfo = () => {
               Degree
             </label>
             <input
-              className="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
+              className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
               name="degree"
               type="text"
               placeholder="Degree"
@@ -177,7 +179,7 @@ const MStudentInfo = () => {
               Field Of Study/ Branch
             </label>
             <input
-              className="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
+              className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
               name="fieldOfStudy"
               type="text"
               placeholder="Field Of Study/ Branch"
@@ -190,7 +192,7 @@ const MStudentInfo = () => {
                 Start-Year
               </label>
               <input
-                className="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[38vw]"
+                className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[38vw]"
                 name="startDate"
                 type="text"
                 placeholder="Start-Year"
@@ -202,7 +204,7 @@ const MStudentInfo = () => {
                 End-Year
               </label>
               <input
-                className="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[38vw]"
+                className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[38vw]"
                 name="endDate"
                 type="text"
                 placeholder="End-Year"
