@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const User = require("./user");
 const getHashTags = require("../utils/getHashTags");
 const getUsername = require("../utils/getUsername");
+const Hashtags = require("./hashtags");
 
 const PostSchema = mongoose.Schema({
     __created: {
@@ -71,6 +72,19 @@ const PostSchema = mongoose.Schema({
 
 PostSchema.pre("save", async function (next) {
     this.hashtags = getHashTags(this.title);
+    for (let i = 0; i < this.hashtags.length; i++) {
+        const hashtag = await Hashtags.findOne({ hashtag: this.hashtags[i] });
+        if (hashtag) {
+            hashtag.posts.push(this._id);
+            await hashtag.save();
+        } else {
+            const newHashtag = new Hashtags({
+                hashtag: this.hashtags[i],
+                posts: [this._id],
+            });
+            await newHashtag.save();
+        }
+    }
     const mentionedUsers = getUsername(this.title);
     console.log(mentionedUsers, "mentionedUsers");
     const users = await User.find({ username: { $in: mentionedUsers } });

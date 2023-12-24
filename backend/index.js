@@ -15,6 +15,7 @@ const searchRoutes = require("./src/routes/searchRoutes");
 const eventRoutes = require("./src/routes/eventRoutes");
 const adminRoutes = require("./src/routes/adminRoutes");
 const commentRouters = require("./src/routes/commentRoutes");
+const hashtagRoutes = require("./src/routes/hashtagRoutes");
 require("dotenv").config();
 // console.log(process.env.JWT_KEY);
 const app = express();
@@ -65,6 +66,8 @@ app.use("/api/event", eventRoutes);
 app.use("/api/v2", searchRoutes);
 
 app.use("/api/comment", commentRouters);
+
+app.use("/api/hashtag", hashtagRoutes);
 
 // share images in uploads/pubic to frontend
 app.use(

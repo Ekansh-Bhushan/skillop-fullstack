@@ -68,13 +68,26 @@ exports.getComments = async (req, res) => {
                 message: "Post id is required",
             });
         }
-        const post = await Post.findById(postId).populate({
-            path: "comments",
-            populate: {
-                path: "user",
-                select: "firstname lastname profilePicUrl",
-            },
-        });
+        // get post and populate the replies and the user
+        const post = await Post.findById(postId)
+            .populate({
+                path: "comments",
+                populate: {
+                    path: "user",
+                    select: "username firstname lastname profilePicUrl",
+                },
+            })
+            .populate({
+                path: "comments",
+                populate: {
+                    path: "replies",
+                    populate: {
+                        path: "user",
+                        select: "username firstname lastname profilePicUrl",
+                    },
+                },
+            });
+
         if (!post) {
             return res.status(404).send({
                 result: false,
@@ -191,6 +204,7 @@ exports.likeComment = async (req, res) => {
 };
 
 exports.replyComment = async (req, res) => {
+    // only reply can be done to level 0 comments
     try {
         const { commentId } = req.params;
         const { comment } = req.body;
@@ -200,6 +214,12 @@ exports.replyComment = async (req, res) => {
                 message: "Comment id is required",
             });
         }
+        if (!comment) {
+            return res.status(400).send({
+                result: false,
+                message: "Comment is required",
+            });
+        }
         const parentComment = await Comment.findById(commentId);
         if (!parentComment) {
             return res.status(404).send({
@@ -207,11 +227,18 @@ exports.replyComment = async (req, res) => {
                 message: "Comment not found",
             });
         }
+        if (parentComment.level !== 0) {
+            return res.status(400).send({
+                result: false,
+                message: "Reply can be done to level 0 comments only",
+            });
+        }
         const newComment = new Comment({
             user: req.user._id,
             post: parentComment.post,
             comment,
-            level: parentComment.level + 1,
+            parent: parentComment._id,
+            level: 1,
         });
         await newComment.save();
 
@@ -232,7 +259,7 @@ exports.replyComment = async (req, res) => {
             await author.save();
         }
 
-        parentComment.replys.push(newComment._id);
+        parentComment.replies.push(newComment._id);
         await parentComment.save();
 
         res.status(200).send({
@@ -245,4 +272,4 @@ exports.replyComment = async (req, res) => {
             err: error.message,
         });
     }
-}
+};
