@@ -2,10 +2,6 @@ import React from "react";
 import "../Post/index.css";
 import userPic from "../../images/user.png";
 import { useState, useEffect } from "react";
-import React from "react";
-import "../Post/index.css";
-import userPic from "../../images/user.png";
-import { useState, useEffect } from "react";
 import {
     getSpecificPost,
     likeOrDislikePost,
