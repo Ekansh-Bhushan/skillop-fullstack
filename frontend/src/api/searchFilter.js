@@ -39,6 +39,7 @@ export const getSearchResultByPost = (
         },
         withCredentials: true,
     };
+    console.log(searchValue, "searchValue");
     return API.get(
         `api/v2/search?searchBy=posts&searchValue=${searchValue}&limit=10&skip=0`,
         config

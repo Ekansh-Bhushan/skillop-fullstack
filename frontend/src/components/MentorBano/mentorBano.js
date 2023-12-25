@@ -72,6 +72,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     try {
       const getProfileCompletionData = async () => {
         const { data } = await getProfileCompletionStatus();
+        console.log(data);
         if (data.status === "pending") {
           setIsPending(true);
         } else if (data.status === "accepted") {
@@ -135,91 +136,108 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
   };
 
   return (
-    <>
-      {/* <SideNav
+      <>
+          {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
         isFetched={isFetched}
         notifyList={notifyList}
       /> */}
-      <Mobilecommonhead />
-      <div className="flex items-center justify-center mx-[25vw] border-r-2 flex-col h-[100vh] pt-[6vh] md:mx-5 md:border-0 md:pt-0">
-        <h2 className="text-3xl font-semibold my-5">Become a Mentor</h2>
-        <div className="w-[30%] flex items-center justify-center pr-10 md:w-[55%] md:pr-0">
-          <div className="absolute flex items-center justify-center flex-col">
-            <h2 className="text-4xl font-semibold">
-              {PercentageProfileComplete}%
-            </h2>
-            <p className="text-2xl font-semibold">Complete</p>
-          </div>
-          <Circle
-            percent={Pprogress}
-            strokeColor="#0AE70A"
-            strokeWidth={9}
-            trailWidth={8}
-            strokeLinecap="square"
-            className={isTaskDone ? "done" : "not-done"}
-          >
-            <div
-              style={{
-                backgroundColor: "red",
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                textAlign: "center",
-              }}
-            >
-              {isTaskDone ? "1 Of 4 steps is completed" : ""}
-            </div>
-          </Circle>
-        </div>
+          <Mobilecommonhead />
+          <div className="flex items-center justify-center mx-[25vw] border-r-2 flex-col h-[100vh] pt-[6vh] md:mx-5 md:border-0 md:pt-0">
+              <h2 className="text-3xl font-semibold my-5">Become a Mentor</h2>
+              <div className="w-[30%] flex items-center justify-center pr-10 md:w-[55%] md:pr-0">
+                  <div className="absolute flex items-center justify-center flex-col">
+                      <h2 className="text-4xl font-semibold">
+                          {PercentageProfileComplete}%
+                      </h2>
+                      <p className="text-2xl font-semibold">Complete</p>
+                  </div>
+                  <Circle
+                      percent={PercentageProfileComplete}
+                      strokeColor="#0AE70A"
+                      strokeWidth={9}
+                      trailWidth={8}
+                      strokeLinecap="square"
+                      className={isTaskDone ? "done" : "not-done"}
+                  >
+                      <div
+                          style={{
+                              backgroundColor: "red",
+                              position: "absolute",
+                              top: "50%",
+                              left: "50%",
+                              transform: "translate(-50%, -50%)",
+                              textAlign: "center",
+                          }}
+                      >
+                          {isTaskDone ? "1 Of 4 steps is completed" : ""}
+                      </div>
+                  </Circle>
+              </div>
 
-        <div className=" bg-white bg-opacity-50 backdrop-blur-[20px] border-2 py-4 px-[5vw] text-lg rounded-2xl mt-2">
-          {/* <h3>
+              <div className=" bg-white bg-opacity-50 backdrop-blur-[20px] border-2 py-4 px-[5vw] text-lg rounded-2xl mt-2">
+                  {/* <h3>
             Please complete the following things in your profile to become
             Mentor😎
           </h3> */}
-          <ul>
-            <li className={uploadProfilePicAndVideo ? "done" : "not-done"}>
-              Upload Profile Pic and My story video
-            </li>
-            <li className={addedAboutPastAndFuture ? "done" : "not-done"}>
-              Add About, Past experience And Future plans
-            </li>
-            <li className={addedEducationOrExperence ? "done" : "not-done"}>
-              Add Education, Experience and Skills
-            </li>
-            <li className={addedAtleast4Posts ? "done" : "not-done"}>
-              Create atleast 4 posts
-            </li>
-          </ul>
-        </div>
-        {isNotApplied && (
-          <div className="font-semibold text-center my-5">
-            You are One step away from becoming a Mentor...
+                  <ul>
+                      <li
+                          className={
+                              uploadProfilePicAndVideo ? "done" : "not-done"
+                          }
+                      >
+                          Upload Profile Pic and My story video
+                      </li>
+                      <li
+                          className={
+                              addedAboutPastAndFuture ? "done" : "not-done"
+                          }
+                      >
+                          Add About, Past experience And Future plans
+                      </li>
+                      <li
+                          className={
+                              addedEducationOrExperence ? "done" : "not-done"
+                          }
+                      >
+                          Add Education, Experience and Skills
+                      </li>
+                      <li className={addedAtleast4Posts ? "done" : "not-done"}>
+                          Create atleast 4 posts
+                      </li>
+                  </ul>
+              </div>
+              {isNotApplied && (
+                  <div className="font-semibold text-center my-5">
+                      You are One step away from becoming a Mentor...
+                  </div>
+              )}
+              <div className="but">
+                  {isNotApplied && (
+                      <button
+                          className={
+                              isActive
+                                  ? "custom-button"
+                                  : "custom-button-active"
+                          }
+                          disabled={!isActive}
+                          onClick={requestToBeMentorX}
+                      >
+                          Become a Mentor!
+                      </button>
+                  )}
+                  {isAccepted && (
+                      <h3>
+                          Your application is accepted✅. You are a Verified
+                          Mentor 😎 now!
+                      </h3>
+                  )}
+                  {isPending && <h3>Your application is under process🔃!</h3>}
+                  {isRejected && <h3>Your application is rejected❌.</h3>}
+              </div>
           </div>
-        )}
-        <div className="but">
-          {isNotApplied && (
-            <button
-              className={isActive ? "custom-button" : "custom-button-active"}
-              disabled={!isActive}
-              onClick={requestToBeMentorX}
-            >
-              Become a Mentor!
-            </button>
-          )}
-          {isAccepted && (
-            <h3>
-              Your application is accepted✅. You are a Verified Mentor 😎 now!
-            </h3>
-          )}
-          {isPending && <h3>Your application is under process🔃!</h3>}
-          {isRejected && <h3>Your application is rejected❌.</h3>}
-        </div>
-      </div>
-    </>
+      </>
   );
 }
 
