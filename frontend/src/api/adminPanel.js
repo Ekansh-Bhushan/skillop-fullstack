@@ -92,3 +92,68 @@ export const getMentorList = () => {
     };
     return API.get(`/api/admin/query/mentor/matrix`, config);
 };
+
+export const getNewUserList = () => {
+  const token = localStorage.getItem('skilloptoken');
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+    withCredentials: true,
+  };
+  return API.get(`/api/admin/query/users/new?days=1`, config);
+};
+
+export const getDeadUserList = () => {
+  const token = localStorage.getItem('skilloptoken');
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+    withCredentials: true,
+  };
+  return API.get(`/api/admin/query/dead/users?days=365`, config);
+};
+
+export const getHighestEarnerList = () => {
+  const token = localStorage.getItem('skilloptoken');
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+    withCredentials: true,
+  };
+  return API.get(`/api/admin/query/highest/earning`, config);
+};
+
+export const getTopPosts = (num) => {
+  const token = localStorage.getItem('skilloptoken');
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+    withCredentials: true,
+  };
+  return API.get(`/api/admin/query/post/matrix?getTopOf=${num}`, config);
+};
+
+export const getSiteMetrics = (num) => {
+  const token = localStorage.getItem('skilloptoken');
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+    withCredentials: true,
+  };
+  return API.get(`/api/admin/query/site/matrix`, config);
+};
