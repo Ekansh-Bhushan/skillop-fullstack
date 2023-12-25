@@ -98,13 +98,36 @@ const SkillSix = () => {
           <div className="flex items-start justify-center flex-col text-xl gap-8 mt-3 font-normal">
             {/* <span>Personal Information</span>
             <span>Contact Information</span> */}
-            <span>Skills/Interests</span>
-            <span>Professional Information</span>
+            {window.location.pathname === "/skill3" ? (
+              <span className="font-semibold">Skills/Interests</span>
+            ) : (
+              <span>Skills/Interests</span>
+            )}
+            {window.location.pathname === "/skill4" ? (
+              <span className="font-semibold">Professional Information</span>
+            ) : (
+              <span>Professional Information</span>
+            )}
+            {window.location.pathname === "/skill6" ? (
+              <span className="font-semibold">Cover & Profile Photos</span>
+            ) : (
+              <span>Cover & Profile Photos</span>
+            )}
+            {window.location.pathname === "/skill7" ? (
+              <span className="font-semibold">Additional Information</span>
+            ) : (
+              <span>Additional Information</span>
+            )}
+
+            {/* <span>Professional Information</span>
             <span>Cover & Profile Photos</span>
-            <span>Additional Information</span>
+            <span>Additional Information</span> */}
           </div>
 
-          <div className="flex flex-col justify-center border-[1px] px-10 py-8 w-[40vw] rounded-3xl z-40 bg-white bg-opacity-50 backdrop-blur-[20px]">
+          <div
+            className="flex flex-col justify-center border-[1px] px-10 py-8 w-[40vw] rounded-3xl bg-white bg-opacity-50 backdrop-blur-[20px]"
+            style={{ position: "relative", zIndex: 40 }}
+          >
             <input
               id="coverPhoto"
               type="file"
