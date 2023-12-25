@@ -27,19 +27,21 @@ const MSkills = () => {
   };
 
   const nextClicked = async () => {
-    try {
-      const request = {
-        skills: skills,
-      };
-      const { data } = await updateIsMentor(request);
+      console.log(skills);
+      try {
+          const request = {
+              skills: skills,
+          };
+          const { data } = await updateIsMentor(request);
 
-      if (data.result) {
-        toast.success(data.message);
-        navigate("/mstudinfo");
+          if (data.result) {
+              toast.success(data.message);
+              console.log(data.message);
+              navigate("/mstudinfo");
+          }
+      } catch (error) {
+          toast.error(error.response.data.message);
       }
-    } catch (error) {
-      toast.error("Failed to update skills. Please try again.");
-    }
   };
 
   return (

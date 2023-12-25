@@ -139,7 +139,7 @@ const MStudentInfo = () => {
         <MProgressBar progress={40} />
         <h1 className="text-lg font-semibold mt-7">Student Information</h1>
         <div className="flex flex-col items-center justify-center">
-          <div className="flex items-start justify-start flex-col w-full">
+          {/* <div className="flex items-start justify-start flex-col w-full">
             <span className="text-md font-semibold w-full">You are:</span>
             <div className="flex mt-3 items-start justify-between w-full">
               <button className="px-4 py-2 rounded-lg border border-gray-500 w-full mx-2">
@@ -149,7 +149,7 @@ const MStudentInfo = () => {
                 Professional
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="relative my-6">
             <label className="absolute top-0 left-2 -mt-2 bg-white px-1">
               College/ Institution
@@ -158,7 +158,7 @@ const MStudentInfo = () => {
               className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
               name="institution"
               type="text"
-              placeholder="College/ Institution"
+              // placeholder="College/ Institution"
               onChange={onChange}
             />
           </div>
@@ -170,7 +170,7 @@ const MStudentInfo = () => {
               className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
               name="degree"
               type="text"
-              placeholder="Degree"
+              // placeholder="Degree"
               onChange={onChange}
             />
           </div>
@@ -182,7 +182,7 @@ const MStudentInfo = () => {
               className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
               name="fieldOfStudy"
               type="text"
-              placeholder="Field Of Study/ Branch"
+              // placeholder="Field Of Study/ Branch"
               onChange={onChange}
             />
           </div>
@@ -195,7 +195,7 @@ const MStudentInfo = () => {
                 className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[38vw]"
                 name="startDate"
                 type="text"
-                placeholder="Start-Year"
+                // placeholder="Start-Year"
                 onChange={onChange}
               />
             </div>
@@ -207,7 +207,7 @@ const MStudentInfo = () => {
                 className="border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[38vw]"
                 name="endDate"
                 type="text"
-                placeholder="End-Year"
+                // placeholder="End-Year"
                 onChange={onChange}
               />
             </div>

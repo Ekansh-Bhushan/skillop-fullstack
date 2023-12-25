@@ -108,10 +108,10 @@ const SkillSeven = () => {
             </div>
           </div>
           <div className="flex flex-col border-[1px] px-10 py-8 w-[40vw] rounded-3xl z-40 bg-white bg-opacity-50 backdrop-blur-[20px] ">
-            <label className="mb-2 text-lg font-bold">Whatsapp</label>
+            <label className="mb-2 text-lg font-bold">Phone</label>
             <input
               type="text"
-              placeholder="Whatsapp number"
+              placeholder="Phone number"
               className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4 "
               onChange={(e) => setWhatsappNumber(e.target.value)}
             />{" "}

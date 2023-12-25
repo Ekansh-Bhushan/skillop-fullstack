@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { loginUser } from "../../api/userRequest";
 import { useNavigate } from "react-router-dom";
 
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");

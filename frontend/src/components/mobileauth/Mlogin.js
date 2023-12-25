@@ -66,29 +66,26 @@ const Mlogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    try {
-      if (!email || !password) {
-        toast.error("Please fill in all fields");
-        return;
+  const login = async () => {
+      try {
+          const { data } = await loginUser({
+              email: email,
+              password: password,
+          });
+          if (data.result) {
+              localStorage.setItem("skilloptoken", data.token);
+              navigate("/homepage");
+              toast.success(data.message);
+          } else {
+              toast.error(data.message);
+          }
+      } catch (error) {
+          console.log(error);
+          toast.error(error.response.data.err);
       }
-
-      // Perform login action using the loginUser API request
-      const { data } = await loginUser({ email, password });
-
-      if (data.result) {
-        // Successful login scenario
-        localStorage.setItem("skilloptoken", data.token);
-        navigate("/homepage");
-        toast.success(data.message);
-      } else {
-        // Unsuccessful login scenario
-        toast.error(data.message);
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      toast.error("An error occurred during login");
-    }
+  };
+  const loginClicked = async () => {
+      await login();
   };
 
   return (
@@ -122,7 +119,7 @@ const Mlogin = () => {
           </div>
           <button
             className="bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 w-[100%] rounded p-1 mt-5"
-            onClick={handleLogin}
+            onClick={loginClicked}
           >
             <span className="flex justify-center items-center w-full bg-white rounded p-2">
               Login

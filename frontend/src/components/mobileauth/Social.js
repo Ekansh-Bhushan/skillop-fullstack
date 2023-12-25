@@ -83,7 +83,7 @@ const Social = () => {
           </div>
           <div className="relative">
             <label className="absolute top-0 left-2 -mt-2 bg-white px-1">
-              WhatsApp Number
+              Phone Number
             </label>
             <input
               className="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"

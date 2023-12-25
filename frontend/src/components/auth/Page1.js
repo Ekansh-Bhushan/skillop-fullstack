@@ -10,6 +10,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 
+
 const Page1 = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
