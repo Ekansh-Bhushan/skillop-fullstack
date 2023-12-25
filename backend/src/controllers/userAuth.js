@@ -144,7 +144,7 @@ exports.changePassword = async (req, res) => {
             return res.status(400).send({
                 result: false,
                 err: "Please provide old and new password",
-                message: "Please fill all the fields",
+                message: "Please provide old and new password",
             });
         }
         const isMatch = await user.comparePassword(oldPassword);
@@ -158,12 +158,7 @@ exports.changePassword = async (req, res) => {
 
         user.password = newPassword;
         await user.save();
-
-        // create a notification
-        const notification = await Notification.create({
-            message: "Password changed successfully",
-            type: NotificationType.PASSWORD_CHANGED,
-        });
+         
         res.status(200).send({
             result: true,
             message: "Password changed successfully",
