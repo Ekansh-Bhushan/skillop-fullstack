@@ -1155,7 +1155,7 @@ non-act {
   }
 
   .chatbox-messages {
-    height: 72%;
+    height: 100%;
     max-width: 100%;
     border-radius: 10px;
     margin-inline: 10px;
@@ -1164,6 +1164,8 @@ non-act {
   .message-send-bar {
     margin-block: 5px;
     padding-inline: 15px;
+    position: absolute;
+    bottom: 60px;
   }
 }
 
@@ -1372,6 +1374,7 @@ non-act {
     width: 95%;
     overflow-y: visible;
     min-height: 50vh;
+    padding-bottom: 30vh;
   }
 }
 

@@ -38,7 +38,7 @@
 
 @media (max-width: 400px) {
   .search-panel {
-    padding-top: 150px;
+    padding-top: 70px;
     padding-left: 20px;
   }
   .search-head {
@@ -109,7 +109,7 @@
 }
 .filtered-search-results {
   position: relative;
-  top: 7vh;
+  top: 5vh;
   left: 24vw;
   height: 600px;
   width: 30%;
@@ -126,7 +126,8 @@
   padding-top: 20px;
   padding-bottom: 10px;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
+  border-inline: 1px solid #00000026;
 }
 
 .filtered-search-results::-webkit-scrollbar {
@@ -137,8 +138,8 @@
 .colored-filter-btn {
   padding: 10px;
   border-radius: 14px;
-  background: blue;
-  color: white;
+  background: #84848433;
+  /* color: white; */
   font-size: 1.05rem;
   border: none;
 }
@@ -160,7 +161,7 @@
 }
 
 .sresult-1 {
-  width: 90%;
+  width: 100%;
   height: auto;
   display: flex;
   background-color: white;
@@ -169,6 +170,8 @@
   gap: 5px;
   cursor: pointer;
   align-items: center;
+  border-bottom: 1px solid #00000026;
+  /* padding-left: 0; */
 }
 
 @media (max-width: 400px) {
@@ -178,8 +181,8 @@
 }
 
 .sresult-1:hover {
-  background: #f4d76f;
-  border-radius: 20px;
+  background: #84848433;
+  /* border-radius: 20px; */
 }
 
 .searched-user-details {
@@ -204,10 +207,10 @@
 .filter-btn {
   padding: 10px;
   border-radius: 14px;
-  background: blue;
-  color: white;
+  /* background: blue; */
+  /* color: white; */
   font-size: 1.05rem;
-  border: none;
+  border: 1px solid #00000026;
 }
 
 .filterInput > input {
@@ -272,7 +275,7 @@
     padding: 6px 8px;
     border-radius: 14px;
 
-    color: white;
+    /* color: white; */
     font-size: 1.05rem;
     border: none;
   }

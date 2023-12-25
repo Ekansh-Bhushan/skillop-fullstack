@@ -20,7 +20,7 @@ function StarRating() {
             />
             <FaStar
               className="star"
-              size={50}
+              size={90}
               color={currentRating <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
               onMouseEnter={() => setHover(currentRating)}
               onMouseLeave={() => setHover(0)}
@@ -28,7 +28,7 @@ function StarRating() {
           </label>
         );
       })}
-      <p>rating: {rating}</p>
+      {/* <p>rating: {rating}</p> */}
     </div>
   );
 }

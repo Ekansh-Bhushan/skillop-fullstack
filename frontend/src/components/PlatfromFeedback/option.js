@@ -3,13 +3,11 @@ import "./option.css";
 
 const preSetFeedback = {
   list: [
-    { title: "Easy exploration", flag: false },
-    { title: "user experience", flag: false },
-    { title: "mobile friendliness", flag: false },
-    { title: "immersive visual experience", flag: false },
-    { title: "user friendly", flag: false },
-    { title: "Speed", flag: false },
-    { title: "The process was taking too long", flag: false },
+    { title: "Polite Attitude", flag: false },
+    { title: "Punctual", flag: false },
+    { title: "Effective Conversation", flag: false },
+    { title: "Helpful", flag: false },
+    { title: "Satisfactory", flag: false },
   ],
 };
 
@@ -32,16 +30,15 @@ function MyComponent() {
       payload: state.list,
     });
   }
-  let feedback = ""
+  let feedback = "";
   return (
     <div className="all-box">
       {state.list.map((item, index) => (
         <div
-          className="box"
+          className="flex items-center justify-center p-5 border-2 m-2 rounded-xl"
           key={index}
           style={{
             backgroundColor: `${item.flag ? "cyan" : "white"}`,
-            width: "100px", // Set a smaller width
             height: "50px", // Set a smaller height
           }}
           onClick={() => selectItem(item, index)}
@@ -50,7 +47,6 @@ function MyComponent() {
             style={{ margin: "0px", color: `${item.flag ? "white" : "black"}` }}
           >
             {item.title}
-            
           </p>
         </div>
       ))}
