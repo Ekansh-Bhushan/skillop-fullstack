@@ -116,9 +116,9 @@ const Cover = () => {
           toast.error("Unable to upload cover picture now! Try again later");
         }
       }
-      if (profilePhoto || coverPhoto) {
+
         navigate("/msocial");
-      }
+
     } catch (err) {
       toast.error("Unable to upload picture now! Try again later");
     }
