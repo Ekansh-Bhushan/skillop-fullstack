@@ -9,6 +9,13 @@
   border-right: 1px solid #00000026;
 }
 
+@media screen and (max-width: 500px) {
+  .form {
+    margin: 0;
+    padding-top: 14vh;
+  }
+}
+
 /* Style the title and subtitle */
 .form-top-area h1 {
   font-size: 24px;
@@ -38,6 +45,12 @@
   border-radius: 20px;
   padding: 20px;
   width: 90%;
+}
+
+@media screen and (max-width: 500px) {
+  .form-star-area div {
+    width: 100%;
+  }
 }
 
 /* Style the "What Went Wrong" section */

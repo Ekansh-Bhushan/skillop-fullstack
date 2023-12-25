@@ -35,7 +35,7 @@ function MyComponent() {
     <div className="all-box">
       {state.list.map((item, index) => (
         <div
-          className="flex items-center justify-center p-5 border-2 m-2 rounded-xl"
+          className="flex items-center justify-center p-5 border-2 m-2 rounded-xl md:p-2"
           key={index}
           style={{
             backgroundColor: `${item.flag ? "cyan" : "white"}`,
