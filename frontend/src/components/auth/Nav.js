@@ -4,7 +4,7 @@ import coolimg from "../../components/images/logo.png";
 const Nav = () => {
   return (
     <div>
-      <div className="flex items-center justify-between px-[20vh] border-b-2 py-3">
+      <div className="flex items-center justify-between px-[20vh] border-b-2 py-3 bg-blur-10 bg-white">
         <div className="flex items-center justify-center gap-3">
           {" "}
           <img src={coolimg} />

@@ -99,7 +99,7 @@ const SkillFour = () => {
             <span>Additional Information</span> */}
           </div>
           <div className="flex flex-col border-[1px] px-10 py-8 w-[40vw] rounded-3xl z-50 bg-white bg-opacity-50 backdrop-blur-[20px] ">
-            <div className="flex mb-6 items-center">
+            {/* <div className="flex mb-6 items-center">
               <span className="text-xl font-semibold">You are:</span>
               <button className="mx-5 px-4 py-3 rounded-lg border border-gray-500">
                 Student
@@ -107,7 +107,7 @@ const SkillFour = () => {
               <button className="px-4 py-3 rounded-lg border border-gray-500">
                 Professional
               </button>
-            </div>
+            </div> */}
 
             <label className="mb-2 text-lg font-bold">College</label>
             <input

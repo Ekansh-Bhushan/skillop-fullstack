@@ -83,7 +83,10 @@ const SkillSix = () => {
   return (
     <div>
       {/* <Nav /> */}
-      <ProgressBar progress={75} />
+      <div className="z-100" style={{ position: "relative", zIndex: 10 }}>
+        <ProgressBar progress={75} />
+      </div>
+
       <img src={doodle1} className="absolute top-[66vh] left-[29vw] z-10" />
       <img src={doodle2} className="absolute right-[19vw] top-[62vh] z-10" />
       <img src={Saly} className="absolute right-[16vw] z-10 top-[18vh]" />
@@ -93,8 +96,8 @@ const SkillSix = () => {
         </h1>
         <div className="flex items-start gap-[10vh] mb-[10vh]">
           <div className="flex items-start justify-center flex-col text-xl gap-8 mt-3 font-normal">
-            <span>Personal Information</span>
-            <span>Contact Information</span>
+            {/* <span>Personal Information</span>
+            <span>Contact Information</span> */}
             <span>Skills/Interests</span>
             <span>Professional Information</span>
             <span>Cover & Profile Photos</span>

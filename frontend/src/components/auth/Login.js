@@ -31,6 +31,7 @@ const Login = () => {
   const loginClicked = async () => {
     await login();
   };
+
   return (
     <div>
       <div className="fixed w-full">
@@ -41,13 +42,25 @@ const Login = () => {
         <div class="flex justify-center items-center ">
           <div class="flex flex-col items-start justify-start">
             <div className="flex items-center justify-center gap-[8vh] text-[30px] font-semibold">
-              <div>
+              <div className="">
                 {" "}
-                <a href="/signup">SIGNUP</a>
+                {window.location.pathname === "/signup" ? (
+                  <a href="/signup" className="border-b-2 border-black">
+                    SIGNUP
+                  </a>
+                ) : (
+                  <a href="/signup">SIGNUP</a>
+                )}
               </div>
               <div>
                 {" "}
-                <a href="/login">LOGIN</a>
+                {window.location.pathname === "/login" ? (
+                  <a href="/login" className="border-b-2 border-black">
+                    LOGIN
+                  </a>
+                ) : (
+                  <a href="/login">SIGNUP</a>
+                )}
               </div>
             </div>
             <p className="text-[#7E8B9E] font-semibold text-lg mt-[4vh]">
