@@ -29,7 +29,7 @@ connectDB();
 const allowedOrigins = [
     "https://app.skillop.in",
     "https://skillop.in",
-    "http://localhost:4000",
+    "https://app.skillop.in",
     "http://localhost:3000",
 ];
 

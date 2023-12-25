@@ -3,10 +3,12 @@ const Comment = require("../../../models/comment");
 const Post = require("../../../models/post");
 const Mentor = require("../../../models/mentor");
 const FeedBack = require("../../../models/feedBack");
+const Meet = require("../../../models/meet");
 const {
     response_200,
     response_500,
 } = require("../../../utils/responseCode.utils");
+const MEET_STATUS = require("../../../enums/meetStatus");
 
 exports.getSiteMatrics = async (req, res) => {
     try {
@@ -18,6 +20,7 @@ exports.getSiteMatrics = async (req, res) => {
         const numberOfLikes = posts.reduce((acc, post) => {
             return acc + post.likes.length;
         }, 0);
+        const meets = await Meet.find({ status: MEET_STATUS.APPROVED });
         const data = {
             users: users.length,
             mentors: mentors.length,
@@ -25,6 +28,7 @@ exports.getSiteMatrics = async (req, res) => {
             comments: comments.length,
             feedbacks: feedbacks.length,
             numberOfLikes,
+            meets: meets.length,
         };
         return response_200(res, "Site matrics fetched successfully", data);
     } catch (error) {

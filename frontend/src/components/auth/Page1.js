@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import img1 from "../../components/images/img1.png";
 import Nav from "./Nav";
 import { FaLinkedin, FaGoogle } from "react-icons/fa";
-import { registerUser } from "../../api/userRequest";
+import { googleIdVerifyAndLogin, registerUser } from "../../api/userRequest";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 
 const Page1 = () => {
   const navigate = useNavigate();
@@ -34,6 +38,38 @@ const Page1 = () => {
     } catch (error) {
       toast.error(error.response.data.message);
     }
+  };
+  const handleGoogleLoginSuccess = async (credentialResponse) => {
+    const idToken = credentialResponse.credential;
+    console.log(idToken);
+    const decodedToken = jwt_decode(idToken);
+    console.log(decodedToken);
+
+    const { data } = await googleIdVerifyAndLogin({ token: idToken });
+    console.log(data);
+    // Store the token in local storage
+    localStorage.setItem("skilloptoken", data.token);
+    if (data && data.result) {
+      if (data.type === "old") {
+        navigate("/homepage");
+      } else {
+        navigate("/skills");
+      }
+    } else {
+      toast.error(data.message);
+    }
+
+    // console.log(decodedToken);
+
+    // // Extract user information from decoded token
+    // const userFirstName = decodedToken.given_name || "";
+    // const userEmail = decodedToken.email || "";
+    // const userLastName = decodedToken.family_name || "";
+
+    // // Set user information in state
+    // setFirstname(userFirstName);
+    // setLastname(userLastName);
+    // setEmail(userEmail);
   };
 
   return (
