@@ -31,23 +31,36 @@ const Login = () => {
   const loginClicked = async () => {
     await login();
   };
+
   return (
     <div>
-      {/* <div className="fixed w-full">
-                {" "}
-                <Nav />
-            </div> */}
+      <div className="fixed w-full">
+        {" "}
+        <Nav />
+      </div>
       <div className="flex justify-around items-start pt-[15vh] mx-[20vh]">
         <div class="flex justify-center items-center ">
           <div class="flex flex-col items-start justify-start">
             <div className="flex items-center justify-center gap-[8vh] text-[30px] font-semibold">
-              <div>
+              <div className="">
                 {" "}
-                <a href="/signup">SIGNUP</a>
+                {window.location.pathname === "/signup" ? (
+                  <a href="/signup" className="border-b-2 border-black">
+                    SIGNUP
+                  </a>
+                ) : (
+                  <a href="/signup">SIGNUP</a>
+                )}
               </div>
               <div>
                 {" "}
-                <a href="/login">LOGIN</a>
+                {window.location.pathname === "/login" ? (
+                  <a href="/login" className="border-b-2 border-black">
+                    LOGIN
+                  </a>
+                ) : (
+                  <a href="/login">SIGNUP</a>
+                )}
               </div>
             </div>
             <p className="text-[#7E8B9E] font-semibold text-lg mt-[4vh]">
@@ -92,7 +105,7 @@ const Login = () => {
               <span class="ml-2 text-md text-[#7E8B9E] ">
                 Not a part of SKILLOP Community?
                 <a
-                  class="text-blue-600 mx-2"
+                  class="text-blue-600 mx-2 cursor-pointer"
                   onClick={() => navigate("/signup")}
                 >
                   Sign Up

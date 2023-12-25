@@ -1,10 +1,25 @@
-import React from "react";
+// import React, { useState, useEffect } from "react";
 import line from "../components/images/Line.png";
 import Saly35 from "../components/images/Saly-35.png";
 import Saly13 from "../components/images/Saly-13.png";
 import right from "../components/images/right.png";
+import { useEffect, useState } from "react";
 
 const LandingThree = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 500);
+    };
+
+    // Set initial state and listen for window resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="mt-5">
       <div className="flex items-center justify-center flex-col">
@@ -72,7 +87,7 @@ const LandingThree = () => {
       </div>
       <div className="flex items-center justify-center mt-5">
         <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold md:mt-5 md:px-5">
-          Be a Mentor or Mentee
+          <a href={isMobile ? "/msignup" : "/signup"}> Be a Mentor or Mentee</a>
         </button>
       </div>
     </div>

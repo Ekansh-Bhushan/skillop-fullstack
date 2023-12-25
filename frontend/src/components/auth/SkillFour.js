@@ -59,8 +59,8 @@ const SkillFour = () => {
   };
   return (
     <div>
-      {/* <Nav /> */}
-      <ProgressBar progress={50} />
+      <Nav />
+      <ProgressBar progress={40} />
 
       <img src={doodle1} className="absolute top-[80vh] left-[29vw] z-10" />
       <img src={doodle2} className="absolute right-[19vw] top-[80vh] z-10" />
@@ -69,17 +69,37 @@ const SkillFour = () => {
         <h1 className="text-[35px] mb-5 mt-[8vh] font-bold">
           Complete Your Profile
         </h1>
-        <div className="flex items-center gap-[10vh]">
-          <div className="flex items-start justify-center flex-col text-xl gap-8 mt-3 font-normal">
-            <span>Personal Information</span>
-            <span>Contact Information</span>
-            <span>Skills/Interests</span>
-            <span>Professional Information</span>
+        <div className="flex items-start gap-[10vh] justify-start">
+          <div className="flex items-start  flex-col text-xl gap-8 mt-3 font-normal">
+            {/* <span>Personal Information</span>
+            <span>Contact Information</span> */}
+            {window.location.pathname === "/skill3" ? (
+              <span className="font-semibold">Skills/Interests</span>
+            ) : (
+              <span>Skills/Interests</span>
+            )}
+            {window.location.pathname === "/skill4" ? (
+              <span className="font-semibold">Professional Information</span>
+            ) : (
+              <span>Professional Information</span>
+            )}
+            {window.location.pathname === "/skill6" ? (
+              <span className="font-semibold">Cover & Profile Photos</span>
+            ) : (
+              <span>Cover & Profile Photos</span>
+            )}
+            {window.location.pathname === "/skill7" ? (
+              <span className="font-semibold">Additional Information</span>
+            ) : (
+              <span>Additional Information</span>
+            )}
+
+            {/* <span>Professional Information</span>
             <span>Cover & Profile Photos</span>
-            <span>Additional Information</span>
+            <span>Additional Information</span> */}
           </div>
           <div className="flex flex-col border-[1px] px-10 py-8 w-[40vw] rounded-3xl z-50 bg-white bg-opacity-50 backdrop-blur-[20px] ">
-            <div className="flex mb-6 items-center">
+            {/* <div className="flex mb-6 items-center">
               <span className="text-xl font-semibold">You are:</span>
               <button className="mx-5 px-4 py-3 rounded-lg border border-gray-500">
                 Student
@@ -87,7 +107,7 @@ const SkillFour = () => {
               <button className="px-4 py-3 rounded-lg border border-gray-500">
                 Professional
               </button>
-            </div>
+            </div> */}
 
             <label className="mb-2 text-lg font-bold">College</label>
             <input
