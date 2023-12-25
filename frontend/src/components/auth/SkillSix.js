@@ -25,6 +25,7 @@ const SkillSix = () => {
     const formData2 = new FormData();
     formData1.append("profilePic", profilePhoto);
     formData2.append("profileBackgroundPic", coverPhoto);
+    console.log(formData1, formData2);
 
     const uploadprofilepic = (data) => {
       const token = localStorage.getItem("skilloptoken");
@@ -73,6 +74,7 @@ const SkillSix = () => {
       if (done1 && done2) {
         navigate("/skill7");
       }
+      console.log(done1, done2);
     } catch (err) {
       toast.error("Unable to upload picture now! Try again later");
     }
@@ -180,10 +182,11 @@ const SkillSix = () => {
               <button className="rounded-full border-[2px] border-black h-9 w-9 flex items-center justify-center">
                 <FaArrowLeft />
               </button>
-              <div className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2">
-                <button className="font-bold " onClick={nextClicked}>
-                  NEXT
-                </button>
+              <div
+                onClick={nextClicked}
+                className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2"
+              >
+                <button className="font-bold ">NEXT</button>
                 <span className="rounded-full border-[2px] border-black py-1 px-1">
                   <FaArrowRight />
                 </span>

@@ -106,6 +106,7 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
         navigate(`/bookslot/${id}`);
         window.location.reload();
     };
+    console.log(setUsers);
 
     return (
         <>
@@ -317,11 +318,18 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                                           >
                                               {val.title.slice(0, 200) + "..."}
                                           </div>
-                                          <p>
-                                              Posted by{" "}
-                                              {val.author.firstname +
-                                                  val.author.lastname}
-                                          </p>
+                                          {val.author ? (
+                                              <p>
+                                                  Posted by{" "}
+                                                  {val.author.firstname +
+                                                      val.author.lastname}
+                                              </p>
+                                          ) : (
+                                              <p>
+                                                  Posted by{" "}
+                                                  {"Unknown"}
+                                              </p>
+                                          )}
                                       </div>
                                   </div>
                               </>
@@ -363,13 +371,19 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                                                   fontSize: "18px",
                                                   display: "flex",
                                                   alignItems: "center",
-                                                  gap: "5px"
+                                                  gap: "5px",
                                               }}
                                           >
                                               {val.firstname +
                                                   " " +
                                                   val.lastname}
-                                                 {val.isMentor && <img src="/verified.png" width={20} alt="" />}
+                                              {val.isMentor && (
+                                                  <img
+                                                      src="/verified.png"
+                                                      width={20}
+                                                      alt=""
+                                                  />
+                                              )}
                                           </div>
 
                                           <div>({val.jobTitle})</div>

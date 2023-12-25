@@ -178,6 +178,21 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
         toast
     );
 
+    const shareClicked = (id) => {
+        function copy(text) {
+            var input = document.createElement("textarea");
+            input.innerHTML = text;
+            document.body.appendChild(input);
+            input.select();
+            var result = document.execCommand("copy");
+            document.body.removeChild(input);
+            return result;
+        }
+        const postLink = `https://app.skillop.in/postsection/${id}`;
+        copy(postLink);
+        toast.success("Post link copied to clipboard!");
+    };
+
     return (
         <>
             {/* <Common setProgress={setProgress} /> */}
@@ -436,7 +451,7 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
                                         {commentList.length + " "}
                                         Comments
                                     </div>
-                                    <div className="share">
+                                    <div className="share" onClick={()=>shareClicked(post._id)}>
                                         <img
                                             src="/share.png"
                                             width={25}

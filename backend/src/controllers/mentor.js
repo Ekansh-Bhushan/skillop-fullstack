@@ -608,8 +608,9 @@ exports.updateAvailability = async (req, res) => {
             }
             availability[days[i]] = isValidAvailability(availability[days[i]]);
             if (
-                !availability[days[i]] ||
-                !checkLimit(availability[days[i]], 60)
+                !availability[days[i]]
+                // ||
+                // !checkLimit(availability[days[i]], 60)
             ) {
                 flag = false;
                 break;
