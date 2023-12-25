@@ -5,7 +5,7 @@ const ProgressBar = ({ progress }) => {
 
   return (
     <div className="fixed left-0 bottom-0 z-100">
-      <h1 className="text-center w-[100vw] mb-2 ">
+      <h1 className="text-center w-[100vw] mb-2 text-sm">
         You are <span className="text-lg font-bold">{progress}% </span>there
       </h1>
       <div

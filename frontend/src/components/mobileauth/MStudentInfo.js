@@ -131,7 +131,7 @@ const MStudentInfo = () => {
         <img src={coolimg} className="h-[40px]" alt="Logo" />
         <h1 className="font-bold text-xl">SKILLOP</h1>
       </div>
-      <div className="flex items-start flex-col mt-[12vh] mx-[5vh]">
+      <div className="flex items-start flex-col mt-[7vh] mx-[5vh] ">
         <h1 className="text-start text-2xl font-semibold mb-2">
           Complete your
         </h1>
@@ -213,7 +213,7 @@ const MStudentInfo = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between w-[80%] absolute bottom-10">
+          <div className="flex items-center justify-between w-[100%] mt-10">
             <button className="border-[1px] border-black py-2 px-3 rounded-2xl">
               Prev
             </button>

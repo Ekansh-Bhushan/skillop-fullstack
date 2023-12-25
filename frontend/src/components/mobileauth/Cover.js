@@ -198,7 +198,7 @@ const Cover = () => {
             </div>
             <span className="text-[#5F5F5F]">Recommended Size: </span>
           </div>
-          <div className="flex items-center justify-between w-[80%] absolute bottom-10 ">
+          <div className="flex items-center justify-between w-[100%] mt-10 ">
             <button className="border-[1px] border-black py-2 px-3 rounded-2xl">
               Prev
             </button>

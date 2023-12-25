@@ -38,7 +38,10 @@ const Page1 = () => {
 
   return (
     <div>
-      <div className="fixed w-full"> {/* <Nav /> */}</div>
+      <div className="fixed w-full">
+        {" "}
+        <Nav />
+      </div>
       <div className="flex justify-around items-start pt-[15vh] mx-[20vh]">
         <div class="flex justify-center items-center ">
           <div class="flex flex-col items-start justify-start">

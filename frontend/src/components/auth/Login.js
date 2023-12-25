@@ -33,10 +33,10 @@ const Login = () => {
   };
   return (
     <div>
-      {/* <div className="fixed w-full">
-                {" "}
-                <Nav />
-            </div> */}
+      <div className="fixed w-full">
+        {" "}
+        <Nav />
+      </div>
       <div className="flex justify-around items-start pt-[15vh] mx-[20vh]">
         <div class="flex justify-center items-center ">
           <div class="flex flex-col items-start justify-start">
@@ -92,7 +92,7 @@ const Login = () => {
               <span class="ml-2 text-md text-[#7E8B9E] ">
                 Not a part of SKILLOP Community?
                 <a
-                  class="text-blue-600 mx-2"
+                  class="text-blue-600 mx-2 cursor-pointer"
                   onClick={() => navigate("/signup")}
                 >
                   Sign Up

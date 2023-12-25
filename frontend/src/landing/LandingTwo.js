@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import line from "../components/images/Line.png";
 
 const LandingTwo = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 500);
+    };
+
+    // Set initial state and listen for window resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="min-h-[100vh] mt-10">
       <div className="flex items-center justify-center flex-col">
@@ -59,7 +73,7 @@ const LandingTwo = () => {
       </div>
       <div className="flex items-center justify-center mt-5">
         <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold md:px-6">
-          Get Started
+          <a href={isMobile ? "/msignup" : "/signup"}>Get Started</a>
         </button>
       </div>
     </div>
