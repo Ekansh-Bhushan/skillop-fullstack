@@ -1,6 +1,6 @@
 .admin-container,
 .admin-content {
-	text-align: center;
+	text-align: left;
 	margin: 2vw;
 }
 
@@ -12,8 +12,8 @@
 		rgb(119, 255, 98)
 	);
     font-size: 1.1rem;
-    width: 67%;
-    margin: 2vw auto;
+    width: 94%;
+    margin: 2vw 0;
 }
 
 .admin-content td {

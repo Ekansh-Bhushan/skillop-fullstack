@@ -23,7 +23,7 @@ const SendNotification = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 border border-black p-2 w-[25%]">
+    <div className="flex flex-col mt-28 h-[400px] items-center justify-center gap-4 border border-black p-2 w-[25%]">
       <h2>Send Notification</h2>
       <textarea
         className="border-[2px] border-black p-2 text-lg"

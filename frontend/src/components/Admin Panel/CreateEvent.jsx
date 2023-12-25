@@ -37,7 +37,7 @@ const CreateEvent = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 border border-black p-2 w-[25%]">
+    <div className="flex flex-col max-h-[700px] items-center justify-center gap-4 border border-black p-2 w-[25%]">
       <h2>Create Event</h2>
       <input
         value={Title}

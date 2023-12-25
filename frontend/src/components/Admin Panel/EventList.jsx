@@ -28,8 +28,8 @@ const EventList = () => {
 
   return (
     <div>
-      <div className="w-[30%] border border-black">
-        <div className="header-events">
+      <div className="w-[110%] border border-black">
+        <div className="header-events p-2">
           <h2
             style={{
               fontWeight: '500',
@@ -40,7 +40,7 @@ const EventList = () => {
             Currently Listed Events (ALL)
           </h2>
         </div>
-        <div className="event-list2 overflow-y-auto max-h-[500px]">
+        <div className="event-list2 overflow-y-auto max-h-[500px] p-2">
           {eventData.map((item) => {
             return (
               <div key={item._id} className="event-1">
