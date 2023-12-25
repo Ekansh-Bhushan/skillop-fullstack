@@ -27,10 +27,10 @@ function ChangePasswordPage() {
                 currentPassword
             );
 
-            toast(data.message);
+            toast.success(data.message);
             navigate("/myaccount");
         } catch (error) {
-            toast(error.response.data.message);
+            toast.error(error.response.data.message);
         }
     };
 
