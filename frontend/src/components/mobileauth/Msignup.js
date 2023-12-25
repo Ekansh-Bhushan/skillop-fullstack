@@ -171,6 +171,16 @@ const Msignup = () => {
                             Signup
                         </span>
                     </button>
+                    <div className="flex items-center justify-center mt-6 mb-8 w-[90%]">
+                        Already have an account?{" "}
+                        <span
+                            className="text-blue-500"
+                            onClick={() => navigate("/mlogin")}
+                        >
+                            {" "}
+                            Login
+                        </span>
+                    </div>
                     <div className="flex items-center justify-center mt-10 mb-8 w-[90%]">
                         <div className="border-t border-[#7E8B9E] w-full"></div>
                         <span className="text-[#7E8B9E] px-2">or</span>

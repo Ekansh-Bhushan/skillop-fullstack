@@ -74,7 +74,7 @@ exports.updateProfile = async (req, res) => {
         if (email) {
             // check email exist or not
             const user2 = await User.findOne({ email: email });
-            if (user2 && user2._id != user._id)
+            if (user2 && user2._id.toString() != user._id.toString())
                 return response_400(res, "Email already exist");
             user.email = email;
         }

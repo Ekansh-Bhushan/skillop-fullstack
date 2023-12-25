@@ -126,9 +126,10 @@ const Mlogin = () => {
             </span>
           </button>
           <p className="mt-2">Not Registered Yet?</p>
-          <a href="/msignup" className="cursor-pointer">
-            SIGN UP
-          </a>
+          
+            <span className="flex justify-center items-center w-full bg-white rounded p-2">
+              Signup
+            </span>
           {/* ... (Social login buttons and other UI elements) */}
           <div className="flex items-center justify-center mt-10 mb-8 w-[90%]">
             <div className="border-t border-[#7E8B9E] w-full"></div>
