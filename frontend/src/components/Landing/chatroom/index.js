@@ -172,7 +172,8 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
               <div className="chat-list pb-[30vh]">
                 {chats.length === 0 ? (
-                  <img src={spinner} className="spinner-css" alt="loading" />
+                  // <img src={spinner} className="spinner-css" alt="loading" />
+                  <div>No chats yet</div>
                 ) : (
                   chats.map((chat) => (
                     <div
