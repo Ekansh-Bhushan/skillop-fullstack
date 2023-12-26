@@ -343,7 +343,7 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
                 Become Mentor
               </div>
             )}
-            {!Mentor && (
+            { (
               <div
                 style={{
                   color: '#108CFF',
