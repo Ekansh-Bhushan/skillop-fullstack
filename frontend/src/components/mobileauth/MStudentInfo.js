@@ -214,7 +214,10 @@ const MStudentInfo = () => {
           </div>
 
           <div className="flex items-center justify-between w-[100%] mt-10">
-            <button className="border-[1px] border-black py-2 px-3 rounded-2xl">
+            <button
+              className="border-[1px] border-black py-2 px-3 rounded-2xl"
+              onClick={() => navigate("/mskill")}
+            >
               Prev
             </button>
             <button
