@@ -113,56 +113,56 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
   };
 
   return (
-      <div>
-          {/* <SideNav
+    <div>
+      {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
         isFetched={isFetched}
         notifyList={notifyList}
       /> */}
-          <Mobilecommonhead />
-          {/* <Common setProgress={setProgress}/> */}
-          <div className="main-content-landing-chat">
-              <div className="chat-room md:mt-0">
-                  {showChatbox && (
-                      <div className="chat-slider">
-                          <Chatbox
-                              chats={chats}
-                              chat={currentChat}
-                              currentUser={userData._id}
-                              setSendMessage={setSendMessage}
-                              recieveMessage={recieveMessage}
-                              toggleChatbox={handleToggleChatbox}
-                          />{" "}
-                      </div>
-                  )}
-                  <h2 className="text-chat-prev">
-                      {chats.length === 0
-                          ? "Follow someone to chat with him!"
-                          : "The Chat you select will appear here!"}
-                  </h2>
-                  <div className="chat-friends-list">
-                      <div className="">
-                          {/* <h2 className="chat-head">Chats</h2> */}
-                          <div className="relative flex items-center justify-center mt-5 flex-col border-b-2 pb-2">
-                              <input
-                                  className="bg-[#84848426] border-0 rounded-3xl w-[90%] py-3 px-5"
-                                  type="text"
-                                  placeholder="Search"
-                              />
+      <Mobilecommonhead />
+      {/* <Common setProgress={setProgress}/> */}
+      <div className="main-content-landing-chat">
+        <div className="chat-room md:mt-0">
+          {showChatbox && (
+            <div className="chat-slider">
+              <Chatbox
+                chats={chats}
+                chat={currentChat}
+                currentUser={userData._id}
+                setSendMessage={setSendMessage}
+                recieveMessage={recieveMessage}
+                toggleChatbox={handleToggleChatbox}
+              />{" "}
+            </div>
+          )}
+          <h2 className="text-chat-prev">
+            {chats.length === 0
+              ? "Follow someone to chat with him!"
+              : "The Chat you select will appear here!"}
+          </h2>
+          <div className="chat-friends-list">
+            <div className="">
+              {/* <h2 className="chat-head">Chats</h2> */}
+              <div className="relative flex items-center justify-center mt-5 flex-col border-b-2 pb-2">
+                <input
+                  className="bg-[#84848426] border-0 rounded-3xl w-[90%] py-3 px-5"
+                  type="text"
+                  placeholder="Search"
+                />
 
-                              <img
-                                  className="absolute top-3 right-10"
-                                  src="/search.png"
-                                  alt="search"
-                                  height={21}
-                                  width={21}
-                              />
-                              <span className="text-start w-[80%] ml-[0%] text-lg mt-5">
-                                  Recents
-                              </span>
-                          </div>
-                          {/* <hr
+                <img
+                  className="absolute top-3 right-10"
+                  src="/search.png"
+                  alt="search"
+                  height={21}
+                  width={21}
+                />
+                <span className="text-start w-[80%] ml-[0%] text-lg mt-5">
+                  Recents
+                </span>
+              </div>
+              {/* <hr
                 style={{
                   height: "2px",
                   background: "black",
@@ -170,33 +170,30 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 }}
               /> */}
 
-                          <div className="chat-list pb-[30vh]">
-                              {chats.length === 0 ? (
-                                  // <img src={spinner} className="spinner-css" alt="loading" />
-                                  <div className="spinner-css">
-                                      No chats yet
-                                  </div>
-                              ) : (
-                                  chats.map((chat) => (
-                                      <div
-                                          // onClick={() => {
-                                          //   setCurrentChat(chat);
-                                          //   document.querySelector(".chatbox-messages").scrollTop =
-                                          //     document.querySelector(
-                                          //       ".chatbox-messages"
-                                          //     ).scrollHeight;
-                                          // }}
-                                          onClick={() => handleChatClick(chat)}
-                                      >
-                                          <Conversation
-                                              data={chat}
-                                              chatID={chat._id}
-                                              currentUser={userData._id}
-                                          />
-                                      </div>
-                                  ))
-                              )}
-                              {/* // {chats.length > 0 &&
+              <div className="chat-list pb-[30vh]">
+                {chats.length === 0 ? (
+                  <img src={spinner} className="spinner-css" alt="loading" />
+                ) : (
+                  chats.map((chat) => (
+                    <div
+                      // onClick={() => {
+                      //   setCurrentChat(chat);
+                      //   document.querySelector(".chatbox-messages").scrollTop =
+                      //     document.querySelector(
+                      //       ".chatbox-messages"
+                      //     ).scrollHeight;
+                      // }}
+                      onClick={() => handleChatClick(chat)}
+                    >
+                      <Conversation
+                        data={chat}
+                        chatID={chat._id}
+                        currentUser={userData._id}
+                      />
+                    </div>
+                  ))
+                )}
+                {/* // {chats.length > 0 &&
                 //   chats.map((chat) => (
                 //     <div
                 //       // onClick={() => {
@@ -215,12 +212,12 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 //       />
                 //     </div>
                 //   ))} */}
-                          </div>
-                      </div>
-                  </div>
               </div>
+            </div>
           </div>
+        </div>
       </div>
+    </div>
   );
 }
 export default Chat;
