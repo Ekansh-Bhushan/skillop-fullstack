@@ -23,7 +23,7 @@ function response_400(res, message) {
     return res.status(400).json({
         result: false,
         error: message,
-        message: "Bad request",
+        message: message,
     });
 }
 
@@ -31,7 +31,7 @@ function response_401(res, message) {
     return res.status(401).json({
         result: false,
         error: message,
-        message: "Unauthorized",
+        message: message,
     });
 }
 
@@ -39,7 +39,7 @@ function response_403(res, message) {
     return res.status(403).json({
         result: false,
         error: message,
-        message: "Forbidden",
+        message: message,
     });
 }
 
@@ -47,7 +47,7 @@ function response_404(res, message) {
     return res.status(404).json({
         result: false,
         error: message,
-        message: "Not found",
+        message: message,
     });
 }
 
