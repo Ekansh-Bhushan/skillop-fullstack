@@ -163,7 +163,7 @@ const Mobilecommonhead = () => {
           <div className="mobile-panel-options">
             <img
               onClick={() => {
-                navigate("/mybookings");
+                navigate("/requestedMeets");
               }}
               className={`${
                 window.location.pathname === "/Profile" ? "color" : "notColor"
