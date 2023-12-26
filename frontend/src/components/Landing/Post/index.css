@@ -1670,11 +1670,11 @@ non-act {
   justify-content: space-between;
 }
 
-.more-vertical-options div:active {
+/* .more-vertical-options div:active {
   border-radius: 30px;
   border: 1.5px solid rgb(55, 194, 218);
   padding: 10px 20px;
-}
+} */
 
 .post-on-mob-btn {
   background-color: rgb(14, 121, 121);

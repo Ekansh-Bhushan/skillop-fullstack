@@ -204,7 +204,7 @@ const Mobilecommonhead = () => {
             </div>
             <div className="flex items-center justify-between w-[50vw] text-sm">
               {" "}
-              <div className="ph-follwers">
+              <div className="">
                 <b>
                   {" "}
                   {userDetails &&
@@ -213,7 +213,7 @@ const Mobilecommonhead = () => {
                 </b>{" "}
                 Followers
               </div>
-              <div className="ph-followings">
+              <div className="">
                 <b>
                   {" "}
                   {userDetails &&

@@ -36,16 +36,16 @@
   gap: 10px;
 }
 
-.more-vertical-options > div:hover {
+/* .more-vertical-options > div:hover {
   border-radius: 30px;
   border: 1.5px solid rgb(55, 194, 218);
   width: 80px;
-  /* display: flex;
+  display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 25px; */
+	height: 25px;
   padding: 10px 20px;
-}
+} */
 
 @media only screen and (max-width: 500px) {
   .mobile-head {
