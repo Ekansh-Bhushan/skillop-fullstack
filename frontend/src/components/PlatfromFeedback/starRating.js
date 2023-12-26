@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import "./starRating.css";
 
 function StarRating() {
   const [rating, setRating] = useState(0); // Initialize with 0
   const [hover, setHover] = useState(0); // Initialize with 0
+
+  const updateScreenSize = () => {
+    // Use window.innerWidth to get the current screen width
+    const isMediumScreen = window.innerWidth <= 768;
+    setIsMediumScreen(isMediumScreen);
+  };
+
+  const [isMediumScreen, setIsMediumScreen] = useState(
+    window.innerWidth <= 768
+  );
+
+  // Add event listener for window resize
+  useEffect(() => {
+    window.addEventListener("resize", updateScreenSize);
+    return () => {
+      window.removeEventListener("resize", updateScreenSize);
+    };
+  }, []);
 
   return (
     <div /*className="App"*/>
@@ -20,7 +38,7 @@ function StarRating() {
             />
             <FaStar
               className="star"
-              size={50}
+              size={isMediumScreen ? 70 : 90}
               color={currentRating <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
               onMouseEnter={() => setHover(currentRating)}
               onMouseLeave={() => setHover(0)}
@@ -28,7 +46,7 @@ function StarRating() {
           </label>
         );
       })}
-      <p>rating: {rating}</p>
+      {/* <p>rating: {rating}</p> */}
     </div>
   );
 }

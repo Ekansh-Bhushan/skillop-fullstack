@@ -87,6 +87,8 @@ const Msignup = () => {
   const [lastname, setLastname] = useState("");
 
   const signupClicked = async () => {
+    // block the signup buttom
+
     try {
       const { data } = await registerUser({
         email: email,
@@ -94,14 +96,16 @@ const Msignup = () => {
         firstname: firstname,
         lastname: lastname,
       });
+      console.log(data);
       if (data.result) {
+        localStorage.setItem("skilloptoken", data.token);
         toast.success(data.message);
-        navigate("/mskill"); // Replace '/success' with your desired route after signup
+        navigate("/mskill");
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error("Signup failed. Please try again.");
+      toast.error(error.response.data.message);
     }
   };
 
@@ -167,6 +171,13 @@ const Msignup = () => {
               Signup
             </span>
           </button>
+          <div className="flex items-center justify-center mt-6 mb-8 w-[90%]">
+            Already have an account ? {"  "}
+            <span className="text-blue-500" onClick={() => navigate("/mlogin")}>
+              {"  "}
+              Login
+            </span>
+          </div>
           <div className="flex items-center justify-center mt-10 mb-8 w-[90%]">
             <div className="border-t border-[#7E8B9E] w-full"></div>
             <span className="text-[#7E8B9E] px-2">or</span>

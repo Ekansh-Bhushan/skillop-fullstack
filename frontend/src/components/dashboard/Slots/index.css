@@ -1,5 +1,5 @@
 body {
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
 }
 
 .dash-main {
@@ -33,7 +33,7 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
-  background-image: url('..//..//images//rect.png');
+  background-image: url("..//..//images//rect.png");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px 0px 10px 10px;
@@ -867,8 +867,10 @@ body {
   }
   .meet-rate {
     position: absolute;
-    right: 6vw;
-    top: 155vw;
+    /* height: 120px; */
+    right: 5vw;
+    /* margin-inline: auto; */
+    top: 65vh;
     width: 90%;
     padding: 10px 0px;
     margin: auto;
@@ -919,6 +921,8 @@ body {
 
   .session-list-dash {
     margin-inline: 5px;
+    overflow-y: auto;
+    height: 80%;
   }
 
   .meets-head {
@@ -967,7 +971,7 @@ body {
   .line2-dash,
   .line3-dash {
     width: 20px;
-    content: '';
+    content: "";
     height: 0.5px;
 
     position: relative;

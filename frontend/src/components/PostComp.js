@@ -215,6 +215,21 @@ const PostComp = ({
         toast
     );
 
+    const shareClicked = (id) => {
+        function copy(text) {
+            var input = document.createElement("textarea");
+            input.innerHTML = text;
+            document.body.appendChild(input);
+            input.select();
+            var result = document.execCommand("copy");
+            document.body.removeChild(input);
+            return result;
+        }
+        const postLink = `https://app.skillop.in/postsection/${id}`;
+        copy(postLink);
+        toast.success("Post link copied to clipboard!");
+    };
+
     return (
         <div className="post-1">
             <div>
@@ -443,15 +458,15 @@ const PostComp = ({
                 ""
             )}
 
-      {showPostImgPrew && imageUrls.length && (
-        <div className="absolute">
-          <PostImgPrevw
-            onClose={onClose}
-            name={author.firstname + " " + author.lastname}
-            src={imageUrls[currentMediaIndex]}
-          />
-        </div>
-      )}
+            {showPostImgPrew && imageUrls.length && (
+                <div className="absolute">
+                    <PostImgPrevw
+                        onClose={onClose}
+                        name={author.firstname + " " + author.lastname}
+                        src={imageUrls[currentMediaIndex]}
+                    />
+                </div>
+            )}
 
             {(likersList.length > 0 || commentList.length > 0) && (
                 <>
@@ -552,7 +567,10 @@ const PostComp = ({
                         Comments
                     </div>
 
-                    <div className="share">
+                    <div
+                        className="share"
+                        onClick={() => shareClicked(post._id)}
+                    >
                         <img
                             src="/share.png"
                             width={21}

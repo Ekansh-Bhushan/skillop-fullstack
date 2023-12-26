@@ -66,29 +66,26 @@ const Mlogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const login = async () => {
     try {
-      if (!email || !password) {
-        toast.error("Please fill in all fields");
-        return;
-      }
-
-      // Perform login action using the loginUser API request
-      const { data } = await loginUser({ email, password });
-
+      const { data } = await loginUser({
+        email: email,
+        password: password,
+      });
       if (data.result) {
-        // Successful login scenario
         localStorage.setItem("skilloptoken", data.token);
         navigate("/homepage");
         toast.success(data.message);
       } else {
-        // Unsuccessful login scenario
         toast.error(data.message);
       }
     } catch (error) {
-      console.error("Login error:", error);
-      toast.error("An error occurred during login");
+      console.log(error);
+      toast.error(error.response.data.err);
     }
+  };
+  const loginClicked = async () => {
+    await login();
   };
 
   return (
@@ -122,16 +119,17 @@ const Mlogin = () => {
           </div>
           <button
             className="bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 w-[100%] rounded p-1 mt-5"
-            onClick={handleLogin}
+            onClick={loginClicked}
           >
             <span className="flex justify-center items-center w-full bg-white rounded p-2">
               Login
             </span>
           </button>
           <p className="mt-2">Not Registered Yet?</p>
-          <a href="/msignup" className="cursor-pointer">
-            SIGN UP
-          </a>
+
+          <span className="flex justify-center items-center w-full bg-white rounded  text-blue-500">
+            <a href="/msignup"> Signup</a>
+          </span>
           {/* ... (Social login buttons and other UI elements) */}
           <div className="flex items-center justify-center mt-10 mb-8 w-[90%]">
             <div className="border-t border-[#7E8B9E] w-full"></div>

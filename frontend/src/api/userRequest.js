@@ -83,6 +83,23 @@ export const loginUser = (data) =>
 export const changePassword = (data) =>
     API.post(`/api/user/password/forget`, data, { withCredentials: true });
 
+export const actualChangePassword = (newPassword, oldPassword) => {
+    // get token  from local storage
+    const token = localStorage.getItem("skilloptoken");
+
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+        },
+        withCredentials: true,
+    };
+    return API.put(
+        `/api/user/changePassword`,
+        { newPassword, oldPassword },
+        config
+    );
+};
 export const updateIsMentor = (data) => {
     // get token  from local storage
     const token = localStorage.getItem("skilloptoken");

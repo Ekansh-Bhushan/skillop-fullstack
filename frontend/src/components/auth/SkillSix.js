@@ -25,6 +25,7 @@ const SkillSix = () => {
     const formData2 = new FormData();
     formData1.append("profilePic", profilePhoto);
     formData2.append("profileBackgroundPic", coverPhoto);
+    console.log(formData1, formData2);
 
     const uploadprofilepic = (data) => {
       const token = localStorage.getItem("skilloptoken");
@@ -73,6 +74,7 @@ const SkillSix = () => {
       if (done1 && done2) {
         navigate("/skill7");
       }
+      console.log(done1, done2);
     } catch (err) {
       toast.error("Unable to upload picture now! Try again later");
     }
@@ -98,13 +100,36 @@ const SkillSix = () => {
           <div className="flex items-start justify-center flex-col text-xl gap-8 mt-3 font-normal">
             {/* <span>Personal Information</span>
             <span>Contact Information</span> */}
-            <span>Skills/Interests</span>
-            <span>Professional Information</span>
+            {window.location.pathname === "/skill3" ? (
+              <span className="font-semibold">Skills/Interests</span>
+            ) : (
+              <span>Skills/Interests</span>
+            )}
+            {window.location.pathname === "/skill4" ? (
+              <span className="font-semibold">Professional Information</span>
+            ) : (
+              <span>Professional Information</span>
+            )}
+            {window.location.pathname === "/skill6" ? (
+              <span className="font-semibold">Cover & Profile Photos</span>
+            ) : (
+              <span>Cover & Profile Photos</span>
+            )}
+            {window.location.pathname === "/skill7" ? (
+              <span className="font-semibold">Additional Information</span>
+            ) : (
+              <span>Additional Information</span>
+            )}
+
+            {/* <span>Professional Information</span>
             <span>Cover & Profile Photos</span>
-            <span>Additional Information</span>
+            <span>Additional Information</span> */}
           </div>
 
-          <div className="flex flex-col justify-center border-[1px] px-10 py-8 w-[40vw] rounded-3xl z-40 bg-white bg-opacity-50 backdrop-blur-[20px]">
+          <div
+            className="flex flex-col justify-center border-[1px] px-10 py-8 w-[40vw] rounded-3xl bg-white bg-opacity-50 backdrop-blur-[20px]"
+            style={{ position: "relative", zIndex: 40 }}
+          >
             <input
               id="coverPhoto"
               type="file"
@@ -157,10 +182,11 @@ const SkillSix = () => {
               <button className="rounded-full border-[2px] border-black h-9 w-9 flex items-center justify-center">
                 <FaArrowLeft />
               </button>
-              <div className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2">
-                <button className="font-bold " onClick={nextClicked}>
-                  NEXT
-                </button>
+              <div
+                onClick={nextClicked}
+                className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2"
+              >
+                <button className="font-bold ">NEXT</button>
                 <span className="rounded-full border-[2px] border-black py-1 px-1">
                   <FaArrowRight />
                 </span>

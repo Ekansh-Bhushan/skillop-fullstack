@@ -20,7 +20,7 @@ exports.getSiteMatrics = async (req, res) => {
         const numberOfLikes = posts.reduce((acc, post) => {
             return acc + post.likes.length;
         }, 0);
-        const meets = await Meet.find({ status: MEET_STATUS.APPROVED });
+        const meets = await Meet.find({ status: MEET_STATUS.ACCEPTED });
         const data = {
             users: users.length,
             mentors: mentors.length,

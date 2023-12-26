@@ -59,6 +59,7 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
               )}
             </div>
           </div>
+          {/* <div>Chat ended</div> */}
         </div>
       )}
     </div>

@@ -74,7 +74,7 @@ exports.getMostActiveUser = async (req, res) => {
             const commentByUser = await Comment.find({ user: user._id });
             user.__totalComments = commentByUser.length;
         }
-        
+
         users.sort(
             (a, b) =>
                 b.__totalPosts * POST_COMMENT_RATIO +
@@ -84,13 +84,13 @@ exports.getMostActiveUser = async (req, res) => {
         users = users.slice(0, GET_TOP_OF).map((user) => {
             return {
                 _id: user._id,
-                name: user.name,
+                firstname: user.firstname,
+                lastname: user.lastname,
                 username: user.username,
                 __totalPosts: user.__totalPosts,
                 __totalComments: user.__totalComments,
                 profilePicUrl: user.profilePicUrl,
-
-            }
+            };
         });
 
         return response_200(

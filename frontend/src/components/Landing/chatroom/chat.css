@@ -10,7 +10,8 @@
 @media screen and (max-width: 500px) {
   .chat-list {
     /* top: -10vw; */
-    height: 100vh;
+    position: relative;
+    height: 100%;
   }
 }
 

@@ -116,9 +116,8 @@ const Cover = () => {
           toast.error("Unable to upload cover picture now! Try again later");
         }
       }
-      if (profilePhoto || coverPhoto) {
-        navigate("/msocial");
-      }
+
+      navigate("/msocial");
     } catch (err) {
       toast.error("Unable to upload picture now! Try again later");
     }
@@ -150,7 +149,10 @@ const Cover = () => {
         <div className="flex flex-col items-start justify-center">
           <div>
             <span className="text-lg font-normal mb-2">Cover Photo</span>
-            <div className="w-[80vw] bg-[#D9D9D96E] h-[18vh] rounded-lg relative flex items-center justify-center">
+            <div
+              className="w-[80vw] bg-[#D9D9D96E] h-[18vh] rounded-lg relative flex items-center justify-center"
+              onClick={() => document.getElementById("coverPhoto").click()}
+            >
               <img src={vector} className="absolute " alt="Vector" />
               <label
                 htmlFor="coverPhoto"
@@ -173,7 +175,10 @@ const Cover = () => {
           </div>
           <div className="mt-2">
             <span className="text-lg font-normal mb-4 ">Profile Photo</span>
-            <div className=" bg-[#D9D9D96E] h-[14vh] w-[14vh] rounded-full relative flex items-center justify-center">
+            <div
+              className=" bg-[#D9D9D96E] h-[14vh] w-[14vh] rounded-full relative flex items-center justify-center"
+              onClick={() => document.getElementById("profilePhoto").click()}
+            >
               <img
                 src={mdi}
                 className="absolute bottom-[3vh] w-[80%]"
@@ -181,7 +186,7 @@ const Cover = () => {
               />
               <label
                 htmlFor="profilePhoto"
-                className="absolute text-lg font-medium cursor-pointer"
+                className="absolute text-lg font-medium cursor-pointer ml-4"
               >
                 UPLOAD
                 <input
@@ -199,7 +204,10 @@ const Cover = () => {
             <span className="text-[#5F5F5F]">Recommended Size: </span>
           </div>
           <div className="flex items-center justify-between w-[100%] mt-10 ">
-            <button className="border-[1px] border-black py-2 px-3 rounded-2xl">
+            <button
+              className="border-[1px] border-black py-2 px-3 rounded-2xl"
+              onClick={() => navigate("/mstudinfo")}
+            >
               Prev
             </button>
             <button

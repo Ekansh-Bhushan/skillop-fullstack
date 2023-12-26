@@ -10,16 +10,21 @@ import MProgressBar from "./MProgressBar";
 
 const MSkills = () => {
   const navigate = useNavigate();
-  const [skills, setSkills] = useState([
+  const [skills, setSkills] = useState([]);
+  const [newSkill, setNewSkill] = useState("");
+  const defaultSkillsToDisplay = [
     "Web Development",
     "UI/UX",
     "Data Structures & Algorithm",
     "Technology",
-    // Add initial skills here
-  ]);
-  const [newSkill, setNewSkill] = useState("");
+  ];
 
   const handleSkillAdd = () => {
+    if (skills.includes(newSkill)) {
+      toast.error("This skill is already selected!");
+      setNewSkill("");
+      return;
+    }
     if (newSkill.trim() !== "") {
       setSkills([...skills, newSkill]);
       setNewSkill("");
@@ -27,6 +32,7 @@ const MSkills = () => {
   };
 
   const nextClicked = async () => {
+    console.log(skills);
     try {
       const request = {
         skills: skills,
@@ -35,10 +41,11 @@ const MSkills = () => {
 
       if (data.result) {
         toast.success(data.message);
+        console.log(data.message);
         navigate("/mstudinfo");
       }
     } catch (error) {
-      toast.error("Failed to update skills. Please try again.");
+      toast.error(error.response.data.message);
     }
   };
 
@@ -56,10 +63,20 @@ const MSkills = () => {
         <MProgressBar progress={20} />
         <h1 className="text-xl font-bold my-4 mt-10">Skills/Interests</h1>
         <div className="flex flex-wrap gap-2 mb-4">
+          {skills.length === 0 &&
+            defaultSkillsToDisplay.map((skill, index) => (
+              <div
+                key={index}
+                className="border px-4 py-2 rounded-3xl hover:bg-gray-100 cursor-pointer"
+              >
+                <span>{skill}</span>
+              </div>
+            ))}
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="border px-4 py-2 rounded-3xl hover:bg-gray-100 cursor-pointer"
+              className="border px-4 py-2 rounded-3xl hover:bg-red-100 cursor-pointer"
+              onClick={() => setSkills(skills.filter((item) => item !== skill))}
             >
               <span>{skill}</span>
             </div>
@@ -83,7 +100,7 @@ const MSkills = () => {
 
         <div className="flex justify-end items-center w-full">
           <button
-            className="flex items-center gap-1 px-3 py-1 rounded-2xl border border-black hover:bg-gray-100 cursor-pointer"
+            className="border-[1px] border-black py-2 px-3 rounded-2xl"
             onClick={nextClicked}
           >
             <span>Next</span>

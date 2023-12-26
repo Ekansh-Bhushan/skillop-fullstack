@@ -72,6 +72,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
     try {
       const getProfileCompletionData = async () => {
         const { data } = await getProfileCompletionStatus();
+        console.log(data);
         if (data.status === "pending") {
           setIsPending(true);
         } else if (data.status === "accepted") {
@@ -143,7 +144,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
         notifyList={notifyList}
       /> */}
       <Mobilecommonhead />
-      <div className="flex items-center justify-center mx-[25vw] border-r-2 flex-col h-[100vh] pt-[6vh] md:mx-5 md:border-0 md:pt-0">
+      <div className="flex items-center justify-center mx-[25vw] border-r-2 flex-col h-[100vh] pt-[6vh] md:mx-5 md:border-0 md:pt-[10vh] md:h-full md:pb-5">
         <h2 className="text-3xl font-semibold my-5">Become a Mentor</h2>
         <div className="w-[30%] flex items-center justify-center pr-10 md:w-[55%] md:pr-0">
           <div className="absolute flex items-center justify-center flex-col">
@@ -153,7 +154,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
             <p className="text-2xl font-semibold">Complete</p>
           </div>
           <Circle
-            percent={Pprogress}
+            percent={PercentageProfileComplete}
             strokeColor="#0AE70A"
             strokeWidth={9}
             trailWidth={8}
@@ -200,7 +201,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
             You are One step away from becoming a Mentor...
           </div>
         )}
-        <div className="but">
+        <div className="but md:mb-10">
           {isNotApplied && (
             <button
               className={isActive ? "custom-button" : "custom-button-active"}

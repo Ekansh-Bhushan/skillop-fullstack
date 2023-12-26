@@ -1155,7 +1155,7 @@ non-act {
   }
 
   .chatbox-messages {
-    height: 72%;
+    height: 100%;
     max-width: 100%;
     border-radius: 10px;
     margin-inline: 10px;
@@ -1164,6 +1164,8 @@ non-act {
   .message-send-bar {
     margin-block: 5px;
     padding-inline: 15px;
+    position: absolute;
+    bottom: 60px;
   }
 }
 
@@ -1372,6 +1374,7 @@ non-act {
     width: 95%;
     overflow-y: visible;
     min-height: 50vh;
+    padding-bottom: 30vh;
   }
 }
 
@@ -1634,18 +1637,21 @@ non-act {
 .more-vertical-options {
   position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 80px;
   flex-direction: column;
-  align-items: center;
-  gap: 50px;
+  align-items: flex-start;
+  padding-left: 20px;
+  gap: 20px;
   height: 100vh;
-  width: 100%;
-  right: 0px;
-  backdrop-filter: brightness(4%);
-  color: white;
+  width: 60vw;
+  left: 0px;
+  border-right: 1px solid #00000033;
+  background-color: #ffffff;
   bottom: 0px;
   display: none;
-  font-size: x-large;
+  /* font-size: 20px; */
+
   animation: poppingdelay 0.2s ease-in-out;
 }
 
@@ -1664,11 +1670,11 @@ non-act {
   justify-content: space-between;
 }
 
-.more-vertical-options div:active {
+/* .more-vertical-options div:active {
   border-radius: 30px;
   border: 1.5px solid rgb(55, 194, 218);
   padding: 10px 20px;
-}
+} */
 
 .post-on-mob-btn {
   background-color: rgb(14, 121, 121);
