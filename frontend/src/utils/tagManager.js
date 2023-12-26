@@ -52,21 +52,21 @@ class TaggingManager {
                 word.slice(1).match(/^[a-z0-9]+$/i)
             ) {
                 word = (
-                    <>
-                        <span> </span>
-                        <span
-                            onClick={() => this.openHashtag(wordWithOutTag)}
-                            className="hashTag"
-                            style={{
-                                color: "violet",
-                                cursor: "pointer",
-                                fontWeight: "bold",
-                                backgroundColor: "#e6f2ff",
-                            }}
-                        >
-                            {word}
-                        </span>
-                    </>
+                  <>
+                    <span> </span>
+                    <span
+                      onClick={() => this.openHashtag(wordWithOutTag)}
+                      className="hashTag"
+                      style={{
+                        color: '#2ecc71',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        backgroundColor: '#ffffff',
+                      }}
+                    >
+                      {word}
+                    </span>
+                  </>
                 );
             } else {
                 word = <span> {word}</span>;

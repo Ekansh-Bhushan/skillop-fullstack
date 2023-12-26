@@ -12,6 +12,7 @@ import HighestEarnerList from './HighestEarnerList';
 import TopPosts from './TopPosts';
 import SiteMetrics from './SiteMetrics';
 import MentorApproval from './MentorApproval';
+import DelProfPost from './DelProfPost';
 
 const Admin = () => {
   return (
@@ -40,6 +41,7 @@ const Admin = () => {
           <EventList />
           <TopPosts />
         </div>
+        <DelProfPost />
       </div>
     </div>
   );
