@@ -44,7 +44,7 @@ exports.deletePost = async (req, res) => {
             const comment = await Comment.findById(comments[i]);
             await comment.remove();
         }
-        await post.remove();
+        await Post.findByIdAndDelete(postId);
         response_200(res, "Post deleted successfully");
     } catch (error) {
         response_500(res, error.message);

@@ -18,11 +18,11 @@ exports.deleteUser = async (req, res) => {
         const followers = user.followers;
         for (let i = 0; i < followers.length; i++) {
             const follower = await User.findById(followers[i]);
-            follower.following.pull(userId);
+            follower.followings.pull(userId);
             await follower.save();
         }
         // remove user from following
-        const following = user.following;
+        const following = user.followings;
         for (let i = 0; i < following.length; i++) {
             const follow = await User.findById(following[i]);
             follow.followers.pull(userId);
