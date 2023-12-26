@@ -36,7 +36,7 @@
 .ph-pic img {
   width: 8.5vw;
   height: 8.5vw;
-  border-radius: 100%;
+  border-radius: 100px;
   cursor: pointer;
 }
 

@@ -61,16 +61,17 @@ const ProfileHeader = () => {
         <div className="ph-pic">
           <img
             onClick={() => setShowIntroVideo(true)}
-            src={userDetails ? userDetails.profilePicUrl : "/user.png"}
+            src={userDetails ? userDetails.profilePicUrl : "/userpic.png"}
             alt="user pic"
-            width={100}
+            style={{ borderRadius: "100%" }}
           />
         </div>
       ) : (
         <img
           onClick={() => setShowIntroVideo(true)}
-          src={userDetails ? userDetails.profilePicUrl : "/user.png"}
+          src={userDetails ? userDetails.profilePicUrl : "/userpic.png"}
           alt="user pic"
+          width={100}
         />
       )}
       <div className="ph-details">

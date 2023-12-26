@@ -36,7 +36,7 @@ const SideNav = ({ setProgress, Mentor, isFetched, notifyList }) => {
       console.log(error);
     }
     toast.success('Logged out');
-    navigate('/');
+    navigate('/login');
     setProgress(100);
   };
 
