@@ -50,6 +50,12 @@ const Mobilecommonhead = () => {
   };
   const [refresh, setRefresh] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
+  const [moreOptionsVisible, setMoreOptionsVisible] = useState(false); // Added state for more options panel visibility
+
+  const toggleMoreOptions = () => {
+    // Toggle the visibility of more options panel
+    setMoreOptionsVisible(!moreOptionsVisible);
+  };
 
   const fetchUserDetails = async () => {
     try {
@@ -87,10 +93,7 @@ const Mobilecommonhead = () => {
               src={userDetails ? userDetails.profilePicUrl : "/user.png"}
               alt="user pic"
               className="rounded-full w-[45px] h-[45px] ml-3"
-              onClick={() => {
-                document.querySelector(".more-vertical-options").style.display =
-                  "flex";
-              }}
+              onClick={toggleMoreOptions}
             />
           </div>
           <div
@@ -186,10 +189,8 @@ const Mobilecommonhead = () => {
         </div>
         <div
           className="more-vertical-options"
-          onClick={() => {
-            document.querySelector(".more-vertical-options").style.display =
-              "none";
-          }}
+          onClick={toggleMoreOptions}
+          style={{ display: moreOptionsVisible ? "flex" : "none" }} // Set display based on moreOptionsVisible state
         >
           <div className="more-vertical-options-new">
             <div className="flex items-center justify-center flex-col gap-[10px]">
