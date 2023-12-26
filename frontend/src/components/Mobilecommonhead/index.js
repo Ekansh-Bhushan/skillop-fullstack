@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../images/logo.png";
 import { IoIosArrowBack } from "react-icons/io";
 import { PiBellRingingLight } from "react-icons/pi";
@@ -18,6 +18,7 @@ import { RxCross2 } from "react-icons/rx";
 import { logoutUser } from "../../api/logoutRequest";
 import { toast } from "react-hot-toast";
 import PostPopUp from "../Landing/Post/PostPopUp";
+import { getUser } from "../../api/userRequest";
 
 const Mobilecommonhead = () => {
   const [showPostPopUp, setShowPostPopUp] = useState(false);
@@ -44,6 +45,26 @@ const Mobilecommonhead = () => {
     setShowPostPopUp(!showPostPopUp);
   };
   const [refresh, setRefresh] = useState(false);
+  const [userDetails, setUserDetails] = useState(null);
+
+  const fetchUserDetails = async () => {
+    try {
+      const userData = await getUser();
+      setUserDetails(userData.data.result);
+    } catch (err) {
+      if (!err.response.data.result) {
+        localStorage.removeItem("skilloptoken");
+        navigate("/");
+        console.log("here is ", err.response.data.result);
+        // toast.error('Session expired, Login again!');
+      }
+      console.log("Unable to fetch user details", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserDetails();
+  }, []);
 
   return (
     <>
@@ -56,9 +77,18 @@ const Mobilecommonhead = () => {
       )}
       <div className="mobile-head">
         <div className="back-n-logo">
-          {/* <div className="back-btn">
-            <IoIosArrowBack style={{ fontSize: "40px" }} />
-          </div> */}
+          <div className="back-btn">
+            {/* <IoIosArrowBack style={{ fontSize: "40px" }} /> */}
+            <img
+              src={userDetails ? userDetails.profilePicUrl : "/user.png"}
+              alt="user pic"
+              className="rounded-full w-[45px] h-[45px] ml-3"
+              onClick={() => {
+                document.querySelector(".more-vertical-options").style.display =
+                  "flex";
+              }}
+            />
+          </div>
           <div
             className="logo-mobile"
             onClick={() => {
@@ -145,31 +175,85 @@ const Mobilecommonhead = () => {
           </div>
         </div>
         <div className="more-vertical-options">
+          <div className="flex items-center justify-center flex-col gap-[10px]">
+            <div>
+              {" "}
+              <img
+                src={userDetails ? userDetails.profilePicUrl : "/user.png"}
+                alt="user pic"
+                className="rounded-full w-[100px] h-[100px] ml-3"
+              />
+            </div>
+            <div>
+              {" "}
+              <h1 className="text-lg">
+                {" "}
+                {userDetails &&
+                  userDetails.firstname + " " + userDetails.lastname}
+              </h1>
+            </div>
+            <div className="flex items-center justify-between w-[50vw] text-sm">
+              {" "}
+              <div className="ph-follwers">
+                <b>
+                  {" "}
+                  {userDetails &&
+                    userDetails.followers &&
+                    userDetails.followers.length}
+                </b>{" "}
+                Followers
+              </div>
+              <div className="ph-followings">
+                <b>
+                  {" "}
+                  {userDetails &&
+                    userDetails.followings &&
+                    userDetails.followings.length}
+                </b>{" "}
+                Followings
+              </div>
+            </div>
+          </div>
+
           <RxCross2
             onClick={() => {
               document.querySelector(".more-vertical-options").style.display =
                 "none";
             }}
-            style={{
-              position: "absolute",
-              top: "40px",
-              right: "40px",
-              fontSize: "34px",
-            }}
-            className="cross"
+            className="absolute top-6 right-5 text-2xl"
           />
-          <div onClick={() => navigate("/mySlots")}>Slots</div>
-          <div onClick={() => navigate("/mybookings")}>Bookings</div>
+          <div onClick={() => navigate("/mySlots")} className="font-semibold">
+            Slots
+          </div>
+          <div
+            onClick={() => navigate("/mybookings")}
+            className="font-semibold"
+          >
+            Bookings
+          </div>
           <div
             onClick={() => {
               navigate("/myearnings");
             }}
+            className="font-semibold"
           >
             Earnings
           </div>
-          <div onClick={() => navigate("/mentorbano")}>Become a Mentor</div>
-          <div onClick={() => navigate("/myaccount")}>Account</div>
-          <div onClick={() => navigate("/requestedMeets")}>Meet</div>
+          <div
+            onClick={() => navigate("/mentorbano")}
+            className="font-semibold"
+          >
+            Become a Mentor
+          </div>
+          <div onClick={() => navigate("/myaccount")} className="font-semibold">
+            Account
+          </div>
+          <div
+            onClick={() => navigate("/requestedMeets")}
+            className="font-semibold"
+          >
+            Meet
+          </div>
           <div
             style={{
               fontWeight: "bold",

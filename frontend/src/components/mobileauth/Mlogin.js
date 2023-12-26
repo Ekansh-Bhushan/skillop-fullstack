@@ -67,25 +67,25 @@ const Mlogin = () => {
   const [password, setPassword] = useState("");
 
   const login = async () => {
-      try {
-          const { data } = await loginUser({
-              email: email,
-              password: password,
-          });
-          if (data.result) {
-              localStorage.setItem("skilloptoken", data.token);
-              navigate("/homepage");
-              toast.success(data.message);
-          } else {
-              toast.error(data.message);
-          }
-      } catch (error) {
-          console.log(error);
-          toast.error(error.response.data.err);
+    try {
+      const { data } = await loginUser({
+        email: email,
+        password: password,
+      });
+      if (data.result) {
+        localStorage.setItem("skilloptoken", data.token);
+        navigate("/homepage");
+        toast.success(data.message);
+      } else {
+        toast.error(data.message);
       }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.err);
+    }
   };
   const loginClicked = async () => {
-      await login();
+    await login();
   };
 
   return (
@@ -126,10 +126,10 @@ const Mlogin = () => {
             </span>
           </button>
           <p className="mt-2">Not Registered Yet?</p>
-          
-            <span className="flex justify-center items-center w-full bg-white rounded p-2">
-              Signup
-            </span>
+
+          <span className="flex justify-center items-center w-full bg-white rounded  text-blue-500">
+            <a href="/msignup"> Signup</a>
+          </span>
           {/* ... (Social login buttons and other UI elements) */}
           <div className="flex items-center justify-center mt-10 mb-8 w-[90%]">
             <div className="border-t border-[#7E8B9E] w-full"></div>
