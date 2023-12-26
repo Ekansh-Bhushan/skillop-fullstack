@@ -56,6 +56,20 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
     "darkpurple",
     "darkbrown",
     "darkgray",
+    "red",
+    "blue",
+    "green",
+    "orange",
+    "purple",
+    "brown",
+    "gray",
+    "black",
+    "navy",
+    "darkgreen",
+    "maroon",
+    "darkpurple",
+    "darkbrown",
+    "darkgray",
   ];
 
   const navigate = useNavigate();

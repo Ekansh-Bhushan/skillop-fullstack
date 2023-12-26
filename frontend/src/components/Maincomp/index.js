@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Auth1Component from '../Page1';
 import Auth3Component from '../Page3';
 import Auth4Component from '../Page4';
@@ -107,9 +107,16 @@ function AuthPage({
     '/admin',
     // Add more routes as needed
   ];
+
   const [shouldRender, setShouldRender] = useState(
     !excludedRoutes.includes(window.location.pathname)
   );
+
+  useEffect(() => {
+    console.log("Side nav use effe");
+    setShouldRender(!excludedRoutes.includes(window.location.pathname));
+  }, [window.location.pathname])
+
   return (
     <Router>
       {shouldRender && (

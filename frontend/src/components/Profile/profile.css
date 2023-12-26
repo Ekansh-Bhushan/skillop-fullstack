@@ -73,7 +73,7 @@
 
 .journey-content .lorem-ipsum-dolor {
   color: transparent;
-  font-family: "Roboto-Regular", Helvetica;
+  font-family: 'Roboto-Regular', Helvetica;
   font-size: 12px;
   font-weight: 400;
   /* left: 0; */
@@ -143,7 +143,7 @@
   padding: 10px;
   vertical-align: top;
   font-size: 1.2rem;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 @media screen and (max-width: 500px) {
@@ -429,9 +429,13 @@
   }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (max-width: 1400px) {
   .main-profile-page {
     margin-left: 0px;
+  }
+  .profile-data {
+    margin-left: 11.1%;
+    margin-top: -5.4%;
   }
 }
 

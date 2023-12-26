@@ -3,7 +3,7 @@
   width: 48%;
   margin: 11vh 23vw;
   border-radius: 15px 15px 0px 0px;
-  min-height: 66vh;
+  min-height: 72vh;
   font-size: 1.1rem;
 }
 
@@ -36,7 +36,7 @@
 .ph-pic img {
   width: 8.5vw;
   height: 8.5vw;
-  border-radius: 100%;
+  border-radius: 100px;
   cursor: pointer;
 }
 
@@ -106,7 +106,7 @@
 @media screen and (max-width: 1500px) {
   .ph-container {
     margin: 11vh 11vw;
-    min-height: 68vh;
+    min-height: 76vh;
   }
   .ph-pic {
     left: 13vw;
