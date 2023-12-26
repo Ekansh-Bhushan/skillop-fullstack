@@ -184,107 +184,115 @@ const Mobilecommonhead = () => {
             />
           </div>
         </div>
-        <div className="more-vertical-options">
-          <div className="flex items-center justify-center flex-col gap-[10px]">
-            <div>
-              {" "}
-              <img
-                src={userDetails ? userDetails.profilePicUrl : "/user.png"}
-                alt="user pic"
-                className="rounded-full w-[100px] h-[100px] ml-3"
-              />
-            </div>
-            <div>
-              {" "}
-              <h1 className="text-lg">
+        <div
+          className="more-vertical-options"
+          onClick={() => {
+            document.querySelector(".more-vertical-options").style.display =
+              "none";
+          }}
+        >
+          <div className="more-vertical-options-new">
+            <div className="flex items-center justify-center flex-col gap-[10px]">
+              <div>
                 {" "}
-                {userDetails &&
-                  userDetails.firstname + " " + userDetails.lastname}
-              </h1>
-            </div>
-            <div className="flex items-center justify-between w-[50vw] text-base">
-              {" "}
-              <div className="">
-                <b className="text-black">
+                <img
+                  src={userDetails ? userDetails.profilePicUrl : "/user.png"}
+                  alt="user pic"
+                  className="rounded-full w-[100px] h-[100px] ml-3"
+                />
+              </div>
+              <div>
+                {" "}
+                <h1 className="text-lg">
                   {" "}
                   {userDetails &&
-                    userDetails.followers &&
-                    userDetails.followers.length}
-                </b>{" "}
-                Followers
+                    userDetails.firstname + " " + userDetails.lastname}
+                </h1>
               </div>
-              <div className="">
-                <b className="text-black">
-                  {" "}
-                  {userDetails &&
-                    userDetails.followings &&
-                    userDetails.followings.length}
-                </b>{" "}
-                Followings
+              <div className="flex items-center justify-between w-[50vw] text-base">
+                {" "}
+                <div className="">
+                  <b className="text-black">
+                    {" "}
+                    {userDetails &&
+                      userDetails.followers &&
+                      userDetails.followers.length}
+                  </b>{" "}
+                  Followers
+                </div>
+                <div className="">
+                  <b className="text-black">
+                    {" "}
+                    {userDetails &&
+                      userDetails.followings &&
+                      userDetails.followings.length}
+                  </b>{" "}
+                  Followings
+                </div>
               </div>
             </div>
-          </div>
 
-          <RxCross2
-            onClick={() => {
-              document.querySelector(".more-vertical-options").style.display =
-                "none";
-            }}
-            className="absolute top-6 right-5 text-2xl"
-          />
-          <div
-            onClick={() => navigate("/mySlots")}
-            className="font-semibold text-lg"
-          >
-            Slots
-          </div>
-          <div
-            onClick={() => navigate("/mybookings")}
-            className="font-semibold text-lg"
-          >
-            Bookings
-          </div>
-          <div
-            onClick={() => {
-              navigate("/myearnings");
-            }}
-            className="font-semibold text-lg"
-          >
-            Earnings
-          </div>
-          <div
-            onClick={() => navigate("/mentorbano")}
-            className="font-semibold text-lg"
-          >
-            Become a Mentor
-          </div>
-          <div
-            onClick={() => navigate("/myaccount")}
-            className="font-semibold text-lg"
-          >
-            Account
-          </div>
-          <div
-            onClick={() => navigate("/requestedMeets")}
-            className="font-semibold text-lg"
-          >
-            Meet
-          </div>
-          <div
-            style={{
-              fontWeight: "bold",
-              borderRadius: "30px",
-              border: "1.5px solid #108CFF",
-              width: "80px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "25px",
-              padding: "20px 50px",
-            }}
-            onClick={logout}
-          >
-            Logout
+            {/* <RxCross2
+              onClick={() => {
+                document.querySelector(".more-vertical-options").style.display =
+                  "none";
+              }}
+              className="absolute top-6 right-5 text-2xl"
+            /> */}
+            <div
+              onClick={() => navigate("/mySlots")}
+              className="font-semibold text-lg"
+            >
+              Slots
+            </div>
+            <div
+              onClick={() => navigate("/mybookings")}
+              className="font-semibold text-lg"
+            >
+              Bookings
+            </div>
+            <div
+              onClick={() => {
+                navigate("/myearnings");
+              }}
+              className="font-semibold text-lg"
+            >
+              Earnings
+            </div>
+            <div
+              onClick={() => navigate("/mentorbano")}
+              className="font-semibold text-lg"
+            >
+              Become a Mentor
+            </div>
+            <div
+              onClick={() => navigate("/myaccount")}
+              className="font-semibold text-lg"
+            >
+              Account
+            </div>
+            <div
+              onClick={() => navigate("/requestedMeets")}
+              className="font-semibold text-lg"
+            >
+              Meet
+            </div>
+            <div
+              style={{
+                fontWeight: "bold",
+                borderRadius: "30px",
+                border: "1.5px solid #108CFF",
+                width: "80px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "25px",
+                padding: "20px 50px",
+              }}
+              onClick={logout}
+            >
+              Logout
+            </div>
           </div>
         </div>
       </div>
