@@ -5,7 +5,7 @@ import { PiBellRingingLight } from "react-icons/pi";
 import { HiOutlineChatBubbleLeftEllipsis } from "react-icons/hi2";
 import "./index.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiOutlineSchedule } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { SiGooglechat } from "react-icons/si";
 import { IoIosAddCircle } from "react-icons/io";
@@ -19,6 +19,10 @@ import { logoutUser } from "../../api/logoutRequest";
 import { toast } from "react-hot-toast";
 import PostPopUp from "../Landing/Post/PostPopUp";
 import { getUser } from "../../api/userRequest";
+import book from "../../components/images/book.png";
+import search from "../../components/images/iconamoon_search-light.png";
+import home from "../../components/images/octicon_home-fill-24.png";
+import profile from "../../components/images/gg_profile.png";
 
 const Mobilecommonhead = () => {
   const [showPostPopUp, setShowPostPopUp] = useState(false);
@@ -138,6 +142,7 @@ const Mobilecommonhead = () => {
               className={`${
                 window.location.pathname === "/searchbar" ? "color" : "notColor"
               }`}
+              src={search}
             />
           </div>
           {window.location.pathname === "/homepage" && (
@@ -156,21 +161,26 @@ const Mobilecommonhead = () => {
             <SiGooglechat />
           </div> */}
           <div className="mobile-panel-options">
+            <img
+              onClick={() => {
+                navigate("/mybookings");
+              }}
+              className={`${
+                window.location.pathname === "/Profile" ? "color" : "notColor"
+              }`}
+              src={book}
+            />
+          </div>
+          <div className="mobile-panel-options">
             <FaUserAlt
               onClick={() => {
                 navigate("/Profile");
               }}
               className={`${
-                window.location.pathname === "/Profile" ? "color" : "notColor"
+                window.location.pathname === "/Profile"
+                  ? "color"
+                  : "notColor text-[#00000033]"
               }`}
-            />
-          </div>
-          <div className="mobile-panel-options">
-            <FiMoreVertical
-              onClick={() => {
-                document.querySelector(".more-vertical-options").style.display =
-                  "flex";
-              }}
             />
           </div>
         </div>
