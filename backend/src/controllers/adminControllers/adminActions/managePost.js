@@ -25,6 +25,7 @@ exports.deletePost = async (req, res) => {
         // remove post from user liked post array
         for (let i = 0; i < postLikers.length; i++) {
             const liker = await User.findById(postLikers[i]);
+            if(!liker) continue;
             liker.postLiked.pull(postId);
             await liker.save();
         }
@@ -33,6 +34,7 @@ exports.deletePost = async (req, res) => {
         // remove post from user viewed post array
         for (let i = 0; i < postViewed.length; i++) {
             const viewer = await User.findById(postViewed[i]);
+            if(!viewer) continue;
             viewer.postViewed.pull(postId);
             await viewer.save();
         }
@@ -42,7 +44,7 @@ exports.deletePost = async (req, res) => {
 
         for (let i = 0; i < comments.length; i++) {
             const comment = await Comment.findById(comments[i]);
-            await comment.remove();
+            await Comment.findByIdAndDelete(comments[i]);
         }
         await Post.findByIdAndDelete(postId);
         response_200(res, "Post deleted successfully");
