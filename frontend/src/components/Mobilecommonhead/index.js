@@ -202,10 +202,10 @@ const Mobilecommonhead = () => {
                   userDetails.firstname + " " + userDetails.lastname}
               </h1>
             </div>
-            <div className="flex items-center justify-between w-[50vw] text-sm">
+            <div className="flex items-center justify-between w-[50vw] text-base">
               {" "}
               <div className="">
-                <b>
+                <b className="text-black">
                   {" "}
                   {userDetails &&
                     userDetails.followers &&
@@ -214,7 +214,7 @@ const Mobilecommonhead = () => {
                 Followers
               </div>
               <div className="">
-                <b>
+                <b className="text-black">
                   {" "}
                   {userDetails &&
                     userDetails.followings &&
@@ -232,12 +232,15 @@ const Mobilecommonhead = () => {
             }}
             className="absolute top-6 right-5 text-2xl"
           />
-          <div onClick={() => navigate("/mySlots")} className="font-semibold">
+          <div
+            onClick={() => navigate("/mySlots")}
+            className="font-semibold text-lg"
+          >
             Slots
           </div>
           <div
             onClick={() => navigate("/mybookings")}
-            className="font-semibold"
+            className="font-semibold text-lg"
           >
             Bookings
           </div>
@@ -245,22 +248,25 @@ const Mobilecommonhead = () => {
             onClick={() => {
               navigate("/myearnings");
             }}
-            className="font-semibold"
+            className="font-semibold text-lg"
           >
             Earnings
           </div>
           <div
             onClick={() => navigate("/mentorbano")}
-            className="font-semibold"
+            className="font-semibold text-lg"
           >
             Become a Mentor
           </div>
-          <div onClick={() => navigate("/myaccount")} className="font-semibold">
+          <div
+            onClick={() => navigate("/myaccount")}
+            className="font-semibold text-lg"
+          >
             Account
           </div>
           <div
             onClick={() => navigate("/requestedMeets")}
-            className="font-semibold"
+            className="font-semibold text-lg"
           >
             Meet
           </div>
@@ -268,13 +274,13 @@ const Mobilecommonhead = () => {
             style={{
               fontWeight: "bold",
               borderRadius: "30px",
-              border: "1.5px solid rgb(55, 194, 218)",
+              border: "1.5px solid #108CFF",
               width: "80px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               height: "25px",
-              padding: "22px 70px",
+              padding: "20px 50px",
             }}
             onClick={logout}
           >
