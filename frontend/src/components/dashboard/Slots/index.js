@@ -959,7 +959,7 @@ function Dashboard({
             </div>
             <div style={{ marginTop: "1vw" }} className="btnCont">
               <button
-                className="next2"
+                className="next2 md:mb-10"
                 style={{
                   backgroundColor: "red",
                   color: "white",

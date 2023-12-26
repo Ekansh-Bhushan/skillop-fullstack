@@ -201,7 +201,7 @@ function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
             You are One step away from becoming a Mentor...
           </div>
         )}
-        <div className="but">
+        <div className="but md:mb-10">
           {isNotApplied && (
             <button
               className={isActive ? "custom-button" : "custom-button-active"}

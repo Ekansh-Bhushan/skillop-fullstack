@@ -284,7 +284,7 @@
 @media (max-width: 380px) {
   .filtered-search-results {
     width: 100%;
-    top: 50vh;
+    top: 54vh;
     left: 0;
     height: auto;
     /* max-height: 45vh; */

@@ -44,7 +44,7 @@ const Social = () => {
   };
 
   const prevClicked = () => {
-    navigate("/skill6");
+    navigate("/mcover");
   };
 
   return (
