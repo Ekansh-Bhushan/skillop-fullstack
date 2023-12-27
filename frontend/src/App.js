@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import { getUser } from './api/userRequest';
-import toast, { Toaster } from 'react-hot-toast';
-import AuthPage from './components/Maincomp';
-import LoadingBar from 'react-top-loading-bar';
-import { Emoji } from 'emoji-picker-react';
-import { getNotifications } from './api/getNotifications';
-import TopBar from './components/CommonTopBar/TopBar';
+import { useEffect, useState } from "react";
+import "./App.css";
+import { getUser } from "./api/userRequest";
+import toast, { Toaster } from "react-hot-toast";
+import AuthPage from "./components/Maincomp";
+import LoadingBar from "react-top-loading-bar";
+import { Emoji } from "emoji-picker-react";
+import { getNotifications } from "./api/getNotifications";
+import TopBar from "./components/CommonTopBar/TopBar";
+import { useNavigate } from "react-router-dom";
 
-function App({location}) {
+function App({ location }) {
   const [userData, setUserData] = useState(null);
   const [progress, setProgress] = useState(0);
   const [Mentor, setMentor] = useState(false);
@@ -18,39 +19,39 @@ function App({location}) {
   // GET USER DATA
 
   const pagesToNotRedirect = [
-    '/',
-    '/mlogin',
-    '/msignup',
-    '/mpersonal',
-    '/mcontact',
-    '/mskill',
-    '/mstudinfo',
-    '/mprofinfo',
-    '/mcover',
-    '/msocial',
-    '/signup',
-    '/login',
-    '/skill1',
-    '/skill2',
-    '/skill3',
-    '/skill4',
-    '/skill5',
-    '/skill6',
-    '/skill7',
-    '/loginn',
-    '/about',
-    '/contact',
-    '/privacy-policy',
-    '/terms-of-service',
-    '/faqs',
-    '/careers',
+    "/",
+    "/mlogin",
+    "/msignup",
+    "/mpersonal",
+    "/mcontact",
+    "/mskill",
+    "/mstudinfo",
+    "/mprofinfo",
+    "/mcover",
+    "/msocial",
+    "/signup",
+    "/login",
+    "/skill1",
+    "/skill2",
+    "/skill3",
+    "/skill4",
+    "/skill5",
+    "/skill6",
+    "/skill7",
+    "/loginn",
+    "/about",
+    "/contact",
+    "/privacy-policy",
+    "/terms-of-service",
+    "/faqs",
+    "/careers",
   ];
 
   const redirectIfNotAuthorize = () => {
-    localStorage.removeItem('skilloptoken');
+    localStorage.removeItem("skilloptoken");
     console.log(window.location.pathname);
     if (pagesToNotRedirect.includes(window.location.pathname)) return;
-    toast.error('Please Login/Signup to continue');
+    toast.error("Please Login/Signup to continue");
 
     if (window.innerWidth > 500)
       window.location.replace(`/login?redirect=${window.location.pathname}`);
@@ -76,7 +77,7 @@ function App({location}) {
           console.log(err.response.data.result);
           redirectIfNotAuthorize();
         }
-        console.log('Unable to fetch user', err);
+        console.log("Unable to fetch user", err);
       }
     };
     const fetchNotifications = async () => {
@@ -84,13 +85,13 @@ function App({location}) {
         const NotiData = await getNotifications();
         setNotifyList(NotiData.data.result);
       } catch (err) {
-        console.log('Unable to fetch notifications', err);
+        console.log("Unable to fetch notifications", err);
       }
     };
-    console.log('top bar use effe');
+    console.log("top bar use effe");
     setShouldRender(!excludedRoutes.includes(window.location.pathname));
 
-    if (localStorage.getItem('skilloptoken')) {
+    if (localStorage.getItem("skilloptoken")) {
       fetchUser();
       // fetchNotifications();
     } else {
@@ -101,33 +102,33 @@ function App({location}) {
   const [showPostPopUp, setShowPostPopUp] = useState(false);
 
   const excludedRoutes = [
-    '/',
-    '/mlogin',
-    '/msignup',
-    '/mpersonal',
-    '/mcontact',
-    '/mskill',
-    '/mstudinfo',
-    '/mprofinfo',
-    '/mcover',
-    '/msocial',
-    '/signup',
-    '/login',
-    '/skill1',
-    '/skill2',
-    '/skill3',
-    '/skill4',
-    '/skill5',
-    '/skill6',
-    '/skill7',
-    '/loginn',
-    '/about',
-    '/contact',
-    '/privacy-policy',
-    '/terms-of-service',
-    '/faqs',
-    '/careers',
-    '/admin',
+    "/",
+    "/mlogin",
+    "/msignup",
+    "/mpersonal",
+    "/mcontact",
+    "/mskill",
+    "/mstudinfo",
+    "/mprofinfo",
+    "/mcover",
+    "/msocial",
+    "/signup",
+    "/login",
+    "/skill1",
+    "/skill2",
+    "/skill3",
+    "/skill4",
+    "/skill5",
+    "/skill6",
+    "/skill7",
+    "/loginn",
+    "/about",
+    "/contact",
+    "/privacy-policy",
+    "/terms-of-service",
+    "/faqs",
+    "/careers",
+    "/admin",
     // Add more routes as needed
   ];
 
@@ -135,13 +136,17 @@ function App({location}) {
     !excludedRoutes.includes(window.location.pathname)
   );
 
+  const navigate = useNavigate();
+
   return (
     <>
       {/* <RouteLanding/> */}
       <Toaster />
       <div className="md:hidden">
-        {' '}
-        {shouldRender && <TopBar setShowPostPopUp={setShowPostPopUp} />}
+        {" "}
+        {shouldRender && (
+          <TopBar setShowPostPopUp={setShowPostPopUp} navigate={navigate} />
+        )}
       </div>
       <AuthPage
         setNotifyList={setNotifyList}

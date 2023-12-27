@@ -23,7 +23,7 @@ const LandingTwo = () => {
     window.innerWidth < 500 ? navigate("/msignup") : navigate("/signup");
   };
   return (
-    <div className="min-h-[100vh] mt-10">
+    <div className="min-h-[100vh] mt-[12vh]">
       <div className="flex items-center justify-center flex-col">
         <h1 className="text-center text-[35px] font-semibold md:text-[30px]">
           Why choose SKILLOP?

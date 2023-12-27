@@ -26,12 +26,12 @@ const LandingOne = () => {
   };
 
   return (
-    <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0">
+    <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0 ">
       <div className="flex flex-col ">
-        <h1 class="text-[55px] font-medium md:text-[40px] my-5">
+        <h1 class="text-[50px] font-medium md:text-[40px] my-5">
           Shuru se{" "}
           <span class="font-black relative">
-            Shuruwat <img src={line} className="h-2 " />
+            Shuruwat <img src={line} className="" />
           </span>{" "}
           karte hain!
         </h1>
@@ -72,7 +72,7 @@ const LandingOne = () => {
         </div>
       </div>
       <div className="flex shrink-0 md:hidden">
-        <img src={landingelement} className="block  h-auto" />
+        <img src={landingelement} className="block h-auto mt-4" />
       </div>
     </div>
   );
