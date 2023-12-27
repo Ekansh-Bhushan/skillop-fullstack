@@ -26,7 +26,7 @@ const LandingOne = () => {
           <span class="font-black relative">
             Shuruwat <img src={line} className="h-2 " />
           </span>{" "}
-          krte hain!
+          karte hain!
         </h1>
         <p className="text-md ">
           Skillop serves as a dynamic tech society cluster, dedicated to
