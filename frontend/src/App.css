@@ -51,3 +51,16 @@ body {
   font-family: "Ubuntu";
   background-color: gray;
 }
+
+.grad-color {
+  background: linear-gradient(
+    93deg,
+    #f42e2e -25.43%,
+    #ffb800 25.25%,
+    #0eab00 75.92%,
+    #25ced1 124.26%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

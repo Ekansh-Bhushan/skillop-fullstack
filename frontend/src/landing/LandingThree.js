@@ -3,11 +3,13 @@ import line from "../components/images/Line.png";
 import Saly35 from "../components/images/Saly-35.png";
 import Saly13 from "../components/images/Saly-13.png";
 import right from "../components/images/right.png";
+import arrow from "../components/images/typcn_arrow-up-outline.png";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LandingThree = () => {
   const [isMobile, setIsMobile] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 500);
@@ -20,6 +22,9 @@ const LandingThree = () => {
     // Cleanup the event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  const signupClicked = () => {
+    window.innerWidth < 500 ? navigate("/msignup") : navigate("/signup");
+  };
   return (
     <div className="mt-5">
       <div className="flex items-center justify-center flex-col">
@@ -47,15 +52,15 @@ const LandingThree = () => {
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>start your own community</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Host sessions and events</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Earn money by guiding multiple mentees</span>
           </div>
         </div>
 
@@ -69,25 +74,31 @@ const LandingThree = () => {
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Get guidance from your Seniors</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Participate in events and win big</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Chat and make connections with people</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Improve your skills and enhance your CV</span>
           </div>
         </div>
       </div>
       <div className="flex items-center justify-center mt-5">
-        <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold md:mt-5 md:px-5">
-          <a href={isMobile ? "/msignup" : "/signup"}> Be a Mentor or Mentee</a>
+        <button
+          className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden mt-5"
+          onClick={signupClicked}
+        >
+          <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5">
+            Be a Mentor or Mentee
+            <img src={arrow} width={30} />
+          </span>
         </button>
       </div>
     </div>
