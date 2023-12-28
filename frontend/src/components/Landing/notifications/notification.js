@@ -111,15 +111,16 @@ const Notification = ({
           </div> */}
           {/* <div> */}
           {fetchingNotify && (
-            <img
-              src={spinner}
-              className="absolute right-[50vw] w-[60px] top-[45vh] left-[40vw]"
-              alt="loading"
-            />
+            <div className="flex items-center justify-center mt-10">
+              <img src={spinner} alt="loading" className="w-[60px]" />
+            </div>
           )}
           {/* </div> */}
           {!fetchingNotify && notifyList.length === 0 && (
-            <h3 className="no-notify">No Notifications</h3>
+            <div className="flex items-center justify-center">
+              {" "}
+              <h3 className="no-notify">No Notifications</h3>
+            </div>
           )}
           <div className="">
             {notifyList.map((item) => {

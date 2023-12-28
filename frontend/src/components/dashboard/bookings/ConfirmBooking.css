@@ -3,6 +3,7 @@
   left: 12vw;
   display: flex;
   width: calc(100% - 300px);
+  padding-top: 10vh;
 }
 
 .cnf-prof-pic {

@@ -125,183 +125,197 @@ const Mobilecommonhead = () => {
         </div>
       </div>
 
-      <div className="mobile-panel">
-        <div className="inside-panel">
-          <div className="mobile-panel-options">
-            <AiFillHome
-              style={{
-                fontSize: "37px",
-                marginTop: "-5px",
-              }}
-              onClick={() => {
-                navigate("/homepage");
-              }}
-              className={`${
-                window.location.pathname === "/homepage" ? "color" : "notColor"
-              }`}
-            />
-          </div>
-          <div className="mobile-panel-options">
-            <BsSearch
-              onClick={() => {
-                navigate("/searchbar");
-              }}
-              className={`${
-                window.location.pathname === "/searchbar" ? "color" : "notColor"
-              }`}
-              src={search}
-            />
-          </div>
-          {window.location.pathname === "/homepage" && (
-            <div
-              className="absolute right-[-2vh] bottom-2"
-              style={{
-                fontSize: "64px",
-                transform: "translateY(-90%)",
-                color: "#108CFF",
-              }}
-            >
-              {<IoIosAddCircle onClick={handlePostPopUp} className="w-[7vh]" />}
+      {window.location.pathname === "/chat" ? (
+        <div></div>
+      ) : (
+        <div className="mobile-panel">
+          <div className="inside-panel">
+            <div className="mobile-panel-options">
+              <AiFillHome
+                style={{
+                  fontSize: "37px",
+                  marginTop: "-5px",
+                }}
+                onClick={() => {
+                  navigate("/homepage");
+                }}
+                className={`${
+                  window.location.pathname === "/homepage"
+                    ? "color"
+                    : "notColor"
+                }`}
+              />
             </div>
-          )}
-          {/* <div className="mobile-panel-options">
-            <SiGooglechat />
-          </div> */}
-          <div className="mobile-panel-options">
-            <img
-              onClick={() => {
-                navigate("/requestedMeets");
-              }}
-              className={`${
-                window.location.pathname === "/Profile" ? "color" : "notColor"
-              }`}
-              src={book}
-            />
-          </div>
-          <div className="mobile-panel-options">
-            <FaUserAlt
-              onClick={() => {
-                navigate("/Profile");
-              }}
-              className={`${
-                window.location.pathname === "/Profile"
-                  ? "color"
-                  : "notColor text-[#00000033]"
-              }`}
-            />
-          </div>
-        </div>
-        <div
-          className="more-vertical-options"
-          onClick={toggleMoreOptions}
-          style={{ display: moreOptionsVisible ? "flex" : "none" }} // Set display based on moreOptionsVisible state
-        >
-          <div className="more-vertical-options-new">
-            <div className="flex items-center justify-center flex-col gap-[10px]">
-              <div>
-                {" "}
-                <img
-                  src={userDetails ? userDetails.profilePicUrl : "/user.png"}
-                  alt="user pic"
-                  className="rounded-full w-[100px] h-[100px] ml-3"
-                  onClick={navigateToProfile}
-                />
-              </div>
-              <div>
-                {" "}
-                <h1 className="text-lg">
-                  {" "}
-                  {userDetails &&
-                    userDetails.firstname + " " + userDetails.lastname}
-                </h1>
-              </div>
-              <div className="flex items-center justify-between w-[55vw] text-base">
-                {" "}
-                <div className="">
-                  <b className="text-black">
-                    {" "}
-                    {userDetails &&
-                      userDetails.followers &&
-                      userDetails.followers.length}
-                  </b>{" "}
-                  Followers
-                </div>
-                <div className="">
-                  <b className="text-black">
-                    {" "}
-                    {userDetails &&
-                      userDetails.followings &&
-                      userDetails.followings.length}
-                  </b>{" "}
-                  Followings
-                </div>
-              </div>
+            <div className="mobile-panel-options">
+              <BsSearch
+                onClick={() => {
+                  navigate("/searchbar");
+                }}
+                className={`${
+                  window.location.pathname === "/searchbar"
+                    ? "color"
+                    : "notColor"
+                }`}
+                src={search}
+              />
             </div>
+            {window.location.pathname === "/homepage" && (
+              <div
+                className="absolute right-[-2vh] bottom-2"
+                style={{
+                  fontSize: "64px",
+                  transform: "translateY(-90%)",
+                  color: "#108CFF",
+                }}
+              >
+                {
+                  <IoIosAddCircle
+                    onClick={handlePostPopUp}
+                    className="w-[7vh]"
+                  />
+                }
+              </div>
+            )}
+            {/* <div className="mobile-panel-options">
+  <SiGooglechat />
+</div> */}
+            <div className="mobile-panel-options">
+              <img
+                onClick={() => {
+                  navigate("/requestedMeets");
+                }}
+                className={`${
+                  window.location.pathname === "/Profile" ? "color" : "notColor"
+                }`}
+                src={book}
+              />
+            </div>
+            <div className="mobile-panel-options">
+              <FaUserAlt
+                onClick={() => {
+                  navigate("/Profile");
+                }}
+                className={`${
+                  window.location.pathname === "/Profile"
+                    ? "color"
+                    : "notColor text-[#00000033]"
+                }`}
+              />
+            </div>
+          </div>
 
-            {/* <RxCross2
-              onClick={() => {
-                document.querySelector(".more-vertical-options").style.display =
-                  "none";
-              }}
-              className="absolute top-6 right-5 text-2xl"
-            /> */}
-            <div
-              onClick={() => navigate("/mySlots")}
-              className="font-semibold text-lg"
-            >
-              Slots
-            </div>
-            <div
-              onClick={() => navigate("/mybookings")}
-              className="font-semibold text-lg"
-            >
-              Bookings
-            </div>
-            <div
-              onClick={() => {
-                navigate("/myearnings");
-              }}
-              className="font-semibold text-lg"
-            >
-              Earnings
-            </div>
-            <div
-              onClick={() => navigate("/mentorbano")}
-              className="font-semibold text-lg"
-            >
-              Become a Mentor
-            </div>
-            <div
-              onClick={() => navigate("/myaccount")}
-              className="font-semibold text-lg"
-            >
-              Account
-            </div>
-            <div
-              onClick={() => navigate("/requestedMeets")}
-              className="font-semibold text-lg"
-            >
-              Meet
-            </div>
-            <div
-              style={{
-                fontWeight: "bold",
-                borderRadius: "30px",
-                border: "1.5px solid #108CFF",
-                width: "80px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "25px",
-                padding: "20px 50px",
-              }}
-              onClick={logout}
-            >
-              Logout
+          <div
+            className="more-vertical-options"
+            onClick={toggleMoreOptions}
+            style={{ display: moreOptionsVisible ? "flex" : "none" }} // Set display based on moreOptionsVisible state
+          >
+            <div className="more-vertical-options-new">
+              <div className="flex items-center justify-center flex-col gap-[10px]">
+                <div>
+                  {" "}
+                  <img
+                    src={userDetails ? userDetails.profilePicUrl : "/user.png"}
+                    alt="user pic"
+                    className="rounded-full w-[100px] h-[100px] ml-3"
+                    onClick={navigateToProfile}
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <h1 className="text-lg">
+                    {" "}
+                    {userDetails &&
+                      userDetails.firstname + " " + userDetails.lastname}
+                  </h1>
+                </div>
+                <div className="flex items-center justify-between w-[55vw] text-base">
+                  {" "}
+                  <div className="">
+                    <b className="text-black">
+                      {" "}
+                      {userDetails &&
+                        userDetails.followers &&
+                        userDetails.followers.length}
+                    </b>{" "}
+                    Followers
+                  </div>
+                  <div className="">
+                    <b className="text-black">
+                      {" "}
+                      {userDetails &&
+                        userDetails.followings &&
+                        userDetails.followings.length}
+                    </b>{" "}
+                    Followings
+                  </div>
+                </div>
+              </div>
+
+              {/* <RxCross2
+    onClick={() => {
+      document.querySelector(".more-vertical-options").style.display =
+        "none";
+    }}
+    className="absolute top-6 right-5 text-2xl"
+  /> */}
+              <div
+                onClick={() => navigate("/mySlots")}
+                className="font-semibold text-lg"
+              >
+                Slots
+              </div>
+              <div
+                onClick={() => navigate("/mybookings")}
+                className="font-semibold text-lg"
+              >
+                Bookings
+              </div>
+              <div
+                onClick={() => {
+                  navigate("/myearnings");
+                }}
+                className="font-semibold text-lg"
+              >
+                Earnings
+              </div>
+              <div
+                onClick={() => navigate("/mentorbano")}
+                className="font-semibold text-lg"
+              >
+                Become a Mentor
+              </div>
+              <div
+                onClick={() => navigate("/myaccount")}
+                className="font-semibold text-lg"
+              >
+                Account
+              </div>
+              <div
+                onClick={() => navigate("/requestedMeets")}
+                className="font-semibold text-lg"
+              >
+                Meet
+              </div>
+              <div
+                style={{
+                  fontWeight: "bold",
+                  borderRadius: "30px",
+                  border: "1.5px solid #108CFF",
+                  width: "80px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "25px",
+                  padding: "20px 50px",
+                }}
+                onClick={logout}
+              >
+                Logout
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

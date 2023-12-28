@@ -37,7 +37,7 @@ const LandingFour = () => {
         </p>
         <img src={Saly} className="h-[55vh] md:hidden" />
       </div>
-      <div className="flex flex-col justify-start items-start gap-5 md:mx-4 md:mb-10">
+      <div className="flex flex-col justify-start items-start w-[40%] md:w-[90%] gap-5 md:mx-4 md:mb-10">
         <div className="relative w-[100%]">
           <div className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]">
             <p>Is becoming Mentor paid or free?</p>
@@ -50,7 +50,10 @@ const LandingFour = () => {
           </div>
           {dropdowns.isMentorPaid && (
             <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4">
-              Context for "Is becoming Mentor paid or free?"
+              Becoming a mentor on Skillop is free. Mentors may volunteer their
+              time for free mentorship or charge for their services in
+              specialized areas. We encourage mentors to create a structure that
+              aligns with their goals and Skillop’s values.
             </div>
           )}
         </div>
