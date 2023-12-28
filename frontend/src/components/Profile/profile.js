@@ -435,7 +435,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                       <div
                         style={{
                           display: "flex",
-                          gap: "4px",
+                          gap: "14px",
                           alignItems: "center",
                         }}
                       >
@@ -448,15 +448,17 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                           onClick={(e) => {
                             handleExp(e, item._id);
                           }}
-                          style={{ height: "30px", width: "30px" }}
+                          style={{ height: "25px", width: "35px" }}
                           alt="add-icon"
                         />
                         <img
                           onClick={() => handleDelExp(item._id)}
-                          style={{ cursor: "pointer" }}
+                          style={{
+                            height: "20px",
+                            width: "35px",
+                            cursor: "pointer",
+                          }}
                           src={delIcon}
-                          height={20}
-                          width={20}
                           alt="del"
                         />
                       </div>
@@ -604,8 +606,9 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                         <div
                           style={{
                             display: "flex",
-                            gap: "4px",
+                            gap: "10px",
                             alignItems: "center",
+                            marginRight: "50px",
                           }}
                         >
                           <img

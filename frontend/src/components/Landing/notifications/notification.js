@@ -70,7 +70,7 @@ const Notification = ({
           <Profileandevents userData={userData} />
         </div>
 
-        <div className="d-flex items-center justify-center w-[50%] ml-[20vw] border-x-2 pt-[13vh] md:w-[100%] md:ml-0 md:pb-[8vh]">
+        <div className="d-flex items-center justify-center w-[50%] ml-[20vw] border-r-2 pt-[13vh] md:w-[100%] md:ml-0 md:pb-[8vh] min-h-[100vh]">
           <div className="text-3xl font-semibold pl-5 border-b-2 pb-5">
             <h2 className="text-2xl">Notifications</h2>
           </div>

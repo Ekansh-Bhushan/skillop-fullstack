@@ -138,7 +138,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
           )}
           <h2 className="text-chat-prev">
             {chats.length === 0
-              ? "Follow someone to chat with him!"
+              ? "The Chat you select will appear here!"
               : "The Chat you select will appear here!"}
           </h2>
           <div className="chat-friends-list">
@@ -172,7 +172,11 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
               <div className="chat-list pb-[30vh]">
                 {chats.length === 0 ? (
-                  <img src={spinner} className="spinner-css" alt="loading" />
+                  <div className="flex items-center justify-center h-[100%] ">
+                    <h1 className="text-lg text-[#5F5F5F] font-normal">
+                      Follow someone to chat with him
+                    </h1>
+                  </div>
                 ) : (
                   chats.map((chat) => (
                     <div

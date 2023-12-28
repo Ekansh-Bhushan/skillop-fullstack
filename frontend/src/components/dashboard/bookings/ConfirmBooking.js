@@ -72,9 +72,9 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
       <Mobilecommonhead />
 
       <div className="confirm-container">
-        <div className="h-[100vh] flex items-center justify-center flex-col px-[10vw]">
+        <div className="h-[100vh] flex items-center justify-center flex-col px-[10vw] md:px-4">
           {isSignedIn ? (
-            <h2 className="text-3xl font-semibold w-full mb-5 mt-[-5vh]">
+            <h2 className="text-3xl font-semibold w-full mb-5 mt-[-5vh] md:mt-[-15vh]">
               Confirm Your Slot
             </h2>
           ) : (

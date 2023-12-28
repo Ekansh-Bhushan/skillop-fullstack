@@ -188,6 +188,7 @@ const Mobilecommonhead = () => {
                   window.location.pathname === "/Profile" ? "color" : "notColor"
                 }`}
                 src={book}
+                style={{ width: "30px", marginBottom: "5px" }}
               />
             </div>
             <div className="mobile-panel-options">
