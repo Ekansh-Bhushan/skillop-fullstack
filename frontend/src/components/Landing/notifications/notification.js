@@ -111,7 +111,11 @@ const Notification = ({
           </div> */}
           {/* <div> */}
           {fetchingNotify && (
-            <img src={spinner} className="spinner-css" alt="loading" />
+            <img
+              src={spinner}
+              className="absolute right-[50vw] w-[60px] top-[50vh]"
+              alt="loading"
+            />
           )}
           {/* </div> */}
           {!fetchingNotify && notifyList.length === 0 && (

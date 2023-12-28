@@ -125,18 +125,15 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 type="text"
                 name="keyword"
                 placeholder="Company, People, Skill..."
-                onChange={(e) => {
-                  onChangeFilter(e);
-                }}
+                onChange={onChangeFilter}
+                value={filterFields.keyword}
               />
               <AiOutlineSearch
                 style={{
                   fontSize: "22px",
                   marginRight: "15px",
                 }}
-                onClick={(e) => {
-                  onChangeFilter(e);
-                }}
+                onClick={onChangeFilter}
               />
             </div>
             <div className="filter-options-search">

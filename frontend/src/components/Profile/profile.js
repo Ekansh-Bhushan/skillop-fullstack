@@ -435,8 +435,8 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                       <div
                         style={{
                           display: "flex",
-                          alignItems: "center",
                           gap: "4px",
+                          alignItems: "center",
                         }}
                       >
                         <img
@@ -448,10 +448,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                           onClick={(e) => {
                             handleExp(e, item._id);
                           }}
-                          style={{
-                            height: "30px",
-                            width: "30px",
-                          }}
+                          style={{ height: "30px", width: "30px" }}
                           alt="add-icon"
                         />
                         <img

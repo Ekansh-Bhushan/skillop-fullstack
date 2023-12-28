@@ -32,7 +32,7 @@
 .profile-data {
   margin-left: 23.2%;
   margin-top: -5.2%;
-  border: 2px solid gray;
+  border: 2px solid #00000026;
   width: 48%;
   border-radius: 0 0 15px 15px;
 }
@@ -40,7 +40,7 @@
 .profile-data hr {
   width: 612px;
   height: 1.5px;
-  background: #909090;
+  background: #00000026;
 }
 
 /* ============================================ JOURNEY ============================================= */
@@ -73,7 +73,7 @@
 
 .journey-content .lorem-ipsum-dolor {
   color: transparent;
-  font-family: 'Roboto-Regular', Helvetica;
+  font-family: "Roboto-Regular", Helvetica;
   font-size: 12px;
   font-weight: 400;
   /* left: 0; */
@@ -143,7 +143,7 @@
   padding: 10px;
   vertical-align: top;
   font-size: 1.2rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 @media screen and (max-width: 500px) {
@@ -160,13 +160,14 @@
   font: inherit;
   color: #3f75ff;
   cursor: pointer;
-  margin-left: 23%;
+  margin-inline: auto;
   font-size: 1.2rem;
+  width: 100%;
 }
 
 .journey {
   /* margin-bottom: 20px; */
-  padding: 25px;
+  padding: 10px;
 }
 
 /* ============================================ SKILLS ============================================= */
@@ -190,14 +191,14 @@
   border: 2px solid #108cff;
   border-radius: 10px;
   margin-top: 10px;
-  padding: 7px;
+  padding: 3px;
   font-size: 1.2rem;
   text-align: center;
   display: flex;
   cursor: pointer;
   gap: 7px;
   width: auto;
-  padding: 12px 12px 12px 12px;
+  padding: 5px;
   align-items: center;
   justify-content: center;
   /* Adjust the value as needed */
@@ -206,7 +207,7 @@
 .skills-cont {
   display: flex;
   gap: 12px;
-  width: 60%;
+  width: 100%;
   flex-wrap: wrap;
 }
 
@@ -282,7 +283,7 @@
 }
 
 .line {
-  max-width: 90%;
+  min-width: 100%;
 }
 
 .experience h3 {
@@ -337,6 +338,7 @@
   padding: 0px;
   /* Optional: Add padding to the icon container for spacing */
   border-radius: 50%;
+  width: 50px;
   /* Optional: Add border-radius for a circular background */
 }
 

@@ -94,10 +94,10 @@ const ProfileHeader = () => {
         </div>
         <div className="ph-follow">
           <div
-            className="ph-follwers"
+            className="ph-follwers text-[#5F5F5F]"
             onClick={() => setShowFollowers(!showFollowers)}
           >
-            <b>
+            <b className="text-black">
               {" "}
               {userDetails &&
                 userDetails.followers &&
@@ -106,10 +106,10 @@ const ProfileHeader = () => {
             Followers
           </div>
           <div
-            className="ph-followings"
+            className="ph-followings text-[#5F5F5F]"
             onClick={() => setShowFollowings(!showFollowings)}
           >
-            <b>
+            <b className="text-black">
               {" "}
               {userDetails &&
                 userDetails.followings &&
