@@ -113,7 +113,7 @@ const Notification = ({
           {fetchingNotify && (
             <img
               src={spinner}
-              className="absolute right-[50vw] w-[60px] top-[50vh]"
+              className="absolute right-[50vw] w-[60px] top-[45vh] left-[40vw]"
               alt="loading"
             />
           )}

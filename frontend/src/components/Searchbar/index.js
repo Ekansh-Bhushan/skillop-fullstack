@@ -136,7 +136,7 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 onClick={onChangeFilter}
               />
             </div>
-            <div className="filter-options-search">
+            <div className="filter-options-search ">
               <div>Search by : </div>
               <div
                 className="filterss"
@@ -150,9 +150,9 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
               </div>
             </div>
             {searchPeople && (
-              <div>
+              <div className="">
                 <div style={{ margin: "15px 0px" }}>Filters : </div>
-                <div className="filterBY">
+                <div className="filterBY ">
                   <button
                     onClick={addCollegeFilter}
                     // style={{ background: "red" }}
@@ -366,7 +366,7 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 </>
               ))
             : filterFields.keyword.length !== 0 && (
-                <div className="flex items-center justify-center h-full">
+                <div className="flex items-center justify-center h-[90vh]">
                   {" "}
                   <h2 className="text-center text-lg text-[#5f5f5f]">
                     No search results for "{filterFields.keyword}" for applied

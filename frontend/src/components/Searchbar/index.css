@@ -256,8 +256,8 @@
 
   .partition-plus-panel div {
     padding-inline: 2vw;
-    overflow-y: auto;
-    height: 100%;
+    /* overflow-y: auto; */
+    /* height: 100%; */
   }
 
   .search-panel {
@@ -282,6 +282,8 @@
     width: 130%;
   }
   .filterInput > input {
+    position: relative;
+    top: 5vh;
     width: 50%;
     margin: 5px;
     padding: 6px;
