@@ -116,12 +116,19 @@
 } */
 
 @media screen and (max-width: 500px) {
+  .ph-details {
+    top: 6vh;
+  }
   .ph-container {
     margin-inline: auto;
-    margin-top: 12vh;
-    min-height: 69vh;
-    width: 86%;
+    margin-top: 10vh;
+    min-height: 59vh;
+    width: 100%;
     position: relative;
+    border-radius: 0px;
+  }
+  .ph-bg {
+    border-radius: 0px;
   }
   .ph-pic {
     left: 5vw;
@@ -131,7 +138,7 @@
   .ph-pic img {
     width: 80vw;
     height: 30vw;
-    border-radius: 100%;
+    border-radius: 0px;
     cursor: pointer;
     width: 100%;
   }

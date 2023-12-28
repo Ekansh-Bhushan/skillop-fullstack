@@ -76,6 +76,10 @@ const Mobilecommonhead = () => {
     fetchUserDetails();
   }, []);
 
+  const navigateToProfile = () => {
+    navigate("/Profile");
+  };
+
   return (
     <>
       {showPostPopUp && (
@@ -200,6 +204,7 @@ const Mobilecommonhead = () => {
                   src={userDetails ? userDetails.profilePicUrl : "/user.png"}
                   alt="user pic"
                   className="rounded-full w-[100px] h-[100px] ml-3"
+                  onClick={navigateToProfile}
                 />
               </div>
               <div>
@@ -210,7 +215,7 @@ const Mobilecommonhead = () => {
                     userDetails.firstname + " " + userDetails.lastname}
                 </h1>
               </div>
-              <div className="flex items-center justify-between w-[50vw] text-base">
+              <div className="flex items-center justify-between w-[55vw] text-base">
                 {" "}
                 <div className="">
                   <b className="text-black">

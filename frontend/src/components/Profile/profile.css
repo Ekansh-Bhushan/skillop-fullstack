@@ -95,7 +95,7 @@
 @media (max-width: 500px) {
   .profile-data {
     margin-top: 75vh;
-    margin-left: 50vw;
+    margin-left: 20vw;
   }
   .loader {
     display: none;
@@ -227,7 +227,6 @@
 
   .read-more-button {
     color: #3f75ff;
-    margin-left: 25vw;
   }
 }
 
@@ -435,13 +434,13 @@
   .main-profile-page {
     margin-left: 0px;
   }
-  .profile-data {
-    margin-left: 11.1%;
-    margin-top: -5.4%;
-  }
 }
 
 @media only screen and (max-width: 500px) {
+  /* .profile-data {
+    margin-left: 5%;
+    margin-top: -5.4%;
+  } */
   .jd {
     font-size: 1rem;
     margin: 10px;
