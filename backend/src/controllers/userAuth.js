@@ -21,13 +21,14 @@ exports.registerUser = async (req, res) => {
             return res.status(409).send({
                 result: false,
                 err: "User already exist with this email",
-                message: "Try logging in instead",
+                message:
+                    "User already exist with this email! You can login instead.",
             });
         }
-        console.log("email", email);
+        // console.log("email", email);
 
         const username = await generateUsername(email, firstname, lastname, 10);
-        console.log("username", username);
+        // console.log("username", username);
 
         user = await User.create({
             firstname,

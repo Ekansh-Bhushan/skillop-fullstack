@@ -1,10 +1,18 @@
 import React from "react";
 import "./TopBar.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TopBar = ({ setShowPostPopUp }) => {
+  const navigate = useNavigate();
   const createPost = () => {
     setShowPostPopUp(true);
+  };
+
+  const loginClicked = () => {
+    navigate("/login");
+  };
+  const signupClicked = () => {
+    navigate("/signup");
   };
 
   return (
@@ -20,11 +28,17 @@ const TopBar = ({ setShowPostPopUp }) => {
       )}
       {window.location.pathname === "/" && (
         <div className="flex gap-5">
-          <button className="py-2 px-9 rounded-xl text-sm font-bold shadow-md bg-[#FFB800] md:px-3">
-            <a href="/signup">Sign up</a>
+          <button
+            className="py-2 px-9 rounded-xl text-sm font-bold shadow-md bg-[#FFB800] md:px-3"
+            onClick={signupClicked}
+          >
+            Sign up
           </button>
-          <button className="border-2 border-black py-2 px-9 rounded-xl text-sm font-bold md:px-3">
-            <a href="/login">Login</a>
+          <button
+            className="border-2 border-black py-2 px-9 rounded-xl text-sm font-bold md:px-3"
+            onClick={loginClicked}
+          >
+            Login
           </button>
         </div>
       )}

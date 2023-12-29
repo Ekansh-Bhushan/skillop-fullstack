@@ -46,20 +46,22 @@ const SkillThree = () => {
 
     const nextClicked = async () => {
         console.log(skills);
-        try {
-            const request = {
-                skills: skills,
-            };
-            const { data } = await updateIsMentor(request);
+        if (skills.length)
+            try {
+                const request = {
+                    skills: skills,
+                };
+                const { data } = await updateIsMentor(request);
 
-            if (data.result) {
-                toast.success(data.message);
-                console.log(data.message);
-                navigate("/skill4");
+                if (data.result) {
+                    toast.success("Skills added!");
+                    console.log(data.message);
+                    navigate("/skill4");
+                }
+            } catch (error) {
+                toast.error(error.response.data.message);
             }
-        } catch (error) {
-            toast.error(error.response.data.message);
-        }
+        navigate("/skill4");
     };
 
     return (
@@ -187,13 +189,11 @@ const SkillThree = () => {
                             {/* <button className="rounded-full border-[2px] border-black h-9 w-9 flex items-center justify-center">
                                 <FaArrowLeft />
                             </button> */}
-                            <div className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2 hover:cursor-pointer">
-                                <button
-                                    className="font-bold "
-                                    onClick={nextClicked}
-                                >
-                                    NEXT
-                                </button>
+                            <div
+                                className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2 hover:cursor-pointer hover:bg-[#8484841A]"
+                                onClick={nextClicked}
+                            >
+                                <button className="font-bold ">NEXT</button>
                                 <span className="rounded-full border-[2px] border-black py-1 px-1">
                                     <FaArrowRight />
                                 </span>

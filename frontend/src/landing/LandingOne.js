@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import landingelement from "../components/images/landingelement.png";
 import line from "../components/images/Line.png";
+import arrow from "../components/images/arrow.png";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-scroll";
 
 const LandingOne = () => {
+  const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -18,13 +22,17 @@ const LandingOne = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const signupClicked = () => {
+    window.innerWidth < 500 ? navigate("/msignup") : navigate("/signup");
+  };
+
   return (
-    <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0">
+    <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0 ">
       <div className="flex flex-col ">
-        <h1 class="text-[55px] font-medium md:text-[40px] my-5">
+        <h1 class="text-[50px] font-medium md:text-[40px] my-5">
           Shuru se{" "}
           <span class="font-black relative">
-            Shuruwat <img src={line} className="h-2 " />
+            Shuruwat <img src={line} className="" />
           </span>{" "}
           karte hain!
         </h1>
@@ -34,20 +42,32 @@ const LandingOne = () => {
           interconnected ecosystem tailored to foster their growth and success
           in the field of technology.
         </p>
-        <div className="flex gap-5 mt-5 ">
-          <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold md:px-5">
-            <a href={isMobile ? "/msignup" : "/signup"}>Get Started</a>
+        <div className="flex gap-5 mt-5 relative">
+          <button
+            className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden hover:shadow-2xl"
+            onClick={signupClicked}
+          >
+            <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5">
+              Get Started
+              <img src={arrow} width={20} />
+            </span>
           </button>
-          <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold md:px-5">
+          <Link
+            to="landing-three"
+            spy={true}
+            smooth={true}
+            duration={500}
+            className="border-black border-2 px-10 py-3 rounded-lg font-semibold md:px-5 hover:bg-[#8484841A]"
+          >
             Learn More
-          </button>
+          </Link>
         </div>
 
         <div className="text-[45px] text-[#5F5F5F] flex gap-5 mt-20 md:text-[30px] md:mt-10">
-          <div className="flex flex-col items-center justify-center">
-            50+ <span className="font-semi-bold text-[18px]">Mentors</span>
+          <div className="flex flex-col items-center justify-center pr-5 border-r-2 border-[#00000080]">
+            50+ <span className="font-semi-bold text-[18px]  ">Mentors</span>
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center border-r-2 border-[#00000080] pr-5">
             1000+ <span className="font-semi-bold text-[18px]">Users</span>
           </div>
           <div className="flex flex-col items-center justify-center">
@@ -59,7 +79,7 @@ const LandingOne = () => {
         </div>
       </div>
       <div className="flex shrink-0 md:hidden">
-        <img src={landingelement} className="block  h-auto" />
+        <img src={landingelement} className="block h-auto mt-4" />
       </div>
     </div>
   );

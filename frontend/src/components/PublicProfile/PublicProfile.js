@@ -285,7 +285,7 @@ const PublicProfile = ({
               style={{
                 display: "flex",
                 gap: "12px",
-                width: "60%",
+                width: "100%",
                 flexWrap: "wrap",
               }}
             >

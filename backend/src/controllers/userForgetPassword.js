@@ -3,7 +3,6 @@ const User = require("../models/user");
 const { sendEmail } = require("../utils/sendEmail");
 const Notification = require("../models/notification");
 
-
 const crypto = require("crypto");
 exports.forgetPassword = async (req, res) => {
     try {
@@ -119,12 +118,19 @@ exports.resetPassword = async (req, res) => {
         user.resetPasswordToken = undefined;
         user.resetPasswordExpires = undefined;
         await user.save();
-        
-        res.status(200).send({
+
+        const options = {
+            expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+            httpOnly: true,
+        };
+
+        const token = await user.generateToken();
+
+        res.status(200).cookie("token", token, options).send({
             result: true,
             message: "Password reset successful",
+            token: token,
         });
-
     } catch (error) {
         res.status(500).send({
             result: false,

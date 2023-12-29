@@ -5,7 +5,8 @@ import { FaLinkedin, FaGoogle } from "react-icons/fa";
 import { googleIdVerifyAndLogin, registerUser } from "../../api/userRequest";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-
+import linkedin from "../../components/images/devicon_linkedin.png";
+import google from "../../components/images/Google_signup.png";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
@@ -17,8 +18,16 @@ const Page1 = () => {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
 
+    const [agreeToTermsAndConditions, setAgreeToTermsAndConditions] =
+        useState(false);
+
     const signupClicked = async () => {
         // block the signup buttom
+
+        if (!agreeToTermsAndConditions) {
+            toast.error("Please agree to the terms and conditions.");
+            return;
+        }
 
         try {
             const { data } = await registerUser({
@@ -147,6 +156,11 @@ const Page1 = () => {
                                         id="agree"
                                         class="form-checkbox h-5 w-5 text-blue-600"
                                         required
+                                        onChange={(e) =>
+                                            setAgreeToTermsAndConditions(
+                                                e.target.checked
+                                            )
+                                        }
                                     />
                                     <span class="ml-2 text-sm">
                                         By signing up, you are creating a
@@ -183,7 +197,7 @@ const Page1 = () => {
                                 </label>
                             </div>
                             <button
-                                className="bg-[#3568FF] w-full text-white py-3 rounded-lg mt-5"
+                                className="bg-[#3568FF] w-full text-white py-3 rounded-lg mt-5 hover:bg-blue-700"
                                 onClick={signupClicked}
                             >
                                 Sign Up
@@ -194,12 +208,14 @@ const Page1 = () => {
                                 <hr class="border-t border-gray-300 w-1/4 ml-4"></hr>
                             </div>
                             <div className="flex mt-4 text-[#7E8B9E] mb-2 w-full">
-                                <button className="bg-transparent hover:bg-blue-100  font-bold py-2 px-8 rounded flex items-center border-[1px] ">
-                                    <FaLinkedin className="mr-2" />
+                                <button className="bg-transparent hover:bg-[#8484841A]  font-bold py-2 px-8 rounded flex items-center border-[1px] ">
+                                    {/* <FaLinkedin className="mr-2" /> */}
+                                    <img src={linkedin} className="mr-2" />
                                     Sign in with LinkedIn
                                 </button>
-                                <button className="bg-transparent hover:bg-red-100 font-bold py-2 px-8 ml-4 rounded flex items-center border-[1px]">
-                                    <FaGoogle className="mr-2" />
+                                <button className="bg-transparent hover:bg-[#8484841A] font-bold py-2 px-8 ml-4 rounded flex items-center border-[1px]">
+                                    {/* <FaGoogle className="mr-2" /> */}
+                                    <img src={google} className="mr-2" />
                                     Sign in with Google
                                 </button>
                             </div>

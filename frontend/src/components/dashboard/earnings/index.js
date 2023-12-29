@@ -6,7 +6,7 @@ import Topbar from "../topbar";
 import Profileandevents from "../../Landing/Profileandevents";
 import "./earning.css";
 import toast from "react-hot-toast";
-
+import spinner from "../../../components/images/spinner.gif";
 import { getEarnings } from "../../../api/mentorRequest";
 import Mobilecommonhead from "../../Mobilecommonhead";
 import UpcomingEvents from "../../Landing/Profileandevents/UpcomingEvents";
@@ -45,7 +45,7 @@ function Earning({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
-    <UpcomingEvents />
+      <UpcomingEvents />
       {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
       <div className="dash-main">
@@ -78,33 +78,37 @@ function Earning({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
           {/* <div className="partition-d line-earning"></div> */}
           <h1 className="text-xl font-semibold mt-5 md:text-lg">Mentees</h1>
-          <div className="flex items-center justify-center flex-col">
-            {earnings.earningRecord &&
-              Object.keys(earnings.earningRecord).map((item, index) => (
-                <div
-                  className="flex items-center justify-between border-b border-gray-300 py-2 w-full"
-                  key={index}
-                >
-                  <div style={{ width: "10%" }}>{index + 1}.</div>
+          {earnings ? (
+            <div className="flex items-center justify-center flex-col">
+              {earnings.earningRecord &&
+                Object.keys(earnings.earningRecord).map((item, index) => (
                   <div
-                    className="cursor-pointer"
-                    onClick={() =>
-                      navigate(
-                        "/public-profile/" +
-                          earnings.earningRecord[item].link.split("/")[2]
-                      )
-                    }
-                    style={{ textAlign: "left", width: "30%" }}
+                    className="flex items-center justify-between border-b border-gray-300 py-2 w-full"
+                    key={index}
                   >
-                    {earnings.earningRecord[item].name}
+                    <div style={{ width: "10%" }}>{index + 1}.</div>
+                    <div
+                      className="cursor-pointer"
+                      onClick={() =>
+                        navigate(
+                          "/public-profile/" +
+                            earnings.earningRecord[item].link.split("/")[2]
+                        )
+                      }
+                      style={{ textAlign: "left", width: "30%" }}
+                    >
+                      {earnings.earningRecord[item].name}
+                    </div>
+                    <div style={{ width: "30%" }}>
+                      ₹{Math.round(earnings.earningRecord[item].totalEarning)}
+                    </div>
+                    <div style={{ width: "30%" }}>Completed</div>
                   </div>
-                  <div style={{ width: "30%" }}>
-                    ₹{Math.round(earnings.earningRecord[item].totalEarning)}
-                  </div>
-                  <div style={{ width: "30%" }}>Completed</div>
-                </div>
-              ))}
-          </div>
+                ))}
+            </div>
+          ) : (
+            <img src={spinner} className="absolute right-[50vw]" />
+          )}
         </div>
       </div>
     </>

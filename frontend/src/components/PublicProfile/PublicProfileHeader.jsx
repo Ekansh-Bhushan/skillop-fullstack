@@ -46,6 +46,7 @@ const PublicProfileHeader = ({ userDetails }) => {
               onClick={() => setShowIntroVideo(true)}
               src={userDetails ? userDetails.profilePicUrl : userPic}
               alt="user pic"
+              style={{ borderRadius: "100%" }}
             />
           </div>
         ) : (
@@ -147,7 +148,7 @@ const PublicProfileHeader = ({ userDetails }) => {
               <IntroVideo
                 onClose={onClose}
                 introVideoUrl={userDetails.introVideo}
-                publicView={false}
+                publicView={true}
               />
             )}
           </div>

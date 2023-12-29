@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import './ConfirmBooking.css';
-import userIcon from '../../images/user.png';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { getMentorData } from '../../../api/mentorRequest';
-import toast from 'react-hot-toast';
-import convertToNormalTime from '../../../utils/timeConversion';
-import calculateTimeGap from '../../../utils/timeGap';
+import React, { useEffect, useState } from "react";
+import "./ConfirmBooking.css";
+import userIcon from "../../images/user.png";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { getMentorData } from "../../../api/mentorRequest";
+import toast from "react-hot-toast";
+import convertToNormalTime from "../../../utils/timeConversion";
+import calculateTimeGap from "../../../utils/timeGap";
 import {
   GoogleLogin,
   GoogleOAuthProvider,
   useGoogleLogin,
-} from '@react-oauth/google';
-import jwt_decode from 'jwt-decode';
-import MyCustomGoogleButton from './MyCustomGoogleButton';
-import axios from 'axios';
-import Mobilecommonhead from '../../Mobilecommonhead';
+} from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+import MyCustomGoogleButton from "./MyCustomGoogleButton";
+import axios from "axios";
+import Mobilecommonhead from "../../Mobilecommonhead";
 
 const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
-  const mentorid = window.location.pathname.split('/')[2];
+  const mentorid = window.location.pathname.split("/")[2];
   const [data, setData] = useState({});
   const search = useLocation().search;
-  const day = new URLSearchParams(search).get('day');
-  const s = new URLSearchParams(search).get('s');
-  const e = new URLSearchParams(search).get('e');
-  const userid = new URLSearchParams(search).get('userid');
-  const charge = new URLSearchParams(search).get('charge');
+  const day = new URLSearchParams(search).get("day");
+  const s = new URLSearchParams(search).get("s");
+  const e = new URLSearchParams(search).get("e");
+  const userid = new URLSearchParams(search).get("userid");
+  const charge = new URLSearchParams(search).get("charge");
 
   const navigate = useNavigate();
 
@@ -72,13 +72,13 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
       <Mobilecommonhead />
 
       <div className="confirm-container">
-        <div className="h-[100vh] flex items-center justify-center flex-col px-[10vw] border-r-2">
+        <div className="h-[100vh] flex items-center justify-center flex-col px-[10vw] md:px-4">
           {isSignedIn ? (
-            <h2 className="text-3xl font-semibold w-full mb-5 mt-[-5vh]">
+            <h2 className="text-3xl font-semibold w-full mb-5 mt-[-5vh] md:mt-[-15vh]">
               Confirm Your Slot
             </h2>
           ) : (
-            <h2 className="mb-[30vh] text-2xl font-semibold">
+            <h2 className="mb-[20vh] text-2xl font-semibold mt-[-15vh]">
               Authorize SKILLOP MEETS
             </h2>
           )}
@@ -90,9 +90,9 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   <div>
                     <div
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
                       }}
                     >
                       <img src="/video.png" width={30} alt="" />
@@ -109,9 +109,9 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   <div>
                     <div
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
                       }}
                     >
                       <img src="/calendar.png" width={30} alt="" />
@@ -127,10 +127,10 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
               </div>
               <div
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '2px',
-                  width: '100%',
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "2px",
+                  width: "100%",
                 }}
               >
                 <input
@@ -142,13 +142,13 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   src="/go.png"
                   alt=""
                   style={{
-                    cursor: 'pointer',
-                    width: '40px',
-                    paddingLeft: '10px',
+                    cursor: "pointer",
+                    width: "40px",
+                    paddingLeft: "10px",
                   }}
                   onClick={() => {
                     // check if input is empty
-                    toast.error('Invalid Coupon Code');
+                    toast.error("Invalid Coupon Code");
                   }}
                 />
               </div>
@@ -168,7 +168,7 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                 >
                   Proceed
                 </button>
-                <span className="mt-[20vh]">
+                <span className="mt-[5vh]">
                   Note: The meetings will be scheduled in your Google <br />
                   Calendar along with Google Meet Link.
                 </span>

@@ -12,6 +12,7 @@ import { SlOptionsVertical } from "react-icons/sl";
 import { toast } from "react-hot-toast";
 import EmojiPicker from "emoji-picker-react";
 import { IoMdAdd } from "react-icons/io";
+import spinner from "../components/images/spinner.gif";
 
 const Chatbox = ({
   chat,
@@ -222,7 +223,7 @@ const Chatbox = ({
               );
             })
           ) : (
-            <span>Start Typing</span>
+            <img src={spinner} className="absolute right-[50vw]" />
           )}
         </div>
       ) : (

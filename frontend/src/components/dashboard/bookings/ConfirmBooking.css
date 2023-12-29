@@ -3,6 +3,7 @@
   left: 12vw;
   display: flex;
   width: calc(100% - 300px);
+  padding-top: 10vh;
 }
 
 .cnf-prof-pic {
@@ -222,7 +223,7 @@
 
   .confirm-container {
     position: relative;
-    top: 100px;
+    top: 10px;
     left: 0vw;
     display: flex;
     flex-direction: column;
@@ -244,11 +245,15 @@
   }
   .call-details {
     padding: 10px;
-    gap: 10vh;
+    align-items: center;
+    justify-content: center;
+    /* gap: 10vh; */
   }
   .call-date {
     padding: 10px;
-    gap: 4vh;
+    align-items: center;
+    justify-content: center;
+    /* gap: 4vh; */
   }
   .cnf-video {
     margin-bottom: 20px;

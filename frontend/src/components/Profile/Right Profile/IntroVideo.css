@@ -73,15 +73,17 @@
   .intro-video-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     border-radius: 15px;
     padding: 5vw;
     background: white;
     border: 2px solid black;
-    width: 80vw;
+    width: 90vw;
     left: 50%;
-    top: 30%;
+    top: 40%;
+    height: 35vh;
+    padding-bottom: 5vh;
   }
 
   /* .intro-video-container {

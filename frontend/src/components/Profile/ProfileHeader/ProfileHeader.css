@@ -45,7 +45,7 @@
   top: 10vh;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  /* gap: 10px; */
   padding: 10px 30px;
 }
 
@@ -66,12 +66,13 @@
 
 #ph-mypost {
   background: #108cff;
-  padding: 7px 1.5rem 7px 1.5rem;
+  padding: 8px 14px;
   border-radius: 25px;
   cursor: pointer;
   transition: 0.2s;
   color: white;
   border: 2px solid transparent;
+  font-size: 15px;
 }
 
 #ph-mypost:hover {
@@ -85,6 +86,7 @@
   align-items: center;
   justify-content: space-between;
   width: 40%;
+  margin-bottom: 10px;
 }
 
 .ph-followings,
@@ -103,7 +105,7 @@
   height: 30px;
 }
 
-@media screen and (max-width: 1500px) {
+/* @media screen and (max-width: 1500px) {
   .ph-container {
     margin: 11vh 11vw;
     min-height: 76vh;
@@ -111,15 +113,22 @@
   .ph-pic {
     left: 13vw;
   }
-}
+} */
 
 @media screen and (max-width: 500px) {
+  .ph-details {
+    top: 6vh;
+  }
   .ph-container {
     margin-inline: auto;
-    margin-top: 12vh;
-    min-height: 69vh;
-    width: 86%;
+    margin-top: 10vh;
+    min-height: 59vh;
+    width: 100%;
     position: relative;
+    border-radius: 0px;
+  }
+  .ph-bg {
+    border-radius: 0px;
   }
   .ph-pic {
     left: 5vw;
@@ -129,7 +138,7 @@
   .ph-pic img {
     width: 80vw;
     height: 30vw;
-    border-radius: 100%;
+    border-radius: 0px;
     cursor: pointer;
     width: 100%;
   }
@@ -138,6 +147,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    margin-top: 10px;
   }
   .ph-linkedin {
     display: flex;

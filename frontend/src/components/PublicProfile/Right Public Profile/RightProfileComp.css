@@ -110,7 +110,7 @@
 #bookSlot {
   top: 540px;
   left: 1067px;
-  padding: 12px 26px 12px 26px;
+  padding: 5px 10px;
   border-radius: 16px;
   gap: 8px;
   background: #000000;
@@ -119,6 +119,7 @@
   border: none;
   font-size: 1rem;
   cursor: pointer;
+  /* margin-bottom: 10px; */
 }
 
 #bookSlot:hover {

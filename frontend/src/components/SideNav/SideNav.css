@@ -62,8 +62,8 @@
   flex-direction: column;
   padding-left: 3vw;
   padding-right: 3vw;
-  gap: 0.4vh;
-  padding-top: 4vh;
+  gap: 0.3vh;
+  padding-top: 8px;
   top: 10vh;
 }
 

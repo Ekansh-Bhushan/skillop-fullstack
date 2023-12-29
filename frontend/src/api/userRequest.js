@@ -83,6 +83,11 @@ export const loginUser = (data) =>
 export const changePassword = (data) =>
     API.post(`/api/user/password/forget`, data, { withCredentials: true });
 
+export const resetPassword = (data) =>
+    API.put(`/api/user/password/reset/${data.token}`, data, {
+        withCredentials: true,
+    });
+
 export const actualChangePassword = (newPassword, oldPassword) => {
     // get token  from local storage
     const token = localStorage.getItem("skilloptoken");

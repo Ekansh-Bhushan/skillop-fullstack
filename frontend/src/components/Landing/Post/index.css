@@ -1018,7 +1018,7 @@ non-act {
   position: relative;
   top: 20px;
   display: flex;
-  left: 200px;
+  left: 10vw;
   z-index: 2;
   height: 90vh;
   width: calc(100%);
@@ -1026,17 +1026,17 @@ non-act {
 
 .chat-room {
   width: 80%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
-  gap: 10px;
-  left: 100px;
+  /* gap: 10px; */
+  left: 10vw;
   position: relative;
   margin-top: 8vh;
 }
 
 .chatting {
   width: 100%;
-  height: 88vh;
+  height: 86vh;
   border-radius: 30px;
   background-color: white;
   /* border-inline: 1px solid; */
@@ -1073,7 +1073,7 @@ non-act {
 }
 .chat-slider {
   width: 80%;
-  margin-left: -1vw;
+  /* margin-left: 2vw; */
 }
 .left-arrow {
   display: none;
@@ -1155,7 +1155,7 @@ non-act {
   }
 
   .chatbox-messages {
-    height: 65%;
+    height: 75%;
     max-width: 100%;
     border-radius: 10px;
     margin-inline: 10px;
@@ -1164,8 +1164,9 @@ non-act {
   .message-send-bar {
     margin-block: 5px;
     padding-inline: 15px;
-    position: absolute;
-    bottom: 50px;
+    position: fixed;
+    bottom: 0px;
+    z-index: 100000;
   }
 }
 
@@ -1368,6 +1369,7 @@ non-act {
 
   .chatting {
     width: 40%;
+    height: 90vh;
   }
 
   .chat-friends-list {
@@ -1405,6 +1407,14 @@ non-act {
   }
 }
 @media only screen and (max-width: 500px) {
+  .user-section {
+    /* padding: 0px; */
+  }
+  .chats-user {
+    padding: 10px;
+    border-bottom: 0.5px solid #00000026;
+    /* margin-top: 100px; */
+  }
   .main-content-landing-chat {
     position: relative;
     top: 80px;
@@ -1653,7 +1663,7 @@ non-act {
   align-items: flex-start;
   gap: 20px;
   height: 100vh;
-  width: 60vw;
+  width: 65vw;
   left: 0;
   bottom: 0;
   z-index: 10000;

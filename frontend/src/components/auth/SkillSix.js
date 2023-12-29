@@ -82,6 +82,9 @@ const SkillSix = () => {
   const nextClicked = () => {
     handleUpload();
   };
+  const prevClicked = () => {
+    navigate("/skill4");
+  };
   return (
     <div>
       {/* <Nav /> */}
@@ -139,6 +142,11 @@ const SkillSix = () => {
                 width: 0,
               }}
               onChange={(e) => {
+                // check if input file is image
+                if (e.target.files[0].type.split("/")[0] !== "image") {
+                  toast.error("Please select an image file");
+                  return;
+                }
                 setCoverPhoto(e.target.files[0]);
               }}
             />
@@ -162,7 +170,12 @@ const SkillSix = () => {
                 width: 0,
               }}
               onChange={(e) => {
-                setProfilePhoto(e.target.files[0]);
+                  // check if input file is image
+                  if (e.target.files[0].type.split("/")[0] !== "image") {
+                      toast.error("Please select an image file");
+                      return;
+                  }
+                  setProfilePhoto(e.target.files[0]);
               }}
             />
             <div className="mt-5">
@@ -179,12 +192,15 @@ const SkillSix = () => {
             </div>
 
             <div className="flex justify-between w-full items-center">
-              <button className="rounded-full border-[2px] border-black h-9 w-9 flex items-center justify-center">
+              <button
+                className="rounded-full border-[2px] border-black h-9 w-9 flex items-center justify-center hover:bg-[#8484841A]"
+                onClick={prevClicked}
+              >
                 <FaArrowLeft />
               </button>
               <div
                 onClick={nextClicked}
-                className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2"
+                className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2 hover:bg-[#8484841A]"
               >
                 <button className="font-bold ">NEXT</button>
                 <span className="rounded-full border-[2px] border-black py-1 px-1">

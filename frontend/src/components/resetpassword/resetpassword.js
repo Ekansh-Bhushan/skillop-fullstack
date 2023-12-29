@@ -1,55 +1,85 @@
-import React, { useState } from 'react';
-import '../passwordChange/changepassword.css'
+import React, { useState } from "react";
+import "../passwordChange/changepassword.css";
+import toast from "react-hot-toast";
+import { resetPassword } from "../../api/userRequest";
 function ResetPasswordPage() {
-  const [currentPassword, setCurrentPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+    // utl will be like https://app.skillop.in/password/reset/f2300b89c030285152e88e3263e9fe64126ebaf3
+    const resetPasswordToken = window.location.pathname.split("/")[3];
+    const [newPassword, setNewPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handlePasswordChange = (e) => {
-    e.preventDefault();
+    const handlePasswordChange = async (e) => {
+        e.preventDefault();
 
-    if (newPassword !== confirmPassword) {
-      alert("New password and confirm password don't match.");
-      return;
-    }
+        if (newPassword !== confirmPassword) {
+            toast.success("Password and conform password do not match");
+            return;
+        }
 
-    // You can implement your password change logic here.
-    // You may want to send an API request to your server to update the password.
+        const { data } = await resetPassword({
+            password: newPassword,
+            token: resetPasswordToken,
+        });
+        console.log(data, {
+            password: newPassword,
+            token: resetPasswordToken,
+        });
 
-    // Reset the form after a successful password change.
-    setCurrentPassword('');
-    setNewPassword('');
-    setConfirmPassword('');
-  };
+        if (data.result) {
+            toast.success(data.message);
+            localStorage.setItem("skilloptoken", data.token);
+            window.location.replace("/homepage");
+        } else {
+            toast.error(data.message);
+        }
+        setNewPassword("");
+        setConfirmPassword("");
+    };
 
-  return (
-    <div>
-      <h1 className='heading'>Reset Password</h1>
-      <form className='form-making' onSubmit={handlePasswordChange}>
-        <div className='input-area-second'>
-          <label className= 'newpassword-label-area'htmlFor="newPassword">New Password:</label>
-          <input
-            type="password"
-            id="newPassword"
-            className='newpassword-area'
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-          />
+    return (
+        <div>
+            <h1
+                className="heading"
+                style={{
+                    paddingTop: "100px",
+                }}
+            >
+                Reset Password
+            </h1>
+            <form className="form-making" onSubmit={handlePasswordChange}>
+                <div className="input-area-second">
+                    <label
+                        className="newpassword-label-area"
+                        htmlFor="newPassword"
+                    >
+                        New Password:
+                    </label>
+                    <input
+                        type="password"
+                        id="newPassword"
+                        className="newpassword-area"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                    />
+                </div>
+                <div className="confirmPassword-area">
+                    <label htmlFor="confirmPassword">
+                        Confirm New Password:
+                    </label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        className="confirmpassword-input-area"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                </div>
+                <button className="change-password-button-area" type="submit">
+                    Change Password
+                </button>
+            </form>
         </div>
-        <div className='confirmPassword-area'>
-          <label htmlFor="confirmPassword">Confirm New Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            className='confirmpassword-input-area'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </div>
-        <button className='change-password-button-area' type="submit">Change Password</button>
-      </form>
-    </div>
-  );
+    );
 }
 
 export default ResetPasswordPage;
