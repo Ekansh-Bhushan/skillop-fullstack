@@ -46,20 +46,21 @@ const SkillThree = () => {
 
     const nextClicked = async () => {
         console.log(skills);
-        try {
-            const request = {
-                skills: skills,
-            };
-            const { data } = await updateIsMentor(request);
+        if (skills.length)
+            try {
+                const request = {
+                    skills: skills,
+                };
+                const { data } = await updateIsMentor(request);
 
-            if (data.result) {
-                toast.success("Skills added!");
-                console.log(data.message);
-                navigate("/skill4");
+                if (data.result) {
+                    toast.success("Skills added!");
+                    console.log(data.message);
+                    navigate("/skill4");
+                }
+            } catch (error) {
+                toast.error(error.response.data.message);
             }
-        } catch (error) {
-            toast.error(error.response.data.message);
-        }
     };
 
     return (

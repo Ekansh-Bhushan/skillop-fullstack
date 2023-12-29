@@ -107,6 +107,11 @@ const MStudentInfo = () => {
     };
 
     const nextClicked = async () => {
+        // check start date and end date
+        if (data[0].startDate > data[0].endDate) {
+            toast.error("Start year cannot be greater than end year");
+            return;
+        }
         try {
             let formdata = new FormData();
             formdata.append("education", JSON.stringify(data));

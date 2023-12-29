@@ -33,21 +33,22 @@ const MSkills = () => {
 
     const nextClicked = async () => {
         console.log(skills);
-        try {
-            const request = {
-                skills: skills,
-            };
-            const { data } = await updateIsMentor(request);
+        if (skills.length)
+            try {
+                const request = {
+                    skills: skills,
+                };
+                const { data } = await updateIsMentor(request);
 
-            if (data.result) {
-                toast.success("Skills added!");
+                if (data.result) {
+                    toast.success("Skills added!");
 
-                console.log(data.message);
-                navigate("/mstudinfo");
+                    console.log(data.message);
+                    navigate("/mstudinfo");
+                }
+            } catch (error) {
+                toast.error(error.response.data.message);
             }
-        } catch (error) {
-            toast.error(error.response.data.message);
-        }
     };
 
     return (
