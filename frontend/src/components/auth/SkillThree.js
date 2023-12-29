@@ -61,6 +61,7 @@ const SkillThree = () => {
             } catch (error) {
                 toast.error(error.response.data.message);
             }
+        navigate("/skill4");
     };
 
     return (
