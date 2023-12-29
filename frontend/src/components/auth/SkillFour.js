@@ -249,7 +249,8 @@ const SkillFour = () => {
                             }}
                         >
                             <input
-                                id="search-college1"
+                                // id="search-college1"
+                                className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4 w-full"
                                 type="text"
                                 onChange={handleOnChange}
                                 value={searchQuery}
@@ -283,17 +284,22 @@ const SkillFour = () => {
                                       `No results found for "${searchQuery}"`}
                             </div>
                             {searchQuery && !collegeSelected && (
-                  <div id="college-result" onClick={() => { 
-                    document.querySelector(".college-search-results1").style.display =
-                      "none";
-                    setData((prevData) => [
-                      {
-                        ...prevData[0],
-                        institution: searchQuery,
-                        city: "",
-                        state: "",
-                      }] );
-                  }}>
+                                <div
+                                    id="college-result"
+                                    onClick={() => {
+                                        document.querySelector(
+                                            ".college-search-results1"
+                                        ).style.display = "none";
+                                        setData((prevData) => [
+                                            {
+                                                ...prevData[0],
+                                                institution: searchQuery,
+                                                city: "",
+                                                state: "",
+                                            },
+                                        ]);
+                                    }}
+                                >
                                     {searchQuery +
                                         " will be added as your college"}
                                 </div>
