@@ -148,7 +148,7 @@ const PublicProfileHeader = ({ userDetails }) => {
               <IntroVideo
                 onClose={onClose}
                 introVideoUrl={userDetails.introVideo}
-                publicView={false}
+                publicView={true}
               />
             )}
           </div>
