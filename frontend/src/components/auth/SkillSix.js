@@ -142,6 +142,11 @@ const SkillSix = () => {
                 width: 0,
               }}
               onChange={(e) => {
+                // check if input file is image
+                if (e.target.files[0].type.split("/")[0] !== "image") {
+                  toast.error("Please select an image file");
+                  return;
+                }
                 setCoverPhoto(e.target.files[0]);
               }}
             />
@@ -165,7 +170,12 @@ const SkillSix = () => {
                 width: 0,
               }}
               onChange={(e) => {
-                setProfilePhoto(e.target.files[0]);
+                  // check if input file is image
+                  if (e.target.files[0].type.split("/")[0] !== "image") {
+                      toast.error("Please select an image file");
+                      return;
+                  }
+                  setProfilePhoto(e.target.files[0]);
               }}
             />
             <div className="mt-5">
