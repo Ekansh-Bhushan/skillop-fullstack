@@ -1369,6 +1369,7 @@ non-act {
 
   .chatting {
     width: 40%;
+    height: 90vh;
   }
 
   .chat-friends-list {
@@ -1406,6 +1407,14 @@ non-act {
   }
 }
 @media only screen and (max-width: 500px) {
+  .user-section {
+    /* padding: 0px; */
+  }
+  .chats-user {
+    padding: 10px;
+    border-bottom: 0.5px solid #00000026;
+    /* margin-top: 100px; */
+  }
   .main-content-landing-chat {
     position: relative;
     top: 80px;
