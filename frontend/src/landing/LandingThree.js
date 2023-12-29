@@ -47,15 +47,15 @@ const LandingThree = () => {
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Start your own community</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Host sessions and events</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Earn money by guiding multiple mentees</span>
           </div>
         </div>
 
@@ -73,21 +73,21 @@ const LandingThree = () => {
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Participate in events and win big</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Chat and make connections with people</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
-            <span>Provides personalized guidance</span>
+            <span>Improve your skills and enhance your CV</span>
           </div>
         </div>
       </div>
       <div className="flex items-center justify-center mt-5">
         <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold md:mt-5 md:px-5">
-          <a href={isMobile ? "/msignup" : "/signup"}> Be a Mentor or Mentee</a>
+          <a href={isMobile ? '/msignup' : '/signup'}> Be a Mentor or Mentee</a>
         </button>
       </div>
     </div>
