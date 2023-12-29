@@ -101,6 +101,7 @@ const Login = () => {
                 >
                   Forget Password?
                 </a>
+                
               <div class="w-full mt-6 flex items-center justify-center ">
                 <hr class="border-t border-gray-300 w-1/4 mr-4"></hr>
                 <span class="text-gray-500">OR</span>
