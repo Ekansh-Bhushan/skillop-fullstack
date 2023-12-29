@@ -55,7 +55,7 @@ function App({ location }) {
 
         // "/password/reset/:token", this route is not working
         if (
-            pagesToNotRedirect.includes((element, index) => {
+           ! pagesToNotRedirect.includes((element, index) => {
                 return (
                     element === window.location.pathname ||
                     window.location.pathname.includes(element)
