@@ -27,6 +27,8 @@ function ResetPasswordPage() {
 
         if (data.result) {
             toast.success(data.message);
+            localStorage.setItem("skilloptoken", data.token);
+            window.location.replace("/homepage");
         } else {
             toast.error(data.message);
         }
