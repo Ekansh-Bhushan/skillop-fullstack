@@ -93,6 +93,14 @@ const Login = () => {
               >
                 Login
               </button>
+              {/* forget password */}
+              <div className="flex justify-end mt-4">
+                <a
+                  className="text-[#7E8B9E] cursor-pointer"
+                  onClick={() => navigate("/resetPasswordEmail")}
+                >
+                  Forget Password?
+                </a>
               <div class="w-full mt-6 flex items-center justify-center ">
                 <hr class="border-t border-gray-300 w-1/4 mr-4"></hr>
                 <span class="text-gray-500">OR</span>
