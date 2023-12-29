@@ -34,6 +34,7 @@ const SkillFour = () => {
       },
     ]);
   };
+  
   const nextClicked = () => {
     addEdu();
   };
@@ -46,7 +47,7 @@ const SkillFour = () => {
       const data1 = await updateProfile(formdata);
       console.log(data1.data.result);
       if (data1.data.result) {
-        toast.success(data1.data.message);
+        toast.success("College Added!");
         navigate("/skill6");
       } else {
         toast.error(data1.data.message);
@@ -179,7 +180,7 @@ const SkillFour = () => {
                 className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2 hover:bg-[#8484841A]"
                 onClick={nextClicked}
               >
-                <button className="font-bold " onClick={nextClicked}>
+                <button className="font-bold ">
                   NEXT
                 </button>
                 <span className="rounded-full border-[2px] border-black py-1 px-1">
