@@ -84,7 +84,7 @@ export const changePassword = (data) =>
     API.post(`/api/user/password/forget`, data, { withCredentials: true });
 
 export const resetPassword = (data) =>
-    API.post(`/api/user/password/reset/${data.token}`, data, {
+    API.put(`/api/user/password/reset/${data.token}`, data, {
         withCredentials: true,
     });
 
