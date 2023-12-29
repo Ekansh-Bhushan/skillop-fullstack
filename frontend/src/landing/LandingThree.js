@@ -92,7 +92,7 @@ const LandingThree = () => {
       </div>
       <div className="flex items-center justify-center mt-5">
         <button
-          className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden mt-5"
+          className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden mt-5 hover:shadow-2xl"
           onClick={signupClicked}
         >
           <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5">

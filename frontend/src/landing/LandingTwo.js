@@ -82,10 +82,10 @@ const LandingTwo = () => {
           <a href={isMobile ? "/msignup" : "/signup"}>Get Started</a>
         </button> */}
         <button
-          className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden "
+          className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden hover:shadow-2xl "
           onClick={signupClicked}
         >
-          <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5">
+          <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5 ">
             Get Started
             <img src={arrow} width={30} />
           </span>

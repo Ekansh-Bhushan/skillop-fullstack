@@ -6,6 +6,7 @@ import LandingThree from "./LandingThree";
 import LandingFour from "./LandingFour";
 import LandingFooter from "./LandingFooter";
 import TopBar from "../components/CommonTopBar/TopBar";
+import { Element } from "react-scroll";
 
 const Page = () => {
   return (
@@ -18,7 +19,10 @@ const Page = () => {
       </div>
       <LandingOne />
       <LandingTwo />
-      <LandingThree />
+      <Element name="landing-three">
+        <LandingThree />
+      </Element>
+
       <LandingFour />
       <LandingFooter />
     </div>
