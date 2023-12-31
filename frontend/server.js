@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-
+// server listen
 app.listen(port, () => {
     console.log(`Front-End is running on port ${port}`);
 });
