@@ -5,6 +5,7 @@ import call from "../components/images/call.png";
 import location from "../components/images/location.png";
 import { Link } from "react-router-dom";
 
+// asdfasdfas
 const LandingFooter = () => {
   return (
     <div className="bg-[#212121] text-white flex items-center justify-around py-10 md:flex-col md:gap-5 mb-[-10vh]">
