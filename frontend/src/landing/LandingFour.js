@@ -65,7 +65,11 @@ const LandingFour = () => {
           </div>
           {dropdowns.isPlatformsIntegrated && (
             <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4">
-              Context for "Is becoming Mentor paid or free?"
+              Skillop integrates a variety of platforms to provide a
+               comprehensive learning and networking experience, including Synergy
+               for resume making, InstiD for job search enhancement, and ConnectOp 
+               for building your network outside india. We continuously work on integrating 
+               more tools and services to support our community’s growth.
             </div>
           )}
         </div>
@@ -79,7 +83,10 @@ const LandingFour = () => {
           </div>
           {dropdowns.isReceiveEarnings && (
             <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4">
-              Context for "Is becoming Mentor paid or free?"
+              Earnings from mentorship sessions and any paid services on
+               Skillop are disbursed through secure online transactions. You can
+                receive your earnings via UPI shown your Skillop account settings. 
+                Payout schedules can be customized in your account preferences.
             </div>
           )}
         </div>
@@ -93,7 +100,10 @@ const LandingFour = () => {
           </div>
           {dropdowns.isConvertToMentor && (
             <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4">
-              Context for "Is becoming Mentor paid or free?"
+              Transitioning from a mentee to a mentor on Skillop is 
+              a seamless process. Once you feel ready to share your knowledge 
+              and expertise with others, you can update your profile to 
+              reflect your new role and apply to be a mentor option available in settings.
             </div>
           )}
         </div>
@@ -107,7 +117,10 @@ const LandingFour = () => {
           </div>
           {dropdowns.isHostEvents && (
             <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4">
-              Context for "Is becoming Mentor paid or free?"
+              Skillop provides the tools and support you need to host events and 
+              hackathons. To get started, submit an event proposal through your dashboard. 
+              Our team will review it and assist you with planning, promotion, 
+              and execution to ensure a successful event. [This feature is yet to be released].
             </div>
           )}
         </div>
@@ -121,7 +134,10 @@ const LandingFour = () => {
           </div>
           {dropdowns.isBuildCommunity && (
             <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4">
-              Context for "Is becoming Mentor paid or free?"
+              Building your own community on Skillop is straightforward. You can connect 
+              with more people based on interests, fields of study, or professional paths. 
+              We offer features to help you manage and 
+              grow your community, event hosting, and content sharing capabilities. 
             </div>
           )}
         </div>
