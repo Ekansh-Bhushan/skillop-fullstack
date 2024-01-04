@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ProfileHeader.css";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../../api/userRequest";
+import userPic from "../../images/user.png";
 import defaultBGPic from "../../images/bg.png";
 import IntroVideo from "../Right Profile/IntroVideo";
 import Following from "../Right Profile/Following";
@@ -61,7 +62,7 @@ const ProfileHeader = () => {
         <div className="ph-pic">
           <img
             onClick={() => setShowIntroVideo(true)}
-            src={userDetails && userDetails.profilePicUrl}
+            src={userDetails && userDetails.profilePicUrl ? userDetails.profilePicUrl : userPic}
             alt="user pic"
             style={{ borderRadius: "100%" }}
           />
@@ -69,7 +70,7 @@ const ProfileHeader = () => {
       ) : (
         <img
           onClick={() => setShowIntroVideo(true)}
-          src={userDetails && userDetails.profilePicUrl}
+          src={userDetails && userDetails.profilePicUrl ? userDetails.profilePicUrl : userPic}
           alt="user pic"
           width={100}
         />
