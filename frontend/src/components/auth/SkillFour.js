@@ -80,7 +80,7 @@ const SkillFour = () => {
     const searchCollege = async (qrr) => {
         try {
             const { data } = await axios.get(
-                `https://app.skillop.in/api/college/info?college=${qrr}`,
+                `https://skillop.in/api/college/info?college=${qrr}`,
                 {
                     headers: {
                         "Content-Type": "application/json",

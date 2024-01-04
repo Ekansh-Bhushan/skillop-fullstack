@@ -27,9 +27,9 @@ connectDB();
 //     credentials: true,
 // };
 const allowedOrigins = [
-    "https://app.skillop.in",
     "https://skillop.in",
-    "https://app.skillop.in",
+    "https://skillop.in",
+    "https://skillop.in",
     "http://localhost:3000",
 ];
 

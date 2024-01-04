@@ -60,7 +60,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import MProgressBar from "./MProgressBar";
 
-const API = axios.create({ baseURL: "https://app.skillop.in" });
+const API = axios.create({ baseURL: "https://skillop.in" });
 
 const Cover = () => {
   const navigate = useNavigate();

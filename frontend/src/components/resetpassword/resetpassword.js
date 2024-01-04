@@ -3,7 +3,7 @@ import "../passwordChange/changepassword.css";
 import toast from "react-hot-toast";
 import { resetPassword } from "../../api/userRequest";
 function ResetPasswordPage() {
-    // utl will be like https://app.skillop.in/password/reset/f2300b89c030285152e88e3263e9fe64126ebaf3
+    // utl will be like https://skillop.in/password/reset/f2300b89c030285152e88e3263e9fe64126ebaf3
     const resetPasswordToken = window.location.pathname.split("/")[3];
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");

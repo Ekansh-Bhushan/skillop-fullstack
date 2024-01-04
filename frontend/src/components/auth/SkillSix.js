@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ProgressBar from "./ProgressBar";
 
-const API = axios.create({ baseURL: "https://app.skillop.in" });
+const API = axios.create({ baseURL: "https://skillop.in" });
 
 const SkillSix = () => {
   const navigate = useNavigate();

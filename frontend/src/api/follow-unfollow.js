@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://app.skillop.in" });
+const API = axios.create({ baseURL: "https://skillop.in" });
 
 export const followUnfollowUser = (id) => {
     const token = localStorage.getItem("skilloptoken");
