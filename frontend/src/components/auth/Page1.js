@@ -142,7 +142,8 @@ const Page1 = () => {
                             />
                             <label className="mt-5 mb-2">Password</label>
                             <input
-                                className="border-2 rounded-lg bg-[#FAFAFC] py-4"
+                            className="border-2 rounded-lg bg-[#FAFAFC] py-4"
+                                minlength={6}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 type="password"
@@ -154,7 +155,7 @@ const Page1 = () => {
                                     <input
                                         type="checkbox"
                                         id="agree"
-                                        class="form-checkbox h-5 w-5 text-blue-600"
+                                        // class="form-checkbox h-5 w-5 text-blue-600"
                                         required
                                         onChange={(e) =>
                                             setAgreeToTermsAndConditions(
@@ -182,7 +183,7 @@ const Page1 = () => {
                                     <input
                                         type="checkbox"
                                         id="remember"
-                                        class="form-checkbox h-5 w-5 text-blue-600"
+                                        // class="form-checkbox h-5 w-5 text-blue-600"
                                     />
                                     <span class="ml-2 text-sm">
                                         Remember Me as a{" "}

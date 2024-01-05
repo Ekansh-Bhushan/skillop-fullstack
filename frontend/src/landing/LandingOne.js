@@ -3,7 +3,8 @@ import landingelement from "../components/images/landingelement.png";
 import line from "../components/images/Line.png";
 import arrow from "../components/images/arrow.png";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 
 const LandingOne = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const LandingOne = () => {
             </span>
           </button>
           <Link
-            to="landing-three"
+            to="/about"
             spy={true}
             smooth={true}
             duration={500}
