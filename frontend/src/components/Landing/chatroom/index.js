@@ -26,7 +26,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
   }, [sendMessage]);
 
   useEffect(() => {
-    socket.current = io("https://app.skillop.in");
+    socket.current = io("https://skillop.in");
 
     userData && socket.current.emit("new-user-add", userData._id);
 

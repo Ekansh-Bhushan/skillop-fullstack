@@ -9,12 +9,12 @@ const MentorApproval = () => {
   const [eligibleList, setEligibleList] = useState([]);
   const navigate = useNavigate();
 
-  const API = axios.create({ baseURL: 'https://app.skillop.in' });
+  const API = axios.create({ baseURL: 'https://skillop.in' });
 
   const getApplicants = async () => {
     try {
       const { data } = await axios.get(
-        'https://app.skillop.in/api/admin/get/applicants/for/mentor',
+        'https://skillop.in/api/admin/get/applicants/for/mentor',
         {
           headers: {
             'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const MentorApproval = () => {
   const getEligibleUsers = async () => {
     try {
       const { data } = await axios.get(
-        'https://app.skillop.in/api/admin/get/elegible/for/mentor',
+        'https://skillop.in/api/admin/get/elegible/for/mentor',
         {
           headers: {
             'Content-Type': 'application/json',

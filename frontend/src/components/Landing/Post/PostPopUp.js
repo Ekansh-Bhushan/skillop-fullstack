@@ -20,7 +20,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
     const [signQuery, setSignQuery] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     // --------------------------
-    const API = axios.create({ baseURL: "https://app.skillop.in" });
+    const API = axios.create({ baseURL: "https://skillop.in" });
     const [inputValue, setInputValue] = useState("");
     let [selectedFile, setSelectedFile] = useState([]);
 

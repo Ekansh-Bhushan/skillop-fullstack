@@ -188,7 +188,7 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
             document.body.removeChild(input);
             return result;
         }
-        const postLink = `https://app.skillop.in/postsection/${id}`;
+        const postLink = `https://skillop.in/postsection/${id}`;
         copy(postLink);
         toast.success("Post link copied to clipboard!");
     };

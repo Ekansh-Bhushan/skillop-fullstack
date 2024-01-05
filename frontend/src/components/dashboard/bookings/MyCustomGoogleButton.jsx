@@ -19,7 +19,7 @@ const MyCustomGoogleButton = ({ setIsSignedIn }) => {
     };
     return axios
       .post(
-        "https://app.skillop.in/api/mentor/meet/create-tokens",
+        "https://skillop.in/api/mentor/meet/create-tokens",
         { code },
         config
       )
