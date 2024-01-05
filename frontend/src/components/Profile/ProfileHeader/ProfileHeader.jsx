@@ -73,6 +73,7 @@ const ProfileHeader = () => {
           src={userDetails && userDetails.profilePicUrl ? userDetails.profilePicUrl : userPic}
           alt="user pic"
           width={100}
+          
         />
       )}
       <div className="ph-details">
@@ -88,7 +89,7 @@ const ProfileHeader = () => {
           {userDetails && userDetails.jobTitle}
           <div
             id="ph-mypost"
-            onClick={() => navigate(`/userposts/${userDetails._id}`)}
+            onClick={() => userDetails && navigate(`/userposts/${userDetails._id}`)}
           >
             My Posts
           </div>
