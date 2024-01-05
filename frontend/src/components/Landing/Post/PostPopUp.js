@@ -162,7 +162,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
 
     const handlePostThroughEnterKey = (e) => {
         if (e.keyCode === 13 && !e.shiftKey) {
-            creatingPost();
+            // creatingPost();
         }
     };
 
