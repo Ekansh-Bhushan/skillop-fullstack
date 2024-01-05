@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { getPostFromSpecificUser } from "../../api/postRequest";
 import PostComp from "../PostComp";
 import "./UserPost.css";
@@ -61,7 +60,7 @@ const UserPosts = ({ setProgress, Mentor, isFetched, notifyList }) => {
               .map((val, i) => (
                 <PostComp
                   {...val}
-                  // userData={userData}
+                  userData={userData}
                   // user={user}
                   key={i}
                   setProgress={setProgress}

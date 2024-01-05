@@ -3,8 +3,9 @@
   width: 48%;
   margin: 11vh 23vw;
   border-radius: 15px 15px 0px 0px;
-  min-height: 72vh;
+  min-height: 75vh;
   font-size: 1.1rem;
+
 }
 
 .ph-bg {
@@ -14,8 +15,12 @@
 }
 
 .ph-pic {
-  width: 9vw;
-  height: 9vw;
+  width: 9rem;
+  height:min-content;
+  /* max-width: 9vw;
+  max-height: 9vw;
+  min-width: 9;
+  min-height: 9vw; */
   border: none;
   border-radius: 100%;
   background: linear-gradient(
@@ -29,8 +34,8 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 15vw;
-  left: 25vw;
+  top:14vw;
+  left: 27vw;
 }
 
 .ph-pic img {
@@ -38,6 +43,7 @@
   height: 8.5vw;
   border-radius: 100px;
   cursor: pointer;
+  
 }
 
 .ph-details {
@@ -47,6 +53,8 @@
   flex-direction: column;
   /* gap: 10px; */
   padding: 10px 30px;
+  height: max-content;
+  padding-bottom: 70px;
 }
 
 .ph-name {
@@ -55,6 +63,8 @@
   display: flex;
   gap: 5px;
   align-items: center;
+  margin-top: 1rem;
+
 }
 
 .ph-headline {

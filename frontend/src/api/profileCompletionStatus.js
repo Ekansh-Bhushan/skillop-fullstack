@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://app.skillop.in" });
+const API = axios.create({ baseURL: "https://skillop.in" });
 
 const ProfileCompletionStatus = (expId) => {
     const token = localStorage.getItem("skilloptoken");
