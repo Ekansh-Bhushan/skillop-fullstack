@@ -15,6 +15,7 @@ import TaggingManager from "../utils/tagManager";
 import toast from "react-hot-toast";
 import { getUserFromUsername } from "../api/userRequest";
 
+
 const PostComp = ({
     userData,
     author,
@@ -24,6 +25,7 @@ const PostComp = ({
     _id,
     user,
     __created,
+    followings,
     setProgress,
 }) => {
     const [liked, setLiked] = useState(false);
@@ -76,9 +78,21 @@ const PostComp = ({
 
     const [likersList, setLikersList] = useState([]);
     const [fetchingLikers, setFetchingLikers] = useState(true);
-    const [FollowBtn, setFollowBtn] = useState(
-        userData.followings.includes(author._id) ? "✔ Following" : "Follow"
-    );
+
+    
+    const [FollowBtn, setFollowBtn] = useState("Loading...");
+
+useEffect(() => {
+  if (userData && userData.followings) {
+    setFollowBtn(userData.followings.includes(author._id) ? "✔ Following" : "Follow");
+  } else if (!userData) {
+    // Handle missing userData explicitly
+    setFollowBtn("Loading user data...");
+  } else {
+    // Handle missing followings property
+    setFollowBtn("Error: followings data not available");
+  }
+}, [userData, author._id]);
     // const [updateDOM, setUpdateDOM] = useState(false);
 
     const fetchLikers = async () => {

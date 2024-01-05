@@ -35,7 +35,7 @@
   justify-content: center;
   position: absolute;
   top:14vw;
-  left: 25vw;
+  left: 27vw;
 }
 
 .ph-pic img {
@@ -63,7 +63,7 @@
   display: flex;
   gap: 5px;
   align-items: center;
-  margin-top: 1.9rem;
+  margin-top: 1rem;
 
 }
 
