@@ -194,381 +194,315 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
     };
 
     return (
-        <>
-            {/* <Common setProgress={setProgress} /> */}
-            {/* <SideNav
+      <>
+        {/* <Common setProgress={setProgress} /> */}
+        {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
         isFetched={isFetched}
         notifyList={notifyList}
       /> */}
-      <Mobilecommonhead />
-      <div className="main-content-landing">
-        {post && (
-          <div className="posting-on-landing">
-            <div className="people-post">
-              <div className="post-1 ">
-                {post.author && (
-                  <div className="post-postedby" onClick={goToProfile}>
-                    <img
-                      src={
-                        post.author.profilePicUrl
-                          ? post.author.profilePicUrl
-                          : userPic
-                      }
-                      alt={post.title}
-                    />
-                    <div>
-                      <span
-                        style={{ fontWeight: "bold" }}
-                        className="posted-by-name"
-                      >
-                        {post.author.firstname} {post.author.lastname}
-                      </span>
-                      <span
-                        style={{ fontSize: "12px" }}
-                        className="posted-by-brief"
-                      >
-                        {post.author.isMentor ? "Mentor" : "Mentee"}
-                      </span>
+        <Mobilecommonhead />
+        <div className='main-content-landing'>
+          {post && (
+            <div className='posting-on-landing'>
+              <div className='people-post'>
+                <div className='post-1 '>
+                  {post.author && (
+                    <div className='post-postedby' onClick={goToProfile}>
+                      <img
+                        src={
+                          post.author.profilePicUrl
+                            ? post.author.profilePicUrl
+                            : userPic
+                        }
+                        alt={post.title}
+                      />
+                      <div>
+                        <span
+                          style={{ fontWeight: 'bold' }}
+                          className='posted-by-name'
+                        >
+                          {post.author.firstname} {post.author.lastname}
+                        </span>
+                        <span
+                          style={{ fontSize: '12px' }}
+                          className='posted-by-brief'
+                        >
+                          {post.author.isMentor ? 'Mentor' : 'Mentee'}
+                        </span>
+                      </div>
                     </div>
+                  )}
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '20px',
+                      marginBottom: '10px',
+                    }}
+                  >
+                    <pre
+                      className={`user-content-post${
+                        expanded ? '.expanded' : ''
+                      }`}
+                      style={{
+                        position: 'relative',
+                        top: '10px',
+                        marginBottom: '10px',
+                      }}
+                    >
+                      {taggingManager.convert(post.title)}
+                    </pre>
+                    {post.title.length > 500 ||
+                    (post.title.match(/\n/g) || []).length>4 ? (
+                      <button onClick={toggleExpand} className='read-more'>
+                        {expanded ? 'Read Less' : 'Read More'}
+                      </button>
+                    ) : (
+                      ''
+                    )}
                   </div>
-                )}
 
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        gap: "20px",
-                                        marginBottom: "10px",
-                                    }}
-                                >
-                                    <p
-                                        className={`user-content-post${
-                                            expanded ? "expanded" : ""
-                                        }`}
-                                        style={{
-                                            position: "relative",
-                                            top: "10px",
-                                            marginBottom: "10px",
-                                        }}
-                                    >
-                                        {taggingManager.convert(post.title)}
-                                    </p>
-                                    {post.title.length > 500 ? (
-                                        <button
-                                            onClick={toggleExpand}
-                                            className="read-more"
-                                        >
-                                            {expanded
-                                                ? "Read Less"
-                                                : "Read More"}
-                                        </button>
-                                    ) : (
-                                        ""
-                                    )}
-                                </div>
+                  {post.imageUrls.length ? (
+                    // post.imageUrls[0].toLowerCase().includes(".jpg") ||
+                    //   post.imageUrls[0].toLowerCase().includes(".jpeg") ||
+                    //   post.imageUrls[0].toLowerCase().includes(".png")
+                    isImage(post.imageUrls[currentMediaIndex]) ? (
+                      <div
+                        className='posted-img-container'
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '5px',
+                        }}
+                      >
+                        {post.imageUrls.length > 1 && currentMediaIndex > 0 && (
+                          <span onClick={handlePreviousMedia}>
+                            <img height={32} width={32} src={back} alt='back' />
+                          </span>
+                        )}
+                        <img
+                          src={post.imageUrls[currentMediaIndex]}
+                          className='img-posted'
+                          onClick={previewImage}
+                          alt='prevw'
+                        />
+                        {post.imageUrls.length > 1 &&
+                          currentMediaIndex < post.imageUrls.length - 1 && (
+                            <span onClick={handleNextMedia}>
+                              <img
+                                height={28}
+                                width={28}
+                                src={next}
+                                alt='next'
+                              />
+                            </span>
+                          )}
+                      </div>
+                    ) : (
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '5px',
+                        }}
+                      >
+                        {post.imageUrls.length > 1 && currentMediaIndex > 0 && (
+                          <span
+                            style={{
+                              cursor: 'pointer',
+                            }}
+                            onClick={handlePreviousMedia}
+                          >
+                            <img height={32} width={32} src={back} alt='back' />
+                          </span>
+                        )}
+                        <iframe
+                          onClick={previewImage}
+                          src={post.imageUrls[currentMediaIndex]}
+                          width='100%'
+                          height={400}
+                          title='Media Preview'
+                          scrolling='no'
+                          frameBorder='0'
+                          style={{
+                            borderRadius: '15px',
+                            overflow: 'hidden',
+                            border: 'none',
+                            objectFit: 'contain',
+                          }}
+                        ></iframe>
+                        {post.imageUrls.length > 1 &&
+                          currentMediaIndex < post.imageUrls.length - 1 && (
+                            <span
+                              style={{
+                                cursor: 'pointer',
+                              }}
+                              onClick={handleNextMedia}
+                            >
+                              <img
+                                height={28}
+                                width={28}
+                                src={next}
+                                alt='next'
+                              />
+                            </span>
+                          )}
+                      </div>
+                    )
+                  ) : (
+                    ''
+                  )}
 
-                                {post.imageUrls.length ? (
-                                    // post.imageUrls[0].toLowerCase().includes(".jpg") ||
-                                    //   post.imageUrls[0].toLowerCase().includes(".jpeg") ||
-                                    //   post.imageUrls[0].toLowerCase().includes(".png")
-                                    isImage(
-                                        post.imageUrls[currentMediaIndex]
-                                    ) ? (
-                                        <div
-                                            className="posted-img-container"
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: "5px",
-                                            }}
-                                        >
-                                            {post.imageUrls.length > 1 &&
-                                                currentMediaIndex > 0 && (
-                                                    <span
-                                                        onClick={
-                                                            handlePreviousMedia
-                                                        }
-                                                    >
-                                                        <img
-                                                            height={32}
-                                                            width={32}
-                                                            src={back}
-                                                            alt="back"
-                                                        />
-                                                    </span>
-                                                )}
-                                            <img
-                                                src={
-                                                    post.imageUrls[
-                                                        currentMediaIndex
-                                                    ]
-                                                }
-                                                className="img-posted"
-                                                onClick={previewImage}
-                                                alt="prevw"
-                                            />
-                                            {post.imageUrls.length > 1 &&
-                                                currentMediaIndex <
-                                                    post.imageUrls.length -
-                                                        1 && (
-                                                    <span
-                                                        onClick={
-                                                            handleNextMedia
-                                                        }
-                                                    >
-                                                        <img
-                                                            height={28}
-                                                            width={28}
-                                                            src={next}
-                                                            alt="next"
-                                                        />
-                                                    </span>
-                                                )}
-                                        </div>
-                                    ) : (
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: "5px",
-                                            }}
-                                        >
-                                            {post.imageUrls.length > 1 &&
-                                                currentMediaIndex > 0 && (
-                                                    <span
-                                                        style={{
-                                                            cursor: "pointer",
-                                                        }}
-                                                        onClick={
-                                                            handlePreviousMedia
-                                                        }
-                                                    >
-                                                        <img
-                                                            height={32}
-                                                            width={32}
-                                                            src={back}
-                                                            alt="back"
-                                                        />
-                                                    </span>
-                                                )}
-                                            <iframe
-                                                onClick={previewImage}
-                                                src={
-                                                    post.imageUrls[
-                                                        currentMediaIndex
-                                                    ]
-                                                }
-                                                width="100%"
-                                                height={400}
-                                                title="Media Preview"
-                                                scrolling="no"
-                                                frameBorder="0"
-                                                style={{
-                                                    borderRadius: "15px",
-                                                    overflow: "hidden",
-                                                    border: "none",
-                                                    objectFit: "contain",
-                                                }}
-                                            ></iframe>
-                                            {post.imageUrls.length > 1 &&
-                                                currentMediaIndex <
-                                                    post.imageUrls.length -
-                                                        1 && (
-                                                    <span
-                                                        style={{
-                                                            cursor: "pointer",
-                                                        }}
-                                                        onClick={
-                                                            handleNextMedia
-                                                        }
-                                                    >
-                                                        <img
-                                                            height={28}
-                                                            width={28}
-                                                            src={next}
-                                                            alt="next"
-                                                        />
-                                                    </span>
-                                                )}
-                                        </div>
-                                    )
-                                ) : (
-                                    ""
-                                )}
+                  {showPostImgPrew && post.imageUrls.length && (
+                    <PostImgPrevw
+                      onClose={onClose}
+                      name={post.author.firstname + ' ' + post.author.lastname}
+                      src={post.imageUrls[currentMediaIndex]}
+                    />
+                  )}
 
-                                {showPostImgPrew && post.imageUrls.length && (
-                                    <PostImgPrevw
-                                        onClose={onClose}
-                                        name={
-                                            post.author.firstname +
-                                            " " +
-                                            post.author.lastname
-                                        }
-                                        src={post.imageUrls[currentMediaIndex]}
-                                    />
-                                )}
+                  <div className='reactions'>
+                    <div className='like-post'>
+                      <i
+                        style={{
+                          fontSize: '25px',
+                          color: liked ? 'rgb(16, 39, 111)' : 'rgb(0, 0, 0)',
+                          cursor: 'pointer',
+                        }}
+                        className='fa fa-thumbs-up'
+                        onClick={likethispost}
+                      ></i>
+                      <div onClick={openPopup} className='like-count'>
+                        {post.likes.length} Likes
+                      </div>
+                    </div>
+                    {isPopupOpen && (
+                      <Popup
+                        onClose={closePopup}
+                        setProgress={setProgress}
+                        postId={postId}
+                        likesCount={post.likes.length}
+                      />
+                    )}
 
-                                <div className="reactions">
-                                    <div className="like-post">
-                                        <i
-                                            style={{
-                                                fontSize: "25px",
-                                                color: liked
-                                                    ? "rgb(16, 39, 111)"
-                                                    : "rgb(0, 0, 0)",
-                                                cursor: "pointer",
-                                            }}
-                                            className="fa fa-thumbs-up"
-                                            onClick={likethispost}
-                                        ></i>
-                                        <div
-                                            onClick={openPopup}
-                                            className="like-count"
-                                        >
-                                            {post.likes.length} Likes
-                                        </div>
-                                    </div>
-                                    {isPopupOpen && (
-                                        <Popup
-                                            onClose={closePopup}
-                                            setProgress={setProgress}
-                                            postId={postId}
-                                            likesCount={post.likes.length}
-                                        />
-                                    )}
-
-                                    <div className="comments">
-                                        {/* <i
+                    <div className='comments'>
+                      {/* <i
                       className="fa fa-lg fa-solid fa-comment"
                       style={{ marginRight: '4px' }}
                     ></i> */}
-                                        <img
-                                            style={{ marginRight: "4px" }}
-                                            src="/comment.png"
-                                        />
-                                        {commentList.length + " "}
-                                        Comments
-                                    </div>
-                                    <div className="share" onClick={()=>shareClicked(post._id)}>
-                                        <img
-                                            src="/share.png"
-                                            width={25}
-                                            height={25}
-                                            alt="share"
-                                        />
-                                        <span>Share</span>
-                                    </div>
-                                </div>
-                                <div className="displayComments">
-                                    <input
-                                        type="text"
-                                        value={comment}
-                                        onKeyDown={handleEnter}
-                                        onChange={onChange}
-                                        placeholder="Comment here..."
-                                    />
-                                    <button
-                                        disabled={comment.length === 0}
-                                        onClick={handleComments}
-                                    >
-                                        Post
-                                    </button>
-                                </div>
-                                <div className="comments-container">
-                                    <h3 style={{ marginBottom: "3px" }}>
-                                        Comments ({commentList.length})
-                                    </h3>
-                                    {fetchingComments && (
-                                        <img
-                                            src={spinner}
-                                            style={{
-                                                height: "55px",
-                                                width: "55px",
-                                            }}
-                                            alt="loading"
-                                        />
-                                    )}
-                                    {fetchingComments === false &&
-                                    commentList.length === 0
-                                        ? "No comments yet"
-                                        : ""}
-                                    {commentList &&
-                                        commentList.map((item) => {
-                                            return (
-                                                <div
-                                                    id="comment-to-prof"
-                                                    key={item._id}
-                                                >
-                                                    <div
-                                                        style={{
-                                                            display: "flex",
-                                                            alignItems:
-                                                                "center",
-                                                            gap: "80px",
-                                                        }}
-                                                    >
-                                                        <span
-                                                            style={{
-                                                                display: "flex",
-                                                                alignItems:
-                                                                    "center",
-                                                                gap: "8px",
-                                                            }}
-                                                            onClick={() =>
-                                                                navigate(
-                                                                    `/public-profile/${item.user._id}`
-                                                                )
-                                                            }
-                                                        >
-                                                            <img
-                                                                height={32}
-                                                                width={32}
-                                                                src={userPic}
-                                                                alt="user-pic"
-                                                                style={{}}
-                                                            />
-                                                            <b>
-                                                                {item.user
-                                                                    .firstname +
-                                                                    " " +
-                                                                    item.user
-                                                                        .lastname}
-                                                            </b>
-                                                        </span>
-                                                        {userData._id ===
-                                                            item.user._id && (
-                                                            <i
-                                                                onClick={() =>
-                                                                    delComm(
-                                                                        item._id
-                                                                    )
-                                                                }
-                                                                className="fa fa-lg fa-solid fa-trash"
-                                                            ></i>
-                                                        )}
-                                                    </div>
-                                                    <p
-                                                        style={{
-                                                            marginLeft: "40px",
-                                                            fontSize: "1.1rem",
-                                                        }}
-                                                    >
-                                                        {item.comment}
-                                                    </p>
-                                                </div>
-                                            );
-                                        })}
-                                </div>
-                            </div>
-                        </div>
+                      <img style={{ marginRight: '4px' }} src='/comment.png' />
+                      {commentList.length + ' '}
+                      Comments
                     </div>
-                )}
-                {/* {post && <MyProfile userData={post.author} myUser={userData} />} */}
-                <Profileandevents userData={userData} />
+                    <div
+                      className='share'
+                      onClick={() => shareClicked(post._id)}
+                    >
+                      <img
+                        src='/share.png'
+                        width={25}
+                        height={25}
+                        alt='share'
+                      />
+                      <span>Share</span>
+                    </div>
+                  </div>
+                  <div className='displayComments'>
+                    <input
+                      type='text'
+                      value={comment}
+                      onKeyDown={handleEnter}
+                      onChange={onChange}
+                      placeholder='Comment here...'
+                    />
+                    <button
+                      disabled={comment.length === 0}
+                      onClick={handleComments}
+                    >
+                      Post
+                    </button>
+                  </div>
+                  <div className='comments-container'>
+                    <h3 style={{ marginBottom: '3px' }}>
+                      Comments ({commentList.length})
+                    </h3>
+                    {fetchingComments && (
+                      <img
+                        src={spinner}
+                        style={{
+                          height: '55px',
+                          width: '55px',
+                        }}
+                        alt='loading'
+                      />
+                    )}
+                    {fetchingComments === false && commentList.length === 0
+                      ? 'No comments yet'
+                      : ''}
+                    {commentList &&
+                      commentList.map((item) => {
+                        return (
+                          <div id='comment-to-prof' key={item._id}>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '80px',
+                              }}
+                            >
+                              <span
+                                style={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '8px',
+                                }}
+                                onClick={() =>
+                                  navigate(`/public-profile/${item.user._id}`)
+                                }
+                              >
+                                <img
+                                  height={32}
+                                  width={32}
+                                  src={userPic}
+                                  alt='user-pic'
+                                  style={{}}
+                                />
+                                <b>
+                                  {item.user.firstname +
+                                    ' ' +
+                                    item.user.lastname}
+                                </b>
+                              </span>
+                              {userData._id === item.user._id && (
+                                <i
+                                  onClick={() => delComm(item._id)}
+                                  className='fa fa-lg fa-solid fa-trash'
+                                ></i>
+                              )}
+                            </div>
+                            <p
+                              style={{
+                                marginLeft: '40px',
+                                fontSize: '1.1rem',
+                              }}
+                            >
+                              {item.comment}
+                            </p>
+                          </div>
+                        );
+                      })}
+                  </div>
+                </div>
+              </div>
             </div>
-        </>
+          )}
+          {/* {post && <MyProfile userData={post.author} myUser={userData} />} */}
+          <Profileandevents userData={userData} />
+        </div>
+      </>
     );
 }
 

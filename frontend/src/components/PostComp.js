@@ -245,328 +245,295 @@ useEffect(() => {
     };
 
     return (
-        <div className="post-1">
-            <div>
-                {author ? (
-                    <div id="post-user-follow-head">
-                        <div
-                            style={{ cursor: "pointer" }}
-                            className="post-postedby"
-                        >
-                            <img
-                                src={
-                                    author.profilePicUrl
-                                        ? author.profilePicUrl
-                                        : userPic
-                                }
-                                alt="user-pic"
-                                onClick={openPublicProfile}
-                            />
-                            <div onClick={openPublicProfile}>
-                                <span
-                                    style={{ fontWeight: "bold" }}
-                                    className="posted-by-name"
-                                >
-                                    <span>
-                                        {author.firstname} {author.lastname}
-                                    </span>
-                                    {author.isMentor && (
-                                        <img
-                                            id="verified-badge"
-                                            src="/verified.png"
-                                            width={10}
-                                            height={10}
-                                        />
-                                    )}
-                                </span>
-                                <span
-                                    style={{ fontSize: "12px" }}
-                                    className="posted-by-brief"
-                                >
-                                    {author.jobTitle !== "student"
-                                        ? author.jobTitle
-                                        : author.education.length &&
-                                          author.education[0].institution
-                                        ? "Student at " +
-                                          author.education[0].institution.slice(
-                                              0,
-                                              50
-                                          )
-                                        : "Student"}
-                                </span>
-                                <div
-                                    style={{ fontSize: "12px" }}
-                                    className="post-time"
-                                >
-                                    {formatTimeDifference()}
-                                </div>
-                            </div>
-                        </div>
-
-                        {userData._id !== author._id && (
-                            <div className="post-followbtn">
-                                <button
-                                    style={{
-                                        color: "#108cff",
-                                        fontSize: "1.1rem",
-                                    }}
-                                    onClick={async () => {
-                                        await followUnfollowUser(author._id);
-                                        FollowBtn === "Follow"
-                                            ? setFollowBtn("✔ Following")
-                                            : setFollowBtn("Follow");
-                                    }}
-                                >
-                                    {FollowBtn}
-                                </button>
-                            </div>
-                        )}
-                    </div>
-                ) : (
-                    <div
-                        style={{ cursor: "pointer" }}
-                        className="post-postedby"
-                    >
-                        <img src={userPic} alt="user-pic" />
-                        <div>
-                            <span
-                                style={{ fontWeight: "bold" }}
-                                className="posted-by-name"
-                            >
-                                Uknown Person
-                            </span>
-                            <span
-                                style={{ fontSize: "12px" }}
-                                className="posted-by-brief"
-                            >
-                                Unknown status
-                            </span>
-                        </div>
-                    </div>
-                )}
-
-                <div style={{ height: "10px" }}></div>
-            </div>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "20px",
-                    marginBottom: "10px",
-                }}
-            >
-                <p
-                    className={`user-content-post${expanded ? "expanded" : ""}`}
-                    style={{
-                        position: "relative",
-                        top: "10px",
-                        marginBottom: "10px",
-                    }}
-                    onClick={() => {
-                        navigate(`/postsection/${_id}`);
-                    }}
-                >
-                    {taggingManager.convert(title)}
-                </p>
-                {title.length > 500 ? (
-                    <button onClick={toggleExpand} className="read-more">
-                        {expanded ? "Read Less" : "Read More"}
-                    </button>
-                ) : (
-                    ""
-                )}
-            </div>
-
-            {imageUrls.length ? (
-                // imageUrls[0].toLowerCase().includes(".jpg") ||
-                //   imageUrls[0].toLowerCase().includes(".jpeg") ||
-                //   imageUrls[0].toLowerCase().includes(".png")
-                isImage(imageUrls[currentMediaIndex]) ? (
-                    // false
-                    <div
-                        className="posted-img-container"
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "5px",
-                        }}
-                    >
-                        {imageUrls.length > 1 && currentMediaIndex > 0 && (
-                            <span onClick={handlePreviousMedia}>
-                                <img
-                                    className="back-post-arr"
-                                    height={32}
-                                    width={32}
-                                    src={back}
-                                    alt="back"
-                                />
-                            </span>
-                        )}
-                        <img
-                            onClick={previewImage}
-                            src={imageUrls[currentMediaIndex]}
-                            className="img-posted"
-                            alt="prevw"
-                        />
-                        {imageUrls.length > 1 &&
-                            currentMediaIndex < imageUrls.length - 1 && (
-                                <span onClick={handleNextMedia}>
-                                    <img
-                                        className="next-post-arr"
-                                        height={28}
-                                        width={28}
-                                        src={next}
-                                        alt="next"
-                                    />
-                                </span>
-                            )}
-                    </div>
-                ) : (
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "5px",
-                        }}
-                    >
-                        {imageUrls.length > 1 && currentMediaIndex > 0 && (
-                            <span onClick={handlePreviousMedia}>
-                                <img
-                                    style={{ cursor: "pointer" }}
-                                    className="back-post-arr"
-                                    height={32}
-                                    width={32}
-                                    src={back}
-                                    alt="back"
-                                />
-                            </span>
-                        )}
-                        <iframe
-                            id="iframe-post"
-                            onClick={previewImage}
-                            src={imageUrls[currentMediaIndex]}
-                            width="100%"
-                            height={400}
-                            title="Media Preview"
-                            scrolling="no"
-                            frameBorder="0"
-                        ></iframe>
-                        {imageUrls.length > 1 &&
-                            currentMediaIndex < imageUrls.length - 1 && (
-                                <span
-                                    style={{ cursor: "pointer" }}
-                                    onClick={handleNextMedia}
-                                >
-                                    <img
-                                        className="next-post-arr"
-                                        height={28}
-                                        width={28}
-                                        src={next}
-                                        alt="next"
-                                    />
-                                </span>
-                            )}
-                    </div>
-                )
-            ) : (
-                ""
-            )}
-
-            {showPostImgPrew && imageUrls.length && (
-                <div className="absolute">
-                    <PostImgPrevw
-                        onClose={onClose}
-                        name={author.firstname + " " + author.lastname}
-                        src={imageUrls[currentMediaIndex]}
-                    />
-                </div>
-            )}
-
-            {(likersList.length > 0 || commentList.length > 0) && (
-                <>
-                    <hr id="like-line" />
-                    <div className="like-cmts-count">
-                        <div
-                            style={{ cursor: "pointer" }}
-                            className="like-counts"
-                        >
-                            {likersList.length <= 1 && (
-                                <>
-                                    <span onClick={openPopup}>
-                                        {likersList.length} Like
-                                    </span>
-                                </>
-                            )}
-                            {likersList.length > 1 && (
-                                <>
-                                    {/* <hr style={{marginBottom: "-12px"}}/> */}
-                                    <span className="likes-name">
-                                        <b>
-                                            {likersList[likersList.length - 1]
-                                                .firstname +
-                                                " " +
-                                                likersList[
-                                                    likersList.length - 1
-                                                ].lastname}
-                                        </b>{" "}
-                                        and{" "}
-                                        <span id="others" onClick={openPopup}>
-                                            {likersList.length - 1} others liked
-                                            this post.
-                                        </span>{" "}
-                                    </span>
-                                    <span className="small-screen-likes-length">
-                                        {likersList.length} Like
-                                    </span>
-                                </>
-                            )}
-                        </div>
-                        <div
-                            style={{ cursor: "pointer" }}
-                            onClick={() => {
-                                navigate(`/postsection/${_id}`);
-                            }}
-                            className="cmts-count"
-                        >
-                            {commentList.length + " "}Comments
-                        </div>
-                    </div>
-                </>
-            )}
-            <hr id="like-line" />
-            <div className="reactions-div">
-                <div
-                    className="reactions"
-                    style={{ position: "absolute", left: "0px", top: "-10px" }}
-                >
-                    <div className="like-count" onClick={openPopup}>
-                        <i
-                            style={{
-                                marginRight: "4px",
-                                fontSize: "22px",
-                                color: liked ? "rgb(16, 39, 111)" : "#666565",
-                                cursor: "pointer",
-                            }}
-                            className="fa fa-thumbs-up"
-                            onClick={likethispost}
-                        ></i>
-                        Like
-                    </div>
-                    {isPopupOpen && (
-                        <Popup
-                            onClose={closePopup}
-                            setProgress={setProgress}
-                            postId={_id}
-                            likesCount={post.likes.length}
-                        />
+      <div className='post-1'>
+        <div>
+          {author ? (
+            <div id='post-user-follow-head'>
+              <div style={{ cursor: 'pointer' }} className='post-postedby'>
+                <img
+                  src={author.profilePicUrl ? author.profilePicUrl : userPic}
+                  alt='user-pic'
+                  onClick={openPublicProfile}
+                />
+                <div onClick={openPublicProfile}>
+                  <span
+                    style={{ fontWeight: 'bold' }}
+                    className='posted-by-name'
+                  >
+                    <span>
+                      {author.firstname} {author.lastname}
+                    </span>
+                    {author.isMentor && (
+                      <img
+                        id='verified-badge'
+                        src='/verified.png'
+                        width={10}
+                        height={10}
+                        alt='verified badge'
+                      />
                     )}
-                    <div
-                        className="comments"
-                        onClick={() => {
-                            navigate(`/postsection/${_id}`);
-                        }}
-                    >
-                        {/* <i
+                  </span>
+                  <span
+                    style={{ fontSize: '12px' }}
+                    className='posted-by-brief'
+                  >
+                    {author.jobTitle !== 'student'
+                      ? author.jobTitle
+                      : author.education.length &&
+                        author.education[0].institution
+                      ? 'Student at ' +
+                        author.education[0].institution.slice(0, 50)
+                      : 'Student'}
+                  </span>
+                  <div style={{ fontSize: '12px' }} className='post-time'>
+                    {formatTimeDifference()}
+                  </div>
+                </div>
+              </div>
+
+              {userData._id !== author._id && (
+                <div className='post-followbtn'>
+                  <button
+                    style={{
+                      color: '#108cff',
+                      fontSize: '1.1rem',
+                    }}
+                    onClick={async () => {
+                      await followUnfollowUser(author._id);
+                      FollowBtn === 'Follow'
+                        ? setFollowBtn('✔ Following')
+                        : setFollowBtn('Follow');
+                    }}
+                  >
+                    {FollowBtn}
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div style={{ cursor: 'pointer' }} className='post-postedby'>
+              <img src={userPic} alt='user-pic' />
+              <div>
+                <span style={{ fontWeight: 'bold' }} className='posted-by-name'>
+                  Uknown Person
+                </span>
+                <span style={{ fontSize: '12px' }} className='posted-by-brief'>
+                  Unknown status
+                </span>
+              </div>
+            </div>
+          )}
+
+          <div style={{ height: '10px' }}></div>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+            marginBottom: '10px',
+          }}
+        >
+          <pre
+            className={`user-content-post ${expanded ? 'expanded' : ''}`}
+            style={{
+              position: 'relative',
+              top: '10px',
+              marginBottom: '10px',
+            }}
+            onClick={() => {
+              navigate(`/postsection/${_id}`);
+            }}
+          >
+            {taggingManager.convert(title)}
+          </pre>
+          {title.length > 500 || (title.match(/\n/g) || []).length>=5  ? (
+            <button onClick={toggleExpand} className='read-more'>
+              {expanded ? 'Read Less' : 'Read More'}
+            </button>
+          ) : (
+            ''
+          )}
+        </div>
+
+        {imageUrls.length ? (
+          // imageUrls[0].toLowerCase().includes(".jpg") ||
+          //   imageUrls[0].toLowerCase().includes(".jpeg") ||
+          //   imageUrls[0].toLowerCase().includes(".png")
+          isImage(imageUrls[currentMediaIndex]) ? (
+            // false
+            <div
+              className='posted-img-container'
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px',
+              }}
+            >
+              {imageUrls.length > 1 && currentMediaIndex > 0 && (
+                <span onClick={handlePreviousMedia}>
+                  <img
+                    className='back-post-arr'
+                    height={32}
+                    width={32}
+                    src={back}
+                    alt='back'
+                  />
+                </span>
+              )}
+              <img
+                onClick={previewImage}
+                src={imageUrls[currentMediaIndex]}
+                className='img-posted'
+                alt='prevw'
+              />
+              {imageUrls.length > 1 &&
+                currentMediaIndex < imageUrls.length - 1 && (
+                  <span onClick={handleNextMedia}>
+                    <img
+                      className='next-post-arr'
+                      height={28}
+                      width={28}
+                      src={next}
+                      alt='next'
+                    />
+                  </span>
+                )}
+            </div>
+          ) : (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px',
+              }}
+            >
+              {imageUrls.length > 1 && currentMediaIndex > 0 && (
+                <span onClick={handlePreviousMedia}>
+                  <img
+                    style={{ cursor: 'pointer' }}
+                    className='back-post-arr'
+                    height={32}
+                    width={32}
+                    src={back}
+                    alt='back'
+                  />
+                </span>
+              )}
+              <iframe
+                id='iframe-post'
+                onClick={previewImage}
+                src={imageUrls[currentMediaIndex]}
+                width='100%'
+                height={400}
+                title='Media Preview'
+                scrolling='no'
+                frameBorder='0'
+              ></iframe>
+              {imageUrls.length > 1 &&
+                currentMediaIndex < imageUrls.length - 1 && (
+                  <span style={{ cursor: 'pointer' }} onClick={handleNextMedia}>
+                    <img
+                      className='next-post-arr'
+                      height={28}
+                      width={28}
+                      src={next}
+                      alt='next'
+                    />
+                  </span>
+                )}
+            </div>
+          )
+        ) : (
+          ''
+        )}
+
+        {showPostImgPrew && imageUrls.length && (
+          <div className='absolute'>
+            <PostImgPrevw
+              onClose={onClose}
+              name={author.firstname + ' ' + author.lastname}
+              src={imageUrls[currentMediaIndex]}
+            />
+          </div>
+        )}
+
+        {(likersList.length > 0 || commentList.length > 0) && (
+          <>
+            <hr id='like-line' />
+            <div className='like-cmts-count'>
+              <div style={{ cursor: 'pointer' }} className='like-counts'>
+                {likersList.length <= 1 && (
+                  <>
+                    <span onClick={openPopup}>{likersList.length} Like</span>
+                  </>
+                )}
+                {likersList.length > 1 && (
+                  <>
+                    {/* <hr style={{marginBottom: "-12px"}}/> */}
+                    <span className='likes-name'>
+                      <b>
+                        {likersList[likersList.length - 1].firstname +
+                          ' ' +
+                          likersList[likersList.length - 1].lastname}
+                      </b>{' '}
+                      and{' '}
+                      <span id='others' onClick={openPopup}>
+                        {likersList.length - 1} others liked this post.
+                      </span>{' '}
+                    </span>
+                    <span className='small-screen-likes-length'>
+                      {likersList.length} Like
+                    </span>
+                  </>
+                )}
+              </div>
+              <div
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  navigate(`/postsection/${_id}`);
+                }}
+                className='cmts-count'
+              >
+                {commentList.length + ' '}Comments
+              </div>
+            </div>
+          </>
+        )}
+        <hr id='like-line' />
+        <div className='reactions-div'>
+          <div
+            className='reactions'
+            style={{ position: 'absolute', left: '0px', top: '-10px' }}
+          >
+            <div className='like-count' onClick={openPopup}>
+              <i
+                style={{
+                  marginRight: '4px',
+                  fontSize: '22px',
+                  color: liked ? 'rgb(16, 39, 111)' : '#666565',
+                  cursor: 'pointer',
+                }}
+                className='fa fa-thumbs-up'
+                onClick={likethispost}
+              ></i>
+              Like
+            </div>
+            {isPopupOpen && (
+              <Popup
+                onClose={closePopup}
+                setProgress={setProgress}
+                postId={_id}
+                likesCount={post.likes.length}
+              />
+            )}
+            <div
+              className='comments'
+              onClick={() => {
+                navigate(`/postsection/${_id}`);
+              }}
+            >
+              {/* <i
               className="fa fa-lg fa-solid fa-comment"
               style={{
                 marginRight: '4px',
@@ -574,28 +541,17 @@ useEffect(() => {
                 marginBottom: '3px',
               }}
             ></i> */}
-                        <img
-                            style={{ marginRight: "4px" }}
-                            src="/comment.png"
-                        />
-                        Comments
-                    </div>
-
-                    <div
-                        className="share"
-                        onClick={() => shareClicked(post._id)}
-                    >
-                        <img
-                            src="/share.png"
-                            width={21}
-                            height={21}
-                            alt="share"
-                        />
-                        <span>Share</span>
-                    </div>
-                </div>
+              <img style={{ marginRight: '4px' }} src='/comment.png' />
+              Comments
             </div>
+
+            <div className='share' onClick={() => shareClicked(post._id)}>
+              <img src='/share.png' width={21} height={21} alt='share' />
+              <span>Share</span>
+            </div>
+          </div>
         </div>
+      </div>
     );
 };
 

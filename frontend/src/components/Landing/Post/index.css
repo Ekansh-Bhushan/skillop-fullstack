@@ -597,11 +597,13 @@ body {
 }
 
 .user-content-post {
-  max-height: 90px;
+  text-wrap: wrap;
+  max-height: 120px;
   overflow: hidden;
 }
 .user-content-post.expanded {
   max-height: none;
+  text-wrap: wrap;
 }
 .user-post-head {
   display: flex;
