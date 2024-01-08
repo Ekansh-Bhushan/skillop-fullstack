@@ -277,8 +277,8 @@ useEffect(() => {
                     style={{ fontSize: '12px' }}
                     className='posted-by-brief'
                   >
-                    {author.jobTitle !== 'student'
-                      ? author.jobTitle
+                    {author.experence.length
+                      ? author.experence[0].title +" @ " + author.experence[0].company
                       : author.education.length &&
                         author.education[0].institution
                       ? 'Student at ' +
