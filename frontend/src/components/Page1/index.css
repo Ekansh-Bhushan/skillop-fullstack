@@ -93,14 +93,6 @@ body {
   background-color: rgb(192, 189, 189);
 }
 
-input {
-  border: none;
-  outline: none;
-  /* background-color: rgb(235, 235, 235); */
-  border: solid black 1px;
-  padding: 8px;
-  border-radius: 5px;
-}
 
 .name {
   display: flex;

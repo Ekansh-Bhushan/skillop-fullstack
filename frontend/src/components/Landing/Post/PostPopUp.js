@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import "./PostPopUp.css";
 import photoIcon from "../../images/image.png";
 import videoIcon from "../../images/video.jpeg";
 import attatchmentIcon from "../../images/attatchment.png";
 import crossIcon from "../../images/cross.png";
 import addMoreIcon from "../../images/addMore.png";
-import doneIcon from "../../images/done.png";
 import userIcon from "../../images/user.png";
 import postIcon from "../../images/post.png";
 import next from "../../images/next.png";
@@ -166,12 +165,15 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
         }
     };
 
+    const chooseFileBtn = React.createRef();
+
     return (
         <div className="postpopup-container">
             <div className="popup-container">
                 <div className="photo-popup image-crop-container">
                     <input
                         type="file"
+                        ref={chooseFileBtn}
                         accept="image/*, video/*, .doc, .docx, .pdf, .txt, audio/*"
                         name="postImages"
                         multiple
@@ -182,7 +184,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
                         }}
                     />
                     <button onClick={hideImgPopup} className="proceed">
-                        Proceed
+                        Done
                     </button>
                 </div>
 
@@ -366,6 +368,7 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
                         <span
                             onClick={() => {
                                 handleUpload();
+                                chooseFileBtn.current.click();
                             }}
                         >
                             <img
