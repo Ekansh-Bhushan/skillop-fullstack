@@ -15,8 +15,8 @@ function App({ location }) {
     const [Mentor, setMentor] = useState(false);
     const [isFetched, setIsFetched] = useState(false);
     const [notifyList, setNotifyList] = useState([]);
-
-    // GET USER DATA
+    
+    // routes
 
     const pagesToNotRedirect = [
         "/",

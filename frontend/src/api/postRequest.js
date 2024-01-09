@@ -4,7 +4,6 @@ const API = axios.create({ baseURL: "https://skillop.in" });
 
 export const createPost = (data) => {
     const token = localStorage.getItem("skilloptoken");
-
     const config = {
         headers: {
             "Content-Type": "multipart/form-data",

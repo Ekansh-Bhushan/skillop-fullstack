@@ -26,6 +26,9 @@ const LandingOne = () => {
   const signupClicked = () => {
     window.innerWidth < 500 ? navigate("/msignup") : navigate("/signup");
   };
+  const LearnMoreClicked = () => {
+    window.innerWidth < 500 ? navigate("/about") : navigate("/about");
+  };
 
   return (
     <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0 ">
@@ -53,15 +56,19 @@ const LandingOne = () => {
               <img src={arrow} width={20} />
             </span>
           </button>
-          <Link
+          {/* <Link
             to="/about"
             spy={true}
             smooth={true}
             duration={500}
             className="border-black border-2 px-10 py-3 rounded-lg font-semibold md:px-5 hover:bg-[#8484841A]"
-          >
+          > */}
+          <button onClick={LearnMoreClicked} className="border-black border-2 px-10 py-3 rounded-lg font-semibold md:px-5 hover:bg-[#8484841A]"
+        >
             Learn More
-          </Link>
+
+          </button>
+          {/* </Link> */}
         </div>
 
         <div className="text-[45px] text-[#5F5F5F] flex gap-5 mt-20 md:text-[30px] md:mt-10">
