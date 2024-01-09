@@ -34,14 +34,15 @@ const SkillSeven = () => {
       return;
     }
 
-    if (!upiId) {
-      toast.error("UPI ID is required!", {
-        style: {
-          marginTop: "60px", // Adjust margin as needed
-        },
-      });
-      return;
-    }
+    // if (!upiId) {
+    //   toast.error("UPI ID is required!", {
+    //     style: {
+    //       marginTop: "60px", // Adjust margin as needed
+    //     },
+    //   }
+    //   );
+      // return;
+    // }
     try {
       const { data } = await updateIsMentor({
         whatsappNumber,

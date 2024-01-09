@@ -169,7 +169,9 @@
   /* margin-bottom: 20px; */
   padding: 10px;
 }
-
+.journey>*{
+  display: flex;
+}
 /* ============================================ SKILLS ============================================= */
 
 .skills {
@@ -339,6 +341,7 @@
   border-radius: 50%;
   width: 50px;
   /* Optional: Add border-radius for a circular background */
+  min-width: 25px;
 }
 
 .add-icon:hover {

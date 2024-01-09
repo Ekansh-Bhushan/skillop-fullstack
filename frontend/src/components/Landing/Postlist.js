@@ -160,6 +160,10 @@ const Postlist = ({
             }
         };
 
+
+
+
+
         const observerOptions = {
             root: null,
             rootMargin: "0px",
@@ -181,7 +185,10 @@ const Postlist = ({
                 observer.disconnect(); // Disconnect the observer on cleanup
             }
         };
-    }, [length, limit, skip, refresh, setRefresh]); // Adjust dependencies as needed
+    }, [posts,length, limit, skip, refresh, setRefresh]); // Adjust dependencies as needed
+
+
+
 
     return (
         <>

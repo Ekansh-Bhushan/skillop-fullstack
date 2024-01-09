@@ -512,7 +512,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                     <div
                       key={idx}
                       style={{
-                        border: `3px solid ${color[idx]}`,
+                        border: `1px solid ${color[idx]}`,
                         color: `${color[idx]}`,
                       }}
                       className="skills-content"

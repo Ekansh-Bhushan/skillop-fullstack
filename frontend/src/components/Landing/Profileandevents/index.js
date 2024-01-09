@@ -39,6 +39,44 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
     fetchEvents();
   }, []);
 
+
+
+
+
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Add a scroll event listener to check if the user has scrolled down enough to show the button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Function to scroll to the top when the button is clicked
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+
+
+
+
+  
   return (
     <>
       <div className={isHome ? 'prof-and-events ishome' : 'prof-and-events'}>
@@ -153,6 +191,14 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
             </a>
           </div> */}
         </div>
+        <h1>hello</h1>
+        <div>
+      {isVisible && (
+        <button className="scroll-to-top" onClick={scrollToTop}>
+          <img src="/scrolltop.png" alt="scroll top button" />
+        </button>
+      )}
+    </div>
       </div>
     </>
   );
