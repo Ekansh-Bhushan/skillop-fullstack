@@ -506,7 +506,7 @@ useEffect(() => {
             className='reactions'
             style={{ position: 'absolute', left: '0px', top: '-10px' }}
           >
-            <div className='like-count' onClick={openPopup}>
+            <div className='like-count'>
               <i
                 style={{
                   marginRight: '4px',
