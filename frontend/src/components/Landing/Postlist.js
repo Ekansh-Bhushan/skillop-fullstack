@@ -23,7 +23,39 @@ const Postlist = ({
     setUserData,
     showPostPopUp,
     setShowPostPopUp,
+    socket,
 }) => {
+    const handlePostCreation = async (postData) => {
+        try {
+          if (inputValue.length === 0) {
+            toast.error("Enter something to post");
+            return;
+          }
+      
+          // Create a new post on the server
+          const { data } = await getAllPost(postData);
+      
+          // Notify server and other clients about the new post
+          if (socket) {
+            socket.emit('newPost', data.post);
+          }
+      
+          // Add this post to the posts state
+          setPosts((prevPosts) => [data.result, ...prevPosts]);
+      
+          // Reset input value and selectedFile
+          setInputValue("");
+          setSelectedFile(null);
+      
+          toast.success("Post created successfully");
+        } catch (error) {
+          console.log(error);
+          toast.error("Error creating post");
+        }
+      };
+
+
+
     const [refresh, setRefresh] = useState(false);
     const userId = window.location.pathname.split("/")[2];
 

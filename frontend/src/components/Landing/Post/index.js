@@ -5,6 +5,7 @@ import Mobilecommonhead from '../../Mobilecommonhead';
 import { getUser } from '../../../api/userRequest';
 import { getNotifications } from '../../../api/getNotifications';
 import Postlist from '../Postlist';
+import openSocket from 'socket.io-client';
 
 function Post({
   userData,
@@ -25,6 +26,30 @@ function Post({
       behavior: 'smooth',
     });
   };
+
+  const [socket, setSocket] = useState(null);
+  useEffect(() => {
+    // Establish WebSocket connection
+    const newSocket = openSocket('https://skillop.in/');
+    console.log('WebSocket Connection Established');
+    setSocket(newSocket);
+  
+    return () => {
+      // Close WebSocket connection when component unmounts
+      newSocket.disconnect();
+      console.log('WebSocket Connection Closed');
+    };
+  }, []);
+
+  useEffect(() => {
+    if (socket) {
+      // Listen for 'newPost' event
+      socket.on('newPost', (newPost) => {
+        // Update UI with the new post
+        // You may need to modify state or data structures in your Postlist component
+      });
+    }
+  }, [socket]);
 
   const [isHome, setIsHome] = useState(false);
 
@@ -87,6 +112,7 @@ function Post({
               setUserData={setUserData}
               setShowPostPopUp={setShowPostPopUp}
               showPostPopUp={showPostPopUp}
+              socket={socket}
             />
           )}
     
