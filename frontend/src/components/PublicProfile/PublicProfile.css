@@ -1,0 +1,7 @@
+.chatAndBookSlot img {
+    max-width: 50px; /* You can adjust the value to your desired size */
+    height: auto; /* Maintain aspect ratio */
+    padding: 10px;
+    display: inline-block;
+  }
+  

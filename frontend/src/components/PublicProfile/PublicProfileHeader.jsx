@@ -8,6 +8,9 @@ import toast from "react-hot-toast";
 // import post2 from '../../images/post2.png';
 import userPic from "../images/user.png";
 import UpcomingEvents from "../Landing/Profileandevents/UpcomingEvents";
+import Chart3 from "../images/chat3.png"
+import "./PublicProfile.css"
+import Slot1 from '../images/slots1.png'
 
 const PublicProfileHeader = ({ userDetails }) => {
   const navigate = useNavigate();
@@ -102,7 +105,7 @@ const PublicProfileHeader = ({ userDetails }) => {
                   userDetails.followings &&
                   userDetails.followings.length}
               </b>{" "}
-              Followings
+              Followings 
             </div>
           </div>
           <div className="ph-linkedin">
@@ -143,15 +146,19 @@ const PublicProfileHeader = ({ userDetails }) => {
                 }}
               />
             )}
-
             {showIntroVideo && (
               <IntroVideo
-                onClose={onClose}
-                introVideoUrl={userDetails.introVideo}
-                publicView={true}
+              onClose={onClose}
+              introVideoUrl={userDetails.introVideo}
+              publicView={true}
               />
-            )}
+              )}
           </div>
+          {/* <div className="chatAndBookSlot">
+            <img src={Chart3} alt=""/>
+            <img src={Slot1} alt=""/>
+              <p>kaha book slot and chat option</p>
+          </div> */}
         </div>
       </div>
     </>
