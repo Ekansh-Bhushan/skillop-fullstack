@@ -49,7 +49,7 @@ const Login = () => {
       if (data.type === 'old') {
         navigate('/homepage');
       } else {
-        navigate('/skills');
+        navigate('/skill3');
       }
     } else {
       toast.error(data.message);
