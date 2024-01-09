@@ -196,11 +196,11 @@ exports.googleIdVerifyAndLogin = async (req, res) => {
             // put a random password
             if (!user) {
                 const newUser = await User.create({
-                    firstname: name.split(" ")[0],
-                    lastname: name.split(" ")[1],
-                    email,
-                    googleID: userid,
-                    password: "sdf@swaroop[1234]",
+                  firstname: name.split(' ')[0],
+                  lastname: name.split(' ')[1] || ' ',
+                  email,
+                  googleID: userid,
+                  password: '0YjIifQ.NCuZg968jj',
                 });
                 const options = {
                     expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),

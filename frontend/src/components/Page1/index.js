@@ -167,7 +167,7 @@ function Page1({ setProgress, setUserData }) {
 
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     const idToken = credentialResponse.credential;
-    console.log(idToken);
+    // console.log(idToken);
 
     const { data } = await googleIdVerifyAndLogin({ token: idToken });
     console.log(data);
