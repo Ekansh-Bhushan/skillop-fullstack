@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./PostPopUp.css";
 import photoIcon from "../../images/image.png";
 import videoIcon from "../../images/video.jpeg";
@@ -13,8 +13,13 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { queryUserFromUsername } from "../../../api/userRequest";
 import _ from "lodash";
+import io from 'socket.io-client';
+
 
 const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
+    const socket = io('http://skillop.in');
+
+    
     // ------------- @ sign query
     const [signQuery, setSignQuery] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -109,12 +114,25 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
             setRefresh(!refresh);
             onClose();
             toast.success("Post created successfully!");
+            setRefresh(!refresh);
         } catch (error) {
             console.log("Unable to add post", error);
             toast.error(error.response.data.message);
         }
     };
-
+    useEffect(() => {
+        // Listen for new posts
+        socket.on('newPost', (data) => {
+            // Update state or take other actions
+            setRefresh(!refresh);
+            console.log('New post received:', data);
+        });
+    
+        // Cleanup the socket connection on component unmount
+        return () => {
+            socket.disconnect();
+        };
+    }, [refresh, socket]);
     const handleUpload = () => {
         document.querySelector(".photo-popup").style.display = "flex";
     };
