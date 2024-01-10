@@ -70,8 +70,9 @@
 .ph-headline {
   color: gray;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  gap: 20px;
 }
 
 #ph-mypost {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { findUser, getUser } from "../../../api/userRequest";
+import { findUser, getFollowers, getUser } from "../../../api/userRequest";
 import linkedin from "../../images/linkedin.png";
 import userPic from "../../images/user.png";
 import { useNavigate } from "react-router-dom";

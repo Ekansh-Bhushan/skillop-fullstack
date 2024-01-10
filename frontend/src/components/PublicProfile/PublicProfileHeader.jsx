@@ -1,35 +1,89 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import defaultBGPic from "../images/bg.png";
-import IntroVideo from "../Profile/Right Profile/IntroVideo";
-import Following from "../Profile/Right Profile/Following";
-import Followers from "../Profile/Right Profile/Followers";
-import toast from "react-hot-toast";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import defaultBGPic from '../images/bg.png';
+import IntroVideo from '../Profile/Right Profile/IntroVideo';
+import Following from '../Profile/Right Profile/Following';
+import Followers from '../Profile/Right Profile/Followers';
+import toast from 'react-hot-toast';
 // import post2 from '../../images/post2.png';
-import userPic from "../images/user.png";
-import UpcomingEvents from "../Landing/Profileandevents/UpcomingEvents";
-import Chart3 from "../images/chat3.png"
-import "./PublicProfile.css"
-import Slot1 from '../images/slots1.png'
+import userPic from '../images/user.png';
+import UpcomingEvents from '../Landing/Profileandevents/UpcomingEvents';
+import Chart3 from '../images/chat3.png';
+import './PublicProfile.css';
+import Slot1 from '../images/slots1.png';
+import { followUnfollowUser } from '../../api/follow-unfollow';
+import { createChat, userChats } from '../../api/chatRequest';
+import { getFollowers, getUser } from '../../api/userRequest';
 
-const PublicProfileHeader = ({ userDetails }) => {
+const PublicProfileHeader = ({ userDetails, userData }) => {
   const navigate = useNavigate();
   //   const [userDetails, setUserDetails] = useState(null);
   const [showEditProfilePic, setShowEditProfilePic] = useState(false);
   const [showIntroVideo, setShowIntroVideo] = useState(false);
   const [showFollowers, setShowFollowers] = useState(false);
   const [showFollowings, setShowFollowings] = useState(false);
+  const [updateDOM, setUpdateDOM] = useState(false);
+  const [showFollowBtn, setShowFollowBtn] = useState(true);
+  const [chat_id, setChatId] = useState('');
 
   const onClose = () => {
     setShowIntroVideo(false);
   };
+  const getChats = async () => {
+    try {
+      const usrdt = await getUser();
+      const { data } = await userChats(usrdt.data.result._id);
+      const id = data.filter((item) => item.members[0] === userId)[0]._id;
+      setChatId(id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const creatingChat = async () => {
+    try {
+      const req = {
+        senderId: userDetails._id,
+        receiverId: userId,
+      };
+      const { data } = await createChat(req);
+      setChatId(data._id);
+    } catch (error) {
+      console.log(error);
+      toast.error('chat already exists');
+    }
+  };
+  const userId = window.location.pathname.split('/')[2];
+  const handleFollowBtn = async () => {
+    try {
+      await followUnfollowUser(userId);
+      setUpdateDOM(!updateDOM);
+      toast.success('You followed');
+      creatingChat();
+    } catch (err) {
+      toast.error(err.response.data.message);
+      console.log('Unable to follow/unfollow user at the moment', err);
+    }
+  };
+
+  useEffect(() => {
+    const checkFollow = async () => {
+      const res = await getFollowers(userId);
+      res.data.result.forEach((item) => {
+        if(item._id === userData._id) {
+          setShowFollowBtn(false);
+        }
+      });
+    };
+    checkFollow();
+    getChats();
+  }, [userId]);
 
   return (
     <>
       <UpcomingEvents />
-      <div className="ph-container">
+      <div className='ph-container'>
         <div
-          className="ph-bg"
+          className='ph-bg'
           style={{
             // backgroundImage: "url('/bg.png')",
             backgroundImage:
@@ -37,43 +91,54 @@ const PublicProfileHeader = ({ userDetails }) => {
               (userDetails.bgPicUrl
                 ? `url(${userDetails.bgPicUrl})`
                 : `url(${defaultBGPic})`),
-            width: "100%",
-            height: "30vh",
+            width: '100%',
+            height: '30vh',
           }}
         >
           {/* <img src="/bg.png" alt="bg" /> */}
         </div>
         {userDetails && userDetails.introVideo ? (
-          <div className="ph-pic">
+          <div className='ph-pic'>
             <img
               onClick={() => setShowIntroVideo(true)}
-              src={userDetails &&( userDetails.profilePicUrl ? userDetails.profilePicUrl : userPic)}
-              alt="user pic"
-              style={{ borderRadius: "100%" }}
+              src={
+                userDetails &&
+                (userDetails.profilePicUrl
+                  ? userDetails.profilePicUrl
+                  : userPic)
+              }
+              alt='user pic'
+              style={{ borderRadius: '100%' }}
             />
           </div>
         ) : (
           <img
-            className="ph-pic"
+            className='ph-pic'
             onClick={() => setShowIntroVideo(true)}
-            src={userDetails && (userDetails.profilePicUrl? userDetails.profilePicUrl : userPic)}
-            alt="user pic"
+            src={
+              userDetails &&
+              (userDetails.profilePicUrl ? userDetails.profilePicUrl : userPic)
+            }
+            alt='user pic'
           />
         )}
-        <div className="ph-details">
-          <div className="ph-name">
-            {userDetails && userDetails.firstname + " " + userDetails.lastname}
+        <div className='ph-details'>
+          <div className='ph-name'>
+            {userDetails && userDetails.firstname + ' ' + userDetails.lastname}
             {userDetails && userDetails.isMentor && (
-              <div className="verified-logo">
-                <img src="/verified.png" width={23} alt="" />
+              <div className='verified-logo'>
+                <img src='/verified.png' width={23} alt='' />
               </div>
             )}
           </div>
-          <div className="ph-headline">
-            {userDetails && userDetails.jobTitle}
+          {userDetails.experence &&
+            userDetails.experence[0].title +
+              ' @ ' +
+              userDetails.experence[0].company}
+          <div className='ph-headline'>
             {userDetails.isMentor && (
               <button
-                id="bookSlot"
+                id='bookSlot'
                 onClick={() => {
                   navigate(`/bookslot/${userDetails.mentor._id}`);
                 }}
@@ -81,51 +146,84 @@ const PublicProfileHeader = ({ userDetails }) => {
                 Book Slot
               </button>
             )}
+            {showFollowBtn ? (
+              <button
+                onClick={handleFollowBtn}
+                className='bg-blue-400 px-3 py-1 text-white rounded-full hover:bg-blue-500'
+              >
+                Follow
+              </button>
+            ) : (
+              <div className='flex gap-5'>
+                <button
+                  onClick={handleFollowBtn}
+                  className='bg-blue-400 px-3 py-1 text-white rounded-full hover:bg-blue-500'
+                >
+                  Unfollow
+                </button>
+                <Link to={'/chat'}>
+                  <img
+                    src='/chat3.png'
+                    className='cursor-pointer hover:opacity-80'
+                    width={35}
+                    alt=''
+                  />
+                </Link>
+                <Link to={'/post'}>
+                  <img
+                    src='/post2.png'
+                    className='cursor-pointer hover:opacity-80'
+                    width={35}
+                    alt=''
+                  />
+                </Link>
+              </div>
+            )}
           </div>
-          <div className="ph-follow">
+          <div className='ph-follow'>
             <div
-              className="ph-follwers"
+              className='ph-follwers'
               onClick={() => setShowFollowers(!showFollowers)}
             >
               <b>
-                {" "}
+                {' '}
                 {userDetails &&
                   userDetails.followers &&
                   userDetails.followers.length}
-              </b>{" "}
+              </b>{' '}
               Followers
             </div>
             <div
-              className="ph-followings"
+              className='ph-followings'
               onClick={() => setShowFollowings(!showFollowings)}
             >
               <b>
-                {" "}
+                {' '}
                 {userDetails &&
                   userDetails.followings &&
                   userDetails.followings.length}
-              </b>{" "}
-              Followings 
+              </b>{' '}
+              Followings
             </div>
           </div>
-          <div className="ph-linkedin">
-            <img src="/linkedin.png" alt="" />
+          <div className='ph-linkedin'>
+            <img src='/linkedin.png' alt='' />
             <p>
-              {" "}
+              {' '}
               <a
                 href={
                   userDetails &&
                   (userDetails.linkedinId &&
-                  userDetails.linkedinId.toString().includes("linkedin.com")
+                  userDetails.linkedinId.toString().includes('linkedin.com')
                     ? userDetails.linkedinId
                     : `https://linkedin.com/in/${userDetails.linkedinId}`)
                 }
-                target="_blank"
-                rel="noreferrer"
+                target='_blank'
+                rel='noreferrer'
               >
                 {userDetails &&
                   (userDetails.linkedinId &&
-                  userDetails.linkedinId.toString().includes("linkedin.com")
+                  userDetails.linkedinId.toString().includes('linkedin.com')
                     ? userDetails.linkedinId
                     : `https://linkedin.com/in/${userDetails.linkedinId}`)}
               </a>
@@ -148,11 +246,11 @@ const PublicProfileHeader = ({ userDetails }) => {
             )}
             {showIntroVideo && (
               <IntroVideo
-              onClose={onClose}
-              introVideoUrl={userDetails.introVideo}
-              publicView={true}
+                onClose={onClose}
+                introVideoUrl={userDetails.introVideo}
+                publicView={true}
               />
-              )}
+            )}
           </div>
           {/* <div className="chatAndBookSlot">
             <img src={Chart3} alt=""/>

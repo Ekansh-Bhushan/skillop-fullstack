@@ -104,7 +104,7 @@ const PublicProfile = ({
         notifyList={notifyList}
       /> */}
       <Mobilecommonhead />
-      <PublicProfileHeader userDetails={userDetails} />
+      <PublicProfileHeader userDetails={userDetails} userData={userDatamain}/>
       <div className="main-profile-page">
         {isLoading && (
           <img
