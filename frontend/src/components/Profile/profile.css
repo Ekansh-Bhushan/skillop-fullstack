@@ -89,7 +89,8 @@
   margin-bottom: 10px;
   line-height: 24px;
   display: block;
-  max-width: 96%;
+  max-width: 100%;
+  text-wrap: wrap;
 }
 
 @media (max-width: 500px) {
@@ -250,6 +251,8 @@
   margin-bottom: 3rem;
   padding-left: 20px;
   margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
   /* Adjust the value as needed */
 }
 .education-content #edu-field {
@@ -433,9 +436,12 @@
   }
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1500px) {
   .main-profile-page {
     margin-left: 0px;
+    position: relative;
+    width: 100%;
+    right: 10.25rem;
   }
 }
 

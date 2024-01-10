@@ -42,14 +42,15 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
   const creatingChat = async () => {
     try {
       const req = {
-        senderId: userDetails._id,
+        senderId: userData._id,
         receiverId: userId,
       };
       const { data } = await createChat(req);
+      console.log("chat data ",data)
       setChatId(data._id);
     } catch (error) {
       console.log(error);
-      toast.error('chat already exists');
+      // toast.error('chat already exists');
     }
   };
   const userId = window.location.pathname.split('/')[2];
@@ -57,8 +58,8 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
     try {
       await followUnfollowUser(userId);
       setUpdateDOM(!updateDOM);
-      toast.success('You followed');
-      creatingChat();
+      // toast.success('You followed');
+      // creatingChat();
     } catch (err) {
       toast.error(err.response.data.message);
       console.log('Unable to follow/unfollow user at the moment', err);
@@ -124,17 +125,25 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
         )}
         <div className='ph-details'>
           <div className='ph-name'>
-            {userDetails && userDetails.firstname + ' ' + userDetails.lastname}
+            {userDetails && (userDetails.firstname + ' ' + userDetails.lastname)}
             {userDetails && userDetails.isMentor && (
               <div className='verified-logo'>
                 <img src='/verified.png' width={23} alt='' />
               </div>
             )}
           </div>
-          {userDetails.experence &&
-            userDetails.experence[0].title +
-              ' @ ' +
-              userDetails.experence[0].company}
+          {userDetails && userDetails.experence && userDetails.experence.length > 0 ? (
+            <p>
+              {userDetails.experence[0].title +
+                ' @ ' +
+                userDetails.experence[0].company}
+            </p>
+          ) : (
+            <p>
+              {'Student' + userDetails && userDetails.experence && userDetails.education.length > 0 && ' @ ' +
+              userDetails.education[0].institute}
+            </p>
+          )}
           <div className='ph-headline'>
             {userDetails.isMentor && (
               <button
