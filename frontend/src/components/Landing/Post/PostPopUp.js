@@ -121,14 +121,11 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
         }
     };
     useEffect(() => {
-        // Listen for new posts
-        socket.on('newPost', (data) => {
-            // Update state or take other actions
+        socket.on('newPost', (data) => {       
             setRefresh(!refresh);
             console.log('New post received:', data);
+            setRefresh(!refresh);
         });
-    
-        // Cleanup the socket connection on component unmount
         return () => {
             socket.disconnect();
         };
