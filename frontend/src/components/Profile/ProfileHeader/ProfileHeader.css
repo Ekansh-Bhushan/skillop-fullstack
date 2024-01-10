@@ -3,9 +3,8 @@
   width: 48%;
   margin: 11vh 23vw;
   border-radius: 15px 15px 0px 0px;
-  min-height: 75vh;
+  min-height: 70vh;
   font-size: 1.1rem;
-
 }
 
 .ph-bg {
@@ -15,12 +14,8 @@
 }
 
 .ph-pic {
-  width: 9rem;
-  height:min-content;
-  /* max-width: 9vw;
-  max-height: 9vw;
-  min-width: 9;
-  min-height: 9vw; */
+  width: 9vw;
+  height: 9vw;
   border: none;
   border-radius: 100%;
   background: linear-gradient(
@@ -35,15 +30,14 @@
   justify-content: center;
   position: absolute;
   top:14vw;
-  left: 27vw;
+  left: 24.5vw;
 }
 
 .ph-pic img {
-  width: 8.5vw;
-  height: 8.5vw;
+  width: 93%;
+  height: 93%;
   border-radius: 100px;
   cursor: pointer;
-  
 }
 
 .ph-details {
@@ -110,13 +104,14 @@
   align-items: center;
   gap: 10px;
   color: #108cff;
+  margin-top: 1rem
 }
 
 .ph-linkedin img {
   height: 30px;
 }
 
-/* @media screen and (max-width: 1500px) {
+@media screen and (max-width: 1500px) {
   .ph-container {
     margin: 11vh 11vw;
     min-height: 76vh;
@@ -124,7 +119,7 @@
   .ph-pic {
     left: 13vw;
   }
-} */
+}
 
 @media screen and (max-width: 500px) {
   .ph-details {

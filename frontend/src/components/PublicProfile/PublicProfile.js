@@ -118,7 +118,7 @@ const PublicProfile = ({
         <div className="profile-data">
           <div className="journey">
             {/* ABOUT */}
-            <h1>About</h1>
+            <h2>About</h2>
 
             <div
               className={`journey-content ${
@@ -148,7 +148,7 @@ const PublicProfile = ({
 
           {/* PAST JOURNEY */}
           <div className="journey">
-            <h1>Past Journey</h1>
+            <h2>Past Journey</h2>
 
             <div
               className={`journey-content ${isPastExpanded ? "expanded" : ""}`}
@@ -172,7 +172,7 @@ const PublicProfile = ({
 
           {/* FUTURE PLANS */}
           <div className="journey">
-            <h1>Future Plans</h1>
+            <h2>Future Plans</h2>
 
             <div
               className={`journey-content ${
@@ -198,7 +198,7 @@ const PublicProfile = ({
 
           <hr className="line" />
           <div className="journey">
-            <h1>Experience</h1>
+            <h2>Experience</h2>
             {userDetails.experence && userDetails.experence.length === 0 && (
               <p
                 style={{
@@ -269,7 +269,7 @@ const PublicProfile = ({
           </div>
           <hr className="line" />
           <div className="journey">
-            <h1>Skills</h1>
+            <h2>Skills</h2>
             {userDetails.skills && userDetails.skills.length === 0 && (
               <p
                 style={{
@@ -302,7 +302,7 @@ const PublicProfile = ({
           </div>
           <hr className="line" />
           <div className="journey">
-            <h1>Education</h1>
+            <h2>Education</h2>
             {userDetails.education && userDetails.education.length === 0 && (
               <p
                 style={{
