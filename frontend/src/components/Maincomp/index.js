@@ -113,7 +113,6 @@ function AuthPage({
   );
 
   useEffect(() => {
-    console.log("Side nav use effe");
     setShouldRender(!excludedRoutes.includes(window.location.pathname));
   }, [window.location.pathname]);
 

@@ -104,7 +104,6 @@ function App({ location }) {
                 console.log("Unable to fetch notifications", err);
             }
         };
-        console.log("top bar use effe");
         setShouldRender(!excludedRoutes.includes(window.location.pathname));
 
         if (localStorage.getItem("skilloptoken")) {
