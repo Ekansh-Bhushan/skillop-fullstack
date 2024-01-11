@@ -65,7 +65,7 @@ const Notification = ({
         notifyList={notifyList}
       /> */}
       <Mobilecommonhead />
-      <div className="mt-0">
+      <div className="mt-0 notifications-container">
         <div>
           <Profileandevents userData={userData} />
         </div>

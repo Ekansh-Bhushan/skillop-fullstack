@@ -31,6 +31,12 @@
   justify-content: center;
 }
 
+.ph-pic {
+  position: absolute;
+  top: 32vh;
+  left: 25vw;
+}
+
 .ph-pic img,
 .ph-pic-pub img {
   width: 93%;
@@ -146,7 +152,9 @@
     margin: 11vh 11vw;
     min-height: 76vh;
   }
-  .ph-pic {
+   .ph-pic {
+    position: absolute;
+    top: 31vh;
     left: 13vw;
   }
 }
