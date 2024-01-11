@@ -165,6 +165,9 @@
     top: 32vh;
     left: 25vw;
   }
+  .ph-pic-pub2 {
+    left: 24vw;
+  }
 }
 
 @media screen and (max-width: 500px) {
