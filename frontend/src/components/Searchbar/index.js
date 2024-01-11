@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { AiFillPlusSquare } from "react-icons/ai";
-import { getAllUsers, getfilteredUser } from "../../api/userRequest";
 import user from "../images/user3.png";
 import { useNavigate } from "react-router-dom";
-import { createChat } from "../../api/chatRequest";
 import Mobilecommonhead from "../Mobilecommonhead";
-import RightProfileComp from "../Profile/Right Profile/RightProfileComp";
 import "./index.css";
 import {
   getSearchResultByPeople,
@@ -127,6 +123,7 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 placeholder="Company, People, Skill..."
                 onChange={onChangeFilter}
                 value={filterFields.keyword}
+                className="p-1"
               />
               <AiOutlineSearch
                 style={{
