@@ -99,7 +99,7 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
           {/* <img src="/bg.png" alt="bg" /> */}
         </div>
         {userDetails && userDetails.introVideo ? (
-          <div className='ph-pic'>
+          <div className='ph-pic-pub'>
             <img
               onClick={() => setShowIntroVideo(true)}
               src={
@@ -114,7 +114,7 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
           </div>
         ) : (
           <img
-            className='ph-pic'
+            className='ph-pic-pub2'
             onClick={() => setShowIntroVideo(true)}
             src={
               userDetails &&
