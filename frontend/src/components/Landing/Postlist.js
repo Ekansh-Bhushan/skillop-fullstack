@@ -144,9 +144,9 @@ const Postlist = ({
     //     }
     // };
 
-    // useEffect(() => {
-    //     getAllPost();
-    // }, [refresh, setRefresh]);
+    useEffect(() => {
+        getAllPost();
+    }, [refresh, setRefresh]);
 
     // STICK POST HEAD TO TOP WHILE SCROLLING DOWN EVENT TRIGGER
     useEffect(() => {

@@ -183,211 +183,238 @@ const PostPopUp = ({ onClose, setProgress, setRefresh, refresh }) => {
     const chooseFileBtn = React.createRef();
 
     return (
-      <div className='postpopup-container'>
-        <div className='popup-container'>
-          <div className='photo-popup image-crop-container'>
-            <input
-              type='file'
-              ref={chooseFileBtn}
-              accept='image/*, video/*, .doc, .docx, .pdf, .txt, audio/*'
-              name='postImages'
-              multiple
-              // onClick={() => {setPhoto(!photo); setVideo(!video);}}
-              onChange={(e) => {
-                setSelectedFile(e.target.files);
-                handleImageChange(e);
-              }}
-            />
-            <button onClick={hideImgPopup} className='proceed'>
-              Done
-            </button>
-          </div>
-
-          <div className='uploadMedia'>
-            <img
-              height={50}
-              width={50}
-              src={userIcon}
-              alt='user'
-              className='img'
-            />
-            <span
-              onClick={() => {
-                handleUpload();
-              }}
-              className='upload'
-            >
-              <img height={20} width={20} src={photoIcon} alt='pic' />
-              <label className='labels'>Photo</label>
-            </span>
-            <span
-              onClick={() => {
-                handleUpload();
-              }}
-              className='upload'
-            >
-              <img height={20} width={26} src={videoIcon} alt='video' />
-              <label className='labels'>Video</label>
-            </span>
-            <span
-              onClick={() => {
-                handleUpload();
-              }}
-              className='upload'
-            >
-              <img
-                height={20}
-                width={20}
-                src={attatchmentIcon}
-                alt='attatchment'
-              />
-              <label className='labels'>Documents</label>
-            </span>
-            <img
-              role='button'
-              onClick={creatingPost}
-              height={50}
-              width={50}
-              src={postIcon}
-              alt='user'
-              className='post'
-            />
-          </div>
-
-          {/* <p>Select multiple photos/videos at once you wann'a post.</p> */}
-
-          <div
-            onClick={() => {
-              handleUpload();
-            }}
-            className='mediaPreview image-preview'
-          >
-            {selectedMedia.length > 0 && (
-              <div>
-                {getFileType(selectedMedia[currentMediaIndex].type) ===
-                'image' ? (
-                  <img
-                    src={selectedMedia[currentMediaIndex].dataUrl}
-                    alt='selected-img'
-                    className='cropped-image'
-                  />
-                ) : getFileType(selectedMedia[currentMediaIndex].type) ===
-                  'video' ? (
-                  <video
-                    muted
-                    loop
-                    autoPlay
-                    className='cropped-image'
-                    src={selectedMedia[currentMediaIndex].dataUrl}
-                    alt='selected-video'
-                  />
-                ) : getFileType(selectedMedia[currentMediaIndex].type) ===
-                  'unknown' ? (
-                  <iframe
-                    src={selectedMedia[currentMediaIndex].dataUrl}
-                    title='Document Preview'
-                    width='100%'
-                    height={270}
-                    frameBorder='0'
-                  ></iframe>
-                ) : getFileType(selectedMedia[currentMediaIndex].type) ===
-                  'audio' ? (
-                  <div
-                    style={{
-                      display: 'flex',
-                      height: '270px',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <audio controls>
-                      {' '}
-                      <source
-                        src={selectedMedia[currentMediaIndex].dataUrl}
-                        title='Document Preview'
-                        width='100%'
-                        height={270}
-                        frameBorder='0'
-                      />
-                    </audio>
-                  </div>
-                ) : (
-                  <p>Unable to display preview...😵</p>
-                )}
-              </div>
-            )}
-          </div>
-
-          <div className='additionalOpt'>
-            {selectedMedia.length > 1 && (
-              <span onClick={handlePreviousMedia}>
-                <img height={32} width={32} src={back} alt='back' />
-                <label>Previous</label>
-              </span>
-            )}
-            <span onClick={closePopUp}>
-              <img height={30} width={30} src={crossIcon} alt='Cancel' />
-              <label>Cancel</label>
-            </span>
-            {selectedMedia.length >= 1 && (
-              <span
-                onClick={() => {
-                  handleUpload();
-                  chooseFileBtn.current.click();
-                }}
-              >
-                <img height={22} width={22} src={addMoreIcon} alt='Add more' />
-                <label>Add more</label>
-              </span>
-            )}
-            {selectedMedia.length > 1 && (
-              <span onClick={handleNextMedia}>
-                <img height={32} width={32} src={next} alt='back' />
-                <label>Next</label>
-              </span>
-            )}
-          </div>
-          {showSuggestions && (
-            <div
-              id='usernameList'
-              className='border-black border rounded-xl py-1'
-            >
-              {signQuery.map((user) => (
-                <div
-                  className='user flex gap-2 p-1 hover:bg-gray-100 cursor-pointer border-black border-b-2'
-                  key={user._id}
-                  onClick={() => {
-                    setInputValue(
-                      inputValue.replace(/@\S+$/, `@${user.username} `)
-                    );
-                    setShowSuggestions(false);
-                  }}
-                >
-                  <img
-                    src={user.profilePicUrl || '/user.png'}
-                    alt='profile-pic'
-                    height={32}
-                    width={32}
-                    className='rounded-full'
-                  />
-                  <p>{user.username}</p>
+        <div className="postpopup-container">
+            <div className="popup-container">
+                <div className="photo-popup image-crop-container">
+                    <input
+                        type="file"
+                        ref={chooseFileBtn}
+                        accept="image/*, video/*, .doc, .docx, .pdf, .txt, audio/*"
+                        name="postImages"
+                        multiple
+                        // onClick={() => {setPhoto(!photo); setVideo(!video);}}
+                        onChange={(e) => {
+                            setSelectedFile(e.target.files);
+                            handleImageChange(e);
+                        }}
+                    />
+                    <button onClick={hideImgPopup} className="proceed">
+                        Done
+                    </button>
                 </div>
-              ))}
+
+                <div className="uploadMedia">
+                    <img
+                        height={50}
+                        width={50}
+                        src={userIcon}
+                        alt="user"
+                        className="img"
+                    />
+                    <span
+                        onClick={() => {
+                            handleUpload();
+                        }}
+                        className="upload"
+                    >
+                        <img height={20} width={20} src={photoIcon} alt="pic" />
+                        <label className="labels">Photo</label>
+                    </span>
+                    <span
+                        onClick={() => {
+                            handleUpload();
+                        }}
+                        className="upload"
+                    >
+                        <img
+                            height={20}
+                            width={26}
+                            src={videoIcon}
+                            alt="video"
+                        />
+                        <label className="labels">Video</label>
+                    </span>
+                    <span
+                        onClick={() => {
+                            handleUpload();
+                        }}
+                        className="upload"
+                    >
+                        <img
+                            height={20}
+                            width={20}
+                            src={attatchmentIcon}
+                            alt="attatchment"
+                        />
+                        <label className="labels">Documents</label>
+                    </span>
+                    <img
+                        role="button"
+                        onClick={creatingPost}
+                        height={50}
+                        width={50}
+                        src={postIcon}
+                        alt="user"
+                        className="post"
+                    />
+                </div>
+
+                {showSuggestions && (
+                    <div id="usernameList">
+                        {signQuery.map((user) => (
+                            <div
+                                className="user"
+                                key={user._id}
+                                onClick={() => {
+                                    setInputValue(
+                                        inputValue.replace(
+                                            /@\S+$/,
+                                            `@${user.username} `
+                                        )
+                                    );
+                                    setShowSuggestions(false);
+                                }}
+                            >
+                                <img
+                                    src={user.profilePic}
+                                    alt="profile-pic"
+                                    height={30}
+                                    width={30}
+                                />
+                                <p>{user.username}</p>
+                            </div>
+                        ))}
+                    </div>
+                )}
+                {/* <p>Select multiple photos/videos at once you wann'a post.</p> */}
+
+                <div
+                    onClick={() => {
+                        handleUpload();
+                    }}
+                    className="mediaPreview image-preview"
+                >
+                    {selectedMedia.length > 0 && (
+                        <div>
+                            {getFileType(
+                                selectedMedia[currentMediaIndex].type
+                            ) === "image" ? (
+                                <img
+                                    src={
+                                        selectedMedia[currentMediaIndex].dataUrl
+                                    }
+                                    alt="selected-img"
+                                    className="cropped-image"
+                                />
+                            ) : getFileType(
+                                  selectedMedia[currentMediaIndex].type
+                              ) === "video" ? (
+                                <video
+                                    muted
+                                    loop
+                                    autoPlay
+                                    className="cropped-image"
+                                    src={
+                                        selectedMedia[currentMediaIndex].dataUrl
+                                    }
+                                    alt="selected-video"
+                                />
+                            ) : getFileType(
+                                  selectedMedia[currentMediaIndex].type
+                              ) === "unknown" ? (
+                                <iframe
+                                    src={
+                                        selectedMedia[currentMediaIndex].dataUrl
+                                    }
+                                    title="Document Preview"
+                                    width="100%"
+                                    height={270}
+                                    frameBorder="0"
+                                ></iframe>
+                            ) : getFileType(
+                                  selectedMedia[currentMediaIndex].type
+                              ) === "audio" ? (
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        height: "270px",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                    }}
+                                >
+                                    <audio controls>
+                                        {" "}
+                                        <source
+                                            src={
+                                                selectedMedia[currentMediaIndex]
+                                                    .dataUrl
+                                            }
+                                            title="Document Preview"
+                                            width="100%"
+                                            height={270}
+                                            frameBorder="0"
+                                        />
+                                    </audio>
+                                </div>
+                            ) : (
+                                <p>Unable to display preview...😵</p>
+                            )}
+                        </div>
+                    )}
+                </div>
+
+                <div className="additionalOpt">
+                    {selectedMedia.length > 1 && (
+                        <span onClick={handlePreviousMedia}>
+                            <img height={32} width={32} src={back} alt="back" />
+                            <label>Previous</label>
+                        </span>
+                    )}
+                    <span onClick={closePopUp}>
+                        <img
+                            height={30}
+                            width={30}
+                            src={crossIcon}
+                            alt="Cancel"
+                        />
+                        <label>Cancel</label>
+                    </span>
+                    {selectedMedia.length >= 1 && (
+                        <span
+                            onClick={() => {
+                                handleUpload();
+                                chooseFileBtn.current.click();
+                            }}
+                        >
+                            <img
+                                height={22}
+                                width={22}
+                                src={addMoreIcon}
+                                alt="Add more"
+                            />
+                            <label>Add more</label>
+                        </span>
+                    )}
+                    {selectedMedia.length > 1 && (
+                        <span onClick={handleNextMedia}>
+                            <img height={32} width={32} src={next} alt="back" />
+                            <label>Next</label>
+                        </span>
+                    )}
+                </div>
+                <div className="writeSection">
+                    <textarea
+                        value={inputValue}
+                        onKeyDown={handlePostThroughEnterKey}
+                        onChange={handleInputChange}
+                        type="text"
+                        className="writePost"
+                        rows={6}
+                        placeholder="What are you Thinking...?"
+                    />
+                </div>
             </div>
-          )}
-          <div className='writeSection'>
-            <textarea
-              value={inputValue}
-              onKeyDown={handlePostThroughEnterKey}
-              onChange={handleInputChange}
-              type='text'
-              className='writePost'
-              rows={6}
-              placeholder='What are you Thinking...?'
-            />
-          </div>
         </div>
-      </div>
     );
 };
 
