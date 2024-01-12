@@ -191,7 +191,7 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
             </a>
           </div> */}
         </div>
-        <h1>hello</h1>
+   
         <div>
       {isVisible && (
         <button className="scroll-to-top" onClick={scrollToTop}>
