@@ -216,7 +216,6 @@
 }
 
 .filterInput > input {
-  position: absolute;
   width: 100%;
   margin: 5px;
   padding: 10px;
@@ -311,15 +310,5 @@
     /* max-height: 45vh; */
     overflow-y: auto; /* Changed from 'scroll' to 'auto' */
     scrollbar-width: thin; /* Optional: Customize scrollbar width */
-  }
-  .filterInput {
-    /* position: relative;
-    top: -20vh;
-    left: 15vw;
-    display: flex;
-    flex-direction: row;
-    margin-right: 20px;
-    overflow-x: auto;
-    scrollbar-width: thin; */
   }
 }

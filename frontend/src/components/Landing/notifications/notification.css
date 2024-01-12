@@ -166,4 +166,9 @@
     /* margin-left: 130px; */
     text-align: center;
   }
+  .notifications-container {
+    position: absolute;
+    right: 13vw;
+    width: 100%;
+  }
 }
