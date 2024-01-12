@@ -57,7 +57,6 @@ const LandingThree = () => {
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
             <span>Host sessions and events</span>
-            <span>Host sessions and events</span>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
             <img src={right} className="h-6" alt="right" />
