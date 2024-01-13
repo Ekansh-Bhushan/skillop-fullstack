@@ -25,7 +25,7 @@ const LandingTwo = () => {
         <h1 className="text-center text-[35px] font-semibold md:text-[30px]">
           Why choose SKILLOP?
         </h1>
-        <img src={line} className="w-[10%] h-1.5 mb-5" />
+        <img src={line} className="w-[10%] h-1.5 mb-5" alt="line" />
         <p className="text-center w-[33%] text-[#848484] md:w-[80%]">
           Establish your Skillop profile swiftly to discover mentors, mentees,
           internship prospects, and gain exclusive early access to upcoming
@@ -81,7 +81,7 @@ const LandingTwo = () => {
         >
           <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5 ">
             Get Started
-            <img src={arrow} width={30} />
+            <img src={arrow} width={30} alt="arrow"/>
           </span>
         </button>
       </div>

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useEffect, useState } from "react";
+import React from "react";
 import LandingNav from "./LandingNav";
 import LandingOne from "./LandingOne";
 import LandingTwo from "./LandingTwo";
