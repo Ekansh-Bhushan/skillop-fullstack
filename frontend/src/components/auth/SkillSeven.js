@@ -19,7 +19,7 @@ const SkillSeven = () => {
     if (!whatsappNumber) {
       toast.error("Phone number is required!", {
         style: {
-          marginTop: "60px", // Adjust margin as needed
+          marginTop: "60px", 
         },
       });
       return;
@@ -28,21 +28,11 @@ const SkillSeven = () => {
     if (whatsappNumber.length !== 10) {
       toast.error("Phone number should contain 10 digits", {
         style: {
-          marginTop: "60px", // Adjust margin as needed
+          marginTop: "60px", 
         },
       });
       return;
     }
-
-    // if (!upiId) {
-    //   toast.error("UPI ID is required!", {
-    //     style: {
-    //       marginTop: "60px", // Adjust margin as needed
-    //     },
-    //   }
-    //   );
-      // return;
-    // }
     try {
       const { data } = await updateIsMentor({
         whatsappNumber,
@@ -80,8 +70,6 @@ const SkillSeven = () => {
             />
             <img src={Saly} className="absolute z-10 top-[-15vh] left-[56vw]" />
             <div className="flex items-start justify-center flex-col text-xl gap-8 mt-3 font-normal">
-              {/* <span>Personal Information</span>
-            <span>Contact Information</span> */}
               {window.location.pathname === "/skill3" ? (
                 <span className="font-semibold">Skills/Interests</span>
               ) : (
@@ -102,10 +90,6 @@ const SkillSeven = () => {
               ) : (
                 <span>Additional Information</span>
               )}
-
-              {/* <span>Education Information</span>
-            <span>Cover & Profile Photos</span>
-            <span>Additional Information</span> */}
             </div>
           </div>
           <div className="flex flex-col border-[1px] px-10 py-8 w-[40vw] rounded-3xl z-40 bg-white bg-opacity-50 backdrop-blur-[20px] ">

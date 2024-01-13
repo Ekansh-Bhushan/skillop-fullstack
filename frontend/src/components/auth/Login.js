@@ -8,8 +8,6 @@ import { googleIdVerifyAndLogin, loginUser } from '../../api/userRequest';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  // get the query param
-
   const redirectTo = new URL(window.location.href).searchParams.get('redirect');
   console.log(redirectTo);
   const navigate = useNavigate();
@@ -127,7 +125,6 @@ const Login = () => {
               </div>
               <div className='flex my-4 text-center p-auto w-full justify-center items-center'>
                 <button className='rounded-full hover:bg-[#8484841A] font-bold py-2 px-8 ml-4 flex border-black border items-center justify-center bg-gray-100 text-lg w-full'>
-                  {/* <FaGoogle className="mr-2" /> */}
                   <GoogleOAuthProvider clientId='154719299730-irqnpdj9jo8n2pa475b0gbpmoi78orha.apps.googleusercontent.com'>
                     <GoogleLogin
                       onSuccess={handleGoogleLoginSuccess}

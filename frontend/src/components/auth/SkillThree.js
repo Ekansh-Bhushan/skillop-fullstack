@@ -84,8 +84,6 @@ const SkillThree = () => {
                 </h1>
                 <div className="flex items-center gap-[10vh]">
                     <div className="flex items-start justify-center flex-col text-xl gap-8 mt-3 font-normal">
-                        {/* <span>Personal Information</span>
-            <span>Contact Information</span> */}
                         {window.location.pathname === "/skill3" ? (
                             <span className="font-semibold">
                                 Skills/Interests
@@ -114,10 +112,6 @@ const SkillThree = () => {
                         ) : (
                             <span>Additional Information</span>
                         )}
-
-                        {/* <span>Education Information</span>
-            <span>Cover & Profile Photos</span>
-            <span>Additional Information</span> */}
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-4 border-[1px] px-10 py-8 w-[40vw] rounded-3xl z-40 bg-white bg-opacity-50 backdrop-blur-[20px]">
@@ -186,9 +180,6 @@ const SkillThree = () => {
                         )}
 
                         <div className="flex justify-end w-full items-center">
-                            {/* <button className="rounded-full border-[2px] border-black h-9 w-9 flex items-center justify-center">
-                                <FaArrowLeft />
-                            </button> */}
                             <div
                                 className="flex rounded-3xl border-[2px] border-black items-center justify-center px-1.5 py-1.5 gap-2 hover:cursor-pointer hover:bg-[#8484841A]"
                                 onClick={nextClicked}

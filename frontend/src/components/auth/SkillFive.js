@@ -41,7 +41,6 @@ const SkillFive = () => {
         try {
             let formdata = new FormData();
             formdata.append("education", JSON.stringify(data));
-            // console.log("data", JSON.stringify(data));
             const data1 = await updateProfile(formdata);
             console.log(data1.data.result);
             if (data1.data.result) {
@@ -51,7 +50,6 @@ const SkillFive = () => {
                 toast.error(data1.data.message);
             }
         } catch (err) {
-            // console.log("failed");
             console.log("Unable to update profile at the moment! ", err);
             toast.error("Unable to update profile at the moment! ");
         }

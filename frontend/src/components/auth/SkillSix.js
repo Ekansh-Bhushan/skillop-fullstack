@@ -74,9 +74,6 @@ const SkillSix = () => {
         } else
           toast.error('Unable to upload cover picture now! Try again later');
       }
-      // if (done1 && done2) {
-      //   navigate("/skill7");
-      // }
       console.log(done1, done2);
     } catch (err) {
       toast.error('Unable to upload picture now! Try again later');
@@ -141,10 +138,6 @@ const SkillSix = () => {
             ) : (
               <span>Additional Information</span>
             )}
-
-            {/* <span>Professional Information</span>
-            <span>Cover & Profile Photos</span>
-            <span>Additional Information</span> */}
           </div>
 
           <div

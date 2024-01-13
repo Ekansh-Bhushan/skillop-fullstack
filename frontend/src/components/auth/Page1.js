@@ -23,7 +23,6 @@ const Page1 = () => {
 
   const signupClicked = async () => {
     // block the signup buttom
-
     if (!agreeToTermsAndConditions) {
       toast.error('Please agree to the terms and conditions.');
       return;
@@ -67,18 +66,6 @@ const Page1 = () => {
     } else {
       toast.error(data.message);
     }
-
-    // console.log(decodedToken);
-
-    // // Extract user information from decoded token
-    // const userFirstName = decodedToken.given_name || "";
-    // const userEmail = decodedToken.email || "";
-    // const userLastName = decodedToken.family_name || "";
-
-    // // Set user information in state
-    // setFirstname(userFirstName);
-    // setLastname(userLastName);
-    // setEmail(userEmail);
   };
 
   return (
@@ -149,7 +136,6 @@ const Page1 = () => {
                   <input
                     type='checkbox'
                     id='agree'
-                    // class="form-checkbox h-5 w-5 text-blue-600"
                     required
                     onChange={(e) =>
                       setAgreeToTermsAndConditions(e.target.checked)
@@ -174,7 +160,6 @@ const Page1 = () => {
                   <input
                     type='checkbox'
                     id='remember'
-                    // class="form-checkbox h-5 w-5 text-blue-600"
                   />
                   <span class='ml-2 text-sm'>
                     Remember Me as a{' '}
@@ -201,8 +186,6 @@ const Page1 = () => {
               </div>
               <div className='flex my-4 text-center p-auto w-full justify-center items-center'>
                 <button className='rounded-full hover:bg-[#8484841A] font-bold py-2 px-8 ml-4 flex border-black border items-center justify-center bg-gray-100 text-lg w-full'>
-                  {/* <FaGoogle className="mr-2" /> */}
-                  {/* <img src={google} className="mr-2" /> */}
                   <GoogleOAuthProvider clientId='154719299730-irqnpdj9jo8n2pa475b0gbpmoi78orha.apps.googleusercontent.com'>
                     <GoogleLogin
                       onSuccess={handleGoogleLoginSuccess}

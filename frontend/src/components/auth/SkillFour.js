@@ -107,7 +107,6 @@ const SkillFour = () => {
         try {
             let formdata = new FormData();
             formdata.append("education", JSON.stringify(data));
-            // console.log("data", JSON.stringify(data));
             const data1 = await updateProfile(formdata);
             console.log(data1.data.result);
             if (data1.data.result) {
@@ -117,7 +116,6 @@ const SkillFour = () => {
                 toast.error(data1.data.message);
             }
         } catch (err) {
-            // console.log("failed");
             console.log("Unable to update profile at the moment! ", err);
             toast.error("Unable to update profile at the moment! ");
         }
@@ -126,7 +124,6 @@ const SkillFour = () => {
         <div>
             <Nav />
             <ProgressBar progress={40} />
-
             <img
                 src={doodle1}
                 className="absolute top-[80vh] left-[29vw] z-10"
@@ -142,8 +139,6 @@ const SkillFour = () => {
                 </h1>
                 <div className="flex items-start gap-[10vh] justify-start">
                     <div className="flex items-start  flex-col text-xl gap-8 mt-3 font-normal">
-                        {/* <span>Personal Information</span>
-            <span>Contact Information</span> */}
                         {window.location.pathname === "/skill3" ? (
                             <span className="font-semibold">
                                 Skills/Interests
@@ -172,75 +167,9 @@ const SkillFour = () => {
                         ) : (
                             <span>Additional Information</span>
                         )}
-
-                        {/* <span>Education Information</span>
-            <span>Cover & Profile Photos</span>
-            <span>Additional Information</span> */}
-                    </div>
-                    <div className="flex flex-col border-[1px] px-10 py-8 w-[40vw] rounded-3xl z-50 bg-white bg-opacity-50 backdrop-blur-[20px] ">
-                        {/* <div className="flex mb-6 items-center">
-              <span className="text-xl font-semibold">You are:</span>
-              <button className="mx-5 px-4 py-3 rounded-lg border border-gray-500">
-                Student
-              </button>
-              <button className="px-4 py-3 rounded-lg border border-gray-500">
-                Professional
-              </button>
-            </div> */}
-
-                        {/* <div className="search-college"> */}
-                        {/* <input
-                                id="search-college"
-                                type="text"
-                                onChange={handleOnChange}
-                                value={searchQuery}
-                                placeholder="Search your college, university or insititution"
-                            /> */}
-                        {/* <div className="college-search-results1">
-                                {collegeSearchResults.length > 0
-                                    ? collegeSearchResults.map(
-                                          (college, idx) => {
-                                              return (
-                                                  <div
-                                                      key={idx}
-                                                      id="college-result"
-                                                      onClick={() =>
-                                                          handleCollegeSelection(
-                                                              college
-                                                          )
-                                                      }
-                                                  >
-                                                      <h3>{college.college}</h3>
-                                                      <p>
-                                                          {college.city}
-                                                          {", "}
-                                                          {college.state}
-                                                      </p>
-                                                  </div>
-                                              );
-                                          }
-                                      )
-                                    : searchQuery.length > 0 &&
-                                      `No results found for "${searchQuery}"`}
-                            </div> */}
-                        {/* <p id="note-search" style={{ marginTop: "15px" }}>
-                                Note : If your college is not found in search,
-                                enter it below manually
-                            </p>
-                        </div> */}
-
                         <label className="mb-2 text-lg font-bold">
                             College
                         </label>
-                        {/* <input
-                            name="institution"
-                            type="text"
-                            placeholder="College"
-                            className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4"
-                            onChange={(Event) => {
-                                onChange(Event);
-                            }}
-                        /> */}
                         <div
                             onPointerLeave={() => {
                                 document.querySelector(
@@ -249,7 +178,6 @@ const SkillFour = () => {
                             }}
                         >
                             <input
-                                // id="search-college1"
                                 className="border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4 w-full"
                                 type="text"
                                 onChange={handleOnChange}
