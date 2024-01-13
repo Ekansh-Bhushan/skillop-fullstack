@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from "react";
 import line from "../components/images/Line.png";
 import Saly35 from "../components/images/Saly-35.png";
 import Saly13 from "../components/images/Saly-13.png";
@@ -14,13 +13,10 @@ const LandingThree = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 500);
     };
-
     // Set initial state and listen for window resize
     handleResize();
     window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize); // Cleanup the event listener on component unmount
   }, []);
   const signupClicked = () => {
     window.innerWidth < 500 ? navigate("/msignup") : navigate("/signup");

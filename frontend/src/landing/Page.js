@@ -22,7 +22,6 @@ const Page = () => {
       <Element name="landing-three">
         <LandingThree />
       </Element>
-
       <LandingFour />
       <LandingFooter />
     </div>

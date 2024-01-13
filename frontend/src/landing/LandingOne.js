@@ -3,7 +3,6 @@ import landingelement from "../components/images/landingelement.png";
 import line from "../components/images/Line.png";
 import arrow from "../components/images/arrow.png";
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-scroll";
 import { Link } from "react-router-dom";
 
 const LandingOne = () => {
@@ -14,13 +13,10 @@ const LandingOne = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 500);
     };
-
     // Set initial state and listen for window resize
     handleResize();
     window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);  // Cleanup the event listener on component unmount
   }, []);
 
   const signupClicked = () => {
@@ -56,19 +52,9 @@ const LandingOne = () => {
               <img src={arrow} width={20} />
             </span>
           </button>
-          {/* <Link
-            to="/about"
-            spy={true}
-            smooth={true}
-            duration={500}
-            className="border-black border-2 px-10 py-3 rounded-lg font-semibold md:px-5 hover:bg-[#8484841A]"
-          > */}
-          <button onClick={LearnMoreClicked} className="border-black border-2 px-10 py-3 rounded-lg font-semibold md:px-5 hover:bg-[#8484841A]"
-        >
+          <button onClick={LearnMoreClicked} className="border-black border-2 px-10 py-3 rounded-lg font-semibold md:px-5 hover:bg-[#8484841A]">
             Learn More
-
           </button>
-          {/* </Link> */}
         </div>
 
         <div className="text-[45px] text-[#5F5F5F] flex gap-5 mt-20 md:text-[30px] md:mt-10">

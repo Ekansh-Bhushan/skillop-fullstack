@@ -10,13 +10,10 @@ const LandingTwo = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 500);
     };
-
     // Set initial state and listen for window resize
     handleResize();
     window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);     // Cleanup the event listener on component unmount
   }, []);
 
   const signupClicked = () => {
@@ -78,9 +75,6 @@ const LandingTwo = () => {
         </div>
       </div>
       <div className="flex items-center justify-center mt-8">
-        {/* <button className="border-black border-2 px-10 py-2 rounded-lg font-semibold md:px-6">
-          <a href={isMobile ? "/msignup" : "/signup"}>Get Started</a>
-        </button> */}
         <button
           className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden hover:shadow-2xl "
           onClick={signupClicked}

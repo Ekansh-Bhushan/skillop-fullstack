@@ -29,16 +29,12 @@ const Mobilecommonhead = () => {
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      // setProgress(30);
       localStorage.removeItem("skilloptoken");
-      // const { data } = await logoutUser();
-      // console.log(data);
     } catch (error) {
       console.log(error);
     }
     navigate("/");
     toast.success("Logged out");
-    // setProgress(100);
   };
 
   const onClose = () => {
