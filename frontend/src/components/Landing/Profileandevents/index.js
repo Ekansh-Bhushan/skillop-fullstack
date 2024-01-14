@@ -81,7 +81,7 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
     <>
       <div className={isHome ? 'prof-and-events ishome' : 'prof-and-events'}>
         <div
-          className="common-prof"
+          className='common-prof'
           style={{
             backgroundImage:
               userDetails &&
@@ -90,7 +90,7 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
                 : `url(${defaultBGPic})`),
           }}
         >
-          <div className="common-prof-info">
+          <div className='common-prof-info'>
             <div
               style={{
                 display: 'flex',
@@ -106,22 +106,39 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
                       ? userDetails.profilePicUrl
                       : userPic
                   }
-                  className="prof-image-common"
-                  alt="user"
+                  className='prof-image-common'
+                  alt='user'
                 />
               )}
 
               <div>
                 {userDetails && userDetails.firstname && (
-                  <div className="user-name">
+                  <div className='user-name'>
                     {userDetails.firstname + ' ' + userDetails.lastname}
                     {userDetails.isMentor && (
-                      <img src="/verified.png" width={20} alt="" />
+                      <img src='/verified.png' width={20} alt='' />
                     )}
                   </div>
                 )}
                 {userDetails && (
-                  <p style={{ margin: '10px' }}>{userDetails.jobTitle}</p>
+                  <p style={{ margin: '10px' }}>
+                    {userDetails &&
+                    userDetails.experence &&
+                    userDetails.experence.length > 0 ? (
+                      <p>
+                        {userDetails.experence[0].title +
+                          ' @ ' +
+                          userDetails.experence[0].company}
+                      </p>
+                    ) : (
+                      <p>
+                        {'Student' + userDetails &&
+                          userDetails.experence &&
+                          userDetails.education.length > 0 &&
+                          ' @ ' + userDetails.education[0].institute}
+                      </p>
+                    )}
+                  </p>
                 )}
               </div>
 
@@ -136,16 +153,16 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
                         : `https://linkedin.com/in/${userDetails.linkedinId}`
                       : ''
                   }
-                  target="_blank"
-                  rel="noreferrer"
+                  target='_blank'
+                  rel='noreferrer'
                 >
-                  <img src={linkedin} alt="linkedin" />
+                  <img src={linkedin} alt='linkedin' />
                 </a>
               )}
             </div>
             {userDetails && (
               <div
-                className="view-my-prof"
+                className='view-my-prof'
                 onClick={() => navigate('/Profile')}
               >
                 View Profile
@@ -154,8 +171,8 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
           </div>
         </div>
 
-        <div className="event-upcoming">
-          <div className="header-events">
+        <div className='event-upcoming'>
+          <div className='header-events'>
             <h2
               style={{
                 fontWeight: '500',
@@ -166,10 +183,10 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
               Upcoming Events
             </h2>
           </div>
-          <div className="event-list2 overflow-y-auto">
+          <div className='event-list2 overflow-y-auto'>
             {eventData.map((item) => {
               return (
-                <div key={item._id} className="event-1">
+                <div key={item._id} className='event-1'>
                   <b>{item.title}</b>
                   <p>{item.description}</p>
                   <p>
@@ -191,14 +208,14 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
             </a>
           </div> */}
         </div>
-   
+
         <div>
-      {isVisible && (
-        <button className="scroll-to-top" onClick={scrollToTop}>
-          <img src="/scrolltop.png" alt="scroll top button" />
-        </button>
-      )}
-    </div>
+          {isVisible && (
+            <button className='scroll-to-top' onClick={scrollToTop}>
+              <img src='/scrolltop.png' alt='scroll top button' />
+            </button>
+          )}
+        </div>
       </div>
     </>
   );

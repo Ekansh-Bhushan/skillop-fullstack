@@ -216,12 +216,6 @@ export default function RightProfileComp({ about }) {
           publicView={false}
         />
       )}
-      {/* {showEditProfilePic && (
-        <EditProfilePicPopUp
-          onClose={onClose}
-          profPicUrl={userDetails.profilePicUrl}
-        />
-      )} */}
     </>
   );
 }

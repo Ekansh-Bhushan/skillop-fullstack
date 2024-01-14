@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
-import linkedin from "../../images/linkedin.png";
-import google from "../../images/google.png";
-import Header1 from "../../Header";
 import "./index.css";
-import { Navigate, useNavigate } from "react-router-dom";
-import Commondash from "../common";
-import Topbar from "../topbar";
 import { updateIsMentor } from "../../../api/userRequest";
-import UPIicon from "../../images/UPI.png";
 import Profileandevents from "../../Landing/Profileandevents";
 import { toast } from "react-hot-toast";
 import Mobilecommonhead from "../../Mobilecommonhead";
+import {useNavigate} from "react-router-dom"
 
 function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
   /*---------LINKING ROUTES---------*/

@@ -78,33 +78,34 @@ function AuthPage({
 }) {
   // console.log(userData);
   const excludedRoutes = [
-    "/",
-    "/mlogin",
-    "/msignup",
-    "/mpersonal",
-    "/mcontact",
-    "/mskill",
-    "/mstudinfo",
-    "/mprofinfo",
-    "/mcover",
-    "/msocial",
-    "/signup",
-    "/login",
-    "/skill1",
-    "/skill2",
-    "/skill3",
-    "/skill4",
-    "/skill5",
-    "/skill6",
-    "/skill7",
-    "/about",
-    "/contact",
-    "/privacy-policy",
-    "/terms-of-service",
-    "/faqs",
-    "/loginn",
-    "/careers",
-    "/admin",
+    '/',
+    '/mlogin',
+    '/msignup',
+    '/mpersonal',
+    '/mcontact',
+    '/mskill',
+    '/mstudinfo',
+    '/mprofinfo',
+    '/mcover',
+    '/msocial',
+    '/signup',
+    '/login',
+    '/skill1',
+    '/skill2',
+    '/skill3',
+    '/skill4',
+    '/skill5',
+    '/skill6',
+    '/skill7',
+    '/about',
+    '/contact',
+    '/privacy-policy',
+    '/terms-of-service',
+    '/faqs',
+    '/loginn',
+    '/careers',
+    '/admin',
+    '/admin/skillop-dtu/1941',
     // Add more routes as needed
   ];
 
@@ -126,67 +127,70 @@ function AuthPage({
           notifyList={notifyList}
         />
       )}
-      {/* -----------------------------SIGN UP PAGES----------------------------- */}
+
+      {/* -----------------------------MOBILE SIGN UP PAGES-------------------------------- */}
+
       <Routes>
-        <Route path="/" element={<Page />} />
-        <Route path="/mlogin" element={<Mlogin />} />
-        <Route path="/msignup" element={<Msignup />} />
-        <Route path="/mpersonal" element={<MPersonal />} />
-        <Route path="/mcontact" element={<MContact />} />
-        <Route path="/mskill" element={<MSkills />} />
-        <Route path="/mstudinfo" element={<MStudentInfo />} />
-        <Route path="/mprofinfo" element={<MProfInformation />} />
-        <Route path="/mcover" element={<Cover />} />
-        <Route path="/msocial" element={<Social />} />
-        <Route path="/signup" element={<Page1 />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/skill1" element={<SkillOne />} />
-        <Route path="/skill2" element={<SkillTwo />} />
-        <Route path="/skill3" element={<SkillThree />} />
-        <Route path="/skill4" element={<SkillFour />} />
-        <Route path="/skill5" element={<SkillFive />} />
-        <Route path="/skill6" element={<SkillSix />} />
-        <Route path="/skill7" element={<SkillSeven />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/careers" element={<Faqs />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path='/' element={<Page />} />
+        <Route path='/mlogin' element={<Mlogin />} />
+        <Route path='/msignup' element={<Msignup />} />
+        <Route path='/mpersonal' element={<MPersonal />} />
+        <Route path='/mcontact' element={<MContact />} />
+        <Route path='/mskill' element={<MSkills />} />
+        <Route path='/mstudinfo' element={<MStudentInfo />} />
+        <Route path='/mprofinfo' element={<MProfInformation />} />
+        <Route path='/mcover' element={<Cover />} />
+        <Route path='/msocial' element={<Social />} />
+
+        {/* -----------------------------DESKTOP SIGN UP PAGES------------------------------ */}
+
+        <Route path='/signup' element={<Page1 />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/skill1' element={<SkillOne />} />
+        <Route path='/skill2' element={<SkillTwo />} />
+        <Route path='/skill3' element={<SkillThree />} />
+        <Route path='/skill4' element={<SkillFour />} />
+        <Route path='/skill5' element={<SkillFive />} />
+        <Route path='/skill6' element={<SkillSix />} />
+        <Route path='/skill7' element={<SkillSeven />} />
+
+        {/* -----------------------------MISCELLANEOUS PAGES------------------------------ */}
+
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+        <Route path='/careers' element={<Faqs />} />
+        <Route path='/terms-of-service' element={<TermsOfService />} />
         <Route
-          path="/loginn"
+          path='/loginn'
           element={<Auth1Component setProgress={setProgress} />}
         />
-        <Route path="post/:postId" element={<PublicPost />} />
-        {/* <Route path="/continue" element={<Auth2Component setProgress={setProgress}/>} /> */}
+        <Route path='post/:postId' element={<PublicPost />} />
         <Route
-          path="/skills"
+          path='/skills'
           element={<Auth3Component setProgress={setProgress} />}
         />
         <Route
-          path="/jobtitles"
+          path='/jobtitles'
           element={<Auth4Component setProgress={setProgress} />}
         />
         <Route
-          path="/collegedetails"
+          path='/collegedetails'
           element={<Auth5Component setProgress={setProgress} />}
         />
-        {/* <Route
-          path="/slots"
-          element={<Auth6Component setProgress={setProgress} />}
-        /> */}
         <Route
-          path="/pic"
+          path='/pic'
           element={<Uploadpic userData={userData} setProgress={setProgress} />}
         />
         <Route
-          path="/laststep"
+          path='/laststep'
           element={<Auth7Component setProgress={setProgress} />}
         />
 
-        {/* ----------------------------HOME PAGE----------------------------*/}
-
+        {/* -----------------------------MAIN WEB PAGES------------------------------ */}
+        
         <Route
-          path="/homepage"
+          path='/homepage'
           element={
             <Post
               userData={userData}
@@ -204,10 +208,10 @@ function AuthPage({
           }
         />
 
-        <Route path="/userprof" element={<CheckProfile />} />
+        <Route path='/userprof' element={<CheckProfile />} />
 
         <Route
-          path="/chat"
+          path='/chat'
           element={
             userData && (
               <Chat
@@ -221,7 +225,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/myaccount"
+          path='/myaccount'
           element={
             userData && (
               <Account
@@ -235,7 +239,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/myposts"
+          path='/myposts'
           element={
             <DisplayPosts
               Mentor={Mentor}
@@ -245,7 +249,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/userposts/:id"
+          path='/userposts/:id'
           element={
             <UserPost
               setProgress={setProgress}
@@ -257,7 +261,7 @@ function AuthPage({
         />
 
         <Route
-          path="/mybookings"
+          path='/mybookings'
           element={
             userData && (
               <Bookings
@@ -271,7 +275,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/requestedMeets"
+          path='/requestedMeets'
           element={
             userData && (
               <RequestedMeets
@@ -285,7 +289,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/mySlots"
+          path='/mySlots'
           element={
             userData && (
               <Dashboard
@@ -300,7 +304,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/myearnings"
+          path='/myearnings'
           element={
             userData && (
               <Earning
@@ -314,7 +318,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/postsection/:postId"
+          path='/postsection/:postId'
           element={
             userData && (
               <Otherpost
@@ -328,7 +332,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/public-profile/:userId"
+          path='/public-profile/:userId'
           element={
             <PublicProfile
               userDatamain={userData}
@@ -339,10 +343,10 @@ function AuthPage({
             />
           }
         />
-        <Route path="/books" element={<CheckProfile />} />
+        <Route path='/books' element={<CheckProfile />} />
 
         <Route
-          path="/notifications"
+          path='/notifications'
           element={
             <Notification
               setProgress={setProgress}
@@ -355,7 +359,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/profile"
+          path='/profile'
           element={
             <Profile
               setProgress={setProgress}
@@ -366,7 +370,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/searchbar"
+          path='/searchbar'
           element={
             <Searchbar
               userData={userData}
@@ -378,7 +382,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/authskill"
+          path='/authskill'
           element={
             <Addskills
               userData={userData}
@@ -389,9 +393,8 @@ function AuthPage({
             />
           }
         />
-        {/* <Route path= "/emailRequest" element= {<ResetPasswordEmail/>}/> */}
         <Route
-          path="/mentorBano"
+          path='/mentorBano'
           element={
             <MentorBano
               userData={userData}
@@ -403,7 +406,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/bookslot/:userId"
+          path='/bookslot/:userId'
           element={
             <Bookslot
               userData={userData}
@@ -415,7 +418,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/confirm-booking/:userId"
+          path='/confirm-booking/:userId'
           element={
             <ConfirmBooking
               userData={userData}
@@ -427,7 +430,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/payment/:userId"
+          path='/payment/:userId'
           element={
             <Payment
               userData={userData}
@@ -438,14 +441,14 @@ function AuthPage({
             />
           }
         />
-        <Route path="/mobile" element={<Mobilecommonhead />} />
-        <Route path="/newpost" element={<Mobilepost />} />
-        <Route path="/changePassword" element={<ChangePasswordPage />} />
-        <Route path="/password/reset/:id" element={<ResetPasswordPage />} />
-        <Route path="/resetPasswordEmail" element={<ResetPasswordEmail />} />
-        <Route path="/mentorfeedback" element={<MentorfeedbackForm />} />
+        <Route path='/mobile' element={<Mobilecommonhead />} />
+        <Route path='/newpost' element={<Mobilepost />} />
+        <Route path='/changePassword' element={<ChangePasswordPage />} />
+        <Route path='/password/reset/:id' element={<ResetPasswordPage />} />
+        <Route path='/resetPasswordEmail' element={<ResetPasswordEmail />} />
+        <Route path='/mentorfeedback' element={<MentorfeedbackForm />} />
         <Route
-          path="/platformfeedback"
+          path='/platformfeedback'
           element={
             <PlatformfeedbackForm
               userData={userData}
@@ -457,7 +460,7 @@ function AuthPage({
           }
         />
         <Route
-          path="/editskills"
+          path='/editskills'
           element={
             <EditSkillsPage
               setProgress={setProgress}
@@ -468,12 +471,11 @@ function AuthPage({
           }
         />
         <Route
-          path="/editpic"
+          path='/editpic'
           element={<EditPic userData={userData} setProgress={setProgress} />}
         />
-        <Route path="/admin" element={<Admin />} />
 
-        {/* Add more routes if needed */}
+        <Route path='/admin/skillop-dtu/1941' element={<Admin />} />
       </Routes>
     </>
   );
