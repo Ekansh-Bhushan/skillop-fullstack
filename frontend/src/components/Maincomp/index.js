@@ -146,12 +146,13 @@ function AuthPage({
 
         <Route path='/signup' element={<Page1 setProgress={setProgress}/>} />
         <Route path='/login' element={<Login setProgress={setProgress}/>} />
-        <Route path='/skill1' element={<SkillOne setProgress={setProgress}/>} />
-        <Route path='/skill2' element={<SkillTwo setProgress={setProgress}/>} />
-        <Route path='/skill3' element={<SkillThree setProgress={setProgress}/>} />
+        {/* Skills page */}
+        <Route path='/skill3' element={<SkillThree setProgress={setProgress}/>} /> 
+        {/* College/Edu details page */}
         <Route path='/skill4' element={<SkillFour setProgress={setProgress}/>} />
-        <Route path='/skill5' element={<SkillFive setProgress={setProgress}/>} />
+        {/* Profile & Cover Photo page */}
         <Route path='/skill6' element={<SkillSix setProgress={setProgress}/>} />
+        {/* Final page */}
         <Route path='/skill7' element={<SkillSeven setProgress={setProgress}/>} />
 
         {/* -----------------------------MISCELLANEOUS PAGES------------------------------ */}
