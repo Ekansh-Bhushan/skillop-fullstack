@@ -84,7 +84,7 @@ const ProfileHeader = () => {
       )}
       <div className='ph-details'>
         <div className='ph-name'>
-          {userDetails && userDetails.firstname + ' ' + userDetails.lastname}
+          {userDetails.firstname ? (userDetails.firstname + ' ' + userDetails.lastname):"Loading..."}
           {userDetails && userDetails.isMentor && (
             <div className='verified-logo'>
               <img src='/verified.png' width={23} alt='' />

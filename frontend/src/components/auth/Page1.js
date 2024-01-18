@@ -11,7 +11,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 
-const Page1 = () => {
+const Page1 = ({ setProgress }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,6 +28,7 @@ const Page1 = () => {
       return;
     }
 
+    setProgress(40);
     try {
       const { data } = await registerUser({
         email: email,
@@ -46,6 +47,7 @@ const Page1 = () => {
     } catch (error) {
       toast.error(error.response.data.message);
     }
+    setProgress(100);
   };
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     const idToken = credentialResponse.credential;
@@ -157,10 +159,7 @@ const Page1 = () => {
               </div>
               <div class='mt-4'>
                 <label for='remember' class='flex items-center'>
-                  <input
-                    type='checkbox'
-                    id='remember'
-                  />
+                  <input type='checkbox' id='remember' />
                   <span class='ml-2 text-sm'>
                     Remember Me as a{' '}
                     <a href='#' class='text-blue-600'>

@@ -131,28 +131,28 @@ function AuthPage({
       {/* -----------------------------MOBILE SIGN UP PAGES-------------------------------- */}
 
       <Routes>
-        <Route path='/' element={<Page />} />
-        <Route path='/mlogin' element={<Mlogin />} />
-        <Route path='/msignup' element={<Msignup />} />
-        <Route path='/mpersonal' element={<MPersonal />} />
-        <Route path='/mcontact' element={<MContact />} />
-        <Route path='/mskill' element={<MSkills />} />
-        <Route path='/mstudinfo' element={<MStudentInfo />} />
-        <Route path='/mprofinfo' element={<MProfInformation />} />
-        <Route path='/mcover' element={<Cover />} />
-        <Route path='/msocial' element={<Social />} />
+        <Route path='/' element={<Page setProgress={setProgress}/>} />
+        <Route path='/mlogin' element={<Mlogin setProgress={setProgress}/>} />
+        <Route path='/msignup' element={<Msignup setProgress={setProgress}/>} />
+        <Route path='/mpersonal' element={<MPersonal setProgress={setProgress}/>} />
+        <Route path='/mcontact' element={<MContact setProgress={setProgress}/>} />
+        <Route path='/mskill' element={<MSkills setProgress={setProgress}/>} />
+        <Route path='/mstudinfo' element={<MStudentInfo setProgress={setProgress}/>} />
+        <Route path='/mprofinfo' element={<MProfInformation setProgress={setProgress}/>} />
+        <Route path='/mcover' element={<Cover setProgress={setProgress}/>} />
+        <Route path='/msocial' element={<Social setProgress={setProgress}/>} />
 
         {/* -----------------------------DESKTOP SIGN UP PAGES------------------------------ */}
 
-        <Route path='/signup' element={<Page1 />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/skill1' element={<SkillOne />} />
-        <Route path='/skill2' element={<SkillTwo />} />
-        <Route path='/skill3' element={<SkillThree />} />
-        <Route path='/skill4' element={<SkillFour />} />
-        <Route path='/skill5' element={<SkillFive />} />
-        <Route path='/skill6' element={<SkillSix />} />
-        <Route path='/skill7' element={<SkillSeven />} />
+        <Route path='/signup' element={<Page1 setProgress={setProgress}/>} />
+        <Route path='/login' element={<Login setProgress={setProgress}/>} />
+        <Route path='/skill1' element={<SkillOne setProgress={setProgress}/>} />
+        <Route path='/skill2' element={<SkillTwo setProgress={setProgress}/>} />
+        <Route path='/skill3' element={<SkillThree setProgress={setProgress}/>} />
+        <Route path='/skill4' element={<SkillFour setProgress={setProgress}/>} />
+        <Route path='/skill5' element={<SkillFive setProgress={setProgress}/>} />
+        <Route path='/skill6' element={<SkillSix setProgress={setProgress}/>} />
+        <Route path='/skill7' element={<SkillSeven setProgress={setProgress}/>} />
 
         {/* -----------------------------MISCELLANEOUS PAGES------------------------------ */}
 

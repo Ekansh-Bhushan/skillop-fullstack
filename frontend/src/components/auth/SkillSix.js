@@ -13,7 +13,7 @@ import { getUser } from '../../api/userRequest';
 
 const API = axios.create({ baseURL: 'https://skillop.in' });
 
-const SkillSix = () => {
+const SkillSix = ({ setProgress }) => {
   const navigate = useNavigate();
   const [profilePhoto, setProfilePhoto] = useState('');
   const [coverPhoto, setCoverPhoto] = useState('');
@@ -23,7 +23,6 @@ const SkillSix = () => {
   const handleUpload = async () => {
     const formData1 = new FormData();
     const formData2 = new FormData();
-    console.log('heyyyyy', coverPhoto);
     formData1.append('profilePic', profilePhoto);
     formData2.append('profileBackgroundPic', coverPhoto);
     console.log(formData1, formData2);
@@ -75,7 +74,11 @@ const SkillSix = () => {
     setUploading(false);
   };
   const nextClicked = () => {
+    setProgress(40);
     navigate('/skill7');
+    setTimeout(() => {
+      setProgress(100);
+    }, 300);
   };
   const prevClicked = () => {
     navigate('/skill4');

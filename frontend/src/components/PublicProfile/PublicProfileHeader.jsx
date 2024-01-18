@@ -5,20 +5,16 @@ import IntroVideo from '../Profile/Right Profile/IntroVideo';
 import Following from '../Profile/Right Profile/Following';
 import Followers from '../Profile/Right Profile/Followers';
 import toast from 'react-hot-toast';
-// import post2 from '../../images/post2.png';
 import userPic from '../images/user.png';
 import UpcomingEvents from '../Landing/Profileandevents/UpcomingEvents';
-import Chart3 from '../images/chat3.png';
 import './PublicProfile.css';
-import Slot1 from '../images/slots1.png';
 import { followUnfollowUser } from '../../api/follow-unfollow';
 import { createChat, userChats } from '../../api/chatRequest';
-import { getFollowers, getUser } from '../../api/userRequest';
+import { getFollowers} from '../../api/userRequest';
 
 const PublicProfileHeader = ({ userDetails, userData }) => {
   const navigate = useNavigate();
   //   const [userDetails, setUserDetails] = useState(null);
-  const [showEditProfilePic, setShowEditProfilePic] = useState(false);
   const [showIntroVideo, setShowIntroVideo] = useState(false);
   const [showFollowers, setShowFollowers] = useState(false);
   const [showFollowings, setShowFollowings] = useState(false);
@@ -126,7 +122,7 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
         )}
         <div className='ph-details'>
           <div className='ph-name'>
-            {userDetails && userDetails.firstname + ' ' + userDetails.lastname}
+            {userDetails.firstname ? (userDetails.firstname + ' ' + userDetails.lastname):"Loading..."}
             {userDetails && userDetails.isMentor && (
               <div className='verified-logo'>
                 <img src='/verified.png' width={23} alt='' />

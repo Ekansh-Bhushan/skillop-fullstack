@@ -9,7 +9,7 @@ import { updateProfile } from "../../api/userRequest";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const SkillFive = () => {
+const SkillFive = ({setProgress}) => {
     const navigate = useNavigate();
     let [data, setData] = useState([
         {

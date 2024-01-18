@@ -9,7 +9,7 @@ import { updateIsMentor } from "../../api/userRequest";
 import { useNavigate } from "react-router-dom";
 import ProgressBar from "./ProgressBar";
 
-const SkillSeven = () => {
+const SkillSeven = ({setProgress}) => {
   const navigate = useNavigate();
   const [whatsappNumber, setWhatsappNumber] = useState("");
   const [upiId, setUpiId] = useState("");
@@ -33,6 +33,7 @@ const SkillSeven = () => {
       });
       return;
     }
+    setProgress(40);
     try {
       const { data } = await updateIsMentor({
         whatsappNumber,
@@ -46,6 +47,7 @@ const SkillSeven = () => {
     } catch (err) {
       toast.error(err.response.data.message);
     }
+    setProgress(100);
   };
   const backClicked = () => {
     navigate("/skill6");

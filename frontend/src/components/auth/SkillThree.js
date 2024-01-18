@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ProgressBar from "./ProgressBar";
 
-const SkillThree = () => {
+const SkillThree = ({setProgress}) => {
     const navigate = useNavigate();
     const [showInput, setShowInput] = useState(false);
     const [newSkill, setNewSkill] = useState("");
@@ -46,9 +46,10 @@ const SkillThree = () => {
 
     const nextClicked = async () => {
         console.log(skills);
+        setProgress(40);
         if (skills.length)
-            try {
-                const request = {
+        try {
+    const request = {
                     skills: skills,
                 };
                 const { data } = await updateIsMentor(request);
@@ -62,6 +63,7 @@ const SkillThree = () => {
                 toast.error(error.response.data.message);
             }
         navigate("/skill4");
+        setProgress(100);
     };
 
     return (
