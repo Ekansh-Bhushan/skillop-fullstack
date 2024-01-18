@@ -1,7 +1,6 @@
 import React from 'react';
 import { getUser } from '../../../api/userRequest';
 import linkedin from '../../images/linkedin.png';
-import { userChats } from '../../../api/chatRequest';
 import userPic from '../../images/user.png';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -39,11 +38,6 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
     fetchEvents();
   }, []);
 
-
-
-
-
-
   const [isVisible, setIsVisible] = useState(false);
 
   // Add a scroll event listener to check if the user has scrolled down enough to show the button
@@ -72,11 +66,6 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
     });
   };
 
-
-
-
-
-  
   return (
     <>
       <div className={isHome ? 'prof-and-events ishome' : 'prof-and-events'}>
@@ -123,7 +112,7 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
                 {userDetails && (
                   <p style={{ margin: '10px' }}>
                     {userDetails &&
-                    userDetails.experence &&
+                    userDetails.experence.length &&
                     userDetails.experence.length > 0 ? (
                       <p>
                         {userDetails.experence[0].title +
@@ -132,10 +121,12 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
                       </p>
                     ) : (
                       <p>
-                        {'Student' + userDetails &&
-                          userDetails.experence &&
-                          userDetails.education.length > 0 &&
-                          ' @ ' + userDetails.education[0].institute}
+                        {'Student' +
+                          (userDetails &&
+                          userDetails.education &&
+                          userDetails.education.length > 0
+                            ? ' @ ' + userDetails.education[0].institution
+                            : '')}
                       </p>
                     )}
                   </p>

@@ -397,7 +397,7 @@ body {
   position: absolute;
   bottom: 0;
   background-color: rgb(255, 255, 255);
-  border-radius: 114px 0px 30px 30px;
+  border-radius: 114px 0px 14px 14px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -425,7 +425,7 @@ body {
 
 .view-my-prof {
   padding: 8px 2rem 8px 2rem;
-  margin-top: 25px;
+  margin-top: 5px;
   border: 2px solid #108cff;
   border-radius: 25px;
   color: #108cff;

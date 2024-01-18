@@ -102,10 +102,10 @@ const ProfileHeader = () => {
             </p>
           ) : (
             <p>
-              {'Student' + userDetails &&
+              {'Student' + (userDetails &&
                 userDetails.experence &&
                 userDetails.education.length > 0 &&
-                ' @ ' + userDetails.education[0].institute}
+                ' @ ' + userDetails.education[0].institution)}
             </p>
           )}
           <div className='flex gap-3 items-center'>
