@@ -43,15 +43,6 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
 
   // Debounce the input change to avoid frequent API calls while typing
   const debouncedInputChange = _.debounce(async (newValue) => {
-    // if (value.includes("@")) {
-    //     // Make API call for suggestions here
-    //     // Replace the setTimeout with your actual API call
-    //     setTimeout(() => {
-    //         const suggestions = ["user1", "user2", "user3"]; // Replace with fetched suggestions
-    //         setSignQuery(suggestions);
-    //         setShowSuggestions(true);
-    //     }, 300); // Simulated delay, adjust as needed
-
     const lastword = newValue.split(' ').pop();
     if (lastword.startsWith('@')) {
       try {
@@ -350,7 +341,7 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
             className='border-black border rounded-lg min-w-[15vw]'
             id='usernameList'
           >
-            {signQuery.map((user) => (
+            {signQuery.slice(0, 7).map((user) => (
               <div
                 className='user flex gap-2 border-b-2 hover:bg-gray-100 cursor-pointer py-1 px-2 rounded-lg'
                 key={user._id}

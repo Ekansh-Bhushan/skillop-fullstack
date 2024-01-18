@@ -14,6 +14,7 @@ import { followUnfollowUser } from '../api/follow-unfollow';
 import TaggingManager from '../utils/tagManager';
 import toast from 'react-hot-toast';
 import { getUserFromUsername } from '../api/userRequest';
+import { linkIdentifier } from '../utils/linkIdentifier';
 
 const PostComp = ({
   userData,
@@ -274,7 +275,7 @@ const PostComp = ({
                       ' @ ' +
                       author.experence[0].company
                     : author.education.length && author.education[0].institution
-                    ? 'Student at ' +
+                    ? 'Student @ ' +
                       author.education[0].institution.slice(0, 50)
                     : 'Student'}
                 </span>
@@ -333,12 +334,13 @@ const PostComp = ({
             position: 'relative',
             top: '10px',
             marginBottom: '10px',
+            fontFamily: "Ubuntu"
           }}
           onClick={() => {
             navigate(`/postsection/${_id}`);
           }}
         >
-          {taggingManager.convert(title)}
+          {linkIdentifier(taggingManager.convert(title))}
         </pre>
         {title.length > 500 || (title.match(/\n/g) || []).length >= 5 ? (
           <button onClick={toggleExpand} className='read-more'>
