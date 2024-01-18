@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Profileandevents from '../Profileandevents';
 import Mobilecommonhead from '../../Mobilecommonhead';
-// import scrollUp from '../../images/scrollUp.png';
 import { getUser } from '../../../api/userRequest';
 import { getNotifications } from '../../../api/getNotifications';
 import Postlist from '../Postlist';
@@ -11,9 +10,7 @@ function Post({
   userData,
   setUserData,
   setProgress,
-  Mentor,
   isFetched,
-  notifyList,
   setMentor,
   setIsFetched,
   setNotifyList,
@@ -88,10 +85,9 @@ function Post({
     };
     refreshFN();
   }, []);
-  
 
   return (
-    <div className="homepage">
+    <div className='homepage'>
       {/* <SideNav
         setProgress={setProgress}
         Mentor={Mentor}
@@ -102,20 +98,19 @@ function Post({
       {/* <Searchbar/> */}
       <Mobilecommonhead />
       {/* <Common setProgress={setProgress}/> */}
-      <div className="main-content-landing">
-  
-          {isFetched && (
-            <Postlist
-              setProgress={setProgress}
-              displaycreatepost={true}
-              userData={userData}
-              setUserData={setUserData}
-              setShowPostPopUp={setShowPostPopUp}
-              showPostPopUp={showPostPopUp}
-              socket={socket}
-            />
-          )}
-    
+      <div className='main-content-landing'>
+        {isFetched && (
+          <Postlist
+            setProgress={setProgress}
+            displaycreatepost={true}
+            userData={userData}
+            setUserData={setUserData}
+            setShowPostPopUp={setShowPostPopUp}
+            showPostPopUp={showPostPopUp}
+            socket={socket}
+          />
+        )}
+
         <Profileandevents isHome={isHome} userData={userData} />
       </div>
       {/* <img id="scrollUp" onClick={scrollToTop} style={{ zIndex: "1000", position: "fixed", bottom: "20px", right: "20px", cursor: "pointer", borderRadius: "100%", boxShadow: "3px 3px 20px green" }} src={scrollUp} height={50} width={50} alt="scrollToTop" /> */}

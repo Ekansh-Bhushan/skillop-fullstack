@@ -23,6 +23,7 @@ const SkillSix = () => {
   const handleUpload = async () => {
     const formData1 = new FormData();
     const formData2 = new FormData();
+    console.log('heyyyyy', coverPhoto);
     formData1.append('profilePic', profilePhoto);
     formData2.append('profileBackgroundPic', coverPhoto);
     console.log(formData1, formData2);
@@ -48,33 +49,26 @@ const SkillSix = () => {
       };
       return API.post(`/api/user/add/boackgroundPic`, data, config);
     };
-    let done1 = true;
-    let done2 = true;
     try {
       setUploading(true);
       if (profilePhoto) {
-        done1 = false;
         setUploading(true);
         const profilePhotoResponse = await uploadprofilepic(formData1);
         if (profilePhotoResponse.data.result) {
           toast.success('Profile picture uploaded successfully');
-          done1 = true;
           setProfilePhotoURL(profilePhotoResponse.data.result.profilePicUrl);
         } else
           toast.error('Unable to upload profile picture now! Try again later');
       }
       if (coverPhoto) {
-        done2 = false;
         setUploading(true);
         const coverPhotoResponse = await uploadBGpic(formData2);
         if (coverPhotoResponse.data.result) {
           toast.success('Cover picture uploaded successfully');
-          done2 = true;
           setCoverPhotoURL(coverPhotoResponse.data.result.bgPicUrl);
         } else
           toast.error('Unable to upload cover picture now! Try again later');
       }
-      console.log(done1, done2);
     } catch (err) {
       toast.error('Unable to upload picture now! Try again later');
     }
@@ -146,6 +140,7 @@ const SkillSix = () => {
           >
             <input
               id='coverPhoto'
+              accept='image/*'
               type='file'
               style={{
                 visibility: 'hidden',
@@ -153,12 +148,14 @@ const SkillSix = () => {
                 width: 0,
               }}
               onChange={(e) => {
-                // check if input file is image
-                if (e.target.files[0].type.split('/')[0] !== 'image') {
-                  toast.error('Please select an image file');
-                  return;
+                const file = e.target.files[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    setCoverPhoto(reader.result);
+                  };
+                  reader.readAsDataURL(file);
                 }
-                setCoverPhoto(e.target.files[0]);
               }}
             />
             <div>
@@ -168,8 +165,8 @@ const SkillSix = () => {
                 onClick={() => document.getElementById('coverPhoto').click()}
               >
                 <img
-                  src={coverPic || vector}
-                  className='absolute rounded-lg cursor-pointer hover:opacity-80 '
+                  src={coverPhoto || coverPic || vector}
+                  className='absolute rounded-lg cursor-pointer hover:opacity-80 h-[30vh]'
                   alt=''
                 />
                 {!profilePic ? (
@@ -183,6 +180,7 @@ const SkillSix = () => {
             </div>
             <input
               id='profilePhoto'
+              accept='image/*'
               type='file'
               style={{
                 visibility: 'hidden',
@@ -190,12 +188,14 @@ const SkillSix = () => {
                 width: 0,
               }}
               onChange={(e) => {
-                // check if input file is image
-                if (e.target.files[0].type.split('/')[0] !== 'image') {
-                  toast.error('Please select an image file');
-                  return;
+                const file = e.target.files[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    setProfilePhoto(reader.result);
+                  };
+                  reader.readAsDataURL(file);
                 }
-                setProfilePhoto(e.target.files[0]);
               }}
             />
             <div className='mt-5 pt-10 pb-2'>
@@ -207,7 +207,7 @@ items-center justify-center'
               >
                 {' '}
                 <img
-                  src={profilePic || mdi}
+                  src={profilePhoto || profilePic || mdi}
                   className='absolute bottom-[5vh] rounded-full w-full h-full cursor-pointer hover:opacity-80'
                   alt=''
                 />
@@ -246,7 +246,7 @@ items-center justify-center hover:bg-[#8484841A]'
                     : 'bg-green-300'
                 } text-white px-3 py-2 rounded-full text-lg cursor-pointer`}
                 onClick={handleUpload}
-                disabled={!profilePhoto || !coverPhoto}
+                disabled={!profilePhoto && !coverPhoto}
               >
                 Upload Photo
               </button>
