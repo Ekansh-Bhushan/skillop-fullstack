@@ -219,7 +219,7 @@ const SkillFour = ({ setProgress }) => {
                   name='degree'
                   type='text'
                   placeholder='Degree'
-                  className='border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4'
+                  className='border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4 w-full'
                   onChange={(Event) => {
                     onChange(Event);
                   }}

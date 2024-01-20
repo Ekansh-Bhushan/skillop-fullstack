@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import "./starRating.css";
 
-function StarRating() {
-  const [rating, setRating] = useState(0); // Initialize with 0
+function StarRating({rating, setRating}) {
   const [hover, setHover] = useState(0); // Initialize with 0
 
   const updateScreenSize = () => {

@@ -89,6 +89,10 @@
   margin-right: 10px;
 }
 
+.btn-submit:hover {
+  background-color: #0159ac;
+}
+
 /* Add spacing between buttons */
 .btn-add + .btn-submit {
   margin-right: 0;

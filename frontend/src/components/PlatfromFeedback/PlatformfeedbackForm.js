@@ -1,117 +1,74 @@
-import React, { useReducer } from "react";
-import StarRating from "./starRating";
-import MyComponent from "./option";
-import "./feedbackForm.css";
-import SideNav from "../SideNav/SideNav";
-import RightProfileComp from "../Profile/Right Profile/RightProfileComp";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
-import Mobilecommonhead from "../Mobilecommonhead";
+import React, { useState } from 'react';
+import StarRating from './starRating';
+import './feedbackForm.css';
+import { toast } from 'react-hot-toast';
+import Mobilecommonhead from '../Mobilecommonhead';
+import Profileandevents from '../Landing/Profileandevents';
+import { sendPlatformFeedback } from '../../api/feedback';
 
-function PlatformfeedbackForm({
-  userData,
-  setProgress,
-  Mentor,
-  isFetched,
-  notifyList,
-}) {
-  // const[state,dispatch] = useReducer(reducer, initialState)
-  const navigate = useNavigate();
+function PlatformfeedbackForm() {
+  const [feedbackMsg, setFeedbackMsg] = useState('');
+  const [rating, setRating] = useState(0);
   const sendFeedBack = async () => {
-    toast.success("FeedBack Submitted !");
+    try {
+      await sendPlatformFeedback({message:feedbackMsg, rating});
+      toast.success('FeedBack Submitted !');
+      setRating(0);
+      setFeedbackMsg("");
+    } catch (err) {
+      console.log(err);
+      toast.error(err.response.data.message);
+    }
   };
 
   return (
     <>
-      {/* <SideNav
-        setProgress={setProgress}
-        Mentor={Mentor}
-        isFetched={isFetched}
-        notifyList={notifyList}
-      /> */}
       <Mobilecommonhead />
-      <div className="form">
-        <div className="form-top-area">
-          <h1 className="text-[#9D9D9D]">SKillop Feedback</h1>
-          <div className="flex items-center justify-center">
-            <h2 className="text-3xl font-normal my-5 mt-10 w-[80%] text-center md:text-2xl md:mt-5 md:w-[100%]">
+      <Profileandevents />
+      <div className='form'>
+        <div className='form-top-area'>
+          <h1 className='text-[#9D9D9D]'>SKillop Feedback</h1>
+          <div className='flex items-center justify-center'>
+            <h2 className='text-3xl font-normal my-5 mt-10 w-[80%] text-center md:text-2xl md:mt-5 md:w-[100%]'>
               How Was Your Exprience With the Platform?
             </h2>
           </div>
         </div>
-        <div className="form-star-area">
-          <StarRating />
+        <div className='form-star-area'>
+          <StarRating setRating={setRating} rating={rating} />
         </div>
-        {/* <div className="form-what-went-wrong-area">
-          What can we help you with?
-        </div> */}
 
-        <div className="myoptions">
-          <MyComponent />
-        </div>
-        <form className="form-area">
-          {/* <input
-          className="input-in-form-area"
-          style={{
-              border: "2px solid #108CFF",
-              outline: "none",
-              width: "100%",
-              height: "100%",
-              fontSize: "16px",
-              fontWeight: "500",
-              color: "black",
-              backgroundColor: "transparent",
-              padding: "10px",
+        <div className='myoptions'></div>
+        <div className='form-area'>
+          <textarea
+            value={feedbackMsg}
+            placeholder='Write your feedback here...'
+            onChange={(e) => {
+              setFeedbackMsg(e.target.value);
             }}
-            /> */}
-
-          {/* <button
-          className="btn-add"
-          onClick={(e) => {
-              e.preventDefault();
-              if (e.target.previousSibling.value === "") return;
-            }}
-            style={{
-                backgroundColor: "#108CFF",
-                color: "white",
-                fontSize: "16px",
-                fontWeight: "500",
-                border: "none",
-                outline: "none",
-                padding: "10px",
-                borderRadius: "5px",
-                cursor: "pointer",
-                marginLeft: "10px",
-            }}
-        >
-          Add
-        </button> */}
+            className='w-full bg-gray-100 rounded-xl text-xl p-2 border border-gray-600'
+            rows={5}
+          />
           <button
-            className="btn-submit"
-            // onClick={(e) => {
-            //     e.preventDefault();
-            //     if (e.target.previousSibling.value === "") return;
-            //   }}
-            // onClick={() => navigate('/homepage')}
+            className='btn-submit'
             onClick={sendFeedBack}
             style={{
-              backgroundColor: "#108CFF",
-              color: "white",
-              fontSize: "16px",
-              fontWeight: "500",
-              border: "none",
-              outline: "none",
-              padding: "10px 15px",
-              borderRadius: "15px",
-              cursor: "pointer",
-              marginLeft: "10px",
+              backgroundColor: '#108CFF',
+              color: 'white',
+              fontSize: '16px',
+              fontWeight: '500',
+              border: 'none',
+              outline: 'none',
+              padding: '10px 15px',
+              borderRadius: '15px',
+              cursor: 'pointer',
+              marginLeft: '10px',
             }}
           >
             Submit
           </button>
-        </form>
+        </div>
       </div>
-      {/* <RightProfileComp /> */}
     </>
   );
 }
