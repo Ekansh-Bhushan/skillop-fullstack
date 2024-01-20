@@ -122,7 +122,9 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
         )}
         <div className='ph-details'>
           <div className='ph-name'>
-            {userDetails.firstname ? (userDetails.firstname + ' ' + userDetails.lastname):"Loading..."}
+            {userDetails.firstname
+              ? userDetails.firstname + ' ' + userDetails.lastname
+              : 'Loading...'}
             {userDetails && userDetails.isMentor && (
               <div className='verified-logo'>
                 <img src='/verified.png' width={23} alt='' />
@@ -139,10 +141,11 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
             </p>
           ) : (
             <p>
-              {'Student' +( userDetails &&
-                userDetails.experence &&
-                userDetails.education.length > 0 &&
-                ' @ ' + userDetails.education[0].institution)}
+              {'Student' +
+                (userDetails &&
+                  userDetails.experence &&
+                  userDetails.education.length > 0 &&
+                  ' @ ' + userDetails.education[0].institution)}
             </p>
           )}
           <div className='ph-headline'>
@@ -179,7 +182,7 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
                     alt=''
                   />
                 </Link>
-                <Link to={'/post'}>
+                <Link to={`/userposts/${userId}`}>
                   <img
                     src='/post2.png'
                     className='cursor-pointer hover:opacity-80'

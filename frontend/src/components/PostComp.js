@@ -334,13 +334,13 @@ const PostComp = ({
             position: 'relative',
             top: '10px',
             marginBottom: '10px',
-            fontFamily: "Ubuntu"
+            fontFamily: 'Ubuntu',
           }}
           onClick={() => {
             navigate(`/postsection/${_id}`);
           }}
         >
-          {linkIdentifier(taggingManager.convert(title))}
+          {taggingManager.convert(title)}
         </pre>
         {title.length > 500 || (title.match(/\n/g) || []).length >= 5 ? (
           <button onClick={toggleExpand} className='read-more'>

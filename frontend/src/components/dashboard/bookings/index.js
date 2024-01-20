@@ -1,10 +1,10 @@
-import React, { Children, useEffect, useState } from "react";
-import logo from "../../images/logo.png";
-import { useNavigate } from "react-router-dom";
-import Commondash from "../common";
-import Topbar from "../topbar";
-import Profileandevents from "../../Landing/Profileandevents";
-import Profile from "../../Profile/profile";
+import React, { Children, useEffect, useState } from 'react';
+import logo from '../../images/logo.png';
+import { useNavigate } from 'react-router-dom';
+import Commondash from '../common';
+import Topbar from '../topbar';
+import Profileandevents from '../../Landing/Profileandevents';
+import Profile from '../../Profile/profile';
 
 import {
   acceptMeet,
@@ -12,59 +12,59 @@ import {
   getPendingMeet,
   getUpcommingBookings,
   getscheduledbookings,
-} from "../../../api/mentorRequest";
-import toast from "react-hot-toast";
-import BookViewPopUp from "./BookViewPopUp";
-import Mobilecommonhead from "../../Mobilecommonhead";
-import convertToNormalTime from "../../../utils/timeConversion";
-import { updateMeetCharge } from "../../../api/slotsRequest";
+} from '../../../api/mentorRequest';
+import toast from 'react-hot-toast';
+import BookViewPopUp from './BookViewPopUp';
+import Mobilecommonhead from '../../Mobilecommonhead';
+import convertToNormalTime from '../../../utils/timeConversion';
+import { updateMeetCharge } from '../../../api/slotsRequest';
 
 const MEET_STATUS = {
-  PENDING: "pending",
-  ACCEPTED: "accepted",
-  REJECTED: "rejected",
-  CANCELLED: "cancelled",
+  PENDING: 'pending',
+  ACCEPTED: 'accepted',
+  REJECTED: 'rejected',
+  CANCELLED: 'cancelled',
 };
 
 function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
   const navigate = useNavigate();
 
   const displaynavmob = () => {
-    var x = document.querySelector(".side-nav-mob");
+    var x = document.querySelector('.side-nav-mob');
     if (x.classList[1]) {
-      x.classList.remove("display");
+      x.classList.remove('display');
     } else {
-      x.classList.add("display");
+      x.classList.add('display');
     }
   };
   const [book, setBook] = useState([]);
   const [upcomming, setUpcomming] = useState([]);
   const [pending, setPending] = useState([]);
   const [completed, setCompleted] = useState([]);
-  const [displaying, setDisplaying] = useState("upcomming");
+  const [displaying, setDisplaying] = useState('upcomming');
   const [ShowBookPopUp, setShowBookPopUp] = useState(false);
   const [bookingData, setBookingData] = useState([]);
   const [initialRequest, setInitialRequest] = useState(false);
-  const [charge, setCharge] = useState("");
+  const [charge, setCharge] = useState('');
 
   const onClose = () => {
     setShowBookPopUp(false);
   };
 
   const showstatus = (e) => {
-    document.querySelector(".upcoming").classList.remove("up");
-    document.querySelector(".completed").classList.remove("up");
-    document.querySelector(".pending").classList.remove("up");
-    e.target.classList.add("up");
-    if (e.target.classList.contains("upcoming")) {
+    document.querySelector('.upcoming').classList.remove('up');
+    document.querySelector('.completed').classList.remove('up');
+    document.querySelector('.pending').classList.remove('up');
+    e.target.classList.add('up');
+    if (e.target.classList.contains('upcoming')) {
       // setBook(upcomming);
-      setDisplaying("upcomming");
-    } else if (e.target.classList.contains("pending")) {
+      setDisplaying('upcomming');
+    } else if (e.target.classList.contains('pending')) {
       // setBook(pending);
-      setDisplaying("pending");
-    } else if (e.target.classList.contains("completed")) {
+      setDisplaying('pending');
+    } else if (e.target.classList.contains('completed')) {
       // setBook(completed);
-      setDisplaying("completed");
+      setDisplaying('completed');
     }
   };
 
@@ -72,7 +72,7 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
     try {
       const res = await updateMeetCharge(charge);
       setCharge(res.data.result.chargePerHour);
-      toast.success("Charge per hour updated");
+      toast.success('Charge per hour updated');
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
@@ -130,12 +130,12 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
       }
     };
     getCompMeet();
-    if (displaying === "upcomming") setBook(upcomming);
-    else if (displaying === "pending") setBook(pending);
-    else if (displaying === "completed") setBook(completed);
+    if (displaying === 'upcomming') setBook(upcomming);
+    else if (displaying === 'pending') setBook(pending);
+    else if (displaying === 'completed') setBook(completed);
   }, [displaying]);
   useEffect(() => {
-    console.log("useEffect");
+    console.log('useEffect');
     // setDisplaying("upcomming");
     // const getbookings = async () => {
     //     try {
@@ -165,8 +165,8 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
   }, []);
 
   if (!Mentor) {
-    navigate("/homepage");
-    toast.error("Bookings page is 🔒 locked\nBecome a MENTOR 😎 to unlock!");
+    navigate('/homepage');
+    toast.error('Bookings page is 🔒 locked\nBecome a MENTOR 😎 to unlock!');
     return null;
   }
 
@@ -174,34 +174,35 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
     <>
       {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
-      <div className="ml-[20vw] md:ml-0">
+      <Profileandevents />
+      <div className='ml-[20vw] md:ml-0'>
         {/* <Commondash userData={userData} /> */}
 
-        <div className="dash-right">
+        <div className='dash-right'>
           {/* <Profileandevents /> */}
 
           {/* <Topbar setProgress={setProgress}/> */}
-          <div className="session-dash-info ml-5">
-            <h2 className="meets-head text-2xl">Booking</h2>
-            <div className="heading-session-status">
+          <div className='session-dash-info ml-5'>
+            <h2 className='meets-head text-2xl'>Booking</h2>
+            <div className='heading-session-status'>
               <div
-                className="upcoming up"
+                className='upcoming up'
                 onClick={showstatus}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
               >
                 Upcoming
               </div>
               <div
-                className="pending"
+                className='pending'
                 onClick={showstatus}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
               >
                 Pending
               </div>
               <div
-                className="completed"
+                className='completed'
                 onClick={showstatus}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
               >
                 Completed
               </div>
@@ -211,20 +212,20 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
             {ShowBookPopUp && (
               <BookViewPopUp
-                type="Mentee"
+                type='Mentee'
                 bookingData={bookingData}
                 onClose={onClose}
               />
             )}
 
             {Object.entries(book).length === 0 ? (
-              <div className="no-session flex flex-col h-[100%] pl-[20px] border-b-2 md:pl-0">
+              <div className='no-session flex flex-col h-[100%] pl-[20px] border-b-2 md:pl-0'>
                 {initialRequest && (
-                  <h3 className="md:text-center md:mt-5">No Sessions</h3>
+                  <h3 className='md:text-center md:mt-5'>No Sessions</h3>
                 )}
               </div>
             ) : (
-              <div className="session-list-dash">
+              <div className='session-list-dash'>
                 {Object.entries(book).map(([date, items]) => (
                   <div>
                     <ul>
@@ -232,26 +233,26 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
                     </ul>
                     {Object.entries(items).map((item) => (
                       <div
-                        style={{ cursor: "pointer" }}
+                        style={{ cursor: 'pointer' }}
                         onClick={() => {
                           setBookingData(item);
                           console.log(item);
                           setShowBookPopUp(true);
                         }}
-                        className="individual-session"
+                        className='individual-session'
                       >
                         <div
                           style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "justify-between",
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'justify-between',
                           }}
                         >
                           {/* <img src={logo} /> */}
 
                           <span>
-                            Timing:&nbsp;{convertToNormalTime(item[1].s)} -{" "}
-                            {convertToNormalTime(item[1].e)}{" "}
+                            Timing:&nbsp;{convertToNormalTime(item[1].s)} -{' '}
+                            {convertToNormalTime(item[1].e)}{' '}
                           </span>
                         </div>
                         <span>Number of Bookings :1</span>
@@ -261,20 +262,20 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 ))}
               </div>
             )}
-            <div className="meet-rate">
+            <div className='meet-rate'>
               <div>
                 Current charge per hour : ₹{userData.mentor.chargePerHour}
               </div>
-              <div style={{ display: "flex", gap: "2vw" }}>
+              <div style={{ display: 'flex', gap: '2vw' }}>
                 <input
-                  type="number"
+                  type='number'
                   value={charge}
                   onChange={(e) => setCharge(e.target.value)}
-                  className="meet-rate-input"
-                  placeholder="Enter new rate"
+                  className='meet-rate-input'
+                  placeholder='Enter new rate'
                 />
                 <button
-                  className="update-meet-rate-btn"
+                  className='update-meet-rate-btn'
                   onClick={handleUpdateCharge}
                 >
                   Update

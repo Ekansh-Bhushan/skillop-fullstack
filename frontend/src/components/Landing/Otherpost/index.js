@@ -19,7 +19,10 @@ import next from '../../images/next.png';
 import back from '../../images/back.png';
 import toast from 'react-hot-toast';
 import Mobilecommonhead from '../../Mobilecommonhead';
-import { getUserFromUsername, queryUserFromUsername } from '../../../api/userRequest';
+import {
+  getUserFromUsername,
+  queryUserFromUsername,
+} from '../../../api/userRequest';
 import TaggingManager from '../../../utils/tagManager';
 import { linkIdentifier } from '../../../utils/linkIdentifier';
 
@@ -128,16 +131,21 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
   };
 
   const delComm = async (commentId) => {
-    try {
-      setProgress(40);
-      await deleteComment(commentId);
-      setCommentList((prevCommentList) =>
-        prevCommentList.filter((item) => item._id !== commentId)
-      );
-      setProgress(100);
-    } catch (err) {
-      console.log('unable to del comment ', err);
-      toast.error(err.response.data.message);
+    const confirmed = window.confirm(
+      'Are you sure you want to delete this item?'
+    );
+    if (confirmed) {
+      try {
+        setProgress(40);
+        await deleteComment(commentId);
+        setCommentList((prevCommentList) =>
+          prevCommentList.filter((item) => item._id !== commentId)
+        );
+        setProgress(100);
+      } catch (err) {
+        console.log('unable to del comment ', err);
+        toast.error(err.response.data.message);
+      }
     }
   };
 

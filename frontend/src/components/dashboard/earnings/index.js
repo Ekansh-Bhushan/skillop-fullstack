@@ -45,7 +45,7 @@ function Earning({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
-      <UpcomingEvents />
+      <Profileandevents />
       {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
       <div className="dash-main">
