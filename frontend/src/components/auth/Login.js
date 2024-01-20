@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import img1 from '../../components/images/Saly-24.png';
-import google from '../../components/images/Google_signup.png';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import Nav from './Nav';
 import toast from 'react-hot-toast';

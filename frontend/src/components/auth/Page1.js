@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import img1 from '../../components/images/img1.png';
 import Nav from './Nav';
-import { FaLinkedin, FaGoogle } from 'react-icons/fa';
 import { googleIdVerifyAndLogin, registerUser } from '../../api/userRequest';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import linkedin from '../../components/images/devicon_linkedin.png';
-import google from '../../components/images/Google_signup.png';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';

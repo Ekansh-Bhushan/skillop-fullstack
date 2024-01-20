@@ -1,70 +1,14 @@
-// import React from "react";
-// import coolimg from "../../components/images/logo.png";
-// import { FaLinkedin, FaGoogle } from "react-icons/fa";
-
-// const Mlogin = () => {
-//   return (
-//     <div>
-//       <div className="flex items-center justify-center gap-3 mt-10">
-//         {" "}
-//         <img src={coolimg} className="h-[40px]" />
-//         <h1 className="font-bold text-xl">SKILLOP</h1>
-//       </div>
-//       <div className="flex items-start flex-col mt-[12vh] mx-[5vh]">
-//         <h1 className="text-3xl font-bold text-start">LOGIN</h1>
-//         <div className="flex flex-col items-center justify-center">
-//           <div class="relative my-6">
-//             <label class="absolute top-0 left-2 -mt-2 bg-white px-1">
-//               Email
-//             </label>
-//             <input class="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]" />
-//           </div>
-//           <div class="relative">
-//             <label class="absolute top-0 left-2 -mt-2 bg-white px-1">
-//               Password
-//             </label>
-//             <input class="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]" />
-//           </div>
-
-//           <button class="bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 w-[100%] rounded p-1 mt-5">
-//             <span class="flex justify-center items-center w-full bg-white rounded p-2">
-//               Login
-//             </span>
-//           </button>
-//           <div className="flex items-center justify-center mt-10 mb-8 w-[90%]">
-//             <div className="border-t border-[#7E8B9E] w-full"></div>
-//             <span className="text-[#7E8B9E] px-2">or</span>
-//             <div className="border-t border-[#7E8B9E] w-full"></div>
-//           </div>
-//           <div className="flex mt-4 text-[#7E8B9E] flex-col items-center justify-center gap-3">
-//             <button className="bg-transparent hover:bg-blue-100  font-bold py-4 px-8 rounded flex items-center justify-center border-[1px] w-[100%] ">
-//               <FaLinkedin className="mr-2" />
-//               <span className="text-xs"> Sign in with LinkedIn</span>
-//             </button>
-//             <button className="bg-transparent hover:bg-red-100 font-bold py-4 px-8  rounded flex items-center border-[1px] w-[100%]">
-//               <FaGoogle className="mr-2" />
-//               <span className="text-xs">Sign in with Google</span>
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Mlogin;
-
-import React, { useState } from "react";
-import coolimg from "../../components/images/logo.png";
-import { FaLinkedin, FaGoogle } from "react-icons/fa";
-import toast from "react-hot-toast";
-import { loginUser } from "../../api/userRequest"; // Import your loginUser API request function
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import coolimg from '../../components/images/logo.png';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import toast from 'react-hot-toast';
+import { googleIdVerifyAndLogin, loginUser } from '../../api/userRequest'; // Import your loginUser API request function
+import { useNavigate } from 'react-router-dom';
 
 const Mlogin = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const login = async () => {
     try {
@@ -73,8 +17,8 @@ const Mlogin = () => {
         password: password,
       });
       if (data.result) {
-        localStorage.setItem("skilloptoken", data.token);
-        navigate("/homepage");
+        localStorage.setItem('skilloptoken', data.token);
+        navigate('/homepage');
         toast.success(data.message);
       } else {
         toast.error(data.message);
@@ -87,63 +31,83 @@ const Mlogin = () => {
   const loginClicked = async () => {
     await login();
   };
+   const handleGoogleLoginSuccess = async (credentialResponse) => {
+     const idToken = credentialResponse.credential;
+     console.log(idToken);
+     const { data } = await googleIdVerifyAndLogin({ token: idToken });
+     console.log(data);
+     // Store the token in local storage
+     localStorage.setItem('skilloptoken', data.token);
+     if (data && data.result) {
+       if (data.type === 'old') {
+         navigate('/homepage');
+       } else {
+         navigate('/skill3');
+       }
+     } else {
+       toast.error(data.message);
+     }
+   };
+
 
   return (
     <div>
-      <div className="flex items-center justify-center gap-3 mt-10">
-        <img src={coolimg} className="h-[40px]" alt="Logo" />
-        <h1 className="font-bold text-xl">SKILLOP</h1>
+      <div className='flex items-center justify-center gap-3 mt-10'>
+        <img src={coolimg} className='h-[40px]' alt='Logo' />
+        <h1 className='font-bold text-xl'>SKILLOP</h1>
       </div>
-      <div className="flex items-start flex-col mt-[12vh] mx-[5vh]">
-        <h1 className="text-3xl font-bold text-start">LOGIN</h1>
-        <div className="flex flex-col items-center justify-center">
-          <div className="relative my-6">
-            <label className="absolute top-0 left-2 -mt-2 bg-white px-1">
+      <div className='flex items-start flex-col mt-[12vh] mx-[5vh]'>
+        <h1 className='text-3xl font-bold text-start'>LOGIN</h1>
+        <div className='flex flex-col items-center justify-center'>
+          <div className='relative my-6'>
+            <label className='absolute top-0 left-2 -mt-2 bg-white px-1'>
               Email
             </label>
             <input
-              className="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
-              type="email"
+              className='border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]'
+              type='email'
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="relative">
-            <label className="absolute top-0 left-2 -mt-2 bg-white px-1">
+          <div className='relative'>
+            <label className='absolute top-0 left-2 -mt-2 bg-white px-1'>
               Password
             </label>
             <input
-              className="border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]"
-              type="password"
+              className='border-2 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]'
+              type='password'
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button
-            className="bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 w-[100%] rounded p-1 mt-5"
+            className='bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 w-[100%] rounded p-1 mt-5'
             onClick={loginClicked}
           >
-            <span className="flex justify-center items-center w-full bg-white rounded p-2">
+            <span className='flex justify-center items-center w-full bg-white rounded p-2'>
               Login
             </span>
           </button>
-          <p className="mt-2">Not Registered Yet?</p>
+          <p className='mt-2'>Not Registered Yet?</p>
 
-          <span className="flex justify-center items-center w-full bg-white rounded  text-blue-500">
-            <a href="/msignup"> Signup</a>
+          <span className='flex justify-center items-center w-full bg-white rounded  text-blue-500'>
+            <a href='/msignup'> Signup</a>
           </span>
           {/* ... (Social login buttons and other UI elements) */}
-          <div className="flex items-center justify-center mt-10 mb-8 w-[90%]">
-            <div className="border-t border-[#7E8B9E] w-full"></div>
-            <span className="text-[#7E8B9E] px-2">or</span>
-            <div className="border-t border-[#7E8B9E] w-full"></div>
+          <div className='flex items-center justify-center mt-10 mb-8 w-[90%]'>
+            <div className='border-t border-[#7E8B9E] w-full'></div>
+            <span className='text-[#7E8B9E] px-2'>or</span>
+            <div className='border-t border-[#7E8B9E] w-full'></div>
           </div>
-          <div className="flex mt-4 text-[#7E8B9E] flex-col items-center justify-center gap-3">
-            <button className="bg-transparent hover:bg-blue-100  font-bold py-4 px-8 rounded flex items-center justify-center border-[1px] w-[100%] ">
-              <FaLinkedin className="mr-2" />
-              <span className="text-xs"> Sign in with LinkedIn</span>
-            </button>
-            <button className="bg-transparent hover:bg-red-100 font-bold py-4 px-8  rounded flex items-center border-[1px] w-[100%]">
-              <FaGoogle className="mr-2" />
-              <span className="text-xs">Sign in with Google</span>
+          <div className='flex my-4 text-center p-auto w-full justify-center items-center'>
+            <button className='rounded-full hover:bg-[#8484841A] font-bold py-2 px-8 ml-4 flex border-black border items-center justify-center bg-gray-100 text-lg w-full'>
+              <GoogleOAuthProvider clientId='154719299730-irqnpdj9jo8n2pa475b0gbpmoi78orha.apps.googleusercontent.com'>
+                <GoogleLogin
+                  onSuccess={handleGoogleLoginSuccess}
+                  onError={() => {
+                    console.log('Google Login Failed');
+                  }}
+                />
+              </GoogleOAuthProvider>
             </button>
           </div>
         </div>
