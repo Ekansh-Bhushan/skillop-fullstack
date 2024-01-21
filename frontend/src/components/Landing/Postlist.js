@@ -23,7 +23,8 @@ const Postlist = ({
   setUserData,
   showPostPopUp,
   setShowPostPopUp,
-  socket,
+  reloadPost,
+  setReloadPost
 }) => {
   const handlePostCreation = async (postData) => {
     try {
@@ -36,9 +37,6 @@ const Postlist = ({
       const { data } = await getAllPost(postData);
 
       // Notify server and other clients about the new post
-      if (socket) {
-        socket.emit('newPost', data.post);
-      }
 
       // Add this post to the posts state
       setPosts((prevPosts) => [data.result, ...prevPosts]);
@@ -81,7 +79,6 @@ const Postlist = ({
   const limit = 10;
   const [length, setLength] = useState(limit);
   const containerRef = useRef(null);
-  const [reloadPost, setReloadPost] = useState(false);
 
   const handleInputChange = (event) => {
     const newValue = event.target.value;

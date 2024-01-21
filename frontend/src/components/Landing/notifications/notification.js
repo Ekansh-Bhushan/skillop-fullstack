@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import MyProfile from "../myprof";
-import user from "../../images/user.png";
 import "./notification.css";
 import Box from "./notify box/box";
 import Profileandevents from "../Profileandevents";
-import SideNav from "../../SideNav/SideNav";
 import "./notification.css";
 import spinner from "../../images/spinner.gif";
 import {

@@ -4,7 +4,6 @@ import Mobilecommonhead from '../../Mobilecommonhead';
 import { getUser } from '../../../api/userRequest';
 import { getNotifications } from '../../../api/getNotifications';
 import Postlist from '../Postlist';
-import openSocket from 'socket.io-client';
 
 function Post({
   userData,
@@ -17,38 +16,8 @@ function Post({
   setShowPostPopUp,
   showPostPopUp,
 }) {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
-  const [socket, setSocket] = useState(null);
-  useEffect(() => {
-    // Establish WebSocket connection
-    const newSocket = openSocket('https://skillop.in/');
-    console.log('WebSocket Connection Established');
-    setSocket(newSocket);
-  
-    return () => {
-      // Close WebSocket connection when component unmounts
-      newSocket.disconnect();
-      console.log('WebSocket Connection Closed');
-    };
-  }, []);
-
-  useEffect(() => {
-    if (socket) {
-      // Listen for 'newPost' event
-      socket.on('newPost', (newPost) => {
-        // Update UI with the new post
-        // You may need to modify state or data structures in your Postlist component
-      });
-    }
-  }, [socket]);
-
   const [isHome, setIsHome] = useState(false);
+  const [reloadPost, setReloadPost] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,15 +57,11 @@ function Post({
 
   return (
     <div className='homepage'>
-      {/* <SideNav
+      <Mobilecommonhead
         setProgress={setProgress}
-        Mentor={Mentor}
-        isFetched={isFetched}
-        notifyList={notifyList}
-      /> */}
-
-      {/* <Searchbar/> */}
-      <Mobilecommonhead />
+        setReloadPost={setReloadPost}
+        reloadPost={reloadPost}
+      />
       {/* <Common setProgress={setProgress}/> */}
       <div className='main-content-landing'>
         {isFetched && (
@@ -107,7 +72,8 @@ function Post({
             setUserData={setUserData}
             setShowPostPopUp={setShowPostPopUp}
             showPostPopUp={showPostPopUp}
-            socket={socket}
+            setReloadPost={setReloadPost}
+            reloadPost={reloadPost}
           />
         )}
 

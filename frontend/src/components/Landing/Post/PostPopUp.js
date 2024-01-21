@@ -13,11 +13,8 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { queryUserFromUsername } from '../../../api/userRequest';
 import _ from 'lodash';
-import io from 'socket.io-client';
 
 const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
-  const socket = io('http://skillop.in');
-
   // ------------- @ sign query
   const [signQuery, setSignQuery] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -78,15 +75,12 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
         toast.error('Enter something to post');
         return;
       }
-      // console.log("hi",selectedFile, selectedMedia);
-      // selectedFile = selectedMedia;
       if (selectedFile.length > 0) {
         for (let i = 0; i < selectedFile.length; i++) {
           formData.append('postImages', selectedFile[i]);
         }
       }
       formData.append('title', inputValue);
-      // console.log(formData);
       const createPost = (data) => {
         const token = localStorage.getItem('skilloptoken');
         const config = {
@@ -99,26 +93,20 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
       };
       setProgress(30);
       await createPost(formData);
-      setReloadPost(!reloadPost);
+      // setReloadPost(!reloadPost);
       setProgress(100);
 
       onClose();
       toast.success('Post created successfully!');
     } catch (error) {
-      setReloadPost(!reloadPost);
+      // setReloadPost(!reloadPost);
       console.log('Unable to add post', error);
-      toast.error(error.response.data.message);
+      // toast.error(error.response.data.message);
     }
   };
-  useEffect(() => {
-    socket.on('newPost', (data) => {
-      setReloadPost(!reloadPost);
-      console.log('New post received:', data);
-    });
-    return () => {
-      socket.disconnect();
-    };
-  }, [reloadPost, setReloadPost, socket]);
+  // useEffect(() => {
+  //   setReloadPost(!reloadPost);
+  // }, [reloadPost, setReloadPost]);
   const handleUpload = () => {
     document.querySelector('.photo-popup').style.display = 'flex';
   };
@@ -311,7 +299,7 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
           {selectedMedia.length > 1 && (
             <span onClick={handlePreviousMedia}>
               <img height={32} width={32} src={back} alt='back' />
-              <label>Previous</label>
+              <label className='sm:hidden'>Previous</label>
             </span>
           )}
           <span onClick={closePopUp}>
@@ -332,13 +320,13 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
           {selectedMedia.length > 1 && (
             <span onClick={handleNextMedia}>
               <img height={32} width={32} src={next} alt='back' />
-              <label>Next</label>
+              <label className='sm:hidden'>Next</label>
             </span>
           )}
         </div>
         {showSuggestions && (
           <div
-            className='border-black border rounded-lg min-w-[15vw]'
+            className='border-black border rounded-lg min-w-[15vw] sm:absolute sm:top-[35vh] bg-white'
             id='usernameList'
           >
             {signQuery.slice(0, 7).map((user) => (

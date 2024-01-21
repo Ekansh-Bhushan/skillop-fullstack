@@ -1,40 +1,34 @@
 import React, { useState, useEffect } from "react";
 import logo from "../images/logo.png";
-import { IoIosArrowBack } from "react-icons/io";
 import { PiBellRingingLight } from "react-icons/pi";
 import { HiOutlineChatBubbleLeftEllipsis } from "react-icons/hi2";
 import "./index.css";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { AiFillHome, AiOutlineSchedule } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { AiFillHome} from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
-import { SiGooglechat } from "react-icons/si";
 import { IoIosAddCircle } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
-import { MdNotifications } from "react-icons/md";
-import { FiMoreVertical } from "react-icons/fi";
-import { AiFillPlusCircle } from "react-icons/ai";
-import post from "../images/post.png";
-import { RxCross2 } from "react-icons/rx";
-import { logoutUser } from "../../api/logoutRequest";
 import { toast } from "react-hot-toast";
 import PostPopUp from "../Landing/Post/PostPopUp";
 import { getUser } from "../../api/userRequest";
 import book from "../../components/images/book.png";
 import search from "../../components/images/iconamoon_search-light.png";
-import home from "../../components/images/octicon_home-fill-24.png";
-import profile from "../../components/images/gg_profile.png";
 
-const Mobilecommonhead = () => {
+const Mobilecommonhead = ({
+  setProgress,
+  setReloadPost,
+  reloadPost,
+}) => {
   const [showPostPopUp, setShowPostPopUp] = useState(false);
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      localStorage.removeItem("skilloptoken");
+      localStorage.removeItem('skilloptoken');
     } catch (error) {
       console.log(error);
     }
-    navigate("/");
-    toast.success("Logged out");
+    navigate('/');
+    toast.success('Logged out');
   };
 
   const onClose = () => {
@@ -59,12 +53,12 @@ const Mobilecommonhead = () => {
       setUserDetails(userData.data.result);
     } catch (err) {
       if (!err.response.data.result) {
-        localStorage.removeItem("skilloptoken");
-        navigate("/");
-        console.log("here is ", err.response.data.result);
+        localStorage.removeItem('skilloptoken');
+        navigate('/');
+        console.log('here is ', err.response.data.result);
         // toast.error('Session expired, Login again!');
       }
-      console.log("Unable to fetch user details", err);
+      console.log('Unable to fetch user details', err);
     }
   };
 
@@ -73,7 +67,7 @@ const Mobilecommonhead = () => {
   }, []);
 
   const navigateToProfile = () => {
-    navigate("/Profile");
+    navigate('/Profile');
   };
 
   return (
@@ -81,8 +75,10 @@ const Mobilecommonhead = () => {
       {showPostPopUp && (
         <PostPopUp
           onClose={onClose}
-          // setProgress={setProgress}
+          setProgress={setProgress}
           setRefresh={setRefresh}
+          setReloadPost={setReloadPost}
+          reloadPost={reloadPost}
         />
       )}
       <div className='mobile-head'>
