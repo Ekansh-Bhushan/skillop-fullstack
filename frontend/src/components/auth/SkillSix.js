@@ -54,19 +54,19 @@ const SkillSix = ({ setProgress }) => {
         setUploading(true);
         const profilePhotoResponse = await uploadprofilepic(formData1);
         if (profilePhotoResponse.data.result) {
-          toast.success('Profile picture uploaded successfully');
-          setProfilePhotoURL(profilePhotoResponse.data.result.profilePicUrl);
+          toast.success('Profile photo uploaded!');
+          // setProfilePhotoURL(profilePhotoResponse.data.result.profilePicUrl);
         } else
-          toast.error('Unable to upload profile picture now! Try again later');
+          toast.error('Unable to upload profile photo now! Try again later');
       }
       if (coverPhoto) {
         setUploading(true);
         const coverPhotoResponse = await uploadBGpic(formData2);
         if (coverPhotoResponse.data.result) {
-          toast.success('Cover picture uploaded successfully');
-          setCoverPhotoURL(coverPhotoResponse.data.result.bgPicUrl);
+          toast.success('Cover photo uploaded!');
+          // setCoverPhotoURL(coverPhotoResponse.data.result.bgPicUrl);
         } else
-          toast.error('Unable to upload cover picture now! Try again later');
+          toast.error('Unable to upload cover photo now! Try again later');
       }
     } catch (err) {
       toast.error('Unable to upload picture now! Try again later');
@@ -152,10 +152,11 @@ const SkillSix = ({ setProgress }) => {
               }}
               onChange={(e) => {
                 const file = e.target.files[0];
+                setCoverPhoto(file)
                 if (file) {
                   const reader = new FileReader();
                   reader.onload = () => {
-                    setCoverPhoto(reader.result);
+                    setCoverPhotoURL(reader.result);
                   };
                   reader.readAsDataURL(file);
                 }
@@ -168,7 +169,7 @@ const SkillSix = ({ setProgress }) => {
                 onClick={() => document.getElementById('coverPhoto').click()}
               >
                 <img
-                  src={coverPhoto || coverPic || vector}
+                  src={coverPhotoURL || coverPic || vector}
                   className='absolute rounded-lg cursor-pointer hover:opacity-80 h-[30vh]'
                   alt=''
                 />
@@ -192,10 +193,11 @@ const SkillSix = ({ setProgress }) => {
               }}
               onChange={(e) => {
                 const file = e.target.files[0];
+                setProfilePhoto(file)
                 if (file) {
                   const reader = new FileReader();
                   reader.onload = () => {
-                    setProfilePhoto(reader.result);
+                    setProfilePhotoURL(reader.result);
                   };
                   reader.readAsDataURL(file);
                 }
@@ -210,7 +212,7 @@ items-center justify-center'
               >
                 {' '}
                 <img
-                  src={profilePhoto || profilePic || mdi}
+                  src={profilePhotoURL || profilePic || mdi}
                   className='absolute bottom-[5vh] rounded-full w-full h-full cursor-pointer hover:opacity-80'
                   alt=''
                 />

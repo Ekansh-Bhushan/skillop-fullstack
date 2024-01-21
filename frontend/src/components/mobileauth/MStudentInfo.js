@@ -49,7 +49,7 @@ const MStudentInfo = () => {
     ]);
 
     setSearchQuery(e.target.value);
-    document.querySelector('.college-search-results1').style.display = 'block';
+    document.querySelector('.college-search-results1').style.display = 'flex';
     searchCollege(e.target.value);
     if (e.target.value.length === 0) {
       document.querySelector('.college-search-results1').style.display = 'none';
@@ -85,14 +85,14 @@ const MStudentInfo = () => {
   const nextClicked = async () => {
     // check start date and end date
     if (!data[0].institution || !data[0].degree || !data[0].startDate || !data[0].endDate) {
-        console.log(data);
         toast.error('Institution, Degree, Start & End Year are required!');
         return;
     }
-    if(data[0].startDate <= 1900) {
+    if(data[0].startDate < 1900) {
         toast.error("Start year can't be smaller than 1900");
         return;
     }
+    console.log(data[0].startDate > data[0].endDate);
     if (data[0].startDate > data[0].endDate) {
       toast.error('Start Year must be smaller than End Year');
       return;
@@ -130,15 +130,15 @@ const MStudentInfo = () => {
               College/ Institution
             </label>
             <input
-              className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]'
+              className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 px-3 w-[80vw]'
               name='institution'
               type='text'
               onChange={handleOnChange}
               value={searchQuery}
             />
-            <div className='college-search-results1 flex flex-wrap gap-1 border-gray-500 border-[1px] w-full rounded-3xl z-40 bg-white bg-opacity-50 backdrop-blur-[20px]'>
+            <div className='college-search-results1 flex-wrap gap-1 border-gray-500 border-[1px] w-full rounded-3xl z-40 bg-white bg-opacity-50 backdrop-blur-[20px] hidden'>
               <div>
-                <div className='college-search-results1 border rounded-xl max-h-64 scroll-auto overflow-auto'>
+                <div className='border rounded-xl max-h-64 scroll-auto overflow-auto'>
                   {collegeSearchResults.length > 0
                     ? collegeSearchResults.map((college, idx) => {
                         return (
@@ -157,8 +157,9 @@ const MStudentInfo = () => {
                           </div>
                         );
                       })
-                    : searchQuery.length > 0 &&
-                      `No results found for "${searchQuery}"`}
+                    : searchQuery.length > 0 && (
+                        <p className='p-2'>No results found for "{searchQuery}"</p>
+                      )}
                 </div>
               </div>
             </div>
@@ -168,7 +169,7 @@ const MStudentInfo = () => {
                 Degree
               </label>
               <input
-                className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]'
+                className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 px-3 w-[80vw]'
                 name='degree'
                 type='text'
                 // placeholder="Degree"
@@ -180,7 +181,7 @@ const MStudentInfo = () => {
                 Field Of Study/ Branch
               </label>
               <input
-                className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[80vw]'
+                className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 px-3 w-[80vw]'
                 name='fieldOfStudy'
                 type='text'
                 // placeholder="Field Of Study/ Branch"
@@ -193,7 +194,7 @@ const MStudentInfo = () => {
                   Start-Year
                 </label>
                 <input
-                  className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[38vw]'
+                  className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 px-3 w-[38vw]'
                   name='startDate'
                   type='number'
                   // placeholder="Start-Year"
@@ -205,7 +206,7 @@ const MStudentInfo = () => {
                   End-Year
                 </label>
                 <input
-                  className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 pl-10 w-[38vw]'
+                  className='border-[1px] border-gray-500 rounded-xl bg-[#FAFAFC] py-2 px-3 w-[38vw]'
                   name='endDate'
                   type='number'
                   // placeholder="End-Year"
@@ -216,13 +217,13 @@ const MStudentInfo = () => {
 
             <div className='flex items-center justify-between w-[100%] mt-10'>
               <button
-                className='border-[1px] border-black py-2 px-3 rounded-2xl'
+                className='border-[1px] border-black py-2 px-3 rounded-2xl hover:bg-gray-200'
                 onClick={() => navigate('/mskill')}
               >
                 Previous
               </button>
               <button
-                className='border-[1px] border-black py-2 px-3 rounded-2xl'
+                className='border-[1px] border-black py-2 px-3 rounded-2xl hover:bg-gray-200'
                 onClick={nextClicked}
               >
                 Next
