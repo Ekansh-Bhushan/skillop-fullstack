@@ -1,24 +1,20 @@
-import React, { useState, useEffect } from "react";
-import logo from "../images/logo.png";
-import { PiBellRingingLight } from "react-icons/pi";
-import { HiOutlineChatBubbleLeftEllipsis } from "react-icons/hi2";
-import "./index.css";
-import { useNavigate } from "react-router-dom";
-import { AiFillHome} from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
-import { IoIosAddCircle } from "react-icons/io";
-import { FaUserAlt } from "react-icons/fa";
-import { toast } from "react-hot-toast";
-import PostPopUp from "../Landing/Post/PostPopUp";
-import { getUser } from "../../api/userRequest";
-import book from "../../components/images/book.png";
-import search from "../../components/images/iconamoon_search-light.png";
+import React, { useState, useEffect } from 'react';
+import logo from '../images/logo.png';
+import { PiBellRingingLight } from 'react-icons/pi';
+import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2';
+import './index.css';
+import { useNavigate } from 'react-router-dom';
+import { AiFillHome } from 'react-icons/ai';
+import { BsSearch } from 'react-icons/bs';
+import { IoIosAddCircle } from 'react-icons/io';
+import { FaUserAlt } from 'react-icons/fa';
+import { toast } from 'react-hot-toast';
+import PostPopUp from '../Landing/Post/PostPopUp';
+import { getUser } from '../../api/userRequest';
+import book from '../../components/images/book.png';
+import search from '../../components/images/iconamoon_search-light.png';
 
-const Mobilecommonhead = ({
-  setProgress,
-  setReloadPost,
-  reloadPost,
-}) => {
+const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
   const [showPostPopUp, setShowPostPopUp] = useState(false);
   const navigate = useNavigate();
   const logout = async () => {
@@ -243,14 +239,6 @@ const Mobilecommonhead = ({
                   </div>
                 </div>
               </div>
-
-              {/* <RxCross2
-    onClick={() => {
-      document.querySelector(".more-vertical-options").style.display =
-        "none";
-    }}
-    className="absolute top-6 right-5 text-2xl"
-  /> */}
               <div
                 onClick={() => navigate('/mySlots')}
                 className='font-semibold text-lg'
