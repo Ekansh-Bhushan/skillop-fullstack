@@ -193,17 +193,18 @@
   .ph-bg {
     border-radius: 0px;
   }
-  .ph-pic {
+  .ph-pic, .ph-pic-pub {
     left: 5vw;
     top: 27vh;
     width: 30vw;
   }
-  .ph-pic img {
+  .ph-pic img, .ph-pic-pub img {
     width: 80vw;
     height: 30vw;
     border-radius: 0px;
     cursor: pointer;
     width: 100%;
+    border-radius: 100%;
   }
   .ph-follow {
     display: flex;
@@ -215,8 +216,10 @@
   .ph-linkedin {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
     color: #108cff;
+  }
+  .ph-headline {
+    padding: 15px 0px;
   }
 }

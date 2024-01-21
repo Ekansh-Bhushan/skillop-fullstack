@@ -1,39 +1,38 @@
-import React, { useState } from "react";
-import "./profile.css";
-import { getUser } from "../../api/userRequest";
-import { updateProfile } from "../../api/userRequest";
-import { useEffect } from "react";
-import EduPopUp from "./EditPopUp/EduPopUp";
-import ExpPopUp from "./EditPopUp/ExpPopUp";
-import "./EditPopUp/EduPopUp.css";
-import "./EditPopUp/ExpPopUp.css";
-import plusIcon from "../images/plus.png";
-import editIcon from "../images/edit.png";
-import tickIcon from "../images/tick.png";
-import delIcon from "../images/delete.png";
-import SkillPopUp from "./EditPopUp/SkillPopUp";
-import delEdu from "../../api/delEdu";
-import delExp from "../../api/delExp";
-import RightProfileComp from "./Right Profile/RightProfileComp";
-import Spinner from "../images/spinner.gif";
-import { useNavigate, useNavigation } from "react-router-dom";
-import toast from "react-hot-toast";
-import Mobilecommonhead from "../Mobilecommonhead";
-import ProfileHeader from "./ProfileHeader/ProfileHeader";
-import UpcomingEvents from "../Landing/Profileandevents/UpcomingEvents";
+import React, { useState } from 'react';
+import './profile.css';
+import { getUser } from '../../api/userRequest';
+import { updateProfile } from '../../api/userRequest';
+import { useEffect } from 'react';
+import EduPopUp from './EditPopUp/EduPopUp';
+import ExpPopUp from './EditPopUp/ExpPopUp';
+import './EditPopUp/EduPopUp.css';
+import './EditPopUp/ExpPopUp.css';
+import plusIcon from '../images/plus.png';
+import editIcon from '../images/edit.png';
+import tickIcon from '../images/tick.png';
+import delIcon from '../images/delete.png';
+import SkillPopUp from './EditPopUp/SkillPopUp';
+import delEdu from '../../api/delEdu';
+import delExp from '../../api/delExp';
+import Spinner from '../images/spinner.gif';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import Mobilecommonhead from '../Mobilecommonhead';
+import ProfileHeader from './ProfileHeader/ProfileHeader';
+import UpcomingEvents from '../Landing/Profileandevents/UpcomingEvents';
 
 const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const [updateDom, setUpdateDom] = useState(false);
   const [userDetails, setUserDetails] = useState({});
   const [ShowSkillPopUp, setShowSkillPopUp] = useState(false);
-  const [ShowEduPopUp, setShowEduPopUp] = useState(["", false, ""]);
-  const [ShowExpPopUp, setShowExpPopUp] = useState(["", false, ""]);
+  const [ShowEduPopUp, setShowEduPopUp] = useState(['', false, '']);
+  const [ShowExpPopUp, setShowExpPopUp] = useState(['', false, '']);
   const [showAllExperiences, setShowAllExperiences] = useState(false);
   const [showAllEducation, setShowAllEducation] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [journeyContent, setJourneyContent] = useState("");
-  const [pastExpContent, setpastExpContent] = useState("");
-  const [futurePlansContent, setfuturePlansContent] = useState("");
+  const [journeyContent, setJourneyContent] = useState('');
+  const [pastExpContent, setpastExpContent] = useState('');
+  const [futurePlansContent, setfuturePlansContent] = useState('');
   const [isJourneyExpanded, setIsJourneyExpanded] = useState(false);
   const [isPastExpanded, setIsPastExpanded] = useState(false);
   const [isFutureExpanded, setIsFutureExpanded] = useState(false);
@@ -42,34 +41,34 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const [isButtonClicked3, setIsButtonClicked3] = useState(false);
 
   const color = [
-    "red",
-    "blue",
-    "green",
-    "orange",
-    "purple",
-    "brown",
-    "gray",
-    "black",
-    "navy",
-    "darkgreen",
-    "maroon",
-    "darkpurple",
-    "darkbrown",
-    "darkgray",
-    "red",
-    "blue",
-    "green",
-    "orange",
-    "purple",
-    "brown",
-    "gray",
-    "black",
-    "navy",
-    "darkgreen",
-    "maroon",
-    "darkpurple",
-    "darkbrown",
-    "darkgray",
+    'red',
+    'blue',
+    'green',
+    'orange',
+    'purple',
+    'brown',
+    'gray',
+    'black',
+    'navy',
+    'darkgreen',
+    'maroon',
+    'darkpurple',
+    'darkbrown',
+    'darkgray',
+    'red',
+    'blue',
+    'green',
+    'orange',
+    'purple',
+    'brown',
+    'gray',
+    'black',
+    'navy',
+    'darkgreen',
+    'maroon',
+    'darkpurple',
+    'darkbrown',
+    'darkgray',
   ];
 
   const navigate = useNavigate();
@@ -78,21 +77,21 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
     try {
       await updateProfile({ about: journeyContent });
     } catch (err) {
-      console.log("Unable to update about ", err);
+      console.log('Unable to update about ', err);
     }
   };
   const updatePastExp = async () => {
     try {
       await updateProfile({ pastExp: pastExpContent });
     } catch (err) {
-      console.log("Unable to update past journey ", err);
+      console.log('Unable to update past journey ', err);
     }
   };
   const updateFuturePlans = async () => {
     try {
       await updateProfile({ futurePlans: futurePlansContent });
     } catch (err) {
-      console.log("Unable to update future plans ", err);
+      console.log('Unable to update future plans ', err);
     }
   };
 
@@ -100,19 +99,19 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
     setIsButtonClicked(false);
     await updateAbt();
     setUpdateDom(true);
-    toast.success("About updated!");
+    toast.success('About updated!');
   };
   const handleSave2 = async () => {
     setIsButtonClicked2(false);
     await updatePastExp();
     setUpdateDom(true);
-    toast.success("Past journey updated!");
+    toast.success('Past journey updated!');
   };
   const handleSave3 = async () => {
     setIsButtonClicked3(false);
     await updateFuturePlans();
     setUpdateDom(true);
-    toast.success("Future plans updated!");
+    toast.success('Future plans updated!');
   };
 
   const handleJourneyExpandClick = () => {
@@ -132,8 +131,8 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
   };
 
   const onClose = () => {
-    setShowEduPopUp(["", false, ""]);
-    setShowExpPopUp(["", false, ""]);
+    setShowEduPopUp(['', false, '']);
+    setShowExpPopUp(['', false, '']);
     setShowSkillPopUp(false);
   };
 
@@ -151,36 +150,36 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
     try {
       // Display a confirmation dialog to confirm the deletion
       const confirmed = window.confirm(
-        "Are you sure you want to delete this item?"
+        'Are you sure you want to delete this item?'
       );
 
       if (confirmed) {
         // If the user confirms, proceed with the deletion
         await delExp(id);
-        toast.success("Deleted successfully!");
+        toast.success('Deleted successfully!');
         // window.location.reload();
       } else {
         // If the user cancels, do nothing or provide feedback if needed
-        console.log("Deletion cancelled by the user");
+        console.log('Deletion cancelled by the user');
       }
     } catch (err) {
-      console.log("Error deleting exp", err);
+      console.log('Error deleting exp', err);
       toast.error(err.response.data.err);
     }
   };
   const handleDelEdu = async (id) => {
     // Display a confirmation dialog
     const userConfirmed = window.confirm(
-      "Are you sure you want to delete this item?"
+      'Are you sure you want to delete this item?'
     );
 
     if (userConfirmed) {
       try {
         await delEdu(id);
-        toast.success("Deleted successfully!");
+        toast.success('Deleted successfully!');
         // window.location.reload();
       } catch (err) {
-        console.log("Error deleting edu", err);
+        console.log('Error deleting edu', err);
         toast.error(err.response.data.err);
       }
     }
@@ -193,11 +192,11 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
         const userData = await getUser();
         setUserDetails(userData.data.result);
         // Set journeyContent when userDetails is available
-        setJourneyContent(userData.data.result.about || "");
-        setpastExpContent(userData.data.result.pastExp || "");
-        setfuturePlansContent(userData.data.result.futurePlans || "");
+        setJourneyContent(userData.data.result.about || '');
+        setpastExpContent(userData.data.result.pastExp || '');
+        setfuturePlansContent(userData.data.result.futurePlans || '');
       } catch (err) {
-        console.log("Unable to fetch user details", err);
+        console.log('Unable to fetch user details', err);
       }
       setIsLoading(false);
     };
@@ -209,29 +208,29 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
       {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
       {/* <RightProfileComp about={journeyContent} /> */}
-      <ProfileHeader/>
+      <ProfileHeader />
       <UpcomingEvents />
-      <div className="main-profile-page">
+      <div className='main-profile-page'>
         {isLoading && (
           <img
-            id="spinner-prof"
+            id='spinner-prof'
             src={Spinner}
-            alt="spinner"
-            className="loader"
+            alt='spinner'
+            className='loader'
           />
         )}
         {/* <div className="profile-heading">Profile</div> */}
-        <div className="profile-data">
-          <div className="journey">
+        <div className='profile-data'>
+          <div className='journey'>
             <h2>
               About
               {isButtonClicked ? (
-                <span className="edit-button-text" onClick={handleSave}>
-                  <img src={tickIcon} height={25} width={25} alt="tick-icon" />
+                <span className='edit-button-text' onClick={handleSave}>
+                  <img src={tickIcon} height={25} width={25} alt='tick-icon' />
                 </span>
               ) : (
-                <span className="edit-button-text" onClick={handleEditClick}>
-                  <img src={editIcon} height={25} width={25} alt="edit-icon" />
+                <span className='edit-button-text' onClick={handleEditClick}>
+                  <img src={editIcon} height={25} width={25} alt='edit-icon' />
                 </span>
               )}
             </h2>
@@ -239,47 +238,47 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
             </div> */}
             {isButtonClicked ? (
               <textarea
-                type="text"
+                type='text'
                 value={journeyContent}
-                placeholder="Describe About Yourself...?"
+                placeholder='Describe About Yourself...?'
                 onChange={(e) => setJourneyContent(e.target.value)}
-                className="long-textarea" // Apply the CSS class
+                className='long-textarea' // Apply the CSS class
               />
             ) : (
               <div
                 className={`journey-content ${
-                  isJourneyExpanded ? "expanded" : ""
+                  isJourneyExpanded ? 'expanded' : ''
                 }`}
               >
-                <span className="text-wrapper">
-                  {journeyContent || "Describe About Yourself...?"}
+                <span className='text-wrapper'>
+                  {journeyContent || 'Describe About Yourself...?'}
                 </span>
               </div>
             )}
             <button
               className={`read-more-button ${
-                isJourneyExpanded ? "expanded" : ""
+                isJourneyExpanded ? 'expanded' : ''
               }`}
               onClick={handleJourneyExpandClick}
             >
               {userDetails.about &&
                 userDetails.about.length > 239 &&
-                (isJourneyExpanded ? "Read Less" : "Read More")}
+                (isJourneyExpanded ? 'Read Less' : 'Read More')}
             </button>
           </div>
 
-          <hr className="line" />
+          <hr className='line' />
           {/* PAST JOURNEY */}
-          <div className="journey">
+          <div className='journey'>
             <h2>
               Past Journey
               {isButtonClicked2 ? (
-                <span className="edit-button-text" onClick={handleSave2}>
-                  <img src={tickIcon} height={25} width={25} alt="tick-icon" />
+                <span className='edit-button-text' onClick={handleSave2}>
+                  <img src={tickIcon} height={25} width={25} alt='tick-icon' />
                 </span>
               ) : (
-                <span className="edit-button-text" onClick={handleEditClick2}>
-                  <img src={editIcon} height={25} width={25} alt="edit-icon" />
+                <span className='edit-button-text' onClick={handleEditClick2}>
+                  <img src={editIcon} height={25} width={25} alt='edit-icon' />
                 </span>
               )}
             </h2>
@@ -287,47 +286,47 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
             </div> */}
             {isButtonClicked2 ? (
               <textarea
-                type="text"
+                type='text'
                 value={pastExpContent}
-                placeholder={"Your Past Journey..."}
+                placeholder={'Your Past Journey...'}
                 onChange={(e) => setpastExpContent(e.target.value)}
-                className="long-textarea" // Apply the CSS class
+                className='long-textarea' // Apply the CSS class
               />
             ) : (
               <div
                 className={`journey-content ${
-                  isPastExpanded ? "expanded" : ""
+                  isPastExpanded ? 'expanded' : ''
                 }`}
               >
                 <p className={`lorem-ipsum-dolor`}>
-                  <span className="text-wrapper">
-                    {pastExpContent || "Your Past Journey..."}
+                  <span className='text-wrapper'>
+                    {pastExpContent || 'Your Past Journey...'}
                   </span>
                 </p>
               </div>
             )}
             <button
-              className={`read-more-button ${isPastExpanded ? "expanded" : ""}`}
+              className={`read-more-button ${isPastExpanded ? 'expanded' : ''}`}
               onClick={handlePastExpandClick}
             >
               {userDetails.about &&
                 userDetails.pastExp.length > 239 &&
-                (isPastExpanded ? "Read Less" : "Read More")}
+                (isPastExpanded ? 'Read Less' : 'Read More')}
             </button>
           </div>
 
-          <hr className="line" />
+          <hr className='line' />
           {/* FUTURE PLANS */}
-          <div className="journey">
+          <div className='journey'>
             <h2>
               Future Plans
               {isButtonClicked3 ? (
-                <span className="edit-button-text" onClick={handleSave3}>
-                  <img src={tickIcon} height={25} width={25} alt="tick-icon" />
+                <span className='edit-button-text' onClick={handleSave3}>
+                  <img src={tickIcon} height={25} width={25} alt='tick-icon' />
                 </span>
               ) : (
-                <span className="edit-button-text" onClick={handleEditClick3}>
-                  <img src={editIcon} height={25} width={25} alt="edit-icon" />
+                <span className='edit-button-text' onClick={handleEditClick3}>
+                  <img src={editIcon} height={25} width={25} alt='edit-icon' />
                 </span>
               )}
             </h2>
@@ -335,54 +334,54 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
             </div> */}
             {isButtonClicked3 ? (
               <textarea
-                type="text"
+                type='text'
                 value={futurePlansContent}
-                placeholder={"What Plans do you have for Future...?"}
+                placeholder={'What Plans do you have for Future...?'}
                 onChange={(e) => setfuturePlansContent(e.target.value)}
-                className="long-textarea" // Apply the CSS class
+                className='long-textarea' // Apply the CSS class
               />
             ) : (
               <div
                 className={`journey-content ${
-                  isFutureExpanded ? "expanded" : ""
+                  isFutureExpanded ? 'expanded' : ''
                 }`}
               >
                 <p className={`lorem-ipsum-dolor`}>
-                  <span className="text-wrapper">
+                  <span className='text-wrapper'>
                     {futurePlansContent ||
-                      "What Plans do you have for Future...?"}
+                      'What Plans do you have for Future...?'}
                   </span>
                 </p>
               </div>
             )}
             <button
               className={`read-more-button ${
-                isFutureExpanded ? "expanded" : ""
+                isFutureExpanded ? 'expanded' : ''
               }`}
               onClick={handleFutureExpandClick}
             >
               {userDetails.about &&
                 userDetails.futurePlans.length > 239 &&
-                (isFutureExpanded ? "Read Less" : "Read More")}
+                (isFutureExpanded ? 'Read Less' : 'Read More')}
             </button>
           </div>
 
-          <hr className="line" />
-          <div className="journey">
-            <div className="add-icon-container">
+          <hr className='line' />
+          <div className='journey'>
+            <div className='add-icon-container'>
               <h2>Experience</h2>
 
               <span
-                className="edit-button-text"
+                className='edit-button-text'
                 onClick={(e) => {
                   handleExp(e);
                 }}
               >
-                <img src={plusIcon} height={25} width={25} alt="plus-icon" />
+                <img src={plusIcon} height={25} width={25} alt='plus-icon' />
               </span>
             </div>
             {userDetails.experence && userDetails.experence.length === 0 && (
-              <p style={{ margin: "10px", fontSize: "1.1rem" }}>
+              <p style={{ margin: '10px', fontSize: '1.1rem' }}>
                 Add your experience details here...
               </p>
             )}
@@ -399,74 +398,70 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
               ) // Apply slice when showAllExperiences is false
                 .map((item, idx) => {
                   return (
-                    <div key={item._id} className="experience-content">
+                    <div key={item._id} className='experience-content'>
                       <div>
-                        <div className="job-title" style={{ width: "38vw" }}>
-                          ➤ {item.title}
-                        </div>
-                        <div className="company" style={{ width: "38vw" }}>
+                        <div className='job-title'>➤ {item.title}</div>
+                        <div className='company' style={{ width: '38vw' }}>
                           {item.company}
                         </div>
-                        <div className="co-location">{item.location}</div>
-                        <p className="jd" style={{ width: "38vw" }}>
-                          {item.description}
-                        </p>
-                        <div className="profile-page-content">
-                          <div className="date">
-                            <span className="date-m">From:</span>
+                        <div className='co-location'>{item.location}</div>
+                        <p className='jd'>{item.description}</p>
+                        <div className='profile-page-content'>
+                          <div className='date'>
+                            <span className='date-m'>From:</span>
                             <span>
                               {item.startDate &&
                                 new Date(item.startDate)
                                   .toString()
                                   .slice(4, 15)}
                             </span>
-                            <span className="date-m gap">To:</span>
+                            <span className='date-m gap'>To:</span>
                             <span>
                               {item &&
                                 (item.endDate !== null
                                   ? new Date(item.endDate)
                                       .toString()
                                       .slice(4, 15)
-                                  : "Present")}
+                                  : 'Present')}
                             </span>
                           </div>
                         </div>
                       </div>
                       <div
                         style={{
-                          display: "flex",
-                          gap: "14px",
-                          alignItems: "center",
+                          display: 'flex',
+                          gap: '14px',
+                          alignItems: 'center',
                         }}
                       >
                         <img
                           src={editIcon}
-                          id="edit-text"
+                          id='edit-text'
                           className={`add-icon ${
-                            isButtonClicked ? "active" : ""
+                            isButtonClicked ? 'active' : ''
                           }`}
                           onClick={(e) => {
                             handleExp(e, item._id);
                           }}
-                          style={{ height: "25px", width: "35px" }}
-                          alt="add-icon"
+                          style={{ height: '25px', width: '35px' }}
+                          alt='add-icon'
                         />
                         <img
                           onClick={() => handleDelExp(item._id)}
                           style={{
-                            height: "20px",
-                            width: "35px",
-                            cursor: "pointer",
+                            height: '20px',
+                            width: '35px',
+                            cursor: 'pointer',
                           }}
                           src={delIcon}
-                          alt="del"
+                          alt='del'
                         />
                       </div>
                     </div>
                   );
                 })}
             {userDetails.experence && userDetails.experence.length > 2 && (
-              <div className="more">
+              <div className='more'>
                 {!showAllExperiences && (
                   <span
                     onClick={() => setShowAllExperiences(!showAllExperiences)}
@@ -486,26 +481,26 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
             />
           )}
           {/* {ShowExpPopUp && <ExpEditPopUp setUpdateDom={setUpdateDom} onClose={onClose} />} */}
-          <hr className="line" />
-          <div className="journey">
-            <div className="add-icon-container">
+          <hr className='line' />
+          <div className='journey'>
+            <div className='add-icon-container'>
               <h2>Skills</h2>
 
               <span
-                className="edit-button-text"
+                className='edit-button-text'
                 onClick={() => {
-                  navigate("/editskills");
+                  navigate('/editskills');
                 }}
               >
-                <img src={editIcon} height={25} width={25} alt="edit-icon" />
+                <img src={editIcon} height={25} width={25} alt='edit-icon' />
               </span>
             </div>
             {userDetails.skills && userDetails.skills.length === 0 && (
-              <p style={{ margin: "10px", fontSize: "1.1rem" }}>
+              <p style={{ margin: '10px', fontSize: '1.1rem' }}>
                 Add your skills here...
               </p>
             )}
-            <div id="skills-cont" className="skills-cont">
+            <div id='skills-cont' className='skills-cont'>
               {userDetails.skills &&
                 [...userDetails.skills].reverse().map((item, idx) => {
                   return (
@@ -515,7 +510,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                         border: `1px solid ${color[idx]}`,
                         color: `${color[idx]}`,
                       }}
-                      className="skills-content"
+                      className='skills-content'
                     >
                       <div>{item}</div>
                       {/* <img style={{ cursor: "pointer" }} src={delIcon} height={20} width={20} alt="del" /> */}
@@ -524,21 +519,21 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                 })}
             </div>
           </div>
-          <hr className="line" />
-          <div className="journey">
-            <div className="add-icon-container">
+          <hr className='line' />
+          <div className='journey'>
+            <div className='add-icon-container'>
               <h2>Education</h2>
               <span
-                className="edit-button-text"
+                className='edit-button-text'
                 onClick={(e) => {
                   handleEdu(e);
                 }}
               >
-                <img src={plusIcon} height={25} width={25} alt="plus-icon" />
+                <img src={plusIcon} height={25} width={25} alt='plus-icon' />
               </span>
             </div>
             {userDetails.education && userDetails.education.length === 0 && (
-              <p style={{ margin: "10px", fontSize: "1.1rem" }}>
+              <p style={{ margin: '10px', fontSize: '1.1rem' }}>
                 Add your education details here...
               </p>
             )}
@@ -549,7 +544,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                 oldSkills={userDetails.skills}
               />
             )}
-            <div className="education-content">
+            <div className='education-content'>
               {userDetails.education &&
                 (showAllEducation
                   ? [...userDetails.education].sort(
@@ -566,34 +561,31 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                     return (
                       <div
                         key={item._id}
-                        id="edu-field"
-                        style={{ display: "flex", alignItems: "center" }}
+                        id='edu-field'
+                        style={{ display: 'flex', alignItems: 'center' }}
                       >
                         <div>
-                          <div
-                            className="education-qualification"
-                            style={{ width: "38vw" }}
-                          >
+                          <div className='education-qualification'>
                             ➤ {item.institution} <br />
                           </div>
-                          <div className="institute-address">
-                            {item.city ? `${item.city},` : ""}{" "}
-                            {item.state ? item.state : ""}
+                          <div className='institute-address'>
+                            {item.city ? `${item.city},` : ''}{' '}
+                            {item.state ? item.state : ''}
                           </div>
-                          <div className="degree" style={{ width: "38vw" }}>
-                            {item.degree}{" "}
-                            {item.fieldOfStudy ? `- ${item.fieldOfStudy}` : ""}
+                          <div className='degree' style={{ width: '38vw' }}>
+                            {item.degree}{' '}
+                            {item.fieldOfStudy ? `- ${item.fieldOfStudy}` : ''}
                           </div>
-                          <div className="profile-page-content">
-                            <div className="date">
-                              <span className="date-m">From:</span>
+                          <div className='profile-page-content'>
+                            <div className='date'>
+                              <span className='date-m'>From:</span>
                               <span>
                                 {item.startDate &&
                                   new Date(item.startDate)
                                     .toString()
                                     .slice(4, 15)}
                               </span>
-                              <span className="date-m gap">To:</span>
+                              <span className='date-m gap'>To:</span>
                               <span>
                                 {item.endDate &&
                                   new Date(item.endDate)
@@ -605,38 +597,38 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                         </div>
                         <div
                           style={{
-                            display: "flex",
-                            gap: "10px",
-                            alignItems: "center",
-                            marginRight: "50px",
+                            display: 'flex',
+                            gap: '10px',
+                            alignItems: 'center',
+                            marginRight: '50px',
                           }}
                         >
                           <img
                             src={editIcon}
-                            id="edit-text"
+                            id='edit-text'
                             className={`add-icon ${
-                              isButtonClicked ? "active" : ""
+                              isButtonClicked ? 'active' : ''
                             }`}
                             onClick={(e) => {
                               handleEdu(e, item._id);
                             }}
-                            style={{ height: "30px", width: "30px" }}
-                            alt="add-icon"
+                            style={{ height: '30px', width: '30px' }}
+                            alt='add-icon'
                           />
                           <img
                             onClick={() => handleDelEdu(item._id)}
-                            style={{ cursor: "pointer" }}
+                            style={{ cursor: 'pointer' }}
                             src={delIcon}
                             height={20}
                             width={20}
-                            alt="del"
+                            alt='del'
                           />
                         </div>
                       </div>
                     );
                   })}
               {userDetails.education && userDetails.education.length > 2 && (
-                <div className="more">
+                <div className='more'>
                   {!showAllEducation && (
                     <span
                       onClick={() => setShowAllEducation(!showAllEducation)}
