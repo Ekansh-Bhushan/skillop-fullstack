@@ -37,6 +37,7 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
       x.classList.add('display');
     }
   };
+  
   const [book, setBook] = useState([]);
   const [upcomming, setUpcomming] = useState([]);
   const [pending, setPending] = useState([]);

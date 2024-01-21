@@ -37,7 +37,7 @@ const MContact = () => {
 
           <div className="flex items-center justify-between w-[80%] absolute bottom-10 ">
             <button className="border-[1px] border-black py-2 px-3 rounded-2xl">
-              Prev
+              Previous
             </button>
             <button className="border-[1px] border-black py-2 px-3 rounded-2xl">
               Next

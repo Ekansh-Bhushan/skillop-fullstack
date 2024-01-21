@@ -96,7 +96,7 @@ const Social = () => {
               className="border-[1px] border-black py-2 px-3 rounded-2xl"
               onClick={prevClicked}
             >
-              Prev
+              Previous
             </button>
             <button
               className="border-[1px] border-black py-2 px-3 rounded-2xl"

@@ -98,7 +98,7 @@ const MProfInformation = () => {
 
                     <div className="flex items-center justify-between w-[80%] my-[5vh] ">
                         <button className="border-[1px] border-black py-2 px-3 rounded-2xl">
-                            Prev
+                            Previous
                         </button>
                         <button className="border-[1px] border-black py-2 px-3 rounded-2xl">
                             Next
