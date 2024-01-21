@@ -107,7 +107,7 @@ exports.updateProfile = async (req, res) => {
         if (linkedinId) {
             // Validate linkedinId
             if (
-                !/https:\/\/www.linkedin.com\/in\/[a-zA-Z0-9]+/.test(linkedinId)
+                !/https:\/\/linkedin.com\/in\/[a-zA-Z0-9]+/.test(linkedinId)
             ) {
                 return res.status(400).send({
                     result: false,
