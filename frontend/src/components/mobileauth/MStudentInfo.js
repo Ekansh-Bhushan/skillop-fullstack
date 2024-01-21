@@ -84,14 +84,14 @@ const MStudentInfo = () => {
 
   const nextClicked = async () => {
     // check start date and end date
-    if(data[0].startDate < 1900) {
-        toast.error("Start year can't be smaller than 1900");
+    if (!data[0].institution || !data[0].degree || !data[0].startDate || !data[0].endDate) {
+        console.log(data);
+        toast.error('Institution, Degree, Start & End Year are required!');
         return;
     }
-    if (!data[0].institution || !data[0].degree || !data[0].startDate || !data[0].endDate) {
-      console.log(data);
-      toast.error('Institution, Degree, Start & End Year are required!');
-      return;
+    if(data[0].startDate <= 1900) {
+        toast.error("Start year can't be smaller than 1900");
+        return;
     }
     if (data[0].startDate > data[0].endDate) {
       toast.error('Start Year must be smaller than End Year');
