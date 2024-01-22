@@ -11,6 +11,9 @@ const Mlogin = () => {
   const [password, setPassword] = useState('');
 
   const login = async () => {
+    const redirectTo = new URL(window.location.href).searchParams.get(
+      'redirect'
+    );
     try {
       const { data } = await loginUser({
         email: email,
@@ -18,7 +21,8 @@ const Mlogin = () => {
       });
       if (data.result) {
         localStorage.setItem('skilloptoken', data.token);
-        navigate('/homepage');
+        if (redirectTo) navigate(redirectTo);
+        else navigate('/homepage');
         toast.success(data.message);
       } else {
         toast.error(data.message);
@@ -31,24 +35,23 @@ const Mlogin = () => {
   const loginClicked = async () => {
     await login();
   };
-   const handleGoogleLoginSuccess = async (credentialResponse) => {
-     const idToken = credentialResponse.credential;
-     console.log(idToken);
-     const { data } = await googleIdVerifyAndLogin({ token: idToken });
-     console.log(data);
-     // Store the token in local storage
-     localStorage.setItem('skilloptoken', data.token);
-     if (data && data.result) {
-       if (data.type === 'old') {
-         navigate('/homepage');
-       } else {
-         navigate('/skill3');
-       }
-     } else {
-       toast.error(data.message);
-     }
-   };
-
+  const handleGoogleLoginSuccess = async (credentialResponse) => {
+    const idToken = credentialResponse.credential;
+    console.log(idToken);
+    const { data } = await googleIdVerifyAndLogin({ token: idToken });
+    console.log(data);
+    // Store the token in local storage
+    localStorage.setItem('skilloptoken', data.token);
+    if (data && data.result) {
+      if (data.type === 'old') {
+        navigate('/homepage');
+      } else {
+        navigate('/skill3');
+      }
+    } else {
+      toast.error(data.message);
+    }
+  };
 
   return (
     <div>

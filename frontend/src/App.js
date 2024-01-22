@@ -2,12 +2,41 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { getUser } from './api/userRequest';
 import toast, { Toaster } from 'react-hot-toast';
-import AuthPage from './components/Maincomp';
 import LoadingBar from 'react-top-loading-bar';
 import { Emoji } from 'emoji-picker-react';
-import { getNotifications } from './api/getNotifications';
 import TopBar from './components/CommonTopBar/TopBar';
 import { useNavigate } from 'react-router-dom';
+import WebPages from './components/Maincomp';
+export const pagesToNotRedirect = [
+  '/',
+  '/mlogin',
+  '/msignup',
+  '/mpersonal',
+  '/mcontact',
+  '/mskill',
+  '/mstudinfo',
+  '/mprofinfo',
+  '/mcover',
+  '/msocial',
+  '/signup',
+  '/login',
+  '/skill1',
+  '/skill2',
+  '/skill3',
+  '/skill4',
+  '/skill5',
+  '/skill6',
+  '/skill7',
+  '/loginn',
+  '/about',
+  '/contact',
+  '/privacy-policy',
+  '/terms-of-service',
+  '/faqs',
+  '/careers',
+  '/resetpassword',
+  '/password/reset',
+];
 
 function App({ location }) {
   const [userData, setUserData] = useState(null);
@@ -16,69 +45,40 @@ function App({ location }) {
   const [isFetched, setIsFetched] = useState(false);
   const [notifyList, setNotifyList] = useState([]);
 
-  const pagesToNotRedirect = [
-    '/',
-    '/mlogin',
-    '/msignup',
-    '/mpersonal',
-    '/mcontact',
-    '/mskill',
-    '/mstudinfo',
-    '/mprofinfo',
-    '/mcover',
-    '/msocial',
-    '/signup',
-    '/login',
-    '/skill1',
-    '/skill2',
-    '/skill3',
-    '/skill4',
-    '/skill5',
-    '/skill6',
-    '/skill7',
-    '/loginn',
-    '/about',
-    '/contact',
-    '/privacy-policy',
-    '/terms-of-service',
-    '/faqs',
-    '/careers',
-    '/resetpassword',
-    '/password/reset',
-  ];
-
   const redirectIfNotAuthorize = () => {
-    localStorage.removeItem('skilloptoken');
-    console.log(window.location.pathname);
 
-    if (
-      !pagesToNotRedirect.includes((element, index) => {
-        return (
-          element === window.location.pathname ||
-          window.location.pathname.includes(element)
-        );
-      })
-    )
+    localStorage.removeItem('skilloptoken');
+    if (pagesToNotRedirect.includes(window.location.pathname)) {
+      
       return;
+    }
     toast.error('Please Login/Signup to continue');
 
-    if (window.innerWidth > 500)
-      window.location.replace(`/login?redirect=${window.location.pathname}`);
-    else
-      window.location.replace(`/mlogin?redirect=${window.location.pathname}`);
+    if (window.innerWidth > 500) {
+
+      navigate(`/login?redirect=${window.location.pathname}`);
+    } else {
+      navigate(`/mlogin?redirect=${window.location.pathname}`);
+    }
   };
+
+  useEffect(() => {
+    setShouldRender(!excludedRoutes.includes(window.location.pathname));
+  }, [window.location.pathname]);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const { data } = await getUser();
+        console.log(data);
         if (data.result) {
+          console.log('authorized user ');
           setUserData(data.result);
           setMentor(data.result.isMentor);
           setIsFetched(true);
           setNotifyList(data.result.notifications);
         } else {
-          console.log(data.result);
+          console.log('Unauthorize : redirecting...');
           redirectIfNotAuthorize();
         }
       } catch (err) {
@@ -89,23 +89,14 @@ function App({ location }) {
         console.log('Unable to fetch user', err);
       }
     };
-    const fetchNotifications = async () => {
-      try {
-        const NotiData = await getNotifications();
-        setNotifyList(NotiData.data.result);
-      } catch (err) {
-        console.log('Unable to fetch notifications', err);
-      }
-    };
-    setShouldRender(!excludedRoutes.includes(window.location.pathname));
-
     if (localStorage.getItem('skilloptoken')) {
+      console.log('token found going to fetch user');
       fetchUser();
-      // fetchNotifications();
     } else {
+      console.log('token not found redirecting to login/signup');
       redirectIfNotAuthorize();
     }
-  }, [window.location.pathname]);
+  }, []);
 
   const [showPostPopUp, setShowPostPopUp] = useState(false);
 
@@ -155,7 +146,7 @@ function App({ location }) {
           <TopBar setShowPostPopUp={setShowPostPopUp} navigate={navigate} />
         )}
       </div>
-      <AuthPage
+      <WebPages
         setNotifyList={setNotifyList}
         Mentor={Mentor}
         setMentor={setMentor}

@@ -60,7 +60,7 @@ import Social from "../mobileauth/Social";
 import SideNav from "../SideNav/SideNav";
 import TermsOfService from "../Misc Pages/TermsOfService";
 
-function AuthPage({
+function WebPages({
   userData,
   setUserData,
   setProgress,
@@ -479,4 +479,4 @@ function AuthPage({
   );
 }
 
-export default AuthPage;
+export default WebPages;

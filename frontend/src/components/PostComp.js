@@ -474,12 +474,12 @@ const PostComp = ({
                     </b>{' '}
                     and{' '}
                     <span id='others' onClick={openPopup}>
-                      {likersList.length - 1} others liked this post.
+                      {likersList.length - 1} others
                     </span>{' '}
                   </span>
-                  <span className='small-screen-likes-length'>
+                  {/* <span className='small-screen-likes-length'>
                     {likersList.length} Like
-                  </span>
+                  </span> */}
                 </>
               )}
             </div>
