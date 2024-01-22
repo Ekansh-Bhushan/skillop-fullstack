@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ConfirmBooking.css";
 import userIcon from "../../images/user.png";
-import { getSpecificUser } from "../../../api/userRequest";
 import { useNavigate } from "react-router-dom";
 import QRCode from "react-qr-code";
 import { getMentorData, sendMeetRequest } from "../../../api/mentorRequest";
@@ -75,13 +74,6 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
   return (
     <div style={{ display: "flex", gap: "100px" }}>
-      {/* <SideNav
-        setProgress={setProgress}
-        Mentor={Mentor}
-        isFetched={isFetched}
-        notifyList={notifyList}
-      /> */}
-
       <div className="confirm-container">
         <div className="left-content">
           {data && (

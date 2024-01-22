@@ -48,7 +48,7 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
     return (
         <div style={{}}>
-            {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
+          
 
             <div className="confirm-container">
                 <div className="left-content">

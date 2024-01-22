@@ -40,7 +40,6 @@ const UserPosts = ({ setProgress, Mentor, isFetched, notifyList }) => {
   return (
     <>
       <div className='.main-content-landing2'>
-        {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
         <Mobilecommonhead />
         <div className='people-post2 w-[60%]'>
           <h1>

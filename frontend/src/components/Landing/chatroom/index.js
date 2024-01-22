@@ -114,14 +114,9 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <div>
-      {/* <SideNav
-        setProgress={setProgress}
-        Mentor={Mentor}
-        isFetched={isFetched}
-        notifyList={notifyList}
-      /> */}
+     
       <Mobilecommonhead />
-      {/* <Common setProgress={setProgress}/> */}
+     
       <div className="main-content-landing-chat">
         <div className="chat-room md:mt-0">
           {showChatbox && (

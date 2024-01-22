@@ -173,9 +173,9 @@ function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
-      {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
+     
       <Mobilecommonhead />
-      {/* <Profileandevents /> */}
+     
       <div className='ml-[20vw] md:ml-0'>
         {/* <Commondash userData={userData} /> */}
 

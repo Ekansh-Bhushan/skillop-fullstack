@@ -205,9 +205,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
   return (
     <>
-      {/* <SideNav setProgress={setProgress} Mentor={Mentor} isFetched={isFetched} notifyList={notifyList} /> */}
       <Mobilecommonhead />
-      {/* <RightProfileComp about={journeyContent} /> */}
       <ProfileHeader />
       <UpcomingEvents />
       <div className='main-profile-page'>

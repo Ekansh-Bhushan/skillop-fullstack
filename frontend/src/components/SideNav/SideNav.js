@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './SideNav.css';
-import logo from '../images/logo.png';
 import home1 from '../images/home1.png';
 import home2 from '../images/home2.png';
 import search1 from '../images/search1.png';

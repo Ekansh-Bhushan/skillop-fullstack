@@ -97,12 +97,6 @@ const PublicProfile = ({
 
   return (
     <>
-      {/* <SideNav
-        setProgress={setProgress}
-        Mentor={Mentor}
-        isFetched={isFetched}
-        notifyList={notifyList}
-      /> */}
       <Mobilecommonhead />
       <PublicProfileHeader userDetails={userDetails} userData={userDatamain}/>
       <div className="main-profile-page">

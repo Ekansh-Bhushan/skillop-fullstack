@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import index from "./index.css";
 import Profileandevents from "../Landing/Profileandevents";
-import { getActualAvail, postSlot } from "../../api/slotsRequest";
-import { AiFillHome } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
-import { FaUserAlt } from "react-icons/fa";
-import { FiMoreVertical } from "react-icons/fi";
 import { getMentorAvaibility, getMentorData } from "../../api/mentorRequest";
-import axios, { all } from "axios";
-import { bookslot } from "../../api/slotsRequest";
 import Mobilecommonhead from "../Mobilecommonhead";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -100,13 +93,7 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
-      {/* <SideNav
-        setProgress={setProgress}
-        Mentor={Mentor}
-        isFetched={isFetched}
-        notifyList={notifyList}
-      /> */}
-      {/* <Searchbar/> */}
+     
       <Mobilecommonhead />
       {/* <Common setProgress={setProgress} /> */}
 

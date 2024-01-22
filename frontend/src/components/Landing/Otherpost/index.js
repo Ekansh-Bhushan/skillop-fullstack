@@ -225,13 +225,6 @@ function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
-      {/* <Common setProgress={setProgress} /> */}
-      {/* <SideNav
-        setProgress={setProgress}
-        Mentor={Mentor}
-        isFetched={isFetched}
-        notifyList={notifyList}
-      /> */}
       <Mobilecommonhead />
       <div className='main-content-landing'>
         {post && (

@@ -120,12 +120,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
   return (
     <div style={{ display: "flex", gap: "100px" }}>
-      {/* <SideNav
-        setProgress={setProgress}
-        Mentor={Mentor}
-        isFetched={isFetched}
-        notifyList={notifyList}
-      /> */}
+      
       <Mobilecommonhead />
 
       <div className="relative left-[20vw] pt-[15vh] w-[100%] md:left-0 md:pt-[8vh]">

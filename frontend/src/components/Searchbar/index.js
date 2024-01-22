@@ -104,12 +104,6 @@ function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   return (
     <>
-      {/* <SideNav
-                setProgress={setProgress}
-                Mentor={Mentor}
-                isFetched={isFetched}
-                notifyList={notifyList}
-            /> */}
       <Mobilecommonhead />
       <div className="partition-plus-panel">
         <div>

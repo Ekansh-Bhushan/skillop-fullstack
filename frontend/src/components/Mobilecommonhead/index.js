@@ -13,6 +13,7 @@ import PostPopUp from '../Landing/Post/PostPopUp';
 import { getUser } from '../../api/userRequest';
 import book from '../../components/images/book.png';
 import search from '../../components/images/iconamoon_search-light.png';
+import { getNotifications } from '../../api/getNotifications';
 
 const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
   const [showPostPopUp, setShowPostPopUp] = useState(false);
@@ -58,8 +59,20 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
     }
   };
 
+  const [notifyList, setNotifyList] = useState([]);
+  const fetchNotifications = async () => {
+    try {
+      const NotiData = await getNotifications();
+      setNotifyList(NotiData.data.result);
+    } catch (err) {
+      toast.error(err.response.data.message);
+      console.log('Unable to fetch notifications', err);
+    }
+  };
+
   useEffect(() => {
     fetchUserDetails();
+    fetchNotifications();
   }, []);
 
   const navigateToProfile = () => {
@@ -109,6 +122,13 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 navigate('/chat');
               }}
             />
+            {notifyList.filter((item) => item.read === false).length > 0 && (
+              <div>
+                <div className='text-md p-2 h-6 w-6 flex items-center justify-center text-center rounded-full bg-red-500 text-white shadow-xl absolute top-3 right-14'>
+                  {notifyList.filter((item) => item.read === false).length}
+                </div>{' '}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -164,9 +184,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 }
               </div>
             )}
-            {/* <div className="mobile-panel-options">
-  <SiGooglechat />
-</div> */}
+
             <div className='mobile-panel-options'>
               <img
                 onClick={() => {
@@ -176,6 +194,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                   window.location.pathname === '/Profile' ? 'color' : 'notColor'
                 }`}
                 src={book}
+                alt='meet'
                 style={{ width: '30px', marginBottom: '5px' }}
               />
             </div>
