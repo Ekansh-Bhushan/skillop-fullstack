@@ -4,7 +4,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  backdrop-filter: brightness(18%);
+  backdrop-filter: brightness(30%);
   z-index: 1000;
 }
 

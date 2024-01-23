@@ -103,9 +103,9 @@ const ExpPopUp = ({ onClose, setUpdateDom, id, expID }) => {
                 {(data[0].title.length >= 1 || id !== "edit-text") ? <> <input name='title' onChange={onChange} value={data[0].title} type="text" placeholder='Position or Job Title' />
                     <input name='company' onChange={onChange} value={data[0].company} type="text" placeholder='Company' />
                     <input name='location' onChange={onChange} value={data[0].location} type="text" placeholder='Location' />
-                    <label style={{ paddingRight: "24vw" }} htmlFor="startDate">Start Date:</label>
+                    <label style={{ paddingRight: "21vw" }} htmlFor="startDate">Start Date:</label>
                     <input name='startDate' onChange={onChange} value={data[0].startDate} type="date" max={new Date().toISOString().split('T')[0]} placeholder='Start date' />
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '20px', paddingRight: "17vw" }} htmlFor="startDate">End Date: <div style={{ display: 'flex', alignItems: 'center' }}><input onClick={handlePresent} type="checkbox" name="present" value="present" /> <div>Ongoing</div> </div></label>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '20px', paddingRight: "14vw" }} htmlFor="startDate">End Date: <div style={{ display: 'flex', alignItems: 'center' }}><input onClick={handlePresent} type="checkbox" name="present" value="present" /> <div>Ongoing</div> </div></label>
                     {!isChecked && <input name='endDate' onChange={onChange} value={data[0].endDate} type="date" placeholder='End date' />}
                     <textarea rows={4} name='description' onChange={onChange} value={data[0].description} type="text" placeholder='Description' style={{ border: 'none', resize: 'none' }} />
                     <button onClick={handleExpAdd} style={{ color: 'white', fontSize: "1.2rem" }}>{(id === "edit-text") ? 'Update' : 'Add'}</button>

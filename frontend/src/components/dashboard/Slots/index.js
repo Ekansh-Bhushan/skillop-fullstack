@@ -83,7 +83,7 @@ function Dashboard({
   const showslotlist = () => {
     document.querySelector(".slot-pop").classList.remove("hideelem");
     document.querySelector(".slot-pop").style.backdropFilter =
-      "brightness(40%)";
+      "brightness(30%)";
   };
 
   const AddSlot = async (data) => {

@@ -99,9 +99,9 @@ const EduPopUp = ({ onClose, setUpdateDom, id, eduID }) => {
                 {(data[0].institution.length >= 1 || id !== "edit-text") ? <> <input name='institution' onChange={onChange} value={data[0].institution} type="text" placeholder='College/University name' />
                     <input name='degree' onChange={onChange} value={data[0].degree} type="text" placeholder='Degree' />
                     <input name='fieldOfStudy' onChange={onChange} value={data[0].fieldOfStudy} type="text" placeholder='Field of Study' />
-                    <label style={{ paddingRight: "24vw" }} htmlFor="startDate">Start Date:</label>
+                    <label style={{ paddingRight: "21vw" }} htmlFor="startDate">Start Date:</label>
                     <input name='startDate' onChange={onChange} value={data[0].startDate} type="date" max={new Date().toISOString().split('T')[0]} placeholder='Start date' />
-                    <label style={{ paddingRight: "24vw" }} htmlFor="endDate">End Date:</label>
+                    <label style={{ paddingRight: "21vw" }} htmlFor="endDate">End Date:</label>
                     <input name='endDate' onChange={onChange} value={data[0].endDate} type="date" placeholder='End date or Expected end date' />
                     <input name='city' onChange={onChange} value={data[0].city} type="text" placeholder='City' />
                     <input name='state' onChange={onChange} value={data[0].state} type="text" placeholder='State' />
