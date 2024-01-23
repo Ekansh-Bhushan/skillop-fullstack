@@ -157,6 +157,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
         // If the user confirms, proceed with the deletion
         await delExp(id);
         toast.success('Deleted successfully!');
+        setUpdateDom(!updateDom);
         // window.location.reload();
       } else {
         // If the user cancels, do nothing or provide feedback if needed
@@ -177,6 +178,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
       try {
         await delEdu(id);
         toast.success('Deleted successfully!');
+        setUpdateDom(!updateDom);
         // window.location.reload();
       } catch (err) {
         console.log('Error deleting edu', err);
@@ -475,6 +477,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
               expID={ShowExpPopUp[2]}
               id={ShowExpPopUp[0]}
               setUpdateDom={setUpdateDom}
+              updateDom={updateDom}
               onClose={onClose}
             />
           )}
@@ -642,6 +645,7 @@ const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
                 eduID={ShowEduPopUp[2]}
                 id={ShowEduPopUp[0]}
                 setUpdateDom={setUpdateDom}
+                updateDom={updateDom}
                 onClose={onClose}
               />
             )}
