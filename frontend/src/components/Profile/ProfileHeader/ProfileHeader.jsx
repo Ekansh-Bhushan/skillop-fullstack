@@ -11,7 +11,6 @@ import Followers from '../Right Profile/Followers';
 const ProfileHeader = () => {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState({});
-  const [showEditProfilePic, setShowEditProfilePic] = useState(false);
   const [showIntroVideo, setShowIntroVideo] = useState(false);
   const [showFollowers, setShowFollowers] = useState(false);
   const [showFollowings, setShowFollowings] = useState(false);

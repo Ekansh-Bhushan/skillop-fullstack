@@ -2,13 +2,15 @@
   position: fixed;
   top: 0;
   left: 0;
-  backdrop-filter: blur(8px);
+  backdrop-filter: brightness(30%);
   z-index: 1000;
   height: 100vh;
   width: 100vw;
+  color: black;
 }
 
 .follow-container {
+  color: black;
   border-radius: 13px;
   padding: 1vw 3vw;
   position: fixed;
