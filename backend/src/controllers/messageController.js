@@ -97,11 +97,13 @@ exports.getMessages = async (req, res) => {
 };
 
 exports.seenMessage = async (req, res) => {
-  const { msgID } = req.params;
+  const msgID = req.params.msgID;
   try {
-    const reqMsg = await MessageModel.find({ _id: msgID });
-    reqMsg.seen = true;
-    await reqMsg.save();
+    const reqMsg = await MessageModel.findByIdAndUpdate(
+      msgID,
+      { seen: true },
+      { new: true }
+    );
     res.status(200).json({ reqMsg, message: 'Message seen successfully' });
   } catch (error) {
     res.status(500).json({ result: false, message: error.message });
