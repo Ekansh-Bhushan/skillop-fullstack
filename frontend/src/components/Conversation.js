@@ -3,7 +3,7 @@ import { findUser } from '../api/userRequest';
 import user from './images/user.png';
 import { getMessages } from '../api/messageRequest';
 
-const Conversation = ({ data, currentUser, chat, chatID }) => {
+const Conversation = ({ data, currentUser, chat, chatID, reloadChats }) => {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
 
@@ -33,7 +33,7 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
       }
     };
     fetchMessages();
-  }, []);
+  }, [reloadChats]);
 
   return (
     <div>
@@ -62,7 +62,10 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
               <div className='text-[0.96rem] text-gray-800'>
                 <p
                   className={`${
-                    messages[messages.length - 1].seen ? '' : 'font-bold'
+                    currentUser !== messages[messages.length - 1].senderId &&
+                    !messages[messages.length - 1].seen
+                      ? 'font-bold'
+                      : ''
                   }`}
                 >
                   {currentUser === messages[messages.length - 1].senderId

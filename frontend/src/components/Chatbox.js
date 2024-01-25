@@ -15,6 +15,8 @@ const Chatbox = ({
   recieveMessage,
   chats,
   toggleChatbox,
+  reloadChats,
+  setReloadChats,
 }) => {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -76,6 +78,7 @@ const Chatbox = ({
         const { data } = await addMessage(message);
         setMessages([...messages, data]);
         setNewMessage('');
+        setReloadChats(!reloadChats);
         document
           .querySelector('.chatbox-messages')
           .scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -157,6 +160,7 @@ const Chatbox = ({
               if (message.senderId !== currentUser && !message.seen) {
                 try {
                   seenMessage(message._id);
+                  setReloadChats(!reloadChats);
                 } catch (err) {
                   console.log('Unable to seen msgs', err);
                 }
@@ -209,7 +213,18 @@ const Chatbox = ({
                         margin: '0.3rem 0px 0rem 0px',
                       }}
                     >
-                      {new Date(message.createdAt).toString().slice(16, 21)}
+                      <div className='flex items-center justify-between gap-2'>
+                        {new Date(message.createdAt).toString().slice(16, 21)}
+                        {message.senderId === currentUser && (
+                          <img
+                            src={
+                              message.seen ? `/double-tick.png` : `/tick.png`
+                            }
+                            width={20}
+                            alt=''
+                          />
+                        )}
+                      </div>
                     </div>
                   </p>
                 </div>
