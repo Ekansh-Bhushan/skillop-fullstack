@@ -10,7 +10,6 @@ import { getAllPost } from '../../api/postRequest';
 import PostComp from '../PostComp';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
 import spinner from '../images/spinner.gif';
 
 const API = axios.create({ baseURL: 'https://skillop.in' });
@@ -23,42 +22,10 @@ const Postlist = ({
   setUserData,
   showPostPopUp,
   setShowPostPopUp,
-  reloadPost,
-  setReloadPost
 }) => {
-  const handlePostCreation = async (postData) => {
-    try {
-      if (inputValue.length === 0) {
-        toast.error('Enter something to post');
-        return;
-      }
-
-      // Create a new post on the server
-      const { data } = await getAllPost(postData);
-
-      // Notify server and other clients about the new post
-
-      // Add this post to the posts state
-      setPosts((prevPosts) => [data.result, ...prevPosts]);
-
-      // Reset input value and selectedFile
-      setInputValue('');
-      setSelectedFile(null);
-
-      toast.success('Post created successfully');
-    } catch (error) {
-      console.log(error);
-      toast.error('Error creating post');
-    }
-  };
-
-  const userId = window.location.pathname.split('/')[2];
-
-  const navigate = useNavigate();
-
   const [selectedFile, setSelectedFile] = useState(null);
-
   const [isSticky, setIsSticky] = useState(false);
+  const [reloadPost, setReloadPost] = useState(false);
 
   const onClose = () => {
     setShowPostPopUp(!showPostPopUp);
@@ -137,7 +104,7 @@ const Postlist = ({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [reloadPost]);
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -184,7 +151,7 @@ const Postlist = ({
         observer.disconnect(); // Disconnect the observer on cleanup
       }
     };
-  }, [posts, length, limit, skip, reloadPost, setReloadPost]); // Adjust dependencies as needed
+  }, [posts, length, limit, skip, reloadPost]); // Adjust dependencies as needed
 
   return (
     <>

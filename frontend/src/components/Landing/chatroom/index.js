@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { userChats } from "../../../api/chatRequest";
 import Conversation from "../../Conversation";
 import Chatbox from "../../Chatbox";

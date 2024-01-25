@@ -93,20 +93,18 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
       };
       setProgress(30);
       await createPost(formData);
-      // setReloadPost(!reloadPost);
+      setReloadPost(!reloadPost);
       setProgress(100);
 
       onClose();
       toast.success('Post created successfully!');
     } catch (error) {
-      // setReloadPost(!reloadPost);
+      setReloadPost(!reloadPost);
       console.log('Unable to add post', error);
       // toast.error(error.response.data.message);
     }
   };
-  // useEffect(() => {
-  //   setReloadPost(!reloadPost);
-  // }, [reloadPost, setReloadPost]);
+
   const handleUpload = () => {
     document.querySelector('.photo-popup').style.display = 'flex';
   };

@@ -72,8 +72,6 @@ function Post({
             setUserData={setUserData}
             setShowPostPopUp={setShowPostPopUp}
             showPostPopUp={showPostPopUp}
-            setReloadPost={setReloadPost}
-            reloadPost={reloadPost}
           />
         )}
 
