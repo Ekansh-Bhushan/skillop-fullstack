@@ -999,7 +999,7 @@ exports.requestToBeMentor = async (req, res) => {
                 message: "Please complete your profile first",
             });
         }
-        user.becomingMentorStatus = MENTOR_STATUS.PENDING;
+        user.becomingMentorStatus = MENTOR_STATUS.ACCEPTED;
 
         const notification = new Notification({
             message: `${user.firstname} ${user.lastname}, Your request to become a mentor is received. We will contact you soon`,

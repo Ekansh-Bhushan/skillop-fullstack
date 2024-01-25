@@ -69,7 +69,7 @@
 //   }
 // };
 
-const MessageModel = require("../models/messageModel");
+const MessageModel = require('../models/messageModel');
 
 exports.addMessage = async (req, res) => {
   const { chatId, senderId, text } = req.body;
@@ -91,6 +91,18 @@ exports.getMessages = async (req, res) => {
   try {
     const result = await MessageModel.find({ chatId });
     res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+exports.seenMessage = async (req, res) => {
+  const { msgID } = req.params;
+  try {
+    const reqMsg = await MessageModel.find({ _id: msgID });
+    reqMsg.seen = true;
+    await reqMsg.save();
+    res.status(200).json({ reqMsg, message: 'Message seen successfully' });
   } catch (error) {
     res.status(500).json(error);
   }
