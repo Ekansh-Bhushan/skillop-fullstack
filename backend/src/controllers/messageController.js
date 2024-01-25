@@ -104,6 +104,6 @@ exports.seenMessage = async (req, res) => {
     await reqMsg.save();
     res.status(200).json({ reqMsg, message: 'Message seen successfully' });
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({ result: false, message: error.message });
   }
 };
