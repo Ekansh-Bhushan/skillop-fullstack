@@ -22,9 +22,12 @@ import { useNavigate } from 'react-router-dom';
 import { BsGearFill } from 'react-icons/bs';
 import { toast } from 'react-hot-toast';
 import { getNotifications } from '../../api/getNotifications';
+import { userChats } from '../../api/chatRequest';
+import { getMessages } from '../../api/messageRequest';
 
-const SideNav = ({ setProgress, Mentor, isFetched }) => {
+const SideNav = ({ setProgress, Mentor, isFetched, CurrUser }) => {
   const navigate = useNavigate();
+  const [showChatNotification, setShowChatNotification] = useState(false);
 
   const logout = async () => {
     try {
@@ -102,8 +105,26 @@ const SideNav = ({ setProgress, Mentor, isFetched }) => {
     }
   };
 
+  const checkChatNotification = async () => {
+    try {
+      const { data } = await userChats(CurrUser._id);
+      data.forEach(async (chat) => {
+        const data2 = await getMessages(chat._id);
+        data2.data.forEach((msg) => {
+          console.log("looping through chats...")
+          if(!msg.seen && msg.senderId!==CurrUser._id) {
+            console.log("This msg cause notification",msg)
+            setShowChatNotification(true);
+            return;
+          }
+        })
+      })
+    } catch (err) {}
+  };
+
   useEffect(() => {
     fetchNotifications();
+    checkChatNotification();
   }, []);
 
   return (
@@ -168,6 +189,11 @@ const SideNav = ({ setProgress, Mentor, isFetched }) => {
           >
             Chat
           </span>
+          {showChatNotification && (
+            <div>
+              <div className='chat-notify-num-icon'>!</div>{' '}
+            </div>
+          )}
         </li>
         <li
           onClick={() => {

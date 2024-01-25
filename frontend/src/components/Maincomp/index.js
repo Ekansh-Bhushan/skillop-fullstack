@@ -116,12 +116,13 @@ function WebPages({
 
   return (
     <>
-      {shouldRender && (
+      {shouldRender && userData && (
         <SideNav
           setProgress={setProgress}
           Mentor={Mentor}
           isFetched={isFetched}
           notifyList={notifyList}
+          CurrUser={userData}
         />
       )}
 

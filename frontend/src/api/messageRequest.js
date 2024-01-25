@@ -27,3 +27,16 @@ export const addMessage = (data) => {
     };
     return API.post("/api/message/", data, config);
 };
+
+export const seenMessage = (msgID) => {
+    const token = localStorage.getItem("skilloptoken");
+
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+        },
+        withCredentials: true,
+    };
+    return API.put(`/api/message/seen/${msgID}`, {}, config);
+};

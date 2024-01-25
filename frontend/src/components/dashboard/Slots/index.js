@@ -210,14 +210,14 @@ function Dashboard({
           isactive7={true}
         />
       )}
-      <div className="slot-pop hideelem">
-        <div className="popup-of-slots">
-          <div className="cross" onClick={closeit}>
-            <div className="line31"></div>
-            <div className="line32"></div>
+      <div className='slot-pop hideelem'>
+        <div className='popup-of-slots'>
+          <div className='cross' onClick={closeit}>
+            <div className='line31'></div>
+            <div className='line32'></div>
           </div>
-          <div className="all-slots">
-            <h2 style={{ textAlign: "center" }}>
+          <div className='all-slots'>
+            <h2 style={{ textAlign: 'center' }}>
               <u>Your saved slots</u>
             </h2>
             {days.map((day) => (
@@ -231,18 +231,18 @@ function Dashboard({
                         <div key={index}>
                           {JSON.stringify(slot.s).length === 3
                             ? JSON.stringify(slot.s).slice(0, 1) +
-                              ":" +
+                              ':' +
                               JSON.stringify(slot.s).slice(1, 3)
                             : JSON.stringify(slot.s).slice(0, 2) +
-                              ":" +
+                              ':' +
                               JSON.stringify(slot.s).slice(2, 4)}
-                          {" - "}
+                          {' - '}
                           {JSON.stringify(slot.e).length === 3
                             ? JSON.stringify(slot.e).slice(0, 1) +
-                              ":" +
+                              ':' +
                               JSON.stringify(slot.e).slice(1, 3)
                             : JSON.stringify(slot.e).slice(0, 2) +
-                              ":" +
+                              ':' +
                               JSON.stringify(slot.e).slice(2, 4)}
                         </div>
                       );
@@ -256,35 +256,36 @@ function Dashboard({
           </div>
         </div>
       </div>
-      {shouldbevisible && (
+      {shouldbevisible && userData._id && (
         <SideNav
           setProgress={setProgress}
           Mentor={Mentor}
           isFetched={isFetched}
           notifyList={notifyList}
+          CurrUserId={userData._id}
         />
       )}
 
-      <div className="flex mt-[35px] ml-[40vh] md:ml-[10vh]">
+      <div className='flex mt-[35px] ml-[40vh] md:ml-[10vh]'>
         {/* <Commondash userData={userData} /> */}
 
         <div
           className={
             shouldbevisible
-              ? "flex flex-col border-r-2 w-[65%] md:border-r-0"
-              : "flex flex-col border-r-2 w-[80%]"
+              ? 'flex flex-col border-r-2 w-[65%] md:border-r-0'
+              : 'flex flex-col border-r-2 w-[80%]'
           }
         >
           {/* <Topbar setProgress={setProgress}/> */}
           {shouldbevisible && <Profileandevents />}
-          <div className="ml-12 mt-10 text-2xl font-semibold md:mt-14">
+          <div className='ml-12 mt-10 text-2xl font-semibold md:mt-14'>
             Edit your Availability
           </div>
-          <div className="schedules-dash">
+          <div className='schedules-dash'>
             {shouldbevisible && (
-              <div className="buttons-dash">
+              <div className='buttons-dash'>
                 {/* <button className="today">Today</button> */}
-                <button className="show-slot-list" onClick={showslotlist}>
+                <button className='show-slot-list' onClick={showslotlist}>
                   View All Slots
                 </button>
                 {/* <div className="btns-dash">
@@ -295,661 +296,661 @@ function Dashboard({
               </div>
             )}
 
-            <div className="slot-dash">
-              <div className="days-dash">
-                <div className="days">
+            <div className='slot-dash'>
+              <div className='days-dash'>
+                <div className='days'>
                   <h3>DAYS</h3>
                 </div>
-                <div className="days">
-                  <label htmlFor="MONDAY">MONDAY</label>
+                <div className='days'>
+                  <label htmlFor='MONDAY'>MONDAY</label>
                 </div>
-                <div className="days-partition"></div>
-                <div className="days">
-                  <label htmlFor="TUESDAY">TUESDAY</label>
+                <div className='days-partition'></div>
+                <div className='days'>
+                  <label htmlFor='TUESDAY'>TUESDAY</label>
                 </div>
-                <div className="days-partition"></div>
-                <div className="days">
-                  <label htmlFor="WEDNESDAY">WEDNESDAY</label>
+                <div className='days-partition'></div>
+                <div className='days'>
+                  <label htmlFor='WEDNESDAY'>WEDNESDAY</label>
                 </div>
-                <div className="days-partition"></div>
-                <div className="days">
-                  <label htmlFor="THURSDAY">THURSDAY</label>
+                <div className='days-partition'></div>
+                <div className='days'>
+                  <label htmlFor='THURSDAY'>THURSDAY</label>
                 </div>
-                <div className="days-partition"></div>
-                <div className="days">
-                  <label htmlFor="FRIDAY">FRIDAY</label>
+                <div className='days-partition'></div>
+                <div className='days'>
+                  <label htmlFor='FRIDAY'>FRIDAY</label>
                 </div>
-                <div className="days-partition"></div>
-                <div className="days">
-                  <label htmlFor="SATURDAY">SATURDAY</label>
+                <div className='days-partition'></div>
+                <div className='days'>
+                  <label htmlFor='SATURDAY'>SATURDAY</label>
                 </div>
-                <div className="days-partition"></div>
-                <div className="days">
-                  <label htmlFor="SUNDAY">SUNDAY</label>
+                <div className='days-partition'></div>
+                <div className='days'>
+                  <label htmlFor='SUNDAY'>SUNDAY</label>
                 </div>
-                <div className="days-partition"></div>
+                <div className='days-partition'></div>
               </div>
-              <div className="slots-dash">
+              <div className='slots-dash'>
                 <h3>TIME SLOTS</h3>
 
-                <div className="slot-1">
-                  <select id="monday-start">
-                    <option value="">Start</option>
-                    <option value="8:00">8:00</option>
-                    <option value="8:30">8:30</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
+                <div className='slot-1'>
+                  <select id='monday-start'>
+                    <option value=''>Start</option>
+                    <option value='8:00'>8:00</option>
+                    <option value='8:30'>8:30</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
                   </select>
 
-                  <select id="monday-end">
-                    <option value="">End</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
-                    <option value="24:00">00:00</option>
+                  <select id='monday-end'>
+                    <option value=''>End</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
+                    <option value='24:00'>00:00</option>
                   </select>
                   <button
-                    className="pushslot"
-                    id="monday"
+                    className='pushslot'
+                    id='monday'
                     onClick={() => {
-                      saveSlots("monday");
+                      saveSlots('monday');
                       // Call the function to save the slot (you can pass any necessary parameters)
                       // AddSlot();
                       // Reset selected time slots to default (9:00)
                       const startTimeSelect =
-                        document.getElementById("monday-start");
+                        document.getElementById('monday-start');
                       const endTimeSelect =
-                        document.getElementById("monday-end");
-                      startTimeSelect.value = "8:00";
-                      endTimeSelect.value = "9:00";
+                        document.getElementById('monday-end');
+                      startTimeSelect.value = '8:00';
+                      endTimeSelect.value = '9:00';
                     }}
                   >
                     +
                   </button>
                 </div>
-                <div className="slot-2">
-                  <select id="tuesday-start">
-                    <option value="">Start</option>
-                    <option value="8:00">8:00</option>
-                    <option value="8:30">8:30</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
+                <div className='slot-2'>
+                  <select id='tuesday-start'>
+                    <option value=''>Start</option>
+                    <option value='8:00'>8:00</option>
+                    <option value='8:30'>8:30</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
                   </select>
-                  <select id="tuesday-end">
-                    <option value="">End</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
-                    <option value="24:00">00:00</option>
+                  <select id='tuesday-end'>
+                    <option value=''>End</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
+                    <option value='24:00'>00:00</option>
                   </select>
                   <button
-                    className="pushslot"
-                    id="tuesday"
+                    className='pushslot'
+                    id='tuesday'
                     onClick={() => {
-                      saveSlots("tuesday");
+                      saveSlots('tuesday');
                       // Call the function to save the slot (you can pass any necessary parameters)
                       // Reset selected time slots to default (9:00)
                       const startTimeSelect =
-                        document.getElementById("tuesday-start");
+                        document.getElementById('tuesday-start');
                       const endTimeSelect =
-                        document.getElementById("tuesday-end");
-                      startTimeSelect.value = "8:00";
-                      endTimeSelect.value = "9:00";
+                        document.getElementById('tuesday-end');
+                      startTimeSelect.value = '8:00';
+                      endTimeSelect.value = '9:00';
                     }}
                   >
                     +
                   </button>
                 </div>
-                <div className="slot-3">
-                  <select id="wednesday-start">
-                    <option value="">Start</option>
-                    <option value="8:00">8:00</option>
-                    <option value="8:30">8:30</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
+                <div className='slot-3'>
+                  <select id='wednesday-start'>
+                    <option value=''>Start</option>
+                    <option value='8:00'>8:00</option>
+                    <option value='8:30'>8:30</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
                   </select>
-                  <select id="wednesday-end">
-                    <option value="">End</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
-                    <option value="24:00">00:00</option>
-                  </select>
-                  <button
-                    className="pushslot"
-                    id="wednesday"
-                    onClick={() => {
-                      saveSlots("wednesday");
-                      // Call the function to save the slot (you can pass any necessary parameters)
-
-                      // Reset selected time slots to default (9:00)
-                      const startTimeSelect =
-                        document.getElementById("wednesday-start");
-                      const endTimeSelect =
-                        document.getElementById("wednesday-end");
-                      startTimeSelect.value = "8:00";
-                      endTimeSelect.value = "9:00";
-                    }}
-                  >
-                    +
-                  </button>
-                </div>
-                <div className="slot-4">
-                  <select id="thusday-start">
-                    <option value="">Start</option>
-                    <option value="8:00">8:00</option>
-                    <option value="8:30">8:30</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
-                  </select>
-                  <select id="thusday-end">
-                    <option value="">End</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
-                    <option value="24:00">00:00</option>
+                  <select id='wednesday-end'>
+                    <option value=''>End</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
+                    <option value='24:00'>00:00</option>
                   </select>
                   <button
-                    className="pushslot"
-                    id="thusday"
+                    className='pushslot'
+                    id='wednesday'
                     onClick={() => {
-                      saveSlots("thusday");
+                      saveSlots('wednesday');
                       // Call the function to save the slot (you can pass any necessary parameters)
 
                       // Reset selected time slots to default (9:00)
                       const startTimeSelect =
-                        document.getElementById("thusday-start");
+                        document.getElementById('wednesday-start');
                       const endTimeSelect =
-                        document.getElementById("thusday-end");
-                      startTimeSelect.value = "8:00";
-                      endTimeSelect.value = "9:00";
+                        document.getElementById('wednesday-end');
+                      startTimeSelect.value = '8:00';
+                      endTimeSelect.value = '9:00';
                     }}
                   >
                     +
                   </button>
                 </div>
-                <div className="slot-5">
-                  <select id="friday-start">
-                    <option value="">Start</option>
-                    <option value="8:00">8:00</option>
-                    <option value="8:30">8:30</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
+                <div className='slot-4'>
+                  <select id='thusday-start'>
+                    <option value=''>Start</option>
+                    <option value='8:00'>8:00</option>
+                    <option value='8:30'>8:30</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
                   </select>
-                  <select id="friday-end">
-                    <option value="">End</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
-                    <option value="24:00">00:00</option>
+                  <select id='thusday-end'>
+                    <option value=''>End</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
+                    <option value='24:00'>00:00</option>
                   </select>
                   <button
-                    className="pushslot"
-                    id="friday"
+                    className='pushslot'
+                    id='thusday'
                     onClick={() => {
-                      saveSlots("friday");
+                      saveSlots('thusday');
                       // Call the function to save the slot (you can pass any necessary parameters)
 
                       // Reset selected time slots to default (9:00)
                       const startTimeSelect =
-                        document.getElementById("friday-start");
+                        document.getElementById('thusday-start');
                       const endTimeSelect =
-                        document.getElementById("friday-end");
-                      startTimeSelect.value = "8:00";
-                      endTimeSelect.value = "9:00";
+                        document.getElementById('thusday-end');
+                      startTimeSelect.value = '8:00';
+                      endTimeSelect.value = '9:00';
                     }}
                   >
                     +
                   </button>
                 </div>
-                <div className="slot-6">
-                  <select id="saturday-start">
-                    <option value="">Start</option>
-                    <option value="8:00">8:00</option>
-                    <option value="8:30">8:30</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
+                <div className='slot-5'>
+                  <select id='friday-start'>
+                    <option value=''>Start</option>
+                    <option value='8:00'>8:00</option>
+                    <option value='8:30'>8:30</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
                   </select>
-                  <select id="saturday-end">
-                    <option value="">End</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
-                    <option value="24:00">00:00</option>
+                  <select id='friday-end'>
+                    <option value=''>End</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
+                    <option value='24:00'>00:00</option>
                   </select>
                   <button
-                    className="pushslot"
-                    id="saturday"
+                    className='pushslot'
+                    id='friday'
                     onClick={() => {
-                      saveSlots("saturday");
+                      saveSlots('friday');
                       // Call the function to save the slot (you can pass any necessary parameters)
 
                       // Reset selected time slots to default (9:00)
                       const startTimeSelect =
-                        document.getElementById("saturday-start");
+                        document.getElementById('friday-start');
                       const endTimeSelect =
-                        document.getElementById("saturday-end");
-                      startTimeSelect.value = "8:00";
-                      endTimeSelect.value = "9:00";
+                        document.getElementById('friday-end');
+                      startTimeSelect.value = '8:00';
+                      endTimeSelect.value = '9:00';
                     }}
                   >
                     +
                   </button>
                 </div>
-                <div className="slot-7">
-                  <select id="sunday-start">
-                    <option value="">Start</option>
-                    <option value="8:00">8:00</option>
-                    <option value="8:30">8:30</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
+                <div className='slot-6'>
+                  <select id='saturday-start'>
+                    <option value=''>Start</option>
+                    <option value='8:00'>8:00</option>
+                    <option value='8:30'>8:30</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
                   </select>
-                  <select id="sunday-end">
-                    <option value="">End</option>
-                    <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
-                    <option value="22:00">22:00</option>
-                    <option value="22:30">22:30</option>
-                    <option value="23:00">23:00</option>
-                    <option value="23:30">23:30</option>
-                    <option value="24:00">00:00</option>
+                  <select id='saturday-end'>
+                    <option value=''>End</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
+                    <option value='24:00'>00:00</option>
                   </select>
                   <button
-                    className="pushslot"
-                    id="sunday"
+                    className='pushslot'
+                    id='saturday'
                     onClick={() => {
-                      saveSlots("sunday");
+                      saveSlots('saturday');
                       // Call the function to save the slot (you can pass any necessary parameters)
 
                       // Reset selected time slots to default (9:00)
                       const startTimeSelect =
-                        document.getElementById("sunday-start");
+                        document.getElementById('saturday-start');
                       const endTimeSelect =
-                        document.getElementById("sunday-end");
-                      startTimeSelect.value = "8:00";
-                      endTimeSelect.value = "9:00";
+                        document.getElementById('saturday-end');
+                      startTimeSelect.value = '8:00';
+                      endTimeSelect.value = '9:00';
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
+                <div className='slot-7'>
+                  <select id='sunday-start'>
+                    <option value=''>Start</option>
+                    <option value='8:00'>8:00</option>
+                    <option value='8:30'>8:30</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
+                  </select>
+                  <select id='sunday-end'>
+                    <option value=''>End</option>
+                    <option value='9:00'>9:00</option>
+                    <option value='9:30'>9:30</option>
+                    <option value='10:00'>10:00</option>
+                    <option value='10:30'>10:30</option>
+                    <option value='11:00'>11:00</option>
+                    <option value='11:30'>11:30</option>
+                    <option value='12:00'>12:00</option>
+                    <option value='12:30'>12:30</option>
+                    <option value='13:00'>13:00</option>
+                    <option value='13:30'>13:30</option>
+                    <option value='14:00'>14:00</option>
+                    <option value='14:30'>14:30</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='15:30'>15:30</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='16:30'>16:30</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='17:30'>17:30</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='18:30'>18:30</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='19:30'>19:30</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='20:30'>20:30</option>
+                    <option value='21:00'>21:00</option>
+                    <option value='21:30'>21:30</option>
+                    <option value='22:00'>22:00</option>
+                    <option value='22:30'>22:30</option>
+                    <option value='23:00'>23:00</option>
+                    <option value='23:30'>23:30</option>
+                    <option value='24:00'>00:00</option>
+                  </select>
+                  <button
+                    className='pushslot'
+                    id='sunday'
+                    onClick={() => {
+                      saveSlots('sunday');
+                      // Call the function to save the slot (you can pass any necessary parameters)
+
+                      // Reset selected time slots to default (9:00)
+                      const startTimeSelect =
+                        document.getElementById('sunday-start');
+                      const endTimeSelect =
+                        document.getElementById('sunday-end');
+                      startTimeSelect.value = '8:00';
+                      endTimeSelect.value = '9:00';
                     }}
                   >
                     +
@@ -957,14 +958,14 @@ function Dashboard({
                 </div>
               </div>
             </div>
-            <div style={{ marginTop: "1vw" }} className="btnCont">
+            <div style={{ marginTop: '1vw' }} className='btnCont'>
               <button
-                className="next2 md:mb-10"
+                className='next2 md:mb-10'
                 style={{
-                  backgroundColor: "red",
-                  color: "white",
-                  width: "100px",
-                  fontSize: "1.02rem",
+                  backgroundColor: 'red',
+                  color: 'white',
+                  width: '100px',
+                  fontSize: '1.02rem',
                 }}
                 onClick={clearAllSlots}
               >
@@ -974,9 +975,9 @@ function Dashboard({
             {!shouldbevisible && (
               <span
                 style={{
-                  color: "blue",
-                  cursor: "pointer",
-                  textAlign: "center",
+                  color: 'blue',
+                  cursor: 'pointer',
+                  textAlign: 'center',
                 }}
                 onClick={lastpage}
               >

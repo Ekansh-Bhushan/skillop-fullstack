@@ -136,6 +136,7 @@
   }
 }
 
+.chat-notify-num-icon,
 .notify-num-icon {
   background: red;
   height: 15px;
@@ -150,6 +151,10 @@
   align-items: center;
   justify-content: center;
   box-shadow: 2px 2px 8px 2px rgb(237, 77, 77);
+}
+
+.chat-notify-num-icon {
+  right: 65px;
 }
 
 @media only screen and (max-width: 1200px) {

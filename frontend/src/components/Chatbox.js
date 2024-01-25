@@ -1,18 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import { findUser } from "../api/userRequest";
-
-import { addMessage, getMessages } from "../api/messageRequest";
-import { FaArrowLeft } from "react-icons/fa6";
-import { format } from "timeago.js";
-import { AiOutlineSend } from "react-icons/ai";
-import { BsFillSendFill } from "react-icons/bs";
-import { BsEmojiSmile } from "react-icons/bs";
-import user from "./images/user.png";
-import { SlOptionsVertical } from "react-icons/sl";
-import { toast } from "react-hot-toast";
-import EmojiPicker from "emoji-picker-react";
-import { IoMdAdd } from "react-icons/io";
-import spinner from "../components/images/spinner.gif";
+import React, { useEffect, useRef, useState } from 'react';
+import { findUser } from '../api/userRequest';
+import { addMessage, getMessages, seenMessage } from '../api/messageRequest';
+import { FaArrowLeft } from 'react-icons/fa6';
+import { SlOptionsVertical } from 'react-icons/sl';
+import { toast } from 'react-hot-toast';
+import EmojiPicker from 'emoji-picker-react';
+import { IoMdAdd } from 'react-icons/io';
+import spinner from '../components/images/spinner.gif';
 
 const Chatbox = ({
   chat,
@@ -24,10 +18,10 @@ const Chatbox = ({
 }) => {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState("");
-  // const [lastDisplayedDate, setLastDisplayedDate] = useState(null);
-  let lastDisplayedDate = "";
-  let currDisplayedDate = "";
+  const [newMessage, setNewMessage] = useState('');
+
+  let lastDisplayedDate = '';
+  let currDisplayedDate = '';
   const [showEmoji, setShowEmoji] = useState(false);
 
   const handleChatboxClose = () => {
@@ -45,7 +39,6 @@ const Chatbox = ({
 
   useEffect(() => {
     const otherUserId = chat?.members?.find((id) => id !== currentUser);
-
     const getUserData = async () => {
       try {
         const { data } = await findUser(otherUserId);
@@ -82,12 +75,12 @@ const Chatbox = ({
       try {
         const { data } = await addMessage(message);
         setMessages([...messages, data]);
-        setNewMessage("");
+        setNewMessage('');
         document
-          .querySelector(".chatbox-messages")
-          .scrollIntoView({ behavior: "smooth", block: "end" });
-        document.querySelector(".chatbox-messages").scrollTop =
-          document.querySelector(".chatbox-messages").scrollHeight;
+          .querySelector('.chatbox-messages')
+          .scrollIntoView({ behavior: 'smooth', block: 'end' });
+        document.querySelector('.chatbox-messages').scrollTop =
+          document.querySelector('.chatbox-messages').scrollHeight;
       } catch (e) {
         console.log(e);
       }
@@ -97,9 +90,9 @@ const Chatbox = ({
 
       setSendMessage({ ...message, receiverId });
     } else {
-      toast.error("Type something to send!");
+      toast.error('Type something to send!');
     }
-    var chats = document.querySelector(".chatbox-messages");
+    var chats = document.querySelector('.chatbox-messages');
     chats.scrollTop = chats.scrollHeight;
   };
 
@@ -121,7 +114,7 @@ const Chatbox = ({
   useEffect(() => {
     // ... (existing code)
 
-    const chats = document.querySelector(".chatbox-messages");
+    const chats = document.querySelector('.chatbox-messages');
     chats.scrollTop = chats.scrollHeight;
 
     if (messagesRef.current) {
@@ -130,69 +123,69 @@ const Chatbox = ({
   }, [messages]);
 
   return (
-    <div className="chatting">
-      <div className="chat-user-details">
-        <div onClick={handleChatboxClose} className="left-arrow">
+    <div className='chatting'>
+      <div className='chat-user-details'>
+        <div onClick={handleChatboxClose} className='left-arrow'>
           <FaArrowLeft size={24} />
         </div>
-
-        {/* {userData && chat ? (
-          <img src={userData.profilePicUrl} className="chat-user-img"></img>
-        ) : (
-          <div></div>
-        )} */}
         {userData && (
           <>
-            <div className="font-semibold">
-              {" "}
+            <div className='font-semibold'>
+              {' '}
               {userData.firstname} <span>{userData.lastname}</span>
             </div>
-            <div className="verticall">
+            <div className='verticall'>
               <SlOptionsVertical />
             </div>
           </>
         )}
       </div>
-
       {chat ? (
         <div
-          className="chatbox-messages"
+          className='chatbox-messages'
           onClick={() => setShowEmoji(false)}
-          id="chat-scroll"
+          id='chat-scroll'
           ref={messagesRef}
         >
-          {" "}
+          {' '}
           {messages ? (
             messages.map((message) => {
               lastDisplayedDate = currDisplayedDate;
               currDisplayedDate = new Date(message.createdAt)
                 .toString()
                 .slice(4, 15);
+              if (message.senderId !== currentUser && !message.seen) {
+                try {
+                  seenMessage(message._id);
+                } catch (err) {
+                  console.log('Unable to seen msgs', err);
+                }
+              }
               return (
                 <div
                   className={`${
                     message.senderId === currentUser
-                      ? "message-right"
-                      : "message-left"
+                      ? 'message-right'
+                      : 'message-left'
                   }`}
                 >
                   {currDisplayedDate !== lastDisplayedDate && (
                     <div
                       style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        width: "100%",
-                        fontSize: "0.9rem",
-                        margin: "10px",
-                        color: "black",
+                        display: 'flex',
+                        justifyContent: 'center',
+                        width: '100%',
+                        fontSize: '0.9rem',
+                        margin: '10px',
+                        color: 'black',
                       }}
                     >
                       <div
                         style={{
-                          width: "16%",
-                          borderRadius: "8px",
-                          textAlign: "center",
-                          padding: "3px",
+                          width: '16%',
+                          borderRadius: '8px',
+                          textAlign: 'center',
+                          padding: '3px',
                         }}
                       >
                         {new Date(message.createdAt).toString().slice(4, 15)}
@@ -202,18 +195,18 @@ const Chatbox = ({
 
                   <p
                     style={{
-                      overflow: "hidden",
-                      wordWrap: "break-word",
-                      fontSize: "1.05rem",
-                      lineHeight: "26px",
+                      overflow: 'hidden',
+                      wordWrap: 'break-word',
+                      fontSize: '1.05rem',
+                      lineHeight: '26px',
                     }}
                   >
                     {message.text}
                     <div
                       style={{
-                        fontSize: "12px",
-                        color: "gray",
-                        margin: "0.3rem 0px 0rem 0px",
+                        fontSize: '12px',
+                        color: 'gray',
+                        margin: '0.3rem 0px 0rem 0px',
                       }}
                     >
                       {new Date(message.createdAt).toString().slice(16, 21)}
@@ -223,37 +216,37 @@ const Chatbox = ({
               );
             })
           ) : (
-            <img src={spinner} className="absolute right-[50vw]" />
+            <img src={spinner} className='absolute right-[50vw]' />
           )}
         </div>
       ) : (
         <div
-          className="chatbox-messages"
+          className='chatbox-messages'
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "30px",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '30px',
           }}
         >
           <p
             style={{
-              textAlign: "center",
+              textAlign: 'center',
             }}
           >
             {chats.length === 0
-              ? "Follow someone to chat with him!"
-              : "Please Select a User to Chat with!"}
+              ? 'Follow someone to chat with him!'
+              : 'Please Select a User to Chat with!'}
           </p>
         </div>
       )}
-      <div className="message-send-bar border-t-[1px]">
+      <div className='message-send-bar border-t-[1px]'>
         {chat && (
           <input
-            placeholder="Type Here...."
+            placeholder='Type Here....'
             value={newMessage}
             onChange={handleChange}
-            className="bg-[#84848426] border-0 rounded-3xl w-[70%] py-3 px-5"
+            className='bg-[#84848426] border-0 rounded-3xl w-[70%] py-3 px-5'
             onKeyDown={(e) => {
               if (e.keyCode === 13 && !e.shiftKey) handleSend();
             }}
@@ -262,29 +255,29 @@ const Chatbox = ({
 
         {chat ? (
           <>
-            <div className="emoji" onClick={() => setShowEmoji(!showEmoji)}>
+            <div className='emoji' onClick={() => setShowEmoji(!showEmoji)}>
               {showEmoji && (
-                <div className="emoji-picker">
+                <div className='emoji-picker'>
                   <EmojiPicker
-                    emojiStyle="google"
+                    emojiStyle='google'
                     onEmojiClick={onEmojiClick}
                     width={300}
                     height={400}
                   />
                 </div>
               )}
-              <div className="bg-[#108CFF] rounded-full p-[10px] shadow-md">
-                <IoMdAdd className="text-white" />
+              <div className='bg-[#108CFF] rounded-full p-[10px] shadow-md'>
+                <IoMdAdd className='text-white' />
               </div>
               {/* <img src={add} alt="emoji" width={36} /> */}
             </div>
             <img
-              className="send-btn"
+              className='send-btn'
               height={36}
               width={36}
               onClick={handleSend}
-              src="/post.png"
-              alt=""
+              src='/post.png'
+              alt=''
             />
           </>
         ) : (
