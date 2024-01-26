@@ -111,7 +111,7 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
                 )}
                 {userDetails && (
                   <p style={{ margin: '10px' }}>
-                    {userDetails &&
+                    {userDetails.experence &&
                     userDetails.experence.length &&
                     userDetails.experence.length > 0 ? (
                       <p>

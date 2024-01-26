@@ -59,6 +59,7 @@ import Cover from "../mobileauth/Cover";
 import Social from "../mobileauth/Social";
 import SideNav from "../SideNav/SideNav";
 import TermsOfService from "../Misc Pages/TermsOfService";
+import AuthorizeZoomMeet from "../dashboard/bookings/AuthorizeZoomMeet";
 
 function WebPages({
   userData,
@@ -413,6 +414,14 @@ function WebPages({
               Mentor={Mentor}
               isFetched={isFetched}
               notifyList={notifyList}
+            />
+          }
+        />
+        <Route
+          path='/authorize-zoom-meet/:userId'
+          element={
+            <AuthorizeZoomMeet
+              setProgress={setProgress}
             />
           }
         />

@@ -37,18 +37,18 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
 
   const onClickingBook = (day, mentorid, s, e, userid, charge) => {
     navigate(
-      "/confirm-booking" +
-        "/" +
+      '/authorize-zoom-meet' +
+        '/' +
         mentorid +
-        "?day=" +
+        '?day=' +
         day +
-        "&s=" +
+        '&s=' +
         s +
-        "&e=" +
+        '&e=' +
         e +
-        "&userid=" +
+        '&userid=' +
         userid +
-        "&charge=" +
+        '&charge=' +
         charge
     );
   };
@@ -97,7 +97,7 @@ function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
       <Mobilecommonhead />
       {/* <Common setProgress={setProgress} /> */}
 
-      <div className="flex items-center justify-center h-full w-[80%] ml-[7vw]">
+      <div className="flex items-center justify-center h-full w-[70%] xl:ml-[7vw]">
         <div className="w-[70%] h-screen flex justify-center ">
           <div className="w-[90%] h-full flex flex-col border-r-2 pt-[15vh] md:border-0 md:w-[100%] md:pt-[13vh]">
             <div className="text-2xl font-semibold pl-10">Book a Slot for</div>
