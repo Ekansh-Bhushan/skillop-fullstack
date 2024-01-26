@@ -23,7 +23,7 @@
 @media only screen and (max-width: 500px) {
   .earning-dash {
     width: 100%;
-    margin-left: 0vw;
+    margin-left: -16vw;
   }
 
   .line-earning {
