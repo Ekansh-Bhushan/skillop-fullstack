@@ -234,6 +234,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default: null,
     },
+    zoomRefreshToken: {
+        type: String,
+        default: null,
+    },
 
     googleID: {
         type: String,
