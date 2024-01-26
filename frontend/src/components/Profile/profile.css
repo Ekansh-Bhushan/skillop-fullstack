@@ -435,9 +435,10 @@
 
 @media only screen and (max-width: 1500px) {
   .main-profile-page {
-    margin-left: 0px;
+    top: 10px;
+    margin-left: -16px;
     position: relative;
-    width: 100%;
+    width: 110%;
     right: 10.25rem;
   }
 }
@@ -447,6 +448,13 @@
     margin-left: 5%;
     margin-top: -5.4%;
   } */
+  .main-profile-page {
+    top: 10px;
+    margin-left: -30px;
+    position: relative;
+    width: 110%;
+    right: 10.25rem;
+  }
   .jd {
     font-size: 1rem;
     margin: 10px;
