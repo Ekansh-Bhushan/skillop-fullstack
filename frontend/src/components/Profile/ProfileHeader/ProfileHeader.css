@@ -185,6 +185,25 @@
     border-radius: 0 0 15px 15px;
 }
 }
+@media screen and (max-width: 1150px) {
+  .ph-container {
+    margin: 11vh 11vw;
+    min-height: 76vh;
+    width: 719px;
+  }
+   .ph-pic {
+    position: absolute;
+    top: 31vh;
+    left: 13vw;
+  }
+  .profile-data {
+    margin-left: 23.5%;
+    margin-top: -8%;
+    border: 2px solid #00000026;
+    width: 53.25%;
+    border-radius: 0 0 15px 15px;
+}
+}
 
 @media screen and (min-width: 1500px) {
   .ph-pic2 {
