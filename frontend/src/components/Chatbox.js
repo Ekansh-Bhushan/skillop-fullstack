@@ -157,8 +157,9 @@ const Chatbox = ({
               currDisplayedDate = new Date(message.createdAt)
                 .toString()
                 .slice(4, 15);
-              if (message.senderId !== currentUser && !message.seen) {
+              if (message._id && message.senderId !== currentUser && !message.seen) {
                 try {
+                  console.log("going to seen this msg - ", message._id)
                   seenMessage(message._id);
                   // setReloadChats(!reloadChats);
                 } catch (err) {
