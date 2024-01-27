@@ -449,12 +449,12 @@
     margin-top: -5.4%;
   } */
   .main-profile-page {
-    top: 10px;
-    margin-left: -35px;
+    top: -35px;
+    margin-left: -25px;
     position: relative;
-    width: 110%;
+    width: 188%;
     right: 10.25rem;
-  }
+}
   .jd {
     font-size: 1rem;
     margin: 10px;
@@ -523,18 +523,18 @@
     margin: 10px;
   }
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 395px) {
   /* .profile-data {
     margin-left: 5%;
     margin-top: -5.4%;
   } */
   .main-profile-page {
-    top: 10px;
-    margin-left: -22px;
+    top: -15px;
+    margin-left: -60px;
     position: relative;
-    width: 110%;
+    width: 237%;
     right: 10.25rem;
-  }
+}
   .jd {
     font-size: 1rem;
     margin: 10px;
