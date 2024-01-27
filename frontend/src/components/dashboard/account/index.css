@@ -42,6 +42,46 @@
   );
 }
 
+
+/* styles.css */
+
+/* Equivalent styles for Tailwind CSS classes */
+.pt-10vh {
+  padding-top: 10vh;
+}
+
+.h-100vh {
+  height: 100vh;
+}
+
+.border-r-2 {
+  border-right-width: 2px;
+}
+
+.md\:border-0 {
+  @media (min-width: 768px) {
+    border: none;
+  }
+}
+
+.md\:pt-6vh {
+  @media (min-width: 768px) {
+    padding-top: 6vh;
+  }
+}
+
+/* Additional styles for media query */
+@media (max-width: 500px) {
+  .ml--35px {
+    margin-left: -110px;
+  }
+
+  /* Overriding style for media query */
+  .ml--35px\@media\ \(max-width:\ 500px\) {
+    margin-left: 0px;
+  }
+}
+
 @media only screen and (max-width: 1400px) {
   .dash-main {
     /* position: relative; */
