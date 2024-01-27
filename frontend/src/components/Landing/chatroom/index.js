@@ -110,7 +110,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
     setShowChatbox((prevShowChatbox) => !prevShowChatbox);
   };
 
-  const [reloadChats, setReloadChats] = useState(false)
+  // const [reloadChats, setReloadChats] = useState(false)
 
   return (
     <div>
@@ -127,8 +127,8 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                 setSendMessage={setSendMessage}
                 recieveMessage={recieveMessage}
                 toggleChatbox={handleToggleChatbox}
-                reloadChats={reloadChats}
-                setReloadChats={setReloadChats}
+                // reloadChats={reloadChats}
+                // setReloadChats={setReloadChats}
               />{' '}
             </div>
           )}
@@ -172,7 +172,7 @@ function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
                         data={chat}
                         chatID={chat._id}
                         currentUser={userData._id}
-                        reloadChats={reloadChats}
+                        // reloadChats={reloadChats}
                       />
                     </div>
                   ))

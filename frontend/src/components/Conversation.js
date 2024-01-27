@@ -3,7 +3,7 @@ import { findUser } from '../api/userRequest';
 import user from './images/user.png';
 import { getMessages } from '../api/messageRequest';
 
-const Conversation = ({ data, currentUser, chat, chatID, reloadChats }) => {
+const Conversation = ({ data, currentUser, chat, chatID }) => {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
 
@@ -33,7 +33,7 @@ const Conversation = ({ data, currentUser, chat, chatID, reloadChats }) => {
       }
     };
     fetchMessages();
-  }, [reloadChats]);
+  }, []);
 
   return (
     <div>

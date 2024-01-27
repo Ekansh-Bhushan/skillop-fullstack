@@ -9,6 +9,7 @@ import axios from 'axios';
 import convertToNormalTime from '../../../utils/timeConversion';
 import spinner from '../../images/spinner.gif';
 import Mobilecommonhead from '../../Mobilecommonhead';
+import convertToISODate from '../../../utils/convertToISO';
 
 const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const mentorid = window.location.pathname.split('/')[2];
@@ -27,10 +28,15 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
   const navigate = useNavigate();
 
-  const [meetLink, setMeetLink] = useState("");
+  const [meetLink, setMeetLink] = useState('');
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const auth_code = queryParams.get('code');
+
+  const dat = new Date(day.toString() + ' ' + convertToNormalTime(s).toString())
+    .toISOString()
+    .toString();
+  console.log('dat tim', dat);
 
   const fetchUser = async () => {
     try {
@@ -56,25 +62,24 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
       },
       withCredentials: true,
     };
-    const data = {
-      start_time: new Date(
-        day.toString() + ' ' + convertToNormalTime(s).toString()
-      ).toISOString(),
-    };
-    console.log('meet data : ', data);
-    try {
-      const res = await axios.post(
-        'https://skillop.in/api/meeting/create-meeting/' + auth_code,
-        data,
-        config
-      );
-      console.log('success');
-      console.log(res.data);
-      setMeetLink(res.data.start_url);
-    } catch (err) {
-      console.log('error');
-      console.log(err);
-    }
+    const data = JSON.stringify({
+      // start_time: new Date(
+      //   day.toString() + ' ' + convertToNormalTime(s).toString()
+      // )
+      //   .toISOString()
+      //   .toString(),
+      start_time: '2024-02-05T07:00',
+    });
+    console.log('auth code -  : ', auth_code);
+
+    const res = await axios.post(
+      'https://skillop.in/api/meeting/create-meeting/' + auth_code,
+      data,
+      config,
+    );
+    console.log('success');
+    console.log(res.data);
+    setMeetLink(res.data.start_url);
   };
 
   const onClickDone = async () => {

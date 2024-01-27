@@ -15,8 +15,8 @@ const Chatbox = ({
   recieveMessage,
   chats,
   toggleChatbox,
-  reloadChats,
-  setReloadChats,
+  // reloadChats,
+  // setReloadChats,
 }) => {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -78,7 +78,7 @@ const Chatbox = ({
         const { data } = await addMessage(message);
         setMessages([...messages, data]);
         setNewMessage('');
-        setReloadChats(!reloadChats);
+        // setReloadChats(!reloadChats);
         document
           .querySelector('.chatbox-messages')
           .scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -160,7 +160,7 @@ const Chatbox = ({
               if (message.senderId !== currentUser && !message.seen) {
                 try {
                   seenMessage(message._id);
-                  setReloadChats(!reloadChats);
+                  // setReloadChats(!reloadChats);
                 } catch (err) {
                   console.log('Unable to seen msgs', err);
                 }

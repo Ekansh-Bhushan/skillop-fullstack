@@ -26,6 +26,7 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const e = new URLSearchParams(search).get('e');
   const userid = new URLSearchParams(search).get('userid');
   const charge = new URLSearchParams(search).get('charge');
+  const auth_code = new URLSearchParams(search).get('code');
 
   const navigate = useNavigate();
 
@@ -49,7 +50,7 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
 
   const onClickProceed = () => {
     navigate(
-      `/payment/${mentorid}?day=${day}&s=${s}&e=${e}&userid=${userid}&charge=${charge}`
+      `/payment/${mentorid}?day=${day}&s=${s}&e=${e}&userid=${userid}&charge=${charge}&code=${auth_code}`
     );
   };
 
@@ -165,7 +166,8 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   Proceed
                 </button>
                 <span className='mt-[5vh]'>
-                  Note: A Zoom meeting will be scheduled and meet link will be shared.
+                  Note: A Zoom meeting will be scheduled and meet link will be
+                  shared.
                 </span>
               </div>
             </>

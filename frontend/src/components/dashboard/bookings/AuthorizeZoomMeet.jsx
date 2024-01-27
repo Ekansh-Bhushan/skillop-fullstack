@@ -3,6 +3,7 @@ import Profileandevents from '../../Landing/Profileandevents';
 
 const AuthorizeZoomMeet = () => {
   const path = window.location.href.split('/')[4];
+  console.log("path --- ",path)
   return (
     <div>
       <Profileandevents />
