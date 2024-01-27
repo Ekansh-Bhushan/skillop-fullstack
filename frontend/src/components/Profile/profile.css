@@ -435,9 +435,10 @@
 
 @media only screen and (max-width: 1500px) {
   .main-profile-page {
-    margin-left: 0px;
+    top: 10px;
+    margin-left: -16px;
     position: relative;
-    width: 100%;
+    width: 110%;
     right: 10.25rem;
   }
 }
@@ -447,6 +448,93 @@
     margin-left: 5%;
     margin-top: -5.4%;
   } */
+  .main-profile-page {
+    top: 10px;
+    margin-left: -35px;
+    position: relative;
+    width: 110%;
+    right: 10.25rem;
+  }
+  .jd {
+    font-size: 1rem;
+    margin: 10px;
+    overflow: hidden;
+    width: 100%;
+  }
+  .journey {
+    margin-left: 20px;
+  }
+  .line {
+    margin: auto;
+    /* max-width: 50%; */
+  }
+
+  .experience-content {
+    padding-left: 10px;
+    margin-top: 1.5rem;
+    width: 1%;
+    display: flex;
+    align-items: center;
+    /* Adjust the value as needed */
+  }
+
+  .date {
+    width: 100%;
+  }
+
+  .education-content {
+    margin-bottom: 3rem;
+    padding-left: 0px;
+    margin-top: 1.5rem;
+    margin-right: 40px;
+  }
+  .profile-page-content {
+    margin-left: 0px;
+  }
+
+  .company {
+    font-size: 1rem;
+  }
+
+  .job-title {
+    width: 100%;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgb(93, 93, 93);
+    padding-bottom: 15px;
+    margin-inline: 8px;
+    width: 140%;
+    color: #909090;
+  }
+
+  .education-qualification {
+    font-size: 1rem;
+    margin: 10px;
+    font-weight: bolder;
+  }
+
+  .degree {
+    font-size: 0.8rem;
+    font-weight: bolder;
+    margin: 10px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  /* .profile-data {
+    margin-left: 5%;
+    margin-top: -5.4%;
+  } */
+  .main-profile-page {
+    top: 10px;
+    margin-left: -22px;
+    position: relative;
+    width: 110%;
+    right: 10.25rem;
+  }
   .jd {
     font-size: 1rem;
     margin: 10px;
