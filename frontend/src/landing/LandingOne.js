@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import landingelement from "../components/images/landingelement.png";
+import landingelement from "../components/images/landingpageelement.png";
 import line from "../components/images/Line.png";
 import arrow from "../components/images/arrow.png";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +36,7 @@ const LandingOne = () => {
           </span>{" "}
           karte hain!
         </h1>
-        <p className="text-md ">
+        <p className="text-md font-product-sans">
           Skillop serves as a dynamic tech society cluster, dedicated to
           empowering students through the strategic development of a robust and
           interconnected ecosystem tailored to foster their growth and success

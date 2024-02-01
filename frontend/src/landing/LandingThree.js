@@ -65,7 +65,7 @@ const LandingThree = () => {
             <img src={Saly35} className="h-[30vh] md:h-[20vh]" alt="Saly13" />
             <div>
               <h1 className="text-xl font-bold">Be a</h1>
-              <span className="font-semibold text-3xl md:text-2xl">MENTOR</span>
+              <span className="font-semibold text-3xl md:text-2xl">MENTEE</span>
             </div>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
