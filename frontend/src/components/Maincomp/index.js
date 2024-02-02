@@ -1,10 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Auth1Component from "../Page1";
-import Auth3Component from "../Page3";
-import Auth4Component from "../Page4";
-import Auth5Component from "../Page5";
-import Auth7Component from "../Page7";
-import Uploadpic from "../Page8";
 import { Route, Routes } from "react-router-dom";
 import Chat from "../Landing/chatroom";
 import Dashboard from "../dashboard/Slots";
@@ -12,18 +6,14 @@ import Account from "../dashboard/account";
 import Bookings from "../dashboard/bookings";
 import Earning from "../dashboard/earnings";
 import Post from "../Landing/Post";
-import CheckProfile from "../CheckProfile";
 import Notification from "../Landing/notifications/notification";
 import PublicProfile from "../PublicProfile/PublicProfile";
-import { DisplayPosts } from "../Landing/DisplayPosts";
 import Otherpost from "../Landing/Otherpost";
 import Profile from "../Profile/profile";
 import Searchbar from "../Searchbar";
 import Addskills from "../Page9";
 import Bookslot from "../Bookslot";
 import UserPost from "../UserPosts/UserPosts";
-import Mobilecommonhead from "../Mobilecommonhead";
-import Mobilepost from "../Landing/mobilepost";
 import EditSkillsPage from "../Profile/EditSkills/EditSkillsPage";
 import ConfirmBooking from "../dashboard/bookings/ConfirmBooking";
 import Payment from "../dashboard/bookings/Payment";
@@ -161,34 +151,13 @@ function WebPages({
         <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         <Route path='/careers' element={<Faqs />} />
         <Route path='/terms-of-service' element={<TermsOfService />} />
-        <Route
-          path='/loginn'
-          element={<Auth1Component setProgress={setProgress} />}
-        />
-        <Route path='post/:postId' element={<PublicPost />} />
-        <Route
-          path='/skills'
-          element={<Auth3Component setProgress={setProgress} />}
-        />
-        <Route
-          path='/jobtitles'
-          element={<Auth4Component setProgress={setProgress} />}
-        />
-        <Route
-          path='/collegedetails'
-          element={<Auth5Component setProgress={setProgress} />}
-        />
-        <Route
-          path='/pic'
-          element={<Uploadpic userData={userData} setProgress={setProgress} />}
-        />
-        <Route
-          path='/laststep'
-          element={<Auth7Component setProgress={setProgress} />}
-        />
+        
+
 
         {/* -----------------------------MAIN WEB PAGES------------------------------ */}
         
+        <Route path='post/:postId' element={<PublicPost />} />
+
         <Route
           path='/homepage'
           element={
@@ -207,8 +176,6 @@ function WebPages({
             />
           }
         />
-
-        <Route path='/userprof' element={<CheckProfile />} />
 
         <Route
           path='/chat'
@@ -238,16 +205,7 @@ function WebPages({
             )
           }
         />
-        <Route
-          path='/myposts'
-          element={
-            <DisplayPosts
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
-        />
+  
         <Route
           path='/userposts/:id'
           element={
@@ -274,6 +232,7 @@ function WebPages({
             )
           }
         />
+
         <Route
           path='/requestedMeets'
           element={
@@ -288,6 +247,7 @@ function WebPages({
             )
           }
         />
+
         <Route
           path='/mySlots'
           element={
@@ -303,6 +263,7 @@ function WebPages({
             )
           }
         />
+
         <Route
           path='/myearnings'
           element={
@@ -317,6 +278,7 @@ function WebPages({
             )
           }
         />
+
         <Route
           path='/postsection/:postId'
           element={
@@ -343,7 +305,6 @@ function WebPages({
             />
           }
         />
-        <Route path='/books' element={<CheckProfile />} />
 
         <Route
           path='/notifications'
@@ -358,6 +319,7 @@ function WebPages({
             />
           }
         />
+
         <Route
           path='/profile'
           element={
@@ -369,6 +331,7 @@ function WebPages({
             />
           }
         />
+        
         <Route
           path='/searchbar'
           element={
@@ -381,6 +344,7 @@ function WebPages({
             />
           }
         />
+
         <Route
           path='/authskill'
           element={
@@ -393,6 +357,7 @@ function WebPages({
             />
           }
         />
+
         <Route
           path='/mentorBano'
           element={
@@ -405,6 +370,7 @@ function WebPages({
             />
           }
         />
+
         <Route
           path='/bookslot/:userId'
           element={
@@ -417,6 +383,7 @@ function WebPages({
             />
           }
         />
+
         <Route
           path='/authorize-zoom-meet/:userId'
           element={
@@ -425,6 +392,7 @@ function WebPages({
             />
           }
         />
+
         <Route
           path='/confirm-booking/:userId'
           element={
@@ -449,12 +417,14 @@ function WebPages({
             />
           }
         />
-        <Route path='/mobile' element={<Mobilecommonhead />} />
-        <Route path='/newpost' element={<Mobilepost />} />
+
+        {/* Password resetting / forget password */}
         <Route path='/changePassword' element={<ChangePasswordPage />} />
         <Route path='/password/reset/:id' element={<ResetPasswordPage />} />
         <Route path='/resetPasswordEmail' element={<ResetPasswordEmail />} />
+
         <Route path='/mentorfeedback' element={<MentorfeedbackForm />} />
+
         <Route
           path='/platformfeedback'
           element={
@@ -467,6 +437,7 @@ function WebPages({
             />
           }
         />
+
         <Route
           path='/editskills'
           element={
@@ -478,11 +449,13 @@ function WebPages({
             />
           }
         />
+
         <Route
           path='/editpic'
           element={<EditPic userData={userData} setProgress={setProgress} />}
         />
 
+        {/* ADMIN ROUTE */}
         <Route path='/admin/skillop-dtu/1941' element={<Admin />} />
       </Routes>
     </>

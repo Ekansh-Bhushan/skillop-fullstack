@@ -9,7 +9,6 @@ import axios from 'axios';
 import convertToNormalTime from '../../../utils/timeConversion';
 import spinner from '../../images/spinner.gif';
 import Mobilecommonhead from '../../Mobilecommonhead';
-import convertToISODate from '../../../utils/convertToISO';
 
 const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const mentorid = window.location.pathname.split('/')[2];
@@ -23,9 +22,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
   // console.log(day, s, e, userid, charge, mentorid)
 
   const [loading, setLoading] = useState(false);
-
   const [paymentConformationPic, setPaymentConformationPic] = useState(null);
-
   const navigate = useNavigate();
 
   const [meetLink, setMeetLink] = useState('');
@@ -70,8 +67,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
       //   .toString(),
       start_time: '2024-02-05T07:00',
     });
-    console.log('auth code -  : ', auth_code);
-
+  
     const res = await axios.post(
       'https://skillop.in/api/meeting/create-meeting/' + auth_code,
       data,
@@ -125,7 +121,6 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
   return (
     <div style={{ display: 'flex', gap: '100px' }}>
       <Mobilecommonhead />
-
       <div className='relative left-[20vw] pt-[15vh] w-[100%] md:left-0 md:pt-[8vh]'>
         <div className='h-[100vh] flex items-center justify-center flex-col pt-5 ml-10 w-[50%] px-5 md:w-[100%] md:ml-0'>
           <h2 className='text-3xl font-semibold w-full '>Payment</h2>
