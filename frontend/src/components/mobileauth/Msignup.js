@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { googleIdVerifyAndLogin, registerUser } from '../../api/userRequest';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -6,9 +6,11 @@ import coolimg from '../../components/images/logo.png';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
+import { MainContext } from '../../context/MainContextProvider';
 
 const Msignup = () => {
   const navigate = useNavigate();
+  const { setCurrentUser } = useContext(MainContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstname, setFirstname] = useState('');
@@ -27,8 +29,10 @@ const Msignup = () => {
       console.log(data);
       if (data.result) {
         localStorage.setItem('skilloptoken', data.token);
+        localStorage.setItem('current-user-id', data.result._id);
         toast.success(data.message);
         navigate('/mskill');
+        setCurrentUser(data.result);
       } else {
         toast.error(data.message);
       }

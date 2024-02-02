@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import img1 from '../../components/images/img1.png';
 import Nav from './Nav';
 import { googleIdVerifyAndLogin, registerUser } from '../../api/userRequest';
@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
+import { MainContext } from '../../context/MainContextProvider';
 
 const Page1 = ({ setProgress }) => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Page1 = ({ setProgress }) => {
   const [password, setPassword] = useState('');
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
+  const { setCurrentUser } = useContext(MainContext);
 
   const [agreeToTermsAndConditions, setAgreeToTermsAndConditions] =
     useState(false);
@@ -36,7 +38,9 @@ const Page1 = ({ setProgress }) => {
       console.log(data);
       if (data.result) {
         localStorage.setItem('skilloptoken', data.token);
+        localStorage.setItem('current-user-id', data.result._id);
         toast.success(data.message);
+        setCurrentUser(data.result);
         navigate('/skill3');
       } else {
         toast.error(data.message);

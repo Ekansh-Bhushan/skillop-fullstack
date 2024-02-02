@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { getUser } from '../../../api/userRequest';
 import linkedin from '../../images/linkedin.png';
 import userPic from '../../images/user.png';
@@ -7,33 +7,39 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import defaultBGPic from '../../images/Robo.png';
 import { fetchUpcomingEvents } from '../../../api/adminPanel';
+import { MainContext } from '../../../context/MainContextProvider';
 export default function Profileandevents({ userData, isHome, useUserData }) {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState(null);
-
+  const { currentUser, setCurrentUser, eventData, setEventData } =
+    useContext(MainContext);
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const userData1 = await getUser();
-        setUserDetails(userData1.data.result);
+        if (!currentUser) {
+          const userData1 = await getUser();
+          setUserDetails(userData1.data.result);
+          setCurrentUser(userData1.data.result);
+        } else {
+          setUserDetails(currentUser);
+        }
       } catch (err) {
         console.log('Unable to fetch user details', err);
       } finally {
         if (useUserData) {
           setUserDetails(userData);
-          console.log('xxxxx', userData);
         }
       }
     };
     fetchUserDetails();
   }, [setUserDetails, useUserData, userData]);
 
-  const [eventData, setEventData] = useState([]);
-
   useEffect(() => {
     const fetchEvents = async () => {
-      const events = await fetchUpcomingEvents("upcoming");
-      setEventData(events.data.result);
+      if (!eventData.length) {
+        const events = await fetchUpcomingEvents('upcoming');
+        setEventData(events.data.result);
+      }
     };
     fetchEvents();
   }, []);

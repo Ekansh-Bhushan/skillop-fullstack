@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { getPostFromSpecificUser } from '../../api/postRequest';
 import PostComp from '../PostComp';
 import './UserPost.css';
@@ -6,6 +6,7 @@ import Profileandevents from '../Landing/Profileandevents';
 import { getUser } from '../../api/userRequest';
 import toast from 'react-hot-toast';
 import Mobilecommonhead from '../Mobilecommonhead';
+import { MainContext } from '../../context/MainContextProvider';
 
 const UserPosts = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const userId = window.location.pathname.split('/')[2];
@@ -22,11 +23,16 @@ const UserPosts = ({ setProgress, Mentor, isFetched, notifyList }) => {
       console.log('Unable to fetch posts at the moment', err);
     }
   };
-
+  const { currentUser, setCurrentUser } = useContext(MainContext);
   const fetchUser = async () => {
     try {
-      const Data = await getUser();
-      setUserData(Data.data.result);
+      if (!currentUser) {
+        const Data = await getUser();
+        setUserData(Data.data.result);
+        setCurrentUser(Data.data.result);
+      } else {
+        setUserData(currentUser);
+      }
     } catch (err) {
       console.log('Unable to fetch user data at the moment', err);
     }

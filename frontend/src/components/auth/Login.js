@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import img1 from '../../components/images/Saly-24.png';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import Nav from './Nav';
 import toast from 'react-hot-toast';
 import { googleIdVerifyAndLogin, loginUser } from '../../api/userRequest';
 import { useNavigate } from 'react-router-dom';
+import { MainContext } from '../../context/MainContextProvider';
 
 const Login = () => {
+  const { setCurrentUser } = useContext(MainContext);
   const redirectTo = new URL(window.location.href).searchParams.get('redirect');
   console.log(redirectTo);
   const navigate = useNavigate();
@@ -20,8 +22,10 @@ const Login = () => {
       });
       if (data.result) {
         localStorage.setItem('skilloptoken', data.token);
+        localStorage.setItem('current-user-id', data.result._id);
         if (redirectTo) window.location.replace(redirectTo);
         else navigate('/homepage');
+        setCurrentUser(data.result)
         toast.success(data.message);
       } else {
         toast.error(data.message);

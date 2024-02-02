@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './UpcomingEvents.css';
 import { fetchUpcomingEvents } from '../../../api/adminPanel';
+import { MainContext } from '../../../context/MainContextProvider';
 
 const UpcomingEvents = () => {
-  const [eventData, setEventData] = useState([]);
+  const { eventData, setEventData } = useContext(MainContext);
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const events = await fetchUpcomingEvents('upcoming');
-      setEventData(events.data.result);
+      if (!eventData.length) {
+        const events = await fetchUpcomingEvents('upcoming');
+        setEventData(events.data.result);
+      }
     };
     fetchEvents();
   }, []);
 
   return (
     <div>
-      <div className="event-upcoming2">
-        <div className="header-events">
+      <div className='event-upcoming2'>
+        <div className='header-events'>
           <h2
             style={{
               fontWeight: '500',
@@ -27,10 +30,10 @@ const UpcomingEvents = () => {
             Upcoming Events
           </h2>
         </div>
-        <div className="event-list2 overflow-y-auto max-h-[500px]">
+        <div className='event-list2 overflow-y-auto max-h-[500px]'>
           {eventData.map((item) => {
             return (
-              <div key={item._id} className="event-1">
+              <div key={item._id} className='event-1'>
                 <b>{item.title}</b>
                 <p>{item.description}</p>
                 <p>

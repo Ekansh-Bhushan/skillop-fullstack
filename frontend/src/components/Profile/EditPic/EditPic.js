@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './EditPic.css';
 import user from '../../images/user.png';
 import coverBg from '../../images/b.png';
@@ -8,6 +8,7 @@ import Spinner from '../../images/spinner.gif';
 import { getUser } from '../../../api/userRequest';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
+import { MainContext } from '../../../context/MainContextProvider';
 
 const API = axios.create({ baseURL: 'https://skillop.in' });
 
@@ -24,12 +25,20 @@ function EditPic({ userData, setProgress }) {
 
   const [dpURL, setdpURL] = useState('');
   const [dpBGURL, setdpBGURL] = useState('');
+  const { currentUser, setCurrentUser } = useContext(MainContext);
 
   const fetchUser = async () => {
     try {
-      const usrData = await getUser();
-      setdpURL(usrData.data.result.profilePicUrl);
-      setdpBGURL(usrData.data.result.bgPicUrl);
+      if (!currentUser) {
+        const usrData = await getUser();
+        setdpURL(usrData.data.result.profilePicUrl);
+        setdpBGURL(usrData.data.result.bgPicUrl);
+        setCurrentUser(usrData.data.result);
+      }
+      else {
+        setdpURL(currentUser.profilePicUrl);
+        setdpBGURL(currentUser.bgPicUrl);
+      }
     } catch (err) {
       console.log('Unable to fetch user', err);
     }
@@ -185,7 +194,10 @@ function EditPic({ userData, setProgress }) {
                 }}
               />
             </span>
-            <button className='upload-button bg-green-500 text-white p-2 hover:bg-green-600 rounded-lg' onClick={handleUpload}>
+            <button
+              className='upload-button bg-green-500 text-white p-2 hover:bg-green-600 rounded-lg'
+              onClick={handleUpload}
+            >
               Upload
             </button>
           </div>

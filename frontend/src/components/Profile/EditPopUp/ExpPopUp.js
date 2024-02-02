@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './ExpPopUp.css';
 import { getUser, updateProfile } from '../../../api/userRequest';
 import { useState } from 'react';
@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import spinner from '../../images/spinner.gif';
 import editExp from '../../../api/editExp';
 import toast from 'react-hot-toast';
+import { MainContext } from '../../../context/MainContextProvider';
 
 const ExpPopUp = ({ onClose, setUpdateDom, id, expID, updateDom }) => {
   let [data, setData] = useState([
@@ -87,12 +88,16 @@ const ExpPopUp = ({ onClose, setUpdateDom, id, expID, updateDom }) => {
     const formattedDate = `${year}-${month}-${day}`;
     return formattedDate;
   };
-
+  const { currentUser, setCurrentUser } = useContext(MainContext);
   const fetchExpDetails = async () => {
-    const res = await getUser();
-    let expData = res.data.result.experence.filter(
-      (item) => item._id === expID
-    );
+    let expData;
+    if (!currentUser) {
+      const res = await getUser();
+      expData = res.data.result.experence.filter((item) => item._id === expID);
+      setCurrentUser(res.data.result);
+    } else {
+      expData = currentUser.experence.filter((item) => item._id === expID);
+    }
     expData[0].startDate = dateFormatter(expData[0].startDate);
     expData[0].endDate = dateFormatter(expData[0].endDate);
     setData(expData);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './ProfileHeader.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { getUser } from '../../../api/userRequest';
@@ -7,6 +7,7 @@ import defaultBGPic from '../../images/bg.png';
 import IntroVideo from '../Right Profile/IntroVideo';
 import Following from '../Right Profile/Following';
 import Followers from '../Right Profile/Followers';
+import { MainContext } from '../../../context/MainContextProvider';
 
 const ProfileHeader = () => {
   const navigate = useNavigate();
@@ -19,10 +20,17 @@ const ProfileHeader = () => {
     setShowIntroVideo(false);
   };
 
+  const { currentUser, setCurrentUser } = useContext(MainContext);
   const fetchUserDetails = async () => {
     try {
-      const userData = await getUser();
-      setUserDetails(userData.data.result);
+      if (!currentUser) {
+        const userData = await getUser();
+        setCurrentUser(userData.data.result)
+        setUserDetails(userData.data.result);
+      }
+      else {
+        setUserDetails(currentUser);
+      }
     } catch (err) {
       if (!err.response.data.result) {
         localStorage.removeItem('skilloptoken');
@@ -83,7 +91,9 @@ const ProfileHeader = () => {
       )}
       <div className='ph-details'>
         <div className='ph-name'>
-          {userDetails.firstname ? (userDetails.firstname + ' ' + userDetails.lastname):"Loading..."}
+          {userDetails.firstname
+            ? userDetails.firstname + ' ' + userDetails.lastname
+            : 'Loading...'}
           {userDetails && userDetails.isMentor && (
             <div className='verified-logo'>
               <img src='/verified.png' width={23} alt='' />
@@ -101,10 +111,11 @@ const ProfileHeader = () => {
             </p>
           ) : (
             <p>
-              {'Student' + (userDetails &&
-                userDetails.experence &&
-                userDetails.education.length > 0 &&
-                ' @ ' + userDetails.education[0].institution)}
+              {'Student' +
+                (userDetails &&
+                  userDetails.experence &&
+                  userDetails.education.length > 0 &&
+                  ' @ ' + userDetails.education[0].institution)}
             </p>
           )}
           <div className='flex gap-3 items-center'>

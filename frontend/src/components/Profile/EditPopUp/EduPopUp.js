@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './EduPopUp.css';
 import { getUser, updateProfile } from '../../../api/userRequest';
 import { useState } from 'react';
@@ -6,6 +6,7 @@ import editEdu from '../../../api/editEdu';
 import { useEffect } from 'react';
 import spinner from '../../images/spinner.gif';
 import toast from 'react-hot-toast';
+import { MainContext } from '../../../context/MainContextProvider';
 
 const EduPopUp = ({ onClose, setUpdateDom, id, eduID, updateDom }) => {
   let [data, setData] = useState([
@@ -83,12 +84,16 @@ const EduPopUp = ({ onClose, setUpdateDom, id, eduID, updateDom }) => {
     const formattedDate = `${year}-${month}-${day}`;
     return formattedDate;
   };
-
+  const { currentUser, setCurrentUser } = useContext(MainContext);
   const fetchEduDetails = async () => {
-    const res = await getUser();
-    let eduData = res.data.result.education.filter(
-      (item) => item._id === eduID
-    );
+    let eduData;
+    if (!currentUser) {
+      const res = await getUser();
+      setCurrentUser(res.data.result)
+      eduData = res.data.result.education.filter((item) => item._id === eduID);
+    } else {
+      eduData = currentUser.education.filter((item) => item._id === eduID);
+    }
     eduData[0].startDate = dateFormatter(eduData[0].startDate);
     eduData[0].endDate = dateFormatter(eduData[0].endDate);
     setData(eduData);

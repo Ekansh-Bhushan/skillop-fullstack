@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Profileandevents from '../Profileandevents';
 import Mobilecommonhead from '../../Mobilecommonhead';
 import { getUser } from '../../../api/userRequest';
 import { getNotifications } from '../../../api/getNotifications';
 import Postlist from '../Postlist';
+import { MainContext } from '../../../context/MainContextProvider';
 
 function Post({
   userData,
@@ -43,12 +44,18 @@ function Post({
       console.log('Unable to fetch notifications', err);
     }
   };
-
+  const { currentUser, setCurrentUser } = useContext(MainContext);
   useEffect(() => {
     const refreshFN = async () => {
-      const { data } = await getUser();
-      setUserData(data.result);
-      setMentor(data.result.isMentor);
+      if (!currentUser) {
+        const { data } = await getUser();
+        setUserData(data.result);
+        setMentor(data.result.isMentor);
+        setCurrentUser(data.result);
+      } else {
+        setUserData(currentUser);
+        setMentor(currentUser.isMentor);
+      }
       setIsFetched(true);
       await fetchNotifications();
     };

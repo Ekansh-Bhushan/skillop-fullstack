@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { findUser, getFollowers, getUser } from "../../../api/userRequest";
 import linkedin from "../../images/linkedin.png";
 import userPic from "../../images/user.png";
@@ -13,6 +13,7 @@ import defaultBGPic from "../../images/bg.png";
 import Followers from "../../Profile/Right Profile/Followers";
 import Following from "../../Profile/Right Profile/Following";
 import IntroVideo from "../../Profile/Right Profile/IntroVideo";
+import { MainContext } from "../../../context/MainContextProvider";
 
 export default function RightProfileComp({ userDatamain }) {
   const userId = window.location.pathname.split("/")[2];
@@ -65,12 +66,21 @@ export default function RightProfileComp({ userDatamain }) {
     }
   };
 
+  const {currentUser, setCurrentUser} = useContext(MainContext);
+
   const fetchFollowings = async () => {
     try {
-      const userData = await getUser();
-      const userFollowings = userData.data.result.followings;
-      setFollowings(userFollowings);
-      setShowFollowBtn(!userFollowings.includes(userId));
+      if(!currentUser) {
+        const userData = await getUser();
+        const userFollowings = userData.data.result.followings;
+        setCurrentUser(currentUser)
+        setFollowings(userFollowings);
+        setShowFollowBtn(!userFollowings.includes(userId));
+      }
+      else {
+        setFollowings(currentUser.followings);
+        setShowFollowBtn(!currentUser.followings.includes(userId));
+      }
     } catch (err) {
       console.log("Unable to fetch followings", err);
     }
@@ -78,8 +88,8 @@ export default function RightProfileComp({ userDatamain }) {
 
   const getChats = async () => {
     try {
-      const usrdt = await getUser();
-      const { data } = await userChats(usrdt.data.result._id);
+      const currUsrId = localStorage.getItem('current-user-id');
+      const { data } = await userChats(currUsrId);
       const id = data.filter((item) => item.members[0] === userId)[0]._id;
       setChatId(id);
       }

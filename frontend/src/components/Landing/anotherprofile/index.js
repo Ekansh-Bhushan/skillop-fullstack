@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-
 import Common from "../common";
 import MyProfile from "../myprof";
 import Postlist from "../Postlist";

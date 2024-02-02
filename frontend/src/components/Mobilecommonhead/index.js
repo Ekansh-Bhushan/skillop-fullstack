@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import logo from '../images/logo.png';
 import { PiBellRingingLight } from 'react-icons/pi';
 import { HiOutlineChatBubbleLeftEllipsis } from 'react-icons/hi2';
@@ -14,6 +14,7 @@ import { getUser } from '../../api/userRequest';
 import book from '../../components/images/book.png';
 import search from '../../components/images/iconamoon_search-light.png';
 import { getNotifications } from '../../api/getNotifications';
+import { MainContext } from '../../context/MainContextProvider';
 
 const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
   const [showPostPopUp, setShowPostPopUp] = useState(false);
@@ -43,16 +44,20 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
     // Toggle the visibility of more options panel
     setMoreOptionsVisible(!moreOptionsVisible);
   };
-
+  const { currentUser, setCurrentUser } = useContext(MainContext);
   const fetchUserDetails = async () => {
     try {
-      const userData = await getUser();
-      setUserDetails(userData.data.result);
+      if (!currentUser) {
+        const userData = await getUser();
+        setUserDetails(userData.data.result);
+        setCurrentUser(userData.data.result);
+      } else {
+        setUserDetails(currentUser);
+      }
     } catch (err) {
       if (!err.response.data.result) {
         localStorage.removeItem('skilloptoken');
         navigate('/');
-        console.log('here is ', err.response.data.result);
         // toast.error('Session expired, Login again!');
       }
       console.log('Unable to fetch user details', err);
