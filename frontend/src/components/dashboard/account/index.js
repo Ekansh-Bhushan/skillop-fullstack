@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast';
 import Mobilecommonhead from '../../Mobilecommonhead';
 import { useNavigate } from 'react-router-dom';
 
-function Account({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function Account({ userData, setProgress}) {
   const navigate = useNavigate();
   const [email, setEmail] = useState(userData.email);
   const [whats, setWhats] = useState(userData.whatsappNumber);

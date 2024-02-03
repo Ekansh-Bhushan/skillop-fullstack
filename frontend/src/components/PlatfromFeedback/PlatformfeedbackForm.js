@@ -6,7 +6,7 @@ import Mobilecommonhead from '../Mobilecommonhead';
 import Profileandevents from '../Landing/Profileandevents';
 import { sendPlatformFeedback } from '../../api/feedback';
 
-function PlatformfeedbackForm() {
+function PlatformfeedbackForm({setProgress}) {
   const [feedbackMsg, setFeedbackMsg] = useState('');
   const [rating, setRating] = useState(0);
   const sendFeedBack = async () => {

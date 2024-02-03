@@ -26,7 +26,7 @@ const MEET_STATUS = {
   CANCELLED: 'cancelled',
 };
 
-function Bookings({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function Bookings({ userData, setProgress, Mentor, }) {
   const navigate = useNavigate();
 
   const displaynavmob = () => {

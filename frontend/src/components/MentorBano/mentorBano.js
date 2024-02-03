@@ -6,7 +6,7 @@ import { getProfileCompletionStatus } from '../../api/userRequest';
 import { requestToBeMentor } from '../../api/mentorRequest';
 import Mobilecommonhead from '../Mobilecommonhead';
 
-function MentorBano({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function MentorBano({setProgress}) {
   const [isTaskDone, setIsTaskDone] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [Pprogress, setPProgress] = useState(0);

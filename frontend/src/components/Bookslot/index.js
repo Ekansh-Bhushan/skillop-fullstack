@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import index from "./index.css";
+import "./index.css";
 import Profileandevents from "../Landing/Profileandevents";
 import { getMentorAvaibility, getMentorData } from "../../api/mentorRequest";
 import Mobilecommonhead from "../Mobilecommonhead";
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import convertToNormalTime from "../../utils/timeConversion";
 
-function Bookslot({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function Bookslot({ userData, setProgress}) {
   const navigate = useNavigate();
   const mentorId = window.location.pathname.split("/")[2];
 

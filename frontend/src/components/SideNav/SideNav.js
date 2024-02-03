@@ -25,7 +25,7 @@ import { getNotifications } from '../../api/getNotifications';
 import { userChats } from '../../api/chatRequest';
 import { getMessages } from '../../api/messageRequest';
 
-const SideNav = ({ setProgress, Mentor, isFetched, CurrUser }) => {
+const SideNav = ({ setProgress, Mentor, isFetched}) => {
   const navigate = useNavigate();
   const [showChatNotification, setShowChatNotification] = useState(false);
 
@@ -107,18 +107,19 @@ const SideNav = ({ setProgress, Mentor, isFetched, CurrUser }) => {
 
   const checkChatNotification = async () => {
     try {
-      const { data } = await userChats(CurrUser._id);
+      const CurrUsrId = localStorage.getItem('current-user-id');
+      const { data } = await userChats(CurrUsrId);
       data.forEach(async (chat) => {
         const data2 = await getMessages(chat._id);
         data2.data.forEach((msg) => {
-          console.log("looping through chats...")
-          if(!msg.seen && msg.senderId!==CurrUser._id) {
-            console.log("This msg cause notification",msg)
+          console.log('looping through chats...');
+          if (!msg.seen && msg.senderId !== CurrUsrId) {
+            console.log('This msg cause notification', msg);
             setShowChatNotification(true);
             return;
           }
-        })
-      })
+        });
+      });
     } catch (err) {}
   };
 

@@ -1,55 +1,55 @@
-import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import Chat from "../Landing/chatroom";
-import Dashboard from "../dashboard/Slots";
-import Account from "../dashboard/account";
-import Bookings from "../dashboard/bookings";
-import Earning from "../dashboard/earnings";
-import Post from "../Landing/Post";
-import Notification from "../Landing/notifications/notification";
-import PublicProfile from "../PublicProfile/PublicProfile";
-import Otherpost from "../Landing/Otherpost";
-import Profile from "../Profile/profile";
-import Searchbar from "../Searchbar";
-import Addskills from "../Page9";
-import Bookslot from "../Bookslot";
-import UserPost from "../UserPosts/UserPosts";
-import EditSkillsPage from "../Profile/EditSkills/EditSkillsPage";
-import ConfirmBooking from "../dashboard/bookings/ConfirmBooking";
-import Payment from "../dashboard/bookings/Payment";
-import EditPic from "../Profile/EditPic/EditPic";
-import RequestedMeets from "../dashboard/requestedMeets";
-import MentorBano from "../MentorBano/mentorBano";
-import PlatformfeedbackForm from "../PlatfromFeedback/PlatformfeedbackForm";
-import MentorfeedbackForm from "../MentorFeedback/feedbackForm";
-import ChangePasswordPage from "../passwordChange/changepassword";
-import ResetPasswordPage from "../resetpassword/resetpassword";
-import ResetPasswordEmail from "../resetpassword/resetpasswordEmail";
-import Admin from "../Admin Panel/Admin";
-import PublicPost from "../PublicPost";
-import Page from "../../landing/Page";
-import Page1 from "../auth/Page1";
-import Login from "../auth/Login";
-import SkillThree from "../auth/SkillThree";
-import SkillFour from "../auth/SkillFour";
-import About from "../Misc Pages/About";
-import Contact from "../Misc Pages/Contact";
-import PrivacyPolicy from "../Misc Pages/PrivacyPolicy";
-import Faqs from "../Misc Pages/Faqs";
-import SkillSix from "../auth/SkillSix";
-import SkillSeven from "../auth/SkillSeven";
-import Mlogin from "../mobileauth/Mlogin";
-import Msignup from "../mobileauth/Msignup";
-import MPersonal from "../mobileauth/MPersonal";
-import MContact from "../mobileauth/MContact";
-import MSkills from "../mobileauth/MSkills";
-import MStudentInfo from "../mobileauth/MStudentInfo";
-import MProfInformation from "../mobileauth/MProfInformation";
-import Cover from "../mobileauth/Cover";
-import Social from "../mobileauth/Social";
-import SideNav from "../SideNav/SideNav";
-import TermsOfService from "../Misc Pages/TermsOfService";
-import AuthorizeZoomMeet from "../dashboard/bookings/AuthorizeZoomMeet";
+import React, { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Chat from '../Landing/chatroom';
+import Dashboard from '../dashboard/Slots';
+import Account from '../dashboard/account';
+import Bookings from '../dashboard/bookings';
+import Earning from '../dashboard/earnings';
+import Post from '../Landing/Post';
+import Notification from '../Landing/notifications/notification';
+import PublicProfile from '../PublicProfile/PublicProfile';
+import Otherpost from '../Landing/Otherpost';
+import Profile from '../Profile/profile';
+import Searchbar from '../Searchbar';
+import Addskills from '../Page9';
+import Bookslot from '../Bookslot';
+import UserPost from '../UserPosts/UserPosts';
+import EditSkillsPage from '../Profile/EditSkills/EditSkillsPage';
+import ConfirmBooking from '../dashboard/bookings/ConfirmBooking';
+import Payment from '../dashboard/bookings/Payment';
+import EditPic from '../Profile/EditPic/EditPic';
+import RequestedMeets from '../dashboard/requestedMeets';
+import MentorBano from '../MentorBano/mentorBano';
+import PlatformfeedbackForm from '../PlatfromFeedback/PlatformfeedbackForm';
+import MentorfeedbackForm from '../MentorFeedback/feedbackForm';
+import ChangePasswordPage from '../passwordChange/changepassword';
+import ResetPasswordPage from '../resetpassword/resetpassword';
+import ResetPasswordEmail from '../resetpassword/resetpasswordEmail';
+import Admin from '../Admin Panel/Admin';
+import PublicPost from '../PublicPost';
+import Page from '../../landing/Page';
+import Page1 from '../auth/Page1';
+import Login from '../auth/Login';
+import SkillThree from '../auth/SkillThree';
+import SkillFour from '../auth/SkillFour';
+import About from '../Misc Pages/About';
+import Contact from '../Misc Pages/Contact';
+import PrivacyPolicy from '../Misc Pages/PrivacyPolicy';
+import Faqs from '../Misc Pages/Faqs';
+import SkillSix from '../auth/SkillSix';
+import SkillSeven from '../auth/SkillSeven';
+import Mlogin from '../mobileauth/Mlogin';
+import Msignup from '../mobileauth/Msignup';
+import MPersonal from '../mobileauth/MPersonal';
+import MContact from '../mobileauth/MContact';
+import MSkills from '../mobileauth/MSkills';
+import MStudentInfo from '../mobileauth/MStudentInfo';
+import MProfInformation from '../mobileauth/MProfInformation';
+import Cover from '../mobileauth/Cover';
+import Social from '../mobileauth/Social';
+import SideNav from '../SideNav/SideNav';
+import TermsOfService from '../Misc Pages/TermsOfService';
+import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
 
 function WebPages({
   userData,
@@ -61,8 +61,6 @@ function WebPages({
   notifyList,
   setIsFetched,
   setNotifyList,
-  setShowPostPopUp,
-  showPostPopUp,
 }) {
   // console.log(userData);
   const excludedRoutes = [
@@ -113,36 +111,62 @@ function WebPages({
           Mentor={Mentor}
           isFetched={isFetched}
           notifyList={notifyList}
-          CurrUser={userData}
         />
       )}
 
       {/* -----------------------------MOBILE SIGN UP PAGES-------------------------------- */}
 
       <Routes>
-        <Route path='/' element={<Page setProgress={setProgress}/>} />
-        <Route path='/mlogin' element={<Mlogin setProgress={setProgress}/>} />
-        <Route path='/msignup' element={<Msignup setProgress={setProgress}/>} />
-        <Route path='/mpersonal' element={<MPersonal setProgress={setProgress}/>} />
-        <Route path='/mcontact' element={<MContact setProgress={setProgress}/>} />
-        <Route path='/mskill' element={<MSkills setProgress={setProgress}/>} />
-        <Route path='/mstudinfo' element={<MStudentInfo setProgress={setProgress}/>} />
-        <Route path='/mprofinfo' element={<MProfInformation setProgress={setProgress}/>} />
-        <Route path='/mcover' element={<Cover setProgress={setProgress}/>} />
-        <Route path='/msocial' element={<Social setProgress={setProgress}/>} />
+        <Route path='/' element={<Page setProgress={setProgress} />} />
+        <Route path='/mlogin' element={<Mlogin setProgress={setProgress} />} />
+        <Route
+          path='/msignup'
+          element={<Msignup setProgress={setProgress} />}
+        />
+        <Route
+          path='/mpersonal'
+          element={<MPersonal setProgress={setProgress} />}
+        />
+        <Route
+          path='/mcontact'
+          element={<MContact setProgress={setProgress} />}
+        />
+        <Route path='/mskill' element={<MSkills setProgress={setProgress} />} />
+        <Route
+          path='/mstudinfo'
+          element={<MStudentInfo setProgress={setProgress} />}
+        />
+        <Route
+          path='/mprofinfo'
+          element={<MProfInformation setProgress={setProgress} />}
+        />
+        <Route path='/mcover' element={<Cover setProgress={setProgress} />} />
+        <Route path='/msocial' element={<Social setProgress={setProgress} />} />
 
         {/* -----------------------------DESKTOP SIGN UP PAGES------------------------------ */}
 
-        <Route path='/signup' element={<Page1 setProgress={setProgress}/>} />
-        <Route path='/login' element={<Login setProgress={setProgress}/>} />
+        <Route path='/signup' element={<Page1 setProgress={setProgress} />} />
+        <Route path='/login' element={<Login setProgress={setProgress} />} />
         {/* Skills page */}
-        <Route path='/skill3' element={<SkillThree setProgress={setProgress}/>} /> 
+        <Route
+          path='/skill3'
+          element={<SkillThree setProgress={setProgress} />}
+        />
         {/* College/Edu details page */}
-        <Route path='/skill4' element={<SkillFour setProgress={setProgress}/>} />
+        <Route
+          path='/skill4'
+          element={<SkillFour setProgress={setProgress} />}
+        />
         {/* Profile & Cover Photo page */}
-        <Route path='/skill6' element={<SkillSix setProgress={setProgress}/>} />
+        <Route
+          path='/skill6'
+          element={<SkillSix setProgress={setProgress} />}
+        />
         {/* Final page */}
-        <Route path='/skill7' element={<SkillSeven setProgress={setProgress}/>} />
+        <Route
+          path='/skill7'
+          element={<SkillSeven setProgress={setProgress} />}
+        />
 
         {/* -----------------------------MISCELLANEOUS PAGES------------------------------ */}
 
@@ -151,11 +175,9 @@ function WebPages({
         <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         <Route path='/careers' element={<Faqs />} />
         <Route path='/terms-of-service' element={<TermsOfService />} />
-        
-
 
         {/* -----------------------------MAIN WEB PAGES------------------------------ */}
-        
+
         <Route path='post/:postId' element={<PublicPost />} />
 
         <Route
@@ -171,8 +193,6 @@ function WebPages({
               setMentor={setMentor}
               setIsFetched={setIsFetched}
               setNotifyList={setNotifyList}
-              setShowPostPopUp={setShowPostPopUp}
-              showPostPopUp={showPostPopUp}
             />
           }
         />
@@ -180,42 +200,21 @@ function WebPages({
         <Route
           path='/chat'
           element={
-            userData && (
-              <Chat
-                userData={userData}
-                setProgress={setProgress}
-                Mentor={Mentor}
-                isFetched={isFetched}
-                notifyList={notifyList}
-              />
-            )
+            userData && <Chat userData={userData} setProgress={setProgress} />
           }
         />
         <Route
           path='/myaccount'
           element={
             userData && (
-              <Account
-                userData={userData}
-                setProgress={setProgress}
-                Mentor={Mentor}
-                isFetched={isFetched}
-                notifyList={notifyList}
-              />
+              <Account userData={userData} setProgress={setProgress} />
             )
           }
         />
-  
+
         <Route
           path='/userposts/:id'
-          element={
-            <UserPost
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
+          element={<UserPost setProgress={setProgress} />}
         />
 
         <Route
@@ -226,8 +225,6 @@ function WebPages({
                 userData={userData}
                 setProgress={setProgress}
                 Mentor={Mentor}
-                isFetched={isFetched}
-                notifyList={notifyList}
               />
             )
           }
@@ -235,17 +232,7 @@ function WebPages({
 
         <Route
           path='/requestedMeets'
-          element={
-            userData && (
-              <RequestedMeets
-                userData={userData}
-                setProgress={setProgress}
-                Mentor={Mentor}
-                isFetched={isFetched}
-                notifyList={notifyList}
-              />
-            )
-          }
+          element={userData && <RequestedMeets setProgress={setProgress} />}
         />
 
         <Route
@@ -257,8 +244,6 @@ function WebPages({
                 setProgress={setProgress}
                 shouldbevisible={true}
                 Mentor={Mentor}
-                isFetched={isFetched}
-                notifyList={notifyList}
               />
             )
           }
@@ -272,8 +257,6 @@ function WebPages({
                 userData={userData}
                 setProgress={setProgress}
                 Mentor={Mentor}
-                isFetched={isFetched}
-                notifyList={notifyList}
               />
             )
           }
@@ -283,26 +266,14 @@ function WebPages({
           path='/postsection/:postId'
           element={
             userData && (
-              <Otherpost
-                setProgress={setProgress}
-                userData={userData}
-                Mentor={Mentor}
-                isFetched={isFetched}
-                notifyList={notifyList}
-              />
+              <Otherpost setProgress={setProgress} userData={userData} />
             )
           }
         />
         <Route
           path='/public-profile/:userId'
           element={
-            <PublicProfile
-              userDatamain={userData}
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
+            <PublicProfile userDatamain={userData} setProgress={setProgress} />
           }
         />
 
@@ -312,9 +283,6 @@ function WebPages({
             <Notification
               setProgress={setProgress}
               userData={userData}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
               setUserData={setUserData}
             />
           }
@@ -322,27 +290,12 @@ function WebPages({
 
         <Route
           path='/profile'
-          element={
-            <Profile
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
+          element={<Profile setProgress={setProgress} />}
         />
-        
+
         <Route
           path='/searchbar'
-          element={
-            <Searchbar
-              userData={userData}
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
+          element={<Searchbar setProgress={setProgress} />}
         />
 
         <Route
@@ -360,62 +313,26 @@ function WebPages({
 
         <Route
           path='/mentorBano'
-          element={
-            <MentorBano
-              userData={userData}
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
+          element={<MentorBano setProgress={setProgress} />}
         />
 
         <Route
           path='/bookslot/:userId'
-          element={
-            <Bookslot
-              userData={userData}
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
+          element={<Bookslot userData={userData} setProgress={setProgress} />}
         />
 
         <Route
           path='/authorize-zoom-meet/:userId'
-          element={
-            <AuthorizeZoomMeet
-              setProgress={setProgress}
-            />
-          }
+          element={<AuthorizeZoomMeet setProgress={setProgress} />}
         />
 
         <Route
           path='/confirm-booking/:userId'
-          element={
-            <ConfirmBooking
-              userData={userData}
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
+          element={<ConfirmBooking setProgress={setProgress} />}
         />
         <Route
           path='/payment/:userId'
-          element={
-            <Payment
-              userData={userData}
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
+          element={<Payment setProgress={setProgress} />}
         />
 
         {/* Password resetting / forget password */}
@@ -427,32 +344,17 @@ function WebPages({
 
         <Route
           path='/platformfeedback'
-          element={
-            <PlatformfeedbackForm
-              userData={userData}
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
+          element={<PlatformfeedbackForm setProgress={setProgress} />}
         />
 
         <Route
           path='/editskills'
-          element={
-            <EditSkillsPage
-              setProgress={setProgress}
-              Mentor={Mentor}
-              isFetched={isFetched}
-              notifyList={notifyList}
-            />
-          }
+          element={<EditSkillsPage setProgress={setProgress} />}
         />
 
         <Route
           path='/editpic'
-          element={<EditPic userData={userData} setProgress={setProgress} />}
+          element={<EditPic setProgress={setProgress} />}
         />
 
         {/* ADMIN ROUTE */}

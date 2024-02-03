@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './App.css';
 import { getUser } from './api/userRequest';
 import toast, { Toaster } from 'react-hot-toast';
@@ -7,6 +7,7 @@ import { Emoji } from 'emoji-picker-react';
 import TopBar from './components/CommonTopBar/TopBar';
 import { useNavigate } from 'react-router-dom';
 import WebPages from './components/Maincomp';
+import { MainContext } from './context/MainContextProvider';
 export const pagesToNotRedirect = [
   '/',
   '/mlogin',
@@ -38,24 +39,22 @@ export const pagesToNotRedirect = [
   '/password/reset',
 ];
 
-function App({ location }) {
+function App() {
   const [userData, setUserData] = useState(null);
-  const [progress, setProgress] = useState(0);
   const [Mentor, setMentor] = useState(false);
   const [isFetched, setIsFetched] = useState(false);
   const [notifyList, setNotifyList] = useState([]);
 
-  const redirectIfNotAuthorize = () => {
+  const { progress, setProgress } = useContext(MainContext);
 
+  const redirectIfNotAuthorize = () => {
     localStorage.removeItem('skilloptoken');
     if (pagesToNotRedirect.includes(window.location.pathname)) {
-      
       return;
     }
     toast.error('Please Login/Signup to continue');
 
     if (window.innerWidth > 500) {
-
       navigate(`/login?redirect=${window.location.pathname}`);
     } else {
       navigate(`/mlogin?redirect=${window.location.pathname}`);
@@ -98,8 +97,6 @@ function App({ location }) {
     }
   }, []);
 
-  const [showPostPopUp, setShowPostPopUp] = useState(false);
-
   const excludedRoutes = [
     '/',
     '/mlogin',
@@ -141,11 +138,7 @@ function App({ location }) {
   return (
     <>
       <Toaster />
-      <div className='md:hidden'>
-        {shouldRender && (
-          <TopBar setShowPostPopUp={setShowPostPopUp} navigate={navigate} />
-        )}
-      </div>
+      <div className='md:hidden'>{shouldRender && <TopBar />}</div>
       <WebPages
         setNotifyList={setNotifyList}
         Mentor={Mentor}
@@ -156,8 +149,6 @@ function App({ location }) {
         userData={userData}
         setUserData={setUserData}
         setProgress={setProgress}
-        setShowPostPopUp={setShowPostPopUp}
-        showPostPopUp={showPostPopUp}
       />
       <LoadingBar
         color='#f11946'

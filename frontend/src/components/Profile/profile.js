@@ -21,7 +21,7 @@ import Mobilecommonhead from '../Mobilecommonhead';
 import ProfileHeader from './ProfileHeader/ProfileHeader';
 import UpcomingEvents from '../Landing/Profileandevents/UpcomingEvents';
 
-const Profile = ({ setProgress, Mentor, isFetched, notifyList }) => {
+const Profile = ({ setProgress }) => {
   const [updateDom, setUpdateDom] = useState(false);
   const [userDetails, setUserDetails] = useState({});
   const [ShowSkillPopUp, setShowSkillPopUp] = useState(false);

@@ -20,11 +20,7 @@ const MEET_STATUS = {
 };
 
 function RequestedMeets({
-  userData,
   setProgress,
-  Mentor,
-  isFetched,
-  notifyList,
 }) {
   const navigate = useNavigate();
 

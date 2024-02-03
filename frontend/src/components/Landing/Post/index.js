@@ -14,8 +14,6 @@ function Post({
   setMentor,
   setIsFetched,
   setNotifyList,
-  setShowPostPopUp,
-  showPostPopUp,
 }) {
   const [isHome, setIsHome] = useState(false);
   const [reloadPost, setReloadPost] = useState(false);
@@ -76,9 +74,6 @@ function Post({
             setProgress={setProgress}
             displaycreatepost={true}
             userData={userData}
-            setUserData={setUserData}
-            setShowPostPopUp={setShowPostPopUp}
-            showPostPopUp={showPostPopUp}
           />
         )}
 

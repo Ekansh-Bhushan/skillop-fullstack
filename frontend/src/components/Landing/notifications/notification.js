@@ -16,8 +16,6 @@ const Notification = ({
   setProgress,
   userData,
   setUserData,
-  Mentor,
-  isFetched,
 }) => {
   const [selectedButton, setSelectedButton] = useState('All'); // Initial selected button
   const [notifyList, setNotifyList] = useState([]);

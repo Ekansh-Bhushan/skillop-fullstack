@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 import Mobilecommonhead from '../../Mobilecommonhead';
 import './chat.css';
 
-function Chat({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function Chat({ userData, setProgress }) {
   // console.log(userData);
   const [chats, setChats] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);

@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import Mobilecommonhead from '../Mobilecommonhead';
 import { MainContext } from '../../context/MainContextProvider';
 
-const UserPosts = ({ setProgress, Mentor, isFetched, notifyList }) => {
+const UserPosts = ({ setProgress }) => {
   const userId = window.location.pathname.split('/')[2];
 
   const [PostData, setPostData] = useState([]);

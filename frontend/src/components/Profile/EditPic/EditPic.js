@@ -12,7 +12,7 @@ import { MainContext } from '../../../context/MainContextProvider';
 
 const API = axios.create({ baseURL: 'https://skillop.in' });
 
-function EditPic({ userData, setProgress }) {
+function EditPic({setProgress }) {
   const [uploading, setUploading] = useState(false);
 
   const handleBack = () => {

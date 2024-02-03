@@ -1,7 +1,7 @@
 import React from 'react';
 import Profileandevents from '../../Landing/Profileandevents';
 
-const AuthorizeZoomMeet = () => {
+const AuthorizeZoomMeet = ({setProgress}) => {
   const path = window.location.href.split('/')[4];
   console.log("path --- ",path)
   return (

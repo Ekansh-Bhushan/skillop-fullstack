@@ -9,7 +9,7 @@ import {
   getSearchResultByPost,
 } from "../../api/searchFilter";
 
-function Searchbar({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function Searchbar({setProgress}) {
   const [collegeFilter, setCollegeFilter] = useState(false);
   const [degreeFilter, setDegreeFilter] = useState(false);
   const [companyFilter, setCompanyFilter] = useState(false);

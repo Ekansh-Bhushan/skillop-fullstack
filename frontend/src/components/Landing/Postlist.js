@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import userImage from '../images/user.png';
 import photoIcon from '../images/image.png';
 import videoIcon from '../images/video.jpeg';
@@ -11,6 +11,7 @@ import PostComp from '../PostComp';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import spinner from '../images/spinner.gif';
+import { MainContext } from '../../context/MainContextProvider';
 
 const API = axios.create({ baseURL: 'https://skillop.in' });
 
@@ -19,13 +20,11 @@ const Postlist = ({
   displaycreatepost,
   user,
   setProgress,
-  setUserData,
-  showPostPopUp,
-  setShowPostPopUp,
 }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isSticky, setIsSticky] = useState(false);
   const [reloadPost, setReloadPost] = useState(false);
+  const {showPostPopUp, setShowPostPopUp} = useContext(MainContext)
 
   const onClose = () => {
     setShowPostPopUp(!showPostPopUp);

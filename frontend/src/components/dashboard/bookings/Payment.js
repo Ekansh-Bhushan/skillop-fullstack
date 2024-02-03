@@ -10,7 +10,7 @@ import convertToNormalTime from '../../../utils/timeConversion';
 import spinner from '../../images/spinner.gif';
 import Mobilecommonhead from '../../Mobilecommonhead';
 
-const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
+const Payment = ({ setProgress }) => {
   const mentorid = window.location.pathname.split('/')[2];
   const [data, setData] = useState({});
   const search = useLocation().search;

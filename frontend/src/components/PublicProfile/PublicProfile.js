@@ -1,12 +1,9 @@
 import React from "react";
 import "./PublicProfile.css";
-import { findUser, getUser, getUserFromUsername } from "../../api/userRequest";
-import { updateProfile } from "../../api/userRequest";
+import { findUser, getUserFromUsername } from "../../api/userRequest";
 import { useEffect } from "react";
-
 import Spinner from "../images/spinner.gif";
 import { useState } from "react";
-import RightProfileComp from "./Right Public Profile/RightProfileComp";
 import Mobilecommonhead from "../Mobilecommonhead";
 import PublicProfileHeader from "./PublicProfileHeader";
 import TaggingManager from "../../utils/tagManager";
@@ -16,9 +13,7 @@ import toast from "react-hot-toast";
 const PublicProfile = ({
   userDatamain,
   setProgress,
-  Mentor,
-  isFetched,
-  notifyList,
+
 }) => {
   const navigate = useNavigate();
   const userId = window.location.pathname.split("/")[2];

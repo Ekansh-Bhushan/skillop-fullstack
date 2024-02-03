@@ -24,9 +24,8 @@ import {
   queryUserFromUsername,
 } from '../../../api/userRequest';
 import TaggingManager from '../../../utils/tagManager';
-import { linkIdentifier } from '../../../utils/linkIdentifier';
 
-function Otherpost({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function Otherpost({ userData, setProgress }) {
   const postId = window.location.pathname.split('/')[2];
   const [post, setPost] = useState(null);
   const [comment, setComment] = useState('');

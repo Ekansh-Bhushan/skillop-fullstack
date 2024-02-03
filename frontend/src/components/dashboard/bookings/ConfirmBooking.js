@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import './ConfirmBooking.css';
-import userIcon from '../../images/user.png';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getMentorData } from '../../../api/mentorRequest';
 import toast from 'react-hot-toast';
 import convertToNormalTime from '../../../utils/timeConversion';
 import calculateTimeGap from '../../../utils/timeGap';
-import {
-  GoogleLogin,
-  GoogleOAuthProvider,
-  useGoogleLogin,
-} from '@react-oauth/google';
+// import {
+//   GoogleLogin,
+//   GoogleOAuthProvider,
+//   useGoogleLogin,
+// } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
-import MyCustomGoogleButton from './MyCustomGoogleButton';
-import axios from 'axios';
+// import MyCustomGoogleButton from './MyCustomGoogleButton';
+// import axios from 'axios';
 import Mobilecommonhead from '../../Mobilecommonhead';
 import Profileandevents from '../../Landing/Profileandevents';
 
-const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
+const ConfirmBooking = ({ setProgress }) => {
   const mentorid = window.location.pathname.split('/')[2];
   const [data, setData] = useState({});
   const search = useLocation().search;

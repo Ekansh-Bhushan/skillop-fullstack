@@ -11,7 +11,7 @@ import { getEarnings } from "../../../api/mentorRequest";
 import Mobilecommonhead from "../../Mobilecommonhead";
 import UpcomingEvents from "../../Landing/Profileandevents/UpcomingEvents";
 
-function Earning({ userData, setProgress, Mentor, isFetched, notifyList }) {
+function Earning({ userData, setProgress, Mentor}) {
   const navigate = useNavigate();
   const [earnings, setEarnings] = useState({});
 

@@ -3,7 +3,6 @@ import "./index.css";
 import { toast } from "react-hot-toast";
 import { getActualAvail, postSlot } from "../../../api/slotsRequest";
 import { useState } from "react";
-import SideNav from "../../SideNav/SideNav";
 import Header1 from "../../Header";
 import Pageloader from "../../Pagesbar";
 import { useNavigate } from "react-router-dom";
@@ -15,8 +14,6 @@ function Dashboard({
   setProgress,
   shouldbevisible,
   Mentor,
-  isFetched,
-  notifyList,
 }) {
   const navigate = useNavigate();
   const targetref = useRef(null);
@@ -256,7 +253,7 @@ function Dashboard({
           </div>
         </div>
       </div>
-      {shouldbevisible && userData._id && (
+      {/* {shouldbevisible && userData._id && (
         <SideNav
           setProgress={setProgress}
           Mentor={Mentor}
@@ -264,7 +261,7 @@ function Dashboard({
           notifyList={notifyList}
           CurrUserId={userData._id}
         />
-      )}
+      )} */}
 
       <div className='flex mt-[35px] ml-[40vh] md:ml-[10vh]'>
         {/* <Commondash userData={userData} /> */}
