@@ -113,7 +113,7 @@ exports.requestAppointment = async (req, res) => {
       'monday',
       'tuesday',
       'wednesday',
-      'thusday',
+      'thursday',
       'friday',
       'saturday',
     ];
@@ -494,7 +494,7 @@ exports.getAvailability = async (req, res) => {
       'monday',
       'tuesday',
       'wednesday',
-      'thusday',
+      'thursday',
       'friday',
       'saturday',
     ];
