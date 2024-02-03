@@ -22,7 +22,7 @@ const MentorSchema = new mongoose.Schema({
             monday: [{ s: Number, e: Number }],
             tuesday: [{ s: Number, e: Number }],
             wednesday: [{ s: Number, e: Number }],
-            thusday: [{ s: Number, e: Number }],
+            thursday: [{ s: Number, e: Number }],
             friday: [{ s: Number, e: Number }],
             saturday: [{ s: Number, e: Number }],
             sunday: [{ s: Number, e: Number }],
