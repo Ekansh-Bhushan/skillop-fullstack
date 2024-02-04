@@ -1,31 +1,63 @@
-const slotsDivider = (slots) => {
-  let newSlots = [];
-  slots.forEach((item) => {
-    if (item.e - item.s > 100) {
-      for (let i = item.s; i < item.e; i += 100) {
-        newSlots.push({ s: i, e: i + 100 });
+const isValidAvailability = require('../algo/availability/isValidAvailability');
+const slotsDivider = require('../algo/availability/slotsHourDivider');
+
+const updateAvailability = async (req) => {
+  try {
+    // check is availability is valid
+    const availability = req.body.actualAvailability;
+    let flag = true;
+    const days = [
+      'sunday',
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
+    ];
+    for (let i = 0; i < days.length; i++) {
+      if (!availability[days[i]]) {
+        continue;
       }
-    } else {
-      newSlots.push(item);
+      availability[days[i]] = isValidAvailability(availability[days[i]]);
+      if (availability[days[i]]) {
+        availability[days[i]] = slotsDivider(availability[days[i]]);
+        availability[days[i]] = availability[days[i]].sort((a, b) => {
+          if (a.s == b.s) {
+            return a.e - b.e;
+          }
+          return a.s - b.s;
+        });
+      }
+      if (!availability[days[i]]) {
+        flag = false;
+        break;
+      }
     }
-  });
-  return newSlots;
+    if (!flag) {
+      console.log('Please provide valid availibility');
+      return;
+    }
+    console.log("here is final - ",availability)
+  } catch (error) {
+    console.log('Unable to add slot ', error);
+  }
 };
 
-let slots = [
-  {
-    s: 1900,
-    e: 2000,
+const req = {
+  body: {
+    actualAvailability: {
+      monday: [{ s: '1100', e: '1900' }],
+      tuesday: [],
+      wednesday: [],
+      thursday: [],
+      friday: [],
+      saturday: [],
+      sunday: [],
+    },
   },
-  {
-    s: 1100,
-    e: 1600,
-  },
-  {
-    s: 800,
-    e: 900,
-  },
-];
+};
 
-const dividedslots = slotsDivider(slots);
-console.log('final ', dividedslots);
+updateAvailability(req);
+
+// console.log(slotsDivider([{ s: '1100', e: '1900' }]));

@@ -1,5 +1,4 @@
 const isValidAvailability = (availability) => {
-    console.log(availability);
     availability = availability.sort((a, b) => {
         if (a.s == b.s) {
             return a.e - b.e;
@@ -7,7 +6,9 @@ const isValidAvailability = (availability) => {
         return a.s - b.s;
     });
     for (let i = 0; i < availability.length; i++) {
+        console.log("checking for ",availability[i])
         if (availability[i].s >= availability[i].e) {
+            console.log("start > end")
             return false;
         }
     }
