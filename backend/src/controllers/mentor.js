@@ -629,13 +629,13 @@ exports.updateAvailability = async (req, res) => {
 
 exports.deleteAvailability = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
-    if (!user.isMentor) {
-      return res.status(400).send({
-        result: false,
-        message: 'You are not a mentor',
-      });
-    }
+    // const user = await User.findById(req.user._id);
+    // if (!user.isMentor) {
+    //   return res.status(400).send({
+    //     result: false,
+    //     message: 'You are not a mentor',
+    //   });
+    // }
     const delSlot = await Mentor.findByIdAndDelete(req.params.slotID);
     if (!delSlot) {
       return res.status(404).json({ result: false, message: 'Slot not found' });
