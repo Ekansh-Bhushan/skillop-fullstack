@@ -918,8 +918,11 @@ non-act {
 #comment-to-prof:hover {
   background: rgb(223, 223, 223);
   cursor: pointer;
+  
 }
-
+#comment-to-prof p {
+  overflow-wrap:break-word;
+}
 .displayComments {
   display: flex;
   align-items: center;
