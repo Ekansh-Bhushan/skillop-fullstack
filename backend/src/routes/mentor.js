@@ -5,6 +5,7 @@ const {
     requestAppointment,
     getAvailability,
     updateAvailability,
+    deleteAvailability,
     getMeets,
     getActualAvailability,
     acceptMeet,
@@ -30,6 +31,9 @@ router
 router
     .route("/mentor/update/availability")
     .put(isAuthorised, updateAvailability);
+router
+  .route('/mentor/delete/slot/:slotID')
+  .delete(isAuthorised, deleteAvailability);
 router.route("/mentor/meets").get(isAuthorised, getMeets);
 router.route("/mentor/meet/upcomming").get(isAuthorised, getUpcommingMeet);
 router.route("/mentor/meet/pending").get(isAuthorised, getPendingMeet);

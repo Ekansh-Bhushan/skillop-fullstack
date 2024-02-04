@@ -557,10 +557,10 @@ exports.updateAvailability = async (req, res) => {
     // check if user is mentor
     const user = await User.findById(req.user._id);
     if (!user.isMentor) {
-        return res.status(400).send({
-            result: false,
-            message: "You are not a mentor",
-        });
+      return res.status(400).send({
+        result: false,
+        message: 'You are not a mentor',
+      });
     }
 
     // check if availability is provided
@@ -597,9 +597,7 @@ exports.updateAvailability = async (req, res) => {
           return a.s - b.s;
         });
       }
-      if (
-        !availability[days[i]]
-      ) {
+      if (!availability[days[i]]) {
         flag = false;
         break;
       }
@@ -625,6 +623,31 @@ exports.updateAvailability = async (req, res) => {
       result: false,
       err: error.message,
       message: 'Internal Server Error',
+    });
+  }
+};
+
+exports.deleteAvailability = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (!user.isMentor) {
+      return res.status(400).send({
+        result: false,
+        message: 'You are not a mentor',
+      });
+    }
+    const delSlot = await Mentor.findByIdAndDelete(req.params.slotID);
+    if (!delSlot) {
+      return res.status(404).json({ result: false, message: 'Slot not found' });
+    }
+    res
+      .status(200)
+      .json({ result: delSlot, message: 'Slot successfully deleted' });
+  } catch (err) {
+    res.status(500).send({
+      result: false,
+      err: err.message,
+      message: 'Unable to delete slot',
     });
   }
 };
