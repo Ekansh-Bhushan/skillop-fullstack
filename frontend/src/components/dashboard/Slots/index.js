@@ -1,49 +1,38 @@
-import React, { useEffect, useRef } from "react";
-import "./index.css";
-import { toast } from "react-hot-toast";
-import { getActualAvail, postSlot } from "../../../api/slotsRequest";
-import { useState } from "react";
-import Header1 from "../../Header";
-import Pageloader from "../../Pagesbar";
-import { useNavigate } from "react-router-dom";
-import Profileandevents from "../../Landing/Profileandevents";
-import Mobilecommonhead from "../../Mobilecommonhead";
+import React, { useEffect, useRef } from 'react';
+import './index.css';
+import { toast } from 'react-hot-toast';
+import {
+  delIndividualSlot,
+  getActualAvail,
+  postSlot,
+} from '../../../api/slotsRequest';
+import { useState } from 'react';
+import Header1 from '../../Header';
+import Pageloader from '../../Pagesbar';
+import { useNavigate } from 'react-router-dom';
+import Profileandevents from '../../Landing/Profileandevents';
+import Mobilecommonhead from '../../Mobilecommonhead';
 
-function Dashboard({
-  userData,
-  setProgress,
-  shouldbevisible,
-  Mentor,
-}) {
+function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
   const navigate = useNavigate();
+  const [refresh, setRefresh] = useState(false);
   const targetref = useRef(null);
+
   const [avail, setAvail] = useState({
     monday: [],
     tuesday: [],
     wednesday: [],
-    thusday: [],
+    thursday: [],
     friday: [],
     saturday: [],
     sunday: [],
   });
 
-  const lastpage = () => {
-    setProgress(30);
-    setTimeout(() => {
-      setProgress(100);
-    }, 250);
-    navigate("/laststep");
-  };
-
-  const [refresh, setRefresh] = useState(false);
-
   useEffect(() => {
     const getSlots = async () => {
       try {
-        console.log("refresh");
         const { data } = await getActualAvail();
         setAvail(data.result);
-        console.log(data.result);
       } catch (error) {
         console.log(error);
       }
@@ -54,43 +43,41 @@ function Dashboard({
   useEffect(() => {
     function handleClickOutside2(event) {
       if (targetref.current && !targetref.current.contains(event.target)) {
-        document.querySelector(".slot-pop").classList.add("hideelem");
+        document.querySelector('.slot-pop').classList.add('hideelem');
       }
     }
-    document.addEventListener("click", handleClickOutside2);
+    document.addEventListener('click', handleClickOutside2);
     return () => {
-      document.removeEventListener("click", handleClickOutside2);
+      document.removeEventListener('click', handleClickOutside2);
     };
   }, []);
 
   useEffect(() => {
-    if (window.location.pathname.toString().includes("authskill")) {
-      document.querySelector(".schedules-dash").style.width = "75%";
-      document.querySelector(".schedules-dash").style.margin = "auto";
-      document.querySelector(".header-dash").style.marginLeft = "40vh";
+    if (window.location.pathname.toString().includes('authskill')) {
+      document.querySelector('.schedules-dash').style.width = '75%';
+      document.querySelector('.schedules-dash').style.margin = 'auto';
+      document.querySelector('.header-dash').style.marginLeft = '40vh';
     }
   }, []);
 
   if (!Mentor) {
-    navigate("/homepage");
-    toast.error("Slots page is 🔒 locked\nBecome a MENTOR 😎 to unlock!");
+    navigate('/homepage');
+    toast.error('Slots page is 🔒 locked\nBecome a MENTOR 😎 to unlock!');
     return null;
   }
 
   const showslotlist = () => {
-    document.querySelector(".slot-pop").classList.remove("hideelem");
-    document.querySelector(".slot-pop").style.backdropFilter =
-      "brightness(30%)";
+    document.querySelector('.slot-pop').classList.remove('hideelem');
+    document.querySelector('.slot-pop').style.backdropFilter =
+      'brightness(30%)';
   };
 
   const AddSlot = async (data) => {
     try {
-      // const { data } = await postSlot({
-      //   actualAvailability: avail,
-      // });
+      console.log('here is data : ', data);
       await postSlot(data);
       // if (Object.keys(data.actualAvailability).length > 0)
-      toast.success("Slot added!");
+      toast.success('Slot added!');
     } catch (error) {
       toast.error(error.response.data.message);
       console.log(error); // toast it  error.response.data.message
@@ -98,19 +85,19 @@ function Dashboard({
   };
   // AddSlot();
   const closeit = () => {
-    document.querySelector(".slot-pop").classList.add("hideelem");
+    document.querySelector('.slot-pop').classList.add('hideelem');
   };
 
   const saveSlots = async (day) => {
     setRefresh(!refresh);
     const stAR = document
-      .getElementById(day + "-start")
+      .getElementById(day + '-start')
       .value.toString()
-      .split(":");
+      .split(':');
     const edAR = document
-      .getElementById(day + "-end")
+      .getElementById(day + '-end')
       .value.toString()
-      .split(":");
+      .split(':');
     const st = stAR[0] + stAR[1];
     const ed = edAR[0] + edAR[1];
     // console.log(day, stAR, edAR);
@@ -143,7 +130,7 @@ function Dashboard({
     };
 
     try {
-      toast.success("All slots deleted!");
+      toast.success('All slots deleted!');
       setRefresh(!refresh);
       await AddSlot(JSON.stringify(resBody));
       setRefresh(!refresh);
@@ -152,43 +139,27 @@ function Dashboard({
     }
   };
 
-  const addButton = (day) => {
-    const s = document.getElementById(day + "-start").value;
-    const e = document.getElementById(day + "-end").value;
-
-    var slot = document.createElement("div");
-    slot.textContent = s + " " + " " + e;
-    document.querySelector("." + day).appendChild(slot);
-    var h = document.querySelector("." + day).querySelector("h6");
-    if (h) {
-      h.parentNode.removeChild(h);
+  const handleIndividualSlotDel = async (day, slot) => {
+    try {
+      const res = await delIndividualSlot(day, slot);
+      console.log('del slor resp ', res);
+      setRefresh(!refresh);
+      toast.success('Slot deleted');
+    } catch (err) {
+      console.log('Error deleting slot', err);
+      toast.error(err?.response?.data?.message);
+      toast.error(err?.response?.data?.err);
     }
-    // console.log(s, e);
-    let xcvn = avail;
-    if (!xcvn) xcvn = {};
-    if (!xcvn[day]) xcvn[day] = [];
-    xcvn[day].push({
-      // remove semicolon from the s
-
-      s:
-        s.replace(/:/g, "").length === 3
-          ? "0" + s.replace(/:/g, "")
-          : s.replace(/:/g, ""),
-      e:
-        e.replace(/:/g, "").length === 3
-          ? "0" + e.replace(/:/g, "")
-          : e.replace(/:/g, ""),
-    });
-    setAvail(xcvn);
   };
+
   const days = [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thusday",
-    "friday",
-    "saturday",
-    "sunday",
+    'sunday',
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday',
   ];
 
   return (
@@ -214,33 +185,42 @@ function Dashboard({
             <div className='line32'></div>
           </div>
           <div className='all-slots'>
-            <h2 style={{ textAlign: 'center' }}>
+            <h1 style={{ textAlign: 'center' }}>
               <u>Your saved slots</u>
-            </h2>
+            </h1>
             {days.map((day) => (
               <>
                 <div className={day}>
-                  <h3>{day.charAt(0).toUpperCase() + day.slice(1)}</h3>
+                  <h2>{day.charAt(0).toUpperCase() + day.slice(1)}</h2>
                   <br></br>
                   {avail[day] && avail[day].length !== 0 ? (
                     avail[day].map((slot, index) => {
                       return (
-                        <div key={index}>
-                          {JSON.stringify(slot.s).length === 3
-                            ? JSON.stringify(slot.s).slice(0, 1) +
-                              ':' +
-                              JSON.stringify(slot.s).slice(1, 3)
-                            : JSON.stringify(slot.s).slice(0, 2) +
-                              ':' +
-                              JSON.stringify(slot.s).slice(2, 4)}
-                          {' - '}
-                          {JSON.stringify(slot.e).length === 3
-                            ? JSON.stringify(slot.e).slice(0, 1) +
-                              ':' +
-                              JSON.stringify(slot.e).slice(1, 3)
-                            : JSON.stringify(slot.e).slice(0, 2) +
-                              ':' +
-                              JSON.stringify(slot.e).slice(2, 4)}
+                        <div className='flex items-center gap-5 m-1 text-lg'>
+                          <div key={slot._id}>
+                            {JSON.stringify(slot.s).length === 3
+                              ? JSON.stringify(slot.s).slice(0, 1) +
+                                ':' +
+                                JSON.stringify(slot.s).slice(1, 3)
+                              : JSON.stringify(slot.s).slice(0, 2) +
+                                ':' +
+                                JSON.stringify(slot.s).slice(2, 4)}
+                            {' - '}
+                            {JSON.stringify(slot.e).length === 3
+                              ? JSON.stringify(slot.e).slice(0, 1) +
+                                ':' +
+                                JSON.stringify(slot.e).slice(1, 3)
+                              : JSON.stringify(slot.e).slice(0, 2) +
+                                ':' +
+                                JSON.stringify(slot.e).slice(2, 4)}
+                          </div>
+                          <img
+                            onClick={() => handleIndividualSlotDel(day, slot)}
+                            className='cursor-pointer hover:opacity-80'
+                            src='/delete.png'
+                            width={30}
+                            alt=''
+                          />
                         </div>
                       );
                     })
@@ -598,7 +578,7 @@ function Dashboard({
                   </button>
                 </div>
                 <div className='slot-4'>
-                  <select id='thusday-start'>
+                  <select id='thursday-start'>
                     <option value=''>Start</option>
                     <option value='8:00'>8:00</option>
                     <option value='8:30'>8:30</option>
@@ -633,7 +613,7 @@ function Dashboard({
                     <option value='23:00'>23:00</option>
                     <option value='23:30'>23:30</option>
                   </select>
-                  <select id='thusday-end'>
+                  <select id='thursday-end'>
                     <option value=''>End</option>
                     <option value='9:00'>9:00</option>
                     <option value='9:30'>9:30</option>
@@ -669,16 +649,16 @@ function Dashboard({
                   </select>
                   <button
                     className='pushslot'
-                    id='thusday'
+                    id='thursday'
                     onClick={() => {
-                      saveSlots('thusday');
+                      saveSlots('thursday');
                       // Call the function to save the slot (you can pass any necessary parameters)
 
                       // Reset selected time slots to default (9:00)
                       const startTimeSelect =
-                        document.getElementById('thusday-start');
+                        document.getElementById('thursday-start');
                       const endTimeSelect =
-                        document.getElementById('thusday-end');
+                        document.getElementById('thursday-end');
                       startTimeSelect.value = '8:00';
                       endTimeSelect.value = '9:00';
                     }}
@@ -940,7 +920,6 @@ function Dashboard({
                     onClick={() => {
                       saveSlots('sunday');
                       // Call the function to save the slot (you can pass any necessary parameters)
-
                       // Reset selected time slots to default (9:00)
                       const startTimeSelect =
                         document.getElementById('sunday-start');
@@ -969,18 +948,6 @@ function Dashboard({
                 Delete slots
               </button>
             </div>
-            {!shouldbevisible && (
-              <span
-                style={{
-                  color: 'blue',
-                  cursor: 'pointer',
-                  textAlign: 'center',
-                }}
-                onClick={lastpage}
-              >
-                Skip for now
-              </span>
-            )}
           </div>
         </div>
       </div>

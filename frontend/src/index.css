@@ -14,16 +14,16 @@ code {
 
 /* SCROLLBAR STYLING */
 ::-webkit-scrollbar-track {
-  background-color: rgb(236, 234, 234);
+  background-color: rgb(255, 255, 255);
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(73, 73, 73);
   border-radius: 1rem;
-  border: 0.27rem solid transparent;
+  border: 0.2rem solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar {
-  width: 1rem;
+  width: 14px;
 }

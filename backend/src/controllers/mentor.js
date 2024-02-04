@@ -13,6 +13,7 @@ const Notification = require('../models/notification');
 const MEET_STATUS = require('../enums/meetStatus');
 const { google } = require('googleapis');
 const slotsDivider = require('../algo/availability/slotsHourDivider');
+const user = require('../models/user');
 
 // const { json } = require("express");
 
@@ -629,14 +630,27 @@ exports.updateAvailability = async (req, res) => {
 
 exports.deleteAvailability = async (req, res) => {
   try {
-    // const user = await User.findById(req.user._id);
-    // if (!user.isMentor) {
-    //   return res.status(400).send({
-    //     result: false,
-    //     message: 'You are not a mentor',
-    //   });
-    // }
-    const delSlot = await Mentor.findByIdAndDelete(req.params.slotID);
+    const user = await User.findById(req.user._id);
+    if (!user.isMentor) {
+      return res.status(400).send({
+        result: false,
+        message: 'You are not a mentor',
+      });
+    }
+    // const delSlot = await Mentor.actualAvailability.findByIdAndDelete(
+    //   req.params.slotID
+    // );
+
+     const delSlot = await Mentor.findOneAndUpdate(
+       { _id: user.mentor },
+       {
+         $pull: {
+           [`actualAvailability.${req.params.day}`]: req.body,
+         },
+       },
+       { new: true } // To return the modified document
+     );
+
     if (!delSlot) {
       return res.status(404).json({ result: false, message: 'Slot not found' });
     }

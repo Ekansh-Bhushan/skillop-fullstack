@@ -1,9 +1,6 @@
-import React, { useEffect } from "react";
 import userpic from "../../../images/user.png";
 import "./box.css";
 import { useNavigate } from "react-router-dom";
-import { readNotifications } from "../../../../api/getNotifications";
-import { useState } from "react";
 
 const Box = ({ message, time, url, isread, id, type, img, category }) => {
   const navigate = useNavigate();

@@ -12,11 +12,7 @@ import Mobilecommonhead from '../../Mobilecommonhead';
 import toast from 'react-hot-toast';
 
 // function Notify({ userData }) {
-const Notification = ({
-  setProgress,
-  userData,
-  setUserData,
-}) => {
+const Notification = ({ setProgress, userData, setUserData }) => {
   const [selectedButton, setSelectedButton] = useState('All'); // Initial selected button
   const [notifyList, setNotifyList] = useState([]);
   const [fetchingNotify, setFetchingNotify] = useState(false);
@@ -87,8 +83,8 @@ const Notification = ({
                 return (
                   <div
                     onClick={() => markReadNotification(item._id)}
-                    className={`border-b-2 ${
-                      !item.read ? '' : 'bg-[#84848426]'
+                    className={`border-b-2 border-gray-400 hover:bg-gray-200 ${
+                      item.read ? '' : 'bg-[#f6f6f6] font-bold'
                     }`}
                   >
                     <Box

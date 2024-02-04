@@ -4,6 +4,7 @@ exports.isAuthorised = async (req, res, next) => {
     try {
         // const token = req.cookies.token;
         const token = req.headers["authorization"];
+        console.log("here is token - ",token)
 
         // console.log(token);
         if (!token) {

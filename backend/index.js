@@ -28,10 +28,9 @@ connectDB();
 //     credentials: true,
 // };
 const allowedOrigins = [
-  'https://skillop.in',
-  'https://skillop.in',
-  'https://skillop.in',
   'http://localhost:3000',
+  'https://skillop.in',
+  'https://www.skillop.in',
   'http://89.116.236.71:4000',
 ];
 
