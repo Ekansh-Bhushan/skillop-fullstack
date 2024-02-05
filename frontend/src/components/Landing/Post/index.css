@@ -1587,7 +1587,7 @@ non-act {
   .posting-on-landing {
     width: 100%;
     position: relative;
-    top: 700px;
+    top: 30px;
   }
   .event-upcoming {
     width: calc(100% - 40px);
@@ -1605,6 +1605,7 @@ non-act {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    display: none;
   }
   .prof-image-common {
     height: 60px;
