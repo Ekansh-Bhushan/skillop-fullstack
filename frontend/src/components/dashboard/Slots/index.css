@@ -889,9 +889,6 @@ body {
 } */
 
 .meet-rate {
-  position: absolute;
-  right: -32vw;
-  top: 15vw;
   padding: 2vw 4vw;
   border: 2px solid black;
   border-radius: 15px;

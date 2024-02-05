@@ -1,10 +1,6 @@
-import React, { Children, useEffect, useState } from 'react';
-import logo from '../../images/logo.png';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Commondash from '../common';
-import Topbar from '../topbar';
 import Profileandevents from '../../Landing/Profileandevents';
-import Profile from '../../Profile/profile';
 
 import {
   acceptMeet,
@@ -180,7 +176,7 @@ function Bookings({ userData, setProgress, Mentor, }) {
         {/* <Commondash userData={userData} /> */}
 
         <div className='dash-right'>
-          {/* <Profileandevents /> */}
+          <Profileandevents />
 
           {/* <Topbar setProgress={setProgress}/> */}
           <div className='session-dash-info ml-5'>
