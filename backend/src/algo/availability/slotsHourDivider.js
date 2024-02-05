@@ -2,8 +2,12 @@ const slotsDivider = (slots) => {
   let newSlots = [];
   slots.forEach((item) => {
     if (Number.parseInt(item.e) - Number.parseInt(item.s) > 100) {
-      for (let i = Number.parseInt(item.s); i < Number.parseInt(item.e); i += 100) {
-        newSlots.push({ s: i, e: i + 100 });
+      for (
+        let i = Number.parseInt(item.s);
+        i < Number.parseInt(item.e);
+        i += 100
+      ) {
+        newSlots.push({ s: i, e: (i + 100 <= item.e) ? i + 100 : i + 30 });
       }
     } else {
       newSlots.push(item);

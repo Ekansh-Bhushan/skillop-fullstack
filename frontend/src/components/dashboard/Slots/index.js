@@ -74,7 +74,6 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
 
   const AddSlot = async (data) => {
     try {
-      console.log('here is data : ', data);
       await postSlot(data);
       // if (Object.keys(data.actualAvailability).length > 0)
       toast.success('Slot added!');
@@ -100,14 +99,13 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
       .split(':');
     const st = stAR[0] + stAR[1];
     const ed = edAR[0] + edAR[1];
-    // console.log(day, stAR, edAR);
     const resBody = {
       actualAvailability: {
         ...avail,
         [day]: [
           {
-            s: st,
-            e: ed,
+            s: Number.parseInt(st),
+            e: Number.parseInt(ed),
           },
         ].concat(avail[day]),
       },
@@ -115,8 +113,7 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
 
     try {
       setRefresh(!refresh);
-      console.log(JSON.stringify(resBody));
-      await AddSlot(JSON.stringify(resBody));
+      await AddSlot(resBody);
       setRefresh(!refresh);
     } catch (err) {
       console.log(err);

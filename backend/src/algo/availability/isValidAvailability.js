@@ -6,7 +6,6 @@ const isValidAvailability = (availability) => {
         return a.s - b.s;
     });
     for (let i = 0; i < availability.length; i++) {
-        console.log("checking for ",availability[i])
         if (availability[i].s >= availability[i].e) {
             console.log("start > end")
             return false;
