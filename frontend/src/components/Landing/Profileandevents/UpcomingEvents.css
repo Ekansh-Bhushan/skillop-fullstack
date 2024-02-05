@@ -35,3 +35,8 @@
     display: none;
   }
 }
+@media only screen and (max-width: 1190px) {
+  .event-upcoming2 {
+    display: none;
+  }
+}
