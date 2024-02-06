@@ -201,14 +201,14 @@
   .side-nav-container {
     width: 19vw;
     padding-left: 0.8vw;
-    margin-top: -43px;
+    margin-top: -10px;
   }
 }
 @media only screen and (max-width: 1500px) {
   .side-nav-container {
     width: 20vw;
     padding-left: 0.8vw;
-    margin-top: -43px;
+    margin-top: -30px;
   }
 }
 @media only screen and (max-width: 1400px) {
