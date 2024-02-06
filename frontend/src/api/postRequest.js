@@ -171,3 +171,17 @@ export const getPostFromSpecificUser = (userId) => {
     };
     return API.get(`/api/post/from/${userId}`, config);
 };
+
+export const deletePost = (postId) => {
+    const token = localStorage.getItem("skilloptoken");
+
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+        },
+        withCredentials: true,
+    };
+
+    return API.delete(`/api/post/delete/${postId}`, config);
+};

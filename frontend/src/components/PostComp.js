@@ -18,7 +18,6 @@ import { linkIdentifier } from '../utils/linkIdentifier';
 import { deletePost } from '../api/postRequest';
 
 
-
 const PostComp = ({
   userData,
   author,
@@ -83,26 +82,22 @@ const PostComp = ({
     try {
       console.log('Deleting post...', _id);
   
-      // Call the deletePost function with the post ID
+      
       const response = await deletePost(_id);
   
-      // Log the server response
+      
       console.log('Server Response:', response);
   
-      // Check if the deletion was successful
+     
       if (response && response.data && response.data.success) {
         console.log('Post deleted successfully!');
-        // Perform any additional actions after deleting the post
-  
-        // Example: Redirect to a different page after deletion
-        // navigate('/redirect-page');
+        
       } else {
         console.error('Error deleting post. Unexpected response:', response);
-        // Handle the case where the response is unexpected or the deletion failed
+        
       }
     } catch (error) {
       console.error('Error deleting post:', error);
-      // Handle any errors that occurred during the deletion process
     }
   };
   
@@ -316,7 +311,7 @@ const PostComp = ({
                 </div>
               </div>
               {userData._id === author._id && (
-                <div className='delete-post-btn' style={{ marginLeft: 'auto' }}>
+                <div className='delete-post-btn' style={{ marginRight: 'auto' }}>
                   <button onClick={handleDelete} className='delete-btn'>
                   <span role="img" aria-label="delete-icon">🗑️</span>Delete</button>
                 </div>
@@ -328,6 +323,7 @@ const PostComp = ({
                 <button
                   style={{
                     color: '#108cff',
+                    
                     fontSize: '1.1rem',
                   }}
                   onClick={async () => {

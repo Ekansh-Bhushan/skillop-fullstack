@@ -22,5 +22,8 @@
     "homepage": "https://github.com/basir/mern-amazona#readme",
     "devDependencies": {
         "jest": "^29.7.0"
+    },
+    "dependencies": {
+        "react-hot-loader": "^4.13.1"
     }
 }
