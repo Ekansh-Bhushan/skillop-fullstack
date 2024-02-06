@@ -15,6 +15,9 @@ import TaggingManager from '../utils/tagManager';
 import toast from 'react-hot-toast';
 import { getUserFromUsername } from '../api/userRequest';
 import { linkIdentifier } from '../utils/linkIdentifier';
+import { deletePost } from '../api/postRequest';
+
+
 
 const PostComp = ({
   userData,
@@ -34,9 +37,10 @@ const PostComp = ({
   const [fetchingComments, setFetchingComments] = useState(false);
   const [showPostImgPrew, setShowPostImgPrew] = useState(false);
   const navigate = useNavigate();
-  //   console.log(post);
+
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
 
   const openPopup = () => {
     setIsPopupOpen(true);
@@ -67,17 +71,50 @@ const PostComp = ({
       const commData = data.data.result;
       setCommentList(commData);
       setFetchingComments(false);
-      // console.log(commData);
-      // console.log(commentList);
+
     } catch (err) {
       console.log('Unable to get comments ', err);
     }
   };
 
+
+
+  const handleDelete = async () => {
+    try {
+      console.log('Deleting post...', _id);
+  
+      // Call the deletePost function with the post ID
+      const response = await deletePost(_id);
+  
+      // Log the server response
+      console.log('Server Response:', response);
+  
+      // Check if the deletion was successful
+      if (response && response.data && response.data.success) {
+        console.log('Post deleted successfully!');
+        // Perform any additional actions after deleting the post
+  
+        // Example: Redirect to a different page after deletion
+        // navigate('/redirect-page');
+      } else {
+        console.error('Error deleting post. Unexpected response:', response);
+        // Handle the case where the response is unexpected or the deletion failed
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      // Handle any errors that occurred during the deletion process
+    }
+  };
+  
+  
+
+
+
   const [likersList, setLikersList] = useState([]);
   const [fetchingLikers, setFetchingLikers] = useState(true);
 
   const [FollowBtn, setFollowBtn] = useState('Loading...');
+
 
   useEffect(() => {
     if (userData && userData.followings) {
@@ -85,14 +122,13 @@ const PostComp = ({
         userData.followings.includes(author._id) ? '✔ Following' : 'Follow'
       );
     } else if (!userData) {
-      // Handle missing userData explicitly
+
       setFollowBtn('Loading user data...');
     } else {
-      // Handle missing followings property
+
       setFollowBtn('Error: followings data not available');
     }
   }, [userData, author._id]);
-  // const [updateDOM, setUpdateDOM] = useState(false);
 
   const fetchLikers = async () => {
     try {
@@ -101,7 +137,7 @@ const PostComp = ({
       const likersData = data.data.result;
       setLikersList(likersData);
       setFetchingLikers(false);
-      // console.log(likersList[0].firstname);
+
     } catch (err) {
       console.log('Unable to fetch likers ', err);
     }
@@ -114,14 +150,14 @@ const PostComp = ({
   useEffect(() => {
     fetchComments();
     fetchLikers();
-    // console.log("AUTHOR : ",author)
+
   }, []);
 
   useEffect(() => {
     const getPost = async () => {
       try {
         const { data } = await getSpecificPost(_id);
-        // console.log(data.result);
+
         setPost(data.result);
         setLiked(data.result.likes.includes(userData._id));
       } catch (error) {
@@ -151,19 +187,17 @@ const PostComp = ({
     setCurrentMediaIndex((prevIndex) =>
       prevIndex === imageUrls.length - 1 ? 0 : prevIndex + 1
     );
-    // console.log("next ",currentMediaIndex)
+
   };
 
   const handlePreviousMedia = () => {
     setCurrentMediaIndex((prevIndex) =>
       prevIndex === 0 ? imageUrls.length - 1 : prevIndex - 1
     );
-    // console.log("prev ",currentMediaIndex)
+
   };
 
-  // useEffect(()=>{
-  //   console.log(imageUrls)
-  // },[])
+
 
   function formatTimeDifference() {
     const currentTime = new Date();
@@ -214,9 +248,7 @@ const PostComp = ({
     ) {
       return true;
     }
-    // else if (file.includes('.mp4') || file.includes('.mov') || file.includes('.wmv')) {
-    //     return "video";
-    // }
+
     else {
       return false;
     }
@@ -272,17 +304,23 @@ const PostComp = ({
                 <span style={{ fontSize: '12px' }} className='posted-by-brief'>
                   {author.experence.length
                     ? author.experence[0].title +
-                      ' @ ' +
-                      author.experence[0].company
+                    ' @ ' +
+                    author.experence[0].company
                     : author.education.length && author.education[0].institution
-                    ? 'Student @ ' +
+                      ? 'Student @ ' +
                       author.education[0].institution.slice(0, 50)
-                    : 'Student'}
+                      : 'Student'}
                 </span>
                 <div style={{ fontSize: '12px' }} className='post-time'>
                   {formatTimeDifference()}
                 </div>
               </div>
+              {userData._id === author._id && (
+                <div className='delete-post-btn' style={{ marginLeft: 'auto' }}>
+                  <button onClick={handleDelete} className='delete-btn'>
+                  <span role="img" aria-label="delete-icon">🗑️</span>Delete</button>
+                </div>
+              )}
             </div>
 
             {userData._id !== author._id && (
@@ -352,11 +390,9 @@ const PostComp = ({
       </div>
 
       {imageUrls.length ? (
-        // imageUrls[0].toLowerCase().includes(".jpg") ||
-        //   imageUrls[0].toLowerCase().includes(".jpeg") ||
-        //   imageUrls[0].toLowerCase().includes(".png")
+
         isImage(imageUrls[currentMediaIndex]) ? (
-          // false
+
           <div
             className='posted-img-container'
             style={{
@@ -465,7 +501,7 @@ const PostComp = ({
               )}
               {likersList.length > 1 && (
                 <>
-                  {/* <hr style={{marginBottom: "-12px"}}/> */}
+
                   <span className='likes-name'>
                     <b>
                       {likersList[likersList.length - 1].firstname +
@@ -477,9 +513,7 @@ const PostComp = ({
                       {likersList.length - 1} others
                     </span>{' '}
                   </span>
-                  {/* <span className='small-screen-likes-length'>
-                    {likersList.length} Like
-                  </span> */}
+
                 </>
               )}
             </div>
@@ -528,14 +562,7 @@ const PostComp = ({
               navigate(`/postsection/${_id}`);
             }}
           >
-            {/* <i
-              className="fa fa-lg fa-solid fa-comment"
-              style={{
-                marginRight: '4px',
-                textAlign: 'center',
-                marginBottom: '3px',
-              }}
-            ></i> */}
+
             <img style={{ marginRight: '4px' }} src='/comment.png' />
             Comments
           </div>
