@@ -1,0 +1,25 @@
+/* Add these styles for the delete button */
+.delete-btn {
+    border: 1px solid black;
+    background-color: white; /* Set the background color as needed */
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background-color: black; /* Change the background color on hover */
+    color: white; /* Change the text color on hover */
+  }
+
+  .post-1 {
+    position: relative;
+    padding-right: 40px; /* Adjust as needed */
+  }
+  
+  .delete-post-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
