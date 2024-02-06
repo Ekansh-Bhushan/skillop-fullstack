@@ -208,7 +208,7 @@
   .side-nav-container {
     width: 20vw;
     padding-left: 0.8vw;
-    margin-top: -30px;
+    margin-top: -5px;
   }
 }
 @media only screen and (max-width: 1400px) {
