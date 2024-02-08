@@ -14,19 +14,19 @@ export const createPost = (data) => {
     return API.post(`/api/post/create`, data, config);
 };
 
-export const deletePost = (postId) => {
-    const token = localStorage.getItem("skilloptoken");
+// export const deletePost = (postId) => {
+//     const token = localStorage.getItem("skilloptoken");
 
-    const config = {
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-        },
-        withCredentials: true,
-    };
+//     const config = {
+//         headers: {
+//             "Content-Type": "application/json",
+//             Authorization: token,
+//         },
+//         withCredentials: true,
+//     };
 
-    return API.delete(`/api/post/delete/${postId}`, config);
-};
+//     return API.delete(`/api/post/delete/${postId}`, config);
+// };
 
 
 export const getAllPost = (limit = 10, skip = 0) => {

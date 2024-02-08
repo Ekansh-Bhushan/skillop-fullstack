@@ -1733,6 +1733,7 @@ non-act {
   color: rgba(0, 0, 0, 0.667);
 }
 
+
 /* Mobile view */
 @media only screen and (max-width: 500px) {
   .mobile-panel {

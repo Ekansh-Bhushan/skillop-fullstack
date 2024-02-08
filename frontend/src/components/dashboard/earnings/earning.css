@@ -1,9 +1,10 @@
 .earning-dash {
   display: flex;
   flex-direction: column;
-  width: 49%;
+  width: 650px;
   margin-left: 2vw;
   /* padding-left: 20px; */
+  font-weight: 100;
   border-right: 1px solid #00000026;
 }
 
@@ -20,10 +21,19 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 500px) {
+@media  (max-width: 500px) {
   .earning-dash {
-    width: 100%;
-    margin-left: -16vw;
+    margin-left: -100px;
+    
+    /* margin-top: 10; */
+
+    /* position: absolute; */
+    /* width: 370px ; */
+
+    
+    /* border-right: none; */
+    /* margin-right: -16px; */
+    /* margin-top: auto; */
   }
 
   .line-earning {
@@ -32,5 +42,138 @@
 
   .info-dash-table {
     margin-bottom: 40px;
+  }
+}
+@media (min-width: 500px){
+  .total-mentee{
+    width: 45%;
+    
+
+  }
+  .earnings-dash{
+    width: 45%;
+    
+    
+  }
+}
+@media (min-width: 600px) {
+  .earning-dash{
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+    /* margin-left: -70px ; */
+    /* margin-left: -2vw; */
+  /* padding-left: 20px; */
+    /* border-right: 1px solid #00000026; */
+    /* position: absolute; */
+    /* justify-content: center; */
+    /* margin-top: 200px; */
+
+  }
+  .total-mentee{
+    width: 45%;
+    
+
+  }
+  .earnings-dash{
+    width: 45%;
+    
+    
+  }
+
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) {
+  .earning-dash{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    /* margin-left: -70px ; */
+    /* margin-left: -2vw; */
+  /* padding-left: 20px; */
+    border-right: 1px solid #00000026;
+    position: absolute;
+    /* margin-top: 200px; */
+  }
+  .total-mentee{
+    width: 40%;
+
+  }
+  .earnings-dash{
+    width: 40%;
+  }
+
+
+}
+
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) {
+  
+  .earning-dash{
+    display: flex;
+    flex-direction: column;
+    width: 530px;
+    margin-left: -70px ;
+    /* margin-left: -2vw; */
+  /* padding-left: 20px; */
+    border-right: 1px solid #00000026;
+  }
+  .total-mentee{
+    width: 40%;
+
+  }
+  .earnings-dash{
+    width: 40%;
+  }
+  
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 1190px) {
+  .earning-dash{
+    display: flex;
+    flex-direction: column;
+    width: 570px;
+    margin-left: -70px ;
+    /* margin-left: -2vw; */
+  /* padding-left: 20px; */
+    border-right: 1px solid #00000026;
+  }
+  .total-mentee{
+    width: 40%;
+
+  }
+  .earnings-dash{
+    width: 40%;
+  }
+
+}
+
+@media (min-width: 1400px) {
+
+  .earning-dash{
+    display: flex;
+    flex-direction: column;
+    width: 620px;
+    margin-left: 2vw;
+  /* padding-left: 20px; */
+    border-right: 1px solid #00000026;
+  }
+  .total-mentee{
+    width: 40%;
+
+  }
+  .earnings-dash{
+    width: 40%;
   }
 }

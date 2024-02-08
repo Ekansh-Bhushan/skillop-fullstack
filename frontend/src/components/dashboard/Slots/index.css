@@ -907,7 +907,7 @@ body {
     display: flex;
     gap: 40px;
     font-size: 17px;
-    border-bottom: 1px solid #00000026;
+    /* border-bottom: 1px solid #00000026; */
     width: 100%;
     padding: 10px;
     margin-inline: -15vw;
@@ -932,9 +932,7 @@ body {
   }
   .meet-rate {
     margin-inline: 0vw;
-    position: absolute;
-    right: -33vw;
-    top: 15vw;
+    text-align: center;
     padding: 2vw 4vw;
     border: 2px solid black;
     border-radius: 15px;
@@ -953,7 +951,7 @@ body {
     display: flex;
     gap: 40px;
     font-size: 17px;
-    border-bottom: 1px solid #00000026;
+    /* border-bottom: 1px solid #00000026; */
     width: 100%;
     padding: 10px;
     margin-inline: -15vw;
@@ -999,7 +997,7 @@ body {
     display: flex;
     gap: 40px;
     font-size: 17px;
-    border-bottom: 1px solid #00000026;
+    /* border-bottom: 1px solid #00000026; */
     width: 100%;
     padding: 10px;
     margin-inline: -15vw;
