@@ -22,18 +22,8 @@ const MEET_STATUS = {
   CANCELLED: 'cancelled',
 };
 
-function Bookings({ userData, setProgress, Mentor, }) {
+function Bookings({ userData, setProgress, Mentor }) {
   const navigate = useNavigate();
-
-  const displaynavmob = () => {
-    var x = document.querySelector('.side-nav-mob');
-    if (x.classList[1]) {
-      x.classList.remove('display');
-    } else {
-      x.classList.add('display');
-    }
-  };
-  
   const [book, setBook] = useState([]);
   const [upcomming, setUpcomming] = useState([]);
   const [pending, setPending] = useState([]);
@@ -78,6 +68,7 @@ function Bookings({ userData, setProgress, Mentor, }) {
   };
 
   useEffect(() => {
+    console.log("use eff 1")
     // setDisplaying("upcomming");
     // const getbookings = async () => {
     //     try {
@@ -131,8 +122,10 @@ function Bookings({ userData, setProgress, Mentor, }) {
     else if (displaying === 'pending') setBook(pending);
     else if (displaying === 'completed') setBook(completed);
   }, [displaying]);
+
+
   useEffect(() => {
-    console.log('useEffect');
+    console.log("use eff 2")
     // setDisplaying("upcomming");
     // const getbookings = async () => {
     //     try {
@@ -169,9 +162,8 @@ function Bookings({ userData, setProgress, Mentor, }) {
 
   return (
     <>
-     
       <Mobilecommonhead />
-     
+
       <div className='ml-[20vw] md:ml-0'>
         {/* <Commondash userData={userData} /> */}
 
@@ -259,24 +251,26 @@ function Bookings({ userData, setProgress, Mentor, }) {
                 ))}
               </div>
             )}
-            <div className='meet-rate'>
-              <div>
-                Current charge per hour : ₹{userData.mentor.chargePerHour}
-              </div>
-              <div style={{ display: 'flex', gap: '2vw' }}>
-                <input
-                  type='number'
-                  value={charge}
-                  onChange={(e) => setCharge(e.target.value)}
-                  className='meet-rate-input'
-                  placeholder='Enter new rate'
-                />
-                <button
-                  className='update-meet-rate-btn'
-                  onClick={handleUpdateCharge}
-                >
-                  Update
-                </button>
+            <div className='text-center flex justify-cente my-5'>
+              <div className='meet-rate'>
+                <div>
+                  Current charge per hour : ₹{userData.mentor.chargePerHour}
+                </div>
+                <div style={{ display: 'flex', gap: '2vw' }}>
+                  <input
+                    type='number'
+                    value={charge}
+                    onChange={(e) => setCharge(e.target.value)}
+                    className='meet-rate-input border-black border-[1px]'
+                    placeholder='Enter new rate'
+                  />
+                  <button
+                    className='update-meet-rate-btn'
+                    onClick={handleUpdateCharge}
+                  >
+                    Update
+                  </button>
+                </div>
               </div>
             </div>
           </div>

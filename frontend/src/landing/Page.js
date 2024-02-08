@@ -7,7 +7,7 @@ import LandingFour from "./LandingFour";
 import LandingFooter from "./LandingFooter";
 import TopBar from "../components/CommonTopBar/TopBar";
 import { Element } from "react-scroll";
-
+import LandingTest from "./LANDINGTEST";
 const Page = () => {
   return (
     <div>
@@ -17,6 +17,7 @@ const Page = () => {
       <div className="hidden md:block">
         <LandingNav />
       </div>
+      {/* <LandingTest/> */}
       <LandingOne />
       <LandingTwo />
       <Element name="landing-three">

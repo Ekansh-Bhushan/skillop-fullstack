@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import plus from "../components/images/plus (2).png";
 import Saly from "../components/images/Saly-1.png";
 import line from "../components/images/Line.png";
+import "./Landing.css"
 
 const LandingFour = () => {
   const [dropdowns, setDropdowns] = useState({
@@ -35,12 +36,12 @@ const LandingFour = () => {
         <p className="text-xl text-[#848484] w-[82%] md:hidden">
           Still got questions? You might find the answer here
         </p>
-        <img src={Saly} className="h-[55vh] md:hidden" />
+        <img src={Saly} className="h-[55vh] md:hidden bounce" />
       </div>
       <div className="flex flex-col justify-start items-start w-[40%] md:w-[90%] gap-5 md:mx-4 md:mb-10">
         <div className="relative w-[100%]">
           <div
-            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]"
+            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isMentorPaid")}
           >
             <p>Is becoming Mentor paid or free?</p>
@@ -57,7 +58,7 @@ const LandingFour = () => {
         </div>
         <div className="relative w-[100%]">
           <div
-            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]"
+            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isPlatformsIntegrated")}
           >
             <p>What all are the integrated platforms inside SKILLOP?</p>
@@ -75,7 +76,7 @@ const LandingFour = () => {
         </div>
         <div className="relative w-[100%]">
           <div
-            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]"
+            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isReceiveEarnings")}
           >
             <p>How will I receive my earnings?</p>
@@ -92,7 +93,7 @@ const LandingFour = () => {
         </div>
         <div className="relative w-[100%]">
           <div
-            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]"
+            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isConvertToMentor")}
           >
             <p>How can I convert from Mentee to a mentor?</p>
@@ -109,7 +110,7 @@ const LandingFour = () => {
         </div>
         <div className="relative w-[100%]">
           <div
-            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]"
+            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isHostEvents")}
           >
             <p>how to host events and hackathons?</p>
@@ -126,7 +127,7 @@ const LandingFour = () => {
         </div>
         <div className="relative w-[100%]">
           <div
-            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh]"
+            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isBuildCommunity")}
           >
             <p>How can I build my own community?</p>

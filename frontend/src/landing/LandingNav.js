@@ -8,13 +8,13 @@ const LandingNav = () => {
         <div className="flex items-center justify-center gap-3">
           {" "}
           <img src={coolimg} width="25" />
-          <h1 className="font-bold text-lg md:text-md">SKILLOP</h1>
+          <h1 className="font-bold text-lg md:text-md  hover:transform hover:scale-105 transition duration-300">SKILLOP</h1>
         </div>
         <div className="flex gap-5">
-          <button className="py-2 px-9 rounded-xl text-sm font-bold shadow-md bg-[#FFB800] md:px-3">
+          <button className="py-2 px-9 rounded-xl text-sm font-bold shadow-md bg-[#FFB800] md:px-3 hover:transform hover:scale-105 transition duration-300">
             <a href="/msignup">Sign up</a>
           </button>
-          <button className="border-2 border-black py-2 px-9 rounded-xl text-sm font-bold md:px-3">
+          <button className="border-2 border-black py-2 px-9 rounded-xl text-sm font-bold md:px-3 hover:transform hover:scale-105 transition duration-300">
             <a href="/mlogin">Login</a>
           </button>
         </div>

@@ -106,95 +106,109 @@
   bottom: -2px;
 } */
 
+@media only screen and (max-width: 4900px) {
+  .side-nav-container {
+    width: 1vw;
+    padding-left: 0.8vw;
+    margin-top: -48px;
+  }
+}
+@media only screen and (max-width: 3500px) {
+  .side-nav-container {
+    width: 12vw;
+    padding-left: 0.8vw;
+    margin-top: -48px;
+  }
+}
 @media only screen and (max-width: 3000px) {
   .side-nav-container {
     width: 12.5vw;
     padding-left: 0.8vw;
-    margin-top: -35px;
+    margin-top: -36px;
   }
 }
 @media only screen and (max-width: 2900px) {
   .side-nav-container {
     width: 12.7vw;
     padding-left: 0.8vw;
-    margin-top: -36px;
+    margin-top: -34px;
   }
 }
 @media only screen and (max-width: 2800px) {
   .side-nav-container {
     width: 13vw;
     padding-left: 0.8vw;
-    margin-top: -34px;
+    margin-top: -33px;
   }
 }
 @media only screen and (max-width: 2625px) {
   .side-nav-container {
     width: 13.5vw;
     padding-left: 0.8vw;
-    margin-top: -34px;
+    margin-top: -31px;
   }
 }
 @media only screen and (max-width: 2500px) {
   .side-nav-container {
     width: 14vw;
     padding-left: 0.8vw;
-    margin-top: -34px;
+    margin-top: -29px;
   }
 }
 @media only screen and (max-width: 2400px) {
   .side-nav-container {
     width: 14.3vw;
     padding-left: 0.8vw;
-    margin-top: -36px;
+    margin-top: -27px;
   }
 }
 @media only screen and (max-width: 2300px) {
   .side-nav-container {
     width: 14.8vw;
     padding-left: 0.8vw;
-    margin-top: -37px;
+    margin-top: -25px;
   }
 }
 @media only screen and (max-width: 2200px) {
   .side-nav-container {
     width: 15vw;
     padding-left: 0.8vw;
-    margin-top: -38px;
+    margin-top: -23px;
   }
 }
 @media only screen and (max-width: 2100px) {
   .side-nav-container {
     width: 15.6vw;
     padding-left: 0.8vw;
-    margin-top: -38px;
+    margin-top: -21px;
   }
 }
 @media only screen and (max-width: 2000px) {
   .side-nav-container {
     width: 16.2vw;
     padding-left: 0.8vw;
-    margin-top: -40px;
+    margin-top: -19px;
   }
 }
 @media only screen and (max-width: 1900px) {
   .side-nav-container {
     width: 17vw;
     padding-left: 0.8vw;
-    margin-top: -42px;
+    margin-top: -17px;
   }
 }
 @media only screen and (max-width: 1800px) {
   .side-nav-container {
     width: 17.5vw;
     padding-left: 0.8vw;
-    margin-top: -43px;
+    margin-top: -15px;
   }
 }
 @media only screen and (max-width: 1700px) {
   .side-nav-container {
     width: 18vw;
     padding-left: 0.8vw;
-    margin-top: -43px;
+    margin-top: -13px;
   }
 }
 @media only screen and (max-width: 1600px) {
