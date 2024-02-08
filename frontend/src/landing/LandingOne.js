@@ -9,6 +9,21 @@ const LandingOne = () => {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
 
+  const Typewriter = ({ text }) => {
+    const [displayedText, setDisplayedText] = useState("");
+  
+    useEffect(() => {
+      const intervalId = setInterval(() => {
+        setDisplayedText(text);
+        setTimeout(() => setDisplayedText(""), 1500); // Adjust the delay as needed
+      }, 3000); // Adjust the interval as needed
+  
+      return () => clearInterval(intervalId);
+    }, [text]);
+  
+    return <span>{displayedText}</span>;
+  };
+  
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 500);
@@ -29,13 +44,20 @@ const LandingOne = () => {
   return (
     <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0 ">
       <div className="flex flex-col ">
-        <h1 class="text-[50px] font-medium md:text-[40px] my-5">
+      <h1 class="text-[50px] font-medium md:text-[40px] my-5">
           Shuru se{" "}
           <span class="font-black relative">
             Shuruwat <img src={line} className="" />
           </span>{" "}
           karte hain!
         </h1>
+      {/* <h1 className="text-[50px] font-medium md:text-[40px] my-5">
+          Shuru se{" "}
+          <span className="font-black relative">
+            <Typewriter text="Shuruwat karte hain!" />
+            <img src={line} alt="line" />
+          </span>{" "}
+        </h1> */}
         <p className="text-md font-product-sans">
           Skillop serves as a dynamic tech society cluster, dedicated to
           empowering students through the strategic development of a robust and
@@ -44,7 +66,7 @@ const LandingOne = () => {
         </p>
         <div className="flex gap-5 mt-5 relative">
           <button
-            className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden hover:shadow-2xl"
+            className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden hover:shadow-2xl hover:transform hover:scale-105 transition duration-300"
             onClick={signupClicked}
           >
             <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5">
@@ -52,7 +74,7 @@ const LandingOne = () => {
               <img src={arrow} width={20} />
             </span>
           </button>
-          <button onClick={LearnMoreClicked} className="border-black border-2 px-10 py-3 rounded-lg font-semibold md:px-5 hover:bg-[#8484841A]">
+          <button onClick={LearnMoreClicked} className="border-black border-2 px-10 py-3 rounded-lg font-semibold md:px-5 hover:bg-[#8484841A] hover:transform hover:scale-105 transition duration-300">
             Learn More
           </button>
         </div>
