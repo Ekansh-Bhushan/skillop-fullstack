@@ -80,13 +80,13 @@ const LandingOne = () => {
         </div>
 
         <div className="text-[45px] text-[#5F5F5F] flex gap-5 mt-20 md:text-[30px] md:mt-10">
-          <div className="flex flex-col items-center justify-center pr-5 border-r-2 border-[#00000080]">
+          <div className="flex flex-col items-center justify-center pr-5 border-r-2 border-[#00000080] hover:transform hover:scale-105 transition duration-300">
             50+ <span className="font-semi-bold text-[18px]  ">Mentors</span>
           </div>
-          <div className="flex flex-col items-center justify-center border-r-2 border-[#00000080] pr-5">
+          <div className="flex flex-col items-center justify-center border-r-2 border-[#00000080] pr-5 hover:transform hover:scale-105 transition duration-300">
             1000+ <span className="font-semi-bold text-[18px]">Users</span>
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center hover:transform hover:scale-105 transition duration-300">
             100+{" "}
             <span className="font-semi-bold text-[18px]">
               Session Conducted
@@ -95,6 +95,7 @@ const LandingOne = () => {
         </div>
       </div>
       <div className="flex shrink-0 md:hidden">
+        {/* <img src={landingelement} className="block h-auto mt-4 bounce" /> */}
         <img src={landingelement} className="block h-auto mt-4" />
       </div>
     </div>

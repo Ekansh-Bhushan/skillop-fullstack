@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import plus from "../components/images/plus (2).png";
 import Saly from "../components/images/Saly-1.png";
 import line from "../components/images/Line.png";
+import "./Landing.css"
 
 const LandingFour = () => {
   const [dropdowns, setDropdowns] = useState({
@@ -35,7 +36,7 @@ const LandingFour = () => {
         <p className="text-xl text-[#848484] w-[82%] md:hidden">
           Still got questions? You might find the answer here
         </p>
-        <img src={Saly} className="h-[55vh] md:hidden" />
+        <img src={Saly} className="h-[55vh] md:hidden bounce" />
       </div>
       <div className="flex flex-col justify-start items-start w-[40%] md:w-[90%] gap-5 md:mx-4 md:mb-10">
         <div className="relative w-[100%]">
@@ -47,7 +48,7 @@ const LandingFour = () => {
             <img src={plus} className="cursor-pointer" alt="Plus" />
           </div>
           {dropdowns.isMentorPaid && (
-            <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4 ">
+            <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4">
               Becoming a mentor on Skillop is free. Mentors may volunteer their
               time for free mentorship or charge for their services in
               specialized areas. We encourage mentors to create a structure that
