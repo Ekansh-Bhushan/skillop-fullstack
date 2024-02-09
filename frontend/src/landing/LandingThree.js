@@ -34,7 +34,7 @@ const LandingThree = () => {
         </p>
       </div>
       <div className="flex justify-center items-center gap-[10vh] mt-5 md:flex-col md:gap-[5vh] md:mx-5">
-        <div className="shadow-lg rounded-xl border-2 p-6">
+        <div className="shadow-lg rounded-xl border-2 p-6 hover:transform hover:scale-105 transition duration-300">
           <div className="flex items-center justify-center space-x-2">
             <img src={Saly13} className="h-[30vh] md:h-[20vh]" alt="Saly13" />
             <div>
@@ -60,7 +60,7 @@ const LandingThree = () => {
           </div>
         </div>
 
-        <div className="shadow-lg rounded-xl border-2 p-6">
+        <div className="shadow-lg rounded-xl border-2 p-6 hover:transform hover:scale-105 transition duration-300">
           <div className="flex items-center justify-center space-x-2">
             <img src={Saly35} className="h-[30vh] md:h-[20vh]" alt="Saly13" />
             <div>
@@ -88,7 +88,7 @@ const LandingThree = () => {
       </div>
       <div className="flex items-center justify-center mt-5">
         <button
-          className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden mt-5 hover:shadow-2xl"
+          className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden mt-5 hover:shadow-2xl hover:transform hover:scale-105 transition duration-300"
           onClick={signupClicked}
         >
           <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5">

@@ -33,7 +33,7 @@ const LandingTwo = () => {
         </p>
       </div>
       <div className="grid grid-cols-2 gap-[10vh] mx-[20vh] mt-10 md:mx-5 md:grid-cols-1 md:gap-5">
-        <div className="bg-[#FF000066] rounded-2xl p-4 flex items-center justify-start flex-col">
+        <div className="bg-[#FF000066] rounded-2xl p-4 flex items-center justify-start flex-col hover:transform hover:scale-105 transition duration-300">
           <h1 className="text-2xl font-semibold mb-3 md:text-xl">
             Be a Mentor or Mentee
           </h1>
@@ -43,7 +43,7 @@ const LandingTwo = () => {
             shared knowledge.
           </p>
         </div>
-        <div className="bg-[#FFB80080] rounded-2xl p-4 flex items-center justify-start flex-col">
+        <div className="bg-[#FFB80080] rounded-2xl p-4 flex items-center justify-start flex-col hover:transform hover:scale-105 transition duration-300">
           <h1 className="text-2xl font-semibold mb-3 md:text-xl">
             Events and Updates
           </h1>
@@ -54,7 +54,7 @@ const LandingTwo = () => {
             developments in your community.
           </p>
         </div>
-        <div className="bg-[#0EAB0080] rounded-2xl p-4 flex items-center justify-start flex-col">
+        <div className="bg-[#0EAB0080] rounded-2xl p-4 flex items-center justify-start flex-col hover:transform hover:scale-105 transition duration-300">
           <h1 className="text-2xl font-semibold mb-3 md:text-xl">
             Build your Own Community
           </h1>
@@ -63,20 +63,22 @@ const LandingTwo = () => {
             your own community. Connect, learn, and grow together on your terms.
           </p>
         </div>
-        <div className="bg-[#108CFF80] rounded-2xl p-4 flex items-center justify-start flex-col">
-          <h1 className="text-2xl font-semibold mb-3 md:text-xl">
-            Beneficial Platforms
-          </h1>
-          <p className="text-sm w-[60%] md:w-[80%]">
-            Explore our integrated platforms within SKILLOP — a dynamic suite
-            designed to accelerate your growth journey. Unleash your potential
-            with tools tailored for success.
-          </p>
-        </div>
+        <div className="bg-[#108CFF80] rounded-2xl p-4 flex items-center justify-start flex-col hover:transform hover:scale-105 transition duration-300">
+  <h1 className="text-2xl font-semibold mb-3 md:text-xl">
+    Beneficial Platforms
+  </h1>
+  <p className="text-sm w-[60%] md:w-[80%]">
+    Explore our integrated platforms within SKILLOP — a dynamic suite
+    designed to accelerate your growth journey. Unleash your potential
+    with tools tailored for success.
+  </p>
+</div>
+
+
       </div>
       <div className="flex items-center justify-center mt-8">
         <button
-          className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden hover:shadow-2xl "
+          className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden hover:shadow-2xl hover:transform hover:scale-105 transition duration-300 "
           onClick={signupClicked}
         >
           <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5 ">
