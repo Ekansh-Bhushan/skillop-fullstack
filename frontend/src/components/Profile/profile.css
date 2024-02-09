@@ -213,6 +213,19 @@
   width: 100%;
   flex-wrap: wrap;
   padding: 17px 30px 17px 25px;
+  box-sizing: border-box; /* Include padding in the total width and height */
+}
+
+.skills-cont > * {
+  /* Add your default styles here */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+.skills-cont > *:hover {
+  /* Add your hover styles here */
+  background-color: #e6f2ff; /* Example background color on hover */
+  color: #2ecc71; /* Example text color on hover */
+  cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {

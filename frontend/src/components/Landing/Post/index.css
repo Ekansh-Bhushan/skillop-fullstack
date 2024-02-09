@@ -1416,9 +1416,6 @@ non-act {
   }
 }
 @media only screen and (max-width: 500px) {
-  .user-section {
-    /* padding: 0px; */
-  }
   .chats-user {
     padding: 10px;
     border-bottom: 0.5px solid #00000026;
