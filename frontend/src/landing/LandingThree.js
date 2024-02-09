@@ -34,7 +34,7 @@ const LandingThree = () => {
         </p>
       </div>
       <div className="flex justify-center items-center gap-[10vh] mt-5 md:flex-col md:gap-[5vh] md:mx-5">
-        <div className="shadow-lg rounded-xl border-2 p-6 hover:transform hover:scale-105 transition duration-300">
+        <div className="shadow-lg rounded-xl border-2 p-6 hover:transform hover:scale-105 hover:shadow-md transition duration-300">
           <div className="flex items-center justify-center space-x-2">
             <img src={Saly13} className="h-[30vh] md:h-[20vh]" alt="Saly13" />
             <div>

@@ -113,7 +113,7 @@ const LandingOne = () => {
       </div>
       <div className="flex shrink-0 md:hidden ">
         {/* <img src={images[currentImage]} className="block h-auto mt-4 flip-image" /> */}
-        <img src={landingelement3} className="block h-auto mt-4 flip-image" />
+        <img src={landingelement5} className="block h-auto mt-4 flip-image" />
       </div>
     </div>
   );
