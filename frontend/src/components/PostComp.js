@@ -16,6 +16,7 @@ import toast from 'react-hot-toast';
 import { getUserFromUsername } from '../api/userRequest';
 import { linkIdentifier } from '../utils/linkIdentifier';
 import { deletePost } from '../api/postRequest';
+import './postcomp.css';
 
 
 const PostComp = ({
