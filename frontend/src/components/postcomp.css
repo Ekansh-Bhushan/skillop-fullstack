@@ -1,0 +1,24 @@
+
+.delete-btn {
+    
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background-color: red; 
+    color: white; 
+  }
+
+  .post-1 {
+    position: relative;
+    padding-right: 40px; 
+  }
+  
+  .delete-post-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
