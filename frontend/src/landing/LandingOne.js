@@ -41,15 +41,15 @@ const LandingOne = () => {
     return () => window.removeEventListener("resize", handleResize);  // Cleanup the event listener on component unmount
   }, []);
 
-  useEffect(() => {
-    // Change the image every 3 seconds
-    const intervalId = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 3000);
+  // useEffect(() => {
+  //   // Change the image every 3 seconds
+  //   const intervalId = setInterval(() => {
+  //     setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+  //   }, 3000);
 
-    // Cleanup the interval on component unmount
-    return () => clearInterval(intervalId);
-  }, [images.length]);
+  //   // Cleanup the interval on component unmount
+  //   return () => clearInterval(intervalId);
+  // }, [images.length]);
 
   const signupClicked = () => {
     window.innerWidth < 500 ? navigate("/msignup") : navigate("/signup");
