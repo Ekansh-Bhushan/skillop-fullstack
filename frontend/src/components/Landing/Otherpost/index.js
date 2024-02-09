@@ -273,6 +273,10 @@ function Otherpost({ userData, setProgress }) {
                       position: 'relative',
                       top: '10px',
                       marginBottom: '10px',
+                      overflowWrap: 'break-word',
+                      whiteSpace: 'pre-wrap',
+                      maxWidth: '900px', 
+                      width: '100%', 
                     }}
                   >
                     {taggingManager.convert(post.title)}

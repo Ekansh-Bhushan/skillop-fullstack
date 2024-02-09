@@ -27,8 +27,15 @@ class TaggingManager {
     };
 
     convert = (text) => {
-        let x = text.split(" ").map((word) => {
-            const wordWithOutTag = word.slice(1);
+        let x = text.split(/(\s+)/).map((word) => {
+            // Check if the word is a space or newline
+            if (word.trim() === '') {
+                return <span>{word}</span>;
+            }
+    
+            // Check for mentions and hashtags
+            const trimmedWord = word.trim();
+            const wordWithOutTag = trimmedWord.slice(1);
 
             if (word.startsWith("@") && word.slice(1).match(/^[a-z0-9]+$/i)) {
                 word = (

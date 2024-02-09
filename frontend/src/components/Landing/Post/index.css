@@ -605,6 +605,7 @@ body {
   max-height: none;
   text-wrap: wrap;
 }
+
 .user-post-head {
   display: flex;
   gap: 8px;
