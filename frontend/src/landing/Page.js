@@ -7,7 +7,7 @@ import LandingFour from "./LandingFour";
 import LandingFooter from "./LandingFooter";
 import TopBar from "../components/CommonTopBar/TopBar";
 import { Element } from "react-scroll";
-import LandingTest from "./LANDINGTEST";
+// import LandingTest from "./LANDINGTEST";
 const Page = () => {
   return (
     <div>

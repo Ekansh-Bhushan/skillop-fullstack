@@ -1,3 +1,7 @@
+* {
+  border: 0;
+}
+
 .booking-slot-section {
   width: 70%;
   height: 100vh;
@@ -45,7 +49,7 @@
 .f-slot-3 {
   background: white;
   color: black;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 
 .slot-complete-list {
@@ -70,24 +74,24 @@
 
 .day-name {
   font-size: 18px;
-  color: gray;
+  color: black;
 }
 
 .slot-scheduled-time {
   font-size: 18px;
-  color: gray;
+  color: black;
 }
 
 .amount-slot {
   font-size: 18px;
-  color: gray;
+  color: black;
 }
 
 .list-1 {
   height: 70px;
   width: 90%;
-  border: 2px solid #00000026;
-  border-radius: 25px;
+  border: 2px solid #00000015;
+  border-radius: 15px;
   /* background: linear-gradient(
     90deg,
     #ebefff 16.64%,
@@ -109,11 +113,12 @@
 .headers-slot {
   display: flex;
   justify-content: space-around;
-  font-weight: 600;
-  font-size: 24px;
+  font-weight: 400;
+  font-size: 20px;
   width: 80%;
-  margin-left: 2vw;
-  margin-bottom: 10px;
+  margin-left: 1.5vw;
+  margin-bottom: 5px;
+  color: gray;
 }
 
 .slot-1-book {
@@ -126,13 +131,13 @@
   justify-content: center;
   gap: 20px;
   margin-top: 5px;
-  position: relative;
+  /* position: relative; */
 }
 
 .slot-complete-list button {
   background-color: #108cff;
   color: white;
-  border-radius: 12px;
+  border-radius: 8px;
   border: none;
   height: 40px;
   width: 80px;
@@ -154,6 +159,7 @@
     /* background-color: rgba(224, 224, 224, 0.584); */
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 10vh;
   }
   .header-slotbook {
@@ -162,18 +168,26 @@
     margin-top: 20px;
   }
 
+
   .slot-complete-list {
-    width: 250px;
+    width: screen.width;
     height: 100%; /* background-color: lightblue; */
-    margin-top: 5px;
+    margin-top: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+    padding-bottom: 200px;
   }
   .headers-slot {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin-left: -3vw;
-    margin-bottom: 20px;
+    gap: 70px;
+    margin-left: -13vw;
+    margin-bottom: 5px;
+    font-size: 14px;
   }
   .slot-1-book {
     width: 90vw;
@@ -181,41 +195,48 @@
     /* background-color: cyan; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    /* right: 70px; */
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 10px;
   }
 
   .day-name {
     font-size: 12px;
-    color: gray;
-    max-width: 50px;
+    max-width: 120px;
   }
 
   .slot-scheduled-time {
-    font-size: 12px;
-    color: gray;
+    font-size: 14px;
   }
 
   .list-1 {
-    border-radius: 20px;
-    padding: 5px;
+    border-radius: 10px;
+    padding: 10px;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
   .slot-complete-list button {
-    background-color: #ffb800;
-    border-radius: 20px;
+    background-color: #108cff;
+    border-radius: 10px;
     border: none;
     height: 30px;
-    width: 80px;
-    font-weight: bold;
+    width: 60px;
+    font-weight: 600;
     cursor: pointer;
+    font-size: 13px;
+    margin-left: 8px;
   }
   .amount-slot {
     font-size: 12px;
-    color: gray;
   }
+
+  .slots-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
 }

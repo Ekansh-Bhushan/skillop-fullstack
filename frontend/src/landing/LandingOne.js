@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import landingelement1 from "../components/images/landingpageelementEKANSHBHUSHANWITHSIDE.png"
-import landingelement3 from "../components/images/landingpageelementJASMEENKAURWITHSIDE.png"
+// import landingelement1 from "../components/images/landingpageelementEKANSHBHUSHANWITHSIDE.png"
+// import landingelement3 from "../components/images/landingpageelementJASMEENKAURWITHSIDE.png"
 import landingelement5 from "../components/images/landingpageelementKRISSMANNGUPTAWITHSIDE.png"
-import landingelement2 from "../components/images/landingpageelementEKANSHBHUSHAN.png"
-import landingelement4 from "../components/images/landingpageelementJASMEENKAUR.png"
-import landingelement6 from "../components/images/landingpageelementKRISSMANNGUPTA.png"
+// import landingelement2 from "../components/images/landingpageelementEKANSHBHUSHAN.png"
+// import landingelement4 from "../components/images/landingpageelementJASMEENKAUR.png"
+// import landingelement6 from "../components/images/landingpageelementKRISSMANNGUPTA.png"
 import line from "../components/images/Line.png";
 import arrow from "../components/images/arrow.png";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ const LandingOne = () => {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [landingelement1, landingelement2, landingelement3, landingelement4, landingelement5, landingelement6];
+  // const images = [landingelement1, landingelement2, landingelement3, landingelement4, landingelement5, landingelement6];
 
   const Typewriter = ({ text }) => {
     const [displayedText, setDisplayedText] = useState("");
@@ -41,15 +41,15 @@ const LandingOne = () => {
     return () => window.removeEventListener("resize", handleResize);  // Cleanup the event listener on component unmount
   }, []);
 
-  useEffect(() => {
-    // Change the image every 3 seconds
-    const intervalId = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 3000);
+  // useEffect(() => {
+  //   // Change the image every 3 seconds
+  //   const intervalId = setInterval(() => {
+  //     setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+  //   }, 3000);
 
-    // Cleanup the interval on component unmount
-    return () => clearInterval(intervalId);
-  }, [images.length]);
+  //   // Cleanup the interval on component unmount
+  //   return () => clearInterval(intervalId);
+  // }, [images.length]);
 
   const signupClicked = () => {
     window.innerWidth < 500 ? navigate("/msignup") : navigate("/signup");
