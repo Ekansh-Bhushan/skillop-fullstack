@@ -50,6 +50,5 @@
 @media only screen and (max-width: 500px) {
   .mobile-head {
     display: flex;
-    margin-top: -92px;
   }
 }
