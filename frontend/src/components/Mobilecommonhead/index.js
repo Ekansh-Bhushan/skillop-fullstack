@@ -287,6 +287,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 onClick={() => navigate('/mentorbano')}
                 className='font-semibold text-lg'
               >
+                
                 Become a Mentor
               </div>
               <div

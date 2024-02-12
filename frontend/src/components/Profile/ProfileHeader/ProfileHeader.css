@@ -225,10 +225,11 @@
   }
   .ph-bg {
     border-radius: 0px;
+    margin-top: -12px;
   }
   .ph-pic, .ph-pic-pub {
     left: 5vw;
-    top: 27vh;
+    top: 22vh;
     width: 30vw;
   }
   .ph-pic img, .ph-pic-pub img {
