@@ -1,0 +1,41 @@
+.post-options-container {
+  position: relative;
+}
+
+.options-btn-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.options-btn {
+ 
+}
+
+.options-btn:hover {
+  background-color: #eee;
+}
+
+.delete-post-btn {
+  display: none;
+}
+
+.show-delete .delete-post-btn {
+  display: block;
+}
+
+.delete-btn {
+  /* Add your existing styles for the delete button here */
+}
+
+.delete-btn:hover {
+  background-color: red;
+  color: white;
+}
