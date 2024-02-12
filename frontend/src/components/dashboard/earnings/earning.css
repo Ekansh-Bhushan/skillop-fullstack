@@ -1,11 +1,17 @@
 .earning-dash {
   display: flex;
   flex-direction: column;
-  width: 650px;
+  max-width: 650px; /* or width: 100%; */
   margin-left: 2vw;
   /* padding-left: 20px; */
   font-weight: 100;
   border-right: 1px solid #00000026;
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .line-earning {
@@ -24,7 +30,7 @@
 @media  (max-width: 500px) {
   .earning-dash {
     margin-left: -100px;
-    
+    padding-left: 15px;
     /* margin-top: 10; */
 
     /* position: absolute; */
@@ -43,6 +49,19 @@
   .info-dash-table {
     margin-bottom: 40px;
   }
+
+  .dash-main {
+    padding-top: 60px; /* Adjust as needed to prevent content from being hidden behind the fixed header */
+  }
+
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Adjust as needed, make it higher than other elements */
+  }
+
 }
 @media (min-width: 500px){
   .total-mentee{
