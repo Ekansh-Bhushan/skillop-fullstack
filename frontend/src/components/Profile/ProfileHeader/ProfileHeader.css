@@ -166,8 +166,8 @@
   }
    .ph-pic{
     position: absolute;
-    top: 27%;
-    left: 13%;
+    top: 28%;
+    left: 10vw;
     height: 115px;
     width: 115px;
   }
@@ -218,13 +218,14 @@
     margin-inline: auto;
     margin-top: 10vh;
     min-height: 59vh;
-    width: 100%;
+    width: 100vw;
     position: relative;
     border-radius: 0px;
     margin-bottom: 28px;
   }
   .ph-bg {
     border-radius: 0px;
+  
   }
   .ph-pic, .ph-pic-pub {
     left: 5vw;
@@ -255,6 +256,7 @@
   .ph-headline {
     padding: 15px 0px;
   }
+  
 }
 
 @media(min-width:600px){
@@ -275,8 +277,8 @@
   }
    .ph-pic{
     position: absolute;
-    top: 29%;
-    left: 13%;
+    top: 28%;
+    left: 9.5vw;
     height:115px ;
     width: 115px;
   }
@@ -307,7 +309,7 @@
    .ph-pic{
     position: absolute;
     top: 32%;
-    left: 13%;
+    left: 9vw;
     height: 115px;
     width: 115px;
   }
@@ -339,7 +341,7 @@
     position: absolute;
     /* top: 200px; */
     /* top: 100pxpx; */
-    left: 18vw;
+    left: 15.5vw;
     height: 120px;
     width: 120px;
   }
@@ -371,7 +373,7 @@
     position: absolute;
     /* top: 195px; */
     /* top: 32.5%; */
-    left: 17vw;
+    left: 15vw;
     height: 120px;
     width: 120px;
   }
@@ -403,7 +405,7 @@
     position: absolute;
     /* top: 32vh; */
     /* top: 31.5%; */
-    left: 16%;
+    left: 15vw;
     height: 120px;
     width: 120px;
   }
