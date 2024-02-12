@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import "./index.css";
-import Profileandevents from "../Landing/Profileandevents";
-import { getMentorAvaibility, getMentorData } from "../../api/mentorRequest";
-import Mobilecommonhead from "../Mobilecommonhead";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import convertToNormalTime from "../../utils/timeConversion";
+import React, { useEffect, useState } from 'react';
+import './index.css';
+import Profileandevents from '../Landing/Profileandevents';
+import { getMentorAvaibility, getMentorData } from '../../api/mentorRequest';
+import Mobilecommonhead from '../Mobilecommonhead';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import convertToNormalTime from '../../utils/timeConversion';
 
-function Bookslot({ userData, setProgress}) {
+function Bookslot({ userData, setProgress }) {
   const navigate = useNavigate();
-  const mentorId = window.location.pathname.split("/")[2];
+  const mentorId = window.location.pathname.split('/')[2];
 
   // function that yield next date start from today
   const [slots, setSlots] = useState({});
@@ -18,11 +18,11 @@ function Bookslot({ userData, setProgress}) {
     const getMentorDataa = async () => {
       try {
         const response = await getMentorData(mentorId);
-        console.log(response.data.result, "Hello");
+        console.log(response.data.result, 'Hello');
         setMentorData(response.data.result);
       } catch (error) {
-        console.log(error, "Went wrong");
-        toast("Something went wrong");
+        console.log(error, 'Went wrong');
+        toast('Something went wrong');
       }
     };
     getMentorDataa();
@@ -56,9 +56,9 @@ function Bookslot({ userData, setProgress}) {
   // use effect to load the slots on site loads
   useEffect(() => {
     const getSlot = async () => {
-      console.log("mentorId: ", mentorId);
+      console.log('mentorId: ', mentorId);
       let ct = 0;
-      let day = getNextDate(new Date()).toISOString().split("T")[0];
+      let day = getNextDate(new Date()).toISOString().split('T')[0];
       while (ct < 7) {
         try {
           setProgress((ct / 7) * 100);
@@ -67,7 +67,6 @@ function Bookslot({ userData, setProgress}) {
           if (response.data.result && response.data.result.length) {
             // console.log(response.data.result);
             // console.log(day);
-
             // console.log({ ...slots, [day]: response.data.result });
             const x = slots;
             x[day] = response.data.result;
@@ -79,11 +78,11 @@ function Bookslot({ userData, setProgress}) {
             break;
           }
         } catch (error) {
-          toast("Something went wrong");
+          toast('Something went wrong');
           break;
         }
         // console.log(slots);
-        day = getNextDate(day).toISOString().split("T")[0];
+        day = getNextDate(day).toISOString().split('T')[0];
       }
       setProgress(100);
       console.log(slots);
@@ -93,41 +92,45 @@ function Bookslot({ userData, setProgress}) {
 
   return (
     <>
-     
       <Mobilecommonhead />
       {/* <Common setProgress={setProgress} /> */}
 
-      <div className="flex items-center justify-center h-full sm:w-[100%] xl:w-[70%] xl:ml-[7vw] sm:ml-[0vw] main-container">
-        <div className="w-[70%] h-screen flex justify-center ">
-          <div className="w-[90%] h-full flex flex-col border-r-2 pt-[15vh] md:border-0 md:w-[100%] md:pt-[15vh] sm:w-[100%]">
-            <div className="text-2xl font-semibold pl-10 sm:text-lg sm:pl-0">Book a Slot for</div>
-            <div className="text-3xl font-semibold pl-10 sm:text-2xl sm:pl-0"> 1:1 Session</div>
+      <div className='flex items-center justify-center h-full sm:w-[100%] xl:w-[70%] xl:ml-[7vw] sm:ml-[0vw] main-container'>
+        <div className='w-[70%] h-screen flex justify-center '>
+          <div className='w-[90%] h-full flex flex-col border-r-2 pt-[15vh] md:border-0 md:w-[100%] md:pt-[15vh] sm:w-[100%]'>
+            <div className='text-2xl font-semibold pl-10 sm:text-lg sm:pl-0'>
+              Book a Slot for
+            </div>
+            <div className='text-3xl font-semibold pl-10 sm:text-2xl sm:pl-0'>
+              {' '}
+              1:1 Session
+            </div>
             {/* <div className="filter-options-booking">
               <div className="f-slot f-slot-1">All Slots</div>
             </div> */}
-            <div className="slot-complete-list">
-              <div className="headers-slot">
+            <div className='slot-complete-list'>
+              <div className='headers-slot'>
                 <div>Day</div>
                 <div>Time</div>
                 <div>Amount</div>
               </div>
-              <div className="flex items-center justify-center flex-col slots-container">
+              <div className='flex items-center justify-center flex-col slots-container'>
                 {Object.keys(slots).length > 0 ? (
                   Object.keys(slots).map((day) => {
                     return (
-                      <div className="slot-1-book">
+                      <div className='slot-1-book'>
                         {slots[day].map((slot) => {
                           return (
                             <>
-                              <div className="list-1">
-                                <div className="day-name">
+                              <div className='list-1'>
+                                <div className='day-name'>
                                   {new Date(day).toString().slice(0, 15)}
                                 </div>
-                                <div className="slot-scheduled-time">
-                                  {convertToNormalTime(slot.s)} -{" "}
+                                <div className='slot-scheduled-time'>
+                                  {convertToNormalTime(slot.s)} -{' '}
                                   {convertToNormalTime(slot.e)}
                                 </div>
-                                <div className="amount-slot">
+                                <div className='amount-slot'>
                                   ₹{Math.round(slot.charge)}
                                 </div>
                                 <button
@@ -142,7 +145,7 @@ function Bookslot({ userData, setProgress}) {
                                     )
                                   }
                                 >
-                                  Book{" "}
+                                  Book{' '}
                                 </button>
                               </div>
                             </>
@@ -152,7 +155,7 @@ function Bookslot({ userData, setProgress}) {
                     );
                   })
                 ) : (
-                  <h3 style={{ textAlign: "center", margin: "5vw" }}>
+                  <h3 style={{ textAlign: 'center', margin: '5vw' }}>
                     No slot added by user
                   </h3>
                 )}

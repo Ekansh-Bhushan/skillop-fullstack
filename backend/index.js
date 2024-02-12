@@ -57,19 +57,13 @@ app.use('/api', notificationRoute);
 app.use('/api', mentorRoute);
 app.use('/api', menteeRoute);
 app.use('/api/admin', adminRoutes);
-
 app.use('/api/chat', chats);
 app.use('/api/message', message);
-
 app.use('/api/college', help);
 app.use('/api/event', eventRoutes);
-
 app.use('/api/v2', searchRoutes);
-
 app.use('/api/comment', commentRouters);
-
 app.use('/api/hashtag', hashtagRoutes);
-
 app.use('/api/meeting', meetingRoutes)
 
 // share images in uploads/pubic to frontend
