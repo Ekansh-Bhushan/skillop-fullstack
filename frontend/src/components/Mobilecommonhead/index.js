@@ -50,6 +50,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
       if (!currentUser) {
         const userData = await getUser();
         setUserDetails(userData.data.result);
+               
         setCurrentUser(userData.data.result);
       } else {
         setUserDetails(currentUser);
@@ -100,7 +101,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
           <div className='back-btn'>
             {/* <IoIosArrowBack style={{ fontSize: "40px" }} /> */}
             <img
-              src={userDetails ? userDetails.profilePicUrl : '/user.png'}
+              src={userDetails?.profilePicUrl ? userDetails.profilePicUrl : '/user.png'}
               alt='user pic'
               className='rounded-full w-[45px] h-[45px] ml-3'
               onClick={toggleMoreOptions}
@@ -227,7 +228,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 <div>
                   {' '}
                   <img
-                    src={userDetails ? userDetails.profilePicUrl : '/user.png'}
+                    src={userDetails?.profilePicUrl ? userDetails.profilePicUrl : '/user.png'}
                     alt='user pic'
                     className='rounded-full w-[100px] h-[100px] ml-3'
                     onClick={navigateToProfile}

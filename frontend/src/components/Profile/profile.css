@@ -494,7 +494,8 @@
     /* top: -35px; */
     /* margin-left: -25px; */
     /* position: relative; */
-    width: 188%;
+    width: 100%;
+    overflow-x: hidden;
     /* right: 10.25rem; */
 }
   .jd {
@@ -566,15 +567,12 @@
   }
 }
 @media only screen and (max-width: 500px) {
-  .profile-data {
-    /* margin-left: -0.1%; */
-    /* margin-top: -5.4%; */
-  }
+  
   .main-profile-page {
     /* top: -15px; */
     /* margin-left: -60px; */
     /* position: relative; */
-    width: 125%;
+    width: 100%;
     /* right: 10.25rem; */
 }
   .jd {
