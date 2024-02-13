@@ -50,5 +50,7 @@
 @media only screen and (max-width: 500px) {
   .mobile-head {
     display: flex;
+    position: fixed;
+    top: 0;
   }
 }

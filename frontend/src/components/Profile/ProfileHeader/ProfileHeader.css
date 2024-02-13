@@ -55,7 +55,7 @@
   width: 9vw;
   height: 9vw;
   position: absolute;
-  top: 15vw;
+  top:  15vw;
   left: 23.5vw;
   border-radius: 100%;
 }
@@ -150,61 +150,82 @@
 
 @media(min-width:500px){
   .ph-container {
-    margin-left: 10%;
-    margin-top: 68px;
+    margin-left: 5%;
+    margin-top: 30px;
     /* min-height: 76vh; */
-    width: 88%;
+    width: 91%;
+    margin-bottom: 28px;
   }
-   .ph-pic {
+  .ph-pic2{
     position: absolute;
-    top: 33.5%;
-    left: 19vw;
+    /* margin-top: 16%; */
+    top: 26%;
+    left: 11%;
+    height: 115px;
+    width: 115px;
+  }
+   .ph-pic{
+    position: absolute;
+    top: 28%;
+    left: 10vw;
     height: 115px;
     width: 115px;
   }
   .profile-data {
-    margin-left: 10%;
+    margin-left: 5%;
     /* margin-top: 0.5px; */
     border: 2px solid #00000026;
-    width: 88%;
+    width: 91%;
     border-radius: 0 0 15px 15px;
-    /* height: 100px; */
   }
 }
 @media(max-width:500px){
-  .ph-container {
-    margin-left: -0.1%;
-    margin-top: 68px;
+  /* .ph-container {
+    margin-left: -0.0001%;
+    margin-top: 0px;
     min-height: 76vh;
-    width: 100%;
-  }
-   .ph-pic {
+    width: 99vw;
+    margin-bottom: 28px;
+  } */
+  .ph-pic2 {
     position: absolute;
-    top: 33.5%;
-    left: 11vw;
+    top: 32%;
+    left: 6cqb;
+    height: 115px;
+    width: 115px;
+  }
+  .ph-pic {
+    position: absolute;
+    top: 33%;
+    left: 11%;
     height: 115px;
     width: 115px;
   }
   .profile-data {
-    /* margin-left: 12.5%; */
-   margin-left: -0.10%;
-    border: 2px solid #00000026;
-    width: 80%;
+    margin-left: 0%;
+   /* margin-left: -0.000000000010%; */
+    /* border: 2px solid #00000026; */
+    width: 100vw;
+    /* margin-top: -0.1%; */
     border-radius: 0 0 15px 15px;
+    /* position: relative; */
+    
   }
-  /* .ph-details {
+  .ph-details {
     top: 6vh;
   }
   .ph-container {
     margin-inline: auto;
     margin-top: 10vh;
     min-height: 59vh;
-    width: 100%;
+    width: 100vw;
     position: relative;
     border-radius: 0px;
+    margin-bottom: 28px;
   }
   .ph-bg {
     border-radius: 0px;
+  
   }
   .ph-pic, .ph-pic-pub {
     left: 5vw;
@@ -234,42 +255,94 @@
   }
   .ph-headline {
     padding: 15px 0px;
-  } */
+  }
+  
 }
+
 @media(min-width:600px){
   .ph-container {
-    margin-left: 12.5%;
-    margin-top: 68px;
+    margin-left: 5%;
+    margin-top: 5%;
     /* min-height: 76vh; */
-    width: 80%;
+    width: 91%;
+    /* margin-bottom: 0.1px; */
+    margin-bottom:5%;
   }
-   .ph-pic {
+  .ph-pic2{
     position: absolute;
-    top: 33.5%;
-    left: 20vw;
-    height: 115px;
+    /* top: 29%; */
+    left: 10%;
+    height:115px ;
     width: 115px;
   }
+   .ph-pic{
+    position: absolute;
+    top: 28%;
+    left: 9.5vw;
+    height:115px ;
+    width: 115px;
+  }
+
   .profile-data {
-    margin-left: 12.5%;
-    margin-top: 0.5px;
+    margin-left: 5%;
+    /* margin-top: 0.5px; */
     border: 2px solid #00000026;
-    width: 80%;
+    width: 91%;
     border-radius: 0 0 15px 15px;
   }
 }
 @media(min-width:768px){
   .ph-container {
+    margin-left: 5%;
+    margin-top: 68px;
+    /* min-height: 76vh; */
+    width: 91%;
+    
+    margin-bottom: 40px;
+  }
+  .ph-pic2{
+    position: absolute;
+    top: 32%;
+    left: 9%;
+    height: 115px;
+    width: 115px;
+  }
+   .ph-pic{
+    position: absolute;
+    top: 32%;
+    left: 9vw;
+    height: 115px;
+    width: 115px;
+  }
+  .profile-data {
+    margin-left: 5%;
+    /* margin-top: 0.5px; */
+    border: 2px solid #00000026;
+    width: 91%;
+    border-radius: 0 0 15px 15px;
+  }
+}
+@media(min-width:843px){
+  .ph-container {
     margin-left: 12.5%;
     margin-top: 68px;
     /* min-height: 76vh; */
-    width: 80%;
+    margin-bottom: 0.1px;
+    width: 85%;
+  }
+  .ph-pic2{
+    position: absolute;
+    /* top: 200px; */
+    /* top: 100pxpx; */
+    left: 16%;
+    height: 120px;
+    width: 120px;
   }
    .ph-pic {
     position: absolute;
     /* top: 200px; */
-    top: 32.5%;
-    left: 18vw;
+    /* top: 100pxpx; */
+    left: 15.5vw;
     height: 120px;
     width: 120px;
   }
@@ -277,7 +350,7 @@
     margin-left: 12.5%;
     margin-top: 0.5px;
     border: 2px solid #00000026;
-    width: 80%;
+    width: 85%;
     border-radius: 0 0 15px 15px;
   }
 }
@@ -285,14 +358,23 @@
   .ph-container {
     margin-left: 12.5%;
     margin-top: 68px;
+    margin-bottom: 0.1px;
     /* height: 60px; */
-    width: 80%;
+    width: 85%;
+  }
+  .ph-pic2 {
+    position: absolute;
+    /* top: 195px; */
+    /* top: 32.5%; */
+    left: 15%;
+    height: 120px;
+    width: 120px;
   }
    .ph-pic {
     position: absolute;
     /* top: 195px; */
-    top: 32.5%;
-    left: 17vw;
+    /* top: 32.5%; */
+    left: 15vw;
     height: 120px;
     width: 120px;
   }
@@ -300,7 +382,7 @@
     margin-left: 12.5%;
     margin-top: 0.5px;
     border: 2px solid #00000026;
-    width: 80%;
+    width: 85%;
     border-radius: 0 0 15px 15px;
   }
 }
@@ -309,19 +391,28 @@
     margin-left: 12.5%;
     margin-top: 68px;
     /* min-height: 76vh; */
+    margin-bottom: 0.1px;
     width: 57%;
   }
-   .ph-pic {
+  .ph-pic2{
     position: absolute;
     /* top: 32vh; */
-    top: 31.5%;
-    left: 16vw;
-    height: 130px;
-    width: 130px;
+    /* top: 31.5%; */
+    left: 15%;
+    height: 120px;
+    width: 120px;
+  }
+   .ph-pic{
+    position: absolute;
+    /* top: 32vh; */
+    /* top: 31.5%; */
+    left: 15vw;
+    height: 120px;
+    width: 120px;
   }
   .profile-data {
     margin-left: 12.5%;
-    margin-top: 0.5px;
+    /* margin-top: 0.5px; */
     border: 2px solid #00000026;
     width: 57%;
     border-radius: 0 0 15px 15px;
@@ -337,19 +428,28 @@
     width: 51.25%;
     margin-left: 22%;
     /* margin-top: 100px; */
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
     /* margin-right: auto; */
+    margin-bottom: 0.0001px;
+  }
+  .ph-pic2 {
+    position: absolute;
+    /* top: 31.5%; */
+    left: 24%;
+    height: 120px;
+    width: 120px;
   }
    .ph-pic {
     position: absolute;
-    top: 31.5%;
-    left: 25vw;
-    height: 130px;
-    width: 130px;
+    /* top: 31.5%; */
+    left: 24vw;
+    height: 120px;
+    width: 120px;
   }
   .profile-data {
     margin-left: 22%;
-    margin-top: -5.2%;
+    /* margin-top: -5.2%; */
+    /* margin-top: none; */
     border: 2px solid #00000026;
     width: 51.25%;
     border-radius: 0 0 15px 15px;

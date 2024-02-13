@@ -12,6 +12,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import spinner from '../images/spinner.gif';
 import { MainContext } from '../../context/MainContextProvider';
+// import socketIOClient from 'socket.io-client';
 
 const API = axios.create({ baseURL: 'https://skillop.in' });
 
@@ -51,6 +52,20 @@ const Postlist = ({
     setInputValue(newValue);
   };
 
+  // useEffect(() => {
+  //   // Connect to the WebSocket server
+  //   const socket = socketIOClient(API);
+
+  //   // Listen for new posts from the server
+  //   socket.on('newPost', (newPost) => {
+  //     setPosts((prevPosts) => [newPost, ...prevPosts]);
+  //   });
+
+  //   return () => {
+  //     // Disconnect from the WebSocket when the component unmounts
+  //     socket.disconnect();
+  //   };
+  // }, []);
   const creatingPost = async () => {
     try {
       if (inputValue.length === 0) {
@@ -83,6 +98,7 @@ const Postlist = ({
       setPosts((prevPosts) => [data.result, ...prevPosts]);
       // console.log(data);
       setProgress(100);
+      // socketIOClient(API).emit('newPost', data.result);
     } catch (error) {
       console.log(error);
     }

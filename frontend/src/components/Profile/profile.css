@@ -30,10 +30,10 @@
 }
 
 .profile-data {
-  margin-left: 23.2%;
+  /* margin-left: 23.2%; */
   margin-top: -5.2%;
   border: 2px solid #00000026;
-  width: 50%;
+  /* width: 50%; */
   border-radius: 0 0 15px 15px;
 }
 
@@ -94,10 +94,7 @@
 }
 
 @media (max-width: 500px) {
-  .profile-data {
-    /* margin-top: 75vh; */
-    /* margin-left: 20vw; */
-  }
+  
   .loader {
     display: none;
   }
@@ -112,7 +109,7 @@
     margin-bottom: 10px;
     line-height: 24px;
     display: block;
-    max-width: 55%;
+    max-width: 100%;
   }
   .spinner {
     z-index: 100;
@@ -246,7 +243,27 @@
   }
 }
 
+@media (min-width : 600px){
+  .job-info{
+    width: 65vw;
+    /* margin-left: vw; */
+  }
+  .edu-info{
+    width: 65vw;
 
+  }
+
+}
+@media (min-width : 500px){
+  .job-info{
+    width: 65vw;
+    /* margin-left: vw; */
+  }
+  .edu-info{
+    width: 65vw;
+
+  }
+}
 /* ============================================ EDUCATION ============================================= */
 
 .education {
@@ -339,6 +356,7 @@
 .co-location {
   font-size: 1.2rem;
   margin: 10px;
+  margin-right: 30px;
 }
 
 .add-icon {
@@ -370,7 +388,7 @@
 
 #edit-text {
   /* margin-right: -40%; */
-  margin-left: 50%;
+  margin-left: 30%;
   /* Adjust the margin as needed to reduce the gap */
 }
 
@@ -388,9 +406,28 @@
   gap: 1rem;
   border-bottom: 1px solid rgb(93, 93, 93);
   padding-bottom: 15px;
-  width: 33rem;
+  width: 30rem;
   margin-left: -8px;
 }
+@media(min-width:500px){
+  .date{
+    width: 24rem;
+    border-bottom: 1px solid rgb(93, 93, 93);
+  }
+}
+@media (min-width:600px) {
+  .date{
+    width: 30rem;
+    border-bottom: 1px solid rgb(93, 93, 93);
+  }  
+}
+@media (max-width:500px) {
+  .date{
+    width: 30rem;
+    border-bottom: 1px solid rgb(93, 93, 93);
+  }  
+}
+
 
 .gap {
   margin-left: 3rem;
@@ -441,7 +478,7 @@
   .profile-data {
     /* margin-left: 20%; */
     /* margin-top: -24%; */
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     /* width: 100%; */
   }
 }
@@ -457,14 +494,15 @@
     /* top: -35px; */
     /* margin-left: -25px; */
     /* position: relative; */
-    width: 188%;
+    width: 100%;
+    overflow-x: hidden;
     /* right: 10.25rem; */
 }
   .jd {
     font-size: 1rem;
     margin: 10px;
     overflow: hidden;
-    width: 100%;
+    width: 200%;
   }
   .journey {
     margin-left: 20px;
@@ -529,15 +567,12 @@
   }
 }
 @media only screen and (max-width: 500px) {
-  .profile-data {
-    margin-left: -0.1%;
-    /* margin-top: -5.4%; */
-  }
+  
   .main-profile-page {
     /* top: -15px; */
     /* margin-left: -60px; */
     /* position: relative; */
-    width: 125%;
+    width: 100%;
     /* right: 10.25rem; */
 }
   .jd {

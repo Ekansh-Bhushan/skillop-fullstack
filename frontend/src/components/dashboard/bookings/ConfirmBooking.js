@@ -48,6 +48,7 @@ const ConfirmBooking = ({ setProgress }) => {
   }, []);
 
   const onClickProceed = () => {
+    console.log("details - ",s,e,userid,charge)
     navigate(
       `/payment/${mentorid}?day=${day}&s=${s}&e=${e}&userid=${userid}&charge=${charge}&code=${auth_code}`
     );

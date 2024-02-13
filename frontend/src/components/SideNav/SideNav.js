@@ -192,7 +192,7 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
           </span>
           {showChatNotification && (
             <div>
-              <div className='chat-notify-num-icon'>!</div>{' '}
+              <div className='chat-notify-num-icon'>*</div>{' '}
             </div>
           )}
         </li>
