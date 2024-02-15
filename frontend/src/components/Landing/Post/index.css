@@ -284,6 +284,15 @@ body {
   .right-options {
     display: none;
   }
+  @media only screen and (max-width: 1400px)
+.posting-on-landing {
+    width: 80%;
+}
+  @media only screen and (max-width: 1190px)
+.posting-on-landing {
+    position: relative;
+    top: 30px;
+    width: 100%;
 
   .hamburg-landing {
     z-index: 11;
