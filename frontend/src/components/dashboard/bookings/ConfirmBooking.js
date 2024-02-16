@@ -17,14 +17,16 @@ import Mobilecommonhead from '../../Mobilecommonhead';
 import Profileandevents from '../../Landing/Profileandevents';
 
 const ConfirmBooking = ({ setProgress }) => {
-  const mentorid = window.location.pathname.split('/')[2];
+  const meetDetailsArr = window.location.pathname.split('/');
+  console.log(meetDetailsArr);
+  const mentorid = meetDetailsArr[2];
   const [data, setData] = useState({});
   const search = useLocation().search;
-  const day = new URLSearchParams(search).get('day');
-  const s = new URLSearchParams(search).get('s');
-  const e = new URLSearchParams(search).get('e');
-  const userid = new URLSearchParams(search).get('userid');
-  const charge = new URLSearchParams(search).get('charge');
+  const day = meetDetailsArr[3];
+  const s = meetDetailsArr[4];
+  const e = meetDetailsArr[5];
+  const userid = meetDetailsArr[6];
+  const charge = meetDetailsArr[7];
   const auth_code = new URLSearchParams(search).get('code');
 
   const navigate = useNavigate();
@@ -48,7 +50,7 @@ const ConfirmBooking = ({ setProgress }) => {
   }, []);
 
   const onClickProceed = () => {
-    console.log("details - ",s,e,userid,charge)
+    console.log('details - ', s, e, userid, charge);
     navigate(
       `/payment/${mentorid}?day=${day}&s=${s}&e=${e}&userid=${userid}&charge=${charge}&code=${auth_code}`
     );
@@ -132,7 +134,7 @@ const ConfirmBooking = ({ setProgress }) => {
               >
                 <input
                   type='text'
-                  className='coupon-text'
+                  className='coupon-text p-1'
                   placeholder='Have a Coupon Code?'
                 />
                 <img

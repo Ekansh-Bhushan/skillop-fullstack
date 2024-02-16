@@ -67,11 +67,11 @@ const Payment = ({ setProgress }) => {
       //   .toString(),
       start_time: '2024-02-05T07:00',
     });
-  
+
     const res = await axios.post(
       'https://skillop.in/api/meeting/create-meeting/' + auth_code,
       data,
-      config,
+      config
     );
     console.log('success');
     console.log(res.data);
@@ -102,16 +102,16 @@ const Payment = ({ setProgress }) => {
         userid,
         formData
       );
-      if (response.data.result) {
-        console.log('sendmeetreq: ', response.data.result);
-        navigate('/requestedMeets');
-        toast.success('Meet scheduled!');
-        toast.success('Check your Zoom Meet Account!');
-      } else {
-        toast.error(response.data.message);
-      }
+      // if (response.data.result) {
+      //   console.log('sendmeetreq: ', response.data.result);
+      //   navigate('/requestedMeets');
+      //   toast.success('Meet scheduled!');
+      //   toast.success('Check your Zoom Meet Account!');
+      // } else {
+      //   toast.error(response.data.message);
+      // }
     } catch (error) {
-      toast.error(error.response.data.message);
+      // toast.error(error.response.data.message);
       console.log(error);
     }
 
@@ -119,18 +119,21 @@ const Payment = ({ setProgress }) => {
   };
 
   return (
-    <div style={{ display: 'flex', gap: '100px' }}>
+    <div
+      style={{ display: 'flex', gap: '100px' }}
+      className='overflow-hidden pb-16'
+    >
       <Mobilecommonhead />
       <div className='relative left-[20vw] pt-[15vh] w-[100%] md:left-0 md:pt-[8vh]'>
         <div className='h-[100vh] flex items-center justify-center flex-col pt-5 ml-10 w-[50%] px-5 md:w-[100%] md:ml-0'>
           <h2 className='text-3xl font-semibold w-full '>Payment</h2>
           <div className='pay-details '>
-            <h3 className='text-2xl font-semibold '>Payment details</h3>
-            <div className='session text-xl font-semibold my-5'>
+            <h3 className='text-xl  '>Payment details -</h3>
+            <div className='session text-xl  my-5'>
               <p>Price for 1 session</p>
               <p>Rs. {charge}</p>
             </div>
-            <div className='final-amt text-xl font-semibold'>
+            <div className='final-amt text-xl '>
               <p>Final amount</p>
               <p>Rs. {charge}</p>
             </div>
@@ -207,9 +210,9 @@ const Payment = ({ setProgress }) => {
             Book Slot
           </button>
           {loading && (
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center' }} className='mb-12'>
               {' '}
-              <img src={spinner} alt='loading' width={45} />
+              <img src='/spinner.gif' alt='loading' width={50} />
             </div>
           )}
         </div>
