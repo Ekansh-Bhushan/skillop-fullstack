@@ -1,6 +1,8 @@
 import React from 'react';
 import MiscFooter from './MiscFooter';
 import MiscNavBar from './MiscNavBar';
+import './AboutUs.css'; 
+
 
 const About = () => {
   return (

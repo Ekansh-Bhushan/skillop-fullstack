@@ -399,7 +399,7 @@ const Profile = ({ setProgress }) => {
                 .map((item, idx) => {
                   return (
                     <div key={item._id} className='experience-content'>
-                      <div>
+                      <div className='job-info'>
                         <div className='job-title'>➤ {item.title}</div>
                         <div className='company' style={{ width: '38vw' }}>
                           {item.company}
@@ -565,7 +565,7 @@ const Profile = ({ setProgress }) => {
                         id='edu-field'
                         style={{ display: 'flex', alignItems: 'center' }}
                       >
-                        <div>
+                        <div className='edu-info'>
                           <div className='education-qualification'>
                             ➤ {item.institution} <br />
                           </div>
