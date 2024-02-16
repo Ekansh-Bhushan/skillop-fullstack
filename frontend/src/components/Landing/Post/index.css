@@ -1806,6 +1806,7 @@ non-act {
   .people-post {
     padding-top: 80px;
     padding-bottom: 80px;
-    width: 100%;
+    width: 60%;
+    margin-left: 30px;
   }
 }
