@@ -267,32 +267,36 @@ body {
   display: none;
 }
 /*code*/
-@media only screen and (max-width: 843px)
+@media only screen and (max-width: 843px){
 .posting-on-landing {
     margin-left: -52px;
     top: 0;
     width: 780px;
 }
-@media only screen and (max-width: 780px)
+}
+@media only screen and (max-width: 780px){
 .posting-on-landing {
     margin-left: -6px;
     top: 0;
     width: 800px;
     padding: 0 25px;
 }
+}
 @media only screen and (max-width: 904px) {
   .right-options {
     display: none;
   }
-  @media only screen and (max-width: 1400px)
+}
+  @media only screen and (max-width: 1400px){
 .posting-on-landing {
     width: 80%;
 }
-  @media only screen and (max-width: 1190px)
+  }
+  @media only screen and (max-width: 1190px){
 .posting-on-landing {
     position: relative;
     top: 30px;
-    width: 100%;
+    width: 100%;}
 
   .hamburg-landing {
     z-index: 11;
