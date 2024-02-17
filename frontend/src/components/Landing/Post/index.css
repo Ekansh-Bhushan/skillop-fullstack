@@ -266,37 +266,35 @@ body {
 .hamburg-landing {
   display: none;
 }
-
-@media only screen and (max-width: 843px) {
-  .posting-on-landing {
+/*code*/
+@media only screen and (max-width: 843px){
+.posting-on-landing {
     margin-left: -52px;
     top: 0;
     width: 780px;
-  }
 }
-@media only screen and (max-width: 780px) {
-  .posting-on-landing {
+@media only screen and (max-width: 780px)
+.posting-on-landing {
     margin-left: -6px;
     top: 0;
     width: 800px;
     padding: 0 25px;
   }
 }
+}
 @media only screen and (max-width: 904px) {
   .right-options {
     display: none;
   }
-}
-@media only screen and (max-width: 1400px) {
-  .posting-on-landing {
+  @media only screen and (max-width: 1400px)
+.posting-on-landing {
     width: 80%;
-  }
 }
-@media only screen and (max-width: 1190px) {
-  .posting-on-landing {
+  @media only screen and (max-width: 1190px)
+.posting-on-landing {
     position: relative;
     top: 30px;
-    width: 100%;
+    width: 100%;}
 
     .hamburg-landing {
       z-index: 11;
@@ -1799,12 +1797,46 @@ non-act {
 }
 
 @media only screen and (max-width: 500px) {
-  /* .post-1 {
-    margin-top: 80px;
-  } */
   .people-post {
     padding-top: 80px;
     padding-bottom: 80px;
-    width: 100%;
+    width: 64%;
+    margin-left: 39px;
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .people-post {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 58%;
+    margin-left: 42px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .people-post {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 58%;
+    margin-left: 42px;
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 365px) {
+  .people-post {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 56%;
+    margin-left: 42px;
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 285px) {
+  .people-post {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 44%;
+    margin-left: 42px;
+    margin-top: 0px;
   }
 }

@@ -5,11 +5,14 @@ const user = require('../models/user');
 exports.scheduleZoomMeet = async (req, res) => {
   // Getting access_token by passing auth_token
   try {
+    if(!req.body.start_time) {
+      return res.status(400).json({result:false, error:"Start Time is required"})
+    }
     base_64 = btoa(process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET);
     const auth_code = req.params.auth_code;
     const response = await axios({
       method: 'POST',
-      url: `https://api.zoom.us/oauth/token?grant_type=authorization_code&code=${auth_code}&redirect_uri=https://skillop.in`,
+      url: `https://api.zoom.us/oauth/token?grant_type=authorization_code&code=${auth_code}&redirect_uri=https://skillop.in/`,
       headers: {
         Authorization: 'Basic ' + `${base_64} `,
         'Content-Type': 'application/json',

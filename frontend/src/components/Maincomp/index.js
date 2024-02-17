@@ -322,12 +322,12 @@ function WebPages({
         />
 
         <Route
-          path='/authorize-zoom-meet/:userId'
+          path='/authorize-zoom-meet/:mentorid/:day/:s/:e/:userid/:charge'
           element={<AuthorizeZoomMeet setProgress={setProgress} />}
         />
 
         <Route
-          path='/confirm-booking/:userId'
+          path='/confirm-booking/:mentorid/:day/:s/:e/:userid/:charge'
           element={<ConfirmBooking setProgress={setProgress} />}
         />
         <Route

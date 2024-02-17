@@ -1136,6 +1136,18 @@ body {
     margin-left: 20px;
   }
 }
+@media screen and (max-width: 285px){
+
+  .heading-session-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    font-size: 14px;
+    padding: 0px;
+    border-bottom: 0px;
+  }
+}
 
 @media only screen and (max-width: 1400px) {
   .view-on-mob {
