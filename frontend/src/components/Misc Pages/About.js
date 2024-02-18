@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './aboutpg.css'; 
+import './aboutpg.css'; // Make sure to import your CSS file
 import pic1 from './pic1.png';
 import pic2 from './pic2.png';
 import pic3 from './pic3.png';
@@ -9,7 +9,6 @@ import pic5 from './pic5.png'
 import logo from './logo.png';
 import MiscFooter from './MiscFooter';
 import MiscNavBar from './MiscNavBar';
-import arrow from "../images/arrow.png";
 import { useNavigate } from "react-router-dom";
 
  const AboutUs = () => {
@@ -17,11 +16,22 @@ import { useNavigate } from "react-router-dom";
    const signupClicked = () => {
     window.innerWidth < 500 ? navigate("/msignup") : navigate("/signup");
   };
+   const redirectToConnectOp = () => {
+      window.location.href = 'https://connectop-frontend.vercel.app/';
+    };
+    const redirectToSynergy =() => {
+        window.location.href = 'https://resumify-frontend.vercel.app/';
+
+    };
+    const redirectToSkillop =() => {
+        window.location.href = 'https://skillop.in';
+    };
+
   return (
     <>
     <MiscNavBar />
-//     <div>
-//       <h1 style={{ textAlign: 'center',marginTop:'60px' }}>About Us</h1>
+     <div>
+      <h1 style={{ textAlign: 'center',marginTop:'100px' }}>About Us</h1>
 
       <div className="aboutpg-box-container">
         <div className=" aboutpg-box1">
@@ -53,7 +63,7 @@ import { useNavigate } from "react-router-dom";
         <h1 style={{fontFamily:' Verdana, Geneva, Tahoma, sans-serif'}}><i>"AHA" LEARNING AND GROWTH </i></h1>
         <p>Our "AHA" moment came when we realized that the key to empowering students is not just providing mentorshio
             but also providing them tools that complement their growth.This led to the development of features like 
-            Synergy,InstiD,ConnectOp,which have become integral part of the Skillop experience.
+            Synergy, InstiD, ConnectOp, which have become integral part of the Skillop experience.
         </p>
         <img className="image" src={pic4} alt="Image description"/>
         </div>
@@ -72,15 +82,15 @@ import { useNavigate } from "react-router-dom";
        <h1 style={{ textAlign: 'center' }}>OUR TOOLS</h1>
 
       <div className="aboutpg-box-container1">
-        <div className="aboutpg-box3">
-          <h3 style={{ fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}><b><i>Synergy</i></b></h3>
-          <p>A tool designed to make company-specific CV's/resumes.</p>
+        <div className="aboutpg-box3" onClick={redirectToSkillop}>
+          <h3 style={{ fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}><b><i>InstiD</i></b></h3>
+          <p>A feature that allows students to apply for jobs available on internet at once.</p>
         </div>
-        <div className="aboutpg-box3">
-        <h3 style={{fontFamily: 'Verdana, Geneva, Tahoma, sans-serif'}}><b><i>InstiD</i></b></h3>
-        <p>A feature that allows students to apply for jobs available on internet at once.</p>
+        <div className="aboutpg-box3" onClick={redirectToSynergy}>
+        <h3 style={{fontFamily: 'Verdana, Geneva, Tahoma, sans-serif'}}><b><i>Synergy</i></b></h3>
+        <p>A tool designed to make company-specific CV's/resumes.</p>
         </div>
-        <div className="aboutpg-box3">
+        <div className="aboutpg-box3" onClick={redirectToConnectOp}>
         <h3 style={{fontFamily: 'Verdana, Geneva, Tahoma, sans-serif '}}><b><i>ConnectOp</i></b></h3>
         <p>A feature that allows students to apply for jobs available on internet at once.</p>
         </div>
@@ -99,7 +109,7 @@ import { useNavigate } from "react-router-dom";
           >
             <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5">
               Get Started
-              <img src={arrow} width={20} />
+             
             </span>
           </button>
          </div>

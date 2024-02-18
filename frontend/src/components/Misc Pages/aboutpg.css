@@ -1,10 +1,6 @@
 
 
- /* p{
-    
-     font-size: 25px; 
-     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-}  */
+ 
 
 body {
     margin: 0;
@@ -22,10 +18,14 @@ body {
 }
 .aboutpg-box1 p {
     margin-right: 500px; 
+    font-size: 25px; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
 }
 .aboutpg-box2 p{
    width: 100%;
+   font-size: 25px; 
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .aboutpg-box2 h2 {
     margin-bottom: 10px;
@@ -37,14 +37,14 @@ body {
     text-align: right;
 }
 .aboutpg-box1 img {
-    height: 250px;
+    height: 230px;
     width: auto;
     width: 100%; /* Make the image fill the available width */
     max-width: 300px; /* Set a max width for the image */
     position: absolute; /* Position the image absolutely within the box */
     top: 20px; /* Adjust the top position as needed */
     right: 20px; /* Adjust the right position as needed */
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 .aboutpg-box1 {
     flex: 1;
@@ -65,6 +65,7 @@ body {
 }
 .aboutpg-box1:hover {
     background-color: #f5fc97;
+    
   }
 .aboutpg-box2 img {
     height: 250px;
@@ -93,6 +94,7 @@ body {
 .aboutpg-box2:hover {
   
     background-color:  #f5fc97;
+    
   }
 .aboutpg-box-container1 {
     display: flex;
@@ -107,7 +109,7 @@ body {
 
 .aboutpg-box3 {
     flex: 1;
-    height: 150px;
+    height: 160px;
     width:150px; /* Adjust the width of the boxes as needed */
     padding: 20px;
     background-color: #f0f0f0;
@@ -117,13 +119,20 @@ body {
     border-bottom: 5px solid black; /* Optional: Add a border for visualization */
     margin: 15px;
     border-radius: 30px 30px 30px 30px;
-    transition: background-color 0.3s ease;  
+    transition: background-color 0.3s ease;
+    
+
 
 
 }
+.aboutpg-box3 p{
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
 .aboutpg-box3:hover {
     
-    background-color: #f5fc97;
+    background-color: #a4ea91;
+    
   }
 .aboutpg-box4 {
     width: 80%; /* Adjust the width of the box as needed */
@@ -140,10 +149,13 @@ body {
 }
 .aboutpg-box4:hover {
     
-    background-color:  #f5fc97;
+    background-color:  #f78d75;
+    
   }
 .aboutpg-box4 p{
     margin-bottom: 50px;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
 }
 .btn {
     position: absolute;
@@ -168,6 +180,7 @@ body {
 .btn:hover {
     background-color: #2980b9;
     color: #ffffff;
+    
   }
 .aboutpg-box-container2 {
     display: flex;
@@ -195,9 +208,14 @@ body {
     transition: background-color 0.3s ease; 
     
 }
+.aboutpg-box5 p{
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
 .aboutpg-box5:hover {
   
-    background-color:  #f5fc97;
+    background-color:  #7ba4cd;
+    
   }
 .aboutpg-form-box {
     flex: 1;
@@ -219,6 +237,7 @@ body {
 .aboutpg-form-box:hover {
     
     background-color:  #f5fc97;
+    
   }
 
 .aboutpg-form-box label {
@@ -390,10 +409,14 @@ body {
 
     
         .aboutpg-box1, .aboutpg-box2, .aboutpg-box3, .aboutpg-box4{
-            margin-left:auto;
-            margin-right: auto;
+            margin-left: 20px;
+            margin-right: 20px;
             height: auto;
             width:auto;
+           
+        }
+        .aboutpg-box3{
+            margin: 10px;
         }
         
         .aboutpg-box1 p,
@@ -411,6 +434,7 @@ body {
         .aboutpg-box1 img, .aboutpg-box2 img {
             position: static;
             max-width: 30%;
+            left: 50%;
             
         }
         .aboutpg-form-box img{
