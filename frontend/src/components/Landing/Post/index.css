@@ -1800,13 +1800,46 @@ non-act {
 }
 
 @media only screen and (max-width: 500px) {
-  /* .post-1 {
-    margin-top: 80px;
-  } */
   .people-post {
     padding-top: 80px;
     padding-bottom: 80px;
-    width: 60%;
-    margin-left: 30px;
+    width: 64%;
+    margin-left: 39px;
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .people-post {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 58%;
+    margin-left: 42px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .people-post {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 58%;
+    margin-left: 42px;
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 365px) {
+  .people-post {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 56%;
+    margin-left: 42px;
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 285px) {
+  .people-post {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 44%;
+    margin-left: 42px;
+    margin-top: 0px;
   }
 }

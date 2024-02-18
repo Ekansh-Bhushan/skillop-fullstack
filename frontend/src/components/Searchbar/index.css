@@ -49,6 +49,11 @@
     display: none;
   }
 }
+@media (max-width: 285px) {
+  .search-panel {
+    width: 294px;
+  }
+}
 
 .input-div-search {
   width: 110%;
