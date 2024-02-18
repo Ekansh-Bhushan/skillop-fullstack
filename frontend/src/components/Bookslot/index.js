@@ -40,17 +40,32 @@ function Bookslot({ userData, setProgress }) {
       '/authorize-zoom-meet' +
         '/' +
         mentorid +
-        '?day=' +
+        '/' +
         day +
-        '&s=' +
+        '/' +
         s +
-        '&e=' +
+        '/' +
         e +
-        '&userid=' +
+        '/' +
         userid +
-        '&charge=' +
+        '/' +
         charge
     );
+    // navigate(
+    //   '/authorize-zoom-meet' +
+    //     '/' +
+    //     mentorid +
+    //     '?day=' +
+    //     day +
+    //     '&s=' +
+    //     s +
+    //     '&e=' +
+    //     e +
+    //     '&userid=' +
+    //     userid +
+    //     '&charge=' +
+    //     charge
+    // );
   };
 
   // use effect to load the slots on site loads
