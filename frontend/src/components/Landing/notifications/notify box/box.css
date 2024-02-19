@@ -51,7 +51,7 @@
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    width: 100%;
+    width: 80%;
   }
 
   .notify-box-content {
@@ -66,6 +66,6 @@
 }
 @media screen and (max-width: 380px) {
   .notify-box {
-    width: 84%;
+    width: 81%;
   }
 }
