@@ -193,7 +193,7 @@ const ExpPopUp = ({ onClose, setUpdateDom, id, expID, updateDom }) => {
             />
             <button
               onClick={handleExpAdd}
-              style={{ color: 'white', fontSize: '1.2rem' }}
+              style={{ color: 'white', fontSize: '1.2rem',    width: '102px' }}
             >
               {id === 'edit-text' ? 'Update' : 'Add'}
             </button>

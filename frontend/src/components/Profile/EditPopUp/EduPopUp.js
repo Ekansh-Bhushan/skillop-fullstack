@@ -176,7 +176,7 @@ const EduPopUp = ({ onClose, setUpdateDom, id, eduID, updateDom }) => {
             {/* <input name='country' onChange={onChange} value={data[0].country} type="text" placeholder='Country' /> */}
             <button
               onClick={handleEduAdd}
-              style={{ color: 'white', fontSize: '1.2rem' }}
+              style={{ color: 'white', fontSize: '1.2rem',width: '102px'}}
             >
               {id === 'edit-text' ? 'Update' : 'Add'}
             </button>
