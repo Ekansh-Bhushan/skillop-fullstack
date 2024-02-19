@@ -87,7 +87,7 @@ function Account({ userData, setProgress}) {
 
         <div className='dash-right dash-right-2'>
           {/* <Topbar setProgress={setProgress}/> */}
-          <div className='pt-10vh h-100vh border-r-2 md:border-0 md:pt-6vh ml--35px ml--35px@media (max-width: 500px)'>
+          <div className='pt-6vh h-100vh border-r-2 md:border-0 md:pt-6vh ml--35px ml--35px@media (max-width: 500px)'>
             <h1 className='font-semibold text-2xl mb-5'>
               Edit Account Information
             </h1>
