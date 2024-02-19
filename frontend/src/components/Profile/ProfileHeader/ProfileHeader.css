@@ -156,7 +156,7 @@
     width: 91%;
     margin-bottom: 28px;
   }
-  .ph-pic2{
+  .ph-pic2 {
     position: absolute;
     /* margin-top: 16%; */
     top: 26%;
@@ -164,13 +164,30 @@
     height: 115px;
     width: 115px;
   }
-   .ph-pic{
+  .ph-pic {
     position: absolute;
     top: 28%;
     left: 10vw;
     height: 115px;
     width: 115px;
   }
+  .ph-pic-pub{
+    position: absolute;
+    top: 28%;
+    left: 10vw;
+    height: 115px;
+    width: 115px;
+  }
+  .ph-pic-pub2{
+    position: absolute;
+    /* margin-top: 16%; */
+    top: 26%;
+    left: 11%;
+    height: 115px;
+    width: 115px;
+  }
+
+  
   .profile-data {
     margin-left: 5%;
     /* margin-top: 0.5px; */
@@ -198,6 +215,20 @@
     position: absolute;
     top: 21vh;
     left: 7vw;
+    height: 115px;
+    width: 115px;
+  }
+  .ph-pic-pub{
+    position: absolute;
+    top: 21vh;
+    left: 7vw;
+    height: 115px;
+    width: 115px;
+  }
+  .ph-pic-pub2{
+    position: absolute;
+    top: 22vh;
+    left: 6vw;
     height: 115px;
     width: 115px;
   }
@@ -275,7 +306,21 @@
     height:115px ;
     width: 115px;
   }
-   .ph-pic{
+  .ph-pic-pub2{
+    position: absolute;
+    /* top: 29%; */
+    left: 10%;
+    height:115px ;
+    width: 115px;
+  }
+  .ph-pic{
+    position: absolute;
+    top: 28%;
+    left: 9.5vw;
+    height:115px ;
+    width: 115px;
+  }
+  .ph-pic-pub{
     position: absolute;
     top: 28%;
     left: 9.5vw;
@@ -307,7 +352,21 @@
     height: 115px;
     width: 115px;
   }
-   .ph-pic{
+  .ph-pic-pub2{
+    position: absolute;
+    top: 32%;
+    left: 9%;
+    height: 115px;
+    width: 115px;
+  }
+  .ph-pic{
+    position: absolute;
+    top: 32%;
+    left: 9vw;
+    height: 115px;
+    width: 115px;
+  }
+  .ph-pic-pub{
     position: absolute;
     top: 32%;
     left: 9vw;
@@ -338,7 +397,23 @@
     height: 120px;
     width: 120px;
   }
-   .ph-pic {
+  .ph-pic-pub2{
+    position: absolute;
+    /* top: 200px; */
+    /* top: 100pxpx; */
+    left: 16%;
+    height: 120px;
+    width: 120px;
+  }
+  .ph-pic {
+    position: absolute;
+    /* top: 200px; */
+    /* top: 100pxpx; */
+    left: 15.5vw;
+    height: 120px;
+    width: 120px;
+  }
+  .ph-pic-pub{
     position: absolute;
     /* top: 200px; */
     /* top: 100pxpx; */
@@ -370,7 +445,23 @@
     height: 120px;
     width: 120px;
   }
-   .ph-pic {
+  .ph-pic-pub2{
+    position: absolute;
+    /* top: 195px; */
+    /* top: 32.5%; */
+    left: 15%;
+    height: 120px;
+    width: 120px;
+  }
+  .ph-pic {
+    position: absolute;
+    /* top: 195px; */
+    /* top: 32.5%; */
+    left: 15vw;
+    height: 120px;
+    width: 120px;
+  }
+  .ph-pic-pub{
     position: absolute;
     /* top: 195px; */
     /* top: 32.5%; */
@@ -402,7 +493,23 @@
     height: 120px;
     width: 120px;
   }
-   .ph-pic{
+  .ph-pic-pub2{
+    position: absolute;
+    /* top: 32vh; */
+    /* top: 31.5%; */
+    left: 15%;
+    height: 120px;
+    width: 120px;
+  }
+  .ph-pic{
+    position: absolute;
+    /* top: 32vh; */
+    /* top: 31.5%; */
+    left: 15vw;
+    height: 120px;
+    width: 120px;
+  }
+  .ph-pic-pub{
     position: absolute;
     /* top: 32vh; */
     /* top: 31.5%; */
@@ -439,7 +546,21 @@
     height: 120px;
     width: 120px;
   }
-   .ph-pic {
+  .ph-pic-pub2{
+    position: absolute;
+    /* top: 31.5%; */
+    left: 24%;
+    height: 120px;
+    width: 120px;
+  }
+  .ph-pic {
+    position: absolute;
+    /* top: 31.5%; */
+    left: 24vw;
+    height: 120px;
+    width: 120px;
+  }
+  .ph-pic-pub{
     position: absolute;
     /* top: 31.5%; */
     left: 24vw;
