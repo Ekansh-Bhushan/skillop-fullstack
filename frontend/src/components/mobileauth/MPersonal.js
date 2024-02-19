@@ -1,8 +1,7 @@
 import React from "react";
 import coolimg from "../../components/images/logo.png";
-import { FaLinkedin, FaGoogle } from "react-icons/fa";
+// import { FaLinkedin, FaGoogle } from "react-icons/fa";
 import MProgressBar from "./MProgressBar";
-
 const MPersonal = () => {
   return (
     <div>
