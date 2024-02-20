@@ -72,7 +72,7 @@ const Msignup = () => {
         <h1 className='text-3xl font-bold text-start mb-3'>SIGNUP</h1>
         <div className='flex flex-col items-center justify-center'>
           <div className='relative my-4'>
-            <label className='absolute top-0 left-2 -mt-2 bg-white px-1'>
+            <label className='absolute top-0 left-2 -mt-3 bg-white px-1'>
               First Name
             </label>
             <input
@@ -83,7 +83,7 @@ const Msignup = () => {
             />
           </div>
           <div className='relative my-4'>
-            <label className='absolute top-0 left-2 -mt-2 bg-white px-1'>
+            <label className='absolute top-0 left-2 -mt-3 bg-white px-1'>
               Last Name
             </label>
             <input
@@ -94,7 +94,7 @@ const Msignup = () => {
             />
           </div>
           <div className='relative my-4'>
-            <label className='absolute top-0 left-2 -mt-2 bg-white px-1'>
+            <label className='absolute top-0 left-2 -mt-3.5 bg-white px-1'>
               Email
             </label>
             <input
@@ -105,7 +105,7 @@ const Msignup = () => {
             />
           </div>
           <div className='relative my-4'>
-            <label className='absolute top-0 left-2 -mt-2 bg-white px-1'>
+            <label className='absolute top-0 left-2 -mt-3.5 bg-white px-1'>
               Password
             </label>
             <input
