@@ -223,7 +223,7 @@ const PublicProfile = ({
                         <div className="job-title">➤ {item.title}</div>
                         <div className="company">{item.company}</div>
                         <div className="co-location">{item.location}</div>
-                        <p className="jd">{item.description}</p>
+                        <p className="jd" style={{width:"90%"}}>{item.description}</p>
                         <div className="profile-page-content">
                           <div className="date">
                             <span className="date-m">From:</span>
