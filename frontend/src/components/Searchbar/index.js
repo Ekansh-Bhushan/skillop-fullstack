@@ -188,7 +188,7 @@ function Searchbar({setProgress}) {
                     Location
                   </button>
                 </div>
-                <div className="filterInput">
+                <div className="filterInput" style={{ marginTop: '50px' }}>
                   {collegeFilter && (
                     <input
                       name="college"
