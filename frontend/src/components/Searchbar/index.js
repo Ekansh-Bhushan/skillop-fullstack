@@ -15,12 +15,8 @@ function Searchbar({setProgress}) {
   const [companyFilter, setCompanyFilter] = useState(false);
   const [jobFilter, setJobFilter] = useState(false);
   const [locationFilter, setLocationFilter] = useState(false);
-
   const [searchPeople, setSearchPeople] = useState(true);
-  const [searchPost, setSearchPost] = useState(false);
-
   const [searching, setSearching] = useState(false);
-
   const [filterFields, setFilterFields] = useState({
     keyword: "",
     college: "",
@@ -146,7 +142,6 @@ function Searchbar({setProgress}) {
                 <div className="filterBY ">
                   <button
                     onClick={addCollegeFilter}
-                    // style={{ background: "red" }}
                     className={
                       collegeFilter ? "colored-filter-btn" : "filter-btn"
                     }
@@ -155,7 +150,6 @@ function Searchbar({setProgress}) {
                   </button>
                   <button
                     onClick={addDegreeFilter}
-                    // style={{ background: "blue" }}
                     className={
                       degreeFilter ? "colored-filter-btn" : "filter-btn"
                     }
@@ -367,7 +361,6 @@ function Searchbar({setProgress}) {
               )}
         </div>
       )}
-      {/* <RightProfileComp /> */}
     </>
   );
 }
