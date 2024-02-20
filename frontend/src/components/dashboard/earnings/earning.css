@@ -1,16 +1,16 @@
+body {
+  min-height: 100vh;
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+
 .earning-dash {
   display: flex;
   flex-direction: column;
-  max-width: 650px;
-  margin: 0 auto; /* Center horizontally */
+  width: 100%;
+  max-width: 100%; /* Set max-width to 100% */
+  margin-left: -34px ;
   font-weight: 100;
-  border-right: 1px solid #00000026;
-  overflow: hidden;
-}
-
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
+  box-sizing: border-box; /* Include borders in width calculation */
 }
 
 .line-earning {
@@ -28,37 +28,7 @@ body {
 
 @media (max-width: 500px) {
   .earning-dash {
-    margin-left: 0;
-    padding-left: 15px;
-    margin-top: -68px;
-
-    /* position: absolute; */
-    /* width: 370px ; */
-
-    
-    /* border-right: none; */
-    /* margin-right: -16px; */
-    /* margin-top: auto; */
-  }
-
-  .line-earning {
-    display: none;
-  }
-
-  .info-dash-table {
-    margin-bottom: 40px;
-  }
-
-  .dash-main {
-    padding-top: 60px;
-  }
-
-  .top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+    border-right: none; /* Remove right border on small screens */
   }
 }
 
@@ -66,90 +36,35 @@ body {
   .total-mentee,
   .earnings-dash {
     width: 45%;
-    margin: 0; /* Align to the left */
   }
 }
 
 @media (min-width: 600px) {
   .earning-dash {
-    display: flex;
-    flex-direction: column;
-    max-width: 80%;
-    margin: 0; /* Align to the left */
-    border-right: none;
-  }
-
-  .total-mentee,
-  .earnings-dash {
-    width: 45%;
-    margin: 0; /* Align to the left */
+    max-width: calc(520px - 2px); /* Adjusted width to account for border */
   }
 }
 
 @media (min-width: 768px) {
   .earning-dash {
-    display: flex;
-    flex-direction: column;
-    width: 600px;
-    border-right: 1px solid #00000026;
-    position: absolute;
-    margin: 0; /* Align to the left */
-  }
-
-  .total-mentee,
-  .earnings-dash {
-    width: 40%;
-    margin: 0; /* Align to the left */
+    max-width: calc(600px - 2px); /* Adjusted width to account for border */
   }
 }
 
 @media (min-width: 992px) {
   .earning-dash {
-    display: flex;
-    flex-direction: column;
-    width: 530px;
-    margin: 0; /* Align to the left */
-    border-right: 1px solid #00000026;
-  }
-
-  .total-mentee,
-  .earnings-dash {
-    width: 40%;
-    margin: 0; /* Align to the left */
+    max-width: calc(530px - 2px); /* Adjusted width to account for border */
   }
 }
 
 @media (min-width: 1190px) {
   .earning-dash {
-    display: flex;
-    flex-direction: column;
-    width: 570px;
-    margin: 0; /* Align to the left */
-    border-right: 1px solid #00000026;
-  }
-
-  .total-mentee,
-  .earnings-dash {
-    width: 40%;
-    margin: 0; /* Align to the left */
+    max-width: calc(570px - 2px); /* Adjusted width to account for border */
   }
 }
 
 @media (min-width: 1400px) {
   .earning-dash {
-    display: flex;
-    flex-direction: column;
-    width: 620px;
-    margin: 0; /* Align to the left */
-    border-right: 1px solid #00000026;
-  }
-
-  .total-mentee,
-  .earnings-dash {
-    width: 40%;
-    margin: 0; /* Align to the left */
+    max-width: calc(620px - 2px); /* Adjusted width to account for border */
   }
 }
-
-
-

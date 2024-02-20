@@ -254,7 +254,7 @@ function Bookings({ userData, setProgress, Mentor }) {
             <div className='text-center flex justify-cente my-5 ' style={{marginLeft: '100px'}}>
               <div className='meet-rate'>
                 <div>
-                  Current charge per hour : ₹{userData.mentor.chargePerHour}
+                Current charge per hour : {userData.mentor.chargePerHour ? `${userData.mentor.chargePerHour} Rs` : 'N/A'}
                 </div>
                 <div style={{ display: 'flex', gap: '2vw' }}>
                   <input
