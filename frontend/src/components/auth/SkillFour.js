@@ -101,7 +101,6 @@ const SkillFour = ({ setProgress }) => {
       toast.error('Institution, Degree, Start & End Year are required!');
       return;
     }
-    // Add the input validation here
     const inputValue = data[0].degree;
     if (!/^\D*$/.test(inputValue)) {
       
@@ -127,7 +126,6 @@ const SkillFour = ({ setProgress }) => {
   const addEdu = async () => {
     setProgress(40);
     console.log('data', data);
-    // check start date and end date
     if (data[0].startDate > data[0].endDate) {
       toast.error('Start year cannot be greater than end year');
       return;
