@@ -1,9 +1,8 @@
 .earning-dash {
   display: flex;
   flex-direction: column;
-  max-width: 650px; /* or width: 100%; */
-  margin-left: 2vw;
-  /* padding-left: 20px; */
+  max-width: 650px;
+  margin: 0 auto; /* Center horizontally */
   font-weight: 100;
   border-right: 1px solid #00000026;
   overflow: hidden;
@@ -27,19 +26,10 @@ body {
   cursor: pointer;
 }
 
-@media  (max-width: 500px) {
+@media (max-width: 500px) {
   .earning-dash {
-    margin-left: -100px;
+    margin-left: 0;
     padding-left: 15px;
-    /* margin-top: 10; */
-
-    /* position: absolute; */
-    /* width: 370px ; */
-
-    
-    /* border-right: none; */
-    /* margin-right: -16px; */
-    /* margin-top: auto; */
   }
 
   .line-earning {
@@ -51,7 +41,7 @@ body {
   }
 
   .dash-main {
-    padding-top: 60px; /* Adjust as needed to prevent content from being hidden behind the fixed header */
+    padding-top: 60px;
   }
 
   .top-bar {
@@ -59,140 +49,98 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Adjust as needed, make it higher than other elements */
-  }
-
-}
-@media (min-width: 500px){
-  .total-mentee{
-    width: 45%;
-    
-
-  }
-  .earnings-dash{
-    width: 45%;
-    
-    
+    z-index: 1000;
   }
 }
+
+@media (min-width: 500px) {
+  .total-mentee,
+  .earnings-dash {
+    width: 45%;
+    margin: 0; /* Align to the left */
+  }
+}
+
 @media (min-width: 600px) {
-  .earning-dash{
+  .earning-dash {
     display: flex;
     flex-direction: column;
-    width: 520px;
-    /* margin-left: -70px ; */
-    /* margin-left: -2vw; */
-  /* padding-left: 20px; */
-    /* border-right: 1px solid #00000026; */
-    /* position: absolute; */
-    /* justify-content: center; */
-    /* margin-top: 200px; */
-
+    max-width: 80%;
+    margin: 0; /* Align to the left */
+    border-right: none;
   }
-  .total-mentee{
+
+  .total-mentee,
+  .earnings-dash {
     width: 45%;
-    
-
+    margin: 0; /* Align to the left */
   }
-  .earnings-dash{
-    width: 45%;
-    
-    
-  }
-
-
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-
-
-
-
-/* Medium devices (landscape tablets, 768px and up) */
 @media (min-width: 768px) {
-  .earning-dash{
+  .earning-dash {
     display: flex;
     flex-direction: column;
     width: 600px;
-    /* margin-left: -70px ; */
-    /* margin-left: -2vw; */
-  /* padding-left: 20px; */
     border-right: 1px solid #00000026;
     position: absolute;
-    /* margin-top: 200px; */
+    margin: 0; /* Align to the left */
   }
-  .total-mentee{
+
+  .total-mentee,
+  .earnings-dash {
     width: 40%;
-
+    margin: 0; /* Align to the left */
   }
-  .earnings-dash{
-    width: 40%;
-  }
-
-
 }
 
-
-
-/* Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 992px) {
-  
-  .earning-dash{
+  .earning-dash {
     display: flex;
     flex-direction: column;
     width: 530px;
-    margin-left: -70px ;
-    /* margin-left: -2vw; */
-  /* padding-left: 20px; */
+    margin: 0; /* Align to the left */
     border-right: 1px solid #00000026;
   }
-  .total-mentee{
-    width: 40%;
 
-  }
-  .earnings-dash{
+  .total-mentee,
+  .earnings-dash {
     width: 40%;
+    margin: 0; /* Align to the left */
   }
-  
-
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
 @media (min-width: 1190px) {
-  .earning-dash{
+  .earning-dash {
     display: flex;
     flex-direction: column;
     width: 570px;
-    margin-left: -70px ;
-    /* margin-left: -2vw; */
-  /* padding-left: 20px; */
+    margin: 0; /* Align to the left */
     border-right: 1px solid #00000026;
   }
-  .total-mentee{
-    width: 40%;
 
-  }
-  .earnings-dash{
+  .total-mentee,
+  .earnings-dash {
     width: 40%;
+    margin: 0; /* Align to the left */
   }
-
 }
 
 @media (min-width: 1400px) {
-
-  .earning-dash{
+  .earning-dash {
     display: flex;
     flex-direction: column;
     width: 620px;
-    margin-left: 2vw;
-  /* padding-left: 20px; */
+    margin: 0; /* Align to the left */
     border-right: 1px solid #00000026;
   }
-  .total-mentee{
-    width: 40%;
 
-  }
-  .earnings-dash{
+  .total-mentee,
+  .earnings-dash {
     width: 40%;
+    margin: 0; /* Align to the left */
   }
 }
+
+
+

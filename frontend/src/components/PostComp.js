@@ -27,6 +27,54 @@ const PostComp = ({
   imageUrls,
   title,
   likes,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   _id,
   user,
   __created,
@@ -333,7 +381,7 @@ const PostComp = ({
               {userData._id === author._id && (
                 <div className='delete-post-btn' style={{ marginRight: 'auto' }}>
                   <button onClick={handleDelete} className='delete-btn'>
-                  <span role="img" aria-label="delete-icon">🗑️</span>Delete</button>
+                  <span role="img" aria-label="delete-icon"></span>Delete</button>
                 </div>
                 
               )}
