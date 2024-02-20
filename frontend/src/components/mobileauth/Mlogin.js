@@ -67,7 +67,7 @@ const Mlogin = () => {
         <h1 className='text-3xl font-bold text-start'>LOGIN</h1>
         <div className='flex flex-col items-center justify-center'>
           <div className='relative my-6'>
-            <label className='absolute top-0 left-2 -mt-2 bg-white px-1'>
+            <label className='absolute top-0 left-2 -mt-3.5 bg-white px-1'>
               Email
             </label>
             <input
@@ -77,7 +77,7 @@ const Mlogin = () => {
             />
           </div>
           <div className='relative'>
-            <label className='absolute top-0 left-2 -mt-2 bg-white px-1'>
+            <label className='absolute top-0 left-2 -mt-3 bg-white px-1'>
               Password
             </label>
             <input
