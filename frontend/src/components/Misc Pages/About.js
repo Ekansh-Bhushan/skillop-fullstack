@@ -141,21 +141,33 @@ import { useNavigate } from "react-router-dom";
             // Add further logic as needed
           }}
         >
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+          <div className="form-group">
+      <label htmlFor="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+    </div>
 
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+    <div className="form-group">
+      <label htmlFor="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+    </div>
 
-          <label htmlFor="phone">Phone:</label>
-          <input type="tel" id="phone" name="phone" required />
+    <div className="form-group">
+      <label htmlFor="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required />
+    </div>
 
-          <label htmlFor="info">What's on your mind:</label>
-          <input type="text" id="info" name="info" required />
+    <div className="form-group">
+      <label htmlFor="info">What's on your mind:</label>
+      <input type="text" id="info" name="info" required />
+    </div>
 
-          <button type="submit">Submit</button>
-        </form>
-        <img className="image" src={logo} alt="logo" />
+    <div className="form-group">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <img className="image" src={logo} alt="logo" />
+
       </div>
        
       </div>

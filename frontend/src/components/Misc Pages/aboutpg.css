@@ -342,6 +342,22 @@ body {
         width: 100%; /* Make boxes full-width */
         margin-left: 0; /* Reset margin */
     }
+    .aboutpg-form-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        width: 80%; /* Set the width of the form groups */
+      }
+      
+      /* Set the width of the input elements */
+      .form-group input {
+        width: 100%;
+        padding: 8px; /* Add padding for better appearance */
+      }
 
     .aboutpg-box4 p {
         margin-bottom: 20px;
