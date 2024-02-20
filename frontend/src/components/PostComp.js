@@ -17,6 +17,8 @@ import { getUserFromUsername } from '../api/userRequest';
 import { linkIdentifier } from '../utils/linkIdentifier';
 import { deletePost } from '../api/postRequest';
 import './postcomp.css';
+import Alert from './Alert';
+
 
 
 const PostComp = ({
@@ -25,6 +27,54 @@ const PostComp = ({
   imageUrls,
   title,
   likes,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   _id,
   user,
   __created,
@@ -37,6 +87,20 @@ const PostComp = ({
   const [fetchingComments, setFetchingComments] = useState(false);
   const [showPostImgPrew, setShowPostImgPrew] = useState(false);
   const navigate = useNavigate();
+  const [alert, setAlert] = useState(null);
+
+  const showAlert = (message,type)=>{
+    setAlert({
+      msg: message,
+      type: type
+    });
+    console.log('Alert state after setting:', alert);
+    // setTimeout(() => {
+    //   setAlert(null);
+    // }, 2200);
+  };
+  
+  
 
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -92,6 +156,7 @@ const PostComp = ({
      
       if (response && response.data && response.data.success) {
         console.log('Post deleted successfully!');
+        showAlert("Post has been deleted ", "success");
         
       } else {
         console.error('Error deleting post. Unexpected response:', response);
@@ -101,7 +166,7 @@ const PostComp = ({
       console.error('Error deleting post:', error);
     }
   };
-  
+
   
 
 
@@ -272,7 +337,9 @@ const PostComp = ({
   };
 
   return (
+   
     <div className='post-1'>
+       <Alert  alert={alert}/>
       <div>
         {author ? (
           <div id='post-user-follow-head'>
@@ -314,8 +381,9 @@ const PostComp = ({
               {userData._id === author._id && (
                 <div className='delete-post-btn' style={{ marginRight: 'auto' }}>
                   <button onClick={handleDelete} className='delete-btn'>
-                  <span role="img" aria-label="delete-icon">🗑️</span>Delete</button>
+                  <span role="img" aria-label="delete-icon"></span>Delete</button>
                 </div>
+                
               )}
             </div>
 

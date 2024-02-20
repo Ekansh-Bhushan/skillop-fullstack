@@ -111,7 +111,7 @@ function Bookslot({ userData, setProgress }) {
       {/* <Common setProgress={setProgress} /> */}
 
       <div className='flex items-center justify-center h-full sm:w-[100%] xl:w-[70%] xl:ml-[7vw] sm:ml-[0vw] main-container'>
-        <div className='w-[70%] h-screen flex justify-center '>
+        <div className='w-[70%] h-screen flex justify-center ' style={{paddingTop: "84px"}}>
           <div className='w-[90%] h-full flex flex-col border-r-2 pt-[15vh] md:border-0 md:w-[100%] md:pt-[15vh] sm:w-[100%]'>
             <div className='text-2xl font-semibold pl-10 sm:text-lg sm:pl-0'>
               Book a Slot for
