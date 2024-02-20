@@ -6,7 +6,7 @@ import pic2 from './pic2.png';
 import pic3 from './pic3.png';
 import pic4 from './pic4.png';
 import pic5 from './pic5.png'
-import logo from './logo.png';
+import skilloponlylogo from './skilloponlylogo.png';
 import MiscFooter from './MiscFooter';
 import MiscNavBar from './MiscNavBar';
 import { useNavigate } from "react-router-dom";
@@ -166,7 +166,7 @@ import { useNavigate } from "react-router-dom";
     </div>
   </form>
 
-  <img className="image" src={logo} alt="logo" />
+  <img className="image" src={skilloponlylogo} alt="logo" />
 
       </div>
        

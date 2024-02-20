@@ -170,7 +170,7 @@ function EditPic({setProgress }) {
               justifyContent: 'space-evenly',
             }}
           >
-            <span>
+            <span style={{ marginLeft: '30px' }}>
               Profile Picture :{' '}
               <input
                 type='file'
@@ -182,7 +182,7 @@ function EditPic({setProgress }) {
                 }}
               />
             </span>
-            <span>
+            <span style={{ marginLeft: '30px' }}>
               Cover Picture :{' '}
               <input
                 type='file'
