@@ -24,6 +24,7 @@ const SkillSeven = ({setProgress}) => {
       });
       return;
     }
+    
 
     if (whatsappNumber.length !== 10) {
       toast.error("Phone number should contain 10 digits", {

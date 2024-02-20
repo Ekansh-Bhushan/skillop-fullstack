@@ -101,6 +101,18 @@ const SkillFour = ({ setProgress }) => {
       toast.error('Institution, Degree, Start & End Year are required!');
       return;
     }
+    // Add the input validation here
+    const inputValue = data[0].degree;
+    if (!/^\D*$/.test(inputValue)) {
+      
+      toast.error('Degree should not contain any numbers');
+      return;
+    }
+    const fieldOfStudyInputValue = data[0].fieldOfStudy;
+    if (!/^\D*$/.test(fieldOfStudyInputValue)) {
+      toast.error('Field Of Study should not contain any numbers');
+      return;
+    }
     if (data[0].startDate <= 1900) {
       toast.error("Start year can't be smaller than 1900");
       return;
@@ -239,7 +251,7 @@ const SkillFour = ({ setProgress }) => {
                   placeholder='Degree'
                   className='border-[1px] border-[#5F5F5F] rounded-md py-3 px-4 block mb-4 w-full'
                   onChange={(Event) => {
-                    onChange(Event);
+                      onChange(Event);
                   }}
                 />
               </div>
