@@ -474,26 +474,8 @@
   letter-spacing: 0.02em;
 }
 
-@media screen and (max-width: 500px) {
-  .profile-data {
-    /* margin-left: 20%; */
-    /* margin-top: -24%; */
-    /* border: 1px solid gray; */
-    /* width: 100%; */
-  }
-}
-
-
-
 @media only screen and (max-width: 500px) {
-  /* .profile-data {
-    margin-left: 5%;
-    margin-top: -5.4%;
-  } */
   .main-profile-page {
-    /* top: -35px; */
-    /* margin-left: -25px; */
-    /* position: relative; */
     width: 100%;
     overflow-x: hidden;
     /* right: 10.25rem; */
@@ -567,11 +549,7 @@
   }
 }
 @media only screen and (max-width: 500px) {
-  
   .main-profile-page {
-    /* top: -15px; */
-    /* margin-left: -60px; */
-    /* position: relative; */
     width: 100%;
     /* right: 10.25rem; */
    }
