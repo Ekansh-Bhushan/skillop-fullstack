@@ -478,7 +478,8 @@
   .main-profile-page {
     width: 100%;
     overflow-x: hidden;
-}
+    /* right: 10.25rem; */
+  }
   .jd {
     font-size: 1rem;
     margin: 10px;
@@ -550,7 +551,8 @@
 @media only screen and (max-width: 500px) {
   .main-profile-page {
     width: 100%;
-}
+    /* right: 10.25rem; */
+   }
   .jd {
     font-size: 1rem;
     margin: 10px;
@@ -603,7 +605,7 @@
     border-bottom: 1px solid rgb(93, 93, 93);
     padding-bottom: 15px;
     margin-inline: 8px;
-    width: 140%;
+    width: 125%;
     color: #909090;
   }
 
