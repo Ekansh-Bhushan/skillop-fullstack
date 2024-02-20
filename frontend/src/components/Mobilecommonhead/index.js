@@ -130,9 +130,10 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
             />
             {notifyList.filter((item) => item.read === false).length > 0 && (
               <div>
-                <div className='text-md p-2 h-6 w-6 flex items-center justify-center text-center rounded-full bg-red-500 text-white shadow-xl absolute top-3 right-14'>
+                <div className='text-md p-2 h-6 w-6 flex items-center justify-center text-center rounded-full bg-red-500 text-white shadow-xl absolute top-3 right-14 notification-number'style={{fontSize: "14px"}}>
                   {notifyList.filter((item) => item.read === false).length}
                 </div>{' '}
+                
               </div>
             )}
           </div>
