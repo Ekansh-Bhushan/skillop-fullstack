@@ -73,7 +73,7 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
 
     return (
         <div className="intro-video-bg">
-            <div className="intro-video-container" style={{top:"50%" ,height : "79vh"}}>
+            <div className="intro-video-container" style={{top:"50%" ,height:"79vh"}}>
                 <div className="iv-header">
                     <h2>My story</h2>
                     <img
