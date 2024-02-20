@@ -55,7 +55,7 @@ const UserPosts = ({ setProgress }) => {
                 ' ' +
                 PostData[0].author.lastname}{' '}
           </h1>
-          <div className='w-[84%]'>
+          <div className='mypostareainprofile'>
             {PostData &&
               PostData.slice()
                 .reverse()

@@ -8,6 +8,10 @@
   padding: 40px;
 }
 
+.mypostareainprofile{
+  width: 90%;
+}
+
 /* 
 .main-content-landing2 {
   position: relative;
@@ -31,7 +35,26 @@
   }
 
   .people-post2 h1 {
-    width: 100%;
+    width: 200%;
     text-align: center;
+  }
+  .mypostareainprofile{
+    width: 141%;
+  }
+}
+@media screen and (max-width: 365px) {
+  .people-post2 h1 {
+    width: 170%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 285px) {
+  .people-post2 h1 {
+    width: 190%;
+    text-align: center;
+  }
+  .mypostareainprofile{
+    width: 150%;
   }
 }

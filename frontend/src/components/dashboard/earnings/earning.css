@@ -30,6 +30,15 @@ body {
   .earning-dash {
     margin-left: 0;
     padding-left: 15px;
+    margin-top: -68px;
+
+    /* position: absolute; */
+    /* width: 370px ; */
+
+    
+    /* border-right: none; */
+    /* margin-right: -16px; */
+    /* margin-top: auto; */
   }
 
   .line-earning {
