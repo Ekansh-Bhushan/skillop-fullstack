@@ -63,12 +63,12 @@ const Msignup = () => {
   };
 
   return (
-    <div>
+    <div className= "">
       <div className='flex items-center justify-center gap-3 mt-10'>
         <img src={coolimg} className='h-[40px]' alt='Logo' />
         <h1 className='font-bold text-xl'>SKILLOP</h1>
       </div>
-      <div className='flex items-start flex-col mt-[3vh] mx-[5vh]'>
+      <div className='flex items-center flex-col mt-[3vh] mx-[5vh]'>
         <h1 className='text-3xl font-bold text-start mb-3'>SIGNUP</h1>
         <div className='flex flex-col items-center justify-center'>
           <div className='relative my-4'>
