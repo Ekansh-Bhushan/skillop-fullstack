@@ -302,6 +302,7 @@ function Otherpost({ userData, setProgress }) {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '5px',
+                        position:'fixed',
                       }}
                     >
                       {post.imageUrls.length > 1 && currentMediaIndex > 0 && (

@@ -464,6 +464,8 @@ const PostComp = ({
               display: 'flex',
               alignItems: 'center',
               gap: '5px',
+              width:'100%',
+              
             }}
           >
             {imageUrls.length > 1 && currentMediaIndex > 0 && (
@@ -474,6 +476,10 @@ const PostComp = ({
                   width={32}
                   src={back}
                   alt='back'
+                  style={{
+                    position: 'absolute', // Set position to absolute
+                    left: '0',             // Adjust the left position as needed
+                  }}
                 />
               </span>
             )}
