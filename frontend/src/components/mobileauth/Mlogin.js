@@ -63,7 +63,7 @@ const Mlogin = () => {
         <img src={coolimg} className='h-[40px]' alt='Logo' />
         <h1 className='font-bold text-xl'>SKILLOP</h1>
       </div>
-      <div className='flex items-start flex-col mt-[12vh] mx-[5vh]'>
+      <div className='flex items-center flex-col mt-[12vh] mx-[5vh]'>
         <h1 className='text-3xl font-bold text-start'>LOGIN</h1>
         <div className='flex flex-col items-center justify-center'>
           <div className='relative my-6'>
