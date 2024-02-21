@@ -5,8 +5,7 @@ import userIcon from "../../../images/user.png";
 const PostImgPrevw = ({ src, name, onClose }) => {
   return (
     <div className="blurbg1">
-      <div className="container1" style={{marginTop:"10vh",position:"fixed"}}>
-        
+      <div className="container1" style={{marginTop:"1vh"}}>
         <div className="author ">
           {/* <div></div> */}
           <span style={{ display: "flex", alignItems: "center", gap: "10px" }}>

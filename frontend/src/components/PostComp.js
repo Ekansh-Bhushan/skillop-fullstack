@@ -20,61 +20,12 @@ import './postcomp.css';
 import Alert from './Alert';
 
 
-
 const PostComp = ({
   userData,
   author,
   imageUrls,
   title,
-  likes,
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+  likes,  
   _id,
   user,
   __created,
@@ -141,34 +92,23 @@ const PostComp = ({
     }
   };
 
-
-
   const handleDelete = async () => {
     try {
-      console.log('Deleting post...', _id);
+      const confirmed = window.confirm(
+        "Are you sure you want to delete this item?"
+      );
   
-      
-      const response = await deletePost(_id);
-  
-      
-      console.log('Server Response:', response);
-  
-     
-      if (response && response.data && response.data.success) {
-        console.log('Post deleted successfully!');
-        showAlert("Post has been deleted ", "success");
-        
-      } else {
-        console.error('Error deleting post. Unexpected response:', response);
-        
+      if (confirmed){
+        await deletePost(_id)
+        toast.success("Deleted successfully!");
+      }else {
+        console.log("Deletion cancelled by the user");
       }
-    } catch (error) {
-      console.error('Error deleting post:', error);
+    } catch (err) {
+      console.log("Error deleting Post", err);
+      toast.error(err.response.data.err);
     }
   };
-
-  
-
 
 
   const [likersList, setLikersList] = useState([]);
