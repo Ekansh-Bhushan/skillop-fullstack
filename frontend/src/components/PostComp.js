@@ -27,54 +27,6 @@ const PostComp = ({
   imageUrls,
   title,
   likes,
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
   _id,
   user,
   __created,
@@ -94,10 +46,10 @@ const PostComp = ({
       msg: message,
       type: type
     });
-    console.log('Alert state after setting:', alert);
-    // setTimeout(() => {
-    //   setAlert(null);
-    // }, 2200);
+    
+    setTimeout(() => {
+      setAlert(null);
+    }, 2200);
   };
   
   

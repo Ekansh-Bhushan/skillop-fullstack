@@ -53,14 +53,14 @@
 }
 
 .iv-player {
-  width: 50vw;
-  height: 60vh;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
   border-radius: 15px;
 }
 
 .iv-preview > video {
-  width: 60%;
-  height: 50%;
+  aspect-ratio: 16 / 9; 
+  max-width: 100%;
   border-radius: 15px;
 }
 
