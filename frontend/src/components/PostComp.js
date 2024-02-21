@@ -38,19 +38,8 @@ const PostComp = ({
   const [fetchingComments, setFetchingComments] = useState(false);
   const [showPostImgPrew, setShowPostImgPrew] = useState(false);
   const navigate = useNavigate();
-  const [alert, setAlert] = useState(null);
 
-  const showAlert = (message,type)=>{
-    setAlert({
-      msg: message,
-      type: type
-    });
-    console.log('Alert state after setting:', alert);
-    // setTimeout(() => {
-    //   setAlert(null);
-    // }, 2200);
-  };
-  
+
   
 
 
@@ -102,7 +91,6 @@ const PostComp = ({
         await deletePost(_id)
         toast.success("Deleted successfully!");
       }else {
-        // If the user cancels, do nothing or provide feedback if needed
         console.log("Deletion cancelled by the user");
       }
     } catch (err) {
