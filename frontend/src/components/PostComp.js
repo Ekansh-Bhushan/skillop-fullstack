@@ -91,7 +91,6 @@ const PostComp = ({
         await deletePost(_id)
         toast.success("Deleted successfully!");
       }else {
-        // If the user cancels, do nothing or provide feedback if needed
         console.log("Deletion cancelled by the user");
       }
     } catch (err) {
