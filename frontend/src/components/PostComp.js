@@ -38,8 +38,19 @@ const PostComp = ({
   const [fetchingComments, setFetchingComments] = useState(false);
   const [showPostImgPrew, setShowPostImgPrew] = useState(false);
   const navigate = useNavigate();
+  const [alert, setAlert] = useState(null);
 
-
+  const showAlert = (message,type)=>{
+    setAlert({
+      msg: message,
+      type: type
+    });
+    console.log('Alert state after setting:', alert);
+    // setTimeout(() => {
+    //   setAlert(null);
+    // }, 2200);
+  };
+  
   
 
 
