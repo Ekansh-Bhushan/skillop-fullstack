@@ -34,12 +34,12 @@ const LandingThree = () => {
         </p>
       </div>
       <div className="flex justify-center items-center gap-[10vh] mt-5 md:flex-col md:gap-[5vh] md:mx-5">
-        <div className="shadow-lg rounded-xl border-2 p-6 hover:transform hover:scale-105 hover:shadow-md transition duration-300">
+        <div className="shadow-lg rounded-xl border-2 p-6 hover:transform hover:scale-105 hover:shadow-md transition duration-30">
           <div className="flex items-center justify-center space-x-2">
-            <img src={Saly13} className="h-[30vh] md:h-[20vh]" alt="Saly13" />
+            <img src={Saly13} className="h-[30vh] md:h-[20vh] lg:h-[15vh] xl:h-[10vh]" alt="Saly13" />
             <div>
               <h1 className="text-xl font-bold">Be a</h1>
-              <span className="font-semibold text-3xl md:text-2xl">MENTOR</span>
+              <span className="font-semibold text-3xl md:text-2xl lg:pr-2">MENTOR</span>
             </div>
           </div>
           <div className="flex items-center justify-start space-x-2 mt-4">
@@ -62,13 +62,13 @@ const LandingThree = () => {
 
         <div className="shadow-lg rounded-xl border-2 p-6 hover:transform hover:scale-105 transition duration-300">
           <div className="flex items-center justify-center space-x-2">
-            <img src={Saly35} className="h-[30vh] md:h-[20vh]" alt="Saly13" />
+            <img src={Saly35} className="h-[30vh] md:h-[20vh] lg:h-[15vh] xl:h-[10vh]" alt="Saly13" />
             <div>
               <h1 className="text-xl font-bold">Be a</h1>
-              <span className="font-semibold text-3xl md:text-2xl">MENTEE</span>
+              <span className="font-semibold text-3xl md:text-2xl lg:mr-12">MENTEE</span>
             </div>
           </div>
-          <div className="flex items-center justify-start space-x-2 mt-4">
+          <div className="flex items-center justify-start space-x-2 mt-4 lg:mr-10">
             <img src={right} className="h-6" alt="right" />
             <span>Get guidance from your Seniors</span>
           </div>

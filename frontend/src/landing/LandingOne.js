@@ -59,9 +59,10 @@ const LandingOne = () => {
   };
 
   return (
-    <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0 ">
-      <div className="flex flex-col ">
-      <h1 class="text-[50px] font-medium md:text-[40px] my-5">
+    <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0 lg:ml-[6vh] ">
+      <div className="flex flex-col lg:ml-10 xl:ml-12">
+        
+      <h1 class="text-[50px] font-medium md:text-[40px] my-5  ">
           Shuru se{" "}
           <span class="font-black relative">
             Shuruwat <img src={line} className="" />
@@ -75,7 +76,7 @@ const LandingOne = () => {
             <img src={line} alt="line" />
           </span>{" "}
         </h1> */}
-        <p className="text-md font-product-sans">
+        <p className="text-md font-product-sans ">
           Skillop serves as a dynamic tech society cluster, dedicated to
           empowering students through the strategic development of a robust and
           interconnected ecosystem tailored to foster their growth and success
@@ -113,7 +114,7 @@ const LandingOne = () => {
       </div>
       <div className="flex shrink-0 md:hidden ">
         {/* <img src={images[currentImage]} className="block h-auto mt-4 flip-image" /> */}
-        <img src={landingelement5} className="block h-auto mt-4 flip-image" />
+        <img src={landingelement5} className="block h-auto mt-4 flip-image lg:hidden" />
       </div>
     </div>
   );
