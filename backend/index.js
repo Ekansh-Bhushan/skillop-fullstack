@@ -141,3 +141,23 @@ io.on('connection', (socket) => {
     console.log('User disconnected', activeUsers);
   });
 });
+
+io.on('connection', (socket) => {
+  console.log('Client connected');
+
+  socket.on('newPost', (postId) => {
+    io.emit('newPost', postId);
+  });
+
+  socket.on('postLiked', (postId) => {
+    io.emit('postLiked', postId);
+  });
+
+  socket.on('postDeleted', (postId) => {
+    io.emit('postDeleted', postId);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
+  });
+});

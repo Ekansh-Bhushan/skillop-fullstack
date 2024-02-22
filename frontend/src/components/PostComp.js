@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
 import { useNavigate } from 'react-router-dom';
-import { getSpecificPost, likeOrDislikePost } from '../api/postRequest';
-
-import { getLikers } from '../api/postRequest';
-import { getCommentsForPost } from '../api/postRequest';
+import socketIOClient from 'socket.io-client';
 import Popup from './Landing/Post/LikeBox/LikePopUp';
 import PostImgPrevw from './Landing/Post/PostImagePrev/PostImgPrevw';
 import userPic from './images/user.png';
@@ -15,11 +11,10 @@ import TaggingManager from '../utils/tagManager';
 import toast from 'react-hot-toast';
 import { getUserFromUsername } from '../api/userRequest';
 import { linkIdentifier } from '../utils/linkIdentifier';
-import { deletePost } from '../api/postRequest';
+import { getSpecificPost, likeOrDislikePost, getLikers, getCommentsForPost, deletePost} from '../api/postRequest';
 import './postcomp.css';
 
-
-
+const socket = socketIOClient('https://skillop.in/api/');
 const PostComp = ({
   userData,
   author,
@@ -38,14 +33,7 @@ const PostComp = ({
   const [fetchingComments, setFetchingComments] = useState(false);
   const [showPostImgPrew, setShowPostImgPrew] = useState(false);
   const navigate = useNavigate();
-  
-  
-  
-
-
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-
   const openPopup = () => {
     setIsPopupOpen(true);
   };
@@ -63,6 +51,7 @@ const PostComp = ({
       setLiked(!liked);
       await likeOrDislikePost(_id);
       await fetchLikers();
+      socket.emit('postLiked', _id); // Notify the server that the post was liked
     } catch (error) {
       console.log(error);
     }
@@ -83,18 +72,16 @@ const PostComp = ({
 
   const handleDelete = async () => {
     try {
-      const confirmed = window.confirm(
-        "Are you sure you want to delete this item?"
-      );
-  
-      if (confirmed){
-        await deletePost(_id)
-        toast.success("Deleted successfully!");
-      }else {
-        console.log("Deletion cancelled by the user");
+      const confirmed = window.confirm('Are you sure you want to delete this item?');
+      if (confirmed) {
+        await deletePost(_id);
+        toast.success('Deleted successfully!');
+        socket.emit('postDeleted', _id); // Notify the server that the post was deleted
+      } else {
+        console.log('Deletion cancelled by the user');
       }
     } catch (err) {
-      console.log("Error deleting Post", err);
+      console.log('Error deleting Post', err);
       toast.error(err.response.data.err);
     }
   };
@@ -102,9 +89,7 @@ const PostComp = ({
 
   const [likersList, setLikersList] = useState([]);
   const [fetchingLikers, setFetchingLikers] = useState(true);
-
   const [FollowBtn, setFollowBtn] = useState('Loading...');
-
 
   useEffect(() => {
     if (userData && userData.followings) {
@@ -157,6 +142,22 @@ const PostComp = ({
     getPost();
   }, [liked, _id]);
 
+  useEffect(() => {
+    // Establish a connection to the socket on component mount
+    socket.on('newPost', (newPost) => {
+      // Handle the new post, you might want to update the post list or do other actions
+      console.log('New post received:', newPost);
+      // For simplicity, you can trigger a full post refresh here, but in a real-world app, you would handle this more efficiently
+      fetchComments();
+      fetchLikers();
+    });
+
+    return () => {
+      // Disconnect the socket on component unmount
+      socket.disconnect();
+    };
+  }, []);
+
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpand = () => {
@@ -196,7 +197,6 @@ const PostComp = ({
     const timeDifferenceInSeconds = Math.floor(
       (currentTime - createdTime) / 1000
     );
-
     if (timeDifferenceInSeconds < 60) {
       return `${timeDifferenceInSeconds}s`;
     } else if (timeDifferenceInSeconds < 3600) {
