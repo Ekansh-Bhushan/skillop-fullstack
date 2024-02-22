@@ -12,6 +12,7 @@ const PostImgPrevw = ({ src, name, onClose }) => {
             <img height={40} width={40} src={userIcon} alt="user" />
             <span>{name}</span>
           </span>
+          
           <img
             src="/close.png"
             onClick={onClose}
@@ -22,11 +23,14 @@ const PostImgPrevw = ({ src, name, onClose }) => {
         {/* <div className='head'>
 
                 </div> */}
-        <div className="img-prevw">
+        <div className="img-prevw" >
           <img src={src} alt="preview" />
+          
         </div>
+        
       </div>
     </div>
+  
   );
 };
 

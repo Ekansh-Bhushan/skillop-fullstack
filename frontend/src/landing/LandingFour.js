@@ -21,8 +21,8 @@ const LandingFour = () => {
     }));
   };
   return (
-    <div className="flex justify-evenly items-start mt-[15vh] md:flex-col md:items-center md:mt-[8vh] mb-5">
-      <div className="flex justify-center flex-col items-center ">
+    <div className="flex justify-evenly items-start mt-[15vh] md:flex-col md:items-center md:mt-[8vh] mb-5 lg:flex-col lg:items-start lg:items-center lg:justify-center lg:h-scree">
+      <div className="flex justify-center flex-col items-center  ">
         <div>
           {" "}
           <h1 className="text-5xl font-semibold mb-3 md:text-4xl ">
@@ -36,19 +36,19 @@ const LandingFour = () => {
         <p className="text-xl text-[#848484] w-[82%] md:hidden">
           Still got questions? You might find the answer here
         </p>
-        <img src={Saly} className="h-[55vh] md:hidden bounce" />
+        <img src={Saly} className="h-[55vh] md:hidden bounce lg:hidden" />
       </div>
-      <div className="flex flex-col justify-start items-start w-[40%] md:w-[90%] gap-5 md:mx-4 md:mb-10">
-        <div className="relative w-[100%]">
+      <div className="flex flex-col justify-start items-start w-[40%] md:w-[90%] gap-5 md:mx-4 md:mb-10 lg:w-[80%]">
+        <div className="relative w-[100%] lg:w-[90%] lg:h-[80%] ">
           <div
-            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
+            className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300  "
             onClick={() => handleToggleDropdown("isMentorPaid")}
           >
-            <p>Is becoming Mentor paid or free?</p>
+            <p >Is becoming Mentor paid or free?</p>
             <img src={plus} className="cursor-pointer" alt="Plus" />
           </div>
           {dropdowns.isMentorPaid && (
-            <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4">
+            <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4 ">
               Becoming a mentor on Skillop is free. Mentors may volunteer their
               time for free mentorship or charge for their services in
               specialized areas. We encourage mentors to create a structure that
@@ -56,7 +56,7 @@ const LandingFour = () => {
             </div>
           )}
         </div>
-        <div className="relative w-[100%]">
+        <div className="relative w-[100%] lg:w-[90%] lg:h-[80%]">
           <div
             className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isPlatformsIntegrated")}
@@ -74,7 +74,7 @@ const LandingFour = () => {
             </div>
           )}
         </div>
-        <div className="relative w-[100%]">
+        <div className="relative w-[100%] lg:w-[90%] lg:h-[80%]">
           <div
             className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isReceiveEarnings")}
@@ -91,7 +91,7 @@ const LandingFour = () => {
             </div>
           )}
         </div>
-        <div className="relative w-[100%]">
+        <div className="relative w-[100%] lg:w-[90%] lg:h-[80%]">
           <div
             className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isConvertToMentor")}
@@ -108,7 +108,7 @@ const LandingFour = () => {
             </div>
           )}
         </div>
-        <div className="relative w-[100%]">
+        <div className="relative w-[100%] lg:w-[90%] lg:h-[80%]">
           <div
             className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isHostEvents")}
@@ -117,7 +117,7 @@ const LandingFour = () => {
             <img src={plus} className="cursor-pointer" alt="Plus" />
           </div>
           {dropdowns.isHostEvents && (
-            <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4">
+            <div className="mt-4 w-[100%] bg-white shadow-md rounded-xl border-[1px] p-4 mx-auto">
               Skillop provides the tools and support you need to host events and 
               hackathons. To get started, submit an event proposal through your dashboard. 
               Our team will review it and assist you with planning, promotion, 
@@ -125,7 +125,7 @@ const LandingFour = () => {
             </div>
           )}
         </div>
-        <div className="relative w-[100%]">
+        <div className="relative w-[100%] lg:w-[90%] lg:h-[80%]">
           <div
             className="w-[100%] flex justify-between items-center shadow-xl border-[1px] p-7 rounded-xl gap-[20vh] md:gap-[10vh] hover:transform hover:scale-105 transition duration-300"
             onClick={() => handleToggleDropdown("isBuildCommunity")}

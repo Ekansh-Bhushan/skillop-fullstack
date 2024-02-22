@@ -32,12 +32,12 @@ const LandingTwo = () => {
           platforms.
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-[10vh] mx-[20vh] mt-10 md:mx-5 md:grid-cols-1 md:gap-5">
-        <div className="bg-[#FF000066] rounded-2xl p-4 flex items-center justify-start flex-col hover:transform hover:scale-105 transition duration-300">
+      <div className="grid grid-cols-2 gap-[10vh] mx-[20vh] mt-10 md:mx-5 md:grid-cols-1 md:gap-5 lg:ml-20 lg:mr-20 xl:ml-20 xl:mr-20">
+        <div className="bg-[#FF000066] rounded-2xl p-4 flex items-center justify-start flex-col hover:transform hover:scale-105 transition duration-300 ">
           <h1 className="text-2xl font-semibold mb-3 md:text-xl">
             Be a Mentor or Mentee
           </h1>
-          <p className="text-sm w-[60%] md:w-[80%]">
+          <p className="text-sm w-[60%] md:w-[80%] lg:w-[90%]">
             Embark on a transformative journey as a Mentor or Mentee, shaping
             futures and fostering growth through meaningful connections and
             shared knowledge.
@@ -47,7 +47,7 @@ const LandingTwo = () => {
           <h1 className="text-2xl font-semibold mb-3 md:text-xl">
             Events and Updates
           </h1>
-          <p className="text-sm w-[60%] md:w-[80%]">
+          <p className="text-sm w-[60%] md:w-[80%] lg:w-[90%] ">
             {" "}
             Stay informed and engaged with the latest happenings through 'Events
             and Updates' – your gateway to the most current and exciting
@@ -58,7 +58,7 @@ const LandingTwo = () => {
           <h1 className="text-2xl font-semibold mb-3 md:text-xl">
             Build your Own Community
           </h1>
-          <p className="text-sm w-[60%] md:w-[80%]">
+          <p className="text-sm w-[60%] md:w-[80%] lg:w-[90%]">
             Foster a thriving mentor-mentee ecosystem as you shape and build
             your own community. Connect, learn, and grow together on your terms.
           </p>
@@ -67,7 +67,7 @@ const LandingTwo = () => {
   <h1 className="text-2xl font-semibold mb-3 md:text-xl">
     Beneficial Platforms
   </h1>
-  <p className="text-sm w-[60%] md:w-[80%]">
+  <p className="text-sm w-[60%] md:w-[80%] lg:w-[90%]">
     Explore our integrated platforms within SKILLOP — a dynamic suite
     designed to accelerate your growth journey. Unleash your potential
     with tools tailored for success.
