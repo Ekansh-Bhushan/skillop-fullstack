@@ -7,7 +7,7 @@
   }
   
   .delete-btn:hover {
-    background-color: red; 
+    background-color: #ff6f68; 
     color: white; 
   }
 
@@ -21,4 +21,16 @@
     top: 0;
     right: 0;
   }
+
+
+  /* Your existing styles for .post-1 outside of the media query */
+
+@media screen and (max-width: 850px) and (min-width: 500px) {
+  /* Styles for screens between 500px and 850px */
+  .post-1 {
+    /* Adjust the styling as needed for this screen size range */
+    padding-right: 20px; /* Example adjustment */
+  }
+}
+
   
