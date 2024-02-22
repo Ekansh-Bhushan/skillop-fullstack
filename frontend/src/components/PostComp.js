@@ -11,7 +11,7 @@ import TaggingManager from '../utils/tagManager';
 import toast from 'react-hot-toast';
 import { getUserFromUsername } from '../api/userRequest';
 import { linkIdentifier } from '../utils/linkIdentifier';
-import { getSpecificPost, likeOrDislikePost, getLikers, getCommentsForPost, deletePost} from '../api/postRequest';
+import { getAllPost,getSpecificPost, likeOrDislikePost, getLikers, getCommentsForPost, deletePost} from '../api/postRequest';
 import './postcomp.css';
 
 const socket = socketIOClient('https://skillop.in/api/');
@@ -51,7 +51,6 @@ const PostComp = ({
       setLiked(!liked);
       await likeOrDislikePost(_id);
       await fetchLikers();
-      socket.emit('postLiked', _id); // Notify the server that the post was liked
     } catch (error) {
       console.log(error);
     }
@@ -72,16 +71,18 @@ const PostComp = ({
 
   const handleDelete = async () => {
     try {
-      const confirmed = window.confirm('Are you sure you want to delete this item?');
-      if (confirmed) {
-        await deletePost(_id);
-        toast.success('Deleted successfully!');
-        socket.emit('postDeleted', _id); // Notify the server that the post was deleted
-      } else {
-        console.log('Deletion cancelled by the user');
+      const confirmed = window.confirm(
+        "Are you sure you want to delete this item?"
+      );
+  
+      if (confirmed){
+        await deletePost(_id)
+        toast.success("Deleted successfully!");
+      }else {
+        console.log("Deletion cancelled by the user");
       }
     } catch (err) {
-      console.log('Error deleting Post', err);
+      console.log("Error deleting Post", err);
       toast.error(err.response.data.err);
     }
   };
@@ -90,6 +91,31 @@ const PostComp = ({
   const [likersList, setLikersList] = useState([]);
   const [fetchingLikers, setFetchingLikers] = useState(true);
   const [FollowBtn, setFollowBtn] = useState('Loading...');
+  const [posts, setPosts] = useState([]);
+
+  const fetchPosts = async () => {
+    try {
+      const response = await getAllPost();
+      setPosts(response.data); // Assuming your API returns an array of posts
+    } catch (error) {
+      console.error('Error fetching posts', error);
+    }
+  };
+  useEffect(() => {
+    // Initial fetch of posts
+    fetchPosts();
+
+    // Listen for new post events
+    socket.on('newPost', () => {
+      // Trigger a re-fetch of posts when a new post is received
+      fetchPosts();
+    });
+
+    return () => {
+      // Disconnect the socket on component unmount
+      socket.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     if (userData && userData.followings) {
@@ -125,7 +151,6 @@ const PostComp = ({
   useEffect(() => {
     fetchComments();
     fetchLikers();
-
   }, []);
 
   useEffect(() => {
@@ -393,8 +418,6 @@ const PostComp = ({
               display: 'flex',
               alignItems: 'center',
               gap: '5px',
-              width:'100%',
-              
             }}
           >
             {imageUrls.length > 1 && currentMediaIndex > 0 && (
@@ -405,10 +428,6 @@ const PostComp = ({
                   width={32}
                   src={back}
                   alt='back'
-                  style={{
-                    position: 'absolute', // Set position to absolute
-                    left: '0',             // Adjust the left position as needed
-                  }}
                 />
               </span>
             )}

@@ -29,7 +29,7 @@ export const deletePost = (postId) => {
 };
 
 
-export const getAllPost = (limit = 10, skip = 0) => {
+export const getAllPost = (limit = 100, skip = 0) => {
     const token = localStorage.getItem("skilloptoken");
 
     const config = {
