@@ -102,9 +102,9 @@ import { useNavigate } from "react-router-dom";
        <div className="aboutpg-box4">
          <h1 style={{ fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}><i>JOIN US ON OUR JOURNEY!</i></h1>
          <p>Skillop is more than just a platform: it's a community dedicated to nurturing the next generation of leaders, innovators, and thinkers. Join us, share your journey, and let's shape the future together.</p>
-         <div className="flex gap-5 mt-5 relative">
+         <div className="flex items-center justify-center gap-5 mt-5 relative">
            <button
-             className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden hover:shadow-2xl hover:transform hover:scale-105 transition duration-300"
+             className="relative bg-gradient-to-l from-blue-300 via-green-500 to-yellow-500 rounded-lg p-[4px] overflow-hidden hover:shadow-2xl hover:transform hover:scale-105 transition duration-300 "
             onClick={signupClicked}
           >
             <span className=" flex justify-around items-center w-full bg-white rounded-lg px-6 py-2 font-semibold gap-5">
