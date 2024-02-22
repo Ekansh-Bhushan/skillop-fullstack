@@ -335,7 +335,7 @@ const PostComp = ({
               {userData._id === author._id && (
                 <div className='delete-post-btn' style={{ marginRight: 'auto' }}>
                   <button onClick={handleDelete} className='delete-btn'>
-                  <span role="img" aria-label="delete-icon"></span><b>Delete</b></button>
+                  <span role="img" aria-label="delete-icon"></span>Delete</button>
                 </div>
                 
               )}
