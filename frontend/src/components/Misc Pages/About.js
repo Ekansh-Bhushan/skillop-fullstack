@@ -37,7 +37,7 @@ import { useNavigate } from "react-router-dom";
         <div className=" aboutpg-box1">
           <h2><u>OUR MISSION</u></h2>
           <h1 style={{ fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}><i>FOSTERING STUDENT EMPOWERMENT</i></h1>
-          <p>At Skillop, we believe in the transformative power of education and mentorship. Our mission is to empower college students by connecting them with experienced mentors and providing them with innovative tools for their academic and professional journey.</p>
+          <p>At Skillop, we believe in the transformative power of education and mentorship. Our mission is to empower college students by connecting them with experienced mentors and providing them with innovative tools for their academic, scholastic and professional journey.</p>
           <img className="image" src={pic1} alt="Mission" />
         </div>
         <div className="aboutpg-box1">
