@@ -141,7 +141,7 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
           {window.location.pathname === '/homepage' ? (
             <img src={home2} alt='Home' />
           ) : (
-            <img src={home1} alt='Home' />
+            <img src={home1} alt='Home'  />
           )}
           <span
             className={`${
@@ -159,9 +159,9 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
           }}
         >
           {window.location.pathname === '/searchbar' ? (
-            <img src={search2} alt='Home' />
+            <img src={search2} alt='Home'   />
           ) : (
-            <img src={search1} alt='Home' />
+            <img src={search1} alt='Home'   />
           )}
           <span
             className={`${
@@ -179,9 +179,9 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
           }}
         >
           {window.location.pathname === '/chat' ? (
-            <img src={chat2} alt='Home' />
+            <img src={chat2} alt='Home'   />
           ) : (
-            <img src={chat1} alt='Home' />
+            <img src={chat1} alt='Home'   />
           )}
           <span
             className={`${
@@ -204,9 +204,9 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
           }}
         >
           {window.location.pathname === '/notifications' ? (
-            <img src={notification2} alt='Home' />
+            <img src={notification2} alt='Home'/>
           ) : (
-            <img src={notification1} alt='Home' />
+            <img src={notification1} alt='Home'/>
           )}
           <span
             className={`${
@@ -231,9 +231,9 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
           }}
         >
           {window.location.pathname === '/requestedMeets' ? (
-            <img src='/meet2.png' alt='Home' />
+            <img src='/meet2.png' alt='Home'   />
           ) : (
-            <img src='/meet.png' alt='Home' />
+            <img src='/meet.png' alt='Home'   />
           )}
           <span
             className={`${
@@ -245,9 +245,9 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
         </li>
         <li onClick={handleSlots}>
           {window.location.pathname === '/mySlots' ? (
-            <img src={slots2} alt='Home' />
+            <img src={slots2} alt='Home'   />
           ) : (
-            <img src={slots1} alt='Home' />
+            <img src={slots1} alt='Home'   />
           )}
           <span
             className={`${
@@ -260,9 +260,9 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
         </li>
         <li onClick={handleBookings}>
           {window.location.pathname === '/mybookings' ? (
-            <img src={bookings2} alt='Home' />
+            <img src={bookings2} alt='Home'   />
           ) : (
-            <img src={bookings1} alt='Home' />
+            <img src={bookings1} alt='Home'   />
           )}
           <span
             className={`${
@@ -275,9 +275,9 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
         </li>
         <li onClick={handleEarnings}>
           {window.location.pathname === '/myearnings' ? (
-            <img src={earnings2} alt='Home' />
+            <img src={earnings2} alt='Home'   />
           ) : (
-            <img src={earnings1} alt='Home' />
+            <img src={earnings1} alt='Home'   />
           )}
           <span
             className={`${
@@ -296,9 +296,9 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
           }}
         >
           {window.location.pathname === '/myaccount' ? (
-            <img src={myprofile2} alt='Home' />
+            <img src={myprofile2} alt='Home'   />
           ) : (
-            <img src={myprofile1} alt='Home' />
+            <img src={myprofile1} alt='Home'   />
           )}
           <span
             className={`${
@@ -316,9 +316,9 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
           }}
         >
           {window.location.pathname === '/Profile' ? (
-            <img src={account2} alt='Home' />
+            <img src={account2} alt='Home'   />
           ) : (
-            <img src={account1} alt='Home' />
+            <img src={account1} alt='Home'   />
           )}
           <span
             className={`${
