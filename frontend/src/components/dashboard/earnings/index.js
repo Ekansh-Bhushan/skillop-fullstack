@@ -54,15 +54,15 @@ function Earning({ userData, setProgress, Mentor}) {
         <div className="earning-dash">
           {/* <Profileandevents /> */}
           {/* <Topbar setProgress={setProgress}/> */}
-          <h1 className="text-2xl mt-14 font-semibold mb-2">
+          <h1 id="subtopics" className="text-2xl mt-14 font-semibold mb-2">
             Your Analytics 🤑
           </h1>
           <div className="earning-details">
             <div className="total-mentee relative">
-              <h3 className="absolute top-[10%] text-center w-[80%] md:w-[100%]">
+              <h3   className="absolute top-[10%] text-center w-[80%] md:w-[100%]">
                 TOTAL MENTEES
               </h3>
-              <h1 className="absolute top-[40%] text-center w-[80%] text-3xl font-semibold md:text-xl ">
+              <h1    className="absolute top-[40%] text-center w-[80%] text-3xl font-semibold md:text-xl ">
                 {earnings.numberOfMentee}
               </h1>
             </div>
@@ -70,14 +70,14 @@ function Earning({ userData, setProgress, Mentor}) {
               <h3 className="absolute  top-[10%] text-center w-[80%]">
                 Total Earnings
               </h3>
-              <h1 className="absolute top-[40%] text-center w-[80%] text-3xl font-semibold md:text-md md:w-[100%]">
+              <h1   className="absolute top-[40%] text-center w-[80%] text-3xl font-semibold md:text-md md:w-[100%]">
                 ₹ {Math.round(earnings.totalEarning)}/-
               </h1>
             </div>
           </div>
 
           {/* <div className="partition-d line-earning"></div> */}
-          <h1 className="text-xl font-semibold mt-5 md:text-lg">Mentees</h1>
+          <h1 id="subtopics" className="text-xl font-semibold mt-5 md:text-lg">Mentees</h1>
           {earnings ? (
             <div className="flex items-center justify-center flex-col">
               {earnings.earningRecord &&

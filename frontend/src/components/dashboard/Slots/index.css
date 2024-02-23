@@ -785,6 +785,11 @@ body {
 
   .earning-dash h1 {
     font-size: 30px;
+    
+  }
+
+  #subtopics {
+    margin-top: 15vw;
   }
 
   .info-dash-table {
@@ -989,8 +994,11 @@ body {
     color: black;
     font-size: 1.1rem;
   }
+
+
+
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
   .dash-right {
     display: flex;
     gap: 40px;
@@ -1023,7 +1031,7 @@ body {
     margin-inline: -10vw;
     position: absolute;
     right: 30vw;
-    top: 80vw;
+    top: 65vw;
     padding: 2vw 4vw;
     border: 2px solid black;
     border-radius: 15px;
