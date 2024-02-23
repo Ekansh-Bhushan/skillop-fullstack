@@ -1323,7 +1323,9 @@ non-act {
 .user-section {
   display: flex;
   align-items: center;
-  padding: 1.7rem;
+  padding-top: 1.7rem;
+  padding-bottom: 2.7rem;
+  padding-right: 1.7rem;
   padding-left: 1rem;
   height: 20px;
   gap: 12px;
@@ -1341,7 +1343,7 @@ non-act {
 }
 
 .chats-user {
-  padding: 13px 5px;
+  padding: 20px 1px;
   border-bottom: 0.5px solid #00000026;
   /* margin-top: 100px; */
 }
