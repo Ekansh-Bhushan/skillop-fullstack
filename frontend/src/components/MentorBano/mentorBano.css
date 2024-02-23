@@ -89,7 +89,7 @@ ul {
 li {
   margin: 10px 0;
   /* font-size: 12px; */
-  padding-left: 30px; /* Add some left padding for the bullet/indicator */
+  padding-left: 7px; /* Add some left padding for the bullet/indicator */
   position: relative;
 }
 
