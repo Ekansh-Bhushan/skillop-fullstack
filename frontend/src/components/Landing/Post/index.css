@@ -1723,7 +1723,7 @@ non-act {
 
 
 /* Mobile view */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
   .mobile-panel {
     display: flex;
   }

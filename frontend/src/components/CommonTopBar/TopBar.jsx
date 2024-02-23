@@ -21,7 +21,7 @@ const TopBar = () => {
     <div className='tb-container '>
       <div>
         <img src='/skillop-logo.png' alt='logo' className='w-10  hover:transform hover:scale-105 transition duration-300' />
-        <h2 className='hover:transform hover:scale-105 transition duration-300'>SKILLOP</h2>
+        <h2 className='hover:transform hover:scale-105 transition duration-300 '>SKILLOP</h2>
       </div>
       {window.location.pathname === '/homepage' && (
         <button id='create-post' onClick={createPost}>
