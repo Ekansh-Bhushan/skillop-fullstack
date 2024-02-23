@@ -104,7 +104,8 @@ li {
   text-align: center;
   line-height: 20px; /* Center the checkmark vertically */
   position: absolute;
-  left: 0;
+  margin-left: -20px
+  ;
   top: 0;
 }
 
@@ -127,7 +128,8 @@ li {
   text-align: center;
   line-height: 20px; /* Center the exclamation mark vertically */
   position: absolute;
-  left: 0;
+  margin-left: -20px;
+  
   top: 0;
 }
 
