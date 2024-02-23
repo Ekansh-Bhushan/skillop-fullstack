@@ -472,3 +472,8 @@ body {
             align-items: center;
          }
     }
+    @media screen and (min-width: 1800px) {
+        .aboutpg-box1 img{
+            display: none;
+        }
+    }

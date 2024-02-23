@@ -113,12 +113,11 @@ function Searchbar({setProgress}) {
                 placeholder="Company, People, Skill..."
                 onChange={onChangeFilter}
                 value={filterFields.keyword}
-                className="p-1"
+                className="p-1 lg:w-[60%]"
               />
               <AiOutlineSearch
                 style={{
-                  fontSize: "22px",
-                  marginRight: "15px",
+                  fontSize: "22px"                  
                 }}
                 onClick={onChangeFilter}
               />
@@ -138,7 +137,7 @@ function Searchbar({setProgress}) {
             </div>
             {searchPeople && (
               <div className="">
-                <div style={{ margin: "15px 0px" }}>Filters : </div>
+                <div  style={{ margin: "15px 0px 0px 30px" }}>Filters : </div>
                 <div className="filterBY ">
                   <button
                     onClick={addCollegeFilter}
@@ -156,15 +155,7 @@ function Searchbar({setProgress}) {
                   >
                     Degree
                   </button>
-                  <button
-                    onClick={addCompanyFilter}
-                    // style={{ background: "green" }}
-                    className={
-                      companyFilter ? "colored-filter-btn" : "filter-btn"
-                    }
-                  >
-                    Company
-                  </button>
+                  
                   <button
                     onClick={addJobFilter}
                     // style={{ background: "orange" }}
@@ -180,6 +171,15 @@ function Searchbar({setProgress}) {
                     }
                   >
                     Location
+                  </button>
+                  <button
+                    onClick={addCompanyFilter}
+                    // style={{ background: "green" }}
+                    className={
+                      companyFilter ? "colored-filter-btn" : "filter-btn"
+                    }
+                  >
+                    Company
                   </button>
                 </div>
                 <div className="filterInput" style={{ marginTop: '50px' }}>
