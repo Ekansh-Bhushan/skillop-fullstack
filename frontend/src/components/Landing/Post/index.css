@@ -1223,7 +1223,7 @@ non-act {
   scrollbar-width: none; /* Hide the scrollbar for Firefox */
   position: fixed;
   top: 0rem;
-  right: 5rem;
+  right: 0rem;
   background: white;
   width: 26%;
   height: 100%;
