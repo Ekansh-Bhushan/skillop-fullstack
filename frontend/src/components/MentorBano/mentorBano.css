@@ -140,3 +140,11 @@ li {
     16
   ); /* You can change the color for not done tasks as per your preference */
 }
+
+@media only screen and (min-width: 750px) {
+  .pr-10 {
+    padding-right: 2.5rem;
+    font-size: 12px;
+    width: 190px;
+}
+}
