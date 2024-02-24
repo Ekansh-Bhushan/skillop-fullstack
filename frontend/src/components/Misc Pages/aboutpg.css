@@ -39,22 +39,22 @@ body {
 .aboutpg-box1 img {
     height: 230px;
     width: auto;
-    width: 100%; /* Make the image fill the available width */
-    max-width: 300px; /* Set a max width for the image */
-    position: absolute; /* Position the image absolutely within the box */
-    top: 20px; /* Adjust the top position as needed */
-    right: 20px; /* Adjust the right position as needed */
+    width: 100%; 
+    max-width: 300px; 
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
     margin-bottom: 15px;
 }
 .aboutpg-box1 {
     flex: 1;
-    height: 1500px; /* You can adjust the height as needed */
-    background-color: #ffffff; /* Example background color */
+    height: 1500px; 
+    background-color: #ffffff; 
    
-    border-top: 1px solid black; /* Light border at the top */
-    border-left: 1px solid black; /* Light border at the left */
+    border-top: 1px solid black; 
+    border-left: 1px solid black; 
     border-right: 1px solid black;
-    border-bottom: 5px solid black;/* Set the border width and color */
+    border-bottom: 5px solid black;
     border-radius: 30px 30px 30px 30px; 
     margin-top: 70px;
     padding: 20px;
@@ -69,22 +69,22 @@ body {
   }
 .aboutpg-box2 img {
     height: 250px;
-    width: 100%; /* Make the image fill the available width */
-    max-width: 300px; /* Set a max width for the image */
-    position: absolute; /* Position the image absolutely within the box */
-    top: 20px; /* Adjust the top position as needed */
-    left: 20px; /* Adjust the right position as needed */
+    width: 100%; 
+    max-width: 300px; 
+    position: absolute; 
+    top: 20px;
+    left: 20px; 
     margin-bottom: 5px;
 }
 .aboutpg-box2 {
     flex: 1;
-    height: 1500px; /* You can adjust the height as needed */
-    background-color: #ffffff; /* Example background color */
-    margin: 5px; /* Adjust margin as needed */
-    border-top: 1px solid black; /* Light border at the top */
-    border-left: 1px solid black; /* Light border at the left */
+    height: 1500px; 
+    background-color: #ffffff; 
+    margin: 5px; 
+    border-top: 1px solid black; 
+    border-left: 1px solid black; 
     border-right: 1px solid black;
-    border-bottom: 5px solid black; /* Set the border width and color */
+    border-bottom: 5px solid black; 
     border-radius: 30px 30px 30px 30px; 
     margin: 30px;
     padding: 20px;
@@ -101,7 +101,7 @@ body {
     justify-content: space-between;
     max-width: 800px;
     margin: auto;
-    max-width: 100%; /* Set max-width to 100% to make it responsive */
+    max-width: 100%; 
     margin-left: 100px;
     margin-right: 100px;
         
@@ -110,13 +110,13 @@ body {
 .aboutpg-box3 {
     flex: 1;
     height: 160px;
-    width:150px; /* Adjust the width of the boxes as needed */
+    width:150px; 
     padding: 20px;
     background-color: #f0f0f0;
-    border-top: 1px solid black; /* Light border at the top */
-    border-left: 1px solid black; /* Light border at the left */
+    border-top: 1px solid black; 
+    border-left: 1px solid black; 
     border-right: 1px solid black;
-    border-bottom: 5px solid black; /* Optional: Add a border for visualization */
+    border-bottom: 5px solid black; 
     margin: 15px;
     border-radius: 30px 30px 30px 30px;
     transition: background-color 0.3s ease;
@@ -135,12 +135,12 @@ body {
     
   }
 .aboutpg-box4 {
-    width: 80%; /* Adjust the width of the box as needed */
+    width: 80%; 
     margin: 0 auto;
     padding: 20px;
     background-color: #f0f0f0;
-    border-top: 1px solid black; /* Light border at the top */
-    border-left: 1px solid black; /* Light border at the left */
+    border-top: 1px solid black; 
+    border-left: 1px solid black; 
     border-right: 1px solid black;
     border-bottom: 5px solid black;
     border-radius: 30px 30px 30px 30px;
@@ -159,7 +159,7 @@ body {
 }
 .btn {
     position: absolute;
-    bottom: 10px; /* Adjust the distance from the bottom as needed */
+    bottom: 10px; 
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
@@ -187,7 +187,7 @@ body {
     justify-content: space-between;
     max-width: 800px;
 
-    max-width: 100%; /* Set max-width to 100% to make it responsive */
+    max-width: 100%; 
     margin-right: 100px;
     margin-left: 100px;
         
@@ -198,8 +198,8 @@ body {
     margin: 0 auto;
     padding: 20px;
     background-color: #f0f0f0;
-    border-top: 1px solid black; /* Light border at the top */
-    border-left: 1px solid black; /* Light border at the left */
+    border-top: 1px solid black; 
+    border-left: 1px solid black; 
     border-right: 1px solid black;
     border-bottom: 5px solid black;
     border-radius: 40px 40px 40px 40px;
@@ -220,13 +220,13 @@ body {
 .aboutpg-form-box {
     flex: 1;
     height: fit-content;
-    width:45%; /* Adjust the width of the boxes as needed */
+    width:45%; 
     padding: 20px;
     background-color: #f0f0f0;
-    border-top: 1px solid black; /* Light border at the top */
-    border-left: 1px solid black; /* Light border at the left */
+    border-top: 1px solid black; 
+    border-left: 1px solid black; 
     border-right: 1px solid black;
-    border-bottom: 5px solid black; /* Optional: Add a border for visualization */
+    border-bottom: 5px solid black; 
     margin: 15px;
     border-radius: 30px 30px 30px 30px; 
     position: relative;
@@ -249,7 +249,7 @@ body {
     width: 80%;
     padding: 8px;
     margin-bottom: 15px;
-    border: 1px solid black; /* Border color */
+    border: 1px solid black; 
   border-radius: 5px;
 }
 
@@ -297,9 +297,9 @@ body {
     .aboutpg-box3,
     .aboutpg-box4,
     .aboutpg-box5 {
-        width: 100%; /* Make images fill the available width */
-        position: static; /* Remove absolute positioning */
-        margin: 0, auto;/* Reset margin */
+        width: 100%; 
+        position: static; 
+        margin: 0, auto;
     }
     .aboutpg-box1 img,
     .aboutpg-box2 img,
@@ -311,9 +311,9 @@ body {
     }
 
     .btn {
-        width: 100%; /* Make the button full-width */
+        width: 100%; 
         left: 0;
-        transform: none; /* Reset the transform */
+        transform: none; 
         margin-bottom: 10px;
     }
 
@@ -332,8 +332,8 @@ body {
     .aboutpg-box3,
     .aboutpg-box5,
     .aboutpg-form-box {
-        width: 100%; /* Make boxes full-width */
-        margin-left: 0; /* Reset margin */
+        width: 100%; 
+        margin-left: 0; 
     }
     .aboutpg-form-box {
         display: flex;
@@ -343,13 +343,13 @@ body {
       }
       .form-group {
         margin-bottom: 15px;
-        width: 80%; /* Set the width of the form groups */
+        width: 80%; 
       }
       
       /* Set the width of the input elements */
       .form-group input {
         width: 100%;
-        padding: 8px; /* Add padding for better appearance */
+        padding: 8px; 
       }
 
     .aboutpg-box4 p {
@@ -367,12 +367,7 @@ body {
         margin-bottom: 50px;
     }
 }
-/* @media screen and (min-width: 768px) and (max-width: 1280px) {
-    .box1,
-    .box2 {
-        width: 50%;
-    }
-} */
+
 @media screen and (max-width: 767px) {
     .aboutpg-box1 img,
     .aboutpg-box2 img,
@@ -380,8 +375,8 @@ body {
     .aboutpg-box4 img,
     .aboutpg-box5 img,
     .aboutpg-form-box img {
-        height: 100px; /* Set the desired height for smaller screens */
-        max-width: 50%; /* Allow images to shrink to fit the screen width */
+        height: 100px; 
+        max-width: 50%; 
     }
 }
 @media screen and (min-width: 768px) and (max-width: 1280px) {
@@ -436,9 +431,7 @@ body {
             font-size: 30px;
             width: 100%;
         }
-        /* .box3 p{
-            bottom: 5px;
-        } */
+       
     
         .aboutpg-box1 img, .aboutpg-box2 img {
             position: static;

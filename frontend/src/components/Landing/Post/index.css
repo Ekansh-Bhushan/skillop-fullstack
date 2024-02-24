@@ -390,12 +390,7 @@ body {
   width: calc(100% - 300px);
 }
 
-/* @media screen and (max-width: 500px) {
-  main-content-landing {
-    top: 0px;
-    height: 60vh;
-  }
-} */
+
 
 /*----------------------Newly added Profile common and events upcoming -----------*/
 .prof-and-events {
@@ -896,9 +891,7 @@ non-act {
 }
 
 @media (max-width: 500px) {
-  /* .main-content-landing {
-    background-color: antiquewhite;
-  } */
+  
   .reactions-div {
     margin-top: 0px;
     margin-bottom: 15px;
@@ -1694,11 +1687,7 @@ non-act {
   justify-content: space-between;
 }
 
-/* .more-vertical-options div:active {
-  border-radius: 30px;
-  border: 1.5px solid rgb(55, 194, 218);
-  padding: 10px 20px;
-} */
+
 
 .post-on-mob-btn {
   background-color: rgb(14, 121, 121);

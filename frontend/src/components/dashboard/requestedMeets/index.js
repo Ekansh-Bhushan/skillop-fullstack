@@ -63,17 +63,7 @@ function RequestedMeets({
   };
 
   useEffect(() => {
-    // setDisplaying("upcomming");
-    // const getbookings = async () => {
-    //     try {
-    //         const { data } = await getscheduledbookings();
-    //         console.log(data.result);
-    //         setBook(data.result);
-    //     } catch (error) {
-    //         toast.error(error.response.data.message);
-    //     }
-    // };
-    // getbookings();
+    
 
     const getUpMeet = async () => {
       try {
@@ -117,17 +107,7 @@ function RequestedMeets({
   }, [displaying]);
   useEffect(() => {
     console.log("useEffect");
-    // setDisplaying("upcomming");
-    // const getbookings = async () => {
-    //     try {
-    //         const { data } = await getscheduledbookings();
-    //         console.log(data.result);
-    //         setBook(data.result);
-    //     } catch (error) {
-    //         toast.error(error.response.data.message);
-    //     }
-    // };
-    // getbookings();
+    
 
     const getUpMeet = async () => {
       try {
@@ -144,34 +124,7 @@ function RequestedMeets({
 
     getUpMeet();
 
-    // const getPendMeet = async () => {
-    //     try {
-    //         const { data } = await getPendingMeet();
-    //         if (!data.result) toast.error(data.message);
-    //         // console.log(data.result);
-    //         setPending(data.result);
-    //     } catch (error) {
-    //         if (error.response) console.log(error.response.data.message);
-    //     }
-    // };
-    // getPendMeet();
-
-    // const getCompMeet = async () => {
-    //     try {
-    //         const { data } = await getCompletedMeet();
-    //         if (!data.result) toast.error(data.message);
-    //         // console.log(data.result);
-    //         setCompleted(data.result);
-    //     } catch (error) {
-    //         if (error.response) console.log(error.response.data.message);
-    //     }
-    // };
-    // getCompMeet();
-    // if (displaying === "upcomming") {
-    //     console.log("upcomming");
-    //       setBook(upcomming);
-    //   } else if (displaying === "pending") setBook(pending);
-    //   else if (displaying === "completed") setBook(completed);
+   
   }, []);
 
   return (

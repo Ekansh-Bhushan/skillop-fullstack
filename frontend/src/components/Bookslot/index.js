@@ -51,21 +51,7 @@ function Bookslot({ userData, setProgress }) {
         '/' +
         charge
     );
-    // navigate(
-    //   '/authorize-zoom-meet' +
-    //     '/' +
-    //     mentorid +
-    //     '?day=' +
-    //     day +
-    //     '&s=' +
-    //     s +
-    //     '&e=' +
-    //     e +
-    //     '&userid=' +
-    //     userid +
-    //     '&charge=' +
-    //     charge
-    // );
+    
   };
 
   // use effect to load the slots on site loads
@@ -80,13 +66,11 @@ function Bookslot({ userData, setProgress }) {
           const response = await getMentorAvaibility({ date: day }, mentorId);
           console.log(response.data.result, day, ct);
           if (response.data.result && response.data.result.length) {
-            // console.log(response.data.result);
-            // console.log(day);
-            // console.log({ ...slots, [day]: response.data.result });
+            
             const x = slots;
             x[day] = response.data.result;
             setSlots(x);
-            // console.log("slots: ", slots);
+           
             ct += response.data.result.length;
           } else if (!response.data.result) {
             toast(response.data.message);
@@ -96,7 +80,7 @@ function Bookslot({ userData, setProgress }) {
           toast('Something went wrong');
           break;
         }
-        // console.log(slots);
+       
         day = getNextDate(day).toISOString().split('T')[0];
       }
       setProgress(100);
@@ -108,7 +92,7 @@ function Bookslot({ userData, setProgress }) {
   return (
     <>
       <Mobilecommonhead />
-      {/* <Common setProgress={setProgress} /> */}
+      
 
       <div className='flex items-center justify-center h-full sm:w-[100%] xl:w-[70%] xl:ml-[7vw] sm:ml-[0vw] main-container'>
         <div className='w-[70%] h-screen flex justify-center ' style={{paddingTop: "84px"}}>
@@ -120,9 +104,7 @@ function Bookslot({ userData, setProgress }) {
               {' '}
               1:1 Session
             </div>
-            {/* <div className="filter-options-booking">
-              <div className="f-slot f-slot-1">All Slots</div>
-            </div> */}
+            
             <div className='slot-complete-list'>
               <div className='headers-slot'>
                 <div>Day</div>

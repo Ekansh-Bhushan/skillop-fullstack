@@ -230,15 +230,7 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
           </div>
         </div>
       </div>
-      {/* {shouldbevisible && userData._id && (
-        <SideNav
-          setProgress={setProgress}
-          Mentor={Mentor}
-          isFetched={isFetched}
-          notifyList={notifyList}
-          CurrUserId={userData._id}
-        />
-      )} */}
+     
 
       <div className='flex mt-[35px] ml-[40vh] md:ml-[10vh]'>
         {/* <Commondash userData={userData} /> */}
@@ -258,15 +250,11 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
           <div className='schedules-dash'>
             {shouldbevisible && (
               <div className='buttons-dash'>
-                {/* <button className="today">Today</button> */}
+               
                 <button className='show-slot-list' onClick={showslotlist}>
                   View All Slots
                 </button>
-                {/* <div className="btns-dash">
-                  <button>On Date </button>
-                  <button>Month</button>
-                  <button>23</button>
-                </div> */}
+               
               </div>
             )}
 

@@ -2,26 +2,6 @@ import React, { useReducer } from 'react'
 import StarRating from './starRating'
 import MyComponent from './option'
 import './feedbackForm.css'
-// const preSetFeedback = {
-//     list: [
-//         { title: 'lorem ipsum', flag: false},
-//         { title: 'lorem ipsum', flag: false},
-//         { title: 'lorem ipsum', flag: false},
-//         { title: 'lorem ipsum', flag: false},
-//         { title: 'lorem ipsum', flag: false},
-//         { title: 'lorem ipsum', flag: false},
-//         { title: 'lorem ipsum', flag: false},
-//     ]
-// }
-
-// function reducer(state,action){
-//     switch(action.type){
-//         case 'ON_SELECT':
-//             return {...state, ...action.payload}
-//         default:
-//             return state
-//     }
-// }
 
 
 function MentorfeedbackForm() {

@@ -195,15 +195,7 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
               );
             })}
           </div>
-          {/* <div className="join-premium">
-            <a
-              href="https://forms.gle/5eHDU3aAdWstuFs39"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Join SKILLOP Premium
-            </a>
-          </div> */}
+         
         </div>
 
         <div>

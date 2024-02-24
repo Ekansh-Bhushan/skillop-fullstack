@@ -102,7 +102,7 @@ const PostComp = ({
     }
   };
   useEffect(() => {
-    // Initial fetch of posts
+   
     fetchPosts();
 
     // Listen for new post events

@@ -151,12 +151,10 @@
     margin-top: 70px;
   }
 }
-/* @media (min-width: 992px) */
-/* @media (min-width: 1190px) */
+
 @media only screen and (max-width: 1400px) {
   .dash-main {
-    /* position: relative; */
-    /* margin-inline: vw; */
+    
     width: 100%;
     
     

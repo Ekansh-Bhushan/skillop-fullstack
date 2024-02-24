@@ -9,19 +9,6 @@ const BookViewPopUp = ({ bookingData, onClose, type }) => {
 
     const navigate = useNavigate();
 
-    //   const acceptBookings = async (meetId) => {
-
-    //     try {
-    //       const { data } = await acceptMeet(meetId);
-    //       if (!data.result) toast.error(data.message);
-    //       toast.success(data.message);
-    //       // console.log(data);
-    //     } catch (error) {
-    //       if (error.response)
-    //         toast.error(error.response.data.message)
-    //       console.log(error)
-    //     }
-    //   };
 
     return (
         <div className="book-view-bg">

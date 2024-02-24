@@ -265,11 +265,7 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
               />
             )}
           </div>
-          {/* <div className="chatAndBookSlot">
-            <img src={Chart3} alt=""/>
-            <img src={Slot1} alt=""/>
-              <p>kaha book slot and chat option</p>
-          </div> */}
+          
         </div>
       </div>
     </>

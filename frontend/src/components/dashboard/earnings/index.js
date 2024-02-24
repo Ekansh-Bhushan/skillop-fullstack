@@ -49,11 +49,10 @@ function Earning({ userData, setProgress, Mentor}) {
     
       <Mobilecommonhead />
       <div className="dash-main">
-        {/* <Commondash userData={userData} /> */}
+       
 
         <div className="earning-dash">
-          {/* <Profileandevents /> */}
-          {/* <Topbar setProgress={setProgress}/> */}
+          
           <h1 id="subtopics" className="text-2xl mt-14 font-semibold mb-2">
             Your Analytics 🤑
           </h1>
@@ -76,7 +75,7 @@ function Earning({ userData, setProgress, Mentor}) {
             </div>
           </div>
 
-          {/* <div className="partition-d line-earning"></div> */}
+         
           <h1 id="subtopics" className="text-xl font-semibold mt-5 md:text-lg">Mentees</h1>
           {earnings ? (
             <div className="flex items-center justify-center flex-col">

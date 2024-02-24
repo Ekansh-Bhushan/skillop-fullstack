@@ -12,16 +12,7 @@
   width: 90%;
 }
 
-/* 
-.main-content-landing2 {
-  position: relative;
-  top: 50px;
-  display: flex;
-  left: 250px;
-  z-index: 2;j
-  height: 100%;
-  width: calc(100% - 300px);
-} */
+
 
 @media screen and (max-width: 500px) {
   .people-post2 {

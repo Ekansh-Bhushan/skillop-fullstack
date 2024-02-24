@@ -54,7 +54,7 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                 <div className="left-content">
                     {data && (
                         <div className="cnf-user">
-                            {/* <img className="cnf-prof-pic" src={data.profilePicUrl ? data.profilePicUrl : userIcon} alt="profile pic" /> */}
+                            
                             <img
                                 className="cnf-prof-pic"
                                 src={userIcon}
@@ -146,8 +146,7 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
                                 paddingLeft: "10px",
                             }}
                             onClick={() => {
-                                // check if input is empty
-                                toast.error("Invalid Coupon Code");
+                                
                             }}
                         />
                     </div>

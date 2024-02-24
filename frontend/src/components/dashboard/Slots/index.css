@@ -449,14 +449,7 @@ body {
   transform: scale(110%);
 }
 
-/* .slot-pop {
-  height: 120vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 20;
-} */
+
 
 .popup-of-slots {
   position: absolute;
@@ -873,7 +866,7 @@ body {
 
 .individual-session {
   width: 100%;
-  /* background-color: rgba(208, 255, 230, 1); */
+  
 
   align-items: center;
   display: flex;
@@ -887,9 +880,7 @@ body {
   cursor: pointer;
 }
 
-/* .session-list-dash-li :hover {
-  background: #84848426;
-} */
+
 
 .meet-rate {
   padding: 2vw 4vw;
@@ -1244,25 +1235,19 @@ body {
   transform: translateX(100%);
 }
 
-/* ======================== HOVERING EFFECTS OVER BUTTONS ============================== */
 
-/* Add black outline on hovering */
 .today:hover,
 .show-slot-list:hover,
 .btns-dash button:hover {
   border: 1px solid black;
 }
 
-/* Add black outline on hovering for date buttons */
+
 .btns-dash button:hover {
   border: 1px solid black;
 }
 
-/* Add black outline on hovering for slot buttons */
 
-/*-----Responsive--------*/
-
-/*media queries for bookings mobile view----*/
 
 @media only screen and (min-width: 1400px) {
   .schedules-dash {

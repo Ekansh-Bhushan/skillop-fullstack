@@ -119,8 +119,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
               className="qr-code"
               style={{ display: "flex", alignItems: "center", gap: "10px" }}
             >
-              {/* <img width={200} src="/qr.png" alt="" /> */}
-              {/* <div style={{ height: "auto", width: "100%" }}> */}
+              
               {data.upiId && (
                 <QRCode
                   size={256}
@@ -129,7 +128,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
                   viewBox={`0 0 256 256`}
                 />
               )}
-              {/* </div> */}
+             
               <div
                 style={{ display: "flex", flexDirection: "column", gap: "1vw" }}
               >
