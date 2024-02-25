@@ -537,11 +537,17 @@ const PostComp = ({
               )}
             </div>
             <div
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'pointer',
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              whiteSpace: 'nowrap', }}
               onClick={() => {
                 navigate(`/postsection/${_id}`);
               }}
               className='cmts-count'
+              
             >
               {commentList.length + ' '}Comments
             </div>
