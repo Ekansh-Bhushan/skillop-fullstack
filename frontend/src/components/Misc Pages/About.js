@@ -121,8 +121,8 @@ import { useNavigate } from "react-router-dom";
        <div className="aboutpg-box-container2">
          <div className="aboutpg-box5">
            <h2 style={{ fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}><i>Contact Information</i></h2>
-           <h3 style={{ fontSize: '25px' }}>Phone number: 9818807886</h3>
-           <h3 style={{ fontSize: '25px' }}>Email ID: skillop.skill@gmail.com</h3>
+           <h3 style={{ fontSize: '20px' }}>Phone number: 9818807886</h3>
+           <h3 style={{ fontSize: '20px' }}>Email ID: skillop.skill@gmail.com</h3>
          </div>
          <div className="aboutpg-form-box">
          <h2>Tell Us What's On Your Mind</h2>
