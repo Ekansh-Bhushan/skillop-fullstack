@@ -292,9 +292,7 @@ function Otherpost({ userData, setProgress }) {
                 </div>
 
                 {post.imageUrls.length ? (
-                  // post.imageUrls[0].toLowerCase().includes(".jpg") ||
-                  //   post.imageUrls[0].toLowerCase().includes(".jpeg") ||
-                  //   post.imageUrls[0].toLowerCase().includes(".png")
+                 
                   isImage(post.imageUrls[currentMediaIndex]) ? (
                     <div
                       className='posted-img-container'
@@ -406,10 +404,7 @@ function Otherpost({ userData, setProgress }) {
                   )}
 
                   <div className='comments'>
-                    {/* <i
-                      className="fa fa-lg fa-solid fa-comment"
-                      style={{ marginRight: '4px' }}
-                    ></i> */}
+                   
                     <img style={{ marginRight: '4px' }} src='/comment.png' />
                     {commentList.length + ' '}
                     Comments
@@ -534,7 +529,7 @@ function Otherpost({ userData, setProgress }) {
             </div>
           </div>
         )}
-        {/* {post && <MyProfile userData={post.author} myUser={userData} />} */}
+        
         <Profileandevents userData={userData} />
       </div>
     </>

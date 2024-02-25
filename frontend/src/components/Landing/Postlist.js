@@ -52,20 +52,7 @@ const Postlist = ({
     setInputValue(newValue);
   };
 
-  // useEffect(() => {
-  //   // Connect to the WebSocket server
-  //   const socket = socketIOClient(API);
-
-  //   // Listen for new posts from the server
-  //   socket.on('newPost', (newPost) => {
-  //     setPosts((prevPosts) => [newPost, ...prevPosts]);
-  //   });
-
-  //   return () => {
-  //     // Disconnect from the WebSocket when the component unmounts
-  //     socket.disconnect();
-  //   };
-  // }, []);
+  
   const creatingPost = async () => {
     try {
       if (inputValue.length === 0) {
@@ -92,9 +79,7 @@ const Postlist = ({
       };
       setProgress(30);
       const data = await createPost(formData);
-      //   window.location.reload()
-
-      // Add this post to the posts state
+      
       setPosts((prevPosts) => [data.result, ...prevPosts]);
       // console.log(data);
       setProgress(100);

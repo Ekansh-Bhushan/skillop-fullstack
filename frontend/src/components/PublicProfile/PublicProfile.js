@@ -283,7 +283,7 @@ const PublicProfile = ({
                   return (
                     <div key={idx} className="skills-content">
                       <div>{item}</div>
-                      {/* <img style={{ cursor: "pointer" }} src={delIcon} height={20} width={20} alt="del" /> */}
+                      
                     </div>
                   );
                 })}
@@ -369,7 +369,7 @@ const PublicProfile = ({
             </div>
           </div>
         </div>
-        {/* <RightProfileComp userDatamain={userDatamain} /> */}
+        
       </div>
     </>
   );

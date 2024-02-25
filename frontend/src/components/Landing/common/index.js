@@ -142,20 +142,7 @@ function Common( {setProgress }) {
     const navigateNotification = () => {
         navigate('/notifications')
     }
-    // useEffect(() => {
-    //   const getUser = async () => {
-    //     try {
-    //       const { data } = await getAllUsers();
-
-    //       // console.log(data.result);
-    //       setUsersData(data.result);
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   };
-    //   getUser();
-    // }, []);
-    // console.log(setUsers);
+    
 
     return (
         <>
@@ -175,13 +162,7 @@ function Common( {setProgress }) {
                     />
                     <button className="search-icon"><img src={searchIcon} height={23} width={23} alt="search-icon" /></button>
                     <div className="filtered-results hidethis">
-                        {/* <div>
-              <img src={logo} />
-              <span className="searched-details">myname</span>
-              
-            </div>
-            <div className="searched-results-partition"></div> */}
-
+                        
                         {setUsers.map((val, i) => (
                             <div key={i}>
                                 <div>
@@ -202,12 +183,7 @@ function Common( {setProgress }) {
                 </div>
 
                 <div className="right-options">
-                    {/* <div
-            style={{ display: "flex", alignItems: "center" }}
-            onClick={redirecttomyposts}
-          >
-            My Posts
-          </div> */}
+                   
                     <div className={`home ${location.pathname === '/homepage' ? "active" : ""}`} onClick={redirecttohome}>
                         <i
                             style={{ fontSize: "20px" }}

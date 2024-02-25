@@ -33,8 +33,7 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
     try {
       setProgress(30);
       localStorage.removeItem('skilloptoken');
-      // await logoutUser();
-      // console.log(data);
+      
     } catch (error) {
       console.log(error);
     }
@@ -81,7 +80,7 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
         navigate('/homepage');
         toast.error('Earning page is 🔒 locked\nBecome a MENTOR 😎 to unlock!');
       }
-      // setTimeout(() => setProgress(100), 300);
+     
     }
   };
 

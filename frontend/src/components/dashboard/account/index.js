@@ -87,11 +87,11 @@ function Account({ userData, setProgress}) {
 
         <div className='dash-right dash-right-2'>
           {/* <Topbar setProgress={setProgress}/> */}
-          <div className='pt-6vh h-100vh border-r-2 md:border-0 md:pt-6vh ml--35px ml--35px@media (max-width: 500px)'>
+          <div  className=' pt-6vh h-100vh border-r-2 md:border-0 md:pt-6vh ml--35px ml--35px@media (max-width: 500px) ml--350@media (min-width: 800px)'>
             <h1 className='font-semibold text-2xl mb-5'>
               Edit Account Information
             </h1>
-            <div className='flex items-start justify-center flex-col gap-4'>
+            <div className='flex items-start justify-center flex-col gap-4 '>
               <div className=' gap-[5px] flex flex-col items-start'>
                 <label
                   htmlFor='linkedin'
@@ -103,7 +103,7 @@ function Account({ userData, setProgress}) {
                   type='text'
                   id='linkedin'
                   placeholder={name}
-                  className='editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]'
+                  className='editable-input rounded-xl border p-2 py-4 textarea'
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -119,7 +119,7 @@ function Account({ userData, setProgress}) {
                   type='text'
                   id='linkedin'
                   placeholder={username}
-                  className='editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]'
+                  className='editable-input rounded-xl border p-2 textarea py-4 md:w-[90vw]'
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -138,7 +138,7 @@ function Account({ userData, setProgress}) {
                   value={email}
                   readOnly
                   onClick={() => toast.error("Email can't be edited!")}
-                  className='editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]'
+                  className='editable-input rounded-xl border p-2 textarea py-4 md:w-[90vw]'
                 />
               </div>
               <div className=' gap-[5px] flex flex-col items-start'>
@@ -153,7 +153,7 @@ function Account({ userData, setProgress}) {
                   id='phone'
                   placeholder={whats}
                   value={whats}
-                  className='editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]'
+                  className='editable-input rounded-xl border p-2 textarea py-4 md:w-[90vw]'
                   onChange={(e) => setWhats(e.target.value)}
                 />
               </div>
@@ -168,7 +168,7 @@ function Account({ userData, setProgress}) {
                   type='text'
                   id='linkedin'
                   placeholder={linkedindata}
-                  className='editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]'
+                  className='editable-input rounded-xl border p-2 textarea py-4 md:w-[90vw]'
                   value={linkedindata}
                   onChange={(e) => setlinkedindata(e.target.value)}
                 />
@@ -182,7 +182,7 @@ function Account({ userData, setProgress}) {
                   id='upi'
                   placeholder={upi}
                   value={upi}
-                  className='editable-input rounded-xl border p-2 w-[40vw] py-4 md:w-[90vw]'
+                  className='editable-input rounded-xl border p-2 textarea py-4 md:w-[90vw]'
                   onChange={(e) => setUpi(e.target.value)}
                 />
               </div>

@@ -73,7 +73,13 @@
 /* Additional styles for media query */
 @media (max-width: 500px) {
   .ml--35px {
-    margin-left: -110px;
+    margin-left: -125px;
+  }
+  .dash-main{
+    margin-top: 70px;
+  }
+  .textarea{
+    width:90vw
   }
 
   /* Overriding style for media query */
@@ -81,12 +87,77 @@
     margin-left: 0px;
   }
 }
+@media (min-width: 500px){
+  .ml--35px {
+    margin-left: -135px;
+  }
+  .dash-main{
+    margin-top: 75px;
+  }
+  .textarea{
+    width:85vw
+  }
+}
+
+@media (min-width: 768px){
+  .ml--35px {
+    margin-left: -115px;
+  }
+  .dash-main{
+    margin-top: 45px;
+  }
+  .textarea{
+    width:60vw
+  }
+}
+@media (min-width: 800px){
+  .ml--35px {
+    margin-left: 50px;
+  }
+  .dash-main{
+    margin-top: 40px;
+  }
+  .textarea{
+    width:65vw
+  }
+}
+@media (min-width: 992px){
+  .ml--35px {
+    margin-left: 50px;
+  }
+  .dash-main{
+    margin-top: 40px;
+  }
+  .textarea{
+    width:50vw
+  }
+}
+@media (min-width: 1190px){
+  .ml--35px {
+    margin-left: 50px;
+  }
+  .dash-main{
+    margin-top: 40px;
+  }
+  .textarea{
+    width:40vw
+  }
+}
+@media (min-width: 1400px){
+  .ml--35px {
+    margin-left: -135px;
+  }
+  .dash-main{
+    margin-top: 70px;
+  }
+}
 
 @media only screen and (max-width: 1400px) {
   .dash-main {
-    /* position: relative; */
-    margin-inline: vw;
+    
     width: 100%;
+    
+    
   }
 
   .editor-ids {
@@ -97,4 +168,18 @@
     width: 150%;
   }
 }
+@media (min-width: 1400px){
+  .ml--35px {
+    margin-left: 40px;
+  }
+  .dash-main{
+    margin-top: 70px;
+    /* width: 100vw; */
+  }
+  .textarea{
+    width:40vw
+  }
+}
+
+
 

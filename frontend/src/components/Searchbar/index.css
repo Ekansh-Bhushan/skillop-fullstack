@@ -320,9 +320,9 @@
     top: 54vh;
     left: 0;
     height: auto;
-    /* max-height: 45vh; */
-    overflow-y: auto; /* Changed from 'scroll' to 'auto' */
-    scrollbar-width: thin; /* Optional: Customize scrollbar width */
+    
+    overflow-y: auto; 
+    scrollbar-width: thin; 
   }
 }
 @media only screen and (min-width: 700px) and (max-width: 768px) {

@@ -1,32 +1,33 @@
-/* Styling for the heading */
+
+
 .heading {
-  font-size: 24px; /* Font size for the heading */
-  text-align: center; /* Center align the text */
-  margin: 20px 0; /* Margin above and below the heading */
-  color: #333; /* Text color for the heading */
+  font-size: 24px; 
+  text-align: center;
+  margin: 20px 0; 
+  color: #333; 
 }
 
-/* Styling for the "last-content" div */
+
 .last-content {
-  color: #333; /* Text color */
-  padding: 15px; /* Padding around the content */
-  text-align: center; /* Center align the text */
-  font-size: 16px; /* Font size */
+  color: #333; 
+  padding: 15px; 
+  text-align: center; 
+  font-size: 16px;
 
-  border-radius: 5px; /* Add rounded corners */
-  margin: 10px 0; /* Margin above and below the div */
+  border-radius: 5px; 
+  margin: 10px 0; 
 }
 
-/* Styling for the "Become a mentor" button */
+
 .custom-button {
-  background-color: #0074d9; /* Background color for the button */
-  color: #ffffff; /* Text color for the button */
-  font-size: 18px; /* Font size for the button */
-  padding: 15px 20px; /* Padding around the text (top/bottom and left/right) */
-  border: none; /* Remove the button border */
-  cursor: pointer; /* Show a pointer cursor on hover */
-  border-radius: 5px; /* Add rounded corners */
-  margin-top: 10px; /* Margin above the button */
+  background-color: #0074d9; 
+  color: #ffffff; 
+  font-size: 18px;
+  padding: 15px 20px; 
+  border: none; 
+  cursor: pointer;
+  border-radius: 5px; 
+  margin-top: 10px; 
 }
 
 #percentage-profile {
@@ -42,7 +43,7 @@
 
 /* Hover effect for the button */
 .custom-button:hover {
-  background-color: #0056b3; /* Change background color on hover */
+  background-color: #0056b3; 
 }
 
 .criterias li {
@@ -51,45 +52,45 @@
 
 /* Style for the containing div */
 .but {
-  text-align: center; /* Center align the button */
+  text-align: center; 
 }
 
 /* Style for the button */
 .custom-button {
-  background-color: #0074d9; /* Background color (change to your preferred color) */
-  color: #ffffff; /* Text color */
-  font-size: 16px; /* Font size */
-  padding: 15px 20px; /* Padding around the text (top/bottom and left/right) */
-  border: none; /* Remove the button border */
-  cursor: pointer; /* Show a pointer cursor on hover */
-  border-radius: 5px; /* Add rounded corners */
+  background-color: #0074d9;
+  color: #ffffff; 
+  font-size: 16px; 
+  padding: 15px 20px; 
+  border: none; 
+  cursor: pointer; 
+  border-radius: 5px; 
 }
 
 .custom-button-active {
-  background-color: #0074d9; /* Background color (change to your preferred color) */
-  color: #ffffff; /* Text color */
-  font-size: 16px; /* Font size */
-  padding: 10px 20px; /* Padding around the text (top/bottom and left/right) */
-  border: none; /* Remove the button border */
-  cursor: pointer; /* Show a pointer cursor on hover */
-  border-radius: 5px; /* Add rounded corners */
+  background-color: #0074d9; 
+  color: #ffffff; 
+  font-size: 16px; 
+  padding: 10px 20px; 
+  border: none; 
+  cursor: pointer; 
+  border-radius: 5px; 
   opacity: 0.6;
 }
 
 /* Hover effect */
 .custom-button:hover {
-  background-color: #0056b3; /* Change background color on hover */
+  background-color: #0056b3; 
 }
 
 ul {
-  list-style-type: none; /* Remove default list-style-type (disc or circle) */
+  list-style-type: none; 
   padding: 0;
 }
 
 li {
   margin: 10px 0;
   /* font-size: 12px; */
-  padding-left: 30px; /* Add some left padding for the bullet/indicator */
+  padding-left: 7px; 
   position: relative;
 }
 
@@ -104,7 +105,8 @@ li {
   text-align: center;
   line-height: 20px; /* Center the checkmark vertically */
   position: absolute;
-  left: 0;
+  margin-left: -20px
+  ;
   top: 0;
 }
 
@@ -113,11 +115,11 @@ li {
     10,
     231,
     10
-  ); /* Make the content inside the list item green for done tasks */
+  ); 
 }
 
 .not-done::before {
-  content: "⚠"; /* Exclamation mark (⚠) in a red circle for not done tasks */
+  content: "⚠"; 
   color: rgb(246, 255, 0);
   background-color: rgb(234, 180, 63);
   border-radius: 50%; /* Create a circle with border-radius */
@@ -127,7 +129,8 @@ li {
   text-align: center;
   line-height: 20px; /* Center the exclamation mark vertically */
   position: absolute;
-  left: 0;
+  margin-left: -20px;
+  
   top: 0;
 }
 
@@ -137,4 +140,12 @@ li {
     170,
     16
   ); /* You can change the color for not done tasks as per your preference */
+}
+
+@media only screen and (min-width: 750px) {
+  .pr-10 {
+    padding-right: 2.5rem;
+    font-size: 12px;
+    width: 190px;
+}
 }

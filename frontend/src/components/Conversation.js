@@ -72,13 +72,11 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
                     ? 'You: ' + messages[messages.length - 1].text.slice(0, 25)
                     : messages[messages.length - 1].text.slice(0, 25)}
                 </p>
-                {/* {!messages.seen && (
-                    <div className='bg-yellow-500 h-4 w-4 rounded-full'></div>
-                )} */}
+                
               </div>
             </div>
           </div>
-          {/* <div>Chat ended</div> */}
+         
         </div>
       )}
     </div>

@@ -31,12 +31,6 @@
 .noti-container {
   margin-top: 1vh;
 }
-/* .notify {
-  margin-left: 40%;
-  margin-top: 2%;
-} */
-
-/* Add styles for the horizontal line */
 
 /* =================================== NOTIFICATION ====================================== */
 
@@ -57,41 +51,7 @@
   width: 72px;
 }
 
-/* @media screen and (max-width: 400px) {
-  .spinner-css {
-    margin-top: 10vh;
-    margin-left: 30vw;
-    height: 72px;
-    width: 72px;
-  }
 
-  .notify {
-    margin-top: 30px;
-    margin-bottom: 150px;
-    height: 100%;
-  }
-
-  .heading {
-    margin-bottom: 30px;
-    display: none;
-  }
-
-  .notify-btns {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 150px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    gap: 2px;
-    border-bottom: 0px;
-  }
-
-  .notify-btns button {
-    padding: 18px 20px;
-    border-radius: 30px;
-  }
-} */
 
 .heading {
   margin-top: 1%;
@@ -127,9 +87,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  /* .box {
-    margin-left: 120px;
-  } */
+  
   .box-color {
     margin: auto;
     margin-left: 8.5vh;
@@ -138,8 +96,7 @@
   }
 
   .notify-btns::after {
-    /* width: 306px; */
-    /* margin-left: 30px; */
+   
     display: none;
   }
    
@@ -157,9 +114,7 @@
   }
   
   .notifications-container {
-    /* position: absolute; */
-    /* right: 13vw; */
-    /* width: 65%; */
+    
     margin-left: auto;
     margin-right: auto;
     

@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 
 function MyProfile({ userData, isMyProfile, myUser }) {
   const navigate = useNavigate();
-  // console.log("my prof - user data", userData.linkedinId);
+  
 
   const zoomInPic = () => {
     const dp = document.querySelector('.profile-img');
@@ -19,7 +19,7 @@ function MyProfile({ userData, isMyProfile, myUser }) {
   }
 
   const goToProfile = () => {
-    // navigate(`/profile/${userData._id}`);
+   
     navigate(`/myaccount`);
   };
   const redirecttoslotbook=()=>{

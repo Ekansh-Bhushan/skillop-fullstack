@@ -49,9 +49,7 @@ function Commondash({ userData }) {
                         {userData.upiId}
                     </div>
                 </div>
-                {/* <div className="Editor-dashboard">
-            <button className="edit-d">Edit Profile</button>
-          </div> */}
+               
             </div>
         </>
     );
