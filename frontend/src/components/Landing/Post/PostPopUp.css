@@ -234,7 +234,7 @@
     margin-left: 56vh;
   }
   .tb-container {
-    z-index: 2;
+    z-index: 150;
   }
   .popup-container{
     left: 22vw;
