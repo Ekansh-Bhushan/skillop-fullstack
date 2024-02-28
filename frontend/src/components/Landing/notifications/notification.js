@@ -67,7 +67,7 @@ const Notification = ({ setProgress, userData, setUserData }) => {
           )}
           {/* </div> */}
           {!fetchingNotify && notifyList.length === 0 && (
-            <div className='flex items-center justify-center' style={{width:"80%"}}>
+            <div className='flex items-center justify-center' style={{ width: "80%" }}>
               {' '}
               <h3 className='no-notify'>No Notifications</h3>
             </div>
