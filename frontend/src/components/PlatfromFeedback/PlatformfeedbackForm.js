@@ -30,7 +30,7 @@ function PlatformfeedbackForm({setProgress}) {
           <h1 className='text-[#9D9D9D]'>Skillop Feedback</h1>
           <div className='flex items-center justify-center'>
             <h2 className='text-3xl font-normal my-5 mt-10 w-[80%] text-center md:text-2xl md:mt-5 md:w-[100%]'>
-              How Was Your Exprience With the Platform?
+              How was your exprience with skillop?
             </h2>
           </div>
         </div>
