@@ -19,8 +19,8 @@
   padding: 12px 20px;
   font-size: 1.1rem;
   background: white;
-  width: 55%;
-  height: 20vh;
+  width: 57%;
+  height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,19 +62,17 @@
 }
 
 .writeSection {
-  display: flex;
-    /* gap: 10px; */
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 49vw;
-    z-index: 3;
-    width: 100%;
-    padding-bottom: 923px;
-    background: white;
-    border: 2px solid black;
+  align-items: center;
+    background: #fff;
+    border: 2px solid #000;
     border-radius: 20px;
-  height:2vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    position: absolute;
+    top: 74vw;
+    width: 137%;
+    z-index: 10000;
 
 }
 
