@@ -56,7 +56,7 @@ const LandingOne = () => {
   };
 
   return (
-    <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] md:mx-5 md:mb-[8vh] md:mt-0 lg:ml-[6vh] ">
+    <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] sm:ml-0  md:mx-5 md:mb-[8vh] md:mt-0 lg:ml-[6vh] ">
       <div className="flex flex-col lg:ml-10 xl:ml-12">
         
       <h1 class="text-[50px] font-medium md:text-[40px] my-5  ">
@@ -88,14 +88,14 @@ const LandingOne = () => {
           </button>
         </div>
 
-        <div className="text-[45px] text-[#5F5F5F] flex gap-5 mt-20 md:text-[30px] md:mt-10">
-          <div className="flex flex-col items-center justify-center pr-5 border-r-2 border-[#00000080] hover:transform hover:scale-105 transition duration-300">
+        <div className="text-[45px] text-[#5F5F5F] flex gap-5 mt-20  sm:text-[20px] md:text-[30px] md:mt-10">
+          <div className="flex flex-col items-center justify-center pr-5 border-r-2 border-[#00000080] hover:transform hover:scale-105 transition duration-300 ">
             50+ <span className="font-semi-bold text-[18px]  ">Mentors</span>
           </div>
           <div className="flex flex-col items-center justify-center border-r-2 border-[#00000080] pr-5 hover:transform hover:scale-105 transition duration-300">
             1000+ <span className="font-semi-bold text-[18px]">Users</span>
           </div>
-          <div className="flex flex-col items-center justify-center hover:transform hover:scale-105 transition duration-300">
+          <div className="flex flex-col items-center justify-center hover:transform hover:scale-105 transition duration-300 ">
             100+{" "}
             <span className="font-semi-bold text-[18px]">
               Session Conducted
