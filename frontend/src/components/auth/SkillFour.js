@@ -273,7 +273,7 @@ const SkillFour = ({ setProgress }) => {
                   <label className='mb-2 text-lg font-bold'>Start Year</label>
                   <input
                     name='startDate'
-                    type='text'
+                    type='date'
                     placeholder='Start Year'
                     className='border-[1px] border-[#5F5F5F] rounded-md py-3 px-2 block mb-4 w-36'
                     onChange={(Event) => {
@@ -285,7 +285,7 @@ const SkillFour = ({ setProgress }) => {
                   <label className='mb-2 text-lg font-bold'>End Year</label>
                   <input
                     name='endDate'
-                    type='text'
+                    type='date'
                     placeholder='End Year'
                     className='border-[1px] border-[#5F5F5F] rounded-md py-3 px-2 block mb-4 w-36'
                     onChange={(Event) => {
