@@ -27,7 +27,7 @@ function PlatformfeedbackForm({setProgress}) {
       <Profileandevents />
       <div className='form'>
         <div className='form-top-area'>
-          <h1 className='text-[#9D9D9D]'>SKillop Feedback</h1>
+          <h1 className='text-[#9D9D9D]'>Skillop Feedback</h1>
           <div className='flex items-center justify-center'>
             <h2 className='text-3xl font-normal my-5 mt-10 w-[80%] text-center md:text-2xl md:mt-5 md:w-[100%]'>
               How Was Your Exprience With the Platform?
