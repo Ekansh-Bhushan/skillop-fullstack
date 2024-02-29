@@ -212,13 +212,33 @@
     margin-left: -63px;
 }
 }
+@media screen and (max-width: 450px){
+.popup-container {
+    position: absolute;
+    top: 11.6vh;
+    left: 24vw;
+    z-index: 1;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    background: white;
+    width: 85%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -63px;
+}
+}
 
 @media screen and (max-width: 1200px){
   #create-post {
     margin-left: 56vh;
   }
   .tb-container {
-    z-index: 2;
+    z-index: 150;
   }
   .popup-container{
     
