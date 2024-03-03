@@ -70,7 +70,7 @@
   padding: 20px 0;
   position: absolute;
   top: 23vw;
-  width: 137%;
+  width: 101%;
   z-index: 10000;
 }
 .writePost {
@@ -219,13 +219,13 @@
     font-size: 1.1rem;
     background: white;
     width: 85%;
-    height: 40%;
+    height: 36%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: -63px;
-  }
+}
 }
 
 @media screen and (max-width: 1200px) {
@@ -235,5 +235,17 @@
   .tb-container {
     z-index: 150;
   }
-  .popup-container {}
-}
+  
+  .writeSection {
+    align-items: center;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    position: absolute;
+    top: 79vw;
+    width: 101%;
+    z-index: 10000;
+}}
