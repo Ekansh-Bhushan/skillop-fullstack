@@ -19,14 +19,13 @@
   padding: 12px 20px;
   font-size: 1.1rem;
   background: white;
-  width: 57%;
-  height: 30%;
+  width: 52%;
+  height: 37%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top:15px;
-
+  margin-top: 15px;
 }
 
 .uploadMedia,
@@ -63,19 +62,17 @@
 
 .writeSection {
   align-items: center;
-    background: #fff;
-    border: 2px solid #000;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-    position: absolute;
-    top: 74vw;
-    width: 137%;
-    z-index: 10000;
-
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  position: absolute;
+  top: 23vw;
+  width: 137%;
+  z-index: 10000;
 }
-
 .writePost {
   border-radius: 10px;
   padding: 17px;
@@ -162,7 +159,6 @@
 
   .writeSection {
     display: flex;
-    /* gap: 10px; */
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -174,6 +170,7 @@
     border: 2px solid black;
     border-radius: 20px;
   }
+
   .upload {
     display: flex;
     flex-direction: column;
@@ -186,15 +183,14 @@
   .post {
     height: 40px;
     width: 40px;
-    
   }
 }
 
-@media screen and (max-width: 880px){
-.popup-container {
+@media screen and (max-width: 880px) {
+  .popup-container {
     position: relative;
     top: 11.6vh;
-    left: 24vw;
+    left: 16vw;
     z-index: 1;
     border: 2px solid black;
     border-radius: 20px;
@@ -208,10 +204,11 @@
     justify-content: center;
     align-items: center;
     margin-left: -63px;
+  }
 }
-}
-@media screen and (max-width: 450px){
-.popup-container {
+
+@media screen and (max-width: 450px) {
+  .popup-container {
     position: absolute;
     top: 11.6vh;
     left: 24vw;
@@ -228,17 +225,15 @@
     justify-content: center;
     align-items: center;
     margin-left: -63px;
-}
+  }
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
   #create-post {
     margin-left: 56vh;
   }
   .tb-container {
     z-index: 150;
   }
-  .popup-container{
-    
-  }
+  .popup-container {}
 }
