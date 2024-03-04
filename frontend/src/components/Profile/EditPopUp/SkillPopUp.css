@@ -11,8 +11,8 @@
 
 .close-btn {
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 25px;
+  top: 10px;
   font-size: 1.8rem;
   font-weight: bold;
   cursor: pointer;

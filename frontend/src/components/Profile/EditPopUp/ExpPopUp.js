@@ -142,7 +142,8 @@ const ExpPopUp = ({ onClose, setUpdateDom, id, expID, updateDom }) => {
               type='text'
               placeholder='Location'
             />
-            <label style={{ paddingRight: '21vw' }} htmlFor='startDate'>
+            
+            <label style={{ paddingRight: 'vw' }} htmlFor='startDate'>
               Start Date:
             </label>
             <input
@@ -157,13 +158,14 @@ const ExpPopUp = ({ onClose, setUpdateDom, id, expID, updateDom }) => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '20px',
-                paddingRight: '14vw',
+                // paddingRight: '5vw',
               }}
               htmlFor='startDate'
             >
               End Date:{' '}
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center'}}>
                 <input
                   onClick={handlePresent}
                   type='checkbox'

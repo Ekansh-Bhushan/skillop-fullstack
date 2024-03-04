@@ -130,7 +130,7 @@ const ProfileHeader = () => {
             <Link to='/editpic'>
               <img
                 src='/editpic.png'
-                className='w-14 rounded-full p-1 cursor-pointer hover:bg-gray-100'
+                className='w-14 sm:w-13 rounded-full p-1 cursor-pointer hover:bg-gray-100'
                 alt='edit pic'
               />
             </Link>

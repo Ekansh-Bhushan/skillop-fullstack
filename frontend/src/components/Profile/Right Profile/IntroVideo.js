@@ -73,9 +73,9 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
 
     return (
         <div className="intro-video-bg">
-            <div className="intro-video-container" style={{top:"50%" ,height:"79vh"}}>
+            <div className="intro-video-container" style={{top:"50%" ,height:"70vh"}}>
                 <div className="iv-header">
-                    <h2>My story</h2>
+                    <h2 className="mystory">My story</h2>
                     <img
                         style={{ cursor: "pointer" }}
                         src="/close.png"
@@ -95,7 +95,7 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
                         <div className="iv-preview">
                             {" "}
                             <h4 style={{ marginBottom: "0.7vw" }}>
-                                Add your my story video
+                                Add your story video
                             </h4>{" "}
                             {selectedVideo && (
                                 <video loop autoPlay src={VideoUrl} />

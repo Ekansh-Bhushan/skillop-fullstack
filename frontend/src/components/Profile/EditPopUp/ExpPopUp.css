@@ -43,16 +43,17 @@
   border-radius: 12px;
   padding: 12px;
   font-size: 1.2rem;
-  width: 70%;
+  width: 85%;
   background: #f5f4f4;
 }
 
 .exp-pop-up-container textarea {
   margin: 10px;
+
   border-radius: 12px;
   padding: 12px;
   font-size: 1.1rem;
-  width: 70%;
+  width: 85%;
   background: #f0f0f0;
 }
 
