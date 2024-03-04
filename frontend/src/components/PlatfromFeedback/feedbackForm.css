@@ -1,10 +1,9 @@
 /* Apply styles to the main container */
 .form {
-  max-width: 500px;
-  margin: 0 50vh;
-  padding: 20px;
+  max-width: 502px;
+  margin: 0 29vh;
+  padding: 12vh 50px 20px;
   font-family: Arial, sans-serif;
-  padding-top: 12vh;
   min-width: 45%;
   border-right: 1px solid #00000026;
 }
