@@ -1,19 +1,22 @@
 import React from "react";
 import MiscNavBar from "./MiscNavBar";
 
-const Faqs = () => {
-	return (
-		<>
-			<MiscNavBar />
-			<div className='pp-container'>
-				<h1>
-					<center>Careers</center>
-				</h1>
-        <br /><br /><br /><br />
-				<center>Currently there are no openings! Stay tuned for new opportunities😊</center>
-			</div>
-		</>
-	);
+const Careers = () => {
+  return (
+    <>
+      <MiscNavBar />
+      <div className="flex items-center justify-center h-screen">
+        <div className="pp-container text-center">
+          <h1>Careers</h1>
+          <br />
+          <br />
+         
+          
+          <p>Currently there are no openings! Stay tuned for new opportunities😊</p>
+        </div>
+      </div>
+    </>
+  );
 };
 
-export default Faqs;
+export default Careers;

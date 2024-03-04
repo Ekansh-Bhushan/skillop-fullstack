@@ -232,7 +232,7 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
       </div>
      
 
-      <div className='flex mt-[35px] ml-[40vh] md:ml-[10vh]'>
+      <div className='flex mt-[35px] ml-[40vh] md:ml-[10vh]' style={{ marginLeft: "25vh" }}>
         {/* <Commondash userData={userData} /> */}
 
         <div

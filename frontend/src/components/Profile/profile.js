@@ -258,7 +258,7 @@ const Profile = ({ setProgress }) => {
                   isJourneyExpanded ? "expanded" : ""
                 }`}
               >
-                <span className="text-wrapper">
+                <span className='text-wrapper' style={{ overflowWrap: 'break-word' }}>
                   {journeyContent || "Describe About Yourself...?"}
                 </span>
               </div>
@@ -308,7 +308,7 @@ const Profile = ({ setProgress }) => {
                 }`}
               >
                 <p className={`lorem-ipsum-dolor`}>
-                  <span className="text-wrapper">
+                  <span className='text-wrapper' style={{ overflowWrap: 'break-word' }}>
                     {pastExpContent || "Your Past Journey..."}
                   </span>
                 </p>
@@ -359,7 +359,7 @@ const Profile = ({ setProgress }) => {
                 }`}
               >
                 <p className={`lorem-ipsum-dolor`}>
-                  <span className="text-wrapper">
+                  <span className='text-wrapper' style={{ overflowWrap: 'break-word' }}>
                     {futurePlansContent ||
                       "What Plans do you have for Future...?"}
                   </span>

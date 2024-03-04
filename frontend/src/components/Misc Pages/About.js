@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React,{ useEffect } from 'react';
 import './aboutpg.css'; // Make sure to import your CSS file
 import pic1 from './pic1.png';
 import pic2 from './pic2.png';
@@ -26,6 +26,26 @@ import { useNavigate } from "react-router-dom";
     const redirectToSkillop =() => {
         window.location.href = 'https://skillop.in';
     };
+
+    useEffect(() => {
+      // Scroll to the top when the component mounts
+      window.scrollTo(0, 0);
+    }, []);
+    const handleFormSubmit = (e) => {
+      e.preventDefault();
+      // Your form submission logic here
+      const formData = {
+        name: e.target.elements.name.value,
+        email: e.target.elements.email.value,
+        phone: e.target.elements.phone.value,
+        info: e.target.elements.info.value,
+      };
+      console.log(formData);
+      
+      // Show a pop-up message
+      alert('Form submitted successfully!');
+    };
+  
 
   return (
     <>
@@ -126,21 +146,9 @@ import { useNavigate } from "react-router-dom";
          </div>
          <div className="aboutpg-form-box">
          <h2>Tell Us What's On Your Mind</h2>
-         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            // Add your form submission logic here
-            // You can access form data using e.target.elements
-            const formData = {
-              name: e.target.elements.name.value,
-              email: e.target.elements.email.value,
-              phone: e.target.elements.phone.value,
-              info: e.target.elements.info.value,
-            };
-            console.log(formData);
-            // Add further logic as needed
-          }}
-        >
+         <form onSubmit={handleFormSubmit}>
+          
+        
           <div className="form-group">
       <label htmlFor="name">Name:</label>
       <input type="text" id="name" name="name" required />

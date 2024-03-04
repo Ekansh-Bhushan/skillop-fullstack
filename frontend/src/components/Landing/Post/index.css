@@ -274,7 +274,7 @@ body {
     width: 780px;
 }
 .post-1{
-  width: 80%;
+  width: 90%;
 }
 }
 @media only screen and (max-width: 780px){
@@ -717,7 +717,7 @@ non-act {
   /* gap: 10px; */
 }
 
-@media (min-width: 390px) and (max-width: 843px) {
+@media (min-width: 550px) and (max-width: 843px) {
   .people-post {
     margin-top: 20px;
     width: 100%;
@@ -733,16 +733,17 @@ non-act {
 
 .post-1 {
   height: auto;
-  width: 80%;
-  /* box-shadow: 2px 2px 10px 2px rgb(199, 199, 199); */
+  width: 90%;
+  box-shadow: 2px 2px 10px 2px rgb(199, 199, 199);
   background-color: rgb(255, 255, 255);
   padding: 20px;
-  /* border-radius: 15px; */
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
   gap: 20px;
   border: 1px solid rgb(200, 200, 200);
+  margin-left: 45px;
 }
 
 #verified-badge {
@@ -1727,7 +1728,7 @@ non-act {
   }
   .post-1 {
     margin-bottom: 5px;
-    width: 80%;
+    width: 90%;
   }
   .cross {
     margin-top: 30px;
