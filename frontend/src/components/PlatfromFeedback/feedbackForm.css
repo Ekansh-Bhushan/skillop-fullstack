@@ -9,7 +9,7 @@
   border-right: 1px solid #00000026;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   .form {
     margin: 0;
     padding-top: 14vh;
