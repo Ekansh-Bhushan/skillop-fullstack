@@ -11,6 +11,7 @@ function ResetPasswordEmail() {
         const { data } = await changePassword({
             email: email,
         });
+
         console.log(data);
         if (data.result) {
             toast.success(data.message);

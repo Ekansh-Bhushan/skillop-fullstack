@@ -50,6 +50,8 @@ import Social from '../mobileauth/Social';
 import SideNav from '../SideNav/SideNav';
 import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
+import LobbyScreen from '../../meets/screens/Lobby';
+import RoomPage from '../../meets/screens/Room'
 
 function WebPages({
   userData,
@@ -117,6 +119,8 @@ function WebPages({
       {/* -----------------------------MOBILE SIGN UP PAGES-------------------------------- */}
 
       <Routes>
+      <Route path="/meet" element={<LobbyScreen />} />
+        <Route path="/meet/room/:roomId" element={<RoomPage />} />
         <Route path='/' element={<Page setProgress={setProgress} />} />
         <Route path='/mlogin' element={<Mlogin setProgress={setProgress} />} />
         <Route
