@@ -15,7 +15,7 @@ const NotFoundPage = () => {
         <p className='not-found-message'>The page you are looking for does not exist.</p>
       
         {/* Add the Link component for the button */}
-        <Link to="/" className="home-button">Go to Home</Link>
+        <Link to="/homepage" className="home-button">Go to Home</Link>
       </div>
     </div>
   );

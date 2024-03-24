@@ -50,6 +50,7 @@ import Social from '../mobileauth/Social';
 import SideNav from '../SideNav/SideNav';
 import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function WebPages({
   userData,
@@ -359,6 +360,7 @@ function WebPages({
 
         {/* ADMIN ROUTE */}
         <Route path='/admin/skillop-dtu/1941' element={<Admin />} />
+        <Route Component={<NotFoundPage/>}/>
       </Routes>
     </>
   );
