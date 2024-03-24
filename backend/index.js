@@ -17,7 +17,7 @@ const adminRoutes = require('./src/routes/adminRoutes');
 const commentRouters = require('./src/routes/commentRoutes');
 const hashtagRoutes = require('./src/routes/hashtagRoutes');
 const meetingRoutes = require('./src/routes/meetingRoutes');
-const NotFound = require('./src/middleware/NotFound.js')
+// const NotFound = require('./src/middleware/NotFound.js')
 require('dotenv').config();
 // console.log(process.env.JWT_KEY);
 const app = express();
@@ -66,7 +66,7 @@ app.use('/api/v2', searchRoutes);
 app.use('/api/comment', commentRouters);
 app.use('/api/hashtag', hashtagRoutes);
 app.use('/api/meeting', meetingRoutes)
-app.use(NotFound)
+// app.use(NotFound)
 // share images in uploads/pubic to frontend
 app.use(
   '/api/public/posts',
