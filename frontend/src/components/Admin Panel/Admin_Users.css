@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+}
+body{
+    font-family: Product Sans;
+
+}
+.box{
+    /* display: flex; */
+    /* flex-direction: row; */
+    width: 400px;
+    /* border: 1px solid black; */
+    height: 100px;
+    padding: 20px;
+    margin: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 4px 3px 8px 1px #96969692;
+
+}
+.box img{
+    position: relative;
+    height: 80px;
+    width: 80px;
+    top: -28px;
+
+
+}
+.inside-box{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+.data{
+    font-size: 38px;
+
+}
+.viewall{
+    color:#108CFF ;
+    border: none;
+    background-color: white;
+}
+.top_of_review{
+    display: flex;
+    justify-content: space-between;
+}
+.reviewer{
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px;
+    margin-top: 10px;
+}
+.reviews{
+    width: 400px;
+    /* border: 1px solid black; */
+    height: 250px;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 4px 3px 8px 1px #96969692;
+}
+.View_profile{
+    border: 1px solid #108CFF;
+    background-color: white;
+    color: #108CFF;
+    height: 25px;
+    width: 85px;
+    border-radius: 20px;
+    font-size: 12px;
+}
