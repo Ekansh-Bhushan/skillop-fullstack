@@ -1,0 +1,57 @@
+.not-found-container {
+  text-align: center;
+  top: -137px;
+  width: 80%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  left: 129px;
+    
+  }
+  
+   #oops{
+    font-size: 48px;
+    color: black;
+    margin-bottom: -116px;
+  }
+  .not-found-title {
+    font-size: 300px;
+    color: black;
+    margin-top: -44px;
+  }
+  
+  .not-found-message {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 34px;
+  }
+
+  .subtitle{
+    font-weight: bold;
+    font-size: 49px;
+    margin-top: -103px;
+  }
+  /* Styles for the button */
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    margin-top: 19px;
+  }
+  
+  .home-button:hover {
+    background-color: #050b12; /* Darker blue color on hover */
+  }
+
+  .outer{
+    margin-top: 299px;
+  }
+  
