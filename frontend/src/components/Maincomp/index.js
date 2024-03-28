@@ -52,7 +52,7 @@ import SideNav from '../SideNav/SideNav';
 import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
 
-import HashtagPage from '../../api/hashtag';
+// import HashtagPage from '../../api/hashtag';
 
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
@@ -353,10 +353,10 @@ function WebPages({
           element={<PlatformfeedbackForm setProgress={setProgress} />}
         />
 
-        <Route
+        {/* <Route
           path='/hashtag/:hashtag'
           element={<HashtagPage setProgress={setProgress} />}
-        />
+        /> */}
 
         <Route
           path='/editskills'
