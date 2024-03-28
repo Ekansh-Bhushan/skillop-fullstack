@@ -39,8 +39,8 @@ function ChangePasswordPage() {
             <Mobilecommonhead />
 
             <div className="dash-main">
-                <div className="dash-right dash-right-2">
-                    <div className="pt-[10vh] h-[100vh] border-r-2 md:border-0 md:pt-[6vh]">
+                <div className=" flex items-center justify-center dash-right dash-right-2 sm:ml-20 md:ml-[2vh]">
+                    <div className=" pt-[10vh] sm:pt-[6vh] h-[100vh] border-r-2 md:border-0 mw-full">
                         <h1 className="heading">Change Password</h1>
                         <form
                             className="form-making"

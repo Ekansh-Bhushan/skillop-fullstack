@@ -18,6 +18,7 @@ import EditSkillsPage from '../Profile/EditSkills/EditSkillsPage';
 import ConfirmBooking from '../dashboard/bookings/ConfirmBooking';
 import Payment from '../dashboard/bookings/Payment';
 import EditPic from '../Profile/EditPic/EditPic';
+
 import RequestedMeets from '../dashboard/requestedMeets';
 import MentorBano from '../MentorBano/mentorBano';
 import PlatformfeedbackForm from '../PlatfromFeedback/PlatformfeedbackForm';
@@ -50,7 +51,13 @@ import Social from '../mobileauth/Social';
 import SideNav from '../SideNav/SideNav';
 import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
+
+// import HashtagPage from '../../api/hashtag';
+
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import Admin_Users from '../Admin Panel/Admin_Users';
+import Admin_Dashboard from '../Admin Panel/Admin_Dashboard';
+
 
 function WebPages({
   userData,
@@ -93,6 +100,9 @@ function WebPages({
     '/careers',
     '/admin',
     '/admin/skillop-dtu/1941',
+    '/Admin_Dashboard' ,
+    '/Admin_Users'
+
     // Add more routes as needed
   ];
 
@@ -293,7 +303,14 @@ function WebPages({
           path='/profile'
           element={<Profile setProgress={setProgress} />}
         />
-
+        <Route
+          path='/Admin_Users'
+          element={<Admin_Users setProgress={setProgress} />}
+        />
+        <Route
+          path='/Admin_Dashboard'
+          element={<Admin_Dashboard setProgress={setProgress} />}
+        />
         <Route
           path='/searchbar'
           element={<Searchbar setProgress={setProgress} />}
@@ -347,6 +364,11 @@ function WebPages({
           path='/platformfeedback'
           element={<PlatformfeedbackForm setProgress={setProgress} />}
         />
+
+        {/* <Route
+          path='/hashtag/:hashtag'
+          element={<HashtagPage setProgress={setProgress} />}
+        /> */}
 
         <Route
           path='/editskills'
