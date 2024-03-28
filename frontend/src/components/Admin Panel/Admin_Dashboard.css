@@ -7,6 +7,7 @@
 }
 body{
     font-family: Product Sans;
+    
 
 }
 .information{
@@ -17,30 +18,35 @@ body{
     flex-direction: row;
 
 }
-.box{
+.container_overview{
+    margin-top: 75px;
+    margin-left: 330px;
+    overflow-y: hidden;
+}
+.boxes{
     /* display: flex; */
     /* flex-direction: row; */
-    width: 400px;
+    width: 370px;
     /* border: 1px solid black; */
-    height: 100px;
+    height: 120px;
     padding: 20px;
     margin: 5px;
     border-radius: 5px;
     box-shadow: 4px 3px 8px 1px #96969692;
 
 }
-.box img{
+.boxes img{
     position: relative;
     height: 80px;
     width: 80px;
-    top: -28px;
+    top: -38px;
 
 
 }
 .inside-box{
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
+    padding-top: 5px;
     padding-left: 10px;
 }
 .data{
@@ -65,7 +71,7 @@ textarea{
 
 }
 .Send_notifs{
-    width: 400px;
+    width: 370px;
     /* border: 1px solid black; */
     height: 200px;
     padding: 20px;
@@ -74,9 +80,9 @@ textarea{
     /* box-shadow: 4px 3px 8px 1px #96969692; */
 }
 .reviews{
-    width: 400px;
+    width: 370px;
     /* border: 1px solid black; */
-    height: 250px;
+    height: 300px;
     padding: 20px;
     margin: 5px;
     border-radius: 5px;
@@ -90,6 +96,7 @@ textarea{
 .top_of_review{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 .Notifs_Feedbacks{
     display: flex;
@@ -109,13 +116,25 @@ textarea{
     justify-content: right;
 }
 .reviewer{
-    width: 400px;
+    width: 300px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     margin: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 .reviews_feedback{
     margin-top: 10px;
+}
+.arrow{
+    height: 20px;
+    width: 20px;
+    /* left: -100px; */
+}
+.user{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
 }
