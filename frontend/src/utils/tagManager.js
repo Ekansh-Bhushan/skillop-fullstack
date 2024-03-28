@@ -1,3 +1,6 @@
+import HashtagPage from '../api/hashtag';
+import React from 'react';
+import ReactDOM from 'react-dom';
 class TaggingManager {
     constructor(setProgress, navigate, getUserFromUsername, toast) {
         this.setProgress = setProgress;
@@ -22,8 +25,17 @@ class TaggingManager {
             this.setProgress(100);
         }
     };
-    openHashtag = (hashtag) => {
+    openHashtag = async (hashtag) => {
         console.log("#" + hashtag);
+    // try {
+    //     this.setProgress(30);
+    //     // Render the HashtagPage component directly
+    //     ReactDOM.render(<HashtagPage hashtag={hashtag} />, document.getElementById('root'));
+    //     this.setProgress(100);
+    // } catch (error) {
+    //     this.toast.error(error.message);
+    //     this.setProgress(100);
+    // }
     };
 
     convert = (text) => {
