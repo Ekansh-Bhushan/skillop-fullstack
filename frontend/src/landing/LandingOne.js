@@ -59,7 +59,7 @@ const LandingOne = () => {
     <div className="flex justify-evenly items-center ml-[20vh] mt-[10vh] max-h-[90vh] sm:ml-0  md:mx-5 md:mb-[8vh] md:mt-0 lg:ml-[6vh] ">
       <div className="flex flex-col lg:ml-10 xl:ml-12">
         
-      <h1 class="text-[50px] font-medium md:text-[40px] my-5  ">
+      <h1 class="text-[50px] font-medium md:text-[35px] my-5  ">
           Shuru se{" "}
           <span class="font-black relative">
             Shuruwat <img src={line} className="" />
@@ -67,7 +67,7 @@ const LandingOne = () => {
           karte hain!
         </h1>
       
-        <p className="text-md font-product-sans ">
+        <p className="text-md font-product-sans md:text[40px] ">
           Skillop serves as a dynamic tech society cluster, dedicated to
           empowering students through the strategic development of a robust and
           interconnected ecosystem tailored to foster their growth and success
@@ -88,18 +88,25 @@ const LandingOne = () => {
           </button>
         </div>
 
-        <div className="text-[45px] text-[#5F5F5F] flex gap-5 mt-20  sm:text-[20px] md:text-[30px] md:mt-10">
-          <div className="flex flex-col items-center justify-center pr-5 border-r-2 border-[#00000080] hover:transform hover:scale-105 transition duration-300 ">
+        <div className="text-[45px] text-[#5F5F5F] items-center flex gap-5 mt-20 sm:text-[20px]   md:text-[30px] md:mt-10 relative sm:max-w-[0]">
+          <div className="flex ">
+          <div className="flex flex-col items-center justify-center pr-5 border-t-2 border-[#00000080] hover:transform hover:scale-105 transition duration-300 ">
+          <div className="border-t-2 border-[#00000080] mb-2"></div>
             50+ <span className="font-semi-bold text-[18px]  ">Mentors</span>
           </div>
           <div className="flex flex-col items-center justify-center border-r-2 border-[#00000080] pr-5 hover:transform hover:scale-105 transition duration-300">
+          <div className="border-t-2 border-[#00000080] mb-2"></div>
             1000+ <span className="font-semi-bold text-[18px]">Users</span>
           </div>
-          <div className="flex flex-col items-center justify-center hover:transform hover:scale-105 transition duration-300 ">
-            100+{" "}
-            <span className="font-semi-bold text-[18px]">
-              Session Conducted
+          </div>
+          <div className="flex-col ">
+          <div className="flex flex-col items-center justify-center hover:transform hover:scale-105 transition duration-300 sm:mt-6 ">
+          <div className="border-t-2 border-[#00000080] mb-4 md:mb-2"></div>
+            100+
+            <span className="font-semi-bold text-[18px] sm:flex-row">
+              Sessions Conducted
             </span>
+          </div>
           </div>
         </div>
       </div>
