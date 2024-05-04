@@ -4,7 +4,7 @@ Welcome to the SKILLOP website repository!
 
 ## About SKILLOP Society
 
-SKILLOP Society is a student-led organization at Delhi Technological University committed to fostering technical prowess, personal growth, and community engagement among students. Our website serves as a central platform for showcasing our initiatives, events, projects, and resources aimed at empowering students to excel as skilled tech professionals.
+SKILLOP Society is a student society at Delhi Technological University committed to fostering technical prowess, personal growth, and community engagement among students. Our website serves as a central platform for showcasing our initiatives, events, projects, and resources aimed at empowering students to excel as skilled tech professionals.
 
 ## Website Features
 
