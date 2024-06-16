@@ -59,8 +59,8 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Admin_Users from '../Admin Panel/Admin_Users';
 import Admin_Dashboard from '../Admin Panel/Admin_Dashboard';
 import admin_pg1 from '../admin page 1/admin_pg1';
-import admin_pg2 from '../Admin page 2/admin_pg2';
-import admin_pg3 from '../Admin page 3/admin_pg3';
+import admin_pg2 from '../admin page 2/admin_pg2';
+import admin_pg3 from '../admin page 3/admin_pg3';
 
 
 

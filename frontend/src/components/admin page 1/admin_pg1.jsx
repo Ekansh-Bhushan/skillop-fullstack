@@ -1,12 +1,12 @@
 import React from 'react';
-import './admin-page-1-css-2.css';
-import './admin-page-1-css.css';
+import './admin page 1 css 2.css';
+import './admin page 1 css.css';
 
 // Import your images
-import group64 from './public/group-64.svg';
-import vector40 from './public/vector-40.svg';
-import vector from './public/vector.svg';
-import saly12 from './public/saly12@2x.png';
+// import group64 from './public/group-64.svg';
+// import vector40 from './public/vector-40.svg';
+// import vector from './public/vector.svg';
+// import saly12 from './public/saly12@2x.png';
 import skillopNoBg1 from './skillop_no_bg 1.png';
 import frame55262 from './Frame 55262.png';
 import vectorPNG from './Vector.png';
@@ -31,18 +31,25 @@ const AdminPage = () => {
       </head>
       <body>
         <div className="events-overview">
-          <img className="events-overview-child" alt="" src={group64} />
-          <img className="events-overview-item" alt="" src={vector40} />
+          <img className="events-overview-child" alt="" src={vectorPNG} />
+          <img className="events-overview-item" alt="" src={vectorPNG} />
+          {/* <img className="events-overview-child" alt="" src={group64} />
+          <img className="events-overview-item" alt="" src={vector40} /> */}
           <div className="events-overview-inner"></div>
           <div className="ellipse-div"></div>
           <div className="events-overview-child1"></div>
           <div className="events-overview-child2"></div>
           <div className="rectangle-div"></div>
-          <img className="vector-icon" alt="" src={vector} />
+          <img className="vector-icon" alt="" src={vectorPNG} />
+          <img className="vector-icon1" alt="" src={vectorPNG} />
+          <img className="vector-icon2" alt="" src={vectorPNG} />
+          <img className="vector-icon3" alt="" src={vectorPNG} />
+          <img className="saly-12-icon" alt="" src={vectorPNG} />
+          {/* <img className="vector-icon" alt="" src={vector} />
           <img className="vector-icon1" alt="" src={vector} />
           <img className="vector-icon2" alt="" src={vector} />
           <img className="vector-icon3" alt="" src={vector} />
-          <img className="saly-12-icon" alt="" src={saly12} />
+          <img className="saly-12-icon" alt="" src={saly12} /> */}
           <header className="navbar">
             <div className="navbar-child"></div>
             <img className="skillop-no-bg-1-icon" loading="lazy" alt="" src={skillopNoBg1} />

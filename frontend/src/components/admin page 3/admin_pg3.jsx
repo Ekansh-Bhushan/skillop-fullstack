@@ -192,8 +192,8 @@ function MentorApplicationsPage() {
   return (
     <div>
       <MentorsApplications />
-      <Navbar />
-      <MainContent />
+      {/* <Navbar />
+      <MainContent /> */}
     </div>
   );
 }
