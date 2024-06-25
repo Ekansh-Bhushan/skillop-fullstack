@@ -52,7 +52,7 @@ const SkillFour = ({ setProgress }) => {
 
     setSearchQuery(e.target.value);
     document.querySelector('.college-search-results1').style.display = 'block';
-    searchCollege(e.target.value);
+    // searchCollege(e.target.value);  //the api call of this function is causing the issue so, to the prevent the backend from crashing each time, i have commented out this.
     if (e.target.value.length === 0) {
       document.querySelector('.college-search-results1').style.display = 'none';
     }
@@ -72,6 +72,7 @@ const SkillFour = ({ setProgress }) => {
     setCollegeSelected(true);
     setSearchQuery(clg_details.college);
     document.querySelector('.college-search-results1').style.display = 'none';
+    console.log("done executing handleCollegeSelection");
   };
 
   const searchCollege = async (qrr) => {
@@ -235,6 +236,7 @@ const SkillFour = ({ setProgress }) => {
                           state: '',
                         },
                       ]);
+                      console.log("done executing college result");
                     }}
                   >
                     {searchQuery + ' will be added as your college'}

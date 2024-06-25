@@ -39,3 +39,16 @@ export const getcollege = (state, city) => {
     };
     return API.get(`/api/college/info?state=${state}&city=${city}`, config);
 };
+
+export const getcollegebyCollegeName = (collegeName) => {
+    const token = localStorage.getItem("skilloptoken");
+
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+        },
+        withCredentials: true,
+    };
+    return API.get(`/api/college/info?college=${collegeName}`, config);
+};

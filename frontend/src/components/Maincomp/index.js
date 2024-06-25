@@ -51,7 +51,8 @@ import Social from '../mobileauth/Social';
 import SideNav from '../SideNav/SideNav';
 import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
-
+import TestConduction from '../skillopMemberDashboard/testConduction/testConduction';
+import Test from '../skillopMemberDashboard/test/test';
 
 // import HashtagPage from '../../api/hashtag';
 
@@ -405,6 +406,16 @@ function WebPages({
         <Route
           path='/editpic'
           element={<EditPic setProgress={setProgress} />}
+        />
+
+        <Route
+          path='/test'
+          element={<TestConduction />}
+        />
+
+        <Route
+          path='/test/:testId'
+          element={<Test />}
         />
 
         {/* ADMIN ROUTE */}
