@@ -33,7 +33,7 @@ import Page1 from '../auth/Page1';
 import Login from '../auth/Login';
 import SkillThree from '../auth/SkillThree';
 import SkillFour from '../auth/SkillFour';
-import About from '../Misc Pages/About';
+import AboutNew from '../Misc Pages/AboutNew';
 import Contact from '../Misc Pages/Contact';
 import PrivacyPolicy from '../Misc Pages/PrivacyPolicy';
 import Faqs from '../Misc Pages/Faqs';
@@ -192,7 +192,7 @@ function WebPages({
 
         {/* -----------------------------MISCELLANEOUS PAGES------------------------------ */}
 
-        <Route path='/about' element={<About />} />
+        <Route path='/about' element={<AboutNew />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         <Route path='/careers' element={<Faqs />} />
