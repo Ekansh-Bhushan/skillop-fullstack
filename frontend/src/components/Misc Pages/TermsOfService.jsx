@@ -138,10 +138,10 @@ const TermsOfService = () => {
               For any questions about these Terms of Service, please contact us
               at{' '}
               <a href="mailto:skillop.skill@gmail.com">
-                skillop.skill@gmail.com
+                skillop.skill@gmail.com 
               </a>
-              or drop a message at{' '}
-              <a href="tel:+919818807886">+91 9818807886</a>.
+              {' '}or drop a message at{' '}
+              <a href="tel:+917303615680">+91 7303615680</a>.
             </p>
           </section>
         </div>
