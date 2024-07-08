@@ -31,7 +31,7 @@ const Msignup = () => {
         localStorage.setItem('skilloptoken', data.token);
         localStorage.setItem('current-user-id', data.result._id);
         toast.success(data.message);
-        navigate('/mskill');
+        navigate('/homepage');
         setCurrentUser(data.result);
       } else {
         toast.error(data.message);
@@ -55,7 +55,7 @@ const Msignup = () => {
       if (data.type === 'old') {
         navigate('/homepage');
       } else {
-        navigate('/skill3');
+        navigate('/homepage');
       }
     } else {
       toast.error(data.message);
