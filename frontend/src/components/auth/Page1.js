@@ -41,7 +41,7 @@ const Page1 = ({ setProgress }) => {
         localStorage.setItem('current-user-id', data.result._id);
         toast.success(data.message);
         setCurrentUser(data.result);
-        navigate('/skill3');
+        navigate('/homepage');
       } else {
         toast.error(data.message);
       }
@@ -64,7 +64,7 @@ const Page1 = ({ setProgress }) => {
       if (data.type === 'old') {
         navigate('/homepage');
       } else {
-        navigate('/skill3');
+        navigate('/homepage');
       }
     } else {
       toast.error(data.message);

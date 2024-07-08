@@ -50,7 +50,7 @@ const Login = () => {
       if (data.type === 'old') {
         navigate('/homepage');
       } else {
-        navigate('/skill3');
+        navigate('/homepage');
       }
     } else {
       toast.error(data.message);
