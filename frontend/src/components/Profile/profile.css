@@ -88,9 +88,10 @@
   font-size: 1.1rem;
   margin-bottom: 10px;
   line-height: 24px;
-  display: block;
+  display: inline-block;
   max-width: 100%;
   text-wrap: wrap;
+  white-space: pre-wrap;
 }
 
 @media (max-width: 500px) {
@@ -131,6 +132,7 @@
   /* Set the font size to your desired size */
   font-weight: normal;
   /* Remove bold font weight */
+  z-index: 100;
 }
 
 .long-textarea {
@@ -169,6 +171,7 @@
 }
 .journey > * {
   display: flex;
+  z-index: 90;
 }
 /* ============================================ SKILLS ============================================= */
 
