@@ -11,6 +11,9 @@ import './PublicProfile.css';
 import { followUnfollowUser } from '../../api/follow-unfollow';
 import { createChat, userChats } from '../../api/chatRequest';
 import { getFollowers} from '../../api/userRequest';
+import allTag from '../images/allTag.png';
+import societytag from '../images/member.png';
+import mentortag from '../images/mentor tag.png'
 
 const PublicProfileHeader = ({ userDetails, userData }) => {
   const navigate = useNavigate();
@@ -125,9 +128,19 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
             {userDetails.firstname
               ? userDetails.firstname + ' ' + userDetails.lastname
               : 'Loading...'}
-            {userDetails && userDetails.isMentor && (
+            {userDetails && userDetails.isMentor && userDetails.isSocietyMember && (
               <div className='verified-logo'>
-                <img src='/verified.png' width={23} alt='' />
+                <img src={allTag} width={23} alt='' />
+              </div>
+            )}
+            {userDetails && !userDetails.isMentor && userDetails.isSocietyMember && (
+              <div className='verified-logo'>
+                <img src={societytag} width={23} alt='' />
+              </div>
+            )}
+            {userDetails && userDetails.isMentor && !userDetails.isSocietyMember && (
+              <div className='verified-logo'>
+                <img src={mentortag} width={23} alt='' />
               </div>
             )}
           </div>
