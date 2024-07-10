@@ -132,7 +132,7 @@
   /* Set the font size to your desired size */
   font-weight: normal;
   /* Remove bold font weight */
-  z-index: 100;
+  z-index: 0;
 }
 
 .long-textarea {
@@ -171,7 +171,6 @@
 }
 .journey > * {
   display: flex;
-  z-index: 90;
 }
 /* ============================================ SKILLS ============================================= */
 
