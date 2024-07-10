@@ -5,6 +5,8 @@ import Group108 from "../images/Group 108.png";
 import MostFollowedUsers_Admin from './MostFollowedUsers_Admin';
 import TopActiveUsers_Admin from './TopActiveUsers_Admin';
 import NewUserList_Admin from './NewUserList_Admin';
+import AdminSideNav from './AdminSideNav/AdminSideNav';
+import DelProfPost from './DelProfPost';
 const Admin_Users = () => {
     const [siteData, setSiteData] = useState({});
     const [NewUsrList, setNewUsrList] = useState([]);
@@ -19,6 +21,8 @@ const Admin_Users = () => {
       getData();
     }, []);
     return (
+        <>
+        <AdminSideNav />
         <div className="container_user" style={{fontWeight: 'bold' }}>
             Users Overview
             <div className="boxes1" style={{fontWeight: 'bold' }}>
@@ -74,8 +78,9 @@ const Admin_Users = () => {
                 <MostFollowedUsers_Admin/>
                 
             </div>
+            <DelProfPost />
         </div>
-    
+        </>
 
     );
 };
