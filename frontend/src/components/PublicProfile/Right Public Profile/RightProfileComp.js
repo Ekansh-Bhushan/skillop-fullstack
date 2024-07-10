@@ -13,6 +13,9 @@ import defaultBGPic from "../../images/bg.png";
 import Followers from "../../Profile/Right Profile/Followers";
 import Following from "../../Profile/Right Profile/Following";
 import IntroVideo from "../../Profile/Right Profile/IntroVideo";
+import allTag from './images/allTag.png';
+import societytag from './images/member.png';
+import mentortag from './images/mentor tag.png'
 import { MainContext } from "../../../context/MainContextProvider";
 
 export default function RightProfileComp({ userDatamain }) {
@@ -156,11 +159,21 @@ export default function RightProfileComp({ userDatamain }) {
                   }}
                 >
                   {userDetails.firstname + " " + userDetails.lastname}
-                  {userDetails.isMentor && (
-                    <div className="verified-logo">
-                      <img src="/verified.png" width={23} alt="" />
-                    </div>
-                  )}
+                  {userDetails.isMentor && userDetails.isSocietyMember && (
+                      <div className="verified-logo">
+                        <img src={allTag} width={23} alt="" />
+                      </div>
+                    )}
+                    {!userDetails.isMentor && userDetails.isSocietyMember && (
+                      <div className="verified-logo">
+                        <img src={societytag} width={23} alt="" />
+                      </div>
+                    )}
+                    {userDetails.isMentor && !userDetails.isSocietyMember && (
+                      <div className="verified-logo">
+                        <img src={mentortag} width={23} alt="" />
+                      </div>
+                    )}
                 </div>
               )}
               {userDetails && (

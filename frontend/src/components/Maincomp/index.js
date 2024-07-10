@@ -387,7 +387,7 @@ function WebPages({
 
         {/* ADMIN ROUTE */}
         <Route path='/admin/skillop-dtu/1941' element={<Admin />} />
-        <Route Component={<NotFoundPage/>}/>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
