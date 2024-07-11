@@ -1,13 +1,44 @@
-import HashtagPage from "../api/hashtag";
 import React from "react";
 import ReactDOM from "react-dom";
+import HashtagPage from "../api/hashtag";
+
 class TaggingManager {
   constructor(setProgress, navigate, getUserFromUsername, toast) {
     this.setProgress = setProgress;
     this.navigate = navigate;
     this.getUserFromUsername = getUserFromUsername;
     this.toast = toast;
+
+    // Initialize URL map from localStorage
+    this.urlMap = JSON.parse(localStorage.getItem("urlMap")) || {};
   }
+
+  // Method to store URL mapping in localStorage
+  storeUrlMap = () => {
+    localStorage.setItem("urlMap", JSON.stringify(this.urlMap));
+  };
+
+  // Method to generate a random 7-character alphanumeric key
+  generateShortKey = () => {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let shortKey = "";
+    const keyLength = 7; // Length of the short key
+    for (let i = 0; i < keyLength; i++) {
+      shortKey += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return shortKey;
+  };
+
+  shortenUrl = (url) => {
+    let shortKey = Object.keys(this.urlMap).find(key => this.urlMap[key] === url);
+    if (!shortKey) {
+      shortKey = this.generateShortKey();
+      this.urlMap[shortKey] = url; // Store mapping of short key to original URL
+      this.storeUrlMap(); // Persist the updated URL map
+    }
+    return `https://skill/${shortKey}`; // Replace with your actual domain
+  };
+
   openUsername = async (username) => {
     try {
       this.setProgress(30);
@@ -25,53 +56,62 @@ class TaggingManager {
       this.setProgress(100);
     }
   };
+
   openHashtag = async (hashtag) => {
     console.log("#" + hashtag);
+    // Uncomment this section to render HashtagPage component directly
     // try {
-    //     this.setProgress(30);
-    //     // Render the HashtagPage component directly
-    //     ReactDOM.render(<HashtagPage hashtag={hashtag} />, document.getElementById('root'));
-    //     this.setProgress(100);
+    //   this.setProgress(30);
+    //   ReactDOM.render(<HashtagPage hashtag={hashtag} />, document.getElementById('root'));
+    //   this.setProgress(100);
     // } catch (error) {
-    //     this.toast.error(error.message);
-    //     this.setProgress(100);
+    //   this.toast.error(error.message);
+    //   this.setProgress(100);
     // }
   };
 
-   convert = (text) => {
+  openLink = (shortUrl) => {
+    const shortKey = shortUrl.split("/").pop(); // Extract short key from URL
+    const originalUrl = this.urlMap[shortKey];
+    if (originalUrl) {
+      window.open(originalUrl, "_blank"); // Open original URL in a new tab
+    } else {
+      console.error("Original URL not found for short key:", shortKey);
+    }
+  };
+
+  convert = (text) => {
     const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
-  
+
     let x = text.split(/(\s+)/).map((word) => {
-      // Check if the word is a space or newline
       if (word.trim() === "") {
         return <span>{word}</span>;
       }
-  
-      // Check for URLs
+
       if (urlPattern.test(word)) {
+        const shortUrl = this.shortenUrl(word);
         return (
           <>
             <span> </span>
             <span
-              onClick={() => this.openLink(word)} // Assuming you have a function to handle link opening
+              onClick={() => this.openLink(shortUrl)}
               style={{
                 color: "blue",
                 cursor: "pointer",
                 fontWeight: "bold",
               }}
             >
-              🔗Link: {word}
+              🔗Link: {shortUrl}
             </span>
           </>
         );
       }
-  
-      // Check for mentions and hashtags
+
       const trimmedWord = word.trim();
       const wordWithOutTag = trimmedWord.slice(1);
-  
+
       if (word.startsWith("@") && word.slice(1).match(/^[a-z0-9]+$/i)) {
-        word = (
+        return (
           <>
             <span> </span>
             <span
@@ -88,7 +128,7 @@ class TaggingManager {
           </>
         );
       } else if (word.startsWith("#") && word.slice(1).match(/^[a-z0-9]+$/i)) {
-        word = (
+        return (
           <>
             <span> </span>
             <span
@@ -106,13 +146,12 @@ class TaggingManager {
           </>
         );
       } else {
-        word = <span> {word}</span>;
+        return <span> {word}</span>;
       }
-      return word;
     });
+
     return x;
   };
-  
-}  
+}
 
 export default TaggingManager;
