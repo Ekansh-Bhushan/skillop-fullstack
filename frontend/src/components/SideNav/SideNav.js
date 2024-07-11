@@ -59,7 +59,7 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
     if (isFetched) {
       setProgress(40);
       if (Mentor) {
-        navigate('/mybookings');
+        navigate('/dashboard');  // cahnge back to mybookings in future
       } else {
         navigate('/homepage');
         toast.error('Booking page is 🔒 locked\nBecome a MENTOR 😎 to unlock!');
