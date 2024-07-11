@@ -6,6 +6,7 @@ import Group107 from "../images/Group 107.png";
 import arrow from "../images/mingcute_right-line.png";
 import React, { useEffect, useState } from 'react';
 import { getNewUserList, getSiteMetrics } from '../../api/adminPanel';
+import AdminSideNav from './AdminSideNav/AdminSideNav';
 
 import toast from 'react-hot-toast';
 import { sendNotification } from '../../api/adminPanel';
@@ -45,6 +46,8 @@ const Admin_Dashboard = () => {
     }
   };
     return (
+        <>
+        <AdminSideNav />
         <div className="container_overview" style={{ fontSize: '20px', fontWeight: 'bold' }}>
             DashBoard Container
             <div className="information">
@@ -177,6 +180,7 @@ const Admin_Dashboard = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

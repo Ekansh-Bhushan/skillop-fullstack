@@ -42,7 +42,6 @@
   );
 }
 
-
 /* styles.css */
 
 /* Equivalent styles for Tailwind CSS classes */
@@ -69,6 +68,17 @@
     padding-top: 6vh;
   }
 }
+
+/* Update LinkedIn input field */
+#linkedin,
+#upi {
+  background-color: #f3f4f6; /* Light gray background */
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%; /* Full width */
+  max-width: 400px; /* Max width to limit expansion */
+}
+
 
 /* Additional styles for media query */
 @media (max-width: 500px) {
@@ -180,6 +190,4 @@
     width:40vw
   }
 }
-
-
 

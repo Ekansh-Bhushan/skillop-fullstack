@@ -7,6 +7,9 @@ import defaultBGPic from '../../images/bg.png';
 import IntroVideo from '../Right Profile/IntroVideo';
 import Following from '../Right Profile/Following';
 import Followers from '../Right Profile/Followers';
+import allTag from '../../images/allTag.png';
+import societytag from '../../images/member.png';
+import mentortag from '../../images/mentor tag.png'
 import { MainContext } from '../../../context/MainContextProvider';
 
 const ProfileHeader = () => {
@@ -94,9 +97,19 @@ const ProfileHeader = () => {
           {userDetails.firstname
             ? userDetails.firstname + ' ' + userDetails.lastname
             : 'Loading...'}
-          {userDetails && userDetails.isMentor && (
+          {userDetails && userDetails.isMentor && userDetails.isSocietyMember && (
             <div className='verified-logo'>
-              <img src='/verified.png' width={23} alt='' />
+              <img src={allTag} width={23} alt='' />
+            </div>
+          )}
+          {userDetails && !userDetails.isMentor && userDetails.isSocietyMember && (
+            <div className='verified-logo'>
+              <img src={societytag} width={23} alt='' />
+            </div>
+          )}
+          {userDetails && userDetails.isMentor && !userDetails.isSocietyMember && (
+            <div className='verified-logo'>
+              <img src={mentortag} width={23} alt='' />
             </div>
           )}
         </div>

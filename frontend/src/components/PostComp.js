@@ -12,6 +12,9 @@ import toast from 'react-hot-toast';
 import { getUserFromUsername } from '../api/userRequest';
 import { linkIdentifier } from '../utils/linkIdentifier';
 import { getAllPost,getSpecificPost, likeOrDislikePost, getLikers, getCommentsForPost, deletePost} from '../api/postRequest';
+import allTag from './images/allTag.png';
+import societytag from './images/member.png';
+import mentortag from './images/mentor tag.png'
 import './postcomp.css';
 
 const socket = socketIOClient('https://skillop.in/api/');
@@ -289,7 +292,6 @@ const PostComp = ({
     copy(postLink);
     toast.success('Post link copied to clipboard!');
   };
-
   return (
    
     <div className='post-1'>
@@ -308,10 +310,31 @@ const PostComp = ({
                   <span>
                     {author.firstname} {author.lastname}
                   </span>
-                  {author.isMentor && (
+                  {author.isMentor && author.isSocietyMember &&(
                     <img
                       id='verified-badge'
-                      src='/verified.png'
+                      src={allTag}
+                      // src='/verified.png'
+                      width={10}
+                      height={10}
+                      alt='verified badge'
+                    />
+                  )}
+                  {!author.isMentor && author.isSocietyMember &&(
+                    <img
+                      id='verified-badge'
+                      src={societytag}
+                      // src='/verified.png'
+                      width={10}
+                      height={10}
+                      alt='verified badge'
+                    />
+                  )}
+                  {author.isMentor && !author.isSocietyMember &&(
+                    <img
+                      id='verified-badge'
+                      src={mentortag}
+                      // src='/verified.png'
                       width={10}
                       height={10}
                       alt='verified badge'
@@ -399,7 +422,7 @@ const PostComp = ({
         >
           {taggingManager.convert(title)}
         </pre>
-        {title.length > 500 || (title.match(/\n/g) || []).length >= 5 ? (
+          {title.length > 500 || (title.match(/\n/g) || []).length >= 5 ? (
           <button onClick={toggleExpand} className='read-more'>
             {expanded ? 'Read Less' : 'Read More'}
           </button>

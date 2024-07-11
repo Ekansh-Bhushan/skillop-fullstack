@@ -12,6 +12,9 @@ import defaultBGPic from '../../images/bg.png';
 import Followers from './Followers';
 import Following from './Following';
 import IntroVideo from './IntroVideo';
+import allTag from '../../images/allTag.png';
+import societytag from '../../images/member.png';
+import mentortag from '../../images/mentor tag.png'
 import toast from 'react-hot-toast';
 
 export default function RightProfileComp({ about }) {
@@ -105,9 +108,20 @@ export default function RightProfileComp({ about }) {
                     }}
                   >
                     {userDetails.firstname + ' ' + userDetails.lastname}
-                    {userDetails.isMentor && (
+
+                    {userDetails.isMentor && userDetails.isSocietyMember && (
                       <div className="verified-logo">
-                        <img src="/verified.png" width={23} alt="" />
+                        <img src={allTag} width={23} alt="" />
+                      </div>
+                    )}
+                    {!userDetails.isMentor && userDetails.isSocietyMember && (
+                      <div className="verified-logo">
+                        <img src={societytag} width={23} alt="" />
+                      </div>
+                    )}
+                    {userDetails.isMentor && !userDetails.isSocietyMember && (
+                      <div className="verified-logo">
+                        <img src={mentortag} width={23} alt="" />
                       </div>
                     )}
                   </div>

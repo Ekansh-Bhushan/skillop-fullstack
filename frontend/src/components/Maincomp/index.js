@@ -57,6 +57,7 @@ import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Admin_Users from '../Admin Panel/Admin_Users';
 import Admin_Dashboard from '../Admin Panel/Admin_Dashboard';
+import CreateEvent from '../Admin Panel/CreateEvent';
 
 
 function WebPages({
@@ -312,6 +313,10 @@ function WebPages({
           element={<Admin_Dashboard setProgress={setProgress} />}
         />
         <Route
+          path='/Admin_Events'
+          element={<CreateEvent setProgress={setProgress} />}
+        />
+        <Route
           path='/searchbar'
           element={<Searchbar setProgress={setProgress} />}
         />
@@ -382,7 +387,7 @@ function WebPages({
 
         {/* ADMIN ROUTE */}
         <Route path='/admin/skillop-dtu/1941' element={<Admin />} />
-        <Route Component={<NotFoundPage/>}/>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
