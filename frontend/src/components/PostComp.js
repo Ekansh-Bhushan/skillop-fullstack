@@ -292,7 +292,6 @@ const PostComp = ({
     copy(postLink);
     toast.success('Post link copied to clipboard!');
   };
-
   return (
    
     <div className='post-1'>
@@ -423,7 +422,7 @@ const PostComp = ({
         >
           {taggingManager.convert(title)}
         </pre>
-        {title.length > 500 || (title.match(/\n/g) || []).length >= 5 ? (
+          {title.length > 500 || (title.match(/\n/g) || []).length >= 5 ? (
           <button onClick={toggleExpand} className='read-more'>
             {expanded ? 'Read Less' : 'Read More'}
           </button>
