@@ -38,7 +38,7 @@ class TaggingManager {
     // }
   };
 
-convert = (text) => {
+   convert = (text) => {
     const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
   
     let x = text.split(/(\s+)/).map((word) => {
@@ -52,9 +52,16 @@ convert = (text) => {
         return (
           <>
             <span> </span>
-            <a href={word} target="_blank" rel="noopener noreferrer">
-              {word}
-            </a>
+            <span
+              onClick={() => this.openLink(word)} // Assuming you have a function to handle link opening
+              style={{
+                color: "blue",
+                cursor: "pointer",
+                fontWeight: "bold",
+              }}
+            >
+              🔗Link: {word}
+            </span>
           </>
         );
       }
@@ -105,6 +112,7 @@ convert = (text) => {
     });
     return x;
   };
+  
 }  
 
 export default TaggingManager;
