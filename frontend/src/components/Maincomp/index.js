@@ -53,7 +53,7 @@ import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
 
 // import HashtagPage from '../../api/hashtag';
-
+import Student_Dasboard from '../SocietyMember/DashBoard/dashboard'
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Admin_Users from '../Admin Panel/Admin_Users';
 import Admin_Dashboard from '../Admin Panel/Admin_Dashboard';
@@ -309,7 +309,7 @@ function WebPages({
             />
           }
         />
-
+        <Route path='/dashboard' element={<Student_Dasboard/>}/>
         <Route
           path='/profile'
           element={<Profile setProgress={setProgress} />}

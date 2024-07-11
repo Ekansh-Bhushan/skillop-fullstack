@@ -391,7 +391,7 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
                   alignItems: 'center',
                   gap: '5px',
                 }}
-                onClick={() => navigate('/homepage')}
+                onClick={() => navigate('/dashboard')}
               >
                 <img src='/verified.png' />
                 Skillop Dashboard
