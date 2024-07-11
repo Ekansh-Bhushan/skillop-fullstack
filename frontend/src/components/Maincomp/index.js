@@ -66,6 +66,10 @@ function WebPages({
   setProgress,
   Mentor,
   setMentor,
+  isAdmin,
+  isSocietyMember,
+  setIsAdmin,
+  setIsSocietyMember,
   isFetched,
   notifyList,
   setIsFetched,
@@ -121,6 +125,8 @@ function WebPages({
         <SideNav
           setProgress={setProgress}
           Mentor={Mentor}
+          isAdmin={isAdmin}
+          isSocietyMember={isSocietyMember}
           isFetched={isFetched}
           notifyList={notifyList}
         />
@@ -200,6 +206,10 @@ function WebPages({
               setUserData={setUserData}
               setProgress={setProgress}
               Mentor={Mentor}
+              isAdmin={isAdmin}
+              isSocietyMember={isSocietyMember}
+              setIsAdmin={setIsAdmin}
+              setIsSocietyMember={setIsSocietyMember}
               isFetched={isFetched}
               notifyList={notifyList}
               setMentor={setMentor}

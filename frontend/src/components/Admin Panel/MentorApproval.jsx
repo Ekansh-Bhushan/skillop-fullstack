@@ -80,9 +80,9 @@ const MentorApproval = () => {
   }, []);
 
   return (
-    <div className="flex gap-0">
-      <div className="admin-container text-left w-[66%]">
-        <div className="admin-content text-left className='w-[100%]'">
+    <div className="flex">
+      <div className="admin-container text-left w-[66%] border border-2">
+        <div className="admin-content text-left border border-2">
           <h2>Users who applied to become mentor</h2>
           <table border={1}>
             <thead>
@@ -167,7 +167,7 @@ const MentorApproval = () => {
           </table>
         </div>
       </div>
-      <SendNotification />
+      {/* <SendNotification /> */}
     </div>
   );
 };
