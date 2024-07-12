@@ -172,6 +172,7 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
               setSelectedFile(e.target.files);
               handleImageChange(e);
             }}
+            className='choose-file'
           />
           <button onClick={hideImgPopup} className='proceed'>
             Done
@@ -296,7 +297,7 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
         <div className='additionalOpt'>
           {selectedMedia.length > 1 && (
             <span onClick={handlePreviousMedia}>
-              <img height={32} width={32} src={back} alt='back' />
+              <img height={32} width={32} src={back} alt='back' className='previous-next-btn'/>
               <label className='sm:hidden'>Previous</label>
             </span>
           )}
@@ -317,7 +318,7 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
           )}
           {selectedMedia.length > 1 && (
             <span onClick={handleNextMedia}>
-              <img height={32} width={32} src={next} alt='back' />
+              <img height={32} width={32} src={next} alt='back' className='previous-next-btn' />
               <label className='sm:hidden'>Next</label>
             </span>
           )}
