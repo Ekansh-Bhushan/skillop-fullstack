@@ -33,7 +33,7 @@ import Page1 from '../auth/Page1';
 import Login from '../auth/Login';
 import SkillThree from '../auth/SkillThree';
 import SkillFour from '../auth/SkillFour';
-import About from '../Misc Pages/About';
+import About from '../Misc Pages/AboutNew';
 import Contact from '../Misc Pages/Contact';
 import PrivacyPolicy from '../Misc Pages/PrivacyPolicy';
 import Faqs from '../Misc Pages/Faqs';
