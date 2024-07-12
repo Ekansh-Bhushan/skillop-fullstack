@@ -26,7 +26,15 @@ function Account({ userData, setProgress}) {
     }
   }, []);
 
+  const [editMode, setEditMode] = useState(false);
+
   const enabledisableinput = async () => {
+    if (!editMode) {
+      // Enable edit mode
+      setEditMode(true);
+      // Optionally, you can focus on the first editable input field
+      document.getElementById('linkedin').focus();
+    }
     var inp = document.querySelectorAll('.editable-input');
     if (inp[0].disabled) {
       for (var i = 0; i <= 3; i++) {
@@ -63,6 +71,9 @@ function Account({ userData, setProgress}) {
         toast.error(error.response.data.error);
         setProgress(100);
       }
+
+      setEditMode(false);
+
       // window.location.reload();
       for (var i = 0; i <= 3; i++) {
         inp[i].disabled = true;
@@ -171,6 +182,7 @@ function Account({ userData, setProgress}) {
                   className='editable-input rounded-xl border p-2 textarea py-4 md:w-[90vw]'
                   value={linkedindata}
                   onChange={(e) => setlinkedindata(e.target.value)}
+                  disabled={!editMode}
                 />
               </div>
               <div className=' gap-[5px] flex flex-col items-start'>
@@ -184,6 +196,7 @@ function Account({ userData, setProgress}) {
                   value={upi}
                   className='editable-input rounded-xl border p-2 textarea py-4 md:w-[90vw]'
                   onChange={(e) => setUpi(e.target.value)}
+                  disabled={!editMode}
                 />
               </div>
             </div>

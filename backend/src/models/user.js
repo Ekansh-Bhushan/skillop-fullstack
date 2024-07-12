@@ -126,6 +126,7 @@ const UserSchema = new mongoose.Schema({
 
     isMentor: { type: Boolean, default: false, required: true },
     isAdmin: { type: Boolean, default: false, required: true },
+    isSocietyMember: { type: Boolean, default: false, required: true }, // added society part 
 
     mentor: {
         type: mongoose.Schema.Types.ObjectId,

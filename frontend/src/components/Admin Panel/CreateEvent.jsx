@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { createEvent } from '../../api/adminPanel';
-
+import AdminSideNav from './AdminSideNav/AdminSideNav';
+import EventList from "./EventList.jsx";
 const CreateEvent = () => {
   const [Desc, setDesc] = useState('');
   const [Title, setTitle] = useState('');
@@ -18,7 +19,7 @@ const CreateEvent = () => {
       endTime: EndTime,
       link: MeetLink,
       image: ImageLink,
-      createdBy: 'amananjalitiwari2007',
+      createdBy: 'ekanshbhushan',
     };
 
     try {
@@ -37,6 +38,9 @@ const CreateEvent = () => {
   };
 
   return (
+    <>
+    <AdminSideNav />
+    <div className='flex flex-row  my-[70px] mx-[250px] gap-[200px]'>
     <div className="flex flex-col max-h-[700px] items-center justify-center gap-4 border border-black p-2 w-[25%]">
       <h2>Create Event</h2>
       <input
@@ -87,6 +91,8 @@ const CreateEvent = () => {
         Create
       </button>
     </div>
+    <EventList /></div>
+    </>
   );
 };
 

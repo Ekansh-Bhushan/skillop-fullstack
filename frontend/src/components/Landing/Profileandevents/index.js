@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import defaultBGPic from '../../images/Robo.png';
 import { fetchUpcomingEvents } from '../../../api/adminPanel';
 import { MainContext } from '../../../context/MainContextProvider';
+import allTag from '../../images/allTag.png';
+import societytag from '../../images/member.png';
+import mentortag from '../../images/mentor tag.png'
 export default function Profileandevents({ userData, isHome, useUserData }) {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState(null);
@@ -110,8 +113,14 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
                 {userDetails && userDetails.firstname && (
                   <div className='user-name'>
                     {userDetails.firstname + ' ' + userDetails.lastname}
-                    {userDetails.isMentor && (
-                      <img src='/verified.png' width={20} alt='' />
+                    {userDetails.isMentor && userDetails.isSocietyMember && (
+                      <img src={allTag} width={20} alt='' />
+                    )}
+                    {!userDetails.isMentor && userDetails.isSocietyMember && (
+                      <img src={societytag} width={20} alt='' />
+                    )}
+                    {userDetails.isMentor && !userDetails.isSocietyMember && (
+                      <img src={mentortag} width={20} alt='' />
                     )}
                   </div>
                 )}

@@ -53,10 +53,11 @@ import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
 
 // import HashtagPage from '../../api/hashtag';
-
+import Student_Dasboard from '../SocietyMember/DashBoard/dashboard'
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Admin_Users from '../Admin Panel/Admin_Users';
 import Admin_Dashboard from '../Admin Panel/Admin_Dashboard';
+import CreateEvent from '../Admin Panel/CreateEvent';
 
 
 function WebPages({
@@ -65,6 +66,10 @@ function WebPages({
   setProgress,
   Mentor,
   setMentor,
+  isAdmin,
+  isSocietyMember,
+  setIsAdmin,
+  setIsSocietyMember,
   isFetched,
   notifyList,
   setIsFetched,
@@ -120,6 +125,8 @@ function WebPages({
         <SideNav
           setProgress={setProgress}
           Mentor={Mentor}
+          isAdmin={isAdmin}
+          isSocietyMember={isSocietyMember}
           isFetched={isFetched}
           notifyList={notifyList}
         />
@@ -199,6 +206,10 @@ function WebPages({
               setUserData={setUserData}
               setProgress={setProgress}
               Mentor={Mentor}
+              isAdmin={isAdmin}
+              isSocietyMember={isSocietyMember}
+              setIsAdmin={setIsAdmin}
+              setIsSocietyMember={setIsSocietyMember}
               isFetched={isFetched}
               notifyList={notifyList}
               setMentor={setMentor}
@@ -298,7 +309,7 @@ function WebPages({
             />
           }
         />
-
+        <Route path='/dashboard' element={<Student_Dasboard/>}/>
         <Route
           path='/profile'
           element={<Profile setProgress={setProgress} />}
@@ -310,6 +321,10 @@ function WebPages({
         <Route
           path='/Admin_Dashboard'
           element={<Admin_Dashboard setProgress={setProgress} />}
+        />
+        <Route
+          path='/Admin_Events'
+          element={<CreateEvent setProgress={setProgress} />}
         />
         <Route
           path='/searchbar'
@@ -382,7 +397,7 @@ function WebPages({
 
         {/* ADMIN ROUTE */}
         <Route path='/admin/skillop-dtu/1941' element={<Admin />} />
-        <Route Component={<NotFoundPage/>}/>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

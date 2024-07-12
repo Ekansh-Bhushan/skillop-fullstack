@@ -1,31 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import './SideNav.css';
-import home1 from '../images/home1.png';
-import home2 from '../images/home2.png';
-import search1 from '../images/search1.png';
-import search2 from '../images/search2.png';
-import chat1 from '../images/chat1.png';
-import chat2 from '../images/chat2.png';
-import notification1 from '../images/notification1.png';
-import notification2 from '../images/notification2.png';
-import slots1 from '../images/slots1.png';
-import slots2 from '../images/slots2.png';
-import bookings1 from '../images/booking1.png';
-import bookings2 from '../images/booking2.png';
-import earnings1 from '../images/earning1.png';
-import earnings2 from '../images/earning2.png';
-import account1 from '../images/user1.png';
-import account2 from '../images/user2.png';
-import myprofile1 from '../images/account1.png';
-import myprofile2 from '../images/account2.png';
+// import './SideNav.css';
+import Admin_Dashboard from '../Admin_Dashboard';
+import Admin_Users from '../Admin_Users';
+import CreateEvent from '../CreateEvent';
+import home1 from '../../images/home1.png';
+import home2 from '../../images/home2.png';
+import search1 from '../../images/search1.png';
+import search2 from '../../images/search2.png';
+import chat1 from '../../images/chat1.png';
+import chat2 from '../../images/chat2.png';
+import notification1 from '../../images/notification1.png';
+import notification2 from '../../images/notification2.png';
+import slots1 from '../../images/slots1.png';
+import slots2 from '../../images/slots2.png';
+import bookings1 from '../../images/booking1.png';
+import bookings2 from '../../images/booking2.png';
+import earnings1 from '../../images/earning1.png';
+import earnings2 from '../../images/earning2.png';
+import account1 from '../../images/user1.png';
+import account2 from '../../images/user2.png';
+import myprofile1 from '../../images/account1.png';
+import myprofile2 from '../../images/account2.png';
 import { useNavigate } from 'react-router-dom';
 import { BsGearFill } from 'react-icons/bs';
 import { toast } from 'react-hot-toast';
-import { getNotifications } from '../../api/getNotifications';
-import { userChats } from '../../api/chatRequest';
-import { getMessages } from '../../api/messageRequest';
+import { getNotifications } from '../../../api/getNotifications';
+import { userChats } from '../../../api/chatRequest';
+import { getMessages } from '../../../api/messageRequest';
 
-const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) => {
+
+const AdminSideNav = ({ setProgress, Mentor, isFetched}) => {
   const navigate = useNavigate();
   const [showChatNotification, setShowChatNotification] = useState(false);
 
@@ -59,7 +63,7 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
     if (isFetched) {
       setProgress(40);
       if (Mentor) {
-        navigate('/dashboard');  // cahnge back to mybookings in future
+        navigate('/mybookings');
       } else {
         navigate('/homepage');
         toast.error('Booking page is 🔒 locked\nBecome a MENTOR 😎 to unlock!');
@@ -132,97 +136,97 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
       <ul className='side-nav-container'>
         <li
           onClick={() => {
-            setProgress(40);
-            navigate('/homepage');
-            setTimeout(() => setProgress(100), 300);
+            // setProgress(40);
+            navigate('/Admin_Dashboard');
+            // setTimeout(() => setProgress(100), 300);
           }}
         >
-          {window.location.pathname === '/homepage' ? (
+          {window.location.pathname === '/Admin_Dashboard' ? (
             <img src={home2} alt='Home' />
           ) : (
             <img src={home1} alt='Home'  />
           )}
           <span
             className={`${
-              window.location.pathname === '/homepage' ? 'active2' : ''
+              window.location.pathname === '/Admin_Dashboard' ? 'active2' : ''
             } hover-effect-bottom`}
           >
-            Home
+            Dashboard
           </span>
         </li>
         <li
           onClick={() => {
-            setProgress(40);
-            navigate('/searchbar');
-            setTimeout(() => setProgress(100), 300);
+            // setProgress(40);
+            navigate('/Admin_Users');
+            // setTimeout(() => setProgress(100), 300);
           }}
         >
-          {window.location.pathname === '/searchbar' ? (
+          {window.location.pathname === '/Admin_Users' ? (
             <img src={search2} alt='Home'   />
           ) : (
             <img src={search1} alt='Home'   />
           )}
           <span
             className={`${
-              window.location.pathname === '/searchbar' ? 'active2' : ''
+              window.location.pathname === '/Admin_Users' ? 'active2' : ''
             } hover-effect-bottom`}
           >
-            Search
+            Users
           </span>
         </li>
         <li
           onClick={() => {
-            setProgress(40);
-            navigate('/chat');
-            setTimeout(() => setProgress(100), 300);
+            // setProgress(40);
+            navigate('/Admin_Events');
+            // setTimeout(() => setProgress(100), 300);
           }}
         >
-          {window.location.pathname === '/chat' ? (
+          {window.location.pathname === '/Admin_Events' ? (
             <img src={chat2} alt='Home'   />
           ) : (
             <img src={chat1} alt='Home'   />
           )}
           <span
             className={`${
-              window.location.pathname === '/chat' ? 'active2' : ''
+              window.location.pathname === '/Admin_Events' ? 'active2' : ''
             } hover-effect-bottom`}
           >
-            Chat
+            Add Event
           </span>
-          {showChatNotification && (
+          {/* {showChatNotification && (
             <div>
               <div className='chat-notify-num-icon'>*</div>{' '}
             </div>
-          )}
+          )} */}
         </li>
-        <li
+        <li className='mx-6 text-red-500 rounded-lg hover:bg-red-100 p-8'
           onClick={() => {
-            setProgress(40);
-            navigate('/notifications');
-            setTimeout(() => setProgress(100), 300);
+            // setProgress(40);
+            navigate('/homepage');
+            // setTimeout(() => setProgress(100), 300);
           }}
         >
-          {window.location.pathname === '/notifications' ? (
+          {/* {window.location.pathname === '/homepage' ? (
             <img src={notification2} alt='Home'/>
           ) : (
             <img src={notification1} alt='Home'/>
-          )}
+          )} */}
           <span
             className={`${
-              window.location.pathname === '/notifications' ? 'active2' : ''
+              window.location.pathname === '/homepage' ? 'active2' : ''
             } hover-effect-bottom`}
           >
-            Notifications
+            Return To Homepage
           </span>
-          {notifyList.filter((item) => item.read === false).length > 0 && (
+          {/* {notifyList.filter((item) => item.read === false).length > 0 && (
             <div>
               <div className='notify-num-icon'>
                 {notifyList.filter((item) => item.read === false).length}
               </div>{' '}
             </div>
-          )}
+          )} */}
         </li>
-        <li
+        {/* <li
           onClick={() => {
             setProgress(40);
             navigate('/requestedMeets');
@@ -367,36 +371,6 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
                 Become Mentor
               </div>
             )}
-            {isAdmin && (
-              <div
-                style={{
-                  color: '#108CFF',
-                  // padding: '5px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                }}
-                onClick={() => navigate('/Admin_Dashboard')}
-              >
-                <img src='/verified.png' />
-                Admin Panel
-              </div>
-            )}
-            {isSocietyMember && (
-              <div
-                style={{
-                  color: '#108CFF',
-                  // padding: '5px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                }}
-                onClick={() => navigate('/dashboard')}
-              >
-                <img src='/verified.png' />
-                Skillop Dashboard
-              </div>
-            )}
             {
               <div
                 style={{
@@ -426,10 +400,10 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
               Logout
             </div>
           </div>
-        </li>
+        </li> */}
       </ul>
     </>
   );
 };
 
-export default SideNav;
+export default AdminSideNav;

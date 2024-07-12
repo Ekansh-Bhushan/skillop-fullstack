@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import user from "../images/user3.png";
 import { useNavigate } from "react-router-dom";
+import allTag from '../images/allTag.png';
+import societytag from '../images/member.png';
+import mentortag from '../images/mentor tag.png'
 import Mobilecommonhead from "../Mobilecommonhead";
 import "./index.css";
 import {
   getSearchResultByPeople,
   getSearchResultByPost,
 } from "../../api/searchFilter";
+import { all } from "axios";
 
 function Searchbar({setProgress}) {
   const [collegeFilter, setCollegeFilter] = useState(false);
@@ -325,8 +329,14 @@ function Searchbar({setProgress}) {
                         }}
                       >
                         {val.firstname + " " + val.lastname}
-                        {val.isMentor && (
-                          <img src="/verified.png" width={20} alt="" />
+                        {val.isMentor && val.isSocietyMember &&(
+                          <img src={allTag} width={20} alt="" />
+                        )}
+                        {!val.isMentor && val.isSocietyMember &&(
+                          <img src={societytag} width={20} alt="" />
+                        )}
+                        {val.isMentor && !val.isSocietyMember &&(
+                          <img src={mentortag} width={20} alt="" />
                         )}
                       </div>
 

@@ -264,16 +264,16 @@ const Profile = ({ setProgress }) => {
               </div>
             )}
             <button
-              className={`read-more-button ${
-                isJourneyExpanded && !isAboutEditing ? "expanded" : ""
-              }`}
-              onClick={handleJourneyExpandClick}
-            >
-              {userDetails.about &&
-                userDetails.about.length > 239 &&
-                !isAboutEditing &&
-                (isJourneyExpanded ? "Read Less" : "Read More")}
-            </button>
+            className={`read-more-button ${
+               isJourneyExpanded && !isAboutEditing ? "expanded" : ""
+            }`}
+            onClick={handleJourneyExpandClick}
+           >
+             {journeyContent &&
+               journeyContent.length > 239 &&
+              !isAboutEditing &&
+              (isJourneyExpanded ? "Read Less" : "Read More")}
+          </button>
           </div>
 
           <hr className="line" />
@@ -307,11 +307,11 @@ const Profile = ({ setProgress }) => {
                   isPastExpanded ? "expanded" : ""
                 }`}
               >
-                <p className={`lorem-ipsum-dolor`}>
+                
                   <span className='text-wrapper' style={{ overflowWrap: 'break-word' }}>
                     {pastExpContent || "Your Past Journey..."}
                   </span>
-                </p>
+                
               </div>
             )}
             <button
@@ -320,11 +320,12 @@ const Profile = ({ setProgress }) => {
               }`}
               onClick={handlePastExpandClick}
             >
-              {userDetails.pastExp &&
-                userDetails.pastExp.length > 239 &&
-                !isPastEditing &&
-                (isPastExpanded ? "Read Less" : "Read More")}
+             {pastExpContent &&
+             pastExpContent.length > 120 &&
+             !isPastEditing &&
+             (isPastExpanded ? "Read Less" : "Read More")}
             </button>
+
           </div>
 
           <hr className="line" />
@@ -358,24 +359,24 @@ const Profile = ({ setProgress }) => {
                   isFutureExpanded ? "expanded" : ""
                 }`}
               >
-                <p className={`lorem-ipsum-dolor`}>
+                
                   <span className='text-wrapper' style={{ overflowWrap: 'break-word' }}>
                     {futurePlansContent ||
                       "What Plans do you have for Future...?"}
                   </span>
-                </p>
+                
               </div>
             )}
             <button
               className={`read-more-button ${
                 isFutureExpanded && !isFutureEditing ? "expanded" : ""
               }`}
-              onClick={handleFutureExpandClick}
+               onClick={handleFutureExpandClick}
             >
-              {userDetails.futurePlans &&
-                userDetails.futurePlans.length > 239 &&
-                !isFutureEditing &&
-                (isFutureExpanded ? "Read Less" : "Read More")}
+               {futurePlansContent &&
+                 futurePlansContent.length > 239 &&
+                 !isFutureEditing &&
+               (isFutureExpanded ? "Read Less" : "Read More")}
             </button>
           </div>
 
