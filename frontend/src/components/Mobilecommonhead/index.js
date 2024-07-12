@@ -324,7 +324,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 Slots
               </div>
               <div
-                onClick={() => navigate('/mybookings')}
+                onClick={() => navigate('/dashboard')}
                 className='font-semibold text-lg'
               >
                 Bookings
@@ -358,7 +358,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 Admin Panel
               </div>)}
               {isSocietyMember && (<div
-                onClick={() => navigate('/homepage')}
+                onClick={() => navigate('/dashboard')}
                 className='font-semibold text-lg'
               >
                 
