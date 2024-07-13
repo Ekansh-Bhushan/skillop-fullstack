@@ -18,7 +18,7 @@ import EditSkillsPage from '../Profile/EditSkills/EditSkillsPage';
 import ConfirmBooking from '../dashboard/bookings/ConfirmBooking';
 import Payment from '../dashboard/bookings/Payment';
 import EditPic from '../Profile/EditPic/EditPic';
-
+import FinalLandinPage from '../../landing/newlanding'
 import RequestedMeets from '../dashboard/requestedMeets';
 import MentorBano from '../MentorBano/mentorBano';
 import PlatformfeedbackForm from '../PlatfromFeedback/PlatformfeedbackForm';
@@ -135,7 +135,7 @@ function WebPages({
       {/* -----------------------------MOBILE SIGN UP PAGES-------------------------------- */}
 
       <Routes>
-        <Route path='/' element={<Page setProgress={setProgress} />} />
+        <Route path='/' element={<FinalLandinPage setProgress={setProgress} />} />
         <Route path='/mlogin' element={<Mlogin setProgress={setProgress} />} />
         <Route
           path='/msignup'

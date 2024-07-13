@@ -111,10 +111,13 @@ const LandingPage = () => {
         </div>
         <section className="landing-page-content">
           <p>
-            Skillop serves as a dynamic tech society cluster, dedicated to
-            empowering students through the strategic development of a robust
-            and interconnected ecosystem tailored to foster their growth and
-            success in the field of technology.
+          Welcome to SKILLOP Society, where innovation meets opportunity. 
+          Founded with a vision to empower students with cutting-edge skills 
+          in technology, SKILLOP Society is a vibrant community at the forefront 
+          of technological advancement. Through workshops, mentorship programs, and
+          competitive events, we cultivate a culture of learning, collaboration, and 
+          growth. Join us to unleash your potential, build meaningful connections, and 
+          shape the future of technology together.
           </p>
         </section>
       </main>
@@ -135,21 +138,22 @@ const LandingPage = () => {
         <div className="right-box">
           <div className="answer-box-1">
             <p>
-              Etiam dictum congue ante, in cursus nisi tincidunt a. 
-              Maecenas ligula ante, ullamcorper vitae vehicula at, lobortis dignissim sapien. 
+            <b>Comprehensive Skill Development:</b> Our diverse range of workshops and training 
+            sessions in areas like Full Stack Development, MERN Stack, and emerging technologies 
+            ensure you acquire practical, in-demand skills. 
             </p>
           </div>
           <div className="answer-box-2">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
-              amet nulla auctor, vestibulum magna sed, convallis ex.
+            <b>Competitive Edge:</b> Participate in mini tech competitions and 
+            hackathons to hone your skills and prepare for larger, prestigious contests.
             </p>
           </div>
           <div className="answer-box-3">
             <p>
-              Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum
-              sociis natoque penatibus et magnis dis parturient montes, nascetur
-              ridiculus.
+            <b>Practical Experience:</b> Engage in real-world 
+            projects and events that provide hands-on experience, 
+            making you job-ready and confident in your abilities.
             </p>
           </div>
         </div>
