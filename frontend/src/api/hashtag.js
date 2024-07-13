@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Mobilecommonhead from '../components/Mobilecommonhead';
 
 const HashtagPage = () => {
     const { hashtag } = useParams();
@@ -21,6 +22,8 @@ const HashtagPage = () => {
     }, [hashtag]);
 
     return (
+        <>
+        <Mobilecommonhead/>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <h1 style={{ marginTop: '80px' }}>Posts with #{hashtag}</h1>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
@@ -49,6 +52,7 @@ const HashtagPage = () => {
                 )) : <p>No posts found for #{hashtag}</p>}
             </ul>
         </div>
+        </>
     );
 };
 
