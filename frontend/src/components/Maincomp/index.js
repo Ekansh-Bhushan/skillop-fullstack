@@ -18,7 +18,7 @@ import EditSkillsPage from '../Profile/EditSkills/EditSkillsPage';
 import ConfirmBooking from '../dashboard/bookings/ConfirmBooking';
 import Payment from '../dashboard/bookings/Payment';
 import EditPic from '../Profile/EditPic/EditPic';
-
+import FinalLandinPage from '../../landing/newlanding'
 import RequestedMeets from '../dashboard/requestedMeets';
 import MentorBano from '../MentorBano/mentorBano';
 import PlatformfeedbackForm from '../PlatfromFeedback/PlatformfeedbackForm';
@@ -33,7 +33,7 @@ import Page1 from '../auth/Page1';
 import Login from '../auth/Login';
 import SkillThree from '../auth/SkillThree';
 import SkillFour from '../auth/SkillFour';
-import About from '../Misc Pages/About';
+import About from '../Misc Pages/AboutNew';
 import Contact from '../Misc Pages/Contact';
 import PrivacyPolicy from '../Misc Pages/PrivacyPolicy';
 import Faqs from '../Misc Pages/Faqs';
@@ -51,9 +51,9 @@ import Social from '../mobileauth/Social';
 import SideNav from '../SideNav/SideNav';
 import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
-
 import HashtagPage from '../../api/hashtag';
-
+import NotworkingBokking from '../../components/dashboard/bookings/Notworking/notworkingbooking'
+import Student_Dasboard from '../SocietyMember/DashBoard/dashboard'
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Admin_Users from '../Admin Panel/Admin_Users';
 import Admin_Dashboard from '../Admin Panel/Admin_Dashboard';
@@ -66,6 +66,10 @@ function WebPages({
   setProgress,
   Mentor,
   setMentor,
+  isAdmin,
+  isSocietyMember,
+  setIsAdmin,
+  setIsSocietyMember,
   isFetched,
   notifyList,
   setIsFetched,
@@ -121,6 +125,8 @@ function WebPages({
         <SideNav
           setProgress={setProgress}
           Mentor={Mentor}
+          isAdmin={isAdmin}
+          isSocietyMember={isSocietyMember}
           isFetched={isFetched}
           notifyList={notifyList}
         />
@@ -129,7 +135,7 @@ function WebPages({
       {/* -----------------------------MOBILE SIGN UP PAGES-------------------------------- */}
 
       <Routes>
-        <Route path='/' element={<Page setProgress={setProgress} />} />
+        <Route path='/' element={<FinalLandinPage setProgress={setProgress} />} />
         <Route path='/mlogin' element={<Mlogin setProgress={setProgress} />} />
         <Route
           path='/msignup'
@@ -200,6 +206,10 @@ function WebPages({
               setUserData={setUserData}
               setProgress={setProgress}
               Mentor={Mentor}
+              isAdmin={isAdmin}
+              isSocietyMember={isSocietyMember}
+              setIsAdmin={setIsAdmin}
+              setIsSocietyMember={setIsSocietyMember}
               isFetched={isFetched}
               notifyList={notifyList}
               setMentor={setMentor}
@@ -299,7 +309,7 @@ function WebPages({
             />
           }
         />
-
+        <Route path='/dashboard' element={<Student_Dasboard/>}/>
         <Route
           path='/profile'
           element={<Profile setProgress={setProgress} />}
@@ -392,7 +402,9 @@ function WebPages({
 
         {/* ADMIN ROUTE */}
         <Route path='/admin/skillop-dtu/1941' element={<Admin />} />
+        {/* NotFound */}
         <Route path="*" element={<NotFoundPage />} />
+        <Route path='/book' element={<NotworkingBokking/>}/>
       </Routes>
     </>
   );

@@ -17,6 +17,58 @@ import { getNotifications } from '../../api/getNotifications';
 import { MainContext } from '../../context/MainContextProvider';
 
 const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
+  const [Mentor, setMentor] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isSocietyMember, setIsSocietyMember] = useState(false);
+
+  // const redirectIfNotAuthorize = () => {
+  //   localStorage.removeItem('skilloptoken');
+  //   if (pagesToNotRedirect.includes(window.location.pathname)) {
+  //     return;
+  //   }
+  //   toast.error('Please Login/Signup to continue');
+
+  //   if (window.innerWidth > 500) {
+  //     navigate(`/login?redirect=${window.location.pathname}`);
+  //   } else {
+  //     navigate(`/mlogin?redirect=${window.location.pathname}`);
+  //   }
+  // };
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const { data } = await getUser();
+        console.log(data);
+        if (data.result) {
+          console.log('authorized user ');
+          // setUserData(data.result);
+          setMentor(data.result.isMentor);
+          setIsAdmin(data.result.isAdmin);
+          setIsSocietyMember(data.result.isSocietyMember);
+          // setIsFetched(true);
+          // setNotifyList(data.result.notifications);
+        } else {
+          console.log('Unauthorize : redirecting...');
+          // redirectIfNotAuthorize();
+        }
+      } catch (err) {
+        if (!err.response.data.result) {
+          console.log(err.response.data.result);
+          // redirectIfNotAuthorize();
+        }
+        console.log('Unable to fetch user', err);
+      }
+    };
+    if (localStorage.getItem('skilloptoken')) {
+      console.log('token found going to fetch user');
+      fetchUser();
+    } else {
+      console.log('token not found redirecting to login/signup');
+      // redirectIfNotAuthorize();
+    }
+  }, []);
+
   const [showPostPopUp, setShowPostPopUp] = useState(false);
   const navigate = useNavigate();
   const logout = async () => {
@@ -272,7 +324,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 Slots
               </div>
               <div
-                onClick={() => navigate('/mybookings')}
+                onClick={() => navigate('/book')}  //mybooking se replace
                 className='font-semibold text-lg'
               >
                 Bookings
@@ -286,23 +338,37 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 Earnings
               </div>
               <div
+                onClick={() => navigate('/requestedMeets')}
+                className='font-semibold text-lg'
+              >
+                Meet
+              </div>
+              {!Mentor && (<div
                 onClick={() => navigate('/mentorbano')}
                 className='font-semibold text-lg'
               >
                 
                 Become a Mentor
-              </div>
+              </div>)}
+              {isAdmin && (<div
+                onClick={() => navigate('/Admin_Dashboard')}
+                className='font-semibold text-lg'
+              >
+                
+                Admin Panel
+              </div>)}
+              {isSocietyMember && (<div
+                onClick={() => navigate('/dashboard')}
+                className='font-semibold text-lg'
+              >
+                
+                Skillop Dashboard
+              </div>)}
               <div
                 onClick={() => navigate('/myaccount')}
                 className='font-semibold text-lg'
               >
                 Account
-              </div>
-              <div
-                onClick={() => navigate('/requestedMeets')}
-                className='font-semibold text-lg'
-              >
-                Meet
               </div>
               <div
                 onClick={() => navigate('/platformfeedback')}

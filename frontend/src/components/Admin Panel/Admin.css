@@ -5,15 +5,21 @@
 }
 
 .admin-content table {
-	background: linear-gradient(
+	/* background: linear-gradient(
 		to right,
 		rgb(255, 175, 83),
 		rgb(255, 76, 82),
 		rgb(119, 255, 98)
-	);
+	); */
     font-size: 1.1rem;
     width: 94%;
     margin: 2vw 0;
+}
+
+.admin-content thead {
+	/* background: #f1f1f1; */
+	border: 1px solid #787878;
+	border-radius: 13px;
 }
 
 .admin-content td {

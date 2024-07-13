@@ -42,6 +42,8 @@ export const pagesToNotRedirect = [
 function App() {
   const [userData, setUserData] = useState(null);
   const [Mentor, setMentor] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isSocietyMember, setIsSocietyMember] = useState(false);
   const [isFetched, setIsFetched] = useState(false);
   const [notifyList, setNotifyList] = useState([]);
 
@@ -74,6 +76,8 @@ function App() {
           console.log('authorized user ');
           setUserData(data.result);
           setMentor(data.result.isMentor);
+          setIsAdmin(data.result.isAdmin);
+          setIsSocietyMember(data.result.isSocietyMember);
           setIsFetched(true);
           setNotifyList(data.result.notifications);
         } else {
@@ -145,6 +149,10 @@ function App() {
         setNotifyList={setNotifyList}
         Mentor={Mentor}
         setMentor={setMentor}
+        isAdmin={isAdmin}
+        setIsAdmin={setIsAdmin}
+        isSocietyMember={isSocietyMember}
+        setIsSocietyMember={setIsSocietyMember}
         setIsFetched={setIsFetched}
         isFetched={isFetched}
         notifyList={notifyList}

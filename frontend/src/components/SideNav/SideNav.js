@@ -25,7 +25,7 @@ import { getNotifications } from '../../api/getNotifications';
 import { userChats } from '../../api/chatRequest';
 import { getMessages } from '../../api/messageRequest';
 
-const SideNav = ({ setProgress, Mentor, isFetched}) => {
+const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) => {
   const navigate = useNavigate();
   const [showChatNotification, setShowChatNotification] = useState(false);
 
@@ -59,7 +59,7 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
     if (isFetched) {
       setProgress(40);
       if (Mentor) {
-        navigate('/mybookings');
+        navigate('/book');  // cahnge back to mybookings in future
       } else {
         navigate('/homepage');
         toast.error('Booking page is 🔒 locked\nBecome a MENTOR 😎 to unlock!');
@@ -365,6 +365,36 @@ const SideNav = ({ setProgress, Mentor, isFetched}) => {
               >
                 <img src='/verified.png' />
                 Become Mentor
+              </div>
+            )}
+            {isAdmin && (
+              <div
+                style={{
+                  color: '#108CFF',
+                  // padding: '5px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px',
+                }}
+                onClick={() => navigate('/Admin_Dashboard')}
+              >
+                <img src='/verified.png' />
+                Admin Panel
+              </div>
+            )}
+            {isSocietyMember && (
+              <div
+                style={{
+                  color: '#108CFF',
+                  // padding: '5px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px',
+                }}
+                onClick={() => navigate('/dashboard')}
+              >
+                <img src='/verified.png' />
+                Skillop Dashboard
               </div>
             )}
             {
