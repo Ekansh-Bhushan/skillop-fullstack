@@ -51,7 +51,7 @@ import Social from '../mobileauth/Social';
 import SideNav from '../SideNav/SideNav';
 import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
-
+import NotworkingBokking from '../../components/dashboard/bookings/Notworking/notworkingbooking'
 // import HashtagPage from '../../api/hashtag';
 import Student_Dasboard from '../SocietyMember/DashBoard/dashboard'
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
@@ -397,7 +397,9 @@ function WebPages({
 
         {/* ADMIN ROUTE */}
         <Route path='/admin/skillop-dtu/1941' element={<Admin />} />
+        {/* NotFound */}
         <Route path="*" element={<NotFoundPage />} />
+        <Route path='/book' element={<NotworkingBokking/>}/>
       </Routes>
     </>
   );

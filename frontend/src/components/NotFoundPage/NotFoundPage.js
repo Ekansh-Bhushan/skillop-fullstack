@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
 import './NotFoundPage.css'; 
-
+import Mobilecommonhead from '../Mobilecommonhead';
 // Import the background image
 import backgroundImage from './backgroungimage.png';
 
 const NotFoundPage = () => {
   return (
+    <>
+    <Mobilecommonhead/>
     <div className='outer'>
       <div className='not-found-container' style={{ backgroundImage: `url(${backgroundImage})` }}>
         <p id='oops' className='not-found-title'>OOPS!</p>
@@ -18,6 +20,7 @@ const NotFoundPage = () => {
         <Link to="/homepage" className="home-button">Go to Home</Link>
       </div>
     </div>
+    </>
   );
 };
 

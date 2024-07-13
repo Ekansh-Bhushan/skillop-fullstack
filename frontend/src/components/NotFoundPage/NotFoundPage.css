@@ -53,5 +53,62 @@
 
   .outer{
     margin-top: 299px;
+    margin-left: 100px;
   }
   
+
+  @media (max-width: 768px) {
+    .not-found-title {
+      font-size: 2em;
+    }
+  
+    .subtitle {
+      font-size: 1.2em;
+    }
+  
+    .not-found-message {
+      font-size: 1em;
+    }
+  
+    .home-button {
+      font-size: 0.9em;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .not-found-container {
+      text-align: center;
+      top: -137px;
+      width: 80%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      left: 129px;
+        
+      }
+
+      .outer {
+        margin-top: 497px;
+        margin-left: -135px;
+        width: 545px;
+    }
+      
+    .not-found-title {
+      display: none;
+    }
+  
+    .subtitle {
+      font-size: 1em;
+    }
+  
+    .not-found-message {
+      font-size: 0.8em;
+    }
+  
+    .home-button {
+      font-size: 0.8em;
+      padding: 6px 12px;
+    }
+  }

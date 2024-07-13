@@ -324,7 +324,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 Slots
               </div>
               <div
-                onClick={() => navigate('/dashboard')}
+                onClick={() => navigate('/book')}  //mybooking se replace
                 className='font-semibold text-lg'
               >
                 Bookings

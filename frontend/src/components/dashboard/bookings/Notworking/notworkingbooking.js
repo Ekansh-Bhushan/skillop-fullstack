@@ -1,5 +1,5 @@
 import React from 'react'
-import Mobilecommonhead from '../../Mobilecommonhead';
+import Mobilecommonhead from '../../../Mobilecommonhead';
 // Import the background image
 import backgroundImage from './backgroungimage.png';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ function dashboard() {
       <div className='not-found-container' style={{ backgroundImage: `url(${backgroundImage})` }}>
         {/* <p id='oops' className='not-found-title'>OOPS!</p> */}
         <p className='not-found-title'>SKillop </p>
-        <p className='subtitle'>Welcome to Dashboard </p>
+        <p className='subtitle'>Welcome to Booking </p>
         <p className='not-found-message'>The feature is comming soon.</p>
       
         {/* Add the Link component for the button */}
