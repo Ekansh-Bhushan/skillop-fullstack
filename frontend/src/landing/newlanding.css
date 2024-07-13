@@ -196,8 +196,14 @@
   font-weight: bold;
   text-align: center;
   color: #fff;
-  z-index: 2; 
-  position: relative; 
+  z-index: 2;
+  position: relative;
+  transition: transform 0.3s, color 0.3s; /* Add transition for smooth effect */
+}
+
+.left-box h1:hover {
+  transform: scale(1.10); /* Zoom out */
+  color: #ddd; /* Slightly lighter color on hover */
 }
 
 .left-box video {
