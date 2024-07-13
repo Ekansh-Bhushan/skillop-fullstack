@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 
 const connectDB = () => {
   const MongoURL = process.env.MongoURL;
-  const DB = process.env.DB;
+
   
   // Ensure the URL is correctly formatted
-  const connectionString = `${MongoURL}/${DB}`;
+  const connectionString = `${MongoURL}`;
   console.log('Attempting to connect to MongoDB:', connectionString);
   
   mongoose

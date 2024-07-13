@@ -3,7 +3,8 @@ const jwt = require("jsonwebtoken");
 exports.isAuthorised = async (req, res, next) => {
     try {
         // const token = req.cookies.token;
-        const token = req.headers["authorization"];
+        const authHeader = req.headers["authorization"];
+        const token = authHeader && authHeader.split(' ')[1]; // Get the token part after "Bearer"
 
         // console.log(token);
         if (!token) {
@@ -12,6 +13,7 @@ exports.isAuthorised = async (req, res, next) => {
                 err: "Unauthorized",
             });
         }
+        console.log('JWT Token (Middleware):', token);
         // console.log(process.env.JWT_KEY);
         const decoded = jwt.verify(token, process.env.JWT_KEY);
         // console.log(decoded, decoded._id)

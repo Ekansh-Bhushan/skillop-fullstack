@@ -1,5 +1,7 @@
 const User = require("../models/user");
 const Mentor = require("../models/mentor");
+
+
 const {
     response_500,
     response_200,
@@ -525,6 +527,11 @@ exports.editExperence = async (req, res) => {
 
 exports.getMyProfile = async (req, res) => {
     try {
+
+        const authHeader = req.headers["authorization"];
+        const token = authHeader && authHeader.split(' ')[1]; // Get the token part after "Bearer"
+        console.log('JWT Token (Profile):', token);
+
         const user = await User.findById(req.user._id)
             .populate("posts")
             .populate("mentor");
@@ -532,6 +539,7 @@ exports.getMyProfile = async (req, res) => {
         res.status(200).send({
             result: user,
             message: "Profile fetched successfully",
+            
         });
     } catch (error) {
         res.status(500).send({
