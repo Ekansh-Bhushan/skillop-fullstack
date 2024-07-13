@@ -22,6 +22,7 @@ body{
     margin-top: 75px;
     margin-left: 330px;
     overflow-y: hidden;
+    margin-right: auto;
 }
 .boxes{
     /* display: flex; */
