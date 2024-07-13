@@ -52,7 +52,7 @@ import SideNav from '../SideNav/SideNav';
 import TermsOfService from '../Misc Pages/TermsOfService';
 import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
 
-// import HashtagPage from '../../api/hashtag';
+import HashtagPage from '../../api/hashtag';
 
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Admin_Users from '../Admin Panel/Admin_Users';
@@ -319,6 +319,11 @@ function WebPages({
         <Route
           path='/searchbar'
           element={<Searchbar setProgress={setProgress} />}
+        />
+
+        <Route
+          path='/hashtag/:hashtag'
+          element={<HashtagPage setProgress={setProgress} />}
         />
 
         <Route

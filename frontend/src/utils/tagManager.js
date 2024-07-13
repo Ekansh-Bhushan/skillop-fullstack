@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import HashtagPage from "../api/hashtag";
+import { toast } from 'react-toastify';
 
 class TaggingManager {
   constructor(setProgress, navigate, getUserFromUsername, toast) {
@@ -57,18 +58,17 @@ class TaggingManager {
     }
   };
 
-  openHashtag = async (hashtag) => {
-    console.log("#" + hashtag);
-    // Uncomment this section to render HashtagPage component directly
-    // try {
-    //   this.setProgress(30);
-    //   ReactDOM.render(<HashtagPage hashtag={hashtag} />, document.getElementById('root'));
-    //   this.setProgress(100);
-    // } catch (error) {
-    //   this.toast.error(error.message);
-    //   this.setProgress(100);
-    // }
-  };
+ 
+  openHashtag = (hashtag) => {
+    try {
+        this.setProgress(30);
+        this.navigate(`/hashtag/${hashtag}`);
+        this.setProgress(100);
+    } catch (error) {
+        console.log(error);
+        this.setProgress(100);
+    }
+};
 
   openLink = (shortUrl) => {
     const shortKey = shortUrl.split("/").pop(); // Extract short key from URL
