@@ -7,9 +7,9 @@ import TopBar from "../components/CommonTopBar/TopBar";
 import LandingFour from "./LandingFour";
 import arrow from "../components/images/arrow.png";
 
-import carousel1 from "../components/images/carousel1.png";
-import carousel2 from "../components/images/carousel2.jpg";
-import carousel3 from "../components/images/carousel3.jpg";
+import photoatadmin from "../components/images/photoatadmin.jpg";
+import Landing from "../components/images/Landing page.png";
+import groupphoto from "../components/images/group photo.jpg";
 import video from "../components/images/landingvideo.mp4";
 
 import knowMoreIcon from "../components/images/knowmore.png";
@@ -37,7 +37,7 @@ const LandingPage = () => {
     // automatic sliding 
     const id = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 5000);
+    }, 100000);
     setIntervalId(id);
 
     return () => {
@@ -47,7 +47,7 @@ const LandingPage = () => {
     };
   }, []); 
 
-  const images = [carousel1, carousel2, carousel3];
+  const images = [Landing, groupphoto,photoatadmin];
 
   const nextImage = () => {
     setCurrentImage((currentImage + 1) % images.length);

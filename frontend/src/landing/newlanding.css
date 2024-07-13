@@ -244,17 +244,44 @@
 
 .answer-box-1 {
   background-color: #90ee90; /* Light green */
-
+  transition: background-color 0.3s, transform 0.3s; /* Add transition for smooth effect */
 }
 
-.answer-box-2{
-  background-color:  #87ceeb;; /* Light blue*/
+.answer-box-1:hover {
+  background-color: #76c76b; /* A slightly darker shade of green */
+  transform: scale(1.05); /* Zoom out */
+}
+.answer-box-1,
+.answer-box-2,
+.answer-box-3 {
+  transition: background-color 0.3s, transform 0.3s; /* Add transition for smooth effect */
+}
 
+.answer-box-1 {
+  background-color: #90ee90; /* Light green */
+}
 
+.answer-box-1:hover {
+  background-color: #76c76b; /* A slightly darker shade of green */
+  transform: scale(1.05); /* Zoom out */
+}
+
+.answer-box-2 {
+  background-color: #87ceeb; /* Light blue */
+}
+
+.answer-box-2:hover {
+  background-color: #6bb7d6; /* A slightly darker shade of blue */
+  transform: scale(1.05); /* Zoom out */
 }
 
 .answer-box-3 {
-  background-color: #fbac45;; /* Light orange*/
+  background-color: #fbac45; /* Light orange */
+}
+
+.answer-box-3:hover {
+  background-color: #e79a3d; /* A slightly darker shade of orange */
+  transform: scale(1.05); /* Zoom out */
 }
 
 /* Responsive styles */
