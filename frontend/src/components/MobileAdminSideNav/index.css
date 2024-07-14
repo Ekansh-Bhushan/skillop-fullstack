@@ -1,0 +1,57 @@
+.mobile-admin-head {
+    display: flex;
+    height: 80px;
+    width: 100vw;
+    /* backdrop-filter: blur(10px); */
+    background-color: white;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    display: none;
+    /* box-shadow: 2px 2px 10px 2px rgb(199, 199, 199); */
+    border-bottom: 1px solid #00000033;
+  }
+  .back-n-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    /* left: 10px; */
+  }
+  .logo-mobile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    margin-left: 15px;
+  }
+  
+  .notification-n-chat {
+    display: flex;
+    font-size: 30px;
+    /* position: absolute; */
+    /* right: 20px;
+    margin */
+    margin-right: 10px;
+    gap: 10px;
+  }
+  
+  /* .more-vertical-options > div:hover {
+    border-radius: 30px;
+    border: 1.5px solid rgb(55, 194, 218);
+    width: 80px;
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 25px;
+    padding: 10px 20px;
+  } */
+  
+  @media only screen and (max-width: 700px) {
+    .mobile-admin-head {
+      display: flex;
+      position: fixed;
+      top: 0;
+    }
+  }
+  

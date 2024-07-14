@@ -1,72 +1,71 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { delEvents, fetchUpcomingEvents } from '../../api/adminPanel';
 import toast from 'react-hot-toast';
-import { getUserFromUsername } from '../../api/userRequest';
-import { delPostByPostId, delUserByUserId, fetchUserByUsername } from '../../api/adminPanel';
 
-const DelProfPost = () => {
-  const [username, setUsername] = useState('');
-  const [postlink, setPostlink] = useState('');
-  const delProfile = async () => {
+const EventList = () => {
+  const [eventData, setEventData] = useState([]);
+
+  const fetchEvents = async () => {
+    const events = await fetchUpcomingEvents();
+    setEventData(events.data.result);
+    console.log(events);
+  };
+
+  const handleEventDel = async (eventID) => {
     try {
-      const data = await fetchUserByUsername(username);
-      const reqUsr = data.data.result.filter(
-        (item) => item.username === username
-      );
-      console.log('req usr', reqUsr);
-      await delUserByUserId(reqUsr[0]._id);
-      toast.success('Profile deleted!');
-      setUsername('');
+      await delEvents(eventID);
+      await fetchEvents();
+      toast.success('Event Deleted');
     } catch (err) {
-      console.log('Unable to del profile', err);
+      console.log(err);
       toast.error(err.response.data.message);
     }
   };
-  const delPost = async () => {
-    console.log("postid",postlink.split('/')[4]);
-    try {
-      await delPostByPostId(postlink.split('/')[4]);
-      toast.success('Post deleted!');
-      setPostlink('');
-    } catch (err) {
-      console.log('Unable to del post', err);
-      toast.error(err.response.data.message);
-    }
-  };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
   return (
-    <div className="border p-6">
-      <div className='my-3'>
-        <h2>Delete Profile/Post</h2>
-        <input
-          className="p-1 border text-lg mr-2"
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Enter username"
-        />
-        <button
-          onClick={delProfile}
-          className="bg-red-600 hover:bg-red-500 text-white rounded-lg p-2 border-none"
-        >
-          Delete
-        </button>
-      </div>
-      <div>
-        <input
-          className="p-1 border text-lg mr-2"
-          type="text"
-          value={postlink}
-          onChange={(e) => setPostlink(e.target.value)}
-          placeholder="Enter post link"
-        />
-        <button
-          onClick={delPost}
-          className="bg-red-600 hover:bg-red-500 text-white rounded-lg p-2 border-none"
-        >
-          Delete
-        </button>
+    <div>
+      <div className="w-[110%] border border-black">
+        <div className="header-events p-2">
+          <h2
+            style={{
+              fontWeight: '500',
+              paddingTop: '10px',
+              paddingLeft: '16px',
+            }}
+          >
+            Currently Listed Events (ALL)
+          </h2>
+        </div>
+        <div className="event-list2 overflow-y-auto max-h-[500px] p-2">
+          {eventData.map((item) => {
+            return (
+              <div key={item._id} className="event-1">
+                <b>{item.title}</b>
+                <p>{item.description}</p>
+                <p>
+                  {new Date(item.startTime).toString().slice(0, 15)}
+                  {' - '}
+                  {new Date(item.endTime).toString().slice(0, 15)}
+                </p>
+                <p>
+                  <img
+                    src="/delete.png"
+                    alt="del event"
+                    className="cursor-pointer w-9 m-auto"
+                    onClick={() => handleEventDel(item._id)}
+                  />
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 };
 
-export default DelProfPost;
+export default EventList;

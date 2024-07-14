@@ -20,9 +20,8 @@ body{
 }
 .container_overview{
     margin-top: 75px;
-    margin-left: 330px;
+    /* margin-left: 330px; */
     overflow-y: hidden;
-    margin-right: auto;
 }
 .boxes{
     /* display: flex; */
@@ -138,4 +137,173 @@ textarea{
     flex-direction: row;
     gap: 20px;
     align-items: center;
+}
+@media (max-width: 500px){
+    .two_boxes{
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .Notifs_Feedbacks{
+        display: flex;
+        flex-direction: column;
+    }
+    .container_overview{
+        margin-top: 90px;
+        margin-left: 10px;
+    }
+    .boxes{
+        width: 95%;
+    }
+    .reviews{
+        width: 95%;
+        margin-bottom: 100px;
+    }
+    .Send_notifs{
+        width: 95%;
+        margin-bottom: 120px;
+    }
+    .reviewer{
+        width: 95%;
+    }
+
+}
+@media (min-width: 500px){
+    .two_boxes{
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .Notifs_Feedbacks{
+        display: flex;
+        flex-direction: column;
+    }
+    .container_overview{
+        margin-left: 50px;
+    }
+    .boxes{
+        width: 400px;
+    }
+    .reviews{
+        width: 400px;
+        margin-bottom: 100px;
+    }
+    .Send_notifs{
+        width: 270px;
+        margin-bottom: 120px;
+    }
+    .reviewer{
+        width: 330px;
+    }
+
+}
+@media (min-width: 600px){
+    .container_overview{
+        margin-left: 20px;
+    }
+    .boxes{
+        width: 270px;
+    }
+    .reviews{
+        width: 270px;
+    }
+    .Send_notifs{
+        width: 270px;
+    }
+    .reviewer{
+        width: 220px;
+    }
+    .two_boxes{
+        display: flex;
+        flex-direction: row;
+    
+    }
+    .Notifs_Feedbacks{
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+@media (min-width: 700px){
+    .container_overview{
+        margin-left: 100px;
+    }
+    .boxes{
+        width: 270px;
+    }
+    .reviews{
+        width: 270px;
+    }
+    .Send_notifs{
+        width: 270px;
+    }
+    .reviewer{
+        width: 220px;
+    }
+    .two_boxes{
+        display: flex;
+        flex-direction: row;
+    
+    }
+    .Notifs_Feedbacks{
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+@media (min-width: 768px){
+    .container_overview{
+        margin-left: 120px;
+    }
+    .boxes{
+        width: 300px;
+    }
+    .reviews{
+        width: 300px;
+    }
+    .Send_notifs{
+        width: 300px;
+    }
+    .reviewer{
+        width: 250px;
+    }
+    
+
+}
+
+@media (min-width: 998px){
+    .container_overview{
+        margin-left: 210px;
+    }
+    .boxes{
+        width: 300px;
+    }
+    .reviews{
+        width: 300px;
+    }
+    .Send_notifs{
+        width: 300px;
+    }
+    .reviewer{
+        width: 250px;
+    }
+
+}
+@media (min-width: 1190px){
+    .container_overview{
+        margin-left: 330px;
+    }
+    .boxes{
+        width: 370px;
+    }
+    .reviews{
+        width: 370px;
+    }
+    .Send_notifs{
+        width: 370px;
+    }
+    .reviewer{
+        width: 300px;
+    }
+
 }

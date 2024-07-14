@@ -5,11 +5,16 @@ import Group108 from "../images/Group 108.png";
 import MostFollowedUsers_Admin from './MostFollowedUsers_Admin';
 import TopActiveUsers_Admin from './TopActiveUsers_Admin';
 import NewUserList_Admin from './NewUserList_Admin';
+import MobileAdminSideNav from '../MobileAdminSideNav/MobileAdminSideNav';
 import AdminSideNav from './AdminSideNav/AdminSideNav';
 import DelProfPost from './DelProfPost';
 import MentorApproval from './MentorApproval';
+import DeadUserList from './DeadUserList';
+import TopPosts from './TopPosts';
 
 const Admin_Users = () => {
+    // const isMobile = window.innerWidth <= 600;
+    // console.log(isMobile);
     const [siteData, setSiteData] = useState({});
     const [NewUsrList, setNewUsrList] = useState([]);
 
@@ -24,9 +29,10 @@ const Admin_Users = () => {
     }, []);
     return (
         <>
+        <MobileAdminSideNav/>
+        {/* {isMobile ? <MobileAdminSideNav/> : <AdminSideNav />} */}
         <AdminSideNav />
         <div className="container_user" style={{fontWeight: 'bold' }}>
-            <MentorApproval />
             Users Overview
             <div className="boxes1" style={{fontWeight: 'bold' }}>
                 <div>
@@ -39,6 +45,7 @@ const Admin_Users = () => {
                     <img src={Group108} alt="Total Users"/>
                 </div>
             </div>
+            <MentorApproval />
             <div className="review">
                 <div className="top_of_reviews" style={{fontWeight: 'bold' }}>
                     <div>
@@ -82,6 +89,8 @@ const Admin_Users = () => {
                 
             </div>
             <DelProfPost />
+            <DeadUserList />
+            <TopPosts />
         </div>
         </>
 
