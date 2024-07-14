@@ -6,8 +6,8 @@ import LandingFooter from "./LandingFooter";
 import TopBar from "../components/CommonTopBar/TopBar";
 import LandingFour from "./LandingFour";
 import arrow from "../components/images/arrow.png";
-
-import photoatadmin from "../components/images/photoatadmin.jpg";
+import bombay from "../components/images/bombay.jpg"
+import mnit from "../components/images/mnit.jpg";
 import Landing from "../components/images/Landing page.png";
 import groupphoto from "../components/images/group photo.jpg";
 import video from "../components/images/landingvideo.mp4";
@@ -37,7 +37,7 @@ const LandingPage = () => {
     // automatic sliding 
     const id = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 100000);
+    }, 8000);
     setIntervalId(id);
 
     return () => {
@@ -47,7 +47,7 @@ const LandingPage = () => {
     };
   }, []); 
 
-  const images = [Landing, groupphoto,photoatadmin];
+  const images = [Landing, groupphoto,bombay];
 
   const nextImage = () => {
     setCurrentImage((currentImage + 1) % images.length);
