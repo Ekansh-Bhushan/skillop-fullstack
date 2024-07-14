@@ -130,7 +130,7 @@ const AboutUs = () => {
               </h3>
               <p>
                 Welcome, students! As your advisor, I am here to support you in
-                achieving your goals and navigating your journey.I bring 17
+                achieving your goals and navigating your journey. I bring 17
                 years of experience in DTU , and I'm here to support you with
                 workshops, mentorship, and industry connections.Make the most of
                 this opportunity for learning, growth, and collaboration.
