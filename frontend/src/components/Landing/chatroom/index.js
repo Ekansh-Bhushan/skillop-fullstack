@@ -74,14 +74,15 @@ function Chat({ userData, setProgress }) {
   const redirect_chat_id = new URLSearchParams(window.location.search).get(
     'chat-id'
   );
-
   useEffect(() => {
+    console.log("User Data:", userData); // Log user data
     if (userData !== null) {
       const getChats = async () => {
         try {
           const { data } = await userChats(userData._id);
+          console.log("Chats data:", data); // Log response data
           setChats(data);
-          if (redirect_chat_id.length > 0) {
+          if (redirect_chat_id && redirect_chat_id.length > 0) {
             setCurrentChat(
               data.filter((item) => item._id === redirect_chat_id)[0]
             );
@@ -93,6 +94,8 @@ function Chat({ userData, setProgress }) {
       getChats();
     }
   }, [redirect_chat_id, userData]);
+  
+  
 
   const handleChatClick = (chat) => {
     document.querySelector('.text-chat-prev').style.display = 'none';
