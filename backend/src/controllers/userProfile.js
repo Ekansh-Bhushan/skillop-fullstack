@@ -528,10 +528,6 @@ exports.editExperence = async (req, res) => {
 exports.getMyProfile = async (req, res) => {
     try {
 
-        const authHeader = req.headers["authorization"];
-        const token = authHeader && authHeader.split(' ')[1]; // Get the token part after "Bearer"
-        console.log('JWT Token (Profile):', token);
-
         const user = await User.findById(req.user._id)
             .populate("posts")
             .populate("mentor");

@@ -3,8 +3,7 @@ const jwt = require("jsonwebtoken");
 exports.isAuthorised = async (req, res, next) => {
     try {
         // const token = req.cookies.token;
-        const authHeader = req.headers["authorization"];
-        const token = authHeader && authHeader.split(' ')[1]; // Get the token part after "Bearer"
+        const token = req.headers["authorization"];
 
         // console.log(token);
         if (!token) {
