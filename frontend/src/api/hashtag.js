@@ -25,7 +25,7 @@ const HashtagPage = () => {
         <>
         <Mobilecommonhead/>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <h1 style={{ marginTop: '80px' }}>Posts with #{hashtag}</h1>
+            <h1 style={{ marginTop: '80px' }}>Posts with # <span style={{ color: 'green' }}>#{hashtag}</span></h1>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
                 {posts.length > 0 ? posts.map(post => (
                     <li key={post._id} style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px', width: '80%', position: 'relative' }}>
@@ -36,8 +36,8 @@ const HashtagPage = () => {
                                 <p style={{ margin: 0 }}>{post.user.firstname} {post.user.lastname}</p>
                             </div>
                         </div>
-                        <p style={{ marginTop: '50px' }}><strong>Title:</strong> {post.title}</p>
-                        <p><strong>Caption:</strong> {post.caption}</p>
+                        <p style={{ marginTop: '50px' }}>{post.title}</p>
+                        
                         {post.imageUrls.length > 0 && (
                             <div>
                                 <strong>Images:</strong>
@@ -46,8 +46,11 @@ const HashtagPage = () => {
                                 ))}
                             </div>
                         )}
-                        <p><strong>Likes:</strong> {post.likes}</p>
-                        <p><strong>Comments:</strong> {post.comments}</p>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+                                
+                                <p><strong>Likes:</strong> {post.likes}</p>
+                                <p><strong>Comments:</strong> {post.comments}</p>
+                            </div>
                     </li>
                 )) : <p>No posts found for #{hashtag}</p>}
             </ul>

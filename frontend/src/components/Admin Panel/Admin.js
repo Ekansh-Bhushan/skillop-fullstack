@@ -13,7 +13,6 @@ import TopPosts from './TopPosts';
 import SiteMetrics from './SiteMetrics';
 import MentorApproval from './MentorApproval';
 import DelProfPost from './DelProfPost';
-
 const Admin = () => {
   return (
     <div>

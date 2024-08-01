@@ -16,7 +16,7 @@ import search from '../../components/images/iconamoon_search-light.png';
 import { getNotifications } from '../../api/getNotifications';
 import { MainContext } from '../../context/MainContextProvider';
 
-const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
+const MobileAdminSideNav = ({ setProgress, setReloadPost, reloadPost }) => {
   const [Mentor, setMentor] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isSocietyMember, setIsSocietyMember] = useState(false);
@@ -148,7 +148,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
           reloadPost={reloadPost}
         />
       )}
-      <div className='mobile-head'>
+      <div className='mobile-admin-head'>
         <div className='back-n-logo'>
           <div className='back-btn'>
             {/* <IoIosArrowBack style={{ fontSize: "40px" }} /> */}
@@ -317,27 +317,44 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                   </div>
                 </div>
               </div>
+
+
               <div
-                onClick={() => navigate('/mySlots')}
+                onClick={() => navigate('/Admin_Dashboard')}
                 className='font-semibold text-lg'
               >
-                Slots
+                Dashboard
               </div>
               <div
-                onClick={() => navigate('/book')}  //mybooking se replace
+                onClick={() => navigate('/Admin_Users')}
                 className='font-semibold text-lg'
               >
-                Bookings
+                Users 
               </div>
               <div
                 onClick={() => {
-                  navigate('/myearnings');
+                  navigate('/Admin_Events');
                 }}
                 className='font-semibold text-lg'
               >
-                Earnings
+                Create Event
               </div>
-              <div
+              <div className='mx-6 text-red-500 rounded-lg hover:bg-red-100 p-8'
+                onClick={() => {
+                    // setProgress(40);
+                    navigate('/homepage');
+                    // setTimeout(() => setProgress(100), 300);
+                }}>
+                <span
+                    className={`${
+                    window.location.pathname === '/homepage' ? 'active2' : ''
+                    } hover-effect-bottom`}
+                >
+                    Return To Homepage
+                </span>
+              </div>
+                
+              {/* <div
                 onClick={() => navigate('/requestedMeets')}
                 className='font-semibold text-lg'
               >
@@ -375,7 +392,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
                 className='font-semibold text-lg'
               >
                 Feedback
-              </div>
+              </div> */}
               <div
                 style={{
                   fontWeight: 'bold',
@@ -400,4 +417,4 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
   );
 };
 
-export default Mobilecommonhead;
+export default MobileAdminSideNav;

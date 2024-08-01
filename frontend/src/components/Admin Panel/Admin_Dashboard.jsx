@@ -8,11 +8,15 @@ import React, { useEffect, useState } from 'react';
 import { getNewUserList, getSiteMetrics } from '../../api/adminPanel';
 import AdminSideNav from './AdminSideNav/AdminSideNav';
 import MentorApproval from './MentorApproval';
-
+import MobileAdminSideNav from '../MobileAdminSideNav/MobileAdminSideNav';
 import toast from 'react-hot-toast';
 import { sendNotification } from '../../api/adminPanel';
 import profilepic from "../images/Frame 55250.png";
 
+
+// const isMobile = window.innerWidth <= 600;
+// console.log(isMobile);
+//create
 const Admin_Dashboard = () => {
     // ----------------- SITE METRICS CODE -------------------------
     const [siteData, setSiteData] = useState({});
@@ -48,6 +52,8 @@ const Admin_Dashboard = () => {
   };
     return (
         <>
+        <MobileAdminSideNav/>
+        {/* {isMobile ? <MobileAdminSideNav/> : <AdminSideNav />} */}
         <AdminSideNav />
         <div className="container_overview" style={{ fontSize: '20px', fontWeight: 'bold' }}>
             Admin Panel Overview

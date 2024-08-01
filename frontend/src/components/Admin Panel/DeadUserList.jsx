@@ -13,7 +13,7 @@ const DeadUserList = () => {
   }, []);
 
   return (
-    <div className="border-[2px] border-black p-2 text-lg w-[40%]">
+    <div className="flex flex-col justify-center items-center border-[2px] border-black p-2 text-lg w-[40%]">
       <h2 className="p-7">Dead Users</h2>
       <p className="text-lg">No login in past 30+ days</p>
       <p>{`Total dead users : ${userList.length}`}</p>
