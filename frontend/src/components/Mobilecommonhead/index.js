@@ -109,7 +109,7 @@ const Mobilecommonhead = ({ setProgress, setReloadPost, reloadPost }) => {
       }
     } catch (err) {
       if (!err.response.data.result) {
-        localStorage.removeItem('skilloptoken');
+        // localStorage.removeItem('skilloptoken');
         navigate('/');
         // toast.error('Session expired, Login again!');
       }

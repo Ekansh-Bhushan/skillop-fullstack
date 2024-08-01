@@ -50,7 +50,7 @@ function App() {
   const { progress, setProgress } = useContext(MainContext);
 
   const redirectIfNotAuthorize = () => {
-    const token = localStorage.removeItem('skilloptoken');
+    // const token = localStorage.removeItem('skilloptoken');
     if (pagesToNotRedirect.includes(window.location.pathname)) {
       return;
     }
