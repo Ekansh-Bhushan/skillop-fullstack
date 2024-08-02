@@ -7,7 +7,6 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
 
-  //   console.log(data);
   useEffect(() => {
     const otherUserId = data.members.find((id) => id !== currentUser);
 
@@ -15,38 +14,39 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
       try {
         const { data } = await findUser(otherUserId);
         setUserData(data.result);
-        // console.log(data.result);
+        console.log("User Data:", data.result);
       } catch (e) {
         console.log(e);
       }
     };
     getUserData();
-  }, []);
+  }, [data.members, currentUser]);
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
         const d = await getMessages(chatID);
         setMessages(d.data);
+        console.log("Messages Data:", d.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchMessages();
-  }, []);
+  }, [chatID]);
 
   return (
     <div>
-      {userData && messages.length > 0 && (
+      {userData && (
         <div
           className={`chats-user ${
-            currentUser !== messages[messages.length - 1].senderId &&
-            !messages[messages.length - 1].seen
+            messages.length > 0 &&
+            currentUser !== messages[messages.length - 1]?.senderId &&
+            !messages[messages.length - 1]?.seen
               ? 'bg-yellow-200'
               : 'bg-white'
           }`}
         >
-          {' '}
           <div className='user-section'>
             <img
               id='chat-user-pic'
@@ -60,23 +60,23 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
                 {userData.firstname} {userData.lastname}
               </span>
               <div className='text-[0.96rem] text-gray-800'>
-                <p
-                  className={`${
-                    currentUser !== messages[messages.length - 1].senderId &&
-                    !messages[messages.length - 1].seen
-                      ? 'font-bold'
-                      : ''
-                  }`}
-                >
-                  {currentUser === messages[messages.length - 1].senderId
-                    ? 'You: ' + messages[messages.length - 1].text.slice(0, 25)
-                    : messages[messages.length - 1].text.slice(0, 25)}
-                </p>
-                
+                {messages.length > 0 && (
+                  <p
+                    className={`${
+                      currentUser !== messages[messages.length - 1].senderId &&
+                      !messages[messages.length - 1].seen
+                        ? 'font-bold'
+                        : ''
+                    }`}
+                  >
+                    {currentUser === messages[messages.length - 1].senderId
+                      ? 'You: ' + messages[messages.length - 1].text.slice(0, 25)
+                      : messages[messages.length - 1].text.slice(0, 25)}
+                  </p>
+                )}
               </div>
             </div>
           </div>
-         
         </div>
       )}
     </div>
