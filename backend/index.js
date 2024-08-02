@@ -21,7 +21,7 @@ const meetingRoutes = require('./src/routes/meetingRoutes');
 require('dotenv').config();
 // console.log(process.env.JWT_KEY);
 const app = express();
-const PORT = process.env.PORT | 4000;
+const PORT = process.env.PORT | 2004;
 connectDB();
 // const corsOptions = {
 //     origin: "https://front-nine-jet.vercel.app",
