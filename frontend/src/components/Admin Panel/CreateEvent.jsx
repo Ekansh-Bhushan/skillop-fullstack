@@ -3,7 +3,10 @@ import toast from 'react-hot-toast';
 import { createEvent } from '../../api/adminPanel';
 import AdminSideNav from './AdminSideNav/AdminSideNav';
 import EventList from "./EventList.jsx";
+import MobileAdminSideNav from '../MobileAdminSideNav/MobileAdminSideNav';
 const CreateEvent = () => {
+  // const isMobile = window.innerWidth <= 600;
+  // console.log(isMobile);
   const [Desc, setDesc] = useState('');
   const [Title, setTitle] = useState('');
   const [StartTime, setStartTime] = useState('');
@@ -39,9 +42,11 @@ const CreateEvent = () => {
 
   return (
     <>
+    <MobileAdminSideNav/>
+        {/* {isMobile ? <MobileAdminSideNav/> : <AdminSideNav />} */}
     <AdminSideNav />
-    <div className='flex flex-row  my-[70px] mx-[250px] gap-[200px]'>
-    <div className="flex flex-col max-h-[700px] items-center justify-center gap-4 border border-black p-2 w-[25%]">
+    <div className='flex flex-row sm:flex-col my-[70px] mx-[250px] gap-[200px] sm:gap-[50px] sm:mx-[50px] md:gap-[200px]'>
+    <div className="flex flex-col items-center justify-center gap-4 border border-black p-2 h-[85vh] w-full max-w-[500px] mx-auto">
       <h2>Create Event</h2>
       <input
         value={Title}
@@ -91,7 +96,8 @@ const CreateEvent = () => {
         Create
       </button>
     </div>
-    <EventList /></div>
+    <EventList />
+    </div>
     </>
   );
 };

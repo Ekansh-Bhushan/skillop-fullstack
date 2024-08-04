@@ -50,7 +50,7 @@ function App() {
   const { progress, setProgress } = useContext(MainContext);
 
   const redirectIfNotAuthorize = () => {
-    localStorage.removeItem('skilloptoken');
+    // const token = localStorage.removeItem('skilloptoken');
     if (pagesToNotRedirect.includes(window.location.pathname)) {
       return;
     }
@@ -93,7 +93,9 @@ function App() {
       }
     };
     if (localStorage.getItem('skilloptoken')) {
+      const token = localStorage.getItem('skilloptoken');
       console.log('token found going to fetch user');
+      console.log(token);
       fetchUser();
     } else {
       console.log('token not found redirecting to login/signup');

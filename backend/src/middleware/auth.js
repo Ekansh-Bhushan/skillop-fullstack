@@ -12,6 +12,7 @@ exports.isAuthorised = async (req, res, next) => {
                 err: "Unauthorized",
             });
         }
+        console.log('JWT Token (Middleware):', token);
         // console.log(process.env.JWT_KEY);
         const decoded = jwt.verify(token, process.env.JWT_KEY);
         // console.log(decoded, decoded._id)

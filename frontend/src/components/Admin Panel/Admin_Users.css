@@ -12,6 +12,8 @@ body{
 .container_user{
     margin-top: 75px;
     margin-left: 330px;
+    margin-left: auto;
+    margin-right: auto;
     
 }
 .boxes1{
@@ -87,4 +89,110 @@ body{
     flex-direction: row;
     gap: 20px;
     align-items: center;
+}
+
+    @media (max-width: 500px){
+        .container_user{
+            margin-top: 100px;
+            margin-left: 5px;
+            
+            
+        }
+        .boxes1{
+            width: 95%;
+        }
+        .review{
+            width: 95%;
+        }
+        .reviewers{
+            width: 380px;
+            /* margin: 10px; */
+            margin-top: 10px;
+            gap : 1px ;
+        }
+        .View_profile{
+            display: none;
+        }
+    }
+
+@media (min-width: 500px){
+    .container_user{
+        
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    .boxes1{
+        width: 95%;
+    }
+    .review{
+        width: 95%;
+    }
+    .reviewers{
+        width: 400px;
+        margin: 10px;
+        margin-top: 10px;
+        gap : 4px ;
+    }
+
+}
+@media (min-width: 600px){
+    .container_user{
+        
+        margin-left: 20px;
+        
+    }
+    .boxes1{
+        width: 550px;
+    }
+    .review{
+        width: 550px;
+    }
+    .reviewers{
+        width: 500px;
+        margin: 10px;
+        margin-top: 10px;
+        gap : 4px ;
+    }
+
+}
+@media (min-width: 700px){
+    .container_user{
+        
+        margin-left: 90px;
+        
+    }
+    /* .boxes1{
+        width: 400px;
+    }
+    .review{
+        width: 400px;
+    } */
+
+}
+@media (min-width: 768px){
+    .container_user{
+        
+        margin-left: 120px;
+        
+    }
+    
+
+}
+
+@media (min-width: 998px){
+    .container_user{
+        
+        margin-left: 200px;
+        
+    }
+
+}
+@media (min-width: 1190px){
+    .container_user{
+        /* margin-top: 75px; */
+        margin-left: 300px;
+        
+    }
+
 }
