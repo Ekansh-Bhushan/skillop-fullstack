@@ -16,28 +16,23 @@ function Earning({ userData, setProgress, Mentor}) {
   const [earnings, setEarnings] = useState({});
 
   useEffect(() => {
-    console.log(userData.isMentor);
-
     const getEarn = async () => {
       try {
         setProgress(40);
         const { data } = await getEarnings();
         setEarnings(data.result);
-        console.log(data.result);
         setProgress(100);
         if (!data.result) {
           toast.error("Error fetching earnings!");
         }
       } catch (error) {
-        // toast.error("Error fetching earnings");
-        console.log(error.response.data.error);
+        toast.error(error)
       }
     };
     getEarn();
   }, []);
 
   if (!Mentor) {
-    console.log("hi ", userData.firstname, userData.isMentor);
     navigate("/homepage");
     toast.error("Earning page is 🔒 locked\nBecome a MENTOR 😎 to unlock!");
     return null;
