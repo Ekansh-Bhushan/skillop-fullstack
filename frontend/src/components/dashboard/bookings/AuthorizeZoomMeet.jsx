@@ -3,13 +3,10 @@ import Profileandevents from '../../Landing/Profileandevents';
 
 const AuthorizeZoomMeet = ({ setProgress }) => {
   const meetDetailsArr = window.location.href.split('/');
-  // console.log(`redirect_uri=https://skillop.in/confirm-booking/${path}`);
-  console.log(meetDetailsArr);
   let path = '';
   for (let i = 4; i < meetDetailsArr.length; i++) {
     path += '/' + meetDetailsArr[i];
   }
-  console.log("magic",path)
 
   return (
     <div>
