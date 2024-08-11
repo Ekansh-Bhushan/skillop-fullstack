@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { findUser } from '../api/userRequest';
 import user from './images/user.png';
 import { getMessages } from '../api/messageRequest';
+import { toast } from 'react-hot-toast';
 
 const Conversation = ({ data, currentUser, chat, chatID }) => {
   const [userData, setUserData] = useState(null);
@@ -14,9 +15,8 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
       try {
         const { data } = await findUser(otherUserId);
         setUserData(data.result);
-        console.log("User Data:", data.result);
       } catch (e) {
-        console.log(e);
+        toast.error(e);
       }
     };
     getUserData();
@@ -27,9 +27,8 @@ const Conversation = ({ data, currentUser, chat, chatID }) => {
       try {
         const d = await getMessages(chatID);
         setMessages(d.data);
-        console.log("Messages Data:", d.data);
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     };
     fetchMessages();
