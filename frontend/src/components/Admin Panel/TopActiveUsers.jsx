@@ -6,10 +6,8 @@ const TopActiveUsers = () => {
 
   useEffect(() => {
     const getData = async () => {
-      console.log('use eff - most active');
       const data = await getMostActiveUsers();
       setUserList(data.data.result);
-      console.log(data);
     };
     getData();
   }, []);
