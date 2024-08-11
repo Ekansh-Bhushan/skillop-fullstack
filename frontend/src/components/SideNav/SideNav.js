@@ -35,7 +35,7 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
       localStorage.removeItem('skilloptoken');
       
     } catch (error) {
-      console.log(error);
+      toast.error(error)
     }
     toast.success('Logged out');
     navigate('/login');
@@ -69,8 +69,6 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
   };
 
   const handleEarnings = () => {
-    console.log('is fetched ', isFetched);
-    console.log('is mentor ', Mentor);
 
     if (isFetched) {
       setProgress(40);
@@ -100,7 +98,6 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
       setNotifyList(NotiData.data.result);
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log('Unable to fetch notifications', err);
     }
   };
 
