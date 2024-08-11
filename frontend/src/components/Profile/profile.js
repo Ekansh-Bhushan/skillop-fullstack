@@ -80,21 +80,21 @@ const Profile = ({ setProgress }) => {
     try {
       await updateProfile({ about: journeyContent });
     } catch (err) {
-      console.log("Unable to update about ", err);
+      toast.error("Unable to update about ", err);
     }
   };
   const updatePastExp = async () => {
     try {
       await updateProfile({ pastExp: pastExpContent });
     } catch (err) {
-      console.log("Unable to update past journey ", err);
+      toast.error("Unable to update past journey ", err);
     }
   };
   const updateFuturePlans = async () => {
     try {
       await updateProfile({ futurePlans: futurePlansContent });
     } catch (err) {
-      console.log("Unable to update future plans ", err);
+      toast.error("Unable to update future plans ", err);
     }
   };
 
@@ -168,11 +168,9 @@ const Profile = ({ setProgress }) => {
         setUpdateDom(!updateDom);
         // window.location.reload();
       } else {
-        // If the user cancels, do nothing or provide feedback if needed
-        console.log("Deletion cancelled by the user");
+        toast.error("Deletion cancelled by the user");
       }
     } catch (err) {
-      console.log("Error deleting exp", err);
       toast.error(err.response.data.err);
     }
   };
@@ -189,7 +187,6 @@ const Profile = ({ setProgress }) => {
         setUpdateDom(!updateDom);
         // window.location.reload();
       } catch (err) {
-        console.log("Error deleting edu", err);
         toast.error(err.response.data.err);
       }
     }
@@ -206,7 +203,7 @@ const Profile = ({ setProgress }) => {
         setpastExpContent(userData.data.result.pastExp || "");
         setfuturePlansContent(userData.data.result.futurePlans || "");
       } catch (err) {
-        console.log("Unable to fetch user details", err);
+        toast.error("Unable to fetch user details", err);
       }
       setIsLoading(false);
     };
