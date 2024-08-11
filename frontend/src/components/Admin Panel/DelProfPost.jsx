@@ -8,7 +8,6 @@ const EventList = () => {
   const fetchEvents = async () => {
     const events = await fetchUpcomingEvents();
     setEventData(events.data.result);
-    console.log(events);
   };
 
   const handleEventDel = async (eventID) => {
@@ -17,7 +16,6 @@ const EventList = () => {
       await fetchEvents();
       toast.success('Event Deleted');
     } catch (err) {
-      console.log(err);
       toast.error(err.response.data.message);
     }
   };
