@@ -44,7 +44,6 @@ export default function RightProfileComp({ userDatamain }) {
       const { data } = await createChat(req);
       setChatId(data._id);
     } catch (error) {
-      console.log(error);
       toast.error("chat already exists");
     }
   };
@@ -53,7 +52,7 @@ export default function RightProfileComp({ userDatamain }) {
       const userData = await findUser(userId);
       setUserDetails(userData.data.result);
     } catch (err) {
-      console.log("Unable to fetch user details", err);
+      toast.error(err)
     }
   };
 
@@ -65,7 +64,6 @@ export default function RightProfileComp({ userDatamain }) {
       creatingChat();
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log("Unable to follow/unfollow user at the moment", err);
     }
   };
 
@@ -85,7 +83,7 @@ export default function RightProfileComp({ userDatamain }) {
         setShowFollowBtn(!currentUser.followings.includes(userId));
       }
     } catch (err) {
-      console.log("Unable to fetch followings", err);
+      toast.error(err)
     }
   };
 
@@ -97,7 +95,7 @@ export default function RightProfileComp({ userDatamain }) {
       setChatId(id);
       }
        catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
   
