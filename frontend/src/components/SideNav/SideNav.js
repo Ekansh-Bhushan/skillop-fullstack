@@ -111,9 +111,7 @@ const SideNav = ({ setProgress, Mentor, isAdmin, isSocietyMember, isFetched}) =>
       data.forEach(async (chat) => {
         const data2 = await getMessages(chat._id);
         data2.data.forEach((msg) => {
-          console.log('looping through chats...');
           if (!msg.seen && msg.senderId !== CurrUsrId) {
-            console.log('This msg cause notification', msg);
             setShowChatNotification(true);
             return;
           }
