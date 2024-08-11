@@ -24,10 +24,9 @@ const MyCustomGoogleButton = ({ setIsSignedIn }) => {
         config
       )
       .then((res) => {
-        // console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err);
       });
   };
 
@@ -36,10 +35,8 @@ const MyCustomGoogleButton = ({ setIsSignedIn }) => {
       setGtoken(codeResponse.code);
       handleToken(codeResponse.code);
       setIsSignedIn(true);
-      console.log("by google : ", codeResponse.code);
     },
     onError: (err) => {
-      console.log(err);
       toast.error(err.string);
     },
     scope: "openid email profile https://www.googleapis.com/auth/calendar",
