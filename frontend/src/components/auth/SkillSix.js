@@ -25,7 +25,6 @@ const SkillSix = ({ setProgress }) => {
     const formData2 = new FormData();
     formData1.append('profilePic', profilePhoto);
     formData2.append('profileBackgroundPic', coverPhoto);
-    console.log(formData1, formData2);
 
     const uploadprofilepic = (data) => {
       const token = localStorage.getItem('skilloptoken');
