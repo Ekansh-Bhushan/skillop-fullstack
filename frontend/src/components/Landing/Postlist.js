@@ -111,7 +111,7 @@ const Postlist = ({
       setLoading(true);
       try {
         const { data } = await getAllPost(limit, skip);
-        setLength((prevLen) => data.length);
+        setLength(data.length);
         setPosts((prevPosts) => [...prevPosts, ...data.result]);
         setSkip((prevSkip) => prevSkip + limit);
         setLoading(false);

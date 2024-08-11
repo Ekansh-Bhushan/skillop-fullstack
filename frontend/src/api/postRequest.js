@@ -35,7 +35,7 @@ export const getAllPost = (limit = 100, skip = 0) => {
     const config = {
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
+            "Authorization": `${token}`,
         },
         withCredentials: true,
     };
