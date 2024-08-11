@@ -48,8 +48,7 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
             await IntroVideoUploadApi(formData);
             toast.success("Intro video uploaded!");
         } catch (err) {
-            console.log(err);
-            // toast.error(err.data.response.data.message);
+            toast.error(err);
         }
         setIsUploading(false);
         window.location.reload();
@@ -60,7 +59,6 @@ const IntroVideo = ({ introVideoUrl, onClose, publicView }) => {
             await IntroVideoDelApi();
             toast.success("Intro video deleted!");
         } catch (err) {
-            console.log(err);
             toast.error(err.data.response.data.message);
         }
         window.location.reload();
