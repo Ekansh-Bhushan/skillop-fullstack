@@ -69,10 +69,9 @@ function RequestedMeets({
       try {
         const { data } = await getAcceptedBookings();
         if (!data.result) toast.error(data.message);
-        // console.log(data.result);
         setAccepted(data.result);
       } catch (error) {
-        if (error.response) console.log(error.response.data.message);
+        if (error.response) toast.error(error.response.data.message);
       }
     };
 
@@ -82,10 +81,9 @@ function RequestedMeets({
       try {
         const { data } = await getPendingMeet();
         if (!data.result) toast.error(data.message);
-        // console.log(data.result);
         setPending(data.result);
       } catch (error) {
-        if (error.response) console.log(error.response.data.message);
+        if (error.response) toast.error(error.response.data.message);
       }
     };
     getPendMeet();
@@ -94,10 +92,9 @@ function RequestedMeets({
       try {
         const { data } = await getCompletedMeet();
         if (!data.result) toast.error(data.message);
-        // console.log(data.result);
         setCompleted(data.result);
       } catch (error) {
-        if (error.response) console.log(error.response.data.message);
+        if (error.response) toast.error(error.response.data.message);
       }
     };
     getCompMeet();
@@ -106,19 +103,15 @@ function RequestedMeets({
     else if (displaying === "completed") setBook(completed);
   }, [displaying]);
   useEffect(() => {
-    console.log("useEffect");
-    
-
     const getUpMeet = async () => {
       try {
         const { data } = await getAcceptedBookings();
         if (!data.result) toast.error(data.message);
-        // console.log(data.result);
         setAccepted(data.result);
         setBook(data.result);
         setInitialRequest(true);
       } catch (error) {
-        if (error.response) console.log(error.response.data.message);
+        if (error.response) toast.error(error.response.data.message);
       }
     };
 
@@ -200,7 +193,6 @@ function RequestedMeets({
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           setBookingData(item);
-                          console.log(item);
                           setShowBookPopUp(true);
                         }}
                         className="individual-session"

@@ -34,7 +34,7 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
         const { data } = await getActualAvail();
         setAvail(data.result);
       } catch (error) {
-        console.log(error);
+        toast.error(error);
       }
     };
     getSlots();
@@ -75,11 +75,9 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
   const AddSlot = async (data) => {
     try {
       await postSlot(data);
-      // if (Object.keys(data.actualAvailability).length > 0)
       toast.success('Slot added!');
     } catch (error) {
       toast.error(error.response.data.message);
-      console.log(error); // toast it  error.response.data.message
     }
   };
   // AddSlot();
@@ -116,7 +114,7 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
       await AddSlot(resBody);
       setRefresh(!refresh);
     } catch (err) {
-      console.log(err);
+      toast.error(err);
     }
   };
 
@@ -132,18 +130,16 @@ function Dashboard({ userData, setProgress, shouldbevisible, Mentor }) {
       await AddSlot(JSON.stringify(resBody));
       setRefresh(!refresh);
     } catch (err) {
-      console.log(err);
+      toast.error(err);
     }
   };
 
   const handleIndividualSlotDel = async (day, slot) => {
     try {
       const res = await delIndividualSlot(day, slot);
-      console.log('del slor resp ', res);
       setRefresh(!refresh);
       toast.success('Slot deleted');
     } catch (err) {
-      console.log('Error deleting slot', err);
       toast.error(err?.response?.data?.message);
       toast.error(err?.response?.data?.err);
     }

@@ -11,7 +11,6 @@ const HashtagPage = () => {
         const fetchPosts = async () => {
             try {
                 const response = await axios.get(`https://skillop.in/api/hashtag/get/posts/${hashtag}`);
-                console.log('Response:', response);  // Debug log
                 setPosts(response.data.result || []);  // Assuming response.data.result is an array of posts
             } catch (error) {
                 console.error('Error fetching posts:', error);

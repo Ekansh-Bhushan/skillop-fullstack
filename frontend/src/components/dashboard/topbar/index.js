@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../images/logo.png";
 import axios from "axios";
 import { logoutUser } from "../../../api/logoutRequest";
+import toast from "react-hot-toast";
 
 function Topbar({setProgress}) {
     const navigate = useNavigate();
@@ -10,11 +11,10 @@ function Topbar({setProgress}) {
         try {
             setProgress(30);
             const { data } = await logoutUser();
-            // console.log(data);
             setProgress(100);
             navigate("/");
         } catch (error) {
-            console.log(error);
+            toast.error(error);
         }
         localStorage.removeItem("skilloptoken");
         navigate("/");

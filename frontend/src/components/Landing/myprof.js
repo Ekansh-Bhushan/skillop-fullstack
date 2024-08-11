@@ -33,14 +33,10 @@ function MyProfile({ userData, isMyProfile, myUser }) {
         receiverId: userData._id,
       };
       const { data } = await createChat(req);
-
-      // console.log(data);
     } catch (error) {
-      console.log(error);
       toast.error("chat already exists");
     }
   };
-  // console.log(myUser);
   myUser._id === userData._id ? (isMyProfile = true) : (isMyProfile = false);
   return (
     <>

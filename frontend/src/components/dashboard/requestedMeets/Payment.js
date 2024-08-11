@@ -16,10 +16,7 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
   const e = new URLSearchParams(search).get("e");
   const userid = new URLSearchParams(search).get("userid");
   const charge = new URLSearchParams(search).get("charge");
-  console.log(day, s, e, userid, charge, mentorid);
-
   const [paymentConformationPic, setPaymentConformationPic] = useState(null);
-
   const navigate = useNavigate();
 
   const fetchUser = async () => {
@@ -49,8 +46,6 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
       formData.append("date", day);
       formData.append("s", s);
       formData.append("e", e);
-      console.log("formdata", formData);
-
       const response = await sendMeetRequest(
         mentorid,
         day,
@@ -60,7 +55,6 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
         formData
       );
       if (response.data.result) {
-        console.log(response.data.result);
         toast.success(response.data.message);
         navigate(`/mybookings`);
       } else {
@@ -68,7 +62,6 @@ const Payment = ({ setProgress, Mentor, isFetched, notifyList }) => {
       }
     } catch (error) {
       toast.error(error.response.data.message);
-      console.log(error);
     }
   };
 

@@ -16,9 +16,6 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
     const e = new URLSearchParams(search).get("e");
     const userid = new URLSearchParams(search).get("userid");
     const charge = new URLSearchParams(search).get("charge");
-
-    console.log(day, s, e, userid, charge, mentorid);
-
     const navigate = useNavigate();
 
     const fetchUser = async () => {
@@ -27,12 +24,10 @@ const ConfirmBooking = ({ setProgress, Mentor, isFetched, notifyList }) => {
             user = await getMentorData(mentorid);
             if (user.data.result) {
                 setData(user.data.result);
-                console.log(user.data.result);
             } else {
                 toast.error(user.data.message);
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.response.data.message);
         }
     };
