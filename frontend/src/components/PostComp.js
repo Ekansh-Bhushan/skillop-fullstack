@@ -55,7 +55,7 @@ const PostComp = ({
       await likeOrDislikePost(_id);
       await fetchLikers();
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
 
@@ -68,7 +68,7 @@ const PostComp = ({
       setFetchingComments(false);
 
     } catch (err) {
-      console.log('Unable to get comments ', err);
+      toast.error(err);
     }
   };
 
@@ -82,10 +82,9 @@ const PostComp = ({
         await deletePost(_id)
         toast.success("Deleted successfully!");
       }else {
-        console.log("Deletion cancelled by the user");
+        toast.error("Deletion cancelled by the user")
       }
     } catch (err) {
-      console.log("Error deleting Post", err);
       toast.error(err.response.data.err);
     }
   };
@@ -143,7 +142,7 @@ const PostComp = ({
       setFetchingLikers(false);
 
     } catch (err) {
-      console.log('Unable to fetch likers ', err);
+      toast.error(err);
     }
   };
 
@@ -164,7 +163,7 @@ const PostComp = ({
         setPost(data.result);
         setLiked(data.result.likes.includes(userData._id));
       } catch (error) {
-        console.log(error);
+        toast.error(error);
       }
     };
     getPost();
@@ -173,9 +172,6 @@ const PostComp = ({
   useEffect(() => {
     // Establish a connection to the socket on component mount
     socket.on('newPost', (newPost) => {
-      // Handle the new post, you might want to update the post list or do other actions
-      console.log('New post received:', newPost);
-      // For simplicity, you can trigger a full post refresh here, but in a real-world app, you would handle this more efficiently
       fetchComments();
       fetchLikers();
     });
