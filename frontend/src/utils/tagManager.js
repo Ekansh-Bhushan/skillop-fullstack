@@ -44,7 +44,6 @@ class TaggingManager {
     try {
       this.setProgress(30);
       const { data } = await this.getUserFromUsername(username);
-      console.log(data);
       if (data.result) {
         this.navigate(`/public-profile/${data.result._id}`);
         this.setProgress(100);
@@ -65,7 +64,7 @@ class TaggingManager {
         this.navigate(`/hashtag/${hashtag}`);
         this.setProgress(100);
     } catch (error) {
-        console.log(error);
+        toast.error(error);
         this.setProgress(100);
     }
 };
