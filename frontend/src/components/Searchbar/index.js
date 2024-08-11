@@ -12,6 +12,7 @@ import {
   getSearchResultByPost,
 } from "../../api/searchFilter";
 import { all } from "axios";
+import toast from "react-hot-toast";
 
 function Searchbar({setProgress}) {
   const [collegeFilter, setCollegeFilter] = useState(false);
@@ -48,7 +49,6 @@ function Searchbar({setProgress}) {
 
   const onChangeFilter = async (e) => {
     setFilterFields({ ...filterFields, [e.target.name]: e.target.value });
-    console.log(filterFields);
     setSearching(true);
     if (searchPeople) {
       try {
@@ -62,7 +62,7 @@ function Searchbar({setProgress}) {
         );
         setUsersData(data.result);
       } catch (error) {
-        console.log(error);
+        toast.error(error);
       }
       setSearching(false);
     } else {
@@ -70,7 +70,7 @@ function Searchbar({setProgress}) {
         const { data } = await getSearchResultByPost(filterFields.keyword);
         setUsersData(data.result);
       } catch (error) {
-        console.log(error);
+        toast.error(error);
       }
       setSearching(false);
     }
@@ -100,8 +100,6 @@ function Searchbar({setProgress}) {
     navigate(`/bookslot/${id}`);
     window.location.reload();
   };
-  console.log(setUsers);
-
   return (
     <>
       <Mobilecommonhead />
