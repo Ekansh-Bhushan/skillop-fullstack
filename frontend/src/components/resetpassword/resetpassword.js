@@ -20,10 +20,6 @@ function ResetPasswordPage() {
             password: newPassword,
             token: resetPasswordToken,
         });
-        console.log(data, {
-            password: newPassword,
-            token: resetPasswordToken,
-        });
 
         if (data.result) {
             toast.success(data.message);
