@@ -56,7 +56,6 @@ export const updateMeetCharge = (rate) => {
 
 export const delIndividualSlot = (day, slot) => {
   const token = localStorage.getItem('skilloptoken');
-  console.log('attempting to del slot ', day, slot);
   const config = {
     headers: {
       'Content-Type': 'application/json',

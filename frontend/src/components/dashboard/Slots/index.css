@@ -154,7 +154,6 @@ body {
 .partition-d {
   width: 90%;
   height: 3px;
-
   display: flex;
   justify-content: center;
   margin-left: auto;
@@ -286,7 +285,6 @@ body {
 
   .schedules-dash {
     position: relative;
-    /* top: 80px; */
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -360,7 +358,6 @@ body {
 
   .schedules-dash {
     position: relative;
-    /* top: 80px; */
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -830,15 +827,12 @@ body {
   height: 100vh;
   position: relative;
   top: 50px;
-  /* padding: 20px; */
   padding-top: 30px;
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
   margin-left: auto;
   margin-right: auto;
   border-right: 1px solid #00000026;
-  /* padding: 20px; */
 }
 
 .heading-session-status {
@@ -856,7 +850,6 @@ body {
   padding: 5px;
   padding-inline: 0px;
   transition: 0.2s;
-  /* border-radius: 15px; */
 }
 
 .up {
@@ -913,7 +906,6 @@ body {
     display: flex;
     gap: 40px;
     font-size: 17px;
-    /* border-bottom: 1px solid #00000026; */
     width: 100%;
     padding: 10px;
     margin-inline: -15vw;
@@ -925,15 +917,12 @@ body {
     height: 100vh;
     position: relative;
     top: 50px;
-    /* padding: 20px; */
     padding-top: 30px;
     display: flex;
     flex-direction: column;
-    /* gap: 10px; */
     margin-left: auto;
     margin-right: auto;
     border-right: 1px solid #00000026;
-    /* padding: 20px; */
     margin-inline: 0vw;
   }
   .meet-rate {
@@ -957,7 +946,6 @@ body {
     display: flex;
     gap: 40px;
     font-size: 17px;
-    /* border-bottom: 1px solid #00000026; */
     width: 100%;
     padding: 10px;
     margin-inline: -15vw;
@@ -969,15 +957,12 @@ body {
     height: 100vh;
     position: relative;
     top: 50px;
-    /* padding: 20px; */
     padding-top: 30px;
     display: flex;
     flex-direction: column;
-    /* gap: 10px; */
     margin-left: auto;
     margin-right: auto;
     border-right: 1px solid #00000026;
-    /* padding: 20px; */
     margin-inline: 0vw;
   }
   .meet-rate {
@@ -1006,7 +991,6 @@ body {
     display: flex;
     gap: 40px;
     font-size: 17px;
-    /* border-bottom: 1px solid #00000026; */
     width: 100%;
     padding: 10px;
     margin-inline: -15vw;
@@ -1019,15 +1003,12 @@ body {
     height: 100vh;
     position: relative;
     top: 50px;
-    /* padding: 20px; */
     padding-top: 30px;
     display: flex;
     flex-direction: column;
-    /* gap: 10px; */
     margin-left: auto;
     margin-right: auto;
     border-right: 1px solid #00000026;
-    /* padding: 20px; */
     margin-inline: 0vw;
   }
   .meet-rate {
@@ -1082,9 +1063,7 @@ body {
   }
   .meet-rate {
     position: absolute;
-    /* height: 120px; */
     right: 5vw;
-    /* margin-inline: auto; */
     top: 65vh;
     width: 90%;
     padding: 10px 0px;
@@ -1122,7 +1101,6 @@ body {
   .individual-session {
     width: 88vw;
     margin: 10px;
-    /* background-color: rgba(208, 255, 230, 1); */
     align-items: center;
     display: flex;
     position: relative;

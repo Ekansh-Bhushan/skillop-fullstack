@@ -26,11 +26,7 @@ export const getMentorAvaibility = (date, mentorId) => {
         },
         withCredentials: true,
     };
-    // give date in body
-    // console.log("hello")
     return API.post(`/api/mentor/availability/${mentorId}`, date, config);
-
-    // return API.get(`/api/mentor/availability/${mentorId}`, config);
 };
 
 export const becomeMentor = () => {

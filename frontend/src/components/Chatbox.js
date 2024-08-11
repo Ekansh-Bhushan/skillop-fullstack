@@ -46,7 +46,7 @@ const Chatbox = ({
         const { data } = await findUser(otherUserId);
         setUserData(data.result);
       } catch (e) {
-        console.log(e);
+      toast.error(e);
       }
     };
     if (chat !== null) getUserData();
@@ -85,7 +85,8 @@ const Chatbox = ({
         document.querySelector('.chatbox-messages').scrollTop =
           document.querySelector('.chatbox-messages').scrollHeight;
       } catch (e) {
-        console.log(e);
+        
+    toast.error(e);
       }
 
       // send message to socket server
@@ -104,10 +105,9 @@ const Chatbox = ({
     const fetchMessages = async () => {
       try {
         const { data } = await getMessages(chat._id);
-        // console.log(data);
         setMessages(data);
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     };
     fetchMessages();
@@ -159,11 +159,9 @@ const Chatbox = ({
                 .slice(4, 15);
               if (message._id && message.senderId !== currentUser && !message.seen) {
                 try {
-                  console.log("going to seen this msg - ", message._id)
                   seenMessage(message._id);
-                  // setReloadChats(!reloadChats);
                 } catch (err) {
-                  console.log('Unable to seen msgs', err);
+                  toast.error(err);
                 }
               }
               return (

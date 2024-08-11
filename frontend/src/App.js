@@ -71,9 +71,7 @@ function App() {
     const fetchUser = async () => {
       try {
         const { data } = await getUser();
-        console.log(data);
         if (data.result) {
-          console.log('authorized user ');
           setUserData(data.result);
           setMentor(data.result.isMentor);
           setIsAdmin(data.result.isAdmin);
@@ -81,24 +79,18 @@ function App() {
           setIsFetched(true);
           setNotifyList(data.result.notifications);
         } else {
-          console.log('Unauthorize : redirecting...');
           redirectIfNotAuthorize();
         }
       } catch (err) {
         if (!err.response.data.result) {
-          console.log(err.response.data.result);
           redirectIfNotAuthorize();
         }
-        console.log('Unable to fetch user', err);
       }
     };
     if (localStorage.getItem('skilloptoken')) {
       const token = localStorage.getItem('skilloptoken');
-      console.log('token found going to fetch user');
-      console.log(token);
       fetchUser();
     } else {
-      console.log('token not found redirecting to login/signup');
       redirectIfNotAuthorize();
     }
   }, []);
