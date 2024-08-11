@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Profileandevents from '../../Landing/Profileandevents';
-
 import {
   acceptMeet,
   getCompletedMeet,
@@ -61,34 +60,19 @@ function Bookings({ userData, setProgress, Mentor }) {
       setCharge(res.data.result.chargePerHour);
       toast.success('Charge per hour updated');
     } catch (err) {
-      console.log(err);
       toast.error(err.response.data.message);
     }
     window.location.reload();
   };
 
   useEffect(() => {
-    console.log("use eff 1")
-    // setDisplaying("upcomming");
-    // const getbookings = async () => {
-    //     try {
-    //         const { data } = await getscheduledbookings();
-    //         console.log(data.result);
-    //         setBook(data.result);
-    //     } catch (error) {
-    //         toast.error(error.response.data.message);
-    //     }
-    // };
-    // getbookings();
-
     const getUpMeet = async () => {
       try {
         const { data } = await getUpcommingBookings();
         if (!data.result) toast.error(data.message);
-        // console.log(data.result);
         setUpcomming(data.result);
       } catch (error) {
-        if (error.response) console.log(error.response.data.message);
+        if (error.response) toast.error(error.response.data.message);
       }
     };
 
@@ -98,11 +82,9 @@ function Bookings({ userData, setProgress, Mentor }) {
       try {
         const { data } = await getPendingMeet();
         if (!data.result) toast.error(data.message);
-        // console.log(data.result);
         setPending(data.result);
-        // console.log("hhh", data.result);
       } catch (error) {
-        if (error.response) console.log(error.response.data.message);
+        if (error.response) toast.error(error.response.data.message);
       }
     };
     getPendMeet();
@@ -111,10 +93,9 @@ function Bookings({ userData, setProgress, Mentor }) {
       try {
         const { data } = await getCompletedMeet();
         if (!data.result) toast.error(data.message);
-        // console.log(data.result);
         setCompleted(data.result);
       } catch (error) {
-        if (error.response) console.log(error.response.data.message);
+        if (error.response) toast.error(error.response.data.message);
       }
     };
     getCompMeet();
@@ -125,29 +106,15 @@ function Bookings({ userData, setProgress, Mentor }) {
 
 
   useEffect(() => {
-    console.log("use eff 2")
-    // setDisplaying("upcomming");
-    // const getbookings = async () => {
-    //     try {
-    //         const { data } = await getscheduledbookings();
-    //         console.log(data.result);
-    //         setBook(data.result);
-    //     } catch (error) {
-    //         toast.error(error.response.data.message);
-    //     }
-    // };
-    // getbookings();
-
     const getUpMeet = async () => {
       try {
         const { data } = await getUpcommingBookings();
         if (!data.result) toast.error(data.message);
-        // console.log(data.result);
         setUpcomming(data.result);
         setBook(data.result);
         setInitialRequest(true);
       } catch (error) {
-        if (error.response) console.log(error.response.data.message);
+        if (error.response) toast.error(error.response.data.message);
       }
     };
 
@@ -225,7 +192,6 @@ function Bookings({ userData, setProgress, Mentor }) {
                         style={{ cursor: 'pointer' }}
                         onClick={() => {
                           setBookingData(item);
-                          console.log(item);
                           setShowBookPopUp(true);
                         }}
                         className='individual-session'
