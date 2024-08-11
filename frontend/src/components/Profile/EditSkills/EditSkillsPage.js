@@ -53,7 +53,7 @@ function EditSkillsPage({ setProgress }) {
         }
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error)
     }
     setProgress(100);
     navigate('/Profile');
