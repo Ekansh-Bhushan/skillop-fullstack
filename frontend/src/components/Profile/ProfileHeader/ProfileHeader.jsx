@@ -11,6 +11,7 @@ import allTag from '../../images/allTag.png';
 import societytag from '../../images/member.png';
 import mentortag from '../../images/mentor tag.png'
 import { MainContext } from '../../../context/MainContextProvider';
+import toast from 'react-hot-toast';
 
 const ProfileHeader = () => {
   const navigate = useNavigate();
@@ -36,12 +37,10 @@ const ProfileHeader = () => {
       }
     } catch (err) {
       if (!err.response.data.result) {
-        // localStorage.removeItem('skilloptoken');
         navigate('/');
-        console.log('here is ', err.response.data.result);
-        // toast.error('Session expired, Login again!');
+        toast.error('Session expired, Login again!');
       }
-      console.log('Unable to fetch user details', err);
+      toast.error(err);
     }
   };
 
