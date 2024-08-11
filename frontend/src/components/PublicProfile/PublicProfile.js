@@ -32,9 +32,8 @@ const PublicProfile = ({
     try {
       const userData = await findUser(userId);
       setUserDetails(userData.data.result);
-      // console.log("details", userDetails);
     } catch (err) {
-      console.log("Unable to fetch user details", err);
+      toast.error(err)
     }
   };
 
@@ -54,8 +53,7 @@ const PublicProfile = ({
         );
         setIsLoading(false);
       } catch (err) {
-        // alert("No such user found");
-        console.log("Unable to fetch user details", err);
+        toast.error(err)
       }
     };
 
