@@ -8,7 +8,6 @@ const MentorQuery = () => {
     const getData = async () => {
       const data = await getMentorList();
       setMentors(data.data.result);
-      console.log(data);
     };
     getData();
   }, []);
