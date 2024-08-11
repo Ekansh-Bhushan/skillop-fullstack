@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { getFollowings } from '../../../api/userRequest';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Following = ({ userid, onClose }) => {
   const [followings, setFollowings] = useState([]);
@@ -16,7 +17,7 @@ const Following = ({ userid, onClose }) => {
       const res = await getFollowings(userid);
       setFollowings(res.data.result);
     } catch (err) {
-      console.log('Unable to fetch followings', err);
+      toast.error(err)
     }
     setFetching(false);
   };
