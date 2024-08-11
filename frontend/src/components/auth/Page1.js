@@ -35,7 +35,6 @@ const Page1 = ({ setProgress }) => {
         firstname: firstname,
         lastname: lastname,
       });
-      console.log(data);
       if (data.result) {
         localStorage.setItem('skilloptoken', data.token);
         localStorage.setItem('current-user-id', data.result._id);
@@ -52,13 +51,8 @@ const Page1 = ({ setProgress }) => {
   };
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     const idToken = credentialResponse.credential;
-    console.log(idToken);
     const decodedToken = jwt_decode(idToken);
-    console.log(decodedToken);
-
     const { data } = await googleIdVerifyAndLogin({ token: idToken });
-    console.log(data);
-    // Store the token in local storage
     localStorage.setItem('skilloptoken', data.token);
     if (data && data.result) {
       if (data.type === 'old') {
@@ -190,7 +184,7 @@ const Page1 = ({ setProgress }) => {
                     <GoogleLogin
                       onSuccess={handleGoogleLoginSuccess}
                       onError={() => {
-                        console.log('Google Login Failed');
+                        toast.error('Google Login Failed');
                       }}
                     />
                   </GoogleOAuthProvider>
