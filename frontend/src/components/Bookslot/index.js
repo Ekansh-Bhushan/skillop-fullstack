@@ -18,10 +18,8 @@ function Bookslot({ userData, setProgress }) {
     const getMentorDataa = async () => {
       try {
         const response = await getMentorData(mentorId);
-        console.log(response.data.result, 'Hello');
         setMentorData(response.data.result);
       } catch (error) {
-        console.log(error, 'Went wrong');
         toast('Something went wrong');
       }
     };
@@ -57,14 +55,12 @@ function Bookslot({ userData, setProgress }) {
   // use effect to load the slots on site loads
   useEffect(() => {
     const getSlot = async () => {
-      console.log('mentorId: ', mentorId);
       let ct = 0;
       let day = getNextDate(new Date()).toISOString().split('T')[0];
       while (ct < 7) {
         try {
           setProgress((ct / 7) * 100);
           const response = await getMentorAvaibility({ date: day }, mentorId);
-          console.log(response.data.result, day, ct);
           if (response.data.result && response.data.result.length) {
             
             const x = slots;
@@ -84,7 +80,6 @@ function Bookslot({ userData, setProgress }) {
         day = getNextDate(day).toISOString().split('T')[0];
       }
       setProgress(100);
-      console.log(slots);
     };
     getSlot();
   }, [mentorId, slots, setProgress]);
