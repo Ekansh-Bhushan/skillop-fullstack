@@ -15,7 +15,6 @@ const PublicPost = () => {
         if (response.data && response.data.result) {
           // Check if the expected data is available in the response
           const postData = response.data.result;
-          console.log(postData);
           setPost(postData);
         } else {
           console.error("Invalid API response:", response);
