@@ -34,7 +34,7 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
       const id = data.filter((item) => item.members[0] === userId)[0]._id;
       setChatId(id);
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
   const creatingChat = async () => {
@@ -44,11 +44,9 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
         receiverId: userId,
       };
       const { data } = await createChat(req);
-      console.log('chat data ', data);
       setChatId(data._id);
     } catch (error) {
-      console.log(error);
-      // toast.error('chat already exists');
+      toast.error('chat already exists');
     }
   };
   const userId = window.location.pathname.split('/')[2];
@@ -60,7 +58,6 @@ const PublicProfileHeader = ({ userDetails, userData }) => {
       creatingChat();
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log('Unable to follow/unfollow user at the moment', err);
     }
   };
 
