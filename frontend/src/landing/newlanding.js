@@ -10,6 +10,7 @@ import arrow from "../components/images/arrow.png";
 import bombay from "../components/images/bombay.jpg"
 import Landing from "../components/images/Landing page.png";
 import groupphoto from "../components/images/group photo.jpg";
+import mlevent from "../components/images/mlevent.png"
 import video from "../components/images/landingvideo.mp4";
 
 import event1 from "../components/images/event1.jpeg";
@@ -138,7 +139,7 @@ const LandingPage = () => {
     }
   ];
 
-  const images = [Landing, groupphoto, bombay];
+  const images = [mlevent, Landing, groupphoto, bombay];
 
   return (
     <div className="landing-page-container">
