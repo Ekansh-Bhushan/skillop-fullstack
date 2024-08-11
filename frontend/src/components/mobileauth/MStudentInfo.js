@@ -33,7 +33,6 @@ const MStudentInfo = () => {
     ]);
     setCollegeSelected(true);
     setSearchQuery(clg_details.college);
-    console.log('search q set to ', clg_details.college);
     document.querySelector('.college-search-results1').style.display = 'none';
   };
 
@@ -68,7 +67,7 @@ const MStudentInfo = () => {
       );
       setCollegeSearchResults(data.result);
     } catch (err) {
-      console.log(err);
+      toast.error(err);
     }
   };
 
@@ -92,7 +91,6 @@ const MStudentInfo = () => {
         toast.error("Start year can't be smaller than 1900");
         return;
     }
-    console.log(data[0].startDate > data[0].endDate);
     if (data[0].startDate > data[0].endDate) {
       toast.error('Start Year must be smaller than End Year');
       return;
@@ -100,12 +98,10 @@ const MStudentInfo = () => {
     try {
       let formdata = new FormData();
       formdata.append('education', JSON.stringify(data));
-      console.log('hi this is data ', data);
       await updateProfile(formdata);
       toast.success('College Added!');
       navigate('/mcover');
     } catch (err) {
-      console.log('Unable to update profile at the moment! ', err);
       toast.error(err.response.data.message);
       toast.error('Unable to update profile at the moment! ');
     }

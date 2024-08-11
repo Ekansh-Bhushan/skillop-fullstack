@@ -40,8 +40,6 @@ const MSkills = () => {
 
         if (data.result) {
           toast.success('Skills added!');
-
-          console.log(data.message);
           navigate('/mstudinfo');
         }
       } catch (error) {

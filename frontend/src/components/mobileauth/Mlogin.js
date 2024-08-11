@@ -111,7 +111,7 @@ const Mlogin = () => {
                 <GoogleLogin
                   onSuccess={handleGoogleLoginSuccess}
                   onError={() => {
-                    console.log('Google Login Failed');
+                    toast.error('Google Login Failed');
                   }}
                 />
               </GoogleOAuthProvider>
