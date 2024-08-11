@@ -12,7 +12,6 @@ const TopPosts = () => {
     const getData = async () => {
       const data = await getTopPosts(10);
       setPList(data.data.result.topLikedPosts);
-      console.log(data)
     };
     getData();
   }, []);
