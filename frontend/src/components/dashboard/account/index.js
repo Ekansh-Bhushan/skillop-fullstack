@@ -18,8 +18,6 @@ function Account({ userData, setProgress}) {
   const [username, setUsername] = useState(userData.username);
 
   useEffect(() => {
-    // This function will run when the DOM content is loaded.
-    console.log(email, whats, upi, linkedindata);
     var inp1 = document.querySelectorAll('.editable-input');
     for (var i = 0; i <= 3; i++) {
       inp1[i].disabled = true;
@@ -61,13 +59,11 @@ function Account({ userData, setProgress}) {
         await updateIsMentor(request);
         setProgress(100);
         toast.success('Account info updated!');
-        // console.log(data);
       } catch (error) {
         setEmail(userData.email);
         setWhats(userData.whatsappNumber);
         setUpi(userData.upiId);
         setlinkedindata(userData.linkedin);
-        console.log(error);
         toast.error(error.response.data.error);
         setProgress(100);
       }
