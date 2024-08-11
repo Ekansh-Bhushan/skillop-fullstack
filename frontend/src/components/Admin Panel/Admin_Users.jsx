@@ -13,8 +13,6 @@ import DeadUserList from './DeadUserList';
 import TopPosts from './TopPosts';
 
 const Admin_Users = () => {
-    // const isMobile = window.innerWidth <= 600;
-    // console.log(isMobile);
     const [siteData, setSiteData] = useState({});
     const [NewUsrList, setNewUsrList] = useState([]);
 

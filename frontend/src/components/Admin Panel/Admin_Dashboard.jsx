@@ -13,10 +13,6 @@ import toast from 'react-hot-toast';
 import { sendNotification } from '../../api/adminPanel';
 import profilepic from "../images/Frame 55250.png";
 
-
-// const isMobile = window.innerWidth <= 600;
-// console.log(isMobile);
-//create
 const Admin_Dashboard = () => {
     // ----------------- SITE METRICS CODE -------------------------
     const [siteData, setSiteData] = useState({});
@@ -47,7 +43,6 @@ const Admin_Dashboard = () => {
       setMessage("");
     } catch(err) {
       toast.error(err.response.data.message);
-      console.log(err);
     }
   };
     return (

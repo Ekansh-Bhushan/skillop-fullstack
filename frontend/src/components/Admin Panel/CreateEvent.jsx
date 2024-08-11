@@ -5,8 +5,6 @@ import AdminSideNav from './AdminSideNav/AdminSideNav';
 import EventList from "./EventList.jsx";
 import MobileAdminSideNav from '../MobileAdminSideNav/MobileAdminSideNav';
 const CreateEvent = () => {
-  // const isMobile = window.innerWidth <= 600;
-  // console.log(isMobile);
   const [Desc, setDesc] = useState('');
   const [Title, setTitle] = useState('');
   const [StartTime, setStartTime] = useState('');
@@ -36,7 +34,6 @@ const CreateEvent = () => {
       setImageLink('');
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log(err);
     }
   };
 
