@@ -18,7 +18,6 @@ import Profileandevents from '../../Landing/Profileandevents';
 
 const ConfirmBooking = ({ setProgress }) => {
   const meetDetailsArr = window.location.pathname.split('/');
-  console.log(meetDetailsArr);
   const mentorid = meetDetailsArr[2];
   const [data, setData] = useState({});
   const search = useLocation().search;
@@ -41,7 +40,6 @@ const ConfirmBooking = ({ setProgress }) => {
         toast.error(user.data.message);
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message);
     }
   };
@@ -50,7 +48,6 @@ const ConfirmBooking = ({ setProgress }) => {
   }, []);
 
   const onClickProceed = () => {
-    console.log('details - ', s, e, userid, charge);
     navigate(
       `/payment/${mentorid}?day=${day}&s=${s}&e=${e}&userid=${userid}&charge=${charge}&code=${auth_code}`
     );
@@ -58,9 +55,7 @@ const ConfirmBooking = ({ setProgress }) => {
 
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     const idToken = credentialResponse.credential;
-    // console.log(credentialResponse);
     const decodedToken = await jwt_decode(idToken);
-    // console.log(decodedToken);
   };
 
   const [isSignedIn, setIsSignedIn] = useState(true);
