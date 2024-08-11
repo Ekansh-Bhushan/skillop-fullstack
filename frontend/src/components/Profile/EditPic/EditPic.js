@@ -40,7 +40,7 @@ function EditPic({setProgress }) {
         setdpBGURL(currentUser.bgPicUrl);
       }
     } catch (err) {
-      console.log('Unable to fetch user', err);
+      toast.error('Unable to fetch user', err);
     }
   };
 
@@ -72,7 +72,6 @@ function EditPic({setProgress }) {
       setUploading(true);
       document.querySelector('.upload-button').style.backgroundColor = 'green';
       document.querySelector('.upload-button').style.color = 'white';
-      if (selectedImage) console.log('Uploading image:', selectedImage.name);
       const formData1 = new FormData();
       const formData2 = new FormData();
       formData1.append('profilePic', selectedImage);
@@ -109,7 +108,6 @@ function EditPic({setProgress }) {
       document.querySelector('.upload-button').textContent =
         'Upload Successfully';
       window.location.reload();
-      // console.log(data);
     } else {
       toast.error('Choose profile or cover picture to upload');
     }

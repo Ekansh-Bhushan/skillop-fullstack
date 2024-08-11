@@ -58,7 +58,6 @@ const ExpPopUp = ({ onClose, setUpdateDom, id, expID, updateDom }) => {
         setUpdateDom(!updateDom);
         toast.success('Updated successfully!');
       } catch (err) {
-        console.log('Unable to update profile at the moment! ', err);
         toast.error(err.response.data.err);
       }
       onClose();
@@ -70,7 +69,6 @@ const ExpPopUp = ({ onClose, setUpdateDom, id, expID, updateDom }) => {
         setUpdateDom(!updateDom);
         toast.success('Added successfully!');
       } catch (err) {
-        console.log('Unable to update profile at the moment! ', err);
         toast.error(err.response.data.err);
       }
       onClose();

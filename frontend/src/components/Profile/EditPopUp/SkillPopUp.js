@@ -3,6 +3,7 @@ import "./SkillPopUp.css";
 import { updateProfile } from '../../../api/userRequest';
 import { getUser } from '../../../api/userRequest';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 const SkillPopUp = ({onClose, oldSkills, setUpdateDom}) => {
 
     const[skill, setSkill] = useState("");
@@ -14,13 +15,10 @@ const SkillPopUp = ({onClose, oldSkills, setUpdateDom}) => {
     const handleSkillAdd = async () => {
         try {
             await updateProfile({"skills":[...oldSkills, skill]});
-            // console.log("succcess");
             setUpdateDom(true);
-            // window.location.reload();
         }
         catch (err) {
-            // console.log("failed")
-            console.log("Unable to update profile at the moment! ", err)
+            toast.error("Unable to update profile at the moment! ", err)
         }
         onClose();
     }

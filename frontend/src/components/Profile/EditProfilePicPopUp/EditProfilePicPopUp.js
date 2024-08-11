@@ -6,6 +6,7 @@ import edit from "../../images/edit.png";
 import axios from "axios";
 import Spinner from "../../images/spinner.gif";
 import { updateProfile } from "../../../api/userRequest";
+import toast from "react-hot-toast";
 
 const API = axios.create({ baseURL: "https://skillop.in" });
 
@@ -26,10 +27,8 @@ const EditProfilePicPopUp = ({ profPicUrl, onClose }) => {
             document.querySelector(".upload-button").style.backgroundColor =
                 "green";
             document.querySelector(".upload-button").style.color = "white";
-            console.log("Uploading image:", selectedImage.name, selectedImage);
             const formData = new FormData();
             formData.append("profilePic", selectedImage);
-            console.log(formData);
             const uploadprofilepic = (data) => {
                 const token = localStorage.getItem("skilloptoken");
                 const config = {
@@ -56,10 +55,10 @@ const EditProfilePicPopUp = ({ profPicUrl, onClose }) => {
                     "https://cdn-icons-png.flaticon.com/512/64/64572.png",
             });
             setDeleting(false);
-            console.log("del success");
+            toast.success("delete success");
             window.location.reload();
         } catch (err) {
-            console.log("Unable to del profile pic");
+            toast.error("Unable to del profile pic");
         }
     };
 
