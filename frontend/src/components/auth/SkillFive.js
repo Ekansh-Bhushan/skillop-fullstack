@@ -37,12 +37,10 @@ const SkillFive = ({setProgress}) => {
         addEdu();
     };
     const addEdu = async () => {
-        console.log("data", data);
         try {
             let formdata = new FormData();
             formdata.append("education", JSON.stringify(data));
             const data1 = await updateProfile(formdata);
-            console.log(data1.data.result);
             if (data1.data.result) {
                 toast.success(data1.data.message);
                 navigate("/skill5");
@@ -50,7 +48,6 @@ const SkillFive = ({setProgress}) => {
                 toast.error(data1.data.message);
             }
         } catch (err) {
-            console.log("Unable to update profile at the moment! ", err);
             toast.error("Unable to update profile at the moment! ");
         }
     };
