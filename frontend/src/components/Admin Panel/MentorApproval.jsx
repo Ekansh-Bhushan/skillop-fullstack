@@ -24,10 +24,8 @@ const MentorApproval = () => {
         }
       );
       setApplicantsList(data.applicants);
-      console.log('here', data.applicants);
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log(err);
     }
   };
 
@@ -44,10 +42,8 @@ const MentorApproval = () => {
         }
       );
       setEligibleList(data.applicants);
-      console.log('here', data.applicants);
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log(err);
     }
   };
 
@@ -66,11 +62,9 @@ const MentorApproval = () => {
       };
       const res = await approveFunc();
       toast.success('Mentor Approved!');
-      // console.log(res);
       window.location.reload();
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log(err);
     }
   };
 
