@@ -10,7 +10,6 @@ import { MainContext } from '../../context/MainContextProvider';
 const Login = () => {
   const { setCurrentUser } = useContext(MainContext);
   const redirectTo = new URL(window.location.href).searchParams.get('redirect');
-  console.log(redirectTo);
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -31,7 +30,6 @@ const Login = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.err);
     }
   };
@@ -41,10 +39,7 @@ const Login = () => {
 
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     const idToken = credentialResponse.credential;
-    console.log(idToken);
     const { data } = await googleIdVerifyAndLogin({ token: idToken });
-    console.log(data);
-    // Store the token in local storage
     localStorage.setItem('skilloptoken', data.token);
     if (data && data.result) {
       if (data.type === 'old') {
@@ -132,7 +127,7 @@ const Login = () => {
                     <GoogleLogin
                       onSuccess={handleGoogleLoginSuccess}
                       onError={() => {
-                        console.log('Google Login Failed');
+                        toast.error('Google Login Failed');
                       }}
                     />
                   </GoogleOAuthProvider>
