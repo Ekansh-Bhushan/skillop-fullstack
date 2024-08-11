@@ -30,7 +30,6 @@ const Notification = ({ setProgress, userData, setUserData }) => {
       setFetchingNotify(false);
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log('Unable to fetch notifications', err);
     }
   };
 
@@ -39,11 +38,10 @@ const Notification = ({ setProgress, userData, setUserData }) => {
   }, []);
 
   const markReadNotification = async (id) => {
-    // console.log("markreadnotify")
     try {
       await readNotifications(id);
     } catch (err) {
-      console.log('Unable to mark read notification', err);
+      toast.error('Unable to mark read notification', err);
     }
   };
 

@@ -5,6 +5,7 @@ import { getUser } from '../../../api/userRequest';
 import { getNotifications } from '../../../api/getNotifications';
 import Postlist from '../Postlist';
 import { MainContext } from '../../../context/MainContextProvider';
+import toast from 'react-hot-toast';
 
 function Post({
   userData,
@@ -39,7 +40,7 @@ function Post({
       const NotiData = await getNotifications();
       setNotifyList(NotiData.data.result);
     } catch (err) {
-      console.log('Unable to fetch notifications', err);
+      toast.error('Unable to fetch notifications', err);
     }
   };
   const { currentUser, setCurrentUser } = useContext(MainContext);

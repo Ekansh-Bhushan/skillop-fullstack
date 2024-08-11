@@ -44,14 +44,12 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
     if (lastword.startsWith('@')) {
       try {
         const { data } = await queryUserFromUsername(lastword.slice(1));
-        console.log(data.result[0]);
         if (data.result) {
           setSignQuery(data.result);
           setShowSuggestions(true);
         }
-        // console.log(data.result);
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     } else {
       setShowSuggestions(false);
@@ -132,7 +130,6 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
   };
 
   function getFileType(mimeType) {
-    console.log(selectedMedia[currentMediaIndex].type);
     if (mimeType.startsWith('image/')) {
       return 'image';
     } else if (mimeType.startsWith('video/')) {

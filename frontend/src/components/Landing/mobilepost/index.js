@@ -35,7 +35,6 @@ const Mobilepost = () => {
           formData.append('postImages', selectedFile[i]);
         }
       formData.append('title', inputValue);
-      // console.log(formData);
       const createPost = (data) => {
         const token = localStorage.getItem('skilloptoken');
 

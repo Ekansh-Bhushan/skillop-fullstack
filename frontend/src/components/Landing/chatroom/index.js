@@ -5,9 +5,9 @@ import Chatbox from '../../Chatbox';
 import { io } from 'socket.io-client';
 import Mobilecommonhead from '../../Mobilecommonhead';
 import './chat.css';
+import toast from 'react-hot-toast';
 
 function Chat({ userData, setProgress }) {
-  // console.log(userData);
   const [chats, setChats] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
@@ -75,12 +75,10 @@ function Chat({ userData, setProgress }) {
     'chat-id'
   );
   useEffect(() => {
-    console.log("User Data:", userData); // Log user data
     if (userData !== null) {
       const getChats = async () => {
         try {
           const { data } = await userChats(userData._id);
-          console.log("Chats data:", data); // Log response data
           setChats(data);
           if (redirect_chat_id && redirect_chat_id.length > 0) {
             setCurrentChat(
@@ -88,7 +86,7 @@ function Chat({ userData, setProgress }) {
             );
           }
         } catch (error) {
-          console.log(error);
+          toast.error(error);
         }
       };
       getChats();

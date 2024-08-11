@@ -6,6 +6,7 @@ import chatIcon from "../../images/chat.png";
 import { useNavigate } from "react-router-dom";
 import { getAllUsers, getfilteredUser } from "../../../api/userRequest";
 import { useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function Common( {setProgress }) {
     const location = useLocation();
@@ -107,11 +108,9 @@ function Common( {setProgress }) {
 
             try {
                 const { data } = await getfilteredUser(req);
-
-                // console.log(data.result);
                 setUsersData(data.result);
             } catch (error) {
-                console.log(error);
+                toast.error(error);
             }
         };
         onChange();

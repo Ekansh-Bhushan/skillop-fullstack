@@ -45,7 +45,6 @@ function Otherpost({ userData, setProgress }) {
     setCurrentMediaIndex((prevIndex) =>
       prevIndex === post.imageUrls.length - 1 ? 0 : prevIndex + 1
     );
-    // console.log("next ",currentMediaIndex)
   };
 
   const debouncedInputChange = _.debounce(async (newValue) => {
@@ -53,14 +52,12 @@ function Otherpost({ userData, setProgress }) {
     if (lastword.startsWith('@')) {
       try {
         const { data } = await queryUserFromUsername(lastword.slice(1));
-        console.log(data.result[0]);
         if (data.result) {
           setSignQuery(data.result);
           setShowSuggestions(true);
         }
-        // console.log(data.result);
       } catch (err) {
-        console.log(err);
+        toast.error(err);
       }
     } else {
       setShowSuggestions(false);
@@ -71,7 +68,6 @@ function Otherpost({ userData, setProgress }) {
     setCurrentMediaIndex((prevIndex) =>
       prevIndex === 0 ? post.imageUrls.length - 1 : prevIndex - 1
     );
-    // console.log("prev ",currentMediaIndex)
   };
 
   const toggleExpand = () => {
@@ -108,9 +104,8 @@ function Otherpost({ userData, setProgress }) {
     setLiked(!liked);
     try {
       const { data } = await likeOrDislikePost(postId);
-      // console.log(data);
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
 
@@ -121,10 +116,7 @@ function Otherpost({ userData, setProgress }) {
       setComment('');
       await fetchComments();
       setProgress(100);
-      // await storeNames();
-      // console.log(commentList);
     } catch (err) {
-      console.log('Unable to add comment', err);
       toast.error(err.response.data.message);
     }
   };
@@ -142,7 +134,6 @@ function Otherpost({ userData, setProgress }) {
         );
         setProgress(100);
       } catch (err) {
-        console.log('unable to del comment ', err);
         toast.error(err.response.data.message);
       }
     }
@@ -155,10 +146,8 @@ function Otherpost({ userData, setProgress }) {
       const commData = data.data.result;
       setCommentList(commData);
       setFetchingComments(false);
-      // console.log(commData);
-      // console.log(commentList);
     } catch (err) {
-      console.log('Unable to get comments ', err);
+      toast.error('Unable to get comments ', err);
     }
   };
 
@@ -189,16 +178,14 @@ function Otherpost({ userData, setProgress }) {
     const getPost = async () => {
       try {
         const { data } = await getSpecificPost(postId);
-        // console.log(data.result);
         setPost(data.result);
         setLiked(data.result.likes.includes(userData._id));
       } catch (error) {
-        console.log(error);
+        toast.error(error);
       }
     };
     getPost();
   }, [postId, liked, userData._id]);
-  // console.log(post);
 
   const taggingManager = new TaggingManager(
     setProgress,

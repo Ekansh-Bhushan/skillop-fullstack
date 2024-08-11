@@ -65,7 +65,6 @@ const Postlist = ({
           formData.append('postImages', selectedFile[i]);
         }
       formData.append('title', inputValue);
-      // console.log(formData);
       const createPost = (data) => {
         const token = localStorage.getItem('skilloptoken');
 
@@ -79,13 +78,10 @@ const Postlist = ({
       };
       setProgress(30);
       const data = await createPost(formData);
-      
       setPosts((prevPosts) => [data.result, ...prevPosts]);
-      // console.log(data);
       setProgress(100);
-      // socketIOClient(API).emit('newPost', data.result);
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
 

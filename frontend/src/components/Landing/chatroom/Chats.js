@@ -2,7 +2,6 @@ import React from "react";
 import Chatbox from "../../Chatbox";
 
 const Chats = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
-  console.log("chat accesed");
   return (
     <div
       className="chatSpace"
