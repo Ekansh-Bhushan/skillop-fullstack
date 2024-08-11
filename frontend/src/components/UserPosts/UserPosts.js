@@ -20,7 +20,6 @@ const UserPosts = ({ setProgress }) => {
       setPostData(Data.data.result);
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log('Unable to fetch posts at the moment', err);
     }
   };
   const { currentUser, setCurrentUser } = useContext(MainContext);
@@ -34,7 +33,7 @@ const UserPosts = ({ setProgress }) => {
         setUserData(currentUser);
       }
     } catch (err) {
-      console.log('Unable to fetch user data at the moment', err);
+      toast.error(err)
     }
   };
 
