@@ -45,7 +45,6 @@ const SkillThree = ({ setProgress }) => {
   };
 
   const nextClicked = async () => {
-    console.log(skills);
     setProgress(40);
     if (skills.length)
       try {
@@ -56,7 +55,6 @@ const SkillThree = ({ setProgress }) => {
 
         if (data.result) {
           toast.success('Skills added!');
-          console.log(data.message);
           navigate('/skill4');
         }
       } catch (error) {
