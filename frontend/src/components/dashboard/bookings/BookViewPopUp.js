@@ -16,11 +16,9 @@ const BookViewPopUp = ({ bookingData, onClose, type }) => {
             if (!data.result) toast.error(data.message);
             toast.success(data.message);
             window.location.reload();
-            // console.log(data);
         } catch (error) {
             if (error.response)
-                toast.error(error.response.data.message)
-            console.log(error)
+                toast.error(error.response.data.message);
         }
     };
 
