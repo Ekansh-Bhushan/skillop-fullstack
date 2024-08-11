@@ -37,9 +37,8 @@ const AdminSideNav = ({ setProgress, Mentor, isFetched}) => {
     try {
       setProgress(30);
       localStorage.removeItem('skilloptoken');
-      
     } catch (error) {
-      console.log(error);
+      toast.error(error)
     }
     toast.success('Logged out');
     navigate('/login');
@@ -73,8 +72,6 @@ const AdminSideNav = ({ setProgress, Mentor, isFetched}) => {
   };
 
   const handleEarnings = () => {
-    console.log('is fetched ', isFetched);
-    console.log('is mentor ', Mentor);
 
     if (isFetched) {
       setProgress(40);
@@ -104,7 +101,6 @@ const AdminSideNav = ({ setProgress, Mentor, isFetched}) => {
       setNotifyList(NotiData.data.result);
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log('Unable to fetch notifications', err);
     }
   };
 
@@ -115,9 +111,7 @@ const AdminSideNav = ({ setProgress, Mentor, isFetched}) => {
       data.forEach(async (chat) => {
         const data2 = await getMessages(chat._id);
         data2.data.forEach((msg) => {
-          console.log('looping through chats...');
           if (!msg.seen && msg.senderId !== CurrUsrId) {
-            console.log('This msg cause notification', msg);
             setShowChatNotification(true);
             return;
           }
