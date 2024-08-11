@@ -7,6 +7,7 @@ import attach from "../../images/attatchment.png";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 const API = axios.create({ baseURL: "https://skillop.in" });
 
 const Mobilepost = () => {
@@ -49,10 +50,8 @@ const Mobilepost = () => {
       // setProgress(30);
       const data = await createPost(formData);
       window.location.reload();
-      // console.log(data);
-      // setProgress(100);
     } catch (error) {
-      console.log(error);
+      toast.error(error)
     }
   };
 
