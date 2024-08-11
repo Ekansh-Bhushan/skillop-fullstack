@@ -56,8 +56,6 @@ const SkillFour = ({ setProgress }) => {
     if (e.target.value.length === 0) {
       document.querySelector('.college-search-results1').style.display = 'none';
     }
-
-    console.log('data', data);
   };
 
   const handleCollegeSelection = (clg_details) => {
@@ -86,7 +84,7 @@ const SkillFour = ({ setProgress }) => {
       );
       setCollegeSearchResults(data.result);
     } catch (err) {
-      console.log(err);
+      toast.error(err);
     }
   };
 
@@ -97,7 +95,6 @@ const SkillFour = ({ setProgress }) => {
       !data[0].startDate ||
       !data[0].endDate
     ) {
-      console.log(data);
       toast.error('Institution, Degree, Start & End Year are required!');
       return;
     }
@@ -125,7 +122,6 @@ const SkillFour = ({ setProgress }) => {
 
   const addEdu = async () => {
     setProgress(40);
-    console.log('data', data);
     if (data[0].startDate > data[0].endDate) {
       toast.error('Start year cannot be greater than end year');
       return;
@@ -134,7 +130,6 @@ const SkillFour = ({ setProgress }) => {
       let formdata = new FormData();
       formdata.append('education', JSON.stringify(data));
       const data1 = await updateProfile(formdata);
-      console.log(data1.data.result);
       if (data1.data.result) {
         toast.success('College Added!');
         navigate('/skill6');
@@ -142,7 +137,6 @@ const SkillFour = ({ setProgress }) => {
         toast.error(data1.data.message);
       }
     } catch (err) {
-      console.log('Unable to update profile at the moment! ', err);
       toast.error('Unable to update profile at the moment! ');
     }
     setProgress(100);
