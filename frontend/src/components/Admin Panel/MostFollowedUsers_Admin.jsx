@@ -8,7 +8,6 @@ const MostFollowedUsers_Admin = () => {
     const getData = async () => {
       const data = await getMostFollowedUsers(10);
       setUserList(data.data.result);
-      console.log(data);
     };
     getData();
   }, []);
