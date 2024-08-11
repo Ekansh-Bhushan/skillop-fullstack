@@ -29,11 +29,6 @@ function calculateTimeGap(time1, time2) {
 // Example usage:
 const time1 = 700;
 const time2 = 1600;
-
 const timeGap = calculateTimeGap(time1, time2);
-
-console.log(
-    `Time Gap: ${timeGap.hours} hours, ${timeGap.minutes} minutes, ${timeGap.seconds} seconds`
-);
 
 export default calculateTimeGap;
