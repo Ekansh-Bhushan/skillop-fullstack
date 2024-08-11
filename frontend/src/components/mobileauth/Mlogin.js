@@ -32,7 +32,6 @@ const Mlogin = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.err);
     }
   };
@@ -41,10 +40,7 @@ const Mlogin = () => {
   };
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     const idToken = credentialResponse.credential;
-    console.log(idToken);
     const { data } = await googleIdVerifyAndLogin({ token: idToken });
-    console.log(data);
-    // Store the token in local storage
     localStorage.setItem('skilloptoken', data.token);
     if (data && data.result) {
       if (data.type === 'old') {

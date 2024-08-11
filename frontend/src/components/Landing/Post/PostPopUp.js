@@ -100,8 +100,7 @@ const PostPopUp = ({ onClose, setProgress, setReloadPost, reloadPost }) => {
       toast.success('Post created successfully!');
     } catch (error) {
       setReloadPost(!reloadPost);
-      console.log('Unable to add post', error);
-      // toast.error(error.response.data.message);
+      toast.error(error);
     }
   };
 

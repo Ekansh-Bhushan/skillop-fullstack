@@ -6,6 +6,7 @@ import { useState } from "react";
 import spinner from "../../../images/spinner.gif";
 import { useNavigate } from "react-router-dom";
 import userPic from "../../../images/user.png";
+import toast from "react-hot-toast";
 
 const Popup = ({ onClose, postId, setProgress, likesCount }) => {
   const [likersList, setLikersList] = useState([]);
@@ -21,7 +22,7 @@ const Popup = ({ onClose, postId, setProgress, likesCount }) => {
       setLikersList(likersData);
       setProgress(100);
     } catch (err) {
-      console.log("Unable to fetch likers ", err);
+      toast.error("Unable to fetch likers ", err);
     }
     setFetchingLikers(false);
   };

@@ -76,7 +76,6 @@ function WebPages({
   setIsFetched,
   setNotifyList,
 }) {
-  // console.log(userData);
   const excludedRoutes = [
     '/',
     '/mlogin',

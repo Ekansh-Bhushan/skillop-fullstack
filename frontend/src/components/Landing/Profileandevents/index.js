@@ -11,6 +11,7 @@ import { MainContext } from '../../../context/MainContextProvider';
 import allTag from '../../images/allTag.png';
 import societytag from '../../images/member.png';
 import mentortag from '../../images/mentor tag.png'
+import toast from 'react-hot-toast';
 export default function Profileandevents({ userData, isHome, useUserData }) {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState(null);
@@ -27,7 +28,7 @@ export default function Profileandevents({ userData, isHome, useUserData }) {
           setUserDetails(currentUser);
         }
       } catch (err) {
-        console.log('Unable to fetch user details', err);
+        toast.error('Unable to fetch user details', err);
       } finally {
         if (useUserData) {
           setUserDetails(userData);

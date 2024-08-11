@@ -31,8 +31,6 @@ function MentorBano({setProgress}) {
   const currentProgress = 0; // Initial progress (between 0 and 1)
   const steps = 10;
   const newProgress = increaseCircularProgress(currentProgress, steps);
-  console.log('New progress:', newProgress);
-
   const [addedAboutPastAndFuture, setAddedAboutPastAndFuture] = useState(false);
   const [addedAtleast4Posts, setAddedAtleast4Posts] = useState(false);
   const [addedEducationOrExperence, setAddedEducationOrExperence] =
@@ -58,7 +56,6 @@ function MentorBano({setProgress}) {
       setPProgress((prev) => prev + 25);
     }
   }, []);
-  console.log(Pprogress);
 
   const [mentorStatus, setMentorStatus] = useState('');
   const [isPending, setIsPending] = useState(false);
@@ -71,7 +68,6 @@ function MentorBano({setProgress}) {
     try {
       const getProfileCompletionData = async () => {
         const { data } = await getProfileCompletionStatus();
-        console.log("here is status",data);
         if (data.status === 'pending') {
           setIsPending(true);
         } else if (data.status === 'accepted') {
@@ -87,7 +83,6 @@ function MentorBano({setProgress}) {
         }
 
         setMentorStatus(data.status);
-        console.log(data.result);
         if (data.result) {
           setAddedAboutPastAndFuture(
             data.result.profileComplitionStatus.addedAboutPastAndFuture
@@ -101,14 +96,12 @@ function MentorBano({setProgress}) {
           setUploadProfilePicAndVideo(
             data.result.profileComplitionStatus.uploadProfilePicAndVideo
           );
-          console.log(data.result.profileComplitionStatus, 'hello');
         } else {
           toast.error(data.error);
         }
       };
       getProfileCompletionData();
     } catch (error) {
-      console.log(error);
       toast.error('Something went wrong');
     }
   }, []);
@@ -129,7 +122,6 @@ function MentorBano({setProgress}) {
         toast.error(data.error);
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message);
     }
   };

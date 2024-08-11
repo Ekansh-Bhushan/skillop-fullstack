@@ -39,9 +39,7 @@ const MobileAdminSideNav = ({ setProgress, setReloadPost, reloadPost }) => {
     const fetchUser = async () => {
       try {
         const { data } = await getUser();
-        console.log(data);
         if (data.result) {
-          console.log('authorized user ');
           // setUserData(data.result);
           setMentor(data.result.isMentor);
           setIsAdmin(data.result.isAdmin);
@@ -49,23 +47,21 @@ const MobileAdminSideNav = ({ setProgress, setReloadPost, reloadPost }) => {
           // setIsFetched(true);
           // setNotifyList(data.result.notifications);
         } else {
-          console.log('Unauthorize : redirecting...');
+          toast.error('Unauthorize : redirecting...');
           // redirectIfNotAuthorize();
         }
       } catch (err) {
         if (!err.response.data.result) {
-          console.log(err.response.data.result);
+          toast.error(err.response.data.result);
           // redirectIfNotAuthorize();
         }
-        console.log('Unable to fetch user', err);
+        toast.error('Unable to fetch user', err);
       }
     };
     if (localStorage.getItem('skilloptoken')) {
-      console.log('token found going to fetch user');
       fetchUser();
     } else {
-      console.log('token not found redirecting to login/signup');
-      // redirectIfNotAuthorize();
+      toast.error('token not found redirecting to login/signup');
     }
   }, []);
 
@@ -75,7 +71,7 @@ const MobileAdminSideNav = ({ setProgress, setReloadPost, reloadPost }) => {
     try {
       localStorage.removeItem('skilloptoken');
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
     navigate('/');
     toast.success('Logged out');
@@ -109,11 +105,9 @@ const MobileAdminSideNav = ({ setProgress, setReloadPost, reloadPost }) => {
       }
     } catch (err) {
       if (!err.response.data.result) {
-        // localStorage.removeItem('skilloptoken');
         navigate('/');
-        // toast.error('Session expired, Login again!');
       }
-      console.log('Unable to fetch user details', err);
+      toast.error('Unable to fetch user details', err);
     }
   };
 
@@ -124,7 +118,6 @@ const MobileAdminSideNav = ({ setProgress, setReloadPost, reloadPost }) => {
       setNotifyList(NotiData.data.result);
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log('Unable to fetch notifications', err);
     }
   };
 

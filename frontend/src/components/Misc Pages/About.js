@@ -40,7 +40,6 @@ import { useNavigate } from "react-router-dom";
         phone: e.target.elements.phone.value,
         info: e.target.elements.info.value,
       };
-      console.log(formData);
       
       // Show a pop-up message
       alert('Form submitted successfully!');

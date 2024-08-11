@@ -184,8 +184,6 @@ const AboutUs = () => {
                   phone: e.target.elements.phone.value,
                   info: e.target.elements.info.value,
                 };
-                console.log(formData);
-                // Add further logic as needed
               }}
             >
               <div className="form-group">
