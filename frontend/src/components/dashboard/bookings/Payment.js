@@ -19,8 +19,6 @@ const Payment = ({ setProgress }) => {
   const e = new URLSearchParams(search).get('e');
   const userid = new URLSearchParams(search).get('userid');
   const charge = new URLSearchParams(search).get('charge');
-  // console.log(day, s, e, userid, charge, mentorid)
-
   const [loading, setLoading] = useState(false);
   const [paymentConformationPic, setPaymentConformationPic] = useState(null);
   const navigate = useNavigate();
@@ -33,7 +31,6 @@ const Payment = ({ setProgress }) => {
   const dat = new Date(day.toString() + ' ' + convertToNormalTime(s).toString())
     .toISOString()
     .toString();
-  console.log('dat tim', dat);
 
   const fetchUser = async () => {
     try {
@@ -73,8 +70,7 @@ const Payment = ({ setProgress }) => {
       data,
       config
     );
-    console.log('success');
-    console.log(res.data);
+    toast.success('success')
     setMeetLink(res.data.start_url);
   };
 
@@ -93,7 +89,6 @@ const Payment = ({ setProgress }) => {
       formData.append('s', s);
       formData.append('e', e);
       formData.append('meetLink', meetLink);
-      console.log('meetLink', meetLink);
       const response = await sendMeetRequest(
         mentorid,
         day,
@@ -102,17 +97,8 @@ const Payment = ({ setProgress }) => {
         userid,
         formData
       );
-      // if (response.data.result) {
-      //   console.log('sendmeetreq: ', response.data.result);
-      //   navigate('/requestedMeets');
-      //   toast.success('Meet scheduled!');
-      //   toast.success('Check your Zoom Meet Account!');
-      // } else {
-      //   toast.error(response.data.message);
-      // }
     } catch (error) {
-      // toast.error(error.response.data.message);
-      console.log(error);
+      toast.error(error);
     }
 
     setLoading(false);
