@@ -38,6 +38,7 @@ const Login = () => {
   };
 
   const handleGoogleLoginSuccess = async (credentialResponse) => {
+    console.log(credentialResponse);
     const idToken = credentialResponse.credential;
     const { data } = await googleIdVerifyAndLogin({ token: idToken });
     localStorage.setItem('skilloptoken', data.token);
