@@ -23,7 +23,7 @@ const LandingFooter = () => {
         <div className="flex items-center justify-start gap-3">
           {" "}
           <img src={call} />
-          <h3>+91 9818807886</h3>
+          <h3>+91 9643654899</h3>
         </div>
         <div className="flex items-center justify-start gap-3">
           {" "}
