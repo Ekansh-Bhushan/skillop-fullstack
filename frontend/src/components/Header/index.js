@@ -1,14 +1,15 @@
 import React from "react";
-import logo from '../images/logo.png'
-import index from './index.css'
+import logo from "../images/logo.png";
+import index from "./index.css";
 
-function Header1(){
-    return(
+function Header1() {
+  return (
     <>
-     <div className="header">
+      <div className="header">
         <img src={logo} alt="SKILLOP Logo" />
         <span>SKILLOP</span>
-    </div>
-    </>);
+      </div>
+    </>
+  );
 }
 export default Header1;

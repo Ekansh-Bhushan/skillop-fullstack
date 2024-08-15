@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Profileandevents from '../Profileandevents';
-import Mobilecommonhead from '../../Mobilecommonhead';
-import { getUser } from '../../../api/userRequest';
-import { getNotifications } from '../../../api/getNotifications';
-import Postlist from '../Postlist';
-import { MainContext } from '../../../context/MainContextProvider';
-import toast from 'react-hot-toast';
+import React, { useContext, useEffect, useState } from "react";
+import Profileandevents from "../Profileandevents";
+import Mobilecommonhead from "../../Mobilecommonhead";
+import { getUser } from "../../../api/userRequest";
+import { getNotifications } from "../../../api/getNotifications";
+import Postlist from "../Postlist";
+import { MainContext } from "../../../context/MainContextProvider";
+import toast from "react-hot-toast";
 
 function Post({
   userData,
@@ -28,10 +28,10 @@ function Post({
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -40,7 +40,7 @@ function Post({
       const NotiData = await getNotifications();
       setNotifyList(NotiData.data.result);
     } catch (err) {
-      toast.error('Unable to fetch notifications', err);
+      toast.error("Unable to fetch notifications", err);
     }
   };
   const { currentUser, setCurrentUser } = useContext(MainContext);
@@ -62,14 +62,14 @@ function Post({
   }, []);
 
   return (
-    <div className='homepage'>
+    <div className="homepage">
       <Mobilecommonhead
         setProgress={setProgress}
         setReloadPost={setReloadPost}
         reloadPost={reloadPost}
       />
       {/* <Common setProgress={setProgress}/> */}
-      <div className='main-content-landing'>
+      <div className="main-content-landing">
         {isFetched && (
           <Postlist
             setProgress={setProgress}

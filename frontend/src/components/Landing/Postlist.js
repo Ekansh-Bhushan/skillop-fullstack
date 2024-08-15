@@ -1,31 +1,26 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import userImage from '../images/user.png';
-import photoIcon from '../images/image.png';
-import videoIcon from '../images/video.jpeg';
-import attatchment from '../images/attatchment.png';
-import postIcon from '../images/post.png';
-import './Postlist.css';
-import PostPopUp from './Post/PostPopUp';
-import { getAllPost } from '../../api/postRequest';
-import PostComp from '../PostComp';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import spinner from '../images/spinner.gif';
-import { MainContext } from '../../context/MainContextProvider';
+import React, { useState, useEffect, useRef, useContext } from "react";
+import userImage from "../images/user.png";
+import photoIcon from "../images/image.png";
+import videoIcon from "../images/video.jpeg";
+import attatchment from "../images/attatchment.png";
+import postIcon from "../images/post.png";
+import "./Postlist.css";
+import PostPopUp from "./Post/PostPopUp";
+import { getAllPost } from "../../api/postRequest";
+import PostComp from "../PostComp";
+import axios from "axios";
+import toast from "react-hot-toast";
+import spinner from "../images/spinner.gif";
+import { MainContext } from "../../context/MainContextProvider";
 // import socketIOClient from 'socket.io-client';
 
-const API = axios.create({ baseURL: 'https://skillop.in' });
+const API = axios.create({ baseURL: "https://skillop.in" });
 
-const Postlist = ({
-  userData,
-  displaycreatepost,
-  user,
-  setProgress,
-}) => {
+const Postlist = ({ userData, displaycreatepost, user, setProgress }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isSticky, setIsSticky] = useState(false);
   const [reloadPost, setReloadPost] = useState(false);
-  const {showPostPopUp, setShowPostPopUp} = useContext(MainContext)
+  const { showPostPopUp, setShowPostPopUp } = useContext(MainContext);
 
   const onClose = () => {
     setShowPostPopUp(!showPostPopUp);
@@ -36,10 +31,10 @@ const Postlist = ({
   };
 
   const hidepop = () => {
-    document.querySelector('.photo-popup').style.display = 'none';
+    document.querySelector(".photo-popup").style.display = "none";
   };
 
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [skip, setSkip] = useState(0);
@@ -52,21 +47,20 @@ const Postlist = ({
     setInputValue(newValue);
   };
 
-  
   const creatingPost = async () => {
     try {
       if (inputValue.length === 0) {
-        toast.error('Enter something to post');
+        toast.error("Enter something to post");
         return;
       }
       const formData = new FormData();
       if (selectedFile)
         for (let i = 0; i < selectedFile.length; i++) {
-          formData.append('postImages', selectedFile[i]);
+          formData.append("postImages", selectedFile[i]);
         }
-      formData.append('title', inputValue);
+      formData.append("title", inputValue);
       const createPost = (data) => {
-        const token = localStorage.getItem('skilloptoken');
+        const token = localStorage.getItem("skilloptoken");
 
         const config = {
           headers: {
@@ -95,10 +89,10 @@ const Postlist = ({
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [reloadPost]);
 
@@ -112,7 +106,7 @@ const Postlist = ({
         setSkip((prevSkip) => prevSkip + limit);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error("Error fetching posts:", error);
       }
       setLoading(false);
     };
@@ -131,7 +125,7 @@ const Postlist = ({
 
     const observerOptions = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: "0px",
       threshold: 0.5, // Adjust as needed
     };
 
@@ -159,40 +153,40 @@ const Postlist = ({
           reloadPost={reloadPost}
         />
       )}
-      <div className='posting-on-landing'>
+      <div className="posting-on-landing">
         <div
           style={{
-            position: 'absolute',
-            top: '0',
-            zIndex: '20',
-            width: '90%',
-            height: '100px',
-            backdropFilter: 'blur(10px)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '20px',
-            display: 'none',
-            justifyContent: 'center',
+            position: "absolute",
+            top: "0",
+            zIndex: "20",
+            width: "90%",
+            height: "100px",
+            backdropFilter: "blur(10px)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "20px",
+            display: "none",
+            justifyContent: "center",
           }}
-          className='photo-popup'
+          className="photo-popup"
         >
           <input
-            type='file'
-            name='postImages'
+            type="file"
+            name="postImages"
             multiple
             onChange={(e) => setSelectedFile(e.target.files)}
           />
           <button
-            className='proceed'
+            className="proceed"
             onClick={hidepop}
             style={{
-              border: 'none',
-              padding: '5px 10px 5px 10px',
-              background: 'black',
-              color: 'white',
-              borderRadius: '10px',
-              cursor: 'pointer',
+              border: "none",
+              padding: "5px 10px 5px 10px",
+              background: "black",
+              color: "white",
+              borderRadius: "10px",
+              cursor: "pointer",
             }}
           >
             Proceed
@@ -200,96 +194,96 @@ const Postlist = ({
         </div>
         {displaycreatepost && (
           // <div className={isSticky ? 'user-new-post2' : 'user-new-post'}>
-          <div className={'user-new-post'}>
+          <div className={"user-new-post"}>
             <div
               className={
                 // isSticky ? 'user-post-head user-post-head2' : 'user-post-head'
-                'user-post-head'
+                "user-post-head"
               }
               // style={{ transform: 'translateY(-50%)' }}
             >
               <img
-                id='post-user'
+                id="post-user"
                 src={
                   userData.profilePicUrl ? userData.profilePicUrl : userImage
                 }
-                alt='user-img-post'
+                alt="user-img-post"
               />
               <input
                 onClick={handlePostPopUp}
-                className='content-user-post'
+                className="content-user-post"
                 value={inputValue}
                 onChange={handleInputChange}
-                placeholder='What are you Thinking...?'
+                placeholder="What are you Thinking...?"
               />
               <img
                 src={postIcon}
                 onClick={creatingPost}
-                alt='post'
+                alt="post"
                 disabled={inputValue.length < 1}
                 style={{
-                  fontSize: '45px',
-                  color: 'rgb(99,203,207)',
-                  cursor: 'pointer',
-                  width: '50px',
+                  fontSize: "45px",
+                  color: "rgb(99,203,207)",
+                  cursor: "pointer",
+                  width: "50px",
                 }}
               />
             </div>
-            <div className='upload-section'>
+            <div className="upload-section">
               <div
-                style={{ display: 'flex', gap: '5px' }}
-                className='photo-upload'
+                style={{ display: "flex", gap: "5px" }}
+                className="photo-upload"
                 onClick={handlePostPopUp}
               >
                 <img
                   src={photoIcon}
                   style={{
-                    height: '20px',
-                    width: '20px',
-                    borderRadius: '0px',
+                    height: "20px",
+                    width: "20px",
+                    borderRadius: "0px",
                   }}
-                  alt='photos'
+                  alt="photos"
                 />
                 Photo
               </div>
 
               <div
-                style={{ display: 'flex', gap: '5px' }}
-                className='video-upload'
+                style={{ display: "flex", gap: "5px" }}
+                className="video-upload"
                 onClick={handlePostPopUp}
               >
                 <img
                   src={videoIcon}
                   style={{
-                    height: '20px',
-                    width: '25px',
-                    borderRadius: '0px',
+                    height: "20px",
+                    width: "25px",
+                    borderRadius: "0px",
                   }}
-                  alt='Video'
+                  alt="Video"
                 />
                 Video
               </div>
 
               <div
-                style={{ display: 'flex', gap: '5px' }}
-                className='create-new-post'
+                style={{ display: "flex", gap: "5px" }}
+                className="create-new-post"
                 onClick={handlePostPopUp}
               >
                 <img
                   src={attatchment}
                   style={{
-                    height: '20px',
-                    width: '20px',
-                    borderRadius: '0px',
+                    height: "20px",
+                    width: "20px",
+                    borderRadius: "0px",
                   }}
-                  alt='docs'
+                  alt="docs"
                 />
                 Document
               </div>
             </div>
           </div>
         )}
-        <div className='people-post'>
+        <div className="people-post">
           {posts &&
             posts.map((val, i) => (
               <PostComp
@@ -300,8 +294,8 @@ const Postlist = ({
                 setProgress={setProgress}
               />
             ))}
-          <div ref={containerRef} style={{ height: '200px' }}>
-            {loading && <img src={spinner} alt='Loading...' width={60} />}
+          <div ref={containerRef} style={{ height: "200px" }}>
+            {loading && <img src={spinner} alt="Loading..." width={60} />}
           </div>
         </div>
       </div>
