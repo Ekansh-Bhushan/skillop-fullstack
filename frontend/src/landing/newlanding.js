@@ -19,6 +19,7 @@ import event3 from "../components/images/event3.jpg";
 import event4 from "../components/images/event4.jpeg";
 import event5 from "../components/images/event5.jpg";
 import newsbg from "../components/images/newsbg.png";
+import qr_code from "../components/images/qr_code.png";
 
 import knowMoreIcon from "../components/images/knowmore.png";
 import newsEventsIcon from "../components/images/newsevents.png";
@@ -241,20 +242,31 @@ const LandingPage = () => {
       <div className="message-section" ref={messageBoxRef}>
         <div className="message-container">
           <div className="message-box">
-            <h2>Join Our Exciting Events!</h2>
+            
+            <h2>Join Our Thrilling ML Cryptic Hunt!</h2>
             <p>
-              Don't miss the amazing opportunities Skillop has to offer.
+            Don't miss the chance to dive into the world of machine learning mysteries.
               <br></br>
-              Join our society where innovation meets collaboration.
+              Be part of our society where innovation drives discovery.
             </p>
-            <h2> Do Check below:</h2>
+            <h2>Check Out the Details Below:</h2>
             <p>
-              - Exciting Upcoming Events We have Planned.
-              <br></br>- Highlights of our Enthusiastic Participation in Events.
+              - Get ready for the ML Cryptic Hunt on September 12th.
+              <br></br>
+              - Scan the QR code or{" "}
+               <a
+               href="https://unstop.com/o/NEdkl0Z?lb=UiJQIGC9"
+               target="_blank"
+               style={{ color: "#007bff", fontWeight: "bold", textDecoration: "underline" }}
+              >
+              Register via Unstop
+              </a>{" "}
+               to join the challenge.
+
             </p>
           </div>
           <div className="message-image-container">
-            <img src={newsbg} alt="Event" className="message-image" />
+            <img src={qr_code} alt="Event" className="message-image" />
           </div>
         </div>
       </div>
