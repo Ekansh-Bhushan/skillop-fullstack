@@ -145,9 +145,9 @@ const SkillFour = ({ setProgress }) => {
     <div>
       <Nav />
       <ProgressBar progress={40} />
-      <img src={doodle1} className='absolute top-[80vh] left-[29vw] z-10' />
-      <img src={doodle2} className='absolute right-[19vw] top-[80vh] z-10' />
-      <img src={Saly} className='absolute right-[14vw] z-10 top-[18vh]' />
+      <img src={doodle1} className='absolute top-[80vh] left-[29vw] z-10' alt='Decorative doodle 1'/>
+      <img src={doodle2} className='absolute right-[19vw] top-[80vh] z-10' alt='Decorative doodle 2' />
+      <img src={Saly} className='absolute right-[14vw] z-10 top-[18vh]' alt='Decorative Saly' />
       <div className='flex items-start flex-col ml-[35vh] mt-5'>
         <div className='flex items-start justify-center flex-col text-xl gap-8 mt-3 font-normal'>
           <h1 className='text-[35px] mb-5 mt-[8vh] font-bold'>

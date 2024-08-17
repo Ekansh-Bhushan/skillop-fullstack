@@ -69,9 +69,9 @@ const SkillThree = ({ setProgress }) => {
       <Nav />
       <ProgressBar progress={20} />
 
-      <img src={doodle1} className='absolute top-[66vh] left-[29vw] z-10' />
-      <img src={doodle2} className='absolute right-[19vw] top-[62vh] z-10' />
-      <img src={Saly} className='absolute right-[16vw] z-10 top-[18vh]' />
+      <img src={doodle1} className='absolute top-[66vh] left-[29vw] z-10' alt='Doodle 1'/>
+      <img src={doodle2} className='absolute right-[19vw] top-[62vh] z-10' alt='Doodle 2'/>
+      <img src={Saly} className='absolute right-[16vw] z-10 top-[18vh]' alt='Saly'/>
       <div className='flex items-start flex-col ml-[35vh] z-50 mt-5'>
         <h1 className='text-[35px] mb-5 mt-[8vh] font-bold'>
           Complete Your Profile
@@ -144,7 +144,7 @@ const SkillThree = ({ setProgress }) => {
                   <h1 className='text-2xl font-semibold'>
                     Add a Skill/Interest{' '}
                   </h1>
-                  <img className='cursor-pointer' onClick={()=>setShowInput(false)} src='/close.png' width={30} alt='cross' />
+                  <img className='cursor-pointer' onClick={()=>setShowInput(false)} src='/close.png' width={30} alt='close' />
                 </div>
                 <input
                   type='text'

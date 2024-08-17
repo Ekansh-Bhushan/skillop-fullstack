@@ -103,9 +103,9 @@ const SkillSix = ({ setProgress }) => {
         <ProgressBar progress={75} />
       </div>
 
-      <img src={doodle1} className='absolute top-[66vh] left-[29vw] z-10' />
-      <img src={doodle2} className='absolute right-[19vw] top-[62vh] z-10' />
-      <img src={Saly} className='absolute right-[16vw] z-10 top-[18vh]' />
+      <img src={doodle1} className='absolute top-[66vh] left-[29vw] z-10' alt='Doodle 1' />
+      <img src={doodle2} className='absolute right-[19vw] top-[62vh] z-10' alt='Doodle 2' />
+      <img src={Saly} className='absolute right-[16vw] z-10 top-[18vh]' alt='Saly' />
       <div className='flex items-start flex-col ml-[35vh] z-50'>
         <h1 className='text-[40px] mb-5 mt-[8vh] font-bold'>
           Complete Your Profile
@@ -170,7 +170,7 @@ const SkillSix = ({ setProgress }) => {
                 <img
                   src={coverPhotoURL || coverPic || vector}
                   className='absolute rounded-lg cursor-pointer hover:opacity-80 h-[30vh]'
-                  alt=''
+                  alt='Cover photo placeholder'
                 />
                 {!profilePic ? (
                   <span className='absolute text-lg font-medium'>
@@ -204,16 +204,12 @@ const SkillSix = ({ setProgress }) => {
             />
             <div className='mt-5 pt-10 pb-2'>
               <span className='text-lg font-normal mb-4'>Profile Photo</span>
-              <div
-                className=' h-[22vh] w-[22vh] rounded-full relative top-8 flex 
-items-center justify-center'
-                onClick={() => document.getElementById('profilePhoto').click()}
-              >
+              <div className=' h-[22vh] w-[22vh] rounded-full relative top-8 flex items-center justify-center'>
                 {' '}
                 <img
                   src={profilePhotoURL || profilePic || mdi}
                   className='absolute bottom-[5vh] rounded-full w-full h-full cursor-pointer hover:opacity-80'
-                  alt=''
+                  alt='Profile photo placeholder'
                 />
                 {!profilePic ? (
                   <span className='absolute text-lg font-medium'>
@@ -231,14 +227,13 @@ items-center justify-center'
                 ''
               )}
               {uploading && (
-                <img src='/spinner.gif' className='w-20' alt='loading' />
+                <img src='/spinner.gif' className='w-20' alt='Loading spinner' />
               )}
             </div>
 
             <div className='flex justify-between w-full items-center'>
               <button
-                className='rounded-full border-[2px] border-black h-9 w-9 flex 
-items-center justify-center hover:bg-[#8484841A]'
+                className='rounded-full border-[2px] border-black h-9 w-9 flex items-center justify-center hover:bg-[#8484841A]'
                 onClick={prevClicked}
               >
                 <FaArrowLeft />

@@ -155,7 +155,7 @@ const Login = () => {
           <p className='text-[27px] font-medium'>
             Log in to unlock a world of mentorship possibilities
           </p>
-          <img src={img1} />
+          <img src={img1} alt='Illustration representing empowerment journey'/>
         </div>
       </div>
     </div>

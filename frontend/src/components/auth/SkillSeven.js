@@ -66,12 +66,14 @@ const SkillSeven = ({setProgress}) => {
             <img
               src={doodle1}
               className="absolute z-10 top-[30vh] left-[12vw]"
+              alt="Decorative doodle 1"
             />
             <img
               src={doodle2}
               className="absolute z-10 top-[30vh] left-[50vw]"
+              alt="Decorative doodle 2"
             />
-            <img src={Saly} className="absolute z-10 top-[-15vh] left-[56vw]" />
+            <img src={Saly} className="absolute z-10 top-[-15vh] left-[56vw]" alt="Decorative Saly" />
             <div className="flex items-start justify-center flex-col text-xl gap-8 mt-3 font-normal">
               {window.location.pathname === "/skill3" ? (
                 <span className="font-semibold">Skills/Interests</span>
