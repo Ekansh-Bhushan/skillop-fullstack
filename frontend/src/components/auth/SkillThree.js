@@ -4,7 +4,7 @@ import doodle1 from '../../components/images/doodle-6 1.png';
 import doodle2 from '../../components/images/doodle-7 1.png';
 import Saly from '../../components/images/Saly-26.png';
 import { IoMdAdd } from 'react-icons/io';
-import { FaArrowRight, FaArrowLeft } from 'react-icons/fa6';
+import { FaArrowRight } from 'react-icons/fa6';
 import { updateIsMentor } from '../../api/userRequest';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';

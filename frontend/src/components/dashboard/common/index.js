@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import logo from "../../images/logo.png";
-import Common from "../../Landing/common";
+import React from "react";
+
 import user from "../../images/user.png";
 
 function Commondash({ userData }) {

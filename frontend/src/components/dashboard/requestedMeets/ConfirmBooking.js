@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ConfirmBooking.css";
 import userIcon from "../../images/user.png";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getMentorData } from "../../../api/mentorRequest";
 import toast from "react-hot-toast";
 import convertToNormalTime from "../../../utils/timeConversion";

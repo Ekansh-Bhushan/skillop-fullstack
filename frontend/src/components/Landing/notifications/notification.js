@@ -13,7 +13,7 @@ import toast from 'react-hot-toast';
 
 // function Notify({ userData }) {
 const Notification = ({ setProgress, userData, setUserData }) => {
-  const [selectedButton, setSelectedButton] = useState('All'); // Initial selected button
+  const [ setSelectedButton] = useState('All'); // Initial selected button
   const [notifyList, setNotifyList] = useState([]);
   const [fetchingNotify, setFetchingNotify] = useState(false);
   const [notiType, setNotiType] = useState('all');

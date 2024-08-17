@@ -7,7 +7,7 @@ import { requestToBeMentor } from '../../api/mentorRequest';
 import Mobilecommonhead from '../Mobilecommonhead';
 
 function MentorBano({setProgress}) {
-  const [isTaskDone, setIsTaskDone] = useState(false);
+  const [isTaskDone] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [Pprogress, setPProgress] = useState(0);
 

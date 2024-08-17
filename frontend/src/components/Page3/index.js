@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import index from "./index.css";
+
 import Header1 from "../Header";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";

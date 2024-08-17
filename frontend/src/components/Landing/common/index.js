@@ -4,7 +4,7 @@ import user from "../../images/user.png";
 import searchIcon from "../../images/search.png";
 import chatIcon from "../../images/chat.png";
 import { useNavigate } from "react-router-dom";
-import { getAllUsers, getfilteredUser } from "../../../api/userRequest";
+import { getfilteredUser } from "../../../api/userRequest";
 import { useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 

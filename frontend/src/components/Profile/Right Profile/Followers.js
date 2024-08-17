@@ -3,7 +3,7 @@ import './follow.css';
 import { useState } from 'react';
 import { getFollowers } from '../../../api/userRequest';
 import { useEffect } from 'react';
-import spinner from '../../images/spinner.gif';
+
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 

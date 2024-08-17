@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import '../../Page3/index.css';
-import Header1 from '../../Header';
+
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { updateIsMentor } from '../../../api/userRequest';
 import { getUser } from '../../../api/userRequest';
-import Pageloader from '../../Pagesbar';
+
 import { useEffect } from 'react';
 import spinner from '../../images/spinner.gif';
 import toast from 'react-hot-toast';
