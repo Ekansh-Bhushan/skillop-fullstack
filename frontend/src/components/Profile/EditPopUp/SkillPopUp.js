@@ -1,7 +1,7 @@
 import React from 'react';
 import "./SkillPopUp.css";
 import { updateProfile } from '../../../api/userRequest';
-import { getUser } from '../../../api/userRequest';
+
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 const SkillPopUp = ({onClose, oldSkills, setUpdateDom}) => {

@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import HashtagPage from "../api/hashtag";
+
 import { toast } from 'react-toastify';
 
 class TaggingManager {

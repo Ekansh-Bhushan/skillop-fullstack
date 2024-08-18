@@ -4,7 +4,7 @@ import arrow from "../components/images/typcn_arrow-up-outline.png";
 import { useNavigate } from "react-router-dom";
 
 const LandingTwo = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [ setIsMobile] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     const handleResize = () => {

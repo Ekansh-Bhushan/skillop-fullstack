@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './BookViewPopUp.css';
-import toast from 'react-hot-toast';
-import { acceptMeet } from '../../../api/mentorRequest';
+
+
 import convertToNormalTime from '../../../utils/timeConversion';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../images/logo.png";
+
 import { useNavigate } from "react-router-dom";
-import Commondash from "../common";
-import Topbar from "../topbar";
+
+
 import Profileandevents from "../../Landing/Profileandevents";
 import "./earning.css";
 import toast from "react-hot-toast";
 import spinner from "../../../components/images/spinner.gif";
 import { getEarnings } from "../../../api/mentorRequest";
 import Mobilecommonhead from "../../Mobilecommonhead";
-import UpcomingEvents from "../../Landing/Profileandevents/UpcomingEvents";
+
 
 function Earning({ userData, setProgress, Mentor}) {
   const navigate = useNavigate();

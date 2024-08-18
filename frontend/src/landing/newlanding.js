@@ -18,7 +18,7 @@ import event2 from "../components/images/event2.jpg";
 import event3 from "../components/images/event3.jpg";
 import event4 from "../components/images/event4.jpeg";
 import event5 from "../components/images/event5.jpg";
-import newsbg from "../components/images/newsbg.png";
+
 import qr_code from "../components/images/qr_code.png";
 
 import knowMoreIcon from "../components/images/knowmore.png";

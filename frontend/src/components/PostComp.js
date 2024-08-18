@@ -10,7 +10,7 @@ import { followUnfollowUser } from '../api/follow-unfollow';
 import TaggingManager from '../utils/tagManager';
 import toast from 'react-hot-toast';
 import { getUserFromUsername } from '../api/userRequest';
-import { linkIdentifier } from '../utils/linkIdentifier';
+
 import { getAllPost,getSpecificPost, likeOrDislikePost, getLikers, getCommentsForPost, deletePost} from '../api/postRequest';
 import allTag from './images/allTag.png';
 import societytag from './images/member.png';
@@ -23,11 +23,11 @@ const PostComp = ({
   author,
   imageUrls,
   title,
-  likes,  
+   
   _id,
-  user,
+  
   __created,
-  followings,
+  
   setProgress,
 }) => {
   const [liked, setLiked] = useState(false);

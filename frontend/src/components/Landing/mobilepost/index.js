@@ -5,7 +5,7 @@ import vid from "../../images/video.jpeg";
 import photo from "../../images/image.png";
 import attach from "../../images/attatchment.png";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 const API = axios.create({ baseURL: "https://skillop.in" });

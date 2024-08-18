@@ -20,7 +20,7 @@ import toast from 'react-hot-toast';
 export default function RightProfileComp({ about }) {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState(null);
-  const [showEditProfilePic, setShowEditProfilePic] = useState(false);
+
   const [showIntroVideo, setShowIntroVideo] = useState(false);
   const [showFollowers, setShowFollowers] = useState(false);
   const [showFollowings, setShowFollowings] = useState(false);

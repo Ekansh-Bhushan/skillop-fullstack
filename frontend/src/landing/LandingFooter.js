@@ -10,24 +10,24 @@ const LandingFooter = () => {
     <div className="bg-[#212121] text-white flex items-center justify-around py-10 md:flex-col md:gap-5 mb-[-10vh]">
       <div className="md:ml-[10vw] flex flex-col md:gap-5">
         <div className="flex items-center justify-start gap-5">
-          <img src={logo} />
+          <img src={logo}  alt="Skillop Logo"/>
           <h1>SKILLOP</h1>
         </div>
         <div className="flex items-center justify-start gap-3">
           {" "}
-          <img src={email} />
+          <img src={email} alt="Email Icon"/>
           <h3>
             <a href="mailto:skill.skillop@gmail.com">skill.skillop@gmail.com</a>
           </h3>
         </div>
         <div className="flex items-center justify-start gap-3">
           {" "}
-          <img src={call} />
+          <img src={call} alt="Call Icon" />
           <h3>+91 9643654899</h3>
         </div>
         <div className="flex items-center justify-start gap-3">
           {" "}
-          <img src={location} />
+          <img src={location}  alt="Location Icon"/>
           <h3 className="w-[60%]">
             Delhi Technological University, Bawana Road, Shahbad Daulatpur
             Village, Rohini, Delhi 110042

@@ -5,12 +5,12 @@ import landingelement5 from "../components/images/landingpageelementKRISSMANNGUP
 import line from "../components/images/Line.png";
 import arrow from "../components/images/arrow.png";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+
 
 const LandingOne = () => {
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
+  const [ setIsMobile] = useState(false);
+  // const [currentImage, setCurrentImage] = useState(0);
   
 
   const Typewriter = ({ text }) => {
