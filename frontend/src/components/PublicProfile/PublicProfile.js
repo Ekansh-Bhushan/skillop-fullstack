@@ -49,7 +49,8 @@ const PublicProfile = ({
   const handlePastExpandClick = () => setIsPastExpanded(!isPastExpanded);
   const handleFutureExpandClick = () => setIsFutureExpanded(!isFutureExpanded);
 
-  const taggingManager = new TaggingManager(setProgress, navigate, getUserFromUsername, toast);
+  // const taggingManager = new TaggingManager(setProgress, navigate, getUserFromUsername, toast);
+  const taggingManager = new TaggingManager(setProgress, navigate, toast);
 
   return (
     <>
