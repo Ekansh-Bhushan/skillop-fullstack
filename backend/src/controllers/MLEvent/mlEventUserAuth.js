@@ -1,34 +1,48 @@
-// mlEventUserController.js
 const mlEventUserSchema = require('../../models/MLEVENT/mlEventUsers');
+const upload = require('../../middleware/uploadMiddleware'); 
 
 exports.registerUser = async (req, res) => {
     try {
-        const { teamName, teamLeaderEmail, teamPassword, teamNumberOfHints, profilePicUrl } = req.body;
+        console.log(req.body, "Received Body");
+        console.log(req.file, "Received File");
+        const { teamName, teamLeaderEmail, teamPassword, teamNumberOfHints } = req.body;
 
-        // Validate input
         if (!teamName || !teamLeaderEmail || !teamPassword) {
-            return res.status(400).json({ message: 'Team name, email, and password are required' });
+            return res.status(400).send({
+                result: false,
+                message: 'Team name, email, and password are required'
+            });
         }
 
-        // Create new user
+        let profilePicUrl = '';
+        if (req.file && req.file.fieldname === "profilePic") {
+            profilePicUrl = process.env.BASE_URL + "/api/public/users/" + req.file.filename;
+        }
+
         const newUser = new mlEventUserSchema({
             teamName,
             teamLeaderEmail,
             teamPassword,
             teamNumberOfHints,
-            profilePicUrl
+            profilePicUrl,
         });
 
-        // Save new user to the database
         await newUser.save();
 
-        // Respond with success
-        res.status(201).json({ message: 'User registered successfully', user: newUser });
+        res.status(201).send({
+            result: newUser,
+            message: 'User registered successfully',
+        });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Server error', error });
+        res.status(500).send({
+            err: error.message,
+            message: 'Internal server error',
+            result: false,
+        });
     }
 };
+
 
 exports.getAllTeams = async (req, res) => {
     try {
