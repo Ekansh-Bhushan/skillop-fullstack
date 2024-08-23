@@ -1,5 +1,6 @@
 const mlEventUserSchema = require('../../models/MLEVENT/mlEventUsers');
 const upload = require('../../middleware/uploadMiddleware'); 
+const bcrypt = require('bcryptjs');
 
 exports.registerUser = async (req, res) => {
     try {
@@ -32,6 +33,54 @@ exports.registerUser = async (req, res) => {
         res.status(201).send({
             result: newUser,
             message: 'User registered successfully',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({
+            err: error.message,
+            message: 'Internal server error',
+            result: false,
+        });
+    }
+};
+
+
+
+
+exports.loginUser = async (req, res) => {
+    try {
+        const { teamLeaderEmail, teamPassword } = req.body;
+
+        
+        if (!teamLeaderEmail || !teamPassword) {
+            return res.status(400).send({
+                result: false,
+                message: 'Email and password are required',
+            });
+        }
+
+     
+        const user = await mlEventUserSchema.findOne({ teamLeaderEmail });
+        if (!user) {
+            return res.status(401).send({
+                result: false,
+                message: 'Invalid email or password',
+            });
+        }
+
+   
+        const isPasswordValid = await bcrypt.compare(teamPassword, user.teamPassword);
+        if (!isPasswordValid) {
+            return res.status(401).send({
+                result: false,
+                message: 'Invalid email or password',
+            });
+        }
+
+        
+        res.status(200).send({
+            result: user,
+            message: 'Login successful',
         });
     } catch (error) {
         console.error(error);
