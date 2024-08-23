@@ -29,3 +29,13 @@ exports.registerUser = async (req, res) => {
         res.status(500).json({ message: 'Server error', error });
     }
 };
+
+exports.getAllTeams = async (req, res) => {
+    try {
+        const teams = await mlEventUserSchema.find({});
+        res.status(200).json({ message: 'Teams fetched successfully', teams });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error', error });
+    }
+};
