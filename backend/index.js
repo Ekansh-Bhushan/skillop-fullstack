@@ -17,17 +17,11 @@ const adminRoutes = require('./src/routes/adminRoutes');
 const commentRouters = require('./src/routes/commentRoutes');
 const hashtagRoutes = require('./src/routes/hashtagRoutes');
 const meetingRoutes = require('./src/routes/meetingRoutes');
-// const NotFound = require('./src/middleware/NotFound.js')
+const mlEventUserRoutes = require('./src/routes/MLEVENT/mlEventUserRoutes');
 require('dotenv').config();
-// console.log(process.env.JWT_KEY);
 const app = express();
 const PORT = process.env.PORT | 2004;
 connectDB();
-// const corsOptions = {
-//     origin: "https://front-nine-jet.vercel.app",
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true,
-// };
 const allowedOrigins = [
   'http://localhost:3000',
   'https://skillop.in',
@@ -65,7 +59,8 @@ app.use('/api/event', eventRoutes);
 app.use('/api/v2', searchRoutes);
 app.use('/api/comment', commentRouters);
 app.use('/api/hashtag', hashtagRoutes);
-app.use('/api/meeting', meetingRoutes)
+app.use('/api/meeting', meetingRoutes);
+app.use('/api/mlevent', mlEventUserRoutes);
 // app.use(NotFound)
 // share images in uploads/pubic to frontend
 app.use(
