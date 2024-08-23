@@ -68,7 +68,6 @@ function Post({
         setReloadPost={setReloadPost}
         reloadPost={reloadPost}
       />
-      {/* <Common setProgress={setProgress}/> */}
       <div className="main-content-landing">
         {isFetched && (
           <Postlist
@@ -80,7 +79,6 @@ function Post({
 
         <Profileandevents isHome={isHome} userData={userData} />
       </div>
-      {/* <img id="scrollUp" onClick={scrollToTop} style={{ zIndex: "1000", position: "fixed", bottom: "20px", right: "20px", cursor: "pointer", borderRadius: "100%", boxShadow: "3px 3px 20px green" }} src={scrollUp} height={50} width={50} alt="scrollToTop" /> */}
     </div>
   );
 }
