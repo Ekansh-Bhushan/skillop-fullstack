@@ -1,9 +1,9 @@
 // mlEventUserController.js
 const mlEventUserSchema = require('../../models/MLEVENT/mlEventUsers');
-// Controller function to register a new user
+
 exports.registerUser = async (req, res) => {
     try {
-        const { teamName, teamLeaderEmail, teamPassword, teamPoints, teamFinishTime, teamNumberOfHints, teamQuestionSolved, profilePicUrl } = req.body;
+        const { teamName, teamLeaderEmail, teamPassword, teamNumberOfHints, profilePicUrl } = req.body;
 
         // Validate input
         if (!teamName || !teamLeaderEmail || !teamPassword) {
@@ -15,14 +15,14 @@ exports.registerUser = async (req, res) => {
             teamName,
             teamLeaderEmail,
             teamPassword,
-            teamPoints,
-            teamFinishTime,
             teamNumberOfHints,
-            teamQuestionSolved,
             profilePicUrl
         });
-        
+
+        // Save new user to the database
         await newUser.save();
+
+        // Respond with success
         res.status(201).json({ message: 'User registered successfully', user: newUser });
     } catch (error) {
         console.error(error);

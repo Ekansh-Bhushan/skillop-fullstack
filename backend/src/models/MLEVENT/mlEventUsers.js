@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const mlEventUserSchema = new mongoose.Schema({
     teamName: {
         type: String,
-        required: [true, "Team name is required"],
+        required: [true, "team name is required"],
     },
     teamLeaderEmail: {
         type: String,
@@ -11,7 +11,7 @@ const mlEventUserSchema = new mongoose.Schema({
         unique: [true, "Email already exists"],
         validate: {
             validator: function (v) {
-                return /\S+@\S+\.\S+/.test(v); // Basic email format validation
+                return /\S+@\S+\.\S+/.test(v); 
             },
             message: (email) => `${email.value} is not a valid email address!`,
         },
@@ -27,7 +27,7 @@ const mlEventUserSchema = new mongoose.Schema({
     },
     teamFinishTime: {
         type: Date,
-        default: null, 
+        default: null,
     },
     teamNumberOfHints: {
         type: Number,
@@ -35,11 +35,11 @@ const mlEventUserSchema = new mongoose.Schema({
     },
     teamQuestionSolved: {
         type: Number,
-        default: 0, 
+        default: 0, // Initialize to zero
     },
     profilePicUrl: {
         type: String,
-        default: "", 
+        default: "",
     }
 });
 
