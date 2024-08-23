@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #ffffff;
+  font-family: "poppins", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 4rem;
+}
+/* h2 {
+  font-size: 2.3rem;
+  color: #000000;
+  margin-left: 4rem;
+  top: 4rem;
+  left: 4rem;
+} */
+.btn_add {
+  /* position: fixed; */
+  /* top: 9rem; */
+  /* left: 4rem; */
+  outline: none;
+  border: none;
+  background: #000000;
+  color: #fff;
+  padding: 0.6rem 2rem;
+  /* margin-bottom: 8rem 0; */
+  margin-left: 4rem;
+  font-family: inherit;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.note-wrapper {
+  background: #fff;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 305px;
+  font-size: 1.2rem;
+  margin: 30px 0 0 3.8rem;
+}
+.main{
+  width: 400px;
+  height: 250px;
+}
+.note-wrapper .operations {
+  background: #919092;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+.note-wrapper .operations button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 0.7rem;
+}
+
+.textColorPicker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.textColorPicker::-webkit-color-swatch {
+  border: none;
+}
+
+
+.underlineBtn{
+padding-right: 10px;
+}
+.note-wrapper textarea {
+  outline: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  resize: none;
+  border: none;
+}
+.main {
+  padding: 20px;
+}
+.hidden {
+  display: none;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+}

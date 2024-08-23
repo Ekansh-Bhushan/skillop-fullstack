@@ -55,6 +55,7 @@ import AuthorizeZoomMeet from '../dashboard/bookings/AuthorizeZoomMeet';
 import HashtagPage from '../../api/hashtag';
 import NotworkingBokking from '../../components/dashboard/bookings/Notworking/notworkingbooking'
 import Student_Dasboard from '../SocietyMember/DashBoard/dashboard'
+import NoteMaking from '../SocietyMember/Notes/notes'
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Admin_Users from '../Admin Panel/Admin_Users';
 import Admin_Dashboard from '../Admin Panel/Admin_Dashboard';
@@ -106,7 +107,10 @@ function WebPages({
     '/admin',
     '/admin/skillop-dtu/1941',
     '/Admin_Dashboard' ,
-    '/Admin_Users'
+    '/Admin_Users',
+    '/Admin_Events',
+    '/dashboard',
+    '/dashboard/notes'
 
     // Add more routes as needed
   ];
@@ -310,6 +314,7 @@ function WebPages({
           }
         />
         <Route path='/dashboard' element={<Student_Dasboard/>}/>
+        <Route path='/dashboard/notes' element={<NoteMaking/>}/>
         <Route
           path='/profile'
           element={<Profile setProgress={setProgress} />}

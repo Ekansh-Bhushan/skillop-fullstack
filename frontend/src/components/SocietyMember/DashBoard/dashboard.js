@@ -1,23 +1,19 @@
 import React from 'react'
-import Mobilecommonhead from '../../Mobilecommonhead';
-// Import the background image
-import backgroundImage from './backgroungimage.png';
 import { Link } from 'react-router-dom';
 import './dashboard.css'
 function dashboard() {
   return (
     <>
-    <Mobilecommonhead/>
-    <div className='outer'>
-      <div className='not-found-container' style={{ backgroundImage: `url(${backgroundImage})` }}>
-        {/* <p id='oops' className='not-found-title'>OOPS!</p> */}
-        <p className='not-found-title'>SKillop </p>
-        <p className='subtitle'>Welcome to Dashboard </p>
-        <p className='not-found-message'>The feature is comming soon.</p>
-      
-        {/* Add the Link component for the button */}
-        <Link to="/homepage" className="home-button">Go to Home</Link>
+    <div className='dashboard'>
+      <h1 className='mb-8'>Dashboard Overview</h1>
+
+      <a href='/dashboard/notes' className=''>
+      <div className='notes'>
+        <p>Notes</p>
+        <h1>Add your Ideas!</h1>
+        <p>Take notes of your ideas and thoughts</p>
       </div>
+      </a>
     </div>
     </>
   )
