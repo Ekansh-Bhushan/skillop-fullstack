@@ -11,11 +11,7 @@ const CrypticHunt = () => {
   const [timer, setTimer] = useState(35 * 60 + 41); // Example timer
 
   useEffect(() => {
-    axios.get(`http://localhost:2004/api/mlevent/questions/${questionId}`)
-      .then(response => {
-        setQuestion(response.data);
-      })
-      .catch(error => console.error('Error fetching question:', error));
+    
 
     axios.get('http://localhost:2004/api/mlevent/hint')
       .then(response => {
@@ -45,15 +41,18 @@ const CrypticHunt = () => {
       <div className="header">
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
-        <div className="timer">
+        {/* <div className="timer">
           <span>{formatTime(timer)}</span>
-        </div>
+        </div> */}
       </div>
 
       <div className="content">
         <div className="challenge-section">
-          <h2>Q1. {question.title} <span className="points">{question.points} Pts</span> <span className="difficulty">Easy</span></h2>
-          <p>{question.description}</p>
+          <h2>Q1. <p>I taught me one game,<br></br>
+the world took it to fame.<br></br>
+I got learning in me,<br></br>
+who coined my name.</p> <span className="points">10 Pts</span> <span className="difficulty">Easy</span></h2>
+          
           <button className="hint-button" onClick={() => alert(hint)}>Hint</button>
           <input
             type="text"
