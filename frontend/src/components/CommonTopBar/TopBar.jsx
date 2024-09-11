@@ -16,6 +16,9 @@ const TopBar = () => {
   const signupClicked = () => {
     navigate('/signup');
   };
+  const crypticHuntClicked = () => {
+    navigate('/ml-login');
+  };
 
   return (
     <div className='tb-container '>
@@ -30,6 +33,12 @@ const TopBar = () => {
       )}
       {window.location.pathname === '/' && (
         <div className='flex gap-5'>
+          <button
+            className='py-2 px-9 rounded-xl text-sm font-bold shadow-md bg-[#FFB800] md:px-3 hover:transform hover:scale-105 hover:shadow-md transition duration-300'
+            onClick={crypticHuntClicked}
+          >
+            Cryptic Hunt
+          </button>
           <button
             className='py-2 px-9 rounded-xl text-sm font-bold shadow-md bg-[#FFB800] md:px-3 hover:transform hover:scale-105 hover:shadow-md transition duration-300'
             onClick={signupClicked}
