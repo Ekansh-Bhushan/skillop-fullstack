@@ -1,32 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS
 import './question.css';
-import Leaderboard from '../LeaderBoard';
+
 const CrypticHunt = () => {
   const [question, setQuestion] = useState({});
-  const [hint, setHint] = useState('');
+  const [hint, setHint] = useState('Learn ML on me but find what I need it first.');
   const [flag, setFlag] = useState('');
-  const [timer, setTimer] = useState(35 * 60 + 41); // Example timer
-
-  useEffect(() => {
-    
-
-    axios.get('http://localhost:2004/api/mlevent/hint')
-      .then(response => {
-        setHint(response.data.hint);
-      })
-      .catch(error => console.error('Error fetching hint:', error));
-
-    const interval = setInterval(() => {
-      setTimer(prevTimer => (prevTimer > 0 ? prevTimer - 1 : 0));
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+  const [timer, setTimer] = useState(35 * 60 + 41); 
   const handleSubmit = () => {
     alert(`You entered: ${flag}`);
+  };
+
+  const showHint = () => {
+    toast.info(hint, {
+      position: "top-center",
+      autoClose: false, // Toast will stay until user closes it
+      closeButton: true, // Include close button
+      theme: 'colored', // Optional: Include theme
+    });
   };
 
   const formatTime = (time) => {
@@ -37,22 +31,24 @@ const CrypticHunt = () => {
 
   return (
     <div className="cryptic-hunt">
+      <ToastContainer  />
+
       <div className="header">
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
-        {/* <div className="timer">
+        <div className="timer">
           <span>{formatTime(timer)}</span>
-        </div> */}
+        </div>
       </div>
 
       <div className="content">
         <div className="challenge-section">
-          <h2>Q2. <p>I waggle with qngn, zbqryf I grow, <br></br>
-you are to train on me, I make codes flow.<br></br>
-Easy yet incomplete, a key awaits,<br></br>
-inspect the elements, a mystery link it creates.</p> <span className="points">10 Pts</span> <span className="difficulty">Easy</span></h2>
+        <h2>Q2. <p>I taught me one game,<br></br>
+the world took it to fame.<br></br>
+I got learning in me,<br></br>
+who coined my name.</p> <span className="points">10 Pts</span> <span className="difficulty">Easy</span></h2>
           
-          <button className="hint-button" onClick={() => alert(hint)}>Hint</button>
+          <button className="hint-button" onClick={showHint}>Hint</button>
           <input
             type="text"
             placeholder="Enter the flag"
@@ -72,7 +68,5 @@ inspect the elements, a mystery link it creates.</p> <span className="points">10
     </div>
   );
 };
-
-
 
 export default CrypticHunt;
