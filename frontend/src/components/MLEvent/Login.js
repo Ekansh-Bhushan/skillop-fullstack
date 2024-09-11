@@ -4,7 +4,7 @@ import skillop from './img/skillop.png';
 import loginImg from './img/login-2.png';
 import './Login.css';
 
-const Login = () => {
+const MlLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -88,4 +88,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default MlLogin;
