@@ -19,7 +19,7 @@ const mlEventUserSchema = new mongoose.Schema({
     teamPassword: {
         type: String,
         required: true,
-        select: false,
+        // select: false,
     },
     teamPoints: {
         type: Number,
