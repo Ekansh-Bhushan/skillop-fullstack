@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { useNavigate } from 'react-router-dom';
 
 const WaitingPage = () => {
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+   const navigate = useNavigate(); // Initialize the useNavigate hook
 
   useEffect(() => {
     const checkTime = () => {
@@ -27,8 +29,10 @@ const WaitingPage = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+ 
   const handleStartClick = () => {
-    alert('Quiz Started!'); // Replace with the logic to start the quiz
+    // Navigate to the quiz page when the button is clicked
+    navigate('/question/54sdf5443'); 
   };
 
   return (
