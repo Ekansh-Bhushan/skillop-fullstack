@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
+import { addPoints, getScore } from "../score";
 import "./question.css";
 
 // Import the image if it's inside src folder

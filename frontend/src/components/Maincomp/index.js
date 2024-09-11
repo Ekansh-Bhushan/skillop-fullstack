@@ -61,6 +61,7 @@ import Admin_Users from '../Admin Panel/Admin_Users';
 import Admin_Dashboard from '../Admin Panel/Admin_Dashboard';
 import CreateEvent from '../Admin Panel/CreateEvent';
 import MlLogin from '../MLEvent/Login';
+import WaitingPage from '../MLEvent/waitingpg';
 import LeaderBoard from '../MLEvent/LeaderBoard';
 import QuestionOne from '../MLEvent/questions/questionOne';
 import QuestionTwo from '../MLEvent/questions/questionTwo'
@@ -414,6 +415,7 @@ function WebPages({
           element={<EditSkillsPage setProgress={setProgress} />}
         />
         <Route path='/ml-login' element={<MlLogin/>} />
+        <Route path='/waitingpg' element={<WaitingPage/>} />
         <Route path='/leaderboard' element={<LeaderBoard/>} />
         <Route path='/question/notdeeplearning' element={<QuestionOne/>} />
         <Route path='/question/platform' element={<QuestionTwo/>} />

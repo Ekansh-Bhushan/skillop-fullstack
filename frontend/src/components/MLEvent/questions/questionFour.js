@@ -13,6 +13,7 @@ const QuestionFour = () => {
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  
   const navigate = useNavigate();
 
   const nextQuestion = () => {
