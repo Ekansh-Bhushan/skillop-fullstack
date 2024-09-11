@@ -94,4 +94,6 @@
   .image-container a img {
     border: none; /* Remove border if present */
   }
-  
+  .hidden{
+    display: none;
+  }

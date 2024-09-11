@@ -9,7 +9,7 @@ import "./question.css";
 import questionImage from '../img/questionFourImage.jpg'; // Update the path as needed
 
 const QuestionFour = () => {
-  const [hint, setHint] = useState("He who taught it checkers.");
+  const [hint, setHint] = useState("I am Spider, yet smarter, count me up you have your answer.");
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
@@ -20,8 +20,7 @@ const QuestionFour = () => {
     if (flag.trim() === "8") {
       addPoints(10); // Add 10 points
       console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/asdfr3456");
-      navigate("/question/45j9dm8rd");
+      navigate("/question/level_1");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast

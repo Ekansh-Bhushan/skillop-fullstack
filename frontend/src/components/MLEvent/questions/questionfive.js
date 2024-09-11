@@ -64,10 +64,6 @@ const QuestionFive = () => {
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
           </h2>
-
-          <button className="hint-button" onClick={showHint}>
-            Hint
-          </button>
           <input
             type="text"
             placeholder="Enter the flag"

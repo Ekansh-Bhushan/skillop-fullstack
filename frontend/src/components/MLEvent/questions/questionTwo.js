@@ -19,7 +19,7 @@ const CrypticHunt = () => {
     if (flag.trim() === "Kaggle") {
       addPoints(10); // Add 10 points
       console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/86asdj8d9");
+      navigate("/question/cube");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast
@@ -88,6 +88,9 @@ const CrypticHunt = () => {
             View Leaderboard
           </Link>
         </div>
+      </div>
+      <div className="MyNameIsMachinLeanring hidden">
+      https://drive.google.com/drive/folders/1fhcLnGIT-0_IFvBMjs9PTrQilWgOqMeo?usp=drive_link
       </div>
     </div>
   );

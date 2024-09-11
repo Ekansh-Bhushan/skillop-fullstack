@@ -4,9 +4,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import "./question.css";
 
-// Import the image if it's inside src folder
-import questionImage from '../img/questionFourImage.jpg'; // Update the path as needed
-
 const QuestionFive = () => {
   const [hint, setHint] = useState("He who taught it checkers.");
   const [flag, setFlag] = useState("");
@@ -14,12 +11,17 @@ const QuestionFive = () => {
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
   const navigate = useNavigate();
 
-  const nextQuestion = () => {
-    // Trim and compare the flag in a case-insensitive manner
-    if (flag.trim() === "8") {
+    const nextQuestion = () => {
+    // Trim and check the flag input
+    const trimmedFlag = flag.trim();
+    
+    // Check if the trimmedFlag is a valid number
+    if (!isNaN(trimmedFlag) && trimmedFlag !== "") {
+      // Allow numeric input and navigate to the next question
       navigate("/youDidIt");
     } else {
-      setErrorMessage("Wrong answer! Please try again."); // Set error message
+      // Display error message for invalid input
+      setErrorMessage("Wrong answer! Please try again.");
       toast.error("Wrong answer! Please try again."); // Display error toast
     }
   };
@@ -56,15 +58,12 @@ const QuestionFive = () => {
           <h2>
             Q10.{" "}
             <p>
-            I know you have a graph, i need the error be it square or absolute, just put it here.
+            I made it this far, I must be proud, lets see if the result is out.<br/>
+Enter the accuracy for it may decide, your fate today may be bright.<br/>
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
           </h2>
-
-          <button className="hint-button" onClick={showHint}>
-            Hint
-          </button>
           <input
             type="text"
             placeholder="Enter the flag"

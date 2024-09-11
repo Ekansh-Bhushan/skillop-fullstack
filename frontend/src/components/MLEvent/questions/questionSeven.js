@@ -16,8 +16,8 @@ const QuestionFive = () => {
 
   const nextQuestion = () => {
     // Trim and compare the flag in a case-insensitive manner
-    if (flag.trim() === "8") {
-      navigate("/question/f55556byyt");
+    if (flag.trim() === "CNN") {
+      navigate("/question/incomplete");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast
@@ -56,7 +56,10 @@ const QuestionFive = () => {
           <h2>
             Q7.{" "}
             <p>
-            I know you have a graph, i need the error be it square or absolute, just put it here.
+            The beast comes roaring with vision to train, <br/>
+I love the features images claim.<br/>
+You have the answer not the prize,<br/>
+to get it you must analyze.<br/>
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>

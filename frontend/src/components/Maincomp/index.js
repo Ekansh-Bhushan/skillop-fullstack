@@ -415,16 +415,16 @@ function WebPages({
         />
         <Route path='/ml-login' element={<MlLogin/>} />
         <Route path='/leaderboard' element={<LeaderBoard/>} />
-        <Route path='/question/54sdf5443' element={<QuestionOne/>} />
-        <Route path='/question/14suj8d59' element={<QuestionTwo/>} />
-        <Route path='/question/86asdj8d9' element={<QuestionThree/>} />
-        <Route path='/question/asdfr3456' element={<QuestionFour/>} />
-        <Route path='/question/45j9dm8rd' element={<QuestionFive/>} />
+        <Route path='/question/notdeeplearning' element={<QuestionOne/>} />
+        <Route path='/question/platform' element={<QuestionTwo/>} />
+        <Route path='/question/cube' element={<QuestionThree/>} />
+        <Route path='/question/dataset' element={<QuestionFour/>} />
+        <Route path='/question/level_1' element={<QuestionFive/>} />
         <Route path='/question/notforwardpropogation' element={<QuestionSix/>} />
-        <Route path='/question/4=89u9hf8g' element={<QuestionSeven/>} />
-        <Route path='/question/f55556byyt' element={<QuestionEight/>} />
-        <Route path='/question/32rj8ndef' element={<QuestionNine/>} />
-        <Route path='/question/afewf34fr' element={<QuestionTen/>} />
+        <Route path='/question/ResNet-18' element={<QuestionSeven/>} />
+        <Route path='/question/incomplete' element={<QuestionEight/>} />
+        <Route path='/question/ultimateTest' element={<QuestionNine/>} />
+        <Route path='/question/level_2' element={<QuestionTen/>} />
         <Route path='/hint/14suj8d59/84f8ds64r8fd' element={<HintTwo/>} />
 
           

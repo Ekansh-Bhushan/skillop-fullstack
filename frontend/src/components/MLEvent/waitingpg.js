@@ -32,7 +32,7 @@ const WaitingPage = () => {
  
   const handleStartClick = () => {
     // Navigate to the quiz page when the button is clicked
-    navigate('/question/54sdf5443'); 
+    navigate('/question/notdeeplearning'); 
   };
 
   return (

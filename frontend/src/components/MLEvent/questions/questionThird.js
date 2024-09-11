@@ -9,7 +9,7 @@ import "./question.css";
 import questionImage from '../img/questionThreeImage.jpg'; // Update the path as needed
 
 const QuestionThree = () => {
-  const [hint, setHint] = useState("He who taught it checkers.");
+  const [hint, setHint] = useState("Picture is your answer, code is your life, better be quick or get a dancer.");
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
@@ -20,7 +20,7 @@ const QuestionThree = () => {
     if (flag.trim() === "NumPy") {
       addPoints(10); // Add 10 points
       console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/asdfr3456");
+      navigate("/question/dataset");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast

@@ -21,7 +21,7 @@ const CrypticHunt = () => {
     if (flag.trim() === "Arthur Samuel") {
       addPoints(10); // Add 10 points
       console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/14suj8d59");
+      navigate("/question/platform");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast

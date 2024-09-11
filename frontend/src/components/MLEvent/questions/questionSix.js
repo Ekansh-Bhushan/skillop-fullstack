@@ -17,7 +17,7 @@ const QuestionSix = () => {
   const nextQuestion = () => {
     // Trim and compare the flag in a case-insensitive manner
     if (flag.trim() === "backpropogation") {
-      navigate("/question/4=89u9hf8g");
+      navigate("/question/ResNet-18");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast
