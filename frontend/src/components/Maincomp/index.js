@@ -62,7 +62,7 @@ import Admin_Dashboard from '../Admin Panel/Admin_Dashboard';
 import CreateEvent from '../Admin Panel/CreateEvent';
 import MlLogin from '../MLEvent/Login';
 import LeaderBoard from '../MLEvent/LeaderBoard';
-import CrypticHunt from '../MLEvent/CrypticHunt';
+import QuestionOne from '../MLEvent/questions/questionOne';
 import QuestionTwo from '../MLEvent/questions/questionTwo'
 import HintTwo from '../MLEvent/hint/hintTwo'
 
@@ -406,7 +406,7 @@ function WebPages({
         />
         <Route path='/ml-login' element={<MlLogin/>} />
         <Route path='/leaderboard' element={<LeaderBoard/>} />
-        <Route path='/event-questions' element={<CrypticHunt/>} />
+        <Route path='/question/54sdf5443' element={<QuestionOne/>} />
         <Route path='/question/14suj8d59' element={<QuestionTwo/>} />
         <Route path='/hint/14suj8d59/84f8ds64r8fd' element={<HintTwo/>} />
 

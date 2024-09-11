@@ -15,7 +15,7 @@ const CrypticHunt = () => {
     // Log flag for debugging
 
     // Trim and compare the flag in a case-insensitive manner
-    if (flag.trim() === "Kaggle") {
+    if (flag.trim() === "Arthur Samuel") {
       navigate("/question/14suj8d59");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
