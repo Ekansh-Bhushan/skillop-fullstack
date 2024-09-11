@@ -19,7 +19,7 @@ const CrypticHunt = () => {
     if (flag.trim() === "Kaggle") {
       addPoints(10); // Add 10 points
       console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/14suj8d59");
+      navigate("/question/86asdj8d9");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast
@@ -56,17 +56,16 @@ const CrypticHunt = () => {
       <div className="content">
         <div className="challenge-section">
           <h2>
-            Q1.{" "}
+            Q2.{" "}
             <p>
-              I taught me one game,<br />
-              the world took it to fame.<br />
-              I got learning in me,<br />
-              who coined my name.
+              I waggle with qngn, zbqryf I grow, <br></br>
+              you are to train on me, I make codes flow.<br></br>
+              Easy yet incomplete, a key awaits,<br></br>
+              inspect the elements, a mystery link it creates.<br></br>
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
           </h2>
-
           <button className="hint-button" onClick={showHint}>
             Hint
           </button>
@@ -78,8 +77,10 @@ const CrypticHunt = () => {
             className="flag-input"
           />
           <button onClick={nextQuestion}>Submit</button>
-
-          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
+          {errorMessage && (
+            <div className="error-message">{errorMessage}</div>
+          )}{" "}
+          {/* Display error message */}
         </div>
 
         <div className="leaderboard-section">

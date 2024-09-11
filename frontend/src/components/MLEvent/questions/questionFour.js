@@ -6,9 +6,9 @@ import { addPoints, getScore } from "../score";
 import "./question.css";
 
 // Import the image if it's inside src folder
-import questionImage from '../img/questionThreeImage.jpg'; // Update the path as needed
+import questionImage from '../img/questionFourImage.jpg'; // Update the path as needed
 
-const QuestionThree = () => {
+const QuestionFour = () => {
   const [hint, setHint] = useState("He who taught it checkers.");
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
@@ -57,13 +57,12 @@ const QuestionThree = () => {
       <div className="content">
         <div className="challenge-section">
           <h2>
-            Q3.{" "}
+            Q4.{" "}
             <p>
-              i  <br />
-              tapotil mtnyapir ds dpraplbposp<br />
-              prupsnmopn s<br />
-              mtmlt.ytal<br />
-              om paai op t<br />
+              Find the clue and you shall feast,<br />
+              with the first done, move on to the beast.<br />
+              I need data, go through the door,<br />
+              embed it in code to unlock its core.<br />
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
@@ -71,7 +70,12 @@ const QuestionThree = () => {
 
           {/* Add the image below the question */}
           <div className="image-container">
-            <img src={questionImage} alt="Question Illustration" className="question-image" />
+            <img 
+              src={questionImage} 
+              alt="Question Illustration" 
+              className="question-image" 
+              title="Right-click to save image as 'link.jpg'" // Add a tooltip
+            />
           </div>
 
           <button className="hint-button" onClick={showHint}>
@@ -99,4 +103,4 @@ const QuestionThree = () => {
   );
 };
 
-export default QuestionThree;
+export default QuestionFour;
