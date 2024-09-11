@@ -242,10 +242,10 @@ const LandingPage = () => {
       <div className="message-section" ref={messageBoxRef}>
         <div className="message-container">
           <div className="message-box">
-            
+
             <h2>Join Our Thrilling ML Cryptic Hunt!</h2>
             <p>
-            Don't miss the chance to dive into the world of machine learning mysteries.
+              Don't miss the chance to dive into the world of machine learning mysteries.
               <br></br>
               Be part of our society where innovation drives discovery.
             </p>
@@ -254,14 +254,14 @@ const LandingPage = () => {
               - Get ready for the ML Cryptic Hunt on September 12th.
               <br></br>
               - Scan the QR code or{" "}
-               <a
-               href="https://unstop.com/o/NEdkl0Z?lb=UiJQIGC9"
-               target="_blank"
-               style={{ color: "#007bff", fontWeight: "bold", textDecoration: "underline" }}
+              <a
+                href="https://unstop.com/o/NEdkl0Z?lb=UiJQIGC9"
+                target="_blank"
+                style={{ color: "#007bff", fontWeight: "bold", textDecoration: "underline" }}
               >
-              Register via Unstop
+                Register via Unstop
               </a>{" "}
-               to join the challenge.
+              to join the challenge.
 
             </p>
           </div>
@@ -270,6 +270,53 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+
+      <div className="timeline-section">
+        <div className="timeline-container">
+          <h2 className="timeline-heading">Timeline for ML Cryptic Hunt</h2>
+          <div className="timeline">
+            <div className="timeline-pointer">
+              <div className="timeline-pointer-icon"></div>
+              <div className="timeline-pointer-text">
+                <h3>Registration Deadline</h3>
+                <p>31st Aug 24, 11:59 PM</p>
+              </div>
+            </div>
+            <div className="timeline-pointer">
+              <div className="timeline-pointer-icon"></div>
+              <div className="timeline-pointer-text">
+                <h3>Online Quiz</h3>
+                <p>01 Sep 24, 10:00 AM</p>
+              </div>
+            </div>
+            <div className="timeline-pointer">
+              <div className="timeline-pointer-icon"></div>
+              <div className="timeline-pointer-text">
+                <h3>Announcement of Selected Team</h3>
+                <p>04 Sep 24, 10:00 PM</p>
+              </div>
+            </div>
+            <div className="timeline-pointer">
+              <div className="timeline-pointer-icon"></div>
+              <div className="timeline-pointer-text">
+                <h3>Workshop for Selected Team</h3>
+                <p>05 Sep 24, 8:00 PM</p>
+              </div>
+            </div>
+            <div className="timeline-pointer">
+              <div className="timeline-pointer-icon"></div>
+              <div className="timeline-pointer-text">
+                <h3>Grand Finale</h3>
+                <p>12 Sep 24, 10:00 AM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
       <div className="newsandevent-section">
         <div className="news-grid">
           <div className="news-column">
