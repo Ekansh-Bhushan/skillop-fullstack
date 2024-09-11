@@ -5,10 +5,7 @@ import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import { addPoints, getScore } from "../score";
 import "./question.css";
 
-// Import the image if it's inside src folder
-import questionImage from '../img/questionFourImage.jpg'; // Update the path as needed
-
-const QuestionFour = () => {
+const QuestionFive = () => {
   const [hint, setHint] = useState("He who taught it checkers.");
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
@@ -16,23 +13,31 @@ const QuestionFour = () => {
   const navigate = useNavigate();
 
   const nextQuestion = () => {
-    // Trim and compare the flag in a case-insensitive manner
-    if (flag.trim() === "8") {
+    // Trim and check the flag input
+    const trimmedFlag = flag.trim();
+
+    if (trimmedFlag === "8") {
       addPoints(10); // Add 10 points
       console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/asdfr3456");
+      navigate("/question/asdfr3456"); // Navigate to the next question
+    } else if (!isNaN(trimmedFlag) && trimmedFlag !== "") {
+      // Check if the trimmedFlag is a valid number
+      addPoints(10); // Add 10 points if numeric input is valid
+      console.log("Current Score:", getScore()); // Log current score
+      navigate("/question/safefdsdc"); // Navigate to the next question
     } else {
-      setErrorMessage("Wrong answer! Please try again."); // Set error message
+      // Display error message for invalid input
+      setErrorMessage("Wrong answer! Please try again.");
       toast.error("Wrong answer! Please try again."); // Display error toast
     }
   };
 
   const showHint = () => {
     toast.info(hint, {
-      position: "top-right", // Changed to a valid position
-      autoClose: false, // Toast will stay until user closes it
-      closeButton: true, // Include close button
-      theme: "colored", // Optional: Include theme
+      position: "top-right",
+      autoClose: false,
+      closeButton: true,
+      theme: "colored",
     });
   };
 
@@ -59,7 +64,7 @@ const QuestionFour = () => {
           <h2>
             Q5.{" "}
             <p>
-            I know you have a graph, i need the error be it square or absolute, just put it here.
+              I know you have a graph, I need the error be it square or absolute, just put it here.
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
@@ -77,7 +82,7 @@ const QuestionFour = () => {
           />
           <button onClick={nextQuestion}>Submit</button>
 
-          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
         </div>
 
         <div className="leaderboard-section">
@@ -90,4 +95,4 @@ const QuestionFour = () => {
   );
 };
 
-export default QuestionFour;
+export default QuestionFive;
