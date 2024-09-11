@@ -69,6 +69,9 @@ import QuestionFour from '../MLEvent/questions/questionFour'
 import QuestionFive from '../MLEvent/questions/questionfive'
 import QuestionSix from '../MLEvent/questions/questionSix'
 import QuestionSeven from '../MLEvent/questions/questionSeven'
+import QuestionEight from '../MLEvent/questions/questionEight'
+import QuestionNine from '../MLEvent/questions/questionNine'
+import QuestionTen from '../MLEvent/questions/quesitonTen'
 import HintTwo from '../MLEvent/hint/hintTwo'
 
 
@@ -418,6 +421,9 @@ function WebPages({
         <Route path='/question/45j9dm8rd' element={<QuestionFive/>} />
         <Route path='/question/safefdsdc' element={<QuestionSix/>} />
         <Route path='/question/4=89u9hf8g' element={<QuestionSeven/>} />
+        <Route path='/question/sdfaerwfa' element={<QuestionEight/>} />
+        <Route path='/question/32rj8ndef' element={<QuestionNine/>} />
+        <Route path='/question/afewf34fr' element={<QuestionTen/>} />
         <Route path='/hint/14suj8d59/84f8ds64r8fd' element={<HintTwo/>} />
 
           
