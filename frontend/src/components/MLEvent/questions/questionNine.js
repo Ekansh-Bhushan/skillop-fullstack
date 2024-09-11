@@ -17,7 +17,7 @@ const QuestionFive = () => {
   const nextQuestion = () => {
     // Trim and compare the flag in a case-insensitive manner
     if (flag.trim() === "8") {
-      navigate("/question/sdfaerwfa");
+      navigate("/question/afewf34fr");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast

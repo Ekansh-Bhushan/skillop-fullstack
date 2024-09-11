@@ -15,16 +15,11 @@ const QuestionFive = () => {
   const nextQuestion = () => {
     // Trim and check the flag input
     const trimmedFlag = flag.trim();
-
-    if (trimmedFlag === "8") {
-      addPoints(10); // Add 10 points
-      console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/asdfr3456"); // Navigate to the next question
-    } else if (!isNaN(trimmedFlag) && trimmedFlag !== "") {
-      // Check if the trimmedFlag is a valid number
-      addPoints(10); // Add 10 points if numeric input is valid
-      console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/safefdsdc"); // Navigate to the next question
+    
+    // Check if the trimmedFlag is a valid number
+    if (!isNaN(trimmedFlag) && trimmedFlag !== "") {
+      // Allow numeric input and navigate to the next question
+      navigate("/question/notforwardpropogation");
     } else {
       // Display error message for invalid input
       setErrorMessage("Wrong answer! Please try again.");
