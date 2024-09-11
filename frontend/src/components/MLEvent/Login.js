@@ -3,16 +3,17 @@ import axios from 'axios';
 import skillop from './img/skillop.png';
 import loginImg from './img/login-2.png';
 import './Login.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const MlLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate(); // Initialize useNavigate
   const login = async () => {
     try {
       const response = await axios.post(
-        '/api/login', 
+        'http://localhost:2004/api/mlevent/login', 
         {
           teamLeaderEmail: email,
           teamPassword: password,
@@ -25,7 +26,7 @@ const MlLogin = () => {
 
         localStorage.setItem('user', JSON.stringify(response.data.result));
 
-        // navigate('/questions');
+        navigate('/questions');
 
       } else {
         setMessage('Login failed');
