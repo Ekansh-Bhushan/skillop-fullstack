@@ -51,16 +51,16 @@ function App() {
 
   const redirectIfNotAuthorize = () => {
     // const token = localStorage.removeItem('skilloptoken');
-    if (pagesToNotRedirect.includes(window.location.pathname)) {
-      return;
-    }
-    toast.error('Please Login/Signup to continue');
+    // if (pagesToNotRedirect.includes(window.location.pathname)) {
+    //   return;
+    // }
+    // toast.error('Please Login/Signup to continue');
 
-    if (window.innerWidth > 500) {
-      navigate(`/login?redirect=${window.location.pathname}`);
-    } else {
-      navigate(`/mlogin?redirect=${window.location.pathname}`);
-    }
+    // if (window.innerWidth > 500) {
+    //   navigate(`/login?redirect=${window.location.pathname}`);
+    // } else {
+    //   navigate(`/mlogin?redirect=${window.location.pathname}`);
+    // }
   };
 
   useEffect(() => {
