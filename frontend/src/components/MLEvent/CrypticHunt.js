@@ -43,7 +43,7 @@ const CrypticHunt = () => {
   return (
     <div className="cryptic-hunt">
       <div className="header">
-        <img src="/logo.png" alt="Skillop" className="logo" />
+        <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
         <div className="timer">
           <span>{formatTime(timer)}</span>
