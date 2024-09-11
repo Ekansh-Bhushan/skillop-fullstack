@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './CrypticHunt.css'; // Import the CSS
+import './CrypticHunt.css';
+import Leaderboard from './LeaderBoard';
 
 const CrypticHunt = () => {
   const [question, setQuestion] = useState({});
-  const [leaderboard, setLeaderboard] = useState([]);
+  const [hint, setHint] = useState('');
   const [flag, setFlag] = useState('');
-  const [timer, setTimer] = useState(35 * 60 + 41); // Example timer, 35:41
+  const [timer, setTimer] = useState(35 * 60 + 41); // Example timer
 
-  // Fetch question and leaderboard from backend
   useEffect(() => {
-    axios.get('/api/question') // Adjust this endpoint according to your backend
+    axios.get('http://localhost:5000/api/question')
       .then(response => {
         setQuestion(response.data);
       })
       .catch(error => console.error('Error fetching question:', error));
 
-    axios.get('/api/leaderboard') // Adjust this endpoint according to your backend
+    axios.get('http://localhost:5000/api/hint')
       .then(response => {
-        setLeaderboard(response.data);
+        setHint(response.data.hint);
       })
-      .catch(error => console.error('Error fetching leaderboard:', error));
+      .catch(error => console.error('Error fetching hint:', error));
 
     const interval = setInterval(() => {
       setTimer(prevTimer => (prevTimer > 0 ? prevTimer - 1 : 0));
@@ -30,15 +31,7 @@ const CrypticHunt = () => {
   }, []);
 
   const handleSubmit = () => {
-    axios.post('/api/submit-flag', { flag }) // Post flag to backend
-      .then(response => {
-        if (response.data.correct) {
-          alert('Correct Flag!');
-        } else {
-          alert('Incorrect Flag. Try Again.');
-        }
-      })
-      .catch(error => console.error('Error submitting flag:', error));
+    alert(`You entered: ${flag}`);
   };
 
   const formatTime = (time) => {
@@ -50,35 +43,38 @@ const CrypticHunt = () => {
   return (
     <div className="cryptic-hunt">
       <div className="header">
-        <img src="/img/skillop.png" alt="Skillop" className="logo" />
+        <img src="/logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
+        <div className="timer">
+          <span>{formatTime(timer)}</span>
+        </div>
       </div>
+
       <div className="content">
         <div className="challenge-section">
-          <h2>{question.title} <span className="points">{question.points} Pts</span></h2>
+          <h2>Q1. {question.title} <span className="points">{question.points} Pts</span> <span className="difficulty">Easy</span></h2>
           <p>{question.description}</p>
+          <button className="hint-button" onClick={() => alert(hint)}>Hint</button>
           <input
             type="text"
             placeholder="Enter the flag"
             value={flag}
             onChange={(e) => setFlag(e.target.value)}
+            className="flag-input"
           />
           <button onClick={handleSubmit}>Submit</button>
         </div>
+
         <div className="leaderboard-section">
-          <h3>Leaderboard</h3>
-          <ul>
-            {leaderboard.map((user, index) => (
-              <li key={index}>{`${index + 1}. ${user.name} - ${user.points} Pts`}</li>
-            ))}
-          </ul>
+          <Link to="/leaderboard" className="view-leaderboard-button">
+            View Leaderboard
+          </Link>
         </div>
-      </div>
-      <div className="timer">
-        <span>{formatTime(timer)}</span>
       </div>
     </div>
   );
 };
+
+
 
 export default CrypticHunt;
