@@ -4,10 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import "./question.css";
 
-// Import the image if it's inside src folder
-import questionImage from '../img/questionFourImage.jpg'; // Update the path as needed
-
-const QuestionFour = () => {
+const QuestionFive = () => {
   const [hint, setHint] = useState("He who taught it checkers.");
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
@@ -15,10 +12,15 @@ const QuestionFour = () => {
   const navigate = useNavigate();
 
   const nextQuestion = () => {
-    // Trim and compare the flag in a case-insensitive manner
-    if (flag.trim() === "8") {
-      navigate("/question/asdfr3456");
+    // Remove leading and trailing spaces
+    const trimmedFlag = flag.trim();
+    
+    // Check if the trimmedFlag is a valid number
+    if (!isNaN(trimmedFlag) && trimmedFlag !== "") {
+      // Allow numeric input and navigate to the next question
+      navigate("/question/safefdsdc");
     } else {
+      // Display error message for invalid input
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast
     }
@@ -56,7 +58,7 @@ const QuestionFour = () => {
           <h2>
             Q5.{" "}
             <p>
-            I know you have a graph, i need the error be it square or absolute, just put it here.
+              I know you have a graph, I need the error be it square or absolute, just put it here.
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
@@ -87,4 +89,4 @@ const QuestionFour = () => {
   );
 };
 
-export default QuestionFour;
+export default QuestionFive;
