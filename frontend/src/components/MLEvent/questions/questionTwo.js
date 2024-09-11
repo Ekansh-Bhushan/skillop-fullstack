@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
+import { addPoints, getScore } from "../score";
 import "./question.css";
 
 const CrypticHunt = () => {
@@ -16,6 +17,8 @@ const CrypticHunt = () => {
 
     // Trim and compare the flag in a case-insensitive manner
     if (flag.trim() === "Kaggle") {
+      addPoints(10); // Add 10 points
+      console.log("Current Score:", getScore()); // Log current score
       navigate("/question/86asdj8d9");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message

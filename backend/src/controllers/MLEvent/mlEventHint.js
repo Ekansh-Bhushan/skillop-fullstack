@@ -1,20 +1,20 @@
-const mlEventHintsSchema = require('../../models/MLEVENT/mlEventHints'); 
+const mlEventHintsSchema = require('../../models/MLEVENT/mlEventHints');
 
 // Create a new hint for a specific questionId
 exports.createHint = async (req, res) => {
     try {
-        const { questionId, hintText } = req.body;
+        const { questionReference, content } = req.body;
 
-        if (!questionId || !hintText) {
+        if (!questionReference || !content) {
             return res.status(400).send({
                 result: false,
-                message: 'Question ID and Hint text are required'
+                message: 'Question reference and Hint content are required'
             });
         }
 
         const newHint = new mlEventHintsSchema({
-            questionId,
-            hintText,
+            questionReference,
+            content,
         });
 
         await newHint.save();
@@ -37,9 +37,9 @@ exports.createHint = async (req, res) => {
 // Get a specific hint by questionId and hintId
 exports.getHintById = async (req, res) => {
     try {
-        const { questionId, hintId } = req.params;
+        const { questionReference, hintId } = req.params;
 
-        const hint = await mlEventHintsSchema.findOne({ _id: hintId, questionId });
+        const hint = await mlEventHintsSchema.findOne({ _id: hintId, questionReference });
 
         if (!hint) {
             return res.status(404).send({
@@ -62,4 +62,3 @@ exports.getHintById = async (req, res) => {
         });
     }
 };
-

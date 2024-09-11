@@ -1,15 +1,15 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const mlEventHintsSchema = new mongoose.Schema({
     content: {
         type: String,
-        default: ""
+        default: ''
     },
     questionReference: {
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: "MlEventQuestion", 
-        required: [true, "Question reference is required"]
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'MlEventQuestion',
+        required: [true, 'Question reference is required']
     }
 });
 
-module.exports = mongoose.model("MlEventHints", mlEventHintsSchema);
+module.exports = mongoose.model('MlEventHint', mlEventHintsSchema);

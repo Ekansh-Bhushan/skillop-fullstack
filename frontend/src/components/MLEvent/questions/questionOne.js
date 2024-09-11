@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
+import { addPoints, getScore } from "../score";
 import "./question.css";
 
 const CrypticHunt = () => {
@@ -9,6 +10,8 @@ const CrypticHunt = () => {
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  
+
   const navigate = useNavigate();
 
   const nextQuestion = () => {
@@ -16,6 +19,8 @@ const CrypticHunt = () => {
 
     // Trim and compare the flag in a case-insensitive manner
     if (flag.trim() === "Arthur Samuel") {
+      addPoints(10); // Add 10 points
+      console.log("Current Score:", getScore()); // Log current score
       navigate("/question/14suj8d59");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
