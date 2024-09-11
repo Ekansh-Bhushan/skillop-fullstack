@@ -17,7 +17,7 @@ const QuestionThree = () => {
   const nextQuestion = () => {
     // Trim and compare the flag in a case-insensitive manner
     if (flag.trim() === "NumPy") {
-      navigate("/question/86asdj8d9");
+      navigate("/question/asdfr3456");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast

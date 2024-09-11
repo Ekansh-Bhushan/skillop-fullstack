@@ -4,6 +4,9 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import "./question.css";
 
+// Import the image if it's inside src folder
+import questionImage from '../img/questionFourImage.jpg'; // Update the path as needed
+
 const QuestionFour = () => {
   const [hint, setHint] = useState("He who taught it checkers.");
   const [flag, setFlag] = useState("");
@@ -12,11 +15,9 @@ const QuestionFour = () => {
   const navigate = useNavigate();
 
   const nextQuestion = () => {
-    // Log flag for debugging
-
     // Trim and compare the flag in a case-insensitive manner
     if (flag.trim() === "NumPy") {
-      navigate("/question/86asdj8d9");
+      navigate("/question/asdfr3456");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast
@@ -53,19 +54,26 @@ const QuestionFour = () => {
       <div className="content">
         <div className="challenge-section">
           <h2>
-            Q3.{" "}
+            Q4.{" "}
             <p>
-            i  <br></br>
-tapotil mtnyapir ds dpraplbposp<br></br>
-prupsnmopn s<br></br>
-mtmlt.ytal<br></br>
-om paai op t<br></br>
-
-
+              Find the clue and you shall feast,<br />
+              with the first done, move on to the beast.<br />
+              I need data, go through the door,<br />
+              embed it in code to unlock its core.<br />
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
           </h2>
+
+          {/* Add the image below the question */}
+          <div className="image-container">
+            <img 
+              src={questionImage} 
+              alt="Question Illustration" 
+              className="question-image" 
+              title="Right-click to save image as 'link.jpg'" // Add a tooltip
+            />
+          </div>
 
           <button className="hint-button" onClick={showHint}>
             Hint
