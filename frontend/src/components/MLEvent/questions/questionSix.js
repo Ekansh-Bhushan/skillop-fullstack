@@ -4,8 +4,11 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import "./question.css";
 
+import questionImage from '../img/questionSixImage.jpg'; // Update the path as needed
 const QuestionSix = () => {
-  const [hint, setHint] = useState("I am one of the two, running out to in, deeper in learning still need a clue.");
+  const [hint, setHint] = useState(
+    "I am one of the two, running out to in, deeper in learning still need a clue."
+  );
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
@@ -53,14 +56,22 @@ const QuestionSix = () => {
           <h2>
             Q6.{" "}
             <p>
-            Coefficients are needed and you'll be just fine.<br/>
-It's adjusting weights for model to shine.<br/>
-Name the process that helps learning align.<br/>
+              Coefficients are needed and you'll be just fine.
+              <br />
+              It's adjusting weights for model to shine.
+              <br />
+              Name the process that helps learning align.
+              <br />
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
           </h2>
-
+                    {/* Add the image below the question with a download link */}
+                    <div className="image-container">
+            <a href={questionImage} download="ebhfuarurtbgzro.jpg">
+              <img src={questionImage} alt="Question Illustration" className="question-image" />
+            </a>
+          </div>
           <button className="hint-button" onClick={showHint}>
             Hint
           </button>
@@ -72,8 +83,10 @@ Name the process that helps learning align.<br/>
             className="flag-input"
           />
           <button onClick={nextQuestion}>Submit</button>
-
-          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
+          {errorMessage && (
+            <div className="error-message">{errorMessage}</div>
+          )}{" "}
+          {/* Display error message */}
         </div>
 
         <div className="leaderboard-section">
