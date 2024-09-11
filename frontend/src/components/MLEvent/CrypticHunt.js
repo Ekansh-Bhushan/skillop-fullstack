@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import the CSS
@@ -7,6 +7,7 @@ import './CrypticHunt.css';
 
 const CrypticHunt = () => {
   const [question, setQuestion] = useState({});
+  const navigate = useNavigate();
   const [hint, setHint] = useState('He who taught it checkers.');
   const [flag, setFlag] = useState('');
   const [timer, setTimer] = useState(35 * 60 + 41); 
