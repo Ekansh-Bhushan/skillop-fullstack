@@ -4,7 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import "./question.css";
 
-const CrypticHunt = () => {
+const QuestionFour = () => {
   const [hint, setHint] = useState("He who taught it checkers.");
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
@@ -15,7 +15,7 @@ const CrypticHunt = () => {
     // Log flag for debugging
 
     // Trim and compare the flag in a case-insensitive manner
-    if (flag.trim() === "Kaggle") {
+    if (flag.trim() === "NumPy") {
       navigate("/question/86asdj8d9");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
@@ -53,16 +53,20 @@ const CrypticHunt = () => {
       <div className="content">
         <div className="challenge-section">
           <h2>
-            Q2.{" "}
+            Q3.{" "}
             <p>
-              I waggle with qngn, zbqryf I grow, <br></br>
-              you are to train on me, I make codes flow.<br></br>
-              Easy yet incomplete, a key awaits,<br></br>
-              inspect the elements, a mystery link it creates.<br></br>
+            i  <br></br>
+tapotil mtnyapir ds dpraplbposp<br></br>
+prupsnmopn s<br></br>
+mtmlt.ytal<br></br>
+om paai op t<br></br>
+
+
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
           </h2>
+
           <button className="hint-button" onClick={showHint}>
             Hint
           </button>
@@ -74,10 +78,8 @@ const CrypticHunt = () => {
             className="flag-input"
           />
           <button onClick={nextQuestion}>Submit</button>
-          {errorMessage && (
-            <div className="error-message">{errorMessage}</div>
-          )}{" "}
-          {/* Display error message */}
+
+          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
         </div>
 
         <div className="leaderboard-section">
@@ -90,4 +92,4 @@ const CrypticHunt = () => {
   );
 };
 
-export default CrypticHunt;
+export default QuestionFour;
