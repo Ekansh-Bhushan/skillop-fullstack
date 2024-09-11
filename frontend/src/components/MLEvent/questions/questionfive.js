@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
+import { addPoints, getScore } from "../score";
 import "./question.css";
 
 const QuestionFive = () => {
@@ -12,7 +13,7 @@ const QuestionFive = () => {
   const navigate = useNavigate();
 
   const nextQuestion = () => {
-    // Remove leading and trailing spaces
+    // Trim and check the flag input
     const trimmedFlag = flag.trim();
     
     // Check if the trimmedFlag is a valid number
@@ -21,17 +22,17 @@ const QuestionFive = () => {
       navigate("/question/notforwardpropogation");
     } else {
       // Display error message for invalid input
-      setErrorMessage("Wrong answer! Please try again."); // Set error message
+      setErrorMessage("Wrong answer! Please try again.");
       toast.error("Wrong answer! Please try again."); // Display error toast
     }
   };
 
   const showHint = () => {
     toast.info(hint, {
-      position: "top-right", // Changed to a valid position
-      autoClose: false, // Toast will stay until user closes it
-      closeButton: true, // Include close button
-      theme: "colored", // Optional: Include theme
+      position: "top-right",
+      autoClose: false,
+      closeButton: true,
+      theme: "colored",
     });
   };
 
@@ -76,7 +77,7 @@ const QuestionFive = () => {
           />
           <button onClick={nextQuestion}>Submit</button>
 
-          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
         </div>
 
         <div className="leaderboard-section">
