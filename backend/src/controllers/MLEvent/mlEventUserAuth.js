@@ -6,6 +6,7 @@ exports.registerUser = async (req, res) => {
     try {
         console.log(req.body, "Received Body");
         console.log(req.file, "Received File");
+
         const { teamName, teamLeaderEmail, teamPassword, teamNumberOfHints } = req.body;
 
         if (!teamName || !teamLeaderEmail || !teamPassword) {
