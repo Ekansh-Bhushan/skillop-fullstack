@@ -26,7 +26,7 @@ const MlLogin = () => {
 
         localStorage.setItem('user', JSON.stringify(response.data.result));
 
-        navigate('/questions');
+        navigate('/event-questions');
 
       } else {
         setMessage('Login failed');
