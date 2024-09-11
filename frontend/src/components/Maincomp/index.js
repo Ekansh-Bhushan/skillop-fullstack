@@ -74,6 +74,7 @@ import QuestionEight from '../MLEvent/questions/questionEight'
 import QuestionNine from '../MLEvent/questions/questionNine'
 import QuestionTen from '../MLEvent/questions/quesitonTen'
 import HintTwo from '../MLEvent/hint/hintTwo'
+import ThankYou from '../MLEvent/Thankyou'
 
 
 function WebPages({
@@ -429,7 +430,7 @@ function WebPages({
         <Route path='/hint/14suj8d59/84f8ds64r8fd' element={<HintTwo/>} />
 
           
-
+        <Route path='/youDidIt' element={<ThankYou/>} />
 
 
 
