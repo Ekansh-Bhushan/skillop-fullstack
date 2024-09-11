@@ -18,6 +18,8 @@ const QuestionFour = () => {
   const nextQuestion = () => {
     // Trim and compare the flag in a case-insensitive manner
     if (flag.trim() === "8") {
+      addPoints(10); // Add 10 points
+      console.log("Current Score:", getScore()); // Log current score
       navigate("/question/asdfr3456");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
