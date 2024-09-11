@@ -1,0 +1,137 @@
+/* App.css */
+
+.waiting-page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9; 
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #333; /* Dark gray background */
+    color: #fff; /* White text */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .guidelines-header {
+    font-size: 24px; /* Increased font size for emphasis */
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .waiting-page {
+    max-width: 800px;
+    width: 100%;
+    max-height: calc(100vh - 100px); /* Adjust to fit within viewport */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff; /* White background */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: left;
+    overflow-y: auto; /* Add scroll if content overflows */
+  }
+  
+  .waiting-page h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .waiting-page h2 {
+    font-size: 22px;
+    margin: 15px 0 10px;
+  }
+  
+  .waiting-page p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .waiting-page ul {
+    margin: 10px 0 20px;
+    padding-left: 20px;
+  }
+  
+  .waiting-page li {
+    margin-bottom: 10px;
+  }
+  
+  .loader {
+    margin: 20px auto;
+    border: 12px solid #e0e0e0;
+    border-radius: 50%;
+    border-top: 12px solid #3498db;
+    width: 100px;
+    height: 100px;
+    animation: spin 1.5s linear infinite;
+  }
+  
+  .start-button {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    margin: 20px auto;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3498db; /* Blue background */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .start-button:disabled {
+    background-color: #d3d3d3; /* Light gray background for disabled state */
+    cursor: not-allowed;
+  }
+  
+  .start-button:not(:disabled):hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  
+  .start-button {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    margin: 20px auto;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3498db; /* Blue background */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .start-button:disabled {
+    background-color: #d3d3d3; /* Light gray background for disabled state */
+    cursor: not-allowed;
+  }
+  
+  .start-button:not(:disabled):hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
