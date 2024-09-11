@@ -11,13 +11,13 @@ const CrypticHunt = () => {
   const [timer, setTimer] = useState(35 * 60 + 41); // Example timer
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/question')
+    axios.get(`http://localhost:2004/api/mlevent/questions/${questionId}`)
       .then(response => {
         setQuestion(response.data);
       })
       .catch(error => console.error('Error fetching question:', error));
 
-    axios.get('http://localhost:5000/api/hint')
+    axios.get('http://localhost:2004/api/mlevent/hint')
       .then(response => {
         setHint(response.data.hint);
       })
