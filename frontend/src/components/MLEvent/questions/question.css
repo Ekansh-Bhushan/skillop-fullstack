@@ -79,3 +79,14 @@
     background-color: #1565C0;
   }
   
+  /* Ensure image appears as normal without link styles */
+.image-container a {
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure proper layout */
+  }
+  
+  /* Optionally remove any link color */
+  .image-container a img {
+    border: none; /* Remove border if present */
+  }
+  

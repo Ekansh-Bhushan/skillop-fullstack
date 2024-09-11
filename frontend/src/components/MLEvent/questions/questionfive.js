@@ -54,23 +54,13 @@ const QuestionFour = () => {
       <div className="content">
         <div className="challenge-section">
           <h2>
-            Q4.{" "}
+            Q5.{" "}
             <p>
-              Find the clue and you shall feast,<br />
-              with the first done, move on to the beast.<br />
-              I need data, go through the door,<br />
-              embed it in code to unlock its core.<br />
+            I know you have a graph, i need the error be it square or absolute, just put it here.
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>
           </h2>
-
-          {/* Add the image below the question with a download link */}
-          <div className="image-container">
-            <a href={questionImage} download="link.jpg">
-              <img src={questionImage} alt="Question Illustration" className="question-image" />
-            </a>
-          </div>
 
           <button className="hint-button" onClick={showHint}>
             Hint
