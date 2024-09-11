@@ -428,7 +428,7 @@ function WebPages({
         <Route path='/hint/14suj8d59/84f8ds64r8fd' element={<HintTwo/>} />
 
           
-        <Route path='/thankyou' element={<ThankYou/>} />
+        <Route path='/youDidIt' element={<ThankYou/>} />
 
 
 
