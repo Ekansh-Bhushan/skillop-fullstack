@@ -50,32 +50,33 @@ const QuestionFive = () => {
       <div className="header">
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
-        <div className="timer">
-          <span>{formatTime(timer)}</span>
-        </div>
+       <div></div>
       </div>
 
       <div className="content">
-        <div className="challenge-section">
-          <h2>
-            Q5.{" "}
-            <p>
-              I know you have a graph, I need the error be it square or absolute, just put it here.
-            </p>{" "}
-            <span className="points">10 Pts</span>{" "}
-            <span className="difficulty">Easy</span>
-          </h2>
-          <input
-            type="text"
-            placeholder="Enter the flag"
-            value={flag}
-            onChange={(e) => setFlag(e.target.value)}
-            className="flag-input"
-          />
-          <button onClick={nextQuestion}>Submit</button>
+      <div className="challenge-section">
+  <h2>Q5.</h2>
+  <div className="question-content">
+    <p>
+    I know you have a graph, put it here, I shall observe and give you a gear.
+    </p>
+    <div className="right-side-content">
+      <span className="points">10 Pts</span>
+      <span className="difficulty">Easy</span>
+      <button className="hint-button" onClick={showHint}>Hint</button>
+    </div>
+  </div>
+  
+  <input
+    type="text"
+    placeholder="Enter the flag"
+    value={flag}
+    onChange={(e) => setFlag(e.target.value)}
+    className="flag-input"
+  />
+  <button onClick={nextQuestion}>Submit</button>
 
-          {errorMessage && <div className="error-message">{errorMessage}</div>}
-        </div>
+</div>
 
         <div className="leaderboard-section">
           <Link to="/leaderboard" className="view-leaderboard-button">

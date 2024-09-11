@@ -1,7 +1,7 @@
 /* src/App.css */
 
 .cryptic-hunt {
-    margin: 50px auto;
+    margin: 50px 0px 100px 350px;
     max-width: 800px;
     padding: 20px;
     background-color: #f0f0f0;
@@ -10,6 +10,13 @@
     flex-direction: column;
     align-items: center;
     margin-left: 50%;
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-left: 5px;
+    width: 838px;
   }
   
   .header {
@@ -38,6 +45,7 @@
     padding: 20px;
     background-color: white;
     border-radius: 10px;
+    width: 580px;
   }
   
   .points {
@@ -50,6 +58,23 @@
     margin-left: 10px;
   }
   
+  .question-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align content to the top */
+  }
+  
+  .right-side-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align to the right side */
+    margin-left: 20px; /* Add some space between the question and right-side content */
+  }
+  
+  .points, .difficulty {
+    margin-bottom: 10px;
+  }
+  
   .hint-button {
     background-color: #F9A825;
     color: white;
@@ -57,7 +82,6 @@
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
   }
   
   .flag-input {

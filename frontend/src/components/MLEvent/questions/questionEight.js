@@ -48,24 +48,32 @@ const QuestionFive = () => {
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
         <div className="timer">
-          <span>{formatTime(timer)}</span>
+          
         </div>
       </div>
 
       <div className="content">
-        <div className="challenge-section">
-          <h2>
-            Q8.{" "}
+      <div className="challenge-section">
+          <h2>Q8.</h2>
+          <div className="question-content">
             <p>
-            I know you have a graph, i need the error be it square or absolute, just put it here.
-            </p>{" "}
-            <span className="points">10 Pts</span>{" "}
-            <span className="difficulty">Easy</span>
-          </h2>
+              I waggle with qngn, zbqryf I grow, <br />
+              you are to train on me, I make codes flow.
+              <br />
+              Easy yet incomplete, a key awaits,
+              <br />
+              inspect the elements, a mystery link it creates.
+              <br />
+            </p>
+            <div className="right-side-content">
+              <span className="points">10 Pts</span>
+              <span className="difficulty">Easy</span>
+              <button className="hint-button" onClick={showHint}>
+                Hint
+              </button>
+            </div>
+          </div>
 
-          <button className="hint-button" onClick={showHint}>
-            Hint
-          </button>
           <input
             type="text"
             placeholder="Enter the flag"
@@ -74,8 +82,6 @@ const QuestionFive = () => {
             className="flag-input"
           />
           <button onClick={nextQuestion}>Submit</button>
-
-          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
         </div>
 
         <div className="leaderboard-section">

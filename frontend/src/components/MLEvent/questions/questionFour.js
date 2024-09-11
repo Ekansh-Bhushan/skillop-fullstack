@@ -50,46 +50,44 @@ const QuestionFour = () => {
       <div className="header">
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
-        <div className="timer">
-          <span>{formatTime(timer)}</span>
-        </div>
+<div></div>
       </div>
+
+
+
 
       <div className="content">
         <div className="challenge-section">
-          <h2>
-            Q4.{" "}
-            <p>
-              Find the clue and you shall feast,<br />
-              with the first done, move on to the beast.<br />
-              I need data, go through the door,<br />
-              embed it in code to unlock its core.<br />
-            </p>{" "}
-            <span className="points">10 Pts</span>{" "}
-            <span className="difficulty">Easy</span>
-          </h2>
-
-          {/* Add the image below the question with a download link */}
-          <div className="image-container">
+  <h2>Q4.</h2>
+  <div className="question-content">
+    <p>
+    Find the clue and you shall feast,<br/>
+with the first done, move on to the beast.<br/>
+I need data, go through the door,<br/>
+embed it in code to unlock its core.<br/>
+    </p>
+    <div className="right-side-content">
+      <span className="points">10 Pts</span>
+      <span className="difficulty">Easy</span>
+      <button className="hint-button" onClick={showHint}>Hint</button>
+    </div>
+  </div>
+  {/* Add the image below the question with a download link */}
+<div className="image-container">
             <a href={questionImage} download="link.jpg">
               <img src={questionImage} alt="Question Illustration" className="question-image" />
             </a>
           </div>
+  <input
+    type="text"
+    placeholder="Enter the flag"
+    value={flag}
+    onChange={(e) => setFlag(e.target.value)}
+    className="flag-input"
+  />
+  <button onClick={nextQuestion}>Submit</button>
 
-          <button className="hint-button" onClick={showHint}>
-            Hint
-          </button>
-          <input
-            type="text"
-            placeholder="Enter the flag"
-            value={flag}
-            onChange={(e) => setFlag(e.target.value)}
-            className="flag-input"
-          />
-          <button onClick={nextQuestion}>Submit</button>
-
-          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
-        </div>
+</div>
 
         <div className="leaderboard-section">
           <Link to="/leaderboard" className="view-leaderboard-button">

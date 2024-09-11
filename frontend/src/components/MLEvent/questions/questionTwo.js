@@ -48,27 +48,31 @@ const CrypticHunt = () => {
       <div className="header">
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
-        <div className="timer">
-          <span>{formatTime(timer)}</span>
-        </div>
+        <div></div>
       </div>
 
       <div className="content">
         <div className="challenge-section">
-          <h2>
-            Q2.{" "}
+          <h2>Q2.</h2>
+          <div className="question-content">
             <p>
-              I waggle with qngn, zbqryf I grow, <br></br>
-              you are to train on me, I make codes flow.<br></br>
-              Easy yet incomplete, a key awaits,<br></br>
-              inspect the elements, a mystery link it creates.<br></br>
-            </p>{" "}
-            <span className="points">10 Pts</span>{" "}
-            <span className="difficulty">Easy</span>
-          </h2>
-          <button className="hint-button" onClick={showHint}>
-            Hint
-          </button>
+              I waggle with qngn, zbqryf I grow, <br />
+              you are to train on me, I make codes flow.
+              <br />
+              Easy yet incomplete, a key awaits,
+              <br />
+              inspect the elements, a mystery link it creates.
+              <br />
+            </p>
+            <div className="right-side-content">
+              <span className="points">10 Pts</span>
+              <span className="difficulty">Easy</span>
+              <button className="hint-button" onClick={showHint}>
+                Hint
+              </button>
+            </div>
+          </div>
+
           <input
             type="text"
             placeholder="Enter the flag"
@@ -77,10 +81,6 @@ const CrypticHunt = () => {
             className="flag-input"
           />
           <button onClick={nextQuestion}>Submit</button>
-          {errorMessage && (
-            <div className="error-message">{errorMessage}</div>
-          )}{" "}
-          {/* Display error message */}
         </div>
 
         <div className="leaderboard-section">
@@ -90,7 +90,7 @@ const CrypticHunt = () => {
         </div>
       </div>
       <div className="MyNameIsMachinLeanring hidden">
-      https://drive.google.com/drive/folders/1fhcLnGIT-0_IFvBMjs9PTrQilWgOqMeo?usp=drive_link
+        https://drive.google.com/file/d/1iXWl5QaNSMHOVhTbnC04dYL6RmpFqtzo/view?usp=drive_link
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import { addPoints, getScore } from "../score";
 import "./question.css";
 
-import questionImage from '../img/questionSixImage.jpg'; // Update the path as needed
+import questionImage from "../img/questionSixImage.jpg"; // Update the path as needed
 const QuestionSix = () => {
   const [hint, setHint] = useState(
     "I am one of the two, running out to in, deeper in learning still need a clue."
@@ -47,15 +47,13 @@ const QuestionSix = () => {
       <div className="header">
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
-        <div className="timer">
-          <span>{formatTime(timer)}</span>
-        </div>
+        <div></div>
       </div>
 
       <div className="content">
         <div className="challenge-section">
-          <h2>
-            Q6.{" "}
+          <h2>Q6.</h2>
+          <div className="question-content">
             <p>
               Coefficients are needed and you'll be just fine.
               <br />
@@ -63,19 +61,25 @@ const QuestionSix = () => {
               <br />
               Name the process that helps learning align.
               <br />
-            </p>{" "}
-            <span className="points">10 Pts</span>{" "}
-            <span className="difficulty">Easy</span>
-          </h2>
-                    {/* Add the image below the question with a download link */}
-                    <div className="image-container">
+            </p>
+            <div className="right-side-content">
+              <span className="points">10 Pts</span>
+              <span className="difficulty">Easy</span>
+              <button className="hint-button" onClick={showHint}>
+                Hint
+              </button>
+            </div>
+          </div>
+          {/* Add the image below the question with a download link */}
+          <div className="image-container">
             <a href={questionImage} download="ebhfuarurtbgzro.jpg">
-              <img src={questionImage} alt="Question Illustration" className="question-image" />
+              <img
+                src={questionImage}
+                alt="Question Illustration"
+                className="question-image"
+              />
             </a>
           </div>
-          <button className="hint-button" onClick={showHint}>
-            Hint
-          </button>
           <input
             type="text"
             placeholder="Enter the flag"
@@ -84,10 +88,7 @@ const QuestionSix = () => {
             className="flag-input"
           />
           <button onClick={nextQuestion}>Submit</button>
-          {errorMessage && (
-            <div className="error-message">{errorMessage}</div>
-          )}{" "}
-          {/* Display error message */}
+
         </div>
 
         <div className="leaderboard-section">

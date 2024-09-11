@@ -50,21 +50,26 @@ const QuestionFive = () => {
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
         <div className="timer">
-          <span>{formatTime(timer)}</span>
         </div>
       </div>
 
       <div className="content">
-        <div className="challenge-section">
-          <h2>
-            Q10.{" "}
+      <div className="challenge-section">
+          <h2>Q10.</h2>
+          <div className="question-content">
             <p>
             I made it this far, I must be proud, lets see if the result is out.<br/>
-Enter the accuracy for it may decide, your fate today may be bright.<br/>
-            </p>{" "}
-            <span className="points">10 Pts</span>{" "}
-            <span className="difficulty">Easy</span>
-          </h2>
+            Enter the accuracy for it may decide, your fate today may it be bright.
+            </p>
+            <div className="right-side-content">
+              <span className="points">10 Pts</span>
+              <span className="difficulty">Easy</span>
+              <button className="hint-button" onClick={showHint}>
+                Hint
+              </button>
+            </div>
+          </div>
+
           <input
             type="text"
             placeholder="Enter the flag"
@@ -73,10 +78,7 @@ Enter the accuracy for it may decide, your fate today may be bright.<br/>
             className="flag-input"
           />
           <button onClick={nextQuestion}>Submit</button>
-
-          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
         </div>
-
         <div className="leaderboard-section">
           <Link to="/leaderboard" className="view-leaderboard-button">
             View Leaderboard

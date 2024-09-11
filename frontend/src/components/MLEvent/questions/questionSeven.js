@@ -6,7 +6,7 @@ import { addPoints, getScore } from "../score";
 import "./question.css";
 
 // Import the image if it's inside src folder
-import questionImage from '../img/questionFourImage.jpg'; // Update the path as needed
+import questionImage from "../img/questionFourImage.jpg"; // Update the path as needed
 
 const QuestionFive = () => {
   const [hint, setHint] = useState("He who taught it checkers.");
@@ -47,28 +47,28 @@ const QuestionFive = () => {
       <div className="header">
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
-        <div className="timer">
-          <span>{formatTime(timer)}</span>
-        </div>
+<div></div>
       </div>
 
       <div className="content">
-        <div className="challenge-section">
-          <h2>
-            Q7.{" "}
+      <div className="challenge-section">
+          <h2>Q7.</h2>
+          <div className="question-content">
             <p>
-            The beast comes roaring with vision to train, <br/>
+            The beast comes roaring with vision to train,<br/>
 I love the features images claim.<br/>
 You have the answer not the prize,<br/>
 to get it you must analyze.<br/>
-            </p>{" "}
-            <span className="points">10 Pts</span>{" "}
-            <span className="difficulty">Easy</span>
-          </h2>
+            </p>
+            <div className="right-side-content">
+              <span className="points">10 Pts</span>
+              <span className="difficulty">Easy</span>
+              <button className="hint-button" onClick={showHint}>
+                Hint
+              </button>
+            </div>
+          </div>
 
-          <button className="hint-button" onClick={showHint}>
-            Hint
-          </button>
           <input
             type="text"
             placeholder="Enter the flag"
@@ -77,8 +77,6 @@ to get it you must analyze.<br/>
             className="flag-input"
           />
           <button onClick={nextQuestion}>Submit</button>
-
-          {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
         </div>
 
         <div className="leaderboard-section">

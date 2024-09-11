@@ -110,10 +110,81 @@ exports.loginUser = async (req, res) => {
 
 exports.getAllTeams = async (req, res) => {
     try {
-        const teams = await mlEventUserSchema.find({});
+        // Fetch all teams and sort by points (descending) and finish time (ascending)
+        const teams = await mlEventUserSchema.find({})
+            .sort({ teamPoints: -1, teamFinishTime: 1 });
+        
         res.status(200).json({ message: 'Teams fetched successfully', teams });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error', error });
+    }
+};
+
+
+exports.getLeaderboard = async (req, res) => {
+    try {
+        // Fetch all teams
+        const teams = await mlEventUserSchema.find({});
+
+        // Sort teams by points and finish time
+        teams.sort((a, b) => {
+            if (b.teamPoints !== a.teamPoints) {
+                return b.teamPoints - a.teamPoints; // Sort by points in descending order
+            }
+            // If points are the same, sort by finish time in ascending order
+            return new Date(a.teamFinishTime) - new Date(b.teamFinishTime);
+        });
+
+        res.status(200).json({
+            message: 'Leaderboard fetched successfully',
+            teams
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error', error });
+    }
+};
+
+exports.updatePoints = async (req, res) => {
+    try {
+        const { teamLeaderEmail, pointsToAdd } = req.body;
+        const user = await MlEventUser.findOne({ teamLeaderEmail });
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        user.teamPoints += pointsToAdd;
+        user.teamQuestionSolved += 1;
+        await user.save();
+
+        res.status(200).json({ message: "Points updated successfully", teamPoints: user.teamPoints });
+    } catch (error) {
+        res.status(500).json({ message: "Error updating points", error });
+    }
+};
+
+// Controller to deduct hint and decrease points
+exports.useHint = async (req, res) => {
+    try {
+        const { teamLeaderEmail } = req.body;
+        const user = await MlEventUser.findOne({ teamLeaderEmail });
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        if (user.teamNumberOfHints > 0) {
+            user.teamNumberOfHints -= 1;
+            user.teamPoints = Math.max(0, user.teamPoints - 2); // Deduct 2 points
+            await user.save();
+
+            res.status(200).json({ message: "Hint used successfully", teamPoints: user.teamPoints });
+        } else {
+            res.status(400).json({ message: "No hints remaining" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error using hint", error });
     }
 };
