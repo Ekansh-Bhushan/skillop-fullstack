@@ -1,0 +1,748 @@
+@import url('https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap');
+
+.leader-board {
+  height: 100vh;
+  /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cryptic-heading {
+  width: 457px;
+  height: auto;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  text-align: center;
+  color: #000000;
+}
+
+.top-teams {
+  width: 376px;
+  height: auto;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 80px;
+  font-weight: 500;
+  line-height: 97px;
+  text-align: center;
+  color: #CDCDCD;
+}
+
+.winners {
+  display: flex;
+  gap: 10px;
+}
+
+.container {
+  display: inline-flex;
+  width: 354.45px;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 1.7px 21.25px 0px #0000001A;
+}
+
+.position-image {
+  width: 42px;
+  height: auto;
+}
+
+.team-leader-image {
+  width: 75px;
+  height: 75px;
+  border-radius: 96px;
+}
+
+.team-leader {
+  font-family: 'Product Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: left;
+  color: #848484;
+}
+
+.team-leader-name {
+  font-family: 'Product Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 27px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.team-pts-heading {
+  display: inline-block;
+  padding: 0px 10px 0px 10px;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: left;
+}
+
+.team-pts-num {
+  font-family: 'Product Sans', sans-serif;
+  font-size: 17px;
+  display: inline-block;
+  padding: 4px 17px;
+  border-radius: 7px;
+  background-color: #FFB800;
+}
+
+.complete-leader-board-heading {
+  font-family: 'Product Sans', sans-serif;
+  font-size: 22.1px;
+  font-weight: 500;
+  line-height: 26.81px;
+  width: 1107px;
+  height: auto;
+  color: #D9D9D9;
+  display: grid;
+  grid-template-columns: 103px 455px 172px 249px 126px;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.points,
+.question-solved,
+.finish-time,
+.rank {
+  text-align: center;
+}
+
+.complete-leader-board-elements {
+  display: grid;
+  grid-template-columns: 103px 455px 172px 249px 126px;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0px 0px 25px 0px #0000001A;
+  width: 1107px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.rank-element,
+.question-solved-element,
+.finish-time-element,
+.points-element {
+  font-family: 'Product Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24.26px;
+  text-align: center;
+}
+
+.team-element {
+  display: flex;
+  align-items: center;
+}
+
+.user-2 {
+  width: 49px;
+  height: 49px;
+  border-radius: 25px;
+}
+
+.team-name-element {
+  font-family: 'Product Sans', sans-serif;
+  padding-left: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24.26px;
+  text-align: center;
+}
+
+.line-image-container {
+  margin: 20px 0px 40px 0px;
+}
+
+.line-image {
+  width: 895px;
+  border: 3px;
+}
+
+@media (max-width: 1200px) {
+
+  .cryptic-heading {
+    font-size: 30px;
+  }
+
+  .top-teams {
+    font-size: 80px;
+  }
+
+  .container {
+    width: 300.45px;
+  }
+
+  .team-leader {
+    font-size: 11px;
+  }
+
+  .team-leader-name {
+    font-size: 18px;
+  }
+
+  .team-pts-heading {
+    font-size: 15px;
+  }
+
+  .team-pts-num {
+    font-size: 15px;
+  }
+
+  .position-image {
+    width: 35px;
+    height: 64px;
+  }
+
+  .team-leader-image {
+    width: 63px;
+    height: 63px;
+  }
+
+  .complete-leader-board-elements {
+    grid-template-columns: 89px 392px 148px 214px 108px;
+    align-items: center;
+    width: 950px;
+    margin-bottom: 10px;
+  }
+
+  .rank-element,
+  .question-solved-element,
+  .finish-time-element,
+  .points-element {
+    font-size: 17.5px;
+  }
+
+  .team-name-element {
+    font-size: 17.5px;
+  }
+
+  .user-2 {
+    width: 42px;
+    height: 42px;
+  }
+
+  .complete-leader-board-heading {
+    font-size: 19px;
+    width: 950px;
+    grid-template-columns: 89px 392px 148px 214px 108px;
+    align-items: center;
+  }
+
+  .line-image {
+    width: 795px;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .cryptic-heading {
+    font-size: 26px;
+  }
+
+  .top-teams {
+    font-size: 70px;
+  }
+
+  .container {
+    width: 260px;
+    padding: 15px;
+  }
+
+  .team-leader {
+    font-size: 10px;
+  }
+
+  .team-leader-name {
+    font-size: 16px;
+  }
+
+  .team-pts-heading {
+    font-size: 13px;
+  }
+
+  .team-pts-num {
+    font-size: 13px;
+  }
+
+  .position-image {
+    width: 30px;
+    height: 55px;
+  }
+
+  .team-leader-image {
+    width: 55px;
+    /* Reduced from 63px */
+    height: 55px;
+    /* Reduced from 63px */
+  }
+
+  .complete-leader-board-elements {
+    grid-template-columns: 70px 320px 133px 180px 90px;
+    /* Adjusted for smaller screen */
+    align-items: center;
+    width: 800px;
+    /* Reduced from 950px */
+    margin-bottom: 8px;
+    /* Reduced from 10px */
+    padding: 5px;
+  }
+
+  .rank-element,
+  .question-solved-element,
+  .finish-time-element,
+  .points-element {
+    font-size: 15px;
+    /* Reduced from 17.5px */
+  }
+
+  .team-name-element {
+    font-size: 15px;
+    /* Reduced from 17.5px */
+  }
+
+  .user-2 {
+    width: 36px;
+    /* Reduced from 42px */
+    height: 36px;
+    /* Reduced from 42px */
+  }
+
+  .complete-leader-board-heading {
+    font-size: 17px;
+    /* Reduced from 19px */
+    width: 800px;
+    /* Reduced from 950px */
+    grid-template-columns: 70px 320px 133px 180px 90px;
+    /* Adjusted for smaller screen */
+    align-items: center;
+  }
+
+  .line-image {
+    width: 670px;
+    /* Reduced from 795px */
+  }
+}
+
+@media (max-width: 900px) {
+
+  .cryptic-heading {
+    font-size: 24px;
+  }
+
+  .top-teams {
+    font-size: 60px;
+  }
+
+  .container {
+    width: 240px;
+    padding: 9px;
+  }
+
+  .team-leader {
+    font-size: 9px;
+  }
+
+  .team-leader-name {
+    font-size: 14px;
+  }
+
+  .team-pts-heading {
+    font-size: 12px;
+  }
+
+  .team-pts-num {
+    font-size: 10px;
+    padding: 3px 12px;
+  }
+
+  .position-image {
+    width: 28px;
+    height: 50px;
+  }
+
+  .team-leader-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .complete-leader-board-elements {
+    grid-template-columns: 60px 280px 130px 160px 80px;
+    align-items: center;
+    width: 720px;
+    margin-bottom: 6px;
+    padding: 4px;
+  }
+
+  .rank-element, .rank,
+  .question-solved-element,.question-solved,
+  .finish-time-element,.finish-time,
+  .points-element ,.points {
+    font-size: 14px;
+  }
+
+  .team-name-element {
+    font-size: 14px;
+  }
+
+  .user-2 {
+    width: 32px;
+    height: 32px;
+  }
+
+  .complete-leader-board-heading {
+    font-size: 16px;
+    width: 720px;
+    grid-template-columns: 60px 280px 125px 160px 80px;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .line-image-container {
+    margin: 15px 0px 30px 0px;
+  }
+
+  .line-image {
+    width: 600px;
+  }
+}
+
+@media (max-width: 792px) {
+
+  .cryptic-heading {
+    font-size: 22px;
+  }
+
+  .top-teams {
+    font-size: 55px;
+  }
+
+  .container {
+    width: 220px;
+    padding: 8px;
+  }
+
+  .team-leader {
+    font-size: 8px;
+  }
+
+  .team-leader-name {
+    font-size: 12px;
+  }
+
+  .team-pts-heading {
+    font-size: 11px;
+  }
+
+  .team-pts-num {
+    font-size: 9px;
+    padding: 2px 10px;
+  }
+
+  .position-image {
+    width: 25px;
+    height: 45px;
+  }
+
+  .team-leader-image {
+    width: 45px;
+    height: 45px;
+  }
+
+  .complete-leader-board-elements {
+    grid-template-columns: 50px 240px 120px 140px 70px;
+    align-items: center;
+    width: 650px;
+    margin-bottom: 5px;
+    padding: 3px;
+  }
+
+  .rank-element, .rank,
+  .question-solved-element, .question-solved,
+  .finish-time-element, .finish-time,
+  .points-element, .points {
+    font-size: 13px;
+  }
+
+  .team-name-element {
+    font-size: 13px;
+  }
+
+  .user-2 {
+    width: 28px;
+    height: 28px;
+  }
+
+  .complete-leader-board-heading {
+    font-size: 15px;
+    width: 650px;
+    grid-template-columns: 45px 240px 120px 140px 70px;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+
+  .line-image-container {
+    margin: 12px 0px 25px 0px;
+  }
+
+  .line-image {
+    width: 550px;
+  }
+}
+
+@media (max-width: 732px) {
+
+  .cryptic-heading {
+    font-size: 20px;
+  }
+
+  .top-teams {
+    font-size: 50px;
+  }
+
+  .container {
+    width: 200px;
+    padding: 7px;
+  }
+
+  .team-leader {
+    font-size: 7px;
+  }
+
+  .team-leader-name {
+    font-size: 11px;
+  }
+
+  .team-pts-heading {
+    font-size: 10px;
+  }
+
+  .team-pts-num {
+    font-size: 8px;
+    padding: 2px 8px;
+  }
+
+  .position-image {
+    width: 22px;
+    height: 40px;
+  }
+
+  .team-leader-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .complete-leader-board-elements {
+    grid-template-columns: 45px 220px 100px 120px 60px;
+    align-items: center;
+    width: 580px;
+    margin-bottom: 4px;
+    padding: 3px;
+  }
+
+  .rank-element, .rank,
+  .question-solved-element, .question-solved,
+  .finish-time-element, .finish-time,
+  .points-element, .points {
+    font-size: 12px;
+  }
+
+  .team-name-element {
+    font-size: 12px;
+  }
+
+  .user-2 {
+    width: 26px;
+    height: 26px;
+  }
+
+  .complete-leader-board-heading {
+    font-size: 14px;
+    width: 580px;
+    grid-template-columns: 45px 220px 100px 120px 60px;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+
+  .line-image-container {
+    margin: 10px 0px 20px 0px;
+  }
+
+  .line-image {
+    width: 500px;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .cryptic-heading {
+    font-size: 18px;
+  }
+
+  .top-teams {
+    font-size: 45px;
+  }
+
+  .container {
+    width: 180px;
+    padding: 5px;
+  }
+
+  .team-leader {
+    font-size: 6px;
+  }
+
+  .team-leader-name {
+    font-size: 10px;
+  }
+
+  .team-pts-heading {
+    font-size: 9px;
+  }
+
+  .team-pts-num {
+    font-size: 7px;
+    padding: 2px 6px;
+  }
+
+  .position-image {
+    width: 20px;
+    height: 35px;
+  }
+
+  .team-leader-image {
+    width: 35px;
+    height: 35px;
+  }
+
+  .complete-leader-board-elements {
+    grid-template-columns: 40px 180px 80px 100px 50px;
+    align-items: center;
+    width: 480px;
+    margin-bottom: 3px;
+    padding: 2px;
+  }
+
+  .rank-element, .rank,
+  .question-solved-element, .question-solved,
+  .finish-time-element, .finish-time,
+  .points-element, .points {
+    font-size: 11px;
+  }
+
+  .team-name-element {
+    font-size: 11px;
+  }
+
+  .user-2 {
+    width: 24px;
+    height: 24px;
+  }
+
+  .complete-leader-board-heading {
+    font-size: 13px;
+    width: 480px;
+    grid-template-columns: 40px 180px 80px 100px 50px;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+
+  .line-image-container {
+    margin: 8px 0px 15px 0px;
+  }
+
+  .line-image {
+    width: 400px;
+  }
+}
+
+@media (max-width: 300px) {
+
+  .cryptic-heading {
+    font-size: 14px;
+  }
+
+  .top-teams {
+    font-size: 30px;
+  }
+
+  .container {
+    width: 140px;
+    padding: 3px;
+  }
+
+  .team-leader {
+    font-size: 5px;
+  }
+
+  .team-leader-name {
+    font-size: 8px;
+  }
+
+  .team-pts-heading {
+    font-size: 7px;
+  }
+
+  .team-pts-num {
+    font-size: 6px;
+    padding: 1px 4px;
+  }
+
+  .position-image {
+    width: 15px;
+    height: 28px;
+  }
+
+  .team-leader-image {
+    width: 25px;
+    height: 25px;
+  }
+
+  .complete-leader-board-elements {
+    grid-template-columns: 25px 130px 50px 70px 30px;
+    align-items: center;
+    width: 280px;
+    margin-bottom: 2px;
+    padding: 1px;
+  }
+
+  .rank-element, .rank,
+  .question-solved-element, .question-solved,
+  .finish-time-element, .finish-time,
+  .points-element, .points {
+    font-size: 8px;
+  }
+
+  .team-name-element {
+    font-size: 8px;
+  }
+
+  .user-2 {
+    width: 18px;
+    height: 18px;
+  }
+
+  .complete-leader-board-heading {
+    font-size: 10px;
+    width: 280px;
+    grid-template-columns: 25px 130px 50px 70px 30px;
+    align-items: center;
+    margin-bottom: 1px;
+  }
+
+  .line-image-container {
+    margin: 5px 0px 10px 0px;
+  }
+
+  .line-image {
+    width: 240px;
+  }
+}
+
+

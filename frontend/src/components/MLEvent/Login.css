@@ -1,0 +1,211 @@
+.login-page-container {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-page {
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.login-text-container {
+  margin-bottom: 20px;
+}
+
+.login-txt {
+  font-family: 'Product Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.border-btm {
+  width: 70px;
+  margin-bottom: 30px;
+}
+
+.login-2-btn {
+  width: 330px;
+  height: 51px;
+  cursor: pointer;
+}
+
+.Input-element {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.Input-data {
+  width: 330px;
+  height: 50px;
+  border-radius: 15px;
+  border: 1px solid #5F5F5F;
+  cursor: pointer;
+}
+
+.Input-text {
+  position: absolute;
+  top: -11px;
+  left: 10px;
+  background-color: white;
+  font-family: 'Product Sans';
+  font-size: 15px;
+  color: #000000BA;
+  padding: 0 3px;
+}
+
+.skillop-moofli {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.skillop-image , .skillop-text{
+  display: inline-block;
+}
+
+.skillop-text{
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  padding-top: 8px;
+  vertical-align: top;
+  color: #000000;
+}
+
+.skillop-img {
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 450px) {
+  .login-page-container {
+    padding: 10px;
+  }
+
+  .login-page {
+    padding: 15px;
+  }
+
+  .login-txt {
+    font-size: 24px;
+  }
+
+  .border-btm {
+    width: 50px;
+    margin-bottom: 20px;
+  }
+
+  .login-2-btn {
+    width: 280px;
+    height: 45px;
+  }
+
+  .Input-data {
+    width: 280px;
+    height: 45px;
+    border-radius: 10px;
+  }
+
+  .Input-text {
+    font-size: 13px;
+  }
+
+  .skillop-text {
+    font-size: 20px;
+  }
+
+  .skillop-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 380px) {
+  .login-page-container {
+    padding: 10px;
+  }
+
+  .login-page {
+    padding: 15px;
+  }
+
+  .login-txt {
+    font-size: 18px;
+  }
+
+  .border-btm {
+    width: 30px;
+    margin-bottom: 10px;
+  }
+
+  .login-2-btn {
+    width: 230px;
+    height: 39px;
+  }
+
+  .Input-data {
+    width: 230px;
+    height: 40px;
+    border-radius: 5px;
+  }
+
+  .Input-text {
+    font-size: 11px;
+  }
+
+  .skillop-text {
+    font-size: 15px;
+  }
+
+  .skillop-img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .login-page-container {
+    padding: 5px;
+  }
+
+  .login-page {
+    padding: 10px;
+  }
+
+  .login-txt {
+    font-size: 16px;
+  }
+
+  .border-btm {
+    width: 20px;
+    margin-bottom: 5px;
+  }
+
+  .login-2-btn {
+    width: 200px;
+    height: 35px;
+  }
+
+  .Input-data {
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+  }
+
+  .Input-text {
+    font-size: 12px;
+  }
+
+  .skillop-text {
+    font-size: 12px;
+  }
+
+  .skillop-img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
