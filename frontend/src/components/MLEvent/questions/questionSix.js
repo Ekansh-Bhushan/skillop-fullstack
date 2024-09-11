@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
+import { addPoints, getScore } from "../score";
 import "./question.css";
 
 const QuestionSix = () => {
@@ -14,6 +15,7 @@ const QuestionSix = () => {
   const nextQuestion = () => {
     // Trim and compare the flag in a case-insensitive manner
     if (flag.trim() === "backpropogation") {
+      addPoints(10);
       navigate("/question/4=89u9hf8g");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message

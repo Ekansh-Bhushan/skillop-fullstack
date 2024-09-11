@@ -19,6 +19,7 @@ const QuestionFive = () => {
     // Check if the trimmedFlag is a valid number
     if (!isNaN(trimmedFlag) && trimmedFlag !== "") {
       // Allow numeric input and navigate to the next question
+      addPoints(10);
       navigate("/question/notforwardpropogation");
     } else {
       // Display error message for invalid input
