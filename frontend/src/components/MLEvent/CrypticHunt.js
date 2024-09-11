@@ -10,8 +10,8 @@ const CrypticHunt = () => {
   const [hint, setHint] = useState('He who taught it checkers.');
   const [flag, setFlag] = useState('');
   const [timer, setTimer] = useState(35 * 60 + 41); 
-  const handleSubmit = () => {
-    alert(`You entered: ${flag}`);
+  const nextQuestion = () => {
+    navigate('/question/14suj8d59');
   };
 
   const showHint = () => {
@@ -56,7 +56,7 @@ who coined my name.</p> <span className="points">10 Pts</span> <span classNam
             onChange={(e) => setFlag(e.target.value)}
             className="flag-input"
           />
-          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={nextQuestion}>Submit</button>
         </div>
 
         <div className="leaderboard-section">
