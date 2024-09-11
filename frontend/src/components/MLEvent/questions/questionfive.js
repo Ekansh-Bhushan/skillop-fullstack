@@ -18,7 +18,7 @@ const QuestionFive = () => {
     // Check if the trimmedFlag is a valid number
     if (!isNaN(trimmedFlag) && trimmedFlag !== "") {
       // Allow numeric input and navigate to the next question
-      navigate("/question/safefdsdc");
+      navigate("/question/notforwardpropogation");
     } else {
       // Display error message for invalid input
       setErrorMessage("Wrong answer! Please try again."); // Set error message

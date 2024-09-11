@@ -4,11 +4,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import "./question.css";
 
-// Import the image if it's inside src folder
-import questionImage from '../img/questionFourImage.jpg'; // Update the path as needed
-
 const QuestionSix = () => {
-  const [hint, setHint] = useState("He who taught it checkers.");
+  const [hint, setHint] = useState("I am one of the two, running out to in, deeper in learning still need a clue.");
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
@@ -16,7 +13,7 @@ const QuestionSix = () => {
 
   const nextQuestion = () => {
     // Trim and compare the flag in a case-insensitive manner
-    if (flag.trim() === "8") {
+    if (flag.trim() === "backpropogation") {
       navigate("/question/4=89u9hf8g");
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
@@ -56,7 +53,9 @@ const QuestionSix = () => {
           <h2>
             Q6.{" "}
             <p>
-            I know you have a graph, i need the error be it square or absolute, just put it here.
+            Coefficients are needed and you'll be just fine.<br/>
+It's adjusting weights for model to shine.<br/>
+Name the process that helps learning align.<br/>
             </p>{" "}
             <span className="points">10 Pts</span>{" "}
             <span className="difficulty">Easy</span>

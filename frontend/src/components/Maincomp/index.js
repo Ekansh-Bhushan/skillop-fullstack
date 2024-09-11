@@ -419,9 +419,9 @@ function WebPages({
         <Route path='/question/86asdj8d9' element={<QuestionThree/>} />
         <Route path='/question/asdfr3456' element={<QuestionFour/>} />
         <Route path='/question/45j9dm8rd' element={<QuestionFive/>} />
-        <Route path='/question/safefdsdc' element={<QuestionSix/>} />
+        <Route path='/question/notforwardpropogation' element={<QuestionSix/>} />
         <Route path='/question/4=89u9hf8g' element={<QuestionSeven/>} />
-        <Route path='/question/sdfaerwfa' element={<QuestionEight/>} />
+        <Route path='/question/f55556byyt' element={<QuestionEight/>} />
         <Route path='/question/32rj8ndef' element={<QuestionNine/>} />
         <Route path='/question/afewf34fr' element={<QuestionTen/>} />
         <Route path='/hint/14suj8d59/84f8ds64r8fd' element={<HintTwo/>} />
