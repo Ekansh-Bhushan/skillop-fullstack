@@ -1,6 +1,7 @@
 const mlEventUserSchema = require('../../models/MLEVENT/mlEventUsers');
 const upload = require('../../middleware/uploadMiddleware'); 
 const bcrypt = require('bcryptjs');
+const generateToken = require('../../utils/MLEVENT/tokenGenerator');
 
 exports.registerUser = async (req, res) => {
     try {
@@ -52,7 +53,6 @@ exports.loginUser = async (req, res) => {
     try {
         const { teamLeaderEmail, teamPassword } = req.body;
 
-        // Check if both email and password are provided
         if (!teamLeaderEmail || !teamPassword) {
             return res.status(400).send({
                 result: false,
@@ -60,7 +60,6 @@ exports.loginUser = async (req, res) => {
             });
         }
 
-        // Find user by teamLeaderEmail
         const user = await mlEventUserSchema.findOne({ teamLeaderEmail });
         if (!user) {
             return res.status(401).send({
@@ -69,12 +68,6 @@ exports.loginUser = async (req, res) => {
             });
         }
 
-        // Debug logging
-        console.log('Retrieved user:', user);
-        console.log('Password provided:', teamPassword);
-        console.log('Stored password hash:', user.teamPassword);
-
-        // Ensure the user has a valid password before comparing
         if (!user.teamPassword) {
             return res.status(500).send({
                 result: false,
@@ -82,7 +75,6 @@ exports.loginUser = async (req, res) => {
             });
         }
 
-        // Compare passwords using bcrypt
         const isPasswordValid = await bcrypt.compare(teamPassword, user.teamPassword);
         if (!isPasswordValid) {
             return res.status(401).send({
@@ -91,10 +83,13 @@ exports.loginUser = async (req, res) => {
             });
         }
 
-        // Send success response if login is successful
+        // Generate token
+        const token = generateToken(user);
+
         res.status(200).send({
             result: user,
             message: 'Login successful',
+            token, // Send token in response
         });
     } catch (error) {
         console.error(error);
@@ -105,7 +100,6 @@ exports.loginUser = async (req, res) => {
         });
     }
 };
-
 
 
 exports.getAllTeams = async (req, res) => {

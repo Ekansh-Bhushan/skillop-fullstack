@@ -1,38 +1,79 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
-import { addPoints, getScore } from "../score";
+import axios from 'axios'; // Import axios for API requests
 import "./question.css";
 
 const CrypticHunt = () => {
   const [hint, setHint] = useState("He who taught it checkers.");
   const [flag, setFlag] = useState("");
-  const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  const [hintUsed, setHintUsed] = useState(false); // State to track if hint was used
   const navigate = useNavigate();
+  const location = useLocation(); // Use location hook to get the current URL
 
-  const nextQuestion = () => {
-    // Log flag for debugging
+  useEffect(() => {
+    // Prevent going back to the previous page
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = () => {
+      window.history.go(1);
+    };
 
-    // Trim and compare the flag in a case-insensitive manner
+    // Redirect if the page is accessed directly or via back navigation
+    if (location.pathname === "/leaderboard" && window.history.state) {
+      navigate("/question/cube"); // Redirect to another page if coming from leaderboard
+    }
+  }, [navigate, location.pathname]);
+
+  const nextQuestion = async () => {
     if (flag.trim() === "Kaggle") {
-      addPoints(10); // Add 10 points
-      console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/cube");
+      try {
+        // Add points
+        await axios.post('https://skillop.in/api/mlevent/points/add', {
+          points: 10,
+        }, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
+          }
+        });
+
+        toast.success("Points added successfully!"); // Toast for success
+        navigate("/question/cube");
+      } catch (error) {
+        console.error("Error adding points:", error);
+        toast.error("Error adding points. Please try again."); // Toast for error
+      }
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast
     }
   };
 
-  const showHint = () => {
-    toast.info(hint, {
-      position: "top-right", // Changed to a valid position
-      autoClose: false, // Toast will stay until user closes it
-      closeButton: true, // Include close button
-      theme: "colored", // Optional: Include theme
-    });
+  const showHint = async () => {
+    if (!hintUsed) {
+      try {
+        // Deduct points
+        await axios.post('https://skillop.in/api/mlevent/points/deduct', {}, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
+          }
+        });
+
+        setHintUsed(true);
+        toast.info(`Hint used! ${hint} - 2 points deducted.`, {
+          position: "top-right",
+          autoClose: false,
+          closeButton: true,
+          theme: "colored",
+        }); // Toast for hint and points deduction
+      } catch (error) {
+        console.error("Error using hint:", error);
+        toast.error("Error using hint. Please try again."); // Toast for error
+      }
+    } else {
+      toast.warning("Hint already used."); // Toast for already used hint
+    }
   };
 
   const formatTime = (time) => {

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import the CSS
-import { addPoints, getScore } from "../score";
+import "react-toastify/dist/ReactToastify.css";
+import axios from 'axios'; // Import axios for API requests
 import "./question.css";
 
 // Import the image if it's inside src folder
@@ -13,28 +13,71 @@ const QuestionFour = () => {
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
-  
+  const [hintUsed, setHintUsed] = useState(false); // State to track if hint was used
   const navigate = useNavigate();
+  const location = useLocation(); // Use location hook to get the current URL
 
-  const nextQuestion = () => {
-    // Trim and compare the flag in a case-insensitive manner
+  useEffect(() => {
+    // Prevent going back to the previous page
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = () => {
+      window.history.go(1);
+    };
+
+    // Redirect if the page is accessed directly or via back navigation
+    if (location.pathname === "/leaderboard" && window.history.state) {
+      navigate("/question/level_1"); // Redirect to another page if coming from leaderboard
+    }
+  }, [navigate, location.pathname]);
+
+  const nextQuestion = async () => {
     if (flag.trim() === "8") {
-      addPoints(10); // Add 10 points
-      console.log("Current Score:", getScore()); // Log current score
-      navigate("/question/level_1");
+      try {
+        // Add points
+        await axios.post('https://skillop.in/api/mlevent/points/add', {
+          points: 10,
+        }, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
+          }
+        });
+
+        toast.success("Points added successfully!"); // Toast for success
+        navigate("/question/level_1");
+      } catch (error) {
+        console.error("Error adding points:", error);
+        toast.error("Error adding points. Please try again."); // Toast for error
+      }
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast
     }
   };
 
-  const showHint = () => {
-    toast.info(hint, {
-      position: "top-right", // Changed to a valid position
-      autoClose: false, // Toast will stay until user closes it
-      closeButton: true, // Include close button
-      theme: "colored", // Optional: Include theme
-    });
+  const showHint = async () => {
+    if (!hintUsed) {
+      try {
+        // Deduct points
+        await axios.post('https://skillop.in/api/mlevent/points/deduct', {}, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
+          }
+        });
+
+        setHintUsed(true);
+        toast.info(`Hint used! ${hint} - 2 points deducted.`, {
+          position: "top-right",
+          autoClose: false,
+          closeButton: true,
+          theme: "colored",
+        }); // Toast for hint and points deduction
+      } catch (error) {
+        console.error("Error using hint:", error);
+        toast.error("Error using hint. Please try again."); // Toast for error
+      }
+    } else {
+      toast.warning("Hint already used."); // Toast for already used hint
+    }
   };
 
   const formatTime = (time) => {
@@ -50,44 +93,42 @@ const QuestionFour = () => {
       <div className="header">
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
-<div></div>
+        <div></div>
       </div>
-
-
-
 
       <div className="content">
         <div className="challenge-section">
-  <h2>Q4.</h2>
-  <div className="question-content">
-    <p>
-    Find the clue and you shall feast,<br/>
-with the first done, move on to the beast.<br/>
-I need data, go through the door,<br/>
-embed it in code to unlock its core.<br/>
-    </p>
-    <div className="right-side-content">
-      <span className="points">10 Pts</span>
-      <span className="difficulty">Easy</span>
-      <button className="hint-button" onClick={showHint}>Hint</button>
-    </div>
-  </div>
-  {/* Add the image below the question with a download link */}
-<div className="image-container">
+          <h2>Q4.</h2>
+          <div className="question-content">
+            <p>
+              Find the clue and you shall feast,<br/>
+              with the first done, move on to the beast.<br/>
+              I need data, go through the door,<br/>
+              embed it in code to unlock its core.<br/>
+            </p>
+            <div className="right-side-content">
+              <span className="points">10 Pts</span>
+              <span className="difficulty">Easy</span>
+              <button className="hint-button" onClick={showHint}>
+                Hint
+              </button>
+            </div>
+          </div>
+          {/* Add the image below the question with a download link */}
+          <div className="image-container">
             <a href={questionImage} download="link.jpg">
               <img src={questionImage} alt="Question Illustration" className="question-image" />
             </a>
           </div>
-  <input
-    type="text"
-    placeholder="Enter the flag"
-    value={flag}
-    onChange={(e) => setFlag(e.target.value)}
-    className="flag-input"
-  />
-  <button onClick={nextQuestion}>Submit</button>
-
-</div>
+          <input
+            type="text"
+            placeholder="Enter the flag"
+            value={flag}
+            onChange={(e) => setFlag(e.target.value)}
+            className="flag-input"
+          />
+          <button onClick={nextQuestion}>Submit</button>
+        </div>
 
         <div className="leaderboard-section">
           <Link to="/leaderboard" className="view-leaderboard-button">

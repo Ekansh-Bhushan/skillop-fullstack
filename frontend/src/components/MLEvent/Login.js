@@ -10,10 +10,11 @@ const MlLogin = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate(); // Initialize useNavigate
+
   const login = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:2004/api/mlevent/login', 
+        'https://skillop.in/api/mlevent/login', 
         {
           teamLeaderEmail: email,
           teamPassword: password,
@@ -24,10 +25,11 @@ const MlLogin = () => {
         setMessage('Login successful');
         console.log('User logged in successfully:', response.data);
 
+        // Store token and user data in localStorage
+        localStorage.setItem('token', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.result));
 
         navigate('/waitingpg');
-
       } else {
         setMessage('Login failed');
         console.error('Error:', response.data.message);

@@ -20,6 +20,7 @@ const meetingRoutes = require('./src/routes/meetingRoutes');
 const mlEventUserRoutes = require('./src/routes/MLEVENT/mlEventUserRoutes');
 const mlEventQuestionRoutes = require('./src/routes/MLEVENT/mlEventQuestionRoutes');
 const mlEventHint = require('./src/routes/MLEVENT/mlEventHint.js');
+const mleventPoints = require('./src/routes/MLEVENT/scoreRoutes.js')
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT | 2004;
@@ -65,6 +66,7 @@ app.use('/api/meeting', meetingRoutes);
 app.use('/api/mlevent', mlEventUserRoutes);
 app.use('/api/mlevent', mlEventQuestionRoutes);
 app.use('/api/mlevent', mlEventHint);
+app.use('/api/mlevent', mleventPoints);
 // app.use(NotFound)
 // share images in uploads/pubic to frontend
 app.use(

@@ -19,7 +19,7 @@ const LeaderBoard = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get('http://localhost:2004/api/mlevent/leaderboard');
+        const response = await axios.get('https://skillop.in/api/mlevent/leaderboard');
         setTeams(response.data.teams);
         setLoading(false);
       } catch (error) {

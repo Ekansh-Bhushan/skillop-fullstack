@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ThankYou = () => {
   // Inline CSS styles
@@ -11,7 +12,6 @@ const ThankYou = () => {
     padding: '20px',
     backgroundColor: '#f0f8ff',
     textAlign: 'center',
-    marginLeft:'56vh',
     fontFamily: 'Arial, sans-serif',
   };
 
@@ -41,11 +41,26 @@ const ThankYou = () => {
     backgroundColor: '#0056b3',
   };
 
+  // Hook for navigation
+  const navigate = useNavigate();
+
+  // Function to handle button click
+  const handleGoBack = () => {
+    navigate('/'); // Navigate to the root URL
+  };
+
   return (
     <div style={containerStyle}>
       <h1 style={headingStyle}>Thank You!</h1>
       <p style={paragraphStyle}>Your submission has been received. We appreciate your response.</p>
-      
+      <button
+        style={buttonStyle}
+        onMouseOver={(e) => e.currentTarget.style.backgroundColor = buttonHoverStyle.backgroundColor}
+        onMouseOut={(e) => e.currentTarget.style.backgroundColor = buttonStyle.backgroundColor}
+        onClick={handleGoBack}
+      >
+        Go Back to Landing Page
+      </button>
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import the CSS
-import { addPoints, getScore } from "../score";
+import "react-toastify/dist/ReactToastify.css";
+import axios from 'axios'; // Import axios for API requests
 import "./question.css";
 
 // Import the image if it's inside src folder
@@ -13,25 +13,87 @@ const QuestionFive = () => {
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  const [hintUsed, setHintUsed] = useState(false); // State to track if hint was used
   const navigate = useNavigate();
+  const location = useLocation(); // Use location hook to get the current URL
 
-  const nextQuestion = () => {
-    // Trim and compare the flag in a case-insensitive manner
-    if (flag.trim() === "8") {
-      navigate("/question/ultimateTest");
+  useEffect(() => {
+    // Prevent going back to the previous page
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = () => {
+      window.history.go(1);
+    };
+
+    // Redirect if the page is accessed directly or via back navigation
+    if (location.pathname === "/leaderboard" && window.history.state) {
+      navigate("/question/ultimateTest"); // Redirect to another page if coming from leaderboard
+    }
+
+    // Timer functionality
+    const timerInterval = setInterval(() => {
+      setTimer(prevTime => {
+        if (prevTime <= 0) {
+          clearInterval(timerInterval);
+          toast.error("Time's up!"); // Toast for time up
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timerInterval); // Cleanup timer on component unmount
+  }, [navigate, location.pathname]);
+
+  const nextQuestion = async () => {
+    const trimmedFlag = flag.trim();
+
+    if (trimmedFlag === "8") {
+      try {
+        // Add points
+        await axios.post('https://skillop.in/api/mlevent/points/add', {
+          points: 10,
+        }, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
+          }
+        });
+
+        toast.success("Points added successfully!"); // Toast for success
+        navigate("/question/ultimateTest");
+      } catch (error) {
+        console.error("Error adding points:", error);
+        toast.error("Error adding points. Please try again."); // Toast for error
+      }
     } else {
       setErrorMessage("Wrong answer! Please try again."); // Set error message
       toast.error("Wrong answer! Please try again."); // Display error toast
     }
   };
 
-  const showHint = () => {
-    toast.info(hint, {
-      position: "top-right", // Changed to a valid position
-      autoClose: false, // Toast will stay until user closes it
-      closeButton: true, // Include close button
-      theme: "colored", // Optional: Include theme
-    });
+  const showHint = async () => {
+    if (!hintUsed) {
+      try {
+        // Deduct points
+        await axios.post('https://skillop.in/api/mlevent/points/deduct', {}, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
+          }
+        });
+
+        setHintUsed(true);
+        toast.info(`Hint used! ${hint} - 2 points deducted.`, {
+          position: "top-right",
+          autoClose: false,
+          closeButton: true,
+          theme: "colored",
+        }); // Toast for hint and points deduction
+      } catch (error) {
+        console.error("Error using hint:", error);
+        toast.error("Error using hint. Please try again."); // Toast for error
+      }
+    } else {
+      toast.warning("Hint already used."); // Toast for already used hint
+    }
   };
 
   const formatTime = (time) => {
@@ -47,23 +109,19 @@ const QuestionFive = () => {
       <div className="header">
         <img src="/skillop-logo.png" alt="Skillop" className="logo" />
         <h1>Cryptic Hunt On ML</h1>
-        <div className="timer">
-          
+        <div >
         </div>
       </div>
 
       <div className="content">
-      <div className="challenge-section">
+        <div className="challenge-section">
           <h2>Q8.</h2>
           <div className="question-content">
             <p>
-              I waggle with qngn, zbqryf I grow, <br />
-              you are to train on me, I make codes flow.
-              <br />
-              Easy yet incomplete, a key awaits,
-              <br />
-              inspect the elements, a mystery link it creates.
-              <br />
+              I waggle with qngn, zbqryf I grow,<br />
+              you are to train on me, I make codes flow.<br />
+              Easy yet incomplete, a key awaits,<br />
+              inspect the elements, a mystery link it creates.<br />
             </p>
             <div className="right-side-content">
               <span className="points">10 Pts</span>

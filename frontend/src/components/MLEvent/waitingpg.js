@@ -4,9 +4,16 @@ import { useNavigate } from 'react-router-dom';
 
 const WaitingPage = () => {
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
-   const navigate = useNavigate(); // Initialize the useNavigate hook
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   useEffect(() => {
+    const checkAuthentication = () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        navigate('/login'); // Redirect to login page if not authenticated
+      }
+    };
+
     const checkTime = () => {
       const now = new Date();
       const startTime = new Date();
@@ -19,7 +26,8 @@ const WaitingPage = () => {
       }
     };
 
-    // Check time initially
+    // Check authentication and time initially
+    checkAuthentication();
     checkTime();
 
     // Set an interval to check time every minute
@@ -27,12 +35,11 @@ const WaitingPage = () => {
 
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
-  }, []);
+  }, [navigate]); // Include navigate in dependency array to avoid warnings
 
- 
   const handleStartClick = () => {
     // Navigate to the quiz page when the button is clicked
-    navigate('/question/notdeeplearning'); 
+    navigate('/question/notdeeplearning');
   };
 
   return (
