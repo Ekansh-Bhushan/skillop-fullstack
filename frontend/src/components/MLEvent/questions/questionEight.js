@@ -9,7 +9,7 @@ import "./question.css";
 import questionImage from '../img/questioneightImange.jpg'; // Update the path as needed
 
 const QuestionFive = () => {
-  const [hint, setHint] = useState("He who taught it checkers.");
+  const [hint, setHint] = useState("hidden again, in plain sight , link your code maybe with the site.");
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
@@ -47,11 +47,11 @@ const QuestionFive = () => {
   const nextQuestion = async () => {
     const trimmedFlag = flag.trim();
 
-    if (trimmedFlag === "8") {
+    if (trimmedFlag === "model") {
       try {
         // Add points
         await axios.post('https://skillop.in/api/mlevent/points/add', {
-          points: 10,
+          points: 12,
         }, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
@@ -122,7 +122,7 @@ const QuestionFive = () => {
             But what you will need later, hides deep in this space.<br/>
             </p>
             <div className="right-side-content">
-              <span className="points">10 Pts</span>
+              <span className="points">12 Pts</span>
               <span className="difficulty">Easy</span>
               <button className="hint-button" onClick={showHint}>
                 Hint
@@ -131,7 +131,7 @@ const QuestionFive = () => {
           </div>
 {/* Add the image below the question with a download link */}
 <div className="image-container">
-            <a href={questionImage} download="link.jpg">
+            <a href={questionImage} download="data.jpg">
               <img src={questionImage} alt="Question Illustration" className="question-image" />
             </a>
           </div>

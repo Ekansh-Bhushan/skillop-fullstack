@@ -80,7 +80,7 @@ const WaitingPage = () => {
         <p>The leaderboard will be updated regularly to display each team’s total points. Keep track of your position and strategize accordingly.</p>
         <h2>Event Conclusion:</h2>
         <p>The cryptic hunt will end when the top 5 teams have been identified on the leaderboard.</p>
-        <div className="loader"></div>
+        
         <button
           className="start-button"
           disabled={!isButtonEnabled}

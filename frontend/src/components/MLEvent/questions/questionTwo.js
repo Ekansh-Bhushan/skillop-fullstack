@@ -6,7 +6,7 @@ import axios from 'axios'; // Import axios for API requests
 import "./question.css";
 
 const CrypticHunt = () => {
-  const [hint, setHint] = useState("He who taught it checkers.");
+  const [hint, setHint] = useState("Learn ML on me but find what I need it first.");
   const [flag, setFlag] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
   const [hintUsed, setHintUsed] = useState(false); // State to track if hint was used
@@ -31,7 +31,7 @@ const CrypticHunt = () => {
       try {
         // Add points
         await axios.post('https://skillop.in/api/mlevent/points/add', {
-          points: 10,
+          points: 4,
         }, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
@@ -106,7 +106,7 @@ const CrypticHunt = () => {
               <br />
             </p>
             <div className="right-side-content">
-              <span className="points">10 Pts</span>
+              <span className="points">4 Pts</span>
               <span className="difficulty">Easy</span>
               <button className="hint-button" onClick={showHint}>
                 Hint

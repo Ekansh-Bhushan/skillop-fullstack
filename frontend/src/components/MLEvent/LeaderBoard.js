@@ -50,7 +50,6 @@ const LeaderBoard = () => {
       </div>
       
       <div className="team-info">
-        <div className="team-leader">Team Leader</div>
         <div className="team-leader-name">{team.teamName}</div>
         <div className="team-result">
           <div className="team-pts-heading">Team pts. </div>
@@ -70,7 +69,6 @@ const LeaderBoard = () => {
         <div className='complete-leader-board-heading'>
           <div className='rank'>Rank</div>
           <div className='team-name'>Team Name</div>
-          <div className='question-solved'>Questions Solved</div>
           <div className='points'>Points</div>
           {/* <div className='finish-time'>Finish Time</div> */}
         </div>
@@ -83,7 +81,6 @@ const LeaderBoard = () => {
               </div> */}
               <div className='team-name-element'>{team.teamName}</div>
             </div>
-            <div className='question-solved-element'>{team.teamQuestionSolved}</div>
             <div className='points-element'>{team.teamPoints}</div>
             {/* <div className='finish-time-element'>{formatTime(team.teamFinishTime)}</div> */}
           </div>

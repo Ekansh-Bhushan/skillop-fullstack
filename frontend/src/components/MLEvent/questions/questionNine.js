@@ -9,7 +9,7 @@ import "./question.css";
 import questionImage from "../img/questionFourImage.jpg"; // Update the path as needed
 
 const QuestionFive = () => {
-  const [hint, setHint] = useState("He who taught it checkers.");
+  const [hint, setHint] = useState(" the answer is in between your eyes, I promise no lies.");
   const [flag, setFlag] = useState("");
   const [timer, setTimer] = useState(35 * 60 + 41);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
@@ -51,7 +51,7 @@ const QuestionFive = () => {
       try {
         // Add points
         await axios.post('https://skillop.in/api/mlevent/points/add', {
-          points: 10,
+          points: 26,
         }, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
@@ -125,7 +125,7 @@ const QuestionFive = () => {
               and I start my nail biting<br />
             </p>
             <div className="right-side-content">
-              <span className="points">10 Pts</span>
+              <span className="points">26 Pts</span>
               <span className="difficulty">Easy</span>
               <button className="hint-button" onClick={showHint}>
                 Hint

@@ -33,7 +33,7 @@ const CrypticHunt = () => {
         const token = localStorage.getItem('token'); // Get token from localStorage
 
         await axios.post('https://skillop.in/api/mlevent/points/add', {
-          points: 10,
+          points: 6,
         }, {
           headers: {
             'Authorization': `Bearer ${token}` // Include token in headers
@@ -103,7 +103,7 @@ const showHint = async () => {
               who coined my name.
             </p>
             <div className="right-side-content">
-              <span className="points">10 Pts</span>
+              <span className="points">6 Pts</span>
               <span className="difficulty">Easy</span>
               <button className="hint-button" onClick={showHint}>Hint</button>
             </div>

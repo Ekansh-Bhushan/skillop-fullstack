@@ -48,7 +48,7 @@ const QuestionFive = () => {
       try {
         // Add points
         await axios.post('https://skillop.in/api/mlevent/points/add', {
-          points: 10,
+          points: 5,
         }, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
@@ -117,11 +117,8 @@ const QuestionFive = () => {
               I know you have a graph, put it here, I shall observe and give you a gear.
             </p>
             <div className="right-side-content">
-              <span className="points">10 Pts</span>
+              <span className="points">5 Pts</span>
               <span className="difficulty">Easy</span>
-              <button className="hint-button" onClick={showHint}>
-                Hint
-              </button>
             </div>
           </div>
 

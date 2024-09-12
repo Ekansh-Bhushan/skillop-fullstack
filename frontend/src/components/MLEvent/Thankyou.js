@@ -13,6 +13,7 @@ const ThankYou = () => {
     backgroundColor: '#f0f8ff',
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
+    marginLeft: '600px',
   };
 
   const headingStyle = {
