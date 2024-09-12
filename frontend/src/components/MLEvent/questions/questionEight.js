@@ -6,7 +6,7 @@ import axios from 'axios'; // Import axios for API requests
 import "./question.css";
 
 // Import the image if it's inside src folder
-import questionImage from '../img/questionFourImage.jpg'; // Update the path as needed
+import questionImage from '../img/questioneightImange.jpg'; // Update the path as needed
 
 const QuestionFive = () => {
   const [hint, setHint] = useState("He who taught it checkers.");
@@ -118,10 +118,8 @@ const QuestionFive = () => {
           <h2>Q8.</h2>
           <div className="question-content">
             <p>
-              I waggle with qngn, zbqryf I grow,<br />
-              you are to train on me, I make codes flow.<br />
-              Easy yet incomplete, a key awaits,<br />
-              inspect the elements, a mystery link it creates.<br />
+            you will find what you need here in this place.<br/>
+            But what you will need later, hides deep in this space.<br/>
             </p>
             <div className="right-side-content">
               <span className="points">10 Pts</span>
@@ -131,7 +129,12 @@ const QuestionFive = () => {
               </button>
             </div>
           </div>
-
+{/* Add the image below the question with a download link */}
+<div className="image-container">
+            <a href={questionImage} download="link.jpg">
+              <img src={questionImage} alt="Question Illustration" className="question-image" />
+            </a>
+          </div>
           <input
             type="text"
             placeholder="Enter the flag"
