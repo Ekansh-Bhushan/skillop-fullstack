@@ -59,7 +59,7 @@ const QuestionFive = () => {
         });
 
         toast.success("Points added successfully!"); // Toast for success
-        navigate("/question/ultimateTest");
+        navigate("/question/");
       } catch (error) {
         console.error("Error adding points:", error);
         toast.error("Error adding points. Please try again."); // Toast for error

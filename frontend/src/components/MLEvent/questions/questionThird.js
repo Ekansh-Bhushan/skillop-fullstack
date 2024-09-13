@@ -33,7 +33,7 @@ const QuestionThree = () => {
     if (flag.trim() === "NumPy") {
       try {
         // Add points
-        await axios.post('https://skillop.in/api/mlevent/points/add', {
+        await axios.post('http://localhost:2004/api/mlevent/points/add', {
           points: 15,
         }, {
           headers: {
@@ -57,7 +57,7 @@ const QuestionThree = () => {
     if (!hintUsed) {
       try {
         // Deduct points
-        await axios.post('https://skillop.in/api/mlevent/points/deduct', {}, {
+        await axios.post('http://localhost:2004/api/mlevent/points/deduct', {}, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}` // Include token in headers
           }

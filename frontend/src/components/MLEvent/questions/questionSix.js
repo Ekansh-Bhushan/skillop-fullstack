@@ -48,6 +48,7 @@ const QuestionSix = () => {
     
     if (trimmedFlag === "backpropogation") {
       try {
+      
         // Add points
         await axios.post('https://skillop.in/api/mlevent/points/add', {
           points: 5,
